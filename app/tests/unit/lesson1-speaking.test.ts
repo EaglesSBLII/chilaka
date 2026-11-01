@@ -41,3 +41,19 @@ describe('lesson 1 speaking grades', () => {
     expect(scoreSpeechCalibrated('నేను బాగున్నాను.', '', REFS['u01-i02']).pass).toBe(false);
   });
 });
+
+import { genLessonExercises } from '../../src/engine/exercise-gen';
+import { allUnits } from '../../src/content/load';
+
+describe('lesson 1 demo opener', () => {
+  it('starts with Listen → Speak → Flashcard on the first phrase', () => {
+    const units = allUnits();
+    const u01 = units.find((u) => u.id === 'u01')!;
+    const l1 = u01.lessons.find((l) => l.id === 'l1')!;
+    const pool = units.flatMap((u) => u.items);
+    for (const seed of ['a', 'b', 'c']) {
+      const ex = genLessonExercises(u01, l1, { seed, seenItemIds: new Set(), includeSpeak: true, pool });
+      expect(ex.slice(0, 3).map((e) => `${e.kind}:${e.itemId}`)).toEqual(['listen-pick:u01-i01', 'speak:u01-i01', 'intro:u01-i01']);
+    }
+  });
+});

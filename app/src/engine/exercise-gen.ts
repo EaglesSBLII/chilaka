@@ -149,8 +149,18 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   const speakOr = (fallback: ExerciseKind): ExerciseKind =>
     isScript ? 'type-script' : opts.includeSpeak ? 'speak' : fallback;
 
+  // 0. demo opener for the very first lesson: Listen → Speak → Flashcard on the
+  // first phrase, so every part of the app shows up in the first minute.
+  let newItems = items.filter((it) => !opts.seenItemIds.has(it.id));
+  if (unit.id === 'u01' && lesson.id === 'l1' && items.length > 0 && !opts.seenItemIds.has(items[0].id)) {
+    const first = items[0];
+    out.push(exerciseFor('listen-pick', first, unit, opts.pool, rng));
+    out.push(exerciseFor(speakOr('mc-audio'), first, unit, opts.pool, rng));
+    out.push({ kind: 'intro', itemId: first.id });
+    newItems = newItems.filter((it) => it.id !== first.id);
+  }
+
   // 1. teach the unseen items — pattern varies per lesson seed
-  const newItems = items.filter((it) => !opts.seenItemIds.has(it.id));
   const pattern = TEACH_PATTERNS[Math.floor(rng() * TEACH_PATTERNS.length)];
   if (pattern === 'say-it') {
     // hear it, then immediately say it — tightest listen→speak loop
