@@ -5,6 +5,9 @@ import { platform } from './platform';
 
 let current: HTMLAudioElement | null = null;
 
+/** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
+export const VOICE_VOLUME = 0.55;
+
 /** Stop the reference clip (used when the learner starts recording, so the mic never hears it). */
 export function stopItemAudio(): void {
   current?.pause();
@@ -17,6 +20,7 @@ export function playItemAudio(itemId: string, slow = false): Promise<void> {
     current?.pause();
     const el = new Audio(audioFileFor(itemId));
     current = el;
+    el.volume = VOICE_VOLUME;
     el.playbackRate = slow ? 0.72 : 1;
     if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
     el.onended = () => resolve();
@@ -41,6 +45,7 @@ export function playWavBytes(wav: ArrayBuffer): Promise<void> {
   return new Promise((resolve) => {
     const url = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
     const el = new Audio(url);
+    el.volume = VOICE_VOLUME;
     el.onended = () => {
       URL.revokeObjectURL(url);
       resolve();
