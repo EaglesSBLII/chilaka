@@ -68,6 +68,7 @@ html {
   background: var(--c-bg);
   /* the page scrolls up/down only — never side to side (iPhone pan lock) */
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 /* body must stay transparent: an opaque body background would paint OVER
@@ -77,10 +78,10 @@ body {
   color: var(--c-ink);
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
-  overscroll-behavior-y: none;
-  overflow-x: hidden;
-  overscroll-behavior-x: none;
-  max-width: 100vw;
+  /* No overflow/overscroll rules here on purpose: they turned <body> into its own scroll
+     container, and with scroll chaining off, mouse-wheel scrolling on a Mac went nowhere
+     (programmatic scrolling still worked, which is why it was easy to miss). The viewport
+     (html) is the only scroller. */
   /* vertical panning + taps only; kills sideways rubber-banding on iOS */
   touch-action: pan-y;
 }

@@ -1,5 +1,11 @@
 # Chilaka 🦜 — Learn to Speak Telugu
 
+**Try it:** [chilaka.pages.dev](https://chilaka.pages.dev) (iPhone and any desktop browser; on iPhone, open in Safari → Share → Add to Home Screen) ·
+**Mac app:** [download Chilaka.dmg](https://github.com/EaglesSBLII/chilaka/releases/latest) (Apple Silicon) ·
+**Website:** [chilaka-site.kandikonda-arnav.workers.dev](https://chilaka-site.kandikonda-arnav.workers.dev) · [How it was built](https://chilaka-site.kandikonda-arnav.workers.dev/how-i-built-it/)
+
+Windows: there is no Windows build yet; the web app above works in Chrome or Edge on Windows (speaking practice uses echo mode there).
+
 A free, private, Duolingo-style app that takes you from "broken Telugu" to holding real conversations — built for daily 30–45 min practice with a December fluency goal.
 
 **Everything runs on your Mac. No accounts, no servers, no fees. Your voice and progress never leave your devices.**
