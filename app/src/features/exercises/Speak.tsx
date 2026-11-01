@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { platform } from '../../platform';
 import { mic, type Recording } from '../../platform/recorder';
-import { playItemAudio, playUrl } from '../../audio';
+import { playItemAudio, playUrl, stopItemAudio } from '../../audio';
 import { scoreSpeechCalibrated } from '../../engine/speech/align';
 import referenceTranscripts from '../../content/reference-transcripts.json';
 import type { SpeakResult } from '../../engine/types';
@@ -37,11 +37,15 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         setEchoWhy(sync.endpoint && sync.key ? 'offline' : 'unpaired');
       }
     });
-    void playItemAudio(item.id);
+    // Let the card settle on screen for a beat before the voice speaks — it reads
+    // as a native pause instead of a clip cutting in the instant the page changes.
+    const autoplay = window.setTimeout(() => void playItemAudio(item.id), 900);
     // shared mic: cancel parks the take but keeps the stream, so iOS only
     // asks for permission once per session. Desktop never re-prompts, so it
     // releases fully (no lingering mic-in-use indicator).
     return () => {
+      window.clearTimeout(autoplay);
+      stopItemAudio();
       mic.cancel();
       if (platform.kind !== 'web') mic.release();
     };
@@ -50,6 +54,7 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
 
   const startRec = async () => {
     setError(null);
+    stopItemAudio(); // never let the reference voice bleed into the learner's take
     try {
       await mic.start();
       setStage('recording');

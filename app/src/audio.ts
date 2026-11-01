@@ -5,6 +5,12 @@ import { platform } from './platform';
 
 let current: HTMLAudioElement | null = null;
 
+/** Stop the reference clip (used when the learner starts recording, so the mic never hears it). */
+export function stopItemAudio(): void {
+  current?.pause();
+  current = null;
+}
+
 /** Play an item's pre-rendered audio. slow=true stretches to 0.72x. */
 export function playItemAudio(itemId: string, slow = false): Promise<void> {
   return new Promise((resolve) => {
