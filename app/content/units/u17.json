@@ -1,0 +1,255 @@
+{
+  "id": "u17",
+  "section": 3,
+  "order": 1,
+  "title": "Telling what happened",
+  "teTitle": "నిన్నటి కబుర్లు",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Tell people what you did — where you went, what you saw and ate — in natural past tense.",
+  "items": [
+    {
+      "id": "u17-i01",
+      "te": "ఏం జరిగింది?",
+      "gloss": "What happened?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "జరిగింది", "gloss": "happened" }
+      ],
+      "tags": ["past", "questions"],
+      "difficulty": 2,
+      "note": "The -ఇంది (-indi) ending is the past tense for 'it/she': జరిగింది (jarigindi) = it happened.",
+      "distractors": ["u17-i12", "u17-i03"]
+    },
+    {
+      "id": "u17-i02",
+      "te": "నిన్న మేము సినిమాకి వెళ్ళాము.",
+      "gloss": "Yesterday we went to a movie.",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "మేము", "gloss": "we" },
+        { "te": "సినిమాకి", "gloss": "to a movie" },
+        { "te": "వెళ్ళాము", "gloss": "went (we)" }
+      ],
+      "tags": ["past", "outings"],
+      "difficulty": 3,
+      "note": "Past endings: నేను వెళ్ళాను (veLLaanu), మేము వెళ్ళాము (veLLaamu), ఆయన వెళ్ళాడు (veLLaaDu). మేము (memu) excludes the listener; మనము (manamu) includes them.",
+      "distractors": ["u17-i07", "u17-i13"]
+    },
+    {
+      "id": "u17-i03",
+      "te": "మీరు ఎప్పుడు వచ్చారు?",
+      "gloss": "When did you come?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వచ్చారు", "gloss": "came (you)" }
+      ],
+      "tags": ["past", "questions"],
+      "difficulty": 3,
+      "distractors": ["u17-i12", "u17-i05"]
+    },
+    {
+      "id": "u17-i04",
+      "te": "నేను ఇప్పుడే తిరిగి వచ్చాను.",
+      "gloss": "I just came back.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఇప్పుడే", "gloss": "just now" },
+        { "te": "తిరిగి", "gloss": "back / returning" },
+        { "te": "వచ్చాను", "gloss": "came (I)" }
+      ],
+      "tags": ["past"],
+      "difficulty": 3,
+      "note": "ఇప్పుడే (ippuDe) = 'just now' — the little -ఏ (-e) tail means 'exactly, only just'."
+    },
+    {
+      "id": "u17-i05",
+      "te": "మీరు ఆ సినిమా చూశారా?",
+      "gloss": "Did you see that movie?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "సినిమా", "gloss": "movie" },
+        { "te": "చూశారా", "gloss": "did (you) see?" }
+      ],
+      "tags": ["past", "questions"],
+      "difficulty": 3,
+      "distractors": ["u17-i15", "u17-i03"]
+    },
+    {
+      "id": "u17-i06",
+      "te": "చూశాను, చాలా బాగుంది!",
+      "gloss": "I saw it — it was great!",
+      "words": [
+        { "te": "చూశాను", "gloss": "saw (I)" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is/was good" }
+      ],
+      "tags": ["past", "opinions"],
+      "difficulty": 3,
+      "distractors": ["u17-i16", "u17-i10"]
+    },
+    {
+      "id": "u17-i07",
+      "te": "మేము హోటల్లో భోజనం చేశాము.",
+      "gloss": "We ate at a restaurant.",
+      "words": [
+        { "te": "మేము", "gloss": "we" },
+        { "te": "హోటల్లో", "gloss": "at the hotel/restaurant" },
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "చేశాము", "gloss": "did (we)" }
+      ],
+      "tags": ["past", "food"],
+      "difficulty": 3,
+      "note": "In Telugu a హోటల్ (hoTal) usually means a restaurant, not a place you stay. హోటల్లో = హోటల్ + లో (lo, 'in') glued into one word."
+    },
+    {
+      "id": "u17-i08",
+      "te": "నేను నిన్న బిర్యానీ తిన్నాను.",
+      "gloss": "I ate biryani yesterday.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "బిర్యానీ", "gloss": "biryani" },
+        { "te": "తిన్నాను", "gloss": "ate (I)" }
+      ],
+      "tags": ["past", "food"],
+      "difficulty": 3
+    },
+    {
+      "id": "u17-i09",
+      "te": "దారిలో రవిని కలిశాను.",
+      "gloss": "I met Ravi on the way.",
+      "words": [
+        { "te": "దారిలో", "gloss": "on the way" },
+        { "te": "రవిని", "gloss": "Ravi (object)" },
+        { "te": "కలిశాను", "gloss": "met (I)" }
+      ],
+      "tags": ["past", "people"],
+      "difficulty": 4
+    },
+    {
+      "id": "u17-i10",
+      "te": "అయ్యో, నేను మర్చిపోయాను!",
+      "gloss": "Oh no, I forgot!",
+      "words": [
+        { "te": "అయ్యో", "gloss": "oh no" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "మర్చిపోయాను", "gloss": "forgot (completely)" }
+      ],
+      "tags": ["past", "exclamations"],
+      "difficulty": 3,
+      "note": "మర్చిపోయాను (marchipoyaanu) — sticking పోయాను ('went') onto a verb means it happened completely: 'I clean forgot!'",
+      "distractors": ["u17-i06", "u17-i14"]
+    },
+    {
+      "id": "u17-i11",
+      "te": "ఆయన నిన్న రాలేదు.",
+      "gloss": "He didn't come yesterday.",
+      "words": [
+        { "te": "ఆయన", "gloss": "he (respectful)" },
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "రాలేదు", "gloss": "didn't come" }
+      ],
+      "tags": ["past", "negation"],
+      "difficulty": 3,
+      "note": "The past negative is the same for everyone — just add -లేదు (-ledu): రాలేదు, చూడలేదు, తినలేదు. With friends: వాడు రాలేదు (vaaDu raaledu)."
+    },
+    {
+      "id": "u17-i12",
+      "te": "తరువాత ఏం చేశారు?",
+      "gloss": "What did you do after that?",
+      "words": [
+        { "te": "తరువాత", "gloss": "afterwards" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేశారు", "gloss": "did (you)" }
+      ],
+      "tags": ["past", "questions"],
+      "difficulty": 3,
+      "distractors": ["u17-i01", "u17-i03"]
+    },
+    {
+      "id": "u17-i13",
+      "te": "మేము పొద్దున్నే బయలుదేరాము.",
+      "gloss": "We set off early in the morning.",
+      "words": [
+        { "te": "మేము", "gloss": "we" },
+        { "te": "పొద్దున్నే", "gloss": "early in the morning" },
+        { "te": "బయలుదేరాము", "gloss": "set off (we)" }
+      ],
+      "tags": ["past", "travel"],
+      "difficulty": 4
+    },
+    {
+      "id": "u17-i14",
+      "te": "చాలా సరదాగా గడిచింది.",
+      "gloss": "It was such fun. (lit: it passed very merrily)",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "సరదాగా", "gloss": "merrily / fun-ly" },
+        { "te": "గడిచింది", "gloss": "(time) passed" }
+      ],
+      "tags": ["past", "opinions"],
+      "difficulty": 4,
+      "distractors": ["u17-i16", "u17-i06"]
+    },
+    {
+      "id": "u17-i15",
+      "te": "మీకు సినిమా నచ్చిందా?",
+      "gloss": "Did you like the movie?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "సినిమా", "gloss": "movie" },
+        { "te": "నచ్చిందా", "gloss": "was (it) liked?" }
+      ],
+      "tags": ["past", "questions", "opinions"],
+      "difficulty": 3,
+      "note": "Liking works backwards in Telugu — the movie pleases YOU: నాకు నచ్చింది (naaku nachchindi) = 'I liked it'.",
+      "distractors": ["u17-i05", "u17-i16"]
+    },
+    {
+      "id": "u17-i16",
+      "te": "నాకు అస్సలు నచ్చలేదు.",
+      "gloss": "I didn't like it at all.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అస్సలు", "gloss": "at all" },
+        { "te": "నచ్చలేదు", "gloss": "wasn't liked" }
+      ],
+      "tags": ["past", "opinions", "negation"],
+      "difficulty": 4,
+      "distractors": ["u17-i06", "u17-i15"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "What happened?", "itemIds": ["u17-i01", "u17-i02", "u17-i03"] },
+    { "id": "l2", "title": "Oops & excuses", "itemIds": ["u17-i04", "u17-i10", "u17-i11"] },
+    { "id": "l3", "title": "Movie verdicts", "itemIds": ["u17-i05", "u17-i06", "u17-i15", "u17-i16"] },
+    { "id": "l4", "title": "Food memories", "itemIds": ["u17-i07", "u17-i08", "u17-i09"] },
+    { "id": "l5", "title": "The whole day", "itemIds": ["u17-i12", "u17-i13", "u17-i14"] }
+  ],
+  "dialogue": {
+    "id": "u17-d1",
+    "title": "The Sunday debrief",
+    "scene": "You burst into Aunty's kitchen, bag still on your shoulder, back from an overnight trip with your cousin — full of stories, until you remember the sweets you left on the bus.",
+    "turns": [
+      { "speaker": "You", "itemId": "u17-i04", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u17-i01" },
+      { "speaker": "You", "itemId": "u17-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u17-i02", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u17-i05" },
+      { "speaker": "You", "itemId": "u17-i06", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u17-i15" },
+      { "speaker": "Cousin", "itemId": "u17-i16" },
+      { "speaker": "Aunty", "itemId": "u17-i12" },
+      { "speaker": "You", "itemId": "u17-i07", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u17-i08" },
+      { "speaker": "You", "itemId": "u17-i09", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u17-i11" },
+      { "speaker": "You", "itemId": "u17-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u17-i10", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u17-i01" }
+    ]
+  }
+}

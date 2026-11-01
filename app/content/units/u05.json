@@ -1,0 +1,248 @@
+{
+  "id": "u05",
+  "section": 1,
+  "order": 5,
+  "title": "Numbers, time & days",
+  "teTitle": "అంకెలు, సమయం, రోజులు",
+  "cefr": "A1+",
+  "register": "standard",
+  "description": "Count, ask and tell the time, and talk about today, tomorrow, and the days of the week.",
+  "items": [
+    {
+      "id": "u05-i01",
+      "te": "ఒకటి, రెండు, మూడు, నాలుగు, ఐదు.",
+      "gloss": "One, two, three, four, five.",
+      "words": [
+        { "te": "ఒకటి", "gloss": "one" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "మూడు", "gloss": "three" },
+        { "te": "నాలుగు", "gloss": "four" },
+        { "te": "ఐదు", "gloss": "five" }
+      ],
+      "tags": ["numbers"],
+      "difficulty": 1
+    },
+    {
+      "id": "u05-i02",
+      "te": "ఆరు, ఏడు, ఎనిమిది, తొమ్మిది, పది.",
+      "gloss": "Six, seven, eight, nine, ten.",
+      "words": [
+        { "te": "ఆరు", "gloss": "six" },
+        { "te": "ఏడు", "gloss": "seven" },
+        { "te": "ఎనిమిది", "gloss": "eight" },
+        { "te": "తొమ్మిది", "gloss": "nine" },
+        { "te": "పది", "gloss": "ten" }
+      ],
+      "tags": ["numbers"],
+      "difficulty": 1,
+      "distractors": ["u05-i01", "u05-i03"]
+    },
+    {
+      "id": "u05-i03",
+      "te": "ఇరవై, యాభై, వంద.",
+      "gloss": "Twenty, fifty, hundred.",
+      "words": [
+        { "te": "ఇరవై", "gloss": "twenty" },
+        { "te": "యాభై", "gloss": "fifty" },
+        { "te": "వంద", "gloss": "hundred" }
+      ],
+      "tags": ["numbers"],
+      "difficulty": 1,
+      "note": "Bigger steps: వెయ్యి (veyyi) is 1,000 — and Telugu counts in లక్ష (laksha, 100,000), not millions!",
+      "distractors": ["u05-i01", "u05-i02"]
+    },
+    {
+      "id": "u05-i04",
+      "te": "టైం ఎంత?",
+      "gloss": "What time is it?",
+      "words": [
+        { "te": "టైం", "gloss": "time" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["time", "questions"],
+      "difficulty": 1,
+      "note": "Everyday speech asks టైం ఎంత? (Taim enta) — the pure Telugu సమయం (samayam) sounds formal."
+    },
+    {
+      "id": "u05-i05",
+      "te": "ఇప్పుడు మూడు గంటలు.",
+      "gloss": "It's three o'clock now.",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "మూడు", "gloss": "three" },
+        { "te": "గంటలు", "gloss": "hours / o'clock" }
+      ],
+      "tags": ["time"],
+      "difficulty": 1,
+      "distractors": ["u05-i06", "u05-i04"]
+    },
+    {
+      "id": "u05-i06",
+      "te": "మూడున్నర అయ్యింది.",
+      "gloss": "It's half past three.",
+      "words": [
+        { "te": "మూడున్నర", "gloss": "three and a half" },
+        { "te": "అయ్యింది", "gloss": "it has become" }
+      ],
+      "tags": ["time"],
+      "difficulty": 2,
+      "note": "-న్నర (-nnara) = 'and a half': మూడున్నర (muuDunnara) 3:30, పదిన్నర 10:30."
+    },
+    {
+      "id": "u05-i07",
+      "te": "ఎన్ని గంటలకు వస్తారు?",
+      "gloss": "At what time will you come?",
+      "words": [
+        { "te": "ఎన్ని", "gloss": "how many" },
+        { "te": "గంటలకు", "gloss": "at (what) o'clock" },
+        { "te": "వస్తారు", "gloss": "will (you) come" }
+      ],
+      "tags": ["time", "questions"],
+      "difficulty": 2,
+      "note": "-కు/-కి (-ku/-ki) marks 'at' a time: ఐదు గంటలకు = at five o'clock."
+    },
+    {
+      "id": "u05-i08",
+      "te": "ఐదు గంటలకు వస్తాను.",
+      "gloss": "I'll come at five o'clock.",
+      "words": [
+        { "te": "ఐదు", "gloss": "five" },
+        { "te": "గంటలకు", "gloss": "at o'clock" },
+        { "te": "వస్తాను", "gloss": "I will come" }
+      ],
+      "tags": ["time"],
+      "difficulty": 1,
+      "distractors": ["u05-i07", "u05-i14"]
+    },
+    {
+      "id": "u05-i09",
+      "te": "ఈరోజు సోమవారం.",
+      "gloss": "Today is Monday.",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "సోమవారం", "gloss": "Monday" }
+      ],
+      "tags": ["days"],
+      "difficulty": 1
+    },
+    {
+      "id": "u05-i10",
+      "te": "రేపు మంగళవారం.",
+      "gloss": "Tomorrow is Tuesday.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "మంగళవారం", "gloss": "Tuesday" }
+      ],
+      "tags": ["days"],
+      "difficulty": 1,
+      "distractors": ["u05-i09", "u05-i11"]
+    },
+    {
+      "id": "u05-i11",
+      "te": "నిన్న ఆదివారం.",
+      "gloss": "Yesterday was Sunday.",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "ఆదివారం", "gloss": "Sunday" }
+      ],
+      "tags": ["days"],
+      "difficulty": 1,
+      "note": "Telugu simply drops 'is/was': నిన్న ఆదివారం — literally 'yesterday Sunday'.",
+      "distractors": ["u05-i09", "u05-i10"]
+    },
+    {
+      "id": "u05-i12",
+      "te": "శనివారం, ఆదివారం సెలవు.",
+      "gloss": "Saturday and Sunday are holidays.",
+      "words": [
+        { "te": "శనివారం", "gloss": "Saturday" },
+        { "te": "ఆదివారం", "gloss": "Sunday" },
+        { "te": "సెలవు", "gloss": "holiday / leave" }
+      ],
+      "tags": ["days"],
+      "difficulty": 2
+    },
+    {
+      "id": "u05-i13",
+      "te": "శుక్రవారం సినిమాకి వెళ్దాం.",
+      "gloss": "Let's go to a movie on Friday.",
+      "words": [
+        { "te": "శుక్రవారం", "gloss": "Friday" },
+        { "te": "సినిమాకి", "gloss": "to a movie" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["days", "plans"],
+      "difficulty": 2,
+      "note": "-దాం (-daam) = 'let's': వెళ్దాం let's go, తిందాం let's eat, చూద్దాం let's see."
+    },
+    {
+      "id": "u05-i14",
+      "te": "పది నిమిషాల్లో వస్తాను.",
+      "gloss": "I'll come in ten minutes.",
+      "words": [
+        { "te": "పది", "gloss": "ten" },
+        { "te": "నిమిషాల్లో", "gloss": "in minutes" },
+        { "te": "వస్తాను", "gloss": "I will come" }
+      ],
+      "tags": ["time"],
+      "difficulty": 2,
+      "note": "A Telugu 'ten minutes' (padi nimishaalu) is famously flexible — it really means 'soon-ish'.",
+      "distractors": ["u05-i08", "u05-i05"]
+    },
+    {
+      "id": "u05-i15",
+      "te": "చాలా లేట్ అయ్యింది.",
+      "gloss": "It's gotten very late.",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అయ్యింది", "gloss": "it has become" }
+      ],
+      "tags": ["time"],
+      "difficulty": 1
+    },
+    {
+      "id": "u05-i16",
+      "te": "రేపు ఉదయం రండి.",
+      "gloss": "Come tomorrow morning.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "ఉదయం", "gloss": "morning" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["time", "commands"],
+      "difficulty": 1,
+      "distractors": ["u05-i10", "u05-i13"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Count to a hundred", "itemIds": ["u05-i01", "u05-i02", "u05-i03"] },
+    { "id": "l2", "title": "What time is it?", "itemIds": ["u05-i04", "u05-i05", "u05-i06"] },
+    { "id": "l3", "title": "At what time?", "itemIds": ["u05-i07", "u05-i08", "u05-i14", "u05-i15"] },
+    { "id": "l4", "title": "Today & tomorrow", "itemIds": ["u05-i09", "u05-i10", "u05-i11"] },
+    { "id": "l5", "title": "Weekend plans", "itemIds": ["u05-i12", "u05-i13", "u05-i16"] }
+  ],
+  "dialogue": {
+    "id": "u05-d1",
+    "title": "Movie week with Sruthi",
+    "scene": "Monday evening at your cousin Sruthi's place, groaning about the week and planning Friday's five o'clock movie while little Chinni recites her counting homework. Come Friday, Sruthi's famous 'ten minutes' stretch on — and the ticket counter gets the last word.",
+    "turns": [
+      { "speaker": "Sruthi", "itemId": "u05-i09" },
+      { "speaker": "You", "itemId": "u05-i11", "userTurn": true },
+      { "speaker": "Sruthi", "itemId": "u05-i10" },
+      { "speaker": "You", "itemId": "u05-i12", "userTurn": true },
+      { "speaker": "Sruthi", "itemId": "u05-i13" },
+      { "speaker": "You", "itemId": "u05-i07", "userTurn": true },
+      { "speaker": "Sruthi", "itemId": "u05-i08" },
+      { "speaker": "Chinni", "itemId": "u05-i01" },
+      { "speaker": "Chinni", "itemId": "u05-i02" },
+      { "speaker": "You", "itemId": "u05-i03", "userTurn": true },
+      { "speaker": "Sruthi", "itemId": "u05-i04" },
+      { "speaker": "You", "itemId": "u05-i05", "userTurn": true },
+      { "speaker": "Sruthi", "itemId": "u05-i14" },
+      { "speaker": "You", "itemId": "u05-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u05-i15", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u05-i16" }
+    ]
+  }
+}

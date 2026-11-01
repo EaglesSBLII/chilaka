@@ -1,0 +1,270 @@
+{
+  "id": "u30",
+  "section": 4,
+  "order": 6,
+  "title": "Problems & complaints",
+  "teTitle": "కంప్లైంట్ చేయడం",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "It's broken, it's late, it's the wrong one — complain politely, firmly, and get your refund.",
+  "items": [
+    {
+      "id": "u30-i01",
+      "te": "ఇది పని చేయడం లేదు.",
+      "gloss": "This isn't working.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "చేయడం", "gloss": "doing" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["complaints"],
+      "difficulty": 2,
+      "note": "పని చేయడం లేదు = 'is not working' — for anything: fan, phone, remote. The -డం లేదు pattern negates an ongoing action."
+    },
+    {
+      "id": "u30-i02",
+      "te": "నిన్ననే కొన్నాను.",
+      "gloss": "I bought it just yesterday.",
+      "words": [
+        { "te": "నిన్ననే", "gloss": "just yesterday" },
+        { "te": "కొన్నాను", "gloss": "I bought" }
+      ],
+      "tags": ["complaints", "shopping"],
+      "difficulty": 2,
+      "distractors": ["u30-i15", "u30-i01"]
+    },
+    {
+      "id": "u30-i03",
+      "te": "ఇది నేను ఆర్డర్ చేసింది కాదు.",
+      "gloss": "This is not what I ordered.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఆర్డర్", "gloss": "order" },
+        { "te": "చేసింది", "gloss": "what was done" },
+        { "te": "కాదు", "gloss": "is not" }
+      ],
+      "tags": ["complaints", "shopping"],
+      "difficulty": 3,
+      "distractors": ["u30-i15", "u30-i05"]
+    },
+    {
+      "id": "u30-i04",
+      "te": "నాకు రీఫండ్ కావాలి.",
+      "gloss": "I want a refund.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "రీఫండ్", "gloss": "refund" },
+        { "te": "కావాలి", "gloss": "is wanted" }
+      ],
+      "tags": ["complaints", "money"],
+      "difficulty": 2,
+      "distractors": ["u30-i05", "u30-i16"]
+    },
+    {
+      "id": "u30-i05",
+      "te": "ఇది మార్చి ఇవ్వగలరా?",
+      "gloss": "Can you exchange this for me?",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "మార్చి", "gloss": "having changed" },
+        { "te": "ఇవ్వగలరా", "gloss": "can you give?" }
+      ],
+      "tags": ["complaints", "shopping", "questions"],
+      "difficulty": 3,
+      "note": "మార్చి ఇవ్వు = 'change and give' = exchange. Spoken Telugu chains verbs like this constantly: చేసి పెట్టండి, తీసుకుని రండి."
+    },
+    {
+      "id": "u30-i06",
+      "te": "బిల్ ఇదిగోండి.",
+      "gloss": "Here's the bill.",
+      "words": [
+        { "te": "బిల్", "gloss": "bill" },
+        { "te": "ఇదిగోండి", "gloss": "here it is (polite)" }
+      ],
+      "tags": ["complaints", "money"],
+      "difficulty": 2,
+      "note": "ఇదిగోండి (idigondi) = 'here you go' when handing anything over. Informal: ఇదిగో (idigo)."
+    },
+    {
+      "id": "u30-i07",
+      "te": "చాలా లేట్ అయ్యింది.",
+      "gloss": "It's gotten very late.",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అయ్యింది", "gloss": "became" }
+      ],
+      "tags": ["complaints", "time"],
+      "difficulty": 2,
+      "distractors": ["u30-i08", "u30-i13"]
+    },
+    {
+      "id": "u30-i08",
+      "te": "నిన్న రావాల్సింది, ఇంకా రాలేదు.",
+      "gloss": "It should have come yesterday — still hasn't.",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "రావాల్సింది", "gloss": "should have come" },
+        { "te": "ఇంకా", "gloss": "still" },
+        { "te": "రాలేదు", "gloss": "hasn't come" }
+      ],
+      "tags": ["complaints", "time"],
+      "difficulty": 4,
+      "note": "-ఆల్సింది = 'was supposed to': రావాల్సింది, చేయాల్సింది. Pair it with ఇంకా…లేదు (still hasn't) for the classic delivery complaint."
+    },
+    {
+      "id": "u30-i09",
+      "te": "ఇలా అయితే ఎలా అండి?",
+      "gloss": "If it's like this, how will it work?",
+      "words": [
+        { "te": "ఇలా", "gloss": "like this" },
+        { "te": "అయితే", "gloss": "if it is" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["complaints"],
+      "difficulty": 3,
+      "note": "The politely exasperated classic — 'if it's like this, how, sir?' Firm but never rude; the అండి keeps it respectful."
+    },
+    {
+      "id": "u30-i10",
+      "te": "మేనేజర్ గారిని పిలవండి.",
+      "gloss": "Please call the manager.",
+      "words": [
+        { "te": "మేనేజర్", "gloss": "manager" },
+        { "te": "గారిని", "gloss": "the respected one (object)" },
+        { "te": "పిలవండి", "gloss": "call (polite)" }
+      ],
+      "tags": ["complaints", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u30-i11",
+      "te": "సారీ అండి, చెక్ చేస్తాను.",
+      "gloss": "Sorry — I'll check.",
+      "words": [
+        { "te": "సారీ", "gloss": "sorry" },
+        { "te": "అండి", "gloss": "polite tag" },
+        { "te": "చెక్", "gloss": "check" },
+        { "te": "చేస్తాను", "gloss": "I will do" }
+      ],
+      "tags": ["complaints"],
+      "difficulty": 2
+    },
+    {
+      "id": "u30-i12",
+      "te": "రేపటిలోగా పంపిస్తాము.",
+      "gloss": "We'll send it by tomorrow.",
+      "words": [
+        { "te": "రేపటిలోగా", "gloss": "by tomorrow" },
+        { "te": "పంపిస్తాము", "gloss": "we will send" }
+      ],
+      "tags": ["complaints", "time"],
+      "difficulty": 3,
+      "distractors": ["u30-i11", "u30-i07"]
+    },
+    {
+      "id": "u30-i13",
+      "te": "కొంచెం అర్జెంట్ అండి.",
+      "gloss": "It's a bit urgent.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a bit" },
+        { "te": "అర్జెంట్", "gloss": "urgent" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["complaints", "time"],
+      "difficulty": 2,
+      "distractors": ["u30-i07", "u30-i09"]
+    },
+    {
+      "id": "u30-i14",
+      "te": "ఇది ఆఖరి సారి, సరేనా?",
+      "gloss": "This is the last time, okay?",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఆఖరి", "gloss": "last" },
+        { "te": "సారి", "gloss": "time" },
+        { "te": "సరేనా", "gloss": "okay?" }
+      ],
+      "tags": ["complaints"],
+      "difficulty": 3
+    },
+    {
+      "id": "u30-i15",
+      "te": "సైజు సరిపోలేదు.",
+      "gloss": "The size didn't fit.",
+      "words": [
+        { "te": "సైజు", "gloss": "size" },
+        { "te": "సరిపోలేదు", "gloss": "didn't fit" }
+      ],
+      "tags": ["complaints", "shopping"],
+      "difficulty": 2,
+      "distractors": ["u30-i03", "u30-i04"]
+    },
+    {
+      "id": "u30-i16",
+      "te": "డబ్బులు వెనక్కి ఎప్పుడు వస్తాయి?",
+      "gloss": "When will the money come back?",
+      "words": [
+        { "te": "డబ్బులు", "gloss": "money" },
+        { "te": "వెనక్కి", "gloss": "back" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తాయి", "gloss": "will come" }
+      ],
+      "tags": ["complaints", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u30-i04", "u30-i12"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "It just stopped working",
+      "itemIds": ["u30-i01", "u30-i02", "u30-i06"]
+    },
+    {
+      "id": "l2",
+      "title": "This isn't what I ordered",
+      "itemIds": ["u30-i03", "u30-i15", "u30-i05"]
+    },
+    {
+      "id": "l3",
+      "title": "Refund, please",
+      "itemIds": ["u30-i04", "u30-i16", "u30-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "Where is my delivery?",
+      "itemIds": ["u30-i07", "u30-i08", "u30-i12", "u30-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Polite but firm",
+      "itemIds": ["u30-i09", "u30-i10", "u30-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u30-d1",
+    "title": "The mixer that wouldn't mix",
+    "scene": "The new mixer grinder died overnight. You're back at the shop, bill in hand; the staff stalls, so the manager gets involved.",
+    "turns": [
+      { "speaker": "You", "itemId": "u30-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i02", "userTurn": true },
+      { "speaker": "Staff", "itemId": "u30-i11" },
+      { "speaker": "You", "itemId": "u30-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i05", "userTurn": true },
+      { "speaker": "Staff", "itemId": "u30-i12" },
+      { "speaker": "You", "itemId": "u30-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i10", "userTurn": true },
+      { "speaker": "Manager", "itemId": "u30-i11" },
+      { "speaker": "You", "itemId": "u30-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u30-i16", "userTurn": true },
+      { "speaker": "Manager", "itemId": "u30-i12" },
+      { "speaker": "You", "itemId": "u30-i14", "userTurn": true }
+    ]
+  }
+}

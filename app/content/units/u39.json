@@ -1,0 +1,278 @@
+{
+  "id": "u39",
+  "section": 5,
+  "order": 7,
+  "title": "Hosting at home",
+  "teTitle": "ఇంటికి రండి",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Welcome guests, survive the loving food-insistence dance, and leave with a box of leftovers.",
+  "items": [
+    {
+      "id": "u39-i01",
+      "te": "రండి రండి, లోపలికి రండి!",
+      "gloss": "Come, come, come inside!",
+      "words": [
+        { "te": "రండి", "gloss": "come (polite)" },
+        { "te": "రండి", "gloss": "come (repeated warmth)" },
+        { "te": "లోపలికి", "gloss": "inside" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["hosting", "welcome"],
+      "difficulty": 2,
+      "note": "Doubling the word doubles the warmth: రండి రండి! One రండి is an invitation; two is a welcome.",
+      "distractors": ["u39-i03", "u39-i15"]
+    },
+    {
+      "id": "u39-i02",
+      "te": "ఇల్లు వెంటనే దొరికిందా?",
+      "gloss": "Did you find the house easily?",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "వెంటనే", "gloss": "right away" },
+        { "te": "దొరికిందా", "gloss": "was it found?" }
+      ],
+      "tags": ["hosting", "welcome", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u39-i03",
+      "te": "ముందు కాఫీ తాగండి.",
+      "gloss": "First, have some coffee.",
+      "words": [
+        { "te": "ముందు", "gloss": "first" },
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "తాగండి", "gloss": "drink (polite)" }
+      ],
+      "tags": ["hosting", "food"],
+      "difficulty": 2,
+      "distractors": ["u39-i01", "u39-i05"]
+    },
+    {
+      "id": "u39-i04",
+      "te": "భోజనం చేసే వెళ్ళాలి మీరు.",
+      "gloss": "You must eat before you leave.",
+      "words": [
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "చేసే", "gloss": "only after doing" },
+        { "te": "వెళ్ళాలి", "gloss": "must go" },
+        { "te": "మీరు", "gloss": "you (polite)" }
+      ],
+      "tags": ["hosting", "food"],
+      "difficulty": 3,
+      "note": "Non-negotiable in a Telugu home: leaving without eating simply isn't an available option. చేసే = చేసి + emphatic ఏ, 'only after eating'.",
+      "distractors": ["u39-i05", "u39-i11"]
+    },
+    {
+      "id": "u39-i05",
+      "te": "ఇంకొంచెం అన్నం వేసుకోండి.",
+      "gloss": "Take a little more rice.",
+      "words": [
+        { "te": "ఇంకొంచెం", "gloss": "a little more" },
+        { "te": "అన్నం", "gloss": "rice" },
+        { "te": "వేసుకోండి", "gloss": "serve yourself (polite)" }
+      ],
+      "tags": ["hosting", "food"],
+      "difficulty": 2,
+      "distractors": ["u39-i06", "u39-i11"]
+    },
+    {
+      "id": "u39-i06",
+      "te": "అయ్యో, ఇంకా ఏమీ తినలేదు మీరు!",
+      "gloss": "Oh no, you've hardly eaten anything!",
+      "words": [
+        { "te": "అయ్యో", "gloss": "oh no" },
+        { "te": "ఇంకా", "gloss": "yet / still" },
+        { "te": "ఏమీ", "gloss": "anything" },
+        { "te": "తినలేదు", "gloss": "haven't eaten" },
+        { "te": "మీరు", "gloss": "you (polite)" }
+      ],
+      "tags": ["hosting", "food"],
+      "difficulty": 3,
+      "note": "Said over a plate you've refilled twice. It's not an observation — it's love, expressed as concern about your appetite.",
+      "distractors": ["u39-i05", "u39-i10"]
+    },
+    {
+      "id": "u39-i07",
+      "te": "కడుపు నిండా తిన్నాను, ప్రామిస్!",
+      "gloss": "I've eaten to a full stomach, promise!",
+      "words": [
+        { "te": "కడుపు", "gloss": "stomach" },
+        { "te": "నిండా", "gloss": "full" },
+        { "te": "తిన్నాను", "gloss": "I ate" },
+        { "te": "ప్రామిస్", "gloss": "promise" }
+      ],
+      "tags": ["hosting", "food", "guest"],
+      "difficulty": 3,
+      "distractors": ["u39-i12", "u39-i08"]
+    },
+    {
+      "id": "u39-i08",
+      "te": "వంట చాలా బాగుంది.",
+      "gloss": "The food is really good.",
+      "words": [
+        { "te": "వంట", "gloss": "the cooking" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["hosting", "compliments", "guest"],
+      "difficulty": 2,
+      "distractors": ["u39-i09", "u39-i16"]
+    },
+    {
+      "id": "u39-i09",
+      "te": "ఈ పులిహోర అదిరిపోయింది!",
+      "gloss": "This pulihora is out of this world!",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "పులిహోర", "gloss": "pulihora (tamarind rice)" },
+        { "te": "అదిరిపోయింది", "gloss": "is stunning" }
+      ],
+      "tags": ["hosting", "compliments", "guest"],
+      "difficulty": 3,
+      "distractors": ["u39-i08", "u39-i16"]
+    },
+    {
+      "id": "u39-i10",
+      "te": "మొహమాటం పడకండి.",
+      "gloss": "Don't hold back out of politeness.",
+      "words": [
+        { "te": "మొహమాటం", "gloss": "polite hesitation" },
+        { "te": "పడకండి", "gloss": "don't fall into (polite)" }
+      ],
+      "tags": ["hosting", "culture"],
+      "difficulty": 3,
+      "note": "మొహమాటం — the polite reluctance to accept more — has no English equivalent. Hosts wage a loving war against it."
+    },
+    {
+      "id": "u39-i11",
+      "te": "కొంచెం తీసుకోండి, నా మాట వినండి.",
+      "gloss": "Take a little — listen to me.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "word" },
+        { "te": "వినండి", "gloss": "listen (polite)" }
+      ],
+      "tags": ["hosting", "food"],
+      "difficulty": 2
+    },
+    {
+      "id": "u39-i12",
+      "te": "సరే, చివరిసారి వేయండి.",
+      "gloss": "Alright, serve me one last time.",
+      "words": [
+        { "te": "సరే", "gloss": "alright" },
+        { "te": "చివరిసారి", "gloss": "last time" },
+        { "te": "వేయండి", "gloss": "serve (polite)" }
+      ],
+      "tags": ["hosting", "food", "guest"],
+      "difficulty": 3,
+      "note": "The guest's graceful surrender. Everyone knows 'last time' means at least two more servings."
+    },
+    {
+      "id": "u39-i13",
+      "te": "వెళ్ళేటప్పుడు స్వీట్లు పట్టుకెళ్ళండి.",
+      "gloss": "Take some sweets when you go.",
+      "words": [
+        { "te": "వెళ్ళేటప్పుడు", "gloss": "while leaving" },
+        { "te": "స్వీట్లు", "gloss": "sweets" },
+        { "te": "పట్టుకెళ్ళండి", "gloss": "carry along (polite)" }
+      ],
+      "tags": ["hosting", "leftovers"],
+      "difficulty": 3,
+      "distractors": ["u39-i14", "u39-i15"]
+    },
+    {
+      "id": "u39-i14",
+      "te": "డబ్బాలో కొంచెం కూర పెట్టాను.",
+      "gloss": "I packed a little curry in a box.",
+      "words": [
+        { "te": "డబ్బాలో", "gloss": "in a box" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "కూర", "gloss": "curry" },
+        { "te": "పెట్టాను", "gloss": "I put" }
+      ],
+      "tags": ["hosting", "leftovers"],
+      "difficulty": 3,
+      "distractors": ["u39-i13", "u39-i03"]
+    },
+    {
+      "id": "u39-i15",
+      "te": "మళ్ళీ తప్పకుండా రండి.",
+      "gloss": "Do come again, without fail.",
+      "words": [
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "తప్పకుండా", "gloss": "without fail" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["hosting", "farewell"],
+      "difficulty": 2
+    },
+    {
+      "id": "u39-i16",
+      "te": "మీ ఇల్లు చాలా బాగుంది.",
+      "gloss": "Your home is lovely.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is nice" }
+      ],
+      "tags": ["hosting", "compliments", "guest"],
+      "difficulty": 2,
+      "distractors": ["u39-i08", "u39-i09"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Welcoming",
+      "itemIds": ["u39-i01", "u39-i02", "u39-i16", "u39-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Eat, eat!",
+      "itemIds": ["u39-i04", "u39-i05", "u39-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Compliments to the cook",
+      "itemIds": ["u39-i08", "u39-i09", "u39-i07"]
+    },
+    {
+      "id": "l4",
+      "title": "The insistence dance",
+      "itemIds": ["u39-i10", "u39-i11", "u39-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Sending guests off",
+      "itemIds": ["u39-i13", "u39-i14", "u39-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u39-d1",
+    "title": "Sunday lunch at Annapurna aunty's",
+    "scene": "Sunday noon. Annapurna aunty flings the door open before you even knock. There is pulihora, there is a mountain of rice, and there is no leaving without a packed box.",
+    "turns": [
+      { "speaker": "Aunty", "itemId": "u39-i01" },
+      { "speaker": "Aunty", "itemId": "u39-i02" },
+      { "speaker": "You", "itemId": "u39-i16", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u39-i04" },
+      { "speaker": "Aunty", "itemId": "u39-i05" },
+      { "speaker": "You", "itemId": "u39-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u39-i09", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u39-i06" },
+      { "speaker": "You", "itemId": "u39-i07", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u39-i10" },
+      { "speaker": "Aunty", "itemId": "u39-i11" },
+      { "speaker": "You", "itemId": "u39-i12", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u39-i13" },
+      { "speaker": "You", "itemId": "u39-i08", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u39-i14" },
+      { "speaker": "Aunty", "itemId": "u39-i15" }
+    ]
+  }
+}

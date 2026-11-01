@@ -1,0 +1,278 @@
+{
+  "id": "u49",
+  "section": 7,
+  "order": 1,
+  "title": "Hyderabadi hello",
+  "teTitle": "హైదరాబాదీ పలకరింపు",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "The signature Hyderabadi flavor words — hau, nakko, kaiku, are, endi ra — and how they map to standard Telugu.",
+  "items": [
+    {
+      "id": "u49-i01",
+      "te": "హౌ, వస్తున్నా.",
+      "gloss": "Yes, I'm coming.",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "వస్తున్నా", "gloss": "I'm coming" }
+      ],
+      "tags": ["flavor", "yes-no"],
+      "difficulty": 2,
+      "note": "హౌ (hau) is the Hyderabadi 'yes', borrowed from Dakhni Urdu. Standard Telugu: అవును. You'll hear హౌ everywhere in the city.",
+      "distractors": ["u49-i02", "u49-i09"]
+    },
+    {
+      "id": "u49-i02",
+      "te": "నక్కో అన్నా, నక్కో.",
+      "gloss": "No anna, no.",
+      "words": [
+        { "te": "నక్కో", "gloss": "no / don't want (Hyderabadi)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" },
+        { "te": "నక్కో", "gloss": "no / don't want (Hyderabadi)" }
+      ],
+      "tags": ["flavor", "yes-no"],
+      "difficulty": 2,
+      "note": "నక్కో (nakko) is the Dakhni 'no / don't' — standard Telugu వద్దు. Doubling it (నక్కో నక్కో) makes the refusal friendly but firm.",
+      "distractors": ["u49-i01", "u49-i10"]
+    },
+    {
+      "id": "u49-i03",
+      "te": "కైకు రా ఇంత టెన్షన్?",
+      "gloss": "Why so much tension, ra?",
+      "words": [
+        { "te": "కైకు", "gloss": "why (Hyderabadi)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఇంత", "gloss": "this much" },
+        { "te": "టెన్షన్", "gloss": "tension / worry" }
+      ],
+      "tags": ["flavor", "questions"],
+      "difficulty": 3,
+      "note": "కైకు (kaiku) = 'why', straight from Dakhni Urdu. Standard Telugu: ఎందుకు. A very Hyderabadi way to tell someone to relax."
+    },
+    {
+      "id": "u49-i04",
+      "te": "అరే, ఇటు రా!",
+      "gloss": "Hey, come this way!",
+      "words": [
+        { "te": "అరే", "gloss": "hey!" },
+        { "te": "ఇటు", "gloss": "this way" },
+        { "te": "రా", "gloss": "come (casual)" }
+      ],
+      "tags": ["flavor", "commands"],
+      "difficulty": 2,
+      "note": "అరే / అరేయ్ is the all-purpose Hyderabadi attention-grabber — for friends only, never for elders. Standard Telugu might use ఏయ్ or just the name.",
+      "distractors": ["u49-i05", "u49-i06"]
+    },
+    {
+      "id": "u49-i05",
+      "te": "అరేయ్, ఎక్కడున్నావ్ రా?",
+      "gloss": "Hey, where are you, ra?",
+      "words": [
+        { "te": "అరేయ్", "gloss": "hey! (drawn out)" },
+        { "te": "ఎక్కడున్నావ్", "gloss": "where are you" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["flavor", "questions"],
+      "difficulty": 3,
+      "distractors": ["u49-i04", "u49-i12"]
+    },
+    {
+      "id": "u49-i06",
+      "te": "ఏంది రా ఇది?",
+      "gloss": "What is this, ra?",
+      "words": [
+        { "te": "ఏంది", "gloss": "what (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఇది", "gloss": "this" }
+      ],
+      "tags": ["flavor", "questions"],
+      "difficulty": 2,
+      "note": "ఏంది is the Telangana/Hyderabad 'what' — standard Telugu says ఏంటి or ఏమిటి. ఏంది రా can be surprise, complaint, or affection depending on tone."
+    },
+    {
+      "id": "u49-i07",
+      "te": "ఏం హల్చల్ భయ్?",
+      "gloss": "What's happening, bhai?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "హల్చల్", "gloss": "happenings / buzz (Urdu)" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["flavor", "smalltalk"],
+      "difficulty": 3,
+      "note": "హల్చల్ (halchal, Urdu) = commotion, buzz, what's-going-on. ఏం హల్చల్? is the Hyderabadi version of standard ఏం విశేషాలు? — భయ్ is Urdu bhai, 'brother'.",
+      "distractors": ["u49-i12", "u49-i08"]
+    },
+    {
+      "id": "u49-i08",
+      "te": "సిటీలో ఫుల్ హల్చల్ ఉంది.",
+      "gloss": "There's full commotion in the city.",
+      "words": [
+        { "te": "సిటీలో", "gloss": "in the city" },
+        { "te": "ఫుల్", "gloss": "full / a lot of" },
+        { "te": "హల్చల్", "gloss": "commotion / buzz" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["flavor", "smalltalk"],
+      "difficulty": 3,
+      "note": "ఫుల్ (full) is the Hyderabadi intensifier for everything — standard Telugu would say చాలా or పూర్తిగా."
+    },
+    {
+      "id": "u49-i09",
+      "te": "హౌ కదా మరి!",
+      "gloss": "Yes, obviously!",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "కదా", "gloss": "isn't it" },
+        { "te": "మరి", "gloss": "then / of course" }
+      ],
+      "tags": ["flavor", "yes-no"],
+      "difficulty": 3,
+      "distractors": ["u49-i01", "u49-i02"]
+    },
+    {
+      "id": "u49-i10",
+      "te": "నక్కో అంటే నక్కో.",
+      "gloss": "No means no.",
+      "words": [
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" },
+        { "te": "అంటే", "gloss": "means" },
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" }
+      ],
+      "tags": ["flavor", "yes-no"],
+      "difficulty": 3,
+      "note": "Pattern to steal: X అంటే X = 'X means X'. Standard version: వద్దు అంటే వద్దు."
+    },
+    {
+      "id": "u49-i11",
+      "te": "కైకు అంత జల్దీ?",
+      "gloss": "Why so soon?",
+      "words": [
+        { "te": "కైకు", "gloss": "why (Hyderabadi)" },
+        { "te": "అంత", "gloss": "that much" },
+        { "te": "జల్దీ", "gloss": "quickly / soon (Urdu)" }
+      ],
+      "tags": ["flavor", "questions"],
+      "difficulty": 3,
+      "note": "జల్దీ (jaldi, Urdu) = quickly. Standard Telugu: త్వరగా. Hyderabadis say జల్దీ several times a day.",
+      "distractors": ["u49-i03", "u49-i06"]
+    },
+    {
+      "id": "u49-i12",
+      "te": "ఏంది రా సంగతి?",
+      "gloss": "What's the matter, ra?",
+      "words": [
+        { "te": "ఏంది", "gloss": "what (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "సంగతి", "gloss": "matter / news" }
+      ],
+      "tags": ["flavor", "smalltalk"],
+      "difficulty": 3,
+      "distractors": ["u49-i07", "u49-i06"]
+    },
+    {
+      "id": "u49-i13",
+      "te": "మా భాష వేరే లెవెల్.",
+      "gloss": "Our language is another level.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "భాష", "gloss": "language" },
+        { "te": "వేరే", "gloss": "different / another" },
+        { "te": "లెవెల్", "gloss": "level" }
+      ],
+      "tags": ["flavor", "pride"],
+      "difficulty": 3,
+      "note": "వేరే లెవెల్ ('another level') is high praise in Hyderabadi — English words dropped into Telugu is completely normal here."
+    },
+    {
+      "id": "u49-i14",
+      "te": "అరే యార్, లేట్ అయింది.",
+      "gloss": "Oh yaar, it got late.",
+      "words": [
+        { "te": "అరే", "gloss": "oh / hey" },
+        { "te": "యార్", "gloss": "yaar (friend, Urdu)" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అయింది", "gloss": "it became" }
+      ],
+      "tags": ["flavor", "smalltalk"],
+      "difficulty": 3,
+      "note": "యార్ (yaar) = 'friend / man', from Urdu-Hindi. There's no real standard-Telugu equivalent — that's why Hyderabadis can't stop saying it."
+    },
+    {
+      "id": "u49-i15",
+      "te": "హౌ అను, నక్కో అనకు.",
+      "gloss": "Say yes, don't say no.",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "అను", "gloss": "say" },
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" },
+        { "te": "అనకు", "gloss": "don't say" }
+      ],
+      "tags": ["flavor", "yes-no"],
+      "difficulty": 4,
+      "distractors": ["u49-i10", "u49-i09"]
+    },
+    {
+      "id": "u49-i16",
+      "te": "ఇక్కడ అందరూ ఇట్లనే మాట్లాడతారు.",
+      "gloss": "Here everyone talks just like this.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "అందరూ", "gloss": "everyone" },
+        { "te": "ఇట్లనే", "gloss": "just like this (Telangana)" },
+        { "te": "మాట్లాడతారు", "gloss": "they speak" }
+      ],
+      "tags": ["flavor", "pride"],
+      "difficulty": 4,
+      "note": "ఇట్లనే = 'just like this' in Telangana Telugu; standard Telugu says ఇలాగే. Same pattern: ఎట్ల (how) vs standard ఎలా."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Hau and nakko",
+      "itemIds": ["u49-i01", "u49-i02", "u49-i09", "u49-i10"]
+    },
+    {
+      "id": "l2",
+      "title": "Kaiku, ra?",
+      "itemIds": ["u49-i03", "u49-i11", "u49-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Are! Hey you!",
+      "itemIds": ["u49-i04", "u49-i05", "u49-i14"]
+    },
+    {
+      "id": "l4",
+      "title": "What's the halchal?",
+      "itemIds": ["u49-i07", "u49-i08", "u49-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Talking the talk",
+      "itemIds": ["u49-i13", "u49-i15", "u49-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u49-d1",
+    "title": "Running into Ravi at Koti",
+    "scene": "Evening rush at Koti. Your friend Ravi spots you across the street and yells over the traffic — a full Hyderabadi catch-up follows, hau and nakko flying.",
+    "turns": [
+      { "speaker": "Ravi", "itemId": "u49-i05" },
+      { "speaker": "You", "itemId": "u49-i01", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i04" },
+      { "speaker": "Ravi", "itemId": "u49-i07" },
+      { "speaker": "You", "itemId": "u49-i08", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i06" },
+      { "speaker": "You", "itemId": "u49-i14", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i11" },
+      { "speaker": "You", "itemId": "u49-i02", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i15" },
+      { "speaker": "You", "itemId": "u49-i10", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i13" },
+      { "speaker": "You", "itemId": "u49-i16", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u49-i09" }
+    ]
+  }
+}

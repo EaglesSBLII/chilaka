@@ -1,0 +1,246 @@
+{
+  "id": "u15",
+  "section": 2,
+  "order": 7,
+  "title": "Work & school",
+  "teTitle": "పని, చదువు",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Talk about your job and studies: busy days, meetings, exams, and hard-earned holidays.",
+  "items": [
+    {
+      "id": "u15-i01",
+      "te": "ఆఫీసుకు వెళ్తున్నాను.",
+      "gloss": "I'm heading to the office.",
+      "words": [
+        { "te": "ఆఫీసుకు", "gloss": "to the office" },
+        { "te": "వెళ్తున్నాను", "gloss": "I am going" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2
+    },
+    {
+      "id": "u15-i02",
+      "te": "పని ఎలా జరుగుతోంది?",
+      "gloss": "How is work going?",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "జరుగుతోంది", "gloss": "is going / happening" }
+      ],
+      "tags": ["work", "questions"],
+      "difficulty": 2,
+      "note": "In Telugu, work 'happens' — జరుగు (jarugu). You'll also hear ఉద్యోగం ఎలా ఉంది? for the same question.",
+      "distractors": ["u15-i13", "u15-i07"]
+    },
+    {
+      "id": "u15-i03",
+      "te": "పని బాగా జరుగుతోంది.",
+      "gloss": "Work is going well.",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "జరుగుతోంది", "gloss": "is going" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2,
+      "distractors": ["u15-i04", "u15-i02"]
+    },
+    {
+      "id": "u15-i04",
+      "te": "ఈరోజు చాలా బిజీగా ఉన్నాను.",
+      "gloss": "I'm very busy today.",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బిజీగా", "gloss": "busy" },
+        { "te": "ఉన్నాను", "gloss": "I am" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2,
+      "note": "బిజీ (bijii) is fully naturalized English; -గా (-gaa) turns it into a state: బిజీగా ఉన్నాను."
+    },
+    {
+      "id": "u15-i05",
+      "te": "నాకు మీటింగ్ ఉంది.",
+      "gloss": "I have a meeting.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "మీటింగ్", "gloss": "meeting" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2,
+      "note": "Telugu 'has' things with నాకు … ఉంది (naaku … undi): 'to me there is a meeting'.",
+      "distractors": ["u15-i04", "u15-i11"]
+    },
+    {
+      "id": "u15-i06",
+      "te": "కొత్త ఉద్యోగం వచ్చింది.",
+      "gloss": "I got a new job.",
+      "words": [
+        { "te": "కొత్త", "gloss": "new" },
+        { "te": "ఉద్యోగం", "gloss": "job" },
+        { "te": "వచ్చింది", "gloss": "came" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2,
+      "note": "Jobs 'come' in Telugu: ఉద్యోగం వచ్చింది (udyoogam vachindi) — congratulations are in order!"
+    },
+    {
+      "id": "u15-i07",
+      "te": "ఏం చదువుతున్నారు?",
+      "gloss": "What are you studying?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చదువుతున్నారు", "gloss": "are (you) studying?" }
+      ],
+      "tags": ["school", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u15-i08",
+      "te": "పరీక్షలు దగ్గర పడుతున్నాయి.",
+      "gloss": "Exams are getting close.",
+      "words": [
+        { "te": "పరీక్షలు", "gloss": "exams" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "పడుతున్నాయి", "gloss": "are falling / approaching" }
+      ],
+      "tags": ["school"],
+      "difficulty": 3,
+      "note": "Deadlines 'fall near' in Telugu: దగ్గర పడుతున్నాయి (daggara paDutunnaayi).",
+      "distractors": ["u15-i10", "u15-i09"]
+    },
+    {
+      "id": "u15-i09",
+      "te": "బాగా చదవండి.",
+      "gloss": "Study well.",
+      "words": [
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "చదవండి", "gloss": "study / read (polite)" }
+      ],
+      "tags": ["school", "commands"],
+      "difficulty": 1
+    },
+    {
+      "id": "u15-i10",
+      "te": "పరీక్ష బాగా రాశాను.",
+      "gloss": "I did well on the exam.",
+      "words": [
+        { "te": "పరీక్ష", "gloss": "exam" },
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "రాశాను", "gloss": "I wrote" }
+      ],
+      "tags": ["school"],
+      "difficulty": 2,
+      "note": "You 'write' an exam in Telugu: పరీక్ష రాయడం (pariiksha raayaDam)."
+    },
+    {
+      "id": "u15-i11",
+      "te": "రేపు సెలవు.",
+      "gloss": "Tomorrow is a holiday.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "సెలవు", "gloss": "holiday / leave" }
+      ],
+      "tags": ["work", "school"],
+      "difficulty": 1,
+      "distractors": ["u15-i16", "u15-i06"]
+    },
+    {
+      "id": "u15-i12",
+      "te": "ఈరోజు ఇంటి నుంచి పని చేస్తున్నాను.",
+      "gloss": "I'm working from home today.",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "ఇంటి", "gloss": "of home" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "చేస్తున్నాను", "gloss": "I am doing" }
+      ],
+      "tags": ["work"],
+      "difficulty": 3
+    },
+    {
+      "id": "u15-i13",
+      "te": "పని అయిపోయిందా?",
+      "gloss": "Is the work finished?",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "అయిపోయిందా", "gloss": "is it finished?" }
+      ],
+      "tags": ["work", "questions"],
+      "difficulty": 2,
+      "distractors": ["u15-i02", "u15-i14"]
+    },
+    {
+      "id": "u15-i14",
+      "te": "ఇంకా అవ్వలేదు.",
+      "gloss": "Not done yet.",
+      "words": [
+        { "te": "ఇంకా", "gloss": "yet / still" },
+        { "te": "అవ్వలేదు", "gloss": "didn't get done" }
+      ],
+      "tags": ["work"],
+      "difficulty": 2,
+      "distractors": ["u15-i13", "u15-i03"]
+    },
+    {
+      "id": "u15-i15",
+      "te": "మా బాస్ చాలా మంచివారు.",
+      "gloss": "My boss is very nice.",
+      "words": [
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "బాస్", "gloss": "boss" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "మంచివారు", "gloss": "a good person (respectful)" }
+      ],
+      "tags": ["work"],
+      "difficulty": 3,
+      "note": "మంచివారు (manchivaaru) — polite plural even for one respected person. And it's మా (maa) boss, not నా — your boss, family and company all take 'our'."
+    },
+    {
+      "id": "u15-i16",
+      "te": "సాయంత్రం త్వరగా వస్తాను.",
+      "gloss": "I'll come home early this evening.",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "evening" },
+        { "te": "త్వరగా", "gloss": "early / quickly" },
+        { "te": "వస్తాను", "gloss": "I'll come" }
+      ],
+      "tags": ["work", "routine"],
+      "difficulty": 2,
+      "distractors": ["u15-i01", "u15-i11"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Off to work", "itemIds": ["u15-i01", "u15-i04", "u15-i05"] },
+    { "id": "l2", "title": "How's work?", "itemIds": ["u15-i02", "u15-i03", "u15-i15"] },
+    { "id": "l3", "title": "School days", "itemIds": ["u15-i07", "u15-i08", "u15-i09", "u15-i10"] },
+    { "id": "l4", "title": "Done yet?", "itemIds": ["u15-i12", "u15-i13", "u15-i14"] },
+    { "id": "l5", "title": "Day off", "itemIds": ["u15-i06", "u15-i11", "u15-i16"] }
+  ],
+  "dialogue": {
+    "id": "u15-d1",
+    "title": "Big news for Amma",
+    "scene": "Amma calls just as your day starts: there's a new job to announce, a meeting looming, and Telugu exam results to share before you rush out.",
+    "turns": [
+      { "speaker": "Amma", "itemId": "u15-i02" },
+      { "speaker": "You", "itemId": "u15-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i15", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u15-i13" },
+      { "speaker": "You", "itemId": "u15-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i01", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u15-i07" },
+      { "speaker": "You", "itemId": "u15-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u15-i08", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u15-i09" },
+      { "speaker": "Amma", "itemId": "u15-i11" },
+      { "speaker": "You", "itemId": "u15-i16", "userTurn": true }
+    ]
+  }
+}

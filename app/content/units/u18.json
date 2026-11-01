@@ -1,0 +1,245 @@
+{
+  "id": "u18",
+  "section": 3,
+  "order": 2,
+  "title": "Opinions & agreement",
+  "teTitle": "అభిప్రాయాలు",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Share what you think, agree and disagree gracefully, and shrug like a native.",
+  "items": [
+    {
+      "id": "u18-i01",
+      "te": "మీరు ఏమంటారు?",
+      "gloss": "What do you say? (what's your take?)",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఏమంటారు", "gloss": "what do (you) say?" }
+      ],
+      "tags": ["opinions", "questions"],
+      "difficulty": 3,
+      "note": "Literally 'what will you say?' — the everyday way to ask for an opinion. With friends: నువ్వేమంటావ్ (nuvvemanTaav)?",
+      "distractors": ["u18-i13", "u18-i10"]
+    },
+    {
+      "id": "u18-i02",
+      "te": "నేను కూడా అలాగే అనుకుంటున్నాను.",
+      "gloss": "I think so too.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "కూడా", "gloss": "also" },
+        { "te": "అలాగే", "gloss": "that same way" },
+        { "te": "అనుకుంటున్నాను", "gloss": "am thinking" }
+      ],
+      "tags": ["opinions", "agreement"],
+      "difficulty": 4,
+      "note": "అనుకుంటున్నాను (anukunTunnaanu) = 'I am thinking (so)' — the workhorse verb for opinions. అలాగే (alaage) = 'like that'."
+    },
+    {
+      "id": "u18-i03",
+      "te": "అది నిజమే!",
+      "gloss": "That's true!",
+      "words": [
+        { "te": "అది", "gloss": "that" },
+        { "te": "నిజమే", "gloss": "is indeed true" }
+      ],
+      "tags": ["agreement"],
+      "difficulty": 2,
+      "distractors": ["u18-i04", "u18-i16"]
+    },
+    {
+      "id": "u18-i04",
+      "te": "అది తప్పు అనుకుంటున్నాను.",
+      "gloss": "I think that's wrong.",
+      "words": [
+        { "te": "అది", "gloss": "that" },
+        { "te": "తప్పు", "gloss": "wrong / a mistake" },
+        { "te": "అనుకుంటున్నాను", "gloss": "am thinking" }
+      ],
+      "tags": ["opinions", "disagreement"],
+      "difficulty": 4,
+      "distractors": ["u18-i03", "u18-i05"]
+    },
+    {
+      "id": "u18-i05",
+      "te": "మీరు చెప్పింది నిజం.",
+      "gloss": "You're right. (what you said is true)",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "చెప్పింది", "gloss": "the thing (you) said" },
+        { "te": "నిజం", "gloss": "true" }
+      ],
+      "tags": ["agreement"],
+      "difficulty": 3,
+      "distractors": ["u18-i04", "u18-i16"]
+    },
+    {
+      "id": "u18-i06",
+      "te": "ఏమో, నాకు తెలియదు.",
+      "gloss": "Dunno — I don't know.",
+      "words": [
+        { "te": "ఏమో", "gloss": "who knows / maybe" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "తెలియదు", "gloss": "is not known" }
+      ],
+      "tags": ["opinions", "uncertainty"],
+      "difficulty": 2,
+      "note": "ఏమో (emo) is the universal Telugu shrug — 'maybe, who knows'. It can even be a full answer on its own.",
+      "distractors": ["u18-i08", "u18-i13"]
+    },
+    {
+      "id": "u18-i07",
+      "te": "ఖచ్చితంగా వస్తాను!",
+      "gloss": "I'll definitely come!",
+      "words": [
+        { "te": "ఖచ్చితంగా", "gloss": "definitely" },
+        { "te": "వస్తాను", "gloss": "will come (I)" }
+      ],
+      "tags": ["certainty"],
+      "difficulty": 3,
+      "distractors": ["u18-i08", "u18-i11"]
+    },
+    {
+      "id": "u18-i08",
+      "te": "ఖచ్చితంగా చెప్పలేను.",
+      "gloss": "I can't say for certain.",
+      "words": [
+        { "te": "ఖచ్చితంగా", "gloss": "for certain" },
+        { "te": "చెప్పలేను", "gloss": "cannot say (I)" }
+      ],
+      "tags": ["uncertainty"],
+      "difficulty": 4,
+      "note": "-లేను (-lenu) = 'can't': చెప్పలేను (cheppalenu) I can't say, రాలేను I can't come.",
+      "distractors": ["u18-i07", "u18-i06"]
+    },
+    {
+      "id": "u18-i09",
+      "te": "నాకు అలా అనిపించడం లేదు.",
+      "gloss": "It doesn't feel that way to me.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అలా", "gloss": "that way" },
+        { "te": "అనిపించడం", "gloss": "seeming / feeling" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["opinions", "disagreement"],
+      "difficulty": 4,
+      "note": "Feelings use the dative in Telugu: నాకు అనిపిస్తుంది (naaku anipistundi) = 'it seems to me'. This is the polite way to disagree."
+    },
+    {
+      "id": "u18-i10",
+      "te": "మీరు ఒప్పుకుంటారా?",
+      "gloss": "Do you agree?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఒప్పుకుంటారా", "gloss": "do (you) agree?" }
+      ],
+      "tags": ["agreement", "questions"],
+      "difficulty": 4,
+      "distractors": ["u18-i01", "u18-i11"]
+    },
+    {
+      "id": "u18-i11",
+      "te": "నేను ఒప్పుకోను.",
+      "gloss": "I don't agree.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఒప్పుకోను", "gloss": "won't agree" }
+      ],
+      "tags": ["disagreement"],
+      "difficulty": 3
+    },
+    {
+      "id": "u18-i12",
+      "te": "అది మంచి ఆలోచన!",
+      "gloss": "That's a good idea!",
+      "words": [
+        { "te": "అది", "gloss": "that" },
+        { "te": "మంచి", "gloss": "good" },
+        { "te": "ఆలోచన", "gloss": "idea / thought" }
+      ],
+      "tags": ["agreement"],
+      "difficulty": 2,
+      "distractors": ["u18-i03", "u18-i14"]
+    },
+    {
+      "id": "u18-i13",
+      "te": "నిజంగానా?",
+      "gloss": "Really?!",
+      "words": [
+        { "te": "నిజంగానా", "gloss": "really?" }
+      ],
+      "tags": ["reactions", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u18-i14",
+      "te": "నూటికి నూరు శాతం!",
+      "gloss": "Hundred percent!",
+      "words": [
+        { "te": "నూటికి", "gloss": "out of a hundred" },
+        { "te": "నూరు", "gloss": "hundred" },
+        { "te": "శాతం", "gloss": "percent" }
+      ],
+      "tags": ["agreement", "idioms"],
+      "difficulty": 4,
+      "note": "Literally 'a hundred percent out of a hundred' — the idiom for total, enthusiastic agreement."
+    },
+    {
+      "id": "u18-i15",
+      "te": "సరే, మీ ఇష్టం.",
+      "gloss": "Fine, as you wish.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇష్టం", "gloss": "wish / liking" }
+      ],
+      "tags": ["disagreement", "conceding"],
+      "difficulty": 3,
+      "distractors": ["u18-i12", "u18-i05"]
+    },
+    {
+      "id": "u18-i16",
+      "te": "నా ఉద్దేశం అది కాదు.",
+      "gloss": "That's not what I meant.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఉద్దేశం", "gloss": "intention / meaning" },
+        { "te": "అది", "gloss": "that" },
+        { "te": "కాదు", "gloss": "is not" }
+      ],
+      "tags": ["opinions", "clarifying"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "What's your take?", "itemIds": ["u18-i01", "u18-i02", "u18-i12"] },
+    { "id": "l2", "title": "True or false", "itemIds": ["u18-i03", "u18-i04", "u18-i05", "u18-i16"] },
+    { "id": "l3", "title": "The shrug zone", "itemIds": ["u18-i06", "u18-i13", "u18-i08"] },
+    { "id": "l4", "title": "Dead certain", "itemIds": ["u18-i07", "u18-i14", "u18-i09"] },
+    { "id": "l5", "title": "Agree to disagree", "itemIds": ["u18-i10", "u18-i11", "u18-i15"] }
+  ],
+  "dialogue": {
+    "id": "u18-d1",
+    "title": "The great biryani debate",
+    "scene": "Over evening chai, your cousin crowns the old city's biryani the best in Hyderabad. Tata disagrees — nothing beats Ammamma's — your cousin keeps switching sides, and it somehow ends in a Sunday lunch plan.",
+    "turns": [
+      { "speaker": "Cousin", "itemId": "u18-i01" },
+      { "speaker": "You", "itemId": "u18-i02", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u18-i13" },
+      { "speaker": "You", "itemId": "u18-i14", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u18-i04" },
+      { "speaker": "You", "itemId": "u18-i09", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u18-i10" },
+      { "speaker": "Cousin", "itemId": "u18-i08" },
+      { "speaker": "You", "itemId": "u18-i11", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u18-i16" },
+      { "speaker": "Tata", "itemId": "u18-i06" },
+      { "speaker": "You", "itemId": "u18-i05", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u18-i03" },
+      { "speaker": "Tata", "itemId": "u18-i15" },
+      { "speaker": "You", "itemId": "u18-i12", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u18-i07" }
+    ]
+  }
+}

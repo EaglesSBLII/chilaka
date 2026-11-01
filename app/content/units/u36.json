@@ -1,0 +1,268 @@
+{
+  "id": "u36",
+  "section": 5,
+  "order": 4,
+  "title": "Dreams & hopes",
+  "teTitle": "కలలు, ఆశలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Say what you want from life — learning Telugu properly, career hopes, and 'if it works out'.",
+  "items": [
+    {
+      "id": "u36-i01",
+      "te": "నాకు తెలుగు బాగా నేర్చుకోవాలని ఉంది.",
+      "gloss": "I want to learn Telugu properly.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "తెలుగు", "gloss": "Telugu" },
+        { "te": "బాగా", "gloss": "well / properly" },
+        { "te": "నేర్చుకోవాలని", "gloss": "wanting to learn" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["dreams", "telugu"],
+      "difficulty": 3,
+      "note": "The wanting pattern: verb + -ఆలని ఉంది. నేర్చుకోవాలని ఉంది 'I feel like learning', వెళ్ళాలని ఉంది 'I want to go'.",
+      "distractors": ["u36-i07", "u36-i10"]
+    },
+    {
+      "id": "u36-i02",
+      "te": "ఏదో ఒక రోజు తప్పకుండా వస్తాను.",
+      "gloss": "One day I'll definitely come.",
+      "words": [
+        { "te": "ఏదో", "gloss": "some" },
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "రోజు", "gloss": "day" },
+        { "te": "తప్పకుండా", "gloss": "without fail" },
+        { "te": "వస్తాను", "gloss": "I will come" }
+      ],
+      "tags": ["dreams", "hope"],
+      "difficulty": 3,
+      "note": "ఏదో ఒక రోజు — 'some one day' — is the dreamer's opener, just like English 'one day...'.",
+      "distractors": ["u36-i03", "u36-i12"]
+    },
+    {
+      "id": "u36-i03",
+      "te": "నా కల నెరవేరాలి.",
+      "gloss": "My dream has to come true.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "కల", "gloss": "dream" },
+        { "te": "నెరవేరాలి", "gloss": "must come true" }
+      ],
+      "tags": ["dreams"],
+      "difficulty": 3,
+      "distractors": ["u36-i09", "u36-i02"]
+    },
+    {
+      "id": "u36-i04",
+      "te": "అంతా అనుకున్నట్టు అయితే చాలు.",
+      "gloss": "If it all goes as planned, that's enough.",
+      "words": [
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "అనుకున్నట్టు", "gloss": "as (we) intended" },
+        { "te": "అయితే", "gloss": "if it happens" },
+        { "te": "చాలు", "gloss": "it's enough" }
+      ],
+      "tags": ["hope", "conditional"],
+      "difficulty": 4,
+      "note": "అనుకున్నట్టు = 'the way we thought'. And చాలు — 'enough' — is contentment in one word.",
+      "distractors": ["u36-i08", "u36-i13"]
+    },
+    {
+      "id": "u36-i05",
+      "te": "మంచి ఉద్యోగం రావాలని ఆశ.",
+      "gloss": "Hoping a good job comes my way.",
+      "words": [
+        { "te": "మంచి", "gloss": "good" },
+        { "te": "ఉద్యోగం", "gloss": "job" },
+        { "te": "రావాలని", "gloss": "that it should come" },
+        { "te": "ఆశ", "gloss": "hope" }
+      ],
+      "tags": ["dreams", "career"],
+      "difficulty": 3,
+      "distractors": ["u36-i10", "u36-i12"]
+    },
+    {
+      "id": "u36-i06",
+      "te": "సొంత ఇల్లు కట్టుకోవాలని ఉంది.",
+      "gloss": "I want to build my own house.",
+      "words": [
+        { "te": "సొంత", "gloss": "own" },
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "కట్టుకోవాలని", "gloss": "wanting to build" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["dreams"],
+      "difficulty": 3
+    },
+    {
+      "id": "u36-i07",
+      "te": "అమ్మమ్మతో తెలుగులో మాట్లాడాలని ఉంది.",
+      "gloss": "I want to talk with grandma in Telugu.",
+      "words": [
+        { "te": "అమ్మమ్మతో", "gloss": "with grandma" },
+        { "te": "తెలుగులో", "gloss": "in Telugu" },
+        { "te": "మాట్లాడాలని", "gloss": "wanting to speak" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["dreams", "telugu", "family"],
+      "difficulty": 3,
+      "distractors": ["u36-i01", "u36-i14"]
+    },
+    {
+      "id": "u36-i08",
+      "te": "ఇది అయితే చాలా బాగుంటుంది.",
+      "gloss": "If this works out, it'll be great.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "అయితే", "gloss": "if it happens" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంటుంది", "gloss": "will be good" }
+      ],
+      "tags": ["hope", "conditional"],
+      "difficulty": 2,
+      "note": "అయితే after a noun means 'if it comes through': ఇది అయితే... — the standard hedge for plans not yet certain.",
+      "distractors": ["u36-i04", "u36-i13"]
+    },
+    {
+      "id": "u36-i09",
+      "te": "మీ కల ఏంటి?",
+      "gloss": "What's your dream?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "కల", "gloss": "dream" },
+        { "te": "ఏంటి", "gloss": "what" }
+      ],
+      "tags": ["dreams", "questions"],
+      "difficulty": 2,
+      "distractors": ["u36-i03", "u36-i05"]
+    },
+    {
+      "id": "u36-i10",
+      "te": "పెద్ద చదువులు చదవాలని ఉంది.",
+      "gloss": "I want to do higher studies.",
+      "words": [
+        { "te": "పెద్ద", "gloss": "big / higher" },
+        { "te": "చదువులు", "gloss": "studies" },
+        { "te": "చదవాలని", "gloss": "wanting to study" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["dreams", "career"],
+      "difficulty": 3
+    },
+    {
+      "id": "u36-i11",
+      "te": "కష్టపడితే ఏదైనా సాధించొచ్చు.",
+      "gloss": "If you work hard, you can achieve anything.",
+      "words": [
+        { "te": "కష్టపడితే", "gloss": "if (you) toil" },
+        { "te": "ఏదైనా", "gloss": "anything" },
+        { "te": "సాధించొచ్చు", "gloss": "can achieve" }
+      ],
+      "tags": ["hope", "encouragement"],
+      "difficulty": 4,
+      "note": "Two spoken workhorses in one line: -ఇతే (if you...) plus -ఒచ్చు (can/may). Every uncle's favorite pep talk."
+    },
+    {
+      "id": "u36-i12",
+      "te": "వచ్చే ఏడాది బిజినెస్ మొదలుపెడతాను.",
+      "gloss": "Next year I'll start a business.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "ఏడాది", "gloss": "year" },
+        { "te": "బిజినెస్", "gloss": "business" },
+        { "te": "మొదలుపెడతాను", "gloss": "I will start" }
+      ],
+      "tags": ["dreams", "career"],
+      "difficulty": 3
+    },
+    {
+      "id": "u36-i13",
+      "te": "దేవుడి దయ ఉంటే అన్నీ జరుగుతాయి.",
+      "gloss": "With God's grace, everything will happen.",
+      "words": [
+        { "te": "దేవుడి", "gloss": "God's" },
+        { "te": "దయ", "gloss": "grace / kindness" },
+        { "te": "ఉంటే", "gloss": "if there is" },
+        { "te": "అన్నీ", "gloss": "all things" },
+        { "te": "జరుగుతాయి", "gloss": "will happen" }
+      ],
+      "tags": ["hope", "blessings"],
+      "difficulty": 3,
+      "distractors": ["u36-i11", "u36-i08"]
+    },
+    {
+      "id": "u36-i14",
+      "te": "నెమ్మదిగా అన్నీ నేర్చుకుంటాను.",
+      "gloss": "Slowly, I'll learn everything.",
+      "words": [
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "అన్నీ", "gloss": "everything" },
+        { "te": "నేర్చుకుంటాను", "gloss": "I will learn" }
+      ],
+      "tags": ["dreams", "telugu"],
+      "difficulty": 2,
+      "distractors": ["u36-i01", "u36-i15"]
+    },
+    {
+      "id": "u36-i15",
+      "te": "మీరు తప్పకుండా సాధిస్తారు.",
+      "gloss": "You will definitely achieve it.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "తప్పకుండా", "gloss": "without fail" },
+        { "te": "సాధిస్తారు", "gloss": "will achieve" }
+      ],
+      "tags": ["hope", "encouragement"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "I want to…",
+      "itemIds": ["u36-i01", "u36-i07", "u36-i06"]
+    },
+    {
+      "id": "l2",
+      "title": "One day…",
+      "itemIds": ["u36-i02", "u36-i03", "u36-i12"]
+    },
+    {
+      "id": "l3",
+      "title": "Career hopes",
+      "itemIds": ["u36-i09", "u36-i05", "u36-i10"]
+    },
+    {
+      "id": "l4",
+      "title": "If it works out",
+      "itemIds": ["u36-i04", "u36-i08", "u36-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "You can do it",
+      "itemIds": ["u36-i11", "u36-i14", "u36-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u36-d1",
+    "title": "Chai and big plans with mavayya",
+    "scene": "Video call with your mavayya in Vijayawada, chai in hand on both screens. He asks about your dreams — and shares one of his own.",
+    "turns": [
+      { "speaker": "Mavayya", "itemId": "u36-i09" },
+      { "speaker": "You", "itemId": "u36-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u36-i07", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u36-i11" },
+      { "speaker": "You", "itemId": "u36-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u36-i05", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u36-i06" },
+      { "speaker": "Mavayya", "itemId": "u36-i12" },
+      { "speaker": "You", "itemId": "u36-i08", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u36-i13" },
+      { "speaker": "You", "itemId": "u36-i02", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u36-i15" },
+      { "speaker": "You", "itemId": "u36-i03", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u36-i04" }
+    ]
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "id": "u03",
+  "section": 1,
+  "order": 3,
+  "title": "Everyday actions",
+  "teTitle": "రోజువారీ పనులు",
+  "cefr": "A1+",
+  "register": "standard",
+  "description": "Say what you and everyone around you are doing right now.",
+  "items": [
+    {
+      "id": "u03-i01",
+      "te": "ఏం చేస్తున్నారు?",
+      "gloss": "What are you doing? (polite)",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేస్తున్నారు", "gloss": "are (you) doing (polite)" }
+      ],
+      "tags": ["actions", "questions"],
+      "difficulty": 1,
+      "note": "With friends and younger family: ఏం చేస్తున్నావ్? (eem cheestunnaav) — the final vowel drops in speech."
+    },
+    {
+      "id": "u03-i02",
+      "te": "నేను వంట చేస్తున్నాను.",
+      "gloss": "I am cooking.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "వంట", "gloss": "cooking (noun)" },
+        { "te": "చేస్తున్నాను", "gloss": "am doing" }
+      ],
+      "tags": ["actions", "food"],
+      "difficulty": 1,
+      "distractors": ["u03-i03", "u03-i14"]
+    },
+    {
+      "id": "u03-i03",
+      "te": "అమ్మ వంట చేస్తోంది.",
+      "gloss": "Mom is cooking.",
+      "words": [
+        { "te": "అమ్మ", "gloss": "mom" },
+        { "te": "వంట", "gloss": "cooking (noun)" },
+        { "te": "చేస్తోంది", "gloss": "she is doing" }
+      ],
+      "tags": ["actions", "family", "food"],
+      "difficulty": 1,
+      "note": "-తోంది (-toondi) is the natural spoken 'she/it is doing': చేస్తోంది, వస్తోంది. The textbook form చేస్తున్నది sounds stiff.",
+      "distractors": ["u03-i02", "u03-i12"]
+    },
+    {
+      "id": "u03-i04",
+      "te": "నాన్న టీవీ చూస్తున్నారు.",
+      "gloss": "Dad is watching TV.",
+      "words": [
+        { "te": "నాన్న", "gloss": "dad" },
+        { "te": "టీవీ", "gloss": "TV" },
+        { "te": "చూస్తున్నారు", "gloss": "is watching (respectful)" }
+      ],
+      "tags": ["actions", "family"],
+      "difficulty": 1,
+      "distractors": ["u03-i03", "u03-i15"]
+    },
+    {
+      "id": "u03-i05",
+      "te": "నేను అన్నం తింటున్నాను.",
+      "gloss": "I am eating rice.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "అన్నం", "gloss": "rice / food" },
+        { "te": "తింటున్నాను", "gloss": "am eating" }
+      ],
+      "tags": ["actions", "food"],
+      "difficulty": 1,
+      "note": "అన్నం (annam) is cooked rice — and by extension 'food'. అన్నం తిన్నావా? is how family asks 'have you eaten?'",
+      "distractors": ["u03-i02", "u03-i15"]
+    },
+    {
+      "id": "u03-i06",
+      "te": "తమ్ముడు ఆడుతున్నాడు.",
+      "gloss": "Little brother is playing.",
+      "words": [
+        { "te": "తమ్ముడు", "gloss": "younger brother" },
+        { "te": "ఆడుతున్నాడు", "gloss": "he is playing" }
+      ],
+      "tags": ["actions", "family"],
+      "difficulty": 1
+    },
+    {
+      "id": "u03-i07",
+      "te": "ఎక్కడికి వెళ్తున్నారు?",
+      "gloss": "Where are you going?",
+      "words": [
+        { "te": "ఎక్కడికి", "gloss": "to where" },
+        { "te": "వెళ్తున్నారు", "gloss": "are (you) going (polite)" }
+      ],
+      "tags": ["actions", "questions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u03-i08",
+      "te": "నేను ఇంటికి వెళ్తున్నాను.",
+      "gloss": "I am going home.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఇంటికి", "gloss": "to home" },
+        { "te": "వెళ్తున్నాను", "gloss": "am going" }
+      ],
+      "tags": ["actions"],
+      "difficulty": 1,
+      "distractors": ["u03-i09", "u03-i07"]
+    },
+    {
+      "id": "u03-i09",
+      "te": "ఇప్పుడే వస్తున్నాను.",
+      "gloss": "I'm coming right now.",
+      "words": [
+        { "te": "ఇప్పుడే", "gloss": "right now" },
+        { "te": "వస్తున్నాను", "gloss": "am coming" }
+      ],
+      "tags": ["actions"],
+      "difficulty": 1,
+      "note": "ఇప్పుడు (ippuDu) = now; the -ే adds 'just/right': ఇప్పుడే = right now. In speech వస్తున్నాను often shortens to వస్తున్నా.",
+      "distractors": ["u03-i08", "u03-i07"]
+    },
+    {
+      "id": "u03-i10",
+      "te": "చెల్లి చదువుకుంటోంది.",
+      "gloss": "Little sister is studying.",
+      "words": [
+        { "te": "చెల్లి", "gloss": "younger sister" },
+        { "te": "చదువుకుంటోంది", "gloss": "she is studying" }
+      ],
+      "tags": ["actions", "family"],
+      "difficulty": 2
+    },
+    {
+      "id": "u03-i11",
+      "te": "నేను ఆఫీసులో పని చేస్తున్నాను.",
+      "gloss": "I am working at the office.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఆఫీసులో", "gloss": "at the office" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "చేస్తున్నాను", "gloss": "am doing" }
+      ],
+      "tags": ["actions", "work"],
+      "difficulty": 2
+    },
+    {
+      "id": "u03-i12",
+      "te": "వర్షం పడుతోంది.",
+      "gloss": "It is raining.",
+      "words": [
+        { "te": "వర్షం", "gloss": "rain" },
+        { "te": "పడుతోంది", "gloss": "is falling" }
+      ],
+      "tags": ["weather"],
+      "difficulty": 1,
+      "note": "Rain 'falls' in Telugu: వర్షం పడుతోంది, literally 'rain is falling'."
+    },
+    {
+      "id": "u03-i13",
+      "te": "ఏం వండుతున్నారు?",
+      "gloss": "What are you cooking?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "వండుతున్నారు", "gloss": "are (you) cooking (polite)" }
+      ],
+      "tags": ["actions", "food", "questions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u03-i14",
+      "te": "కూర వండుతున్నాను.",
+      "gloss": "I'm cooking curry.",
+      "words": [
+        { "te": "కూర", "gloss": "curry / vegetable dish" },
+        { "te": "వండుతున్నాను", "gloss": "am cooking" }
+      ],
+      "tags": ["actions", "food"],
+      "difficulty": 1,
+      "note": "Telugu happily drops the subject — వండుతున్నాను alone already means 'I am cooking'.",
+      "distractors": ["u03-i02", "u03-i13"]
+    },
+    {
+      "id": "u03-i15",
+      "te": "పాటలు వింటున్నాను.",
+      "gloss": "I'm listening to songs.",
+      "words": [
+        { "te": "పాటలు", "gloss": "songs" },
+        { "te": "వింటున్నాను", "gloss": "am listening" }
+      ],
+      "tags": ["actions"],
+      "difficulty": 1,
+      "distractors": ["u03-i04", "u03-i05"]
+    },
+    {
+      "id": "u03-i16",
+      "te": "అందరూ నిద్రపోతున్నారు.",
+      "gloss": "Everyone is sleeping.",
+      "words": [
+        { "te": "అందరూ", "gloss": "everyone" },
+        { "te": "నిద్రపోతున్నారు", "gloss": "are sleeping" }
+      ],
+      "tags": ["actions", "family"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "What are you doing?", "itemIds": ["u03-i01", "u03-i02", "u03-i13", "u03-i14"] },
+    { "id": "l2", "title": "Around the house", "itemIds": ["u03-i03", "u03-i04", "u03-i10"] },
+    { "id": "l3", "title": "Coming & going", "itemIds": ["u03-i07", "u03-i08", "u03-i09"] },
+    { "id": "l4", "title": "Eat, play, sleep", "itemIds": ["u03-i05", "u03-i06", "u03-i16"] },
+    { "id": "l5", "title": "Work, rain & music", "itemIds": ["u03-i11", "u03-i12", "u03-i15"] }
+  ],
+  "dialogue": {
+    "id": "u03-d1",
+    "title": "Calling home, coming home",
+    "scene": "Evening. You video-call Amma while packing up at the office — and keep chatting until you walk in the door, dinner is served, and the house finally goes quiet.",
+    "turns": [
+      { "speaker": "Amma", "itemId": "u03-i01" },
+      { "speaker": "You", "itemId": "u03-i11", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u03-i07" },
+      { "speaker": "You", "itemId": "u03-i08", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u03-i12" },
+      { "speaker": "You", "itemId": "u03-i09", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u03-i06" },
+      { "speaker": "Amma", "itemId": "u03-i10" },
+      { "speaker": "You", "itemId": "u03-i13", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u03-i14" },
+      { "speaker": "Tammudu", "itemId": "u03-i05" },
+      { "speaker": "Amma", "itemId": "u03-i04" },
+      { "speaker": "You", "itemId": "u03-i01", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u03-i15" },
+      { "speaker": "You", "itemId": "u03-i16", "userTurn": true }
+    ]
+  }
+}

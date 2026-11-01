@@ -1,0 +1,289 @@
+{
+  "id": "u59",
+  "section": 8,
+  "order": 3,
+  "title": "Explaining things",
+  "teTitle": "విడమరచి చెప్పడం",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Explain anything step by step — unpack it with అంటే ఏంటంటే, reach for an analogy, and check understanding as you go.",
+  "items": [
+    {
+      "id": "u59-i01",
+      "te": "ముందుగా ఈ యాప్ తెరవండి.",
+      "gloss": "First, open this app.",
+      "words": [
+        { "te": "ముందుగా", "gloss": "first / to begin with" },
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "యాప్", "gloss": "app" },
+        { "te": "తెరవండి", "gloss": "open (polite)" }
+      ],
+      "tags": ["explaining", "steps", "commands"],
+      "difficulty": 3,
+      "note": "ముందుగా announces step one. Chain steps with ఆ తర్వాత (then) and ఆఖరున (finally) — listeners follow numbered steps far better than a blur of instructions."
+    },
+    {
+      "id": "u59-i02",
+      "te": "ఆ తర్వాత మీ నంబర్ నొక్కండి.",
+      "gloss": "After that, type in your number.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "తర్వాత", "gloss": "after" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "నంబర్", "gloss": "number" },
+        { "te": "నొక్కండి", "gloss": "press (polite)" }
+      ],
+      "tags": ["explaining", "steps", "commands"],
+      "difficulty": 3,
+      "distractors": ["u59-i01", "u59-i11"]
+    },
+    {
+      "id": "u59-i03",
+      "te": "అంటే ఏంటంటే, ఇది డబ్బు పంపే మార్గం.",
+      "gloss": "What it means is, this is a way to send money.",
+      "words": [
+        { "te": "అంటే", "gloss": "that is" },
+        { "te": "ఏంటంటే", "gloss": "what it is, is" },
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "డబ్బు", "gloss": "money" },
+        { "te": "పంపే", "gloss": "sending (that sends)" },
+        { "te": "మార్గం", "gloss": "way / method" }
+      ],
+      "tags": ["explaining", "meaning"],
+      "difficulty": 4,
+      "note": "అంటే ఏంటంటే... is the everyday unpacking phrase — 'what that means is...'. Drop it in whenever a word or idea needs opening up."
+    },
+    {
+      "id": "u59-i04",
+      "te": "ఇక్కడ వరకు అర్థమైందా?",
+      "gloss": "Is it clear up to here?",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "వరకు", "gloss": "up to" },
+        { "te": "అర్థమైందా", "gloss": "did (it) make sense?" }
+      ],
+      "tags": ["explaining", "checking", "questions"],
+      "difficulty": 3,
+      "note": "Good explainers pause and check in chunks — ఇక్కడ వరకు అర్థమైందా? after every couple of steps, not one big 'got it?' at the end."
+    },
+    {
+      "id": "u59-i05",
+      "te": "అర్థం కాలేదు, ఇంకోసారి చెప్పండి.",
+      "gloss": "I didn't understand — please say it once more.",
+      "words": [
+        { "te": "అర్థం", "gloss": "meaning / understanding" },
+        { "te": "కాలేదు", "gloss": "didn't happen" },
+        { "te": "ఇంకోసారి", "gloss": "one more time" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["explaining", "checking"],
+      "difficulty": 3,
+      "distractors": ["u59-i04", "u59-i13"]
+    },
+    {
+      "id": "u59-i06",
+      "te": "నెమ్మదిగా చెప్తాను, కంగారు పడకండి.",
+      "gloss": "I'll explain slowly — don't panic.",
+      "words": [
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "చెప్తాను", "gloss": "I will tell" },
+        { "te": "కంగారు", "gloss": "panic / fluster" },
+        { "te": "పడకండి", "gloss": "don't fall into (polite)" }
+      ],
+      "tags": ["explaining", "reassurance"],
+      "difficulty": 3,
+      "distractors": ["u59-i05"]
+    },
+    {
+      "id": "u59-i07",
+      "te": "ఇది దాదాపు లెటర్ పంపడం లాంటిదే.",
+      "gloss": "This is almost like sending a letter.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "దాదాపు", "gloss": "almost / nearly" },
+        { "te": "లెటర్", "gloss": "letter" },
+        { "te": "పంపడం", "gloss": "sending" },
+        { "te": "లాంటిదే", "gloss": "is just like" }
+      ],
+      "tags": ["explaining", "analogy"],
+      "difficulty": 4,
+      "note": "లాంటిది means 'something like'. Analogies are the fastest bridge — attach the new thing to something the listener already knows, and the -ఏ ending (లాంటిదే) adds 'it really IS like that'."
+    },
+    {
+      "id": "u59-i08",
+      "te": "ఉదాహరణకి, నాకు వంద రూపాయలు పంపండి.",
+      "gloss": "For example, send me a hundred rupees.",
+      "words": [
+        { "te": "ఉదాహరణకి", "gloss": "for example" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "వంద", "gloss": "hundred" },
+        { "te": "రూపాయలు", "gloss": "rupees" },
+        { "te": "పంపండి", "gloss": "send (polite)" }
+      ],
+      "tags": ["explaining", "examples"],
+      "difficulty": 3,
+      "distractors": ["u59-i07", "u59-i02"]
+    },
+    {
+      "id": "u59-i09",
+      "te": "మీరు చేయండి, నేను పక్కనే ఉంటాను.",
+      "gloss": "You do it — I'll be right beside you.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "చేయండి", "gloss": "do (polite)" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "పక్కనే", "gloss": "right beside" },
+        { "te": "ఉంటాను", "gloss": "will be" }
+      ],
+      "tags": ["explaining", "reassurance"],
+      "difficulty": 3,
+      "distractors": ["u59-i12"]
+    },
+    {
+      "id": "u59-i10",
+      "te": "ఒక్క స్టెప్ కూడా వదలకుండా చెప్పండి.",
+      "gloss": "Explain it without skipping a single step.",
+      "words": [
+        { "te": "ఒక్క", "gloss": "a single" },
+        { "te": "స్టెప్", "gloss": "step" },
+        { "te": "కూడా", "gloss": "even" },
+        { "te": "వదలకుండా", "gloss": "without leaving out" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["explaining", "requests"],
+      "difficulty": 4
+    },
+    {
+      "id": "u59-i11",
+      "te": "ఆఖరున ఈ పచ్చ బటన్ నొక్కాలి.",
+      "gloss": "At the end, you have to press this green button.",
+      "words": [
+        { "te": "ఆఖరున", "gloss": "at the end / finally" },
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "పచ్చ", "gloss": "green" },
+        { "te": "బటన్", "gloss": "button" },
+        { "te": "నొక్కాలి", "gloss": "must press" }
+      ],
+      "tags": ["explaining", "steps"],
+      "difficulty": 3,
+      "distractors": ["u59-i02", "u59-i01"]
+    },
+    {
+      "id": "u59-i12",
+      "te": "ఇప్పుడు మీకే అర్థమవుతుంది, చూడండి.",
+      "gloss": "Now you'll understand it yourself — watch.",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "మీకే", "gloss": "to you yourself" },
+        { "te": "అర్థమవుతుంది", "gloss": "will become clear" },
+        { "te": "చూడండి", "gloss": "see (polite)" }
+      ],
+      "tags": ["explaining", "reassurance"],
+      "difficulty": 3
+    },
+    {
+      "id": "u59-i13",
+      "te": "అమ్మో, ఇది చాలా సులభమే!",
+      "gloss": "Oh my — this is really easy!",
+      "words": [
+        { "te": "అమ్మో", "gloss": "oh my! (surprise)" },
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "సులభమే", "gloss": "is indeed easy" }
+      ],
+      "tags": ["explaining", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u59-i12"]
+    },
+    {
+      "id": "u59-i14",
+      "te": "మర్చిపోతే మళ్ళీ నన్ను అడగండి.",
+      "gloss": "If you forget, ask me again.",
+      "words": [
+        { "te": "మర్చిపోతే", "gloss": "if (you) forget" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "అడగండి", "gloss": "ask (polite)" }
+      ],
+      "tags": ["explaining", "reassurance"],
+      "difficulty": 3,
+      "distractors": ["u59-i05"]
+    },
+    {
+      "id": "u59-i15",
+      "te": "క్లుప్తంగా చెప్పాలంటే, ఫోనే మీ బ్యాంకు.",
+      "gloss": "To put it briefly, your phone IS your bank.",
+      "words": [
+        { "te": "క్లుప్తంగా", "gloss": "briefly / in short" },
+        { "te": "చెప్పాలంటే", "gloss": "if one must say" },
+        { "te": "ఫోనే", "gloss": "the phone itself" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "బ్యాంకు", "gloss": "bank" }
+      ],
+      "tags": ["explaining", "meaning"],
+      "difficulty": 4,
+      "note": "క్లుప్తంగా చెప్పాలంటే = 'to put it in short'. End every explanation with a one-line summary — it is what people remember."
+    },
+    {
+      "id": "u59-i16",
+      "te": "మీకు అర్థమైనట్టు నాకు చెప్పండి.",
+      "gloss": "Tell it back to me the way you understood it.",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "అర్థమైనట్టు", "gloss": "as (it) was understood" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["explaining", "checking"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Step by step",
+      "itemIds": ["u59-i01", "u59-i02", "u59-i11", "u59-i10"]
+    },
+    {
+      "id": "l2",
+      "title": "What it means",
+      "itemIds": ["u59-i03", "u59-i07", "u59-i15"]
+    },
+    {
+      "id": "l3",
+      "title": "Did you get it?",
+      "itemIds": ["u59-i04", "u59-i05", "u59-i16"]
+    },
+    {
+      "id": "l4",
+      "title": "Gentle teaching",
+      "itemIds": ["u59-i06", "u59-i09", "u59-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Easy after all",
+      "itemIds": ["u59-i08", "u59-i13", "u59-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u59-d1",
+    "title": "Teaching attayya to send money by phone",
+    "scene": "Sunday afternoon. Your attayya wants to learn phone payments before the vegetable seller stops taking cash. She hands you her phone, half excited, half terrified.",
+    "turns": [
+      { "speaker": "Attayya", "itemId": "u59-i10" },
+      { "speaker": "You", "itemId": "u59-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i03", "userTurn": true },
+      { "speaker": "Attayya", "itemId": "u59-i05" },
+      { "speaker": "You", "itemId": "u59-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i04", "userTurn": true },
+      { "speaker": "Attayya", "itemId": "u59-i13" },
+      { "speaker": "You", "itemId": "u59-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i11", "userTurn": true },
+      { "speaker": "You", "itemId": "u59-i14", "userTurn": true },
+      { "speaker": "Attayya", "itemId": "u59-i15" }
+    ]
+  }
+}

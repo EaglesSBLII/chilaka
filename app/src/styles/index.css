@@ -1,0 +1,205 @@
+@import 'tailwindcss';
+
+/* Semantic tokens — light + dark. Utilities reference the vars, so dark mode
+   is a pure variable swap. */
+:root {
+  --c-bg: #fff8ed;
+  --c-card: #ffffff;
+  --c-ink: #26221c;
+  --c-ink-soft: #6f6553;
+  --c-line: #ede4d3;
+  --c-marigold: #f5a623;
+  --c-marigold-dark: #cf8a12;
+  --c-teal: #0e6b63;
+  --c-teal-dark: #0a4f49;
+  --c-teal-soft: #e3f2f0;
+  --c-flame: #ff5c39;
+  --c-success: #3cb46e;
+  --c-success-dark: #2e9158;
+  --c-success-soft: #e7f6ee;
+  --c-error: #e4536b;
+  --c-error-dark: #c23752;
+  --c-error-soft: #fdecef;
+  --c-locked: #d8cfc0;
+  --c-amber-soft: #fdf3dd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #1c1915;
+    --c-card: #282420;
+    --c-ink: #f2ead9;
+    --c-ink-soft: #b0a48d;
+    --c-line: #3a342c;
+    --c-teal: #17a196;
+    --c-teal-dark: #0e6b63;
+    --c-teal-soft: #1e2f2d;
+    --c-success-soft: #1f322a;
+    --c-error-soft: #392228;
+    --c-locked: #4a4338;
+    --c-amber-soft: #33291a;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-card: var(--c-card);
+  --color-ink: var(--c-ink);
+  --color-ink-soft: var(--c-ink-soft);
+  --color-line: var(--c-line);
+  --color-marigold: var(--c-marigold);
+  --color-marigold-dark: var(--c-marigold-dark);
+  --color-teal: var(--c-teal);
+  --color-teal-dark: var(--c-teal-dark);
+  --color-teal-soft: var(--c-teal-soft);
+  --color-flame: var(--c-flame);
+  --color-success: var(--c-success);
+  --color-success-dark: var(--c-success-dark);
+  --color-success-soft: var(--c-success-soft);
+  --color-error: var(--c-error);
+  --color-error-dark: var(--c-error-dark);
+  --color-error-soft: var(--c-error-soft);
+  --color-locked: var(--c-locked);
+  --color-amber-soft: var(--c-amber-soft);
+  --font-display: 'Avenir Next Rounded', 'Arial Rounded MT Bold', 'Nunito', ui-rounded, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html {
+  background: var(--c-bg);
+  /* the page scrolls up/down only — never side to side (iPhone pan lock) */
+  overflow-x: hidden;
+}
+
+/* body must stay transparent: an opaque body background would paint OVER
+   negative-z-index fixed children (the full-screen jungle backdrop). */
+body {
+  background: transparent;
+  color: var(--c-ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  max-width: 100vw;
+  /* vertical panning + taps only; kills sideways rubber-banding on iOS */
+  touch-action: pan-y;
+}
+
+/* Telugu script gets a touch more line-height to breathe */
+.te-script {
+  line-height: 1.6;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-marigold) 40%, transparent);
+}
+
+/* Jungle scenery: gentle in light mode, dimmed + desaturated in dark mode so
+   the trail keeps contrast. */
+.jungle-svg {
+  opacity: 0.75;
+}
+
+@media (prefers-color-scheme: dark) {
+  .jungle-svg {
+    opacity: 0.3;
+    filter: saturate(0.7) brightness(0.75);
+  }
+}
+
+/* fireflies + butterfly for the full-screen jungle */
+.firefly {
+  position: absolute;
+  border-radius: 9999px;
+  background: #ffd75e;
+  box-shadow: 0 0 8px 3px rgba(255, 215, 94, 0.55);
+  animation: firefly-drift linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes firefly-drift {
+  0% { transform: translate(0, 0); opacity: 0.15; }
+  25% { opacity: 0.9; }
+  50% { transform: translate(26px, -34px); opacity: 0.35; }
+  75% { opacity: 0.9; }
+  100% { transform: translate(-12px, 10px); opacity: 0.15; }
+}
+
+.butterfly {
+  position: absolute;
+  top: 22%;
+  left: -30px;
+  width: 26px;
+  height: 26px;
+  animation: butterfly-cross linear infinite;
+}
+
+@keyframes butterfly-cross {
+  0% { transform: translate(0, 0) rotate(8deg); }
+  20% { transform: translate(24vw, -34px) rotate(-6deg); }
+  40% { transform: translate(46vw, 12px) rotate(10deg); }
+  60% { transform: translate(66vw, -26px) rotate(-8deg); }
+  80% { transform: translate(84vw, 6px) rotate(6deg); }
+  100% { transform: translate(110vw, -18px) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .firefly,
+  .butterfly {
+    animation: none;
+    opacity: 0.3;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pop {
+  animation: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(2deg);
+  }
+}
+
+.animate-flame {
+  animation: flame-flicker 1.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* update banner: sliding indeterminate bar */
+@keyframes update-slide {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
+.update-bar-indeterminate {
+  animation: update-slide 1.4s ease-in-out infinite;
+}
+
+/* record button: kill iOS long-press selection/callout on the mic emoji */
+.no-callout {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@chilaka/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chilaka — learn to speak Telugu",
+  "main": "src/main.js",
+  "author": "Chilaka",
+  "scripts": {
+    "start": "electron .",
+    "predist": "rm -rf web && cp -R ../app/dist web",
+    "dist": "electron-builder --mac dmg --arm64",
+    "smoke": "playwright test tests/smoke.spec.mjs"
+  },
+  "dependencies": {
+    "sherpa-onnx-node": "^1.12.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

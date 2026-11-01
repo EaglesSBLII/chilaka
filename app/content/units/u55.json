@@ -1,0 +1,290 @@
+{
+  "id": "u55",
+  "section": 7,
+  "order": 7,
+  "title": "Mixing it up",
+  "teTitle": "కలిపి మాట్లాడుడు",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "Telugu, English and Urdu in one breath — how Hyderabadis really talk, and when to dial the mixing down.",
+  "items": [
+    {
+      "id": "u55-i01",
+      "te": "టైం లేదు యార్, జల్దీ రా.",
+      "gloss": "No time yaar, come quickly.",
+      "words": [
+        { "te": "టైం", "gloss": "time (English)" },
+        { "te": "లేదు", "gloss": "there isn't" },
+        { "te": "యార్", "gloss": "yaar (Urdu)" },
+        { "te": "జల్దీ", "gloss": "quickly (Urdu)" },
+        { "te": "రా", "gloss": "come (casual)" }
+      ],
+      "tags": ["mixing", "flavor"],
+      "difficulty": 2,
+      "note": "One sentence, three languages: English టైం, Urdu యార్ and జల్దీ, Telugu grammar holding it together. This is normal Hyderabad speech, not laziness.",
+      "distractors": ["u55-i04", "u55-i09"]
+    },
+    {
+      "id": "u55-i02",
+      "te": "సీరియస్గా చెప్తున్నా రా.",
+      "gloss": "I'm telling you seriously, ra.",
+      "words": [
+        { "te": "సీరియస్గా", "gloss": "seriously" },
+        { "te": "చెప్తున్నా", "gloss": "I'm telling (casual)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["mixing", "flavor"],
+      "difficulty": 2,
+      "note": "Telugu -గా glues onto English words without asking permission: సీరియస్గా, ఫ్రీగా, స్లోగా. That's how borrowing works here."
+    },
+    {
+      "id": "u55-i03",
+      "te": "టెన్షన్ నక్కో, సెటిల్ అవుతది.",
+      "gloss": "No tension, it'll get settled.",
+      "words": [
+        { "te": "టెన్షన్", "gloss": "tension" },
+        { "te": "నక్కో", "gloss": "no / don't (Hyderabadi)" },
+        { "te": "సెటిల్", "gloss": "settled" },
+        { "te": "అవుతది", "gloss": "will become (Telangana)" }
+      ],
+      "tags": ["mixing", "flavor"],
+      "difficulty": 3,
+      "note": "అవుతది = Telangana for standard అవుతుంది. English టెన్షన్ + Dakhni నక్కో + Telangana verb — a full Hyderabadi comfort sentence.",
+      "distractors": ["u55-i13", "u55-i01"]
+    },
+    {
+      "id": "u55-i04",
+      "te": "ఫోన్ చెయ్, లేట్ అవుతుంది.",
+      "gloss": "Call me, it's getting late.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చెయ్", "gloss": "do (casual)" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అవుతుంది", "gloss": "it becomes" }
+      ],
+      "tags": ["mixing", "plans"],
+      "difficulty": 2,
+      "distractors": ["u55-i09", "u55-i01"]
+    },
+    {
+      "id": "u55-i05",
+      "te": "ఇంట్లో మాత్రం మంచి తెలుగు మాట్లాడు.",
+      "gloss": "At home though, speak good Telugu.",
+      "words": [
+        { "te": "ఇంట్లో", "gloss": "at home" },
+        { "te": "మాత్రం", "gloss": "however / at least" },
+        { "te": "మంచి", "gloss": "good" },
+        { "te": "తెలుగు", "gloss": "Telugu" },
+        { "te": "మాట్లాడు", "gloss": "speak" }
+      ],
+      "tags": ["mixing", "register"],
+      "difficulty": 3,
+      "note": "The register rule: street mixing is fine with friends, but many elders expect cleaner Telugu at home. Reading the room is part of the language."
+    },
+    {
+      "id": "u55-i06",
+      "te": "తాతయ్య ముందు ఇంగ్లీష్ నక్కో.",
+      "gloss": "No English in front of grandpa.",
+      "words": [
+        { "te": "తాతయ్య", "gloss": "grandpa" },
+        { "te": "ముందు", "gloss": "in front of" },
+        { "te": "ఇంగ్లీష్", "gloss": "English" },
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" }
+      ],
+      "tags": ["mixing", "register"],
+      "difficulty": 3,
+      "distractors": ["u55-i05", "u55-i15"]
+    },
+    {
+      "id": "u55-i07",
+      "te": "ఆఫీసులో ఫుల్ ఇంగ్లీషే రా.",
+      "gloss": "At the office it's all English, ra.",
+      "words": [
+        { "te": "ఆఫీసులో", "gloss": "at the office" },
+        { "te": "ఫుల్", "gloss": "fully" },
+        { "te": "ఇంగ్లీషే", "gloss": "only English" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["mixing", "register"],
+      "difficulty": 3,
+      "note": "The -ఏ emphasis suffix: ఇంగ్లీషే = 'English only'. The city code-switches by place: office English, street mix, home Telugu."
+    },
+    {
+      "id": "u55-i08",
+      "te": "మూడు భాషలు కలుస్తయ్ ఇక్కడ.",
+      "gloss": "Three languages meet here.",
+      "words": [
+        { "te": "మూడు", "gloss": "three" },
+        { "te": "భాషలు", "gloss": "languages" },
+        { "te": "కలుస్తయ్", "gloss": "meet / mix (Telangana)" },
+        { "te": "ఇక్కడ", "gloss": "here" }
+      ],
+      "tags": ["mixing", "culture"],
+      "difficulty": 4,
+      "note": "కలుస్తయ్ = Telangana for standard కలుస్తాయి. Telugu, Dakhni Urdu and English have shared Hyderabad for four centuries — the mix is the heritage."
+    },
+    {
+      "id": "u55-i09",
+      "te": "ఖాలీగా ఉంటే మెసేజ్ చెయ్.",
+      "gloss": "If you're free, message me.",
+      "words": [
+        { "te": "ఖాలీగా", "gloss": "free / idle (Urdu khaali)" },
+        { "te": "ఉంటే", "gloss": "if you are" },
+        { "te": "మెసేజ్", "gloss": "message" },
+        { "te": "చెయ్", "gloss": "do (casual)" }
+      ],
+      "tags": ["mixing", "plans"],
+      "difficulty": 3,
+      "note": "ఖాలీ (khaali, Urdu 'empty') = free / not busy. Standard Telugu: తీరికగా ఉంటే. ఖాలీగా ఉన్నావా? is the standard Hyderabad availability check.",
+      "distractors": ["u55-i04", "u50-i11"]
+    },
+    {
+      "id": "u55-i10",
+      "te": "అమ్మ అంటది, తెలుగులో మాట్లాడు అని.",
+      "gloss": "Mom says, speak in Telugu.",
+      "words": [
+        { "te": "అమ్మ", "gloss": "mom" },
+        { "te": "అంటది", "gloss": "says (Telangana)" },
+        { "te": "తెలుగులో", "gloss": "in Telugu" },
+        { "te": "మాట్లాడు", "gloss": "speak" },
+        { "te": "అని", "gloss": "that (quotative)" }
+      ],
+      "tags": ["mixing", "register"],
+      "difficulty": 4,
+      "note": "అంటది = Telangana for standard అంటుంది. The little word అని closes a quote — 'X అని అంటది' = she says X."
+    },
+    {
+      "id": "u55-i11",
+      "te": "డన్ మామా, రేపు కలుద్దాం.",
+      "gloss": "Done mama, let's meet tomorrow.",
+      "words": [
+        { "te": "డన్", "gloss": "done" },
+        { "te": "మామా", "gloss": "mama (dude)" },
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["mixing", "plans"],
+      "difficulty": 2,
+      "distractors": ["u55-i12", "u55-i13"]
+    },
+    {
+      "id": "u55-i12",
+      "te": "ఈ ప్లాన్ ఫిక్స్ చేద్దాం రా.",
+      "gloss": "Let's fix this plan, ra.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ప్లాన్", "gloss": "plan" },
+        { "te": "ఫిక్స్", "gloss": "fix / finalize" },
+        { "te": "చేద్దాం", "gloss": "let's do" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["mixing", "plans"],
+      "difficulty": 3,
+      "note": "ఫిక్స్ చెయ్ = finalize. English verbs enter Telugu through చెయ్ (do): ఫిక్స్ చెయ్, అడ్జస్ట్ చెయ్, ట్రై చెయ్."
+    },
+    {
+      "id": "u55-i13",
+      "te": "పర్వాలేదు యార్, నెక్స్ట్ టైం చూద్దాం.",
+      "gloss": "No problem yaar, we'll see next time.",
+      "words": [
+        { "te": "పర్వాలేదు", "gloss": "no problem" },
+        { "te": "యార్", "gloss": "yaar (friend)" },
+        { "te": "నెక్స్ట్", "gloss": "next" },
+        { "te": "టైం", "gloss": "time" },
+        { "te": "చూద్దాం", "gloss": "let's see" }
+      ],
+      "tags": ["mixing", "plans"],
+      "difficulty": 3
+    },
+    {
+      "id": "u55-i14",
+      "te": "హైదరాబాదీ మాటల్లో ఉర్దూ కలుస్తది.",
+      "gloss": "Urdu mixes into Hyderabadi speech.",
+      "words": [
+        { "te": "హైదరాబాదీ", "gloss": "Hyderabadi" },
+        { "te": "మాటల్లో", "gloss": "in the words / speech" },
+        { "te": "ఉర్దూ", "gloss": "Urdu" },
+        { "te": "కలుస్తది", "gloss": "mixes (Telangana)" }
+      ],
+      "tags": ["mixing", "culture"],
+      "difficulty": 4,
+      "note": "కలుస్తది = Telangana for కలుస్తుంది. All the flavor words you've learned — హౌ, నక్కో, కైకు, జల్దీ, ఖాలీ — walked in from Dakhni Urdu."
+    },
+    {
+      "id": "u55-i15",
+      "te": "పెద్దవాళ్ల ముందు మిక్సింగ్ తగ్గించు.",
+      "gloss": "Reduce the mixing in front of elders.",
+      "words": [
+        { "te": "పెద్దవాళ్ల", "gloss": "elders'" },
+        { "te": "ముందు", "gloss": "in front of" },
+        { "te": "మిక్సింగ్", "gloss": "mixing" },
+        { "te": "తగ్గించు", "gloss": "reduce" }
+      ],
+      "tags": ["mixing", "register"],
+      "difficulty": 4,
+      "note": "With elders, swap the slang back: హౌ becomes అవును, నక్కో becomes వద్దు, కైకు becomes ఎందుకు. Same city, softer register.",
+      "distractors": ["u55-i06", "u55-i05"]
+    },
+    {
+      "id": "u55-i16",
+      "te": "మాటలు కలిపితేనే హైదరాబాదీ స్టైల్.",
+      "gloss": "Mixing words IS the Hyderabadi style.",
+      "words": [
+        { "te": "మాటలు", "gloss": "words" },
+        { "te": "కలిపితేనే", "gloss": "only if (you) mix" },
+        { "te": "హైదరాబాదీ", "gloss": "Hyderabadi" },
+        { "te": "స్టైల్", "gloss": "style" }
+      ],
+      "tags": ["mixing", "culture"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Everyday mixing",
+      "itemIds": ["u55-i01", "u55-i02", "u55-i04", "u55-i09"]
+    },
+    {
+      "id": "l2",
+      "title": "Chill, it'll settle",
+      "itemIds": ["u55-i03", "u55-i13", "u55-i11"]
+    },
+    {
+      "id": "l3",
+      "title": "Three languages, one city",
+      "itemIds": ["u55-i08", "u55-i14", "u55-i16"]
+    },
+    {
+      "id": "l4",
+      "title": "With the elders",
+      "itemIds": ["u55-i05", "u55-i06", "u55-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Fixing the plan",
+      "itemIds": ["u55-i07", "u55-i10", "u55-i12"]
+    }
+  ],
+  "dialogue": {
+    "id": "u55-d1",
+    "title": "Grandpa and the language police",
+    "scene": "You drop by Meghana's house to plan a weekend trip. Mid-mix, her grandpa walks in — instant register switch. He turns out to be the biggest fan of Hyderabad's three-language jugalbandi.",
+    "turns": [
+      { "speaker": "Meghana", "itemId": "u55-i01" },
+      { "speaker": "You", "itemId": "u55-i03", "userTurn": true },
+      { "speaker": "Meghana", "itemId": "u55-i12" },
+      { "speaker": "You", "itemId": "u55-i02", "userTurn": true },
+      { "speaker": "Meghana", "itemId": "u55-i06" },
+      { "speaker": "Grandpa", "itemId": "u55-i05" },
+      { "speaker": "You", "itemId": "u55-i10", "userTurn": true },
+      { "speaker": "Grandpa", "itemId": "u55-i08" },
+      { "speaker": "You", "itemId": "u55-i14", "userTurn": true },
+      { "speaker": "Meghana", "itemId": "u55-i16" },
+      { "speaker": "Grandpa", "itemId": "u55-i15" },
+      { "speaker": "You", "itemId": "u55-i11", "userTurn": true },
+      { "speaker": "Meghana", "itemId": "u55-i09" },
+      { "speaker": "You", "itemId": "u55-i04", "userTurn": true }
+    ]
+  }
+}

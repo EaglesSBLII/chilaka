@@ -1,0 +1,286 @@
+{
+  "id": "u56",
+  "section": 7,
+  "order": 8,
+  "title": "Old city day",
+  "teTitle": "పాతబస్తీలో ఒక రోజు",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "A full day in the purani sheher — Charminar photos, biryani debates, pearls, Laad Bazaar bangles and Irani chai, all in old-city Hyderabadi.",
+  "items": [
+    {
+      "id": "u56-i01",
+      "te": "పురానీ షెహర్ పోదాం రా.",
+      "gloss": "Let's go to the old city, ra.",
+      "words": [
+        { "te": "పురానీ", "gloss": "old (Urdu)" },
+        { "te": "షెహర్", "gloss": "city (Urdu)" },
+        { "te": "పోదాం", "gloss": "let's go" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["oldcity", "plans"],
+      "difficulty": 3,
+      "note": "పురానీ షెహర్ (purani sheher, Urdu) is what Hyderabadis call the old city around Charminar. Standard Telugu: పాత నగరం — locals also say పాతబస్తీ."
+    },
+    {
+      "id": "u56-i02",
+      "te": "చార్మినార్ దగ్గర దిగుదాం.",
+      "gloss": "Let's get down near Charminar.",
+      "words": [
+        { "te": "చార్మినార్", "gloss": "Charminar" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "దిగుదాం", "gloss": "let's get down" }
+      ],
+      "tags": ["oldcity", "travel"],
+      "difficulty": 2
+    },
+    {
+      "id": "u56-i03",
+      "te": "బిర్యానీ ఎక్కడ బెస్ట్ రా?",
+      "gloss": "Where is the biryani best, ra?",
+      "words": [
+        { "te": "బిర్యానీ", "gloss": "biryani" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "బెస్ట్", "gloss": "best" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "distractors": ["u56-i04", "u56-i13"]
+    },
+    {
+      "id": "u56-i04",
+      "te": "మా గల్లీ బిర్యానీనే బెస్ట్.",
+      "gloss": "Our lane's biryani is the best.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "గల్లీ", "gloss": "lane (Urdu)" },
+        { "te": "బిర్యానీనే", "gloss": "biryani itself" },
+        { "te": "బెస్ట్", "gloss": "best" }
+      ],
+      "tags": ["food", "opinions"],
+      "difficulty": 3,
+      "note": "గల్లీ (galli, Urdu) = lane / small street. Standard Telugu: సందు or వీధి. Every Hyderabadi swears their own galli's biryani is the best — never argue.",
+      "distractors": ["u56-i03", "u56-i15"]
+    },
+    {
+      "id": "u56-i05",
+      "te": "హలీమ్ సీజన్ వచ్చింది భయ్.",
+      "gloss": "Haleem season has come, bhai.",
+      "words": [
+        { "te": "హలీమ్", "gloss": "haleem" },
+        { "te": "సీజన్", "gloss": "season" },
+        { "te": "వచ్చింది", "gloss": "has come" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["food", "smalltalk"],
+      "difficulty": 3,
+      "note": "భయ్ (bhai, Urdu) = brother, the default friendly address in the old city — standard Telugu: అన్నా. Haleem appears only around Ramzan, and season talk starts weeks early.",
+      "distractors": ["u56-i06", "u56-i13"]
+    },
+    {
+      "id": "u56-i06",
+      "te": "హలీమ్ రంజాన్ టైంలోనే వస్తది.",
+      "gloss": "Haleem comes only during Ramzan time.",
+      "words": [
+        { "te": "హలీమ్", "gloss": "haleem" },
+        { "te": "రంజాన్", "gloss": "Ramzan" },
+        { "te": "టైంలోనే", "gloss": "only during the time" },
+        { "te": "వస్తది", "gloss": "it comes (Telangana)" }
+      ],
+      "tags": ["food", "flavor"],
+      "difficulty": 4,
+      "note": "వస్తది is Telangana for 'it comes' — standard Telugu: వస్తుంది. Same pattern everywhere: ఉంటది for ఉంటుంది, చేస్తది for చేస్తుంది.",
+      "distractors": ["u56-i05", "u56-i16"]
+    },
+    {
+      "id": "u56-i07",
+      "te": "లాడ్ బజార్లో గాజులు కొందాం.",
+      "gloss": "Let's buy bangles in Laad Bazaar.",
+      "words": [
+        { "te": "లాడ్", "gloss": "Laad" },
+        { "te": "బజార్లో", "gloss": "in the bazaar" },
+        { "te": "గాజులు", "gloss": "bangles" },
+        { "te": "కొందాం", "gloss": "let's buy" }
+      ],
+      "tags": ["shopping", "oldcity"],
+      "difficulty": 3
+    },
+    {
+      "id": "u56-i08",
+      "te": "ఈ గాజులు ఎంతకిస్తవ్?",
+      "gloss": "For how much will you give these bangles?",
+      "words": [
+        { "te": "ఈ", "gloss": "these" },
+        { "te": "గాజులు", "gloss": "bangles" },
+        { "te": "ఎంతకిస్తవ్", "gloss": "for how much will you give (Telangana)" }
+      ],
+      "tags": ["shopping", "questions"],
+      "difficulty": 4,
+      "note": "ఎంతకిస్తవ్ = ఎంతకి + ఇస్తవ్, 'for how much will you give?' The clipped -వ్ ending is pure Telangana — standard Telugu: ఎంతకి ఇస్తావు?",
+      "distractors": ["u56-i10", "u56-i11"]
+    },
+    {
+      "id": "u56-i09",
+      "te": "ముత్యాలు ఇక్కడనే తీస్కో.",
+      "gloss": "Buy pearls right here.",
+      "words": [
+        { "te": "ముత్యాలు", "gloss": "pearls" },
+        { "te": "ఇక్కడనే", "gloss": "right here" },
+        { "te": "తీస్కో", "gloss": "take / buy (colloquial)" }
+      ],
+      "tags": ["shopping", "oldcity"],
+      "difficulty": 3,
+      "note": "తీస్కో is the clipped colloquial of standard తీసుకో ('take'). Hyderabad is the city of pearls — the pearl shops run along Pathergatti near Charminar."
+    },
+    {
+      "id": "u56-i10",
+      "te": "అస్లీ ముత్యాలా ఇవి?",
+      "gloss": "Are these genuine pearls?",
+      "words": [
+        { "te": "అస్లీ", "gloss": "genuine (Urdu)" },
+        { "te": "ముత్యాలా", "gloss": "pearls? (question)" },
+        { "te": "ఇవి", "gloss": "these" }
+      ],
+      "tags": ["shopping", "questions"],
+      "difficulty": 4,
+      "note": "అస్లీ (asli, Urdu) = genuine / the real thing. Standard Telugu: అసలైన or నిజమైన. Ask this before you pay pearl prices.",
+      "distractors": ["u56-i09", "u56-i08"]
+    },
+    {
+      "id": "u56-i11",
+      "te": "రేట్ జర జాస్తీ ఉంది.",
+      "gloss": "The rate is a bit too much.",
+      "words": [
+        { "te": "రేట్", "gloss": "rate / price" },
+        { "te": "జర", "gloss": "a little (Telangana)" },
+        { "te": "జాస్తీ", "gloss": "too much (Urdu)" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["shopping", "flavor"],
+      "difficulty": 4,
+      "note": "Two flavor words at once: జర = 'a little' (standard కొంచెం) and జాస్తీ (Dakhni, from Urdu zyaada) = 'more / too much' (standard ఎక్కువ).",
+      "distractors": ["u56-i12", "u56-i08"]
+    },
+    {
+      "id": "u56-i12",
+      "te": "జర కమ్తీ చెయ్ భయ్.",
+      "gloss": "Reduce it a little, bhai.",
+      "words": [
+        { "te": "జర", "gloss": "a little (Telangana)" },
+        { "te": "కమ్తీ", "gloss": "less (Dakhni)" },
+        { "te": "చెయ్", "gloss": "make / do (casual)" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["shopping", "flavor"],
+      "difficulty": 4,
+      "note": "కమ్తీ (kamti, Dakhni) = less. జర కమ్తీ చెయ్ = 'knock it down a little' — standard Telugu: కొంచెం తగ్గించు. The essential Laad Bazaar bargaining line.",
+      "distractors": ["u56-i11", "u56-i05"]
+    },
+    {
+      "id": "u56-i13",
+      "te": "ఇరానీ చాయ్ ఒకటి తాగుదాం.",
+      "gloss": "Let's drink one Irani chai.",
+      "words": [
+        { "te": "ఇరానీ", "gloss": "Irani" },
+        { "te": "చాయ్", "gloss": "chai (Urdu)" },
+        { "te": "ఒకటి", "gloss": "one" },
+        { "te": "తాగుదాం", "gloss": "let's drink" }
+      ],
+      "tags": ["food", "oldcity"],
+      "difficulty": 3,
+      "note": "ఇరానీ చాయ్ with Osmania biscuits is the old-city ritual. చాయ్ (Urdu) is what everyone says — standard Telugu టీ sounds oddly formal here."
+    },
+    {
+      "id": "u56-i14",
+      "te": "చార్మినార్ ముందు ఫోటో తీద్దాం.",
+      "gloss": "Let's take a photo in front of Charminar.",
+      "words": [
+        { "te": "చార్మినార్", "gloss": "Charminar" },
+        { "te": "ముందు", "gloss": "in front of" },
+        { "te": "ఫోటో", "gloss": "photo" },
+        { "te": "తీద్దాం", "gloss": "let's take" }
+      ],
+      "tags": ["oldcity", "plans"],
+      "difficulty": 2
+    },
+    {
+      "id": "u56-i15",
+      "te": "మస్త్ ఉంది రా ఈ జాగా.",
+      "gloss": "This place is great, ra.",
+      "words": [
+        { "te": "మస్త్", "gloss": "great (Dakhni)" },
+        { "te": "ఉంది", "gloss": "is" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "జాగా", "gloss": "place (Dakhni)" }
+      ],
+      "tags": ["flavor", "opinions"],
+      "difficulty": 3,
+      "note": "మస్త్ (mast, Dakhni) = great / awesome — standard Telugu: చాలా బాగుంది. జాగా = place, standard చోటు or స్థలం. Both are everyday Hyderabadi."
+    },
+    {
+      "id": "u56-i16",
+      "te": "పొద్దుగూకే దాకా తిరుగుదాం.",
+      "gloss": "Let's roam around till sunset.",
+      "words": [
+        { "te": "పొద్దుగూకే", "gloss": "the sun setting (Telangana)" },
+        { "te": "దాకా", "gloss": "until" },
+        { "te": "తిరుగుదాం", "gloss": "let's roam" }
+      ],
+      "tags": ["plans", "flavor"],
+      "difficulty": 4,
+      "note": "పొద్దుగూకు = sunset in Telangana Telugu (పొద్దు 'sun' + గూకు 'sets'). Standard Telugu would say సాయంత్రం అయ్యే వరకు."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Into the old city",
+      "itemIds": ["u56-i01", "u56-i02", "u56-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "Biryani & haleem",
+      "itemIds": ["u56-i03", "u56-i04", "u56-i05", "u56-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Bangles & bargaining",
+      "itemIds": ["u56-i07", "u56-i08", "u56-i12"]
+    },
+    {
+      "id": "l4",
+      "title": "Pearl talk",
+      "itemIds": ["u56-i09", "u56-i10", "u56-i11"]
+    },
+    {
+      "id": "l5",
+      "title": "Chai & chill",
+      "itemIds": ["u56-i13", "u56-i15", "u56-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u56-d1",
+    "title": "A day around Charminar",
+    "scene": "A Sunday with your friend Imran in the purani sheher — down at Charminar, arguing about biryani, bargaining for bangles and pearls in Laad Bazaar, and ending with Irani chai.",
+    "turns": [
+      { "speaker": "Imran", "itemId": "u56-i01" },
+      { "speaker": "You", "itemId": "u56-i02", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i14" },
+      { "speaker": "You", "itemId": "u56-i03", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i04" },
+      { "speaker": "Imran", "itemId": "u56-i05" },
+      { "speaker": "You", "itemId": "u56-i06", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i07" },
+      { "speaker": "You", "itemId": "u56-i08", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u56-i09" },
+      { "speaker": "You", "itemId": "u56-i10", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i11" },
+      { "speaker": "You", "itemId": "u56-i12", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i13" },
+      { "speaker": "You", "itemId": "u56-i15", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u56-i16" }
+    ]
+  }
+}

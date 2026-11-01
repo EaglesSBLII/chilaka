@@ -1,0 +1,270 @@
+{
+  "id": "u31",
+  "section": 4,
+  "order": 7,
+  "title": "Plans with friends",
+  "teTitle": "స్నేహితులతో ప్లాన్స్",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Invite a friend out, fix a time and place, cancel gracefully, and survive being late.",
+  "items": [
+    {
+      "id": "u31-i01",
+      "te": "రేపు సినిమాకి వెళ్దామా?",
+      "gloss": "Shall we go to a movie tomorrow?",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "సినిమాకి", "gloss": "to a movie" },
+        { "te": "వెళ్దామా", "gloss": "shall we go?" }
+      ],
+      "tags": ["plans", "questions"],
+      "difficulty": 2,
+      "note": "-దామా (-daamaa) is THE inviting ending: వెళ్దామా (shall we go?), తిందామా (shall we eat?), కలుద్దామా (shall we meet?).",
+      "distractors": ["u31-i02", "u31-i14"]
+    },
+    {
+      "id": "u31-i02",
+      "te": "సాయంత్రం ఫ్రీగా ఉన్నారా?",
+      "gloss": "Are you free in the evening?",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "evening" },
+        { "te": "ఫ్రీగా", "gloss": "free" },
+        { "te": "ఉన్నారా", "gloss": "are you?" }
+      ],
+      "tags": ["plans", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u31-i03",
+      "te": "ఎన్ని గంటలకి కలుద్దాం?",
+      "gloss": "At what time shall we meet?",
+      "words": [
+        { "te": "ఎన్ని", "gloss": "how many" },
+        { "te": "గంటలకి", "gloss": "at (the) hours" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["plans", "time", "questions"],
+      "difficulty": 2,
+      "distractors": ["u31-i04", "u31-i15"]
+    },
+    {
+      "id": "u31-i04",
+      "te": "ఆరు గంటలకి కలుద్దామా?",
+      "gloss": "Shall we meet at six o'clock?",
+      "words": [
+        { "te": "ఆరు", "gloss": "six" },
+        { "te": "గంటలకి", "gloss": "at (the) hours" },
+        { "te": "కలుద్దామా", "gloss": "shall we meet?" }
+      ],
+      "tags": ["plans", "time", "questions"],
+      "difficulty": 2,
+      "distractors": ["u31-i03", "u31-i06"]
+    },
+    {
+      "id": "u31-i05",
+      "te": "కేఫ్ దగ్గర కలుద్దాం.",
+      "gloss": "Let's meet near the cafe.",
+      "words": [
+        { "te": "కేఫ్", "gloss": "cafe" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["plans", "places"],
+      "difficulty": 2
+    },
+    {
+      "id": "u31-i06",
+      "te": "సరే, అక్కడే కలుద్దాం.",
+      "gloss": "Okay, let's meet right there.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "అక్కడే", "gloss": "right there" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["plans"],
+      "difficulty": 2,
+      "distractors": ["u31-i05", "u31-i04"]
+    },
+    {
+      "id": "u31-i07",
+      "te": "సారీ, రేపు కుదరదు.",
+      "gloss": "Sorry, tomorrow won't work.",
+      "words": [
+        { "te": "సారీ", "gloss": "sorry" },
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "కుదరదు", "gloss": "won't be possible" }
+      ],
+      "tags": ["plans", "canceling"],
+      "difficulty": 2,
+      "note": "కుదరదు (kudaradu) = 'it won't work out' — the softest way to say no. It blames the situation, never the person.",
+      "distractors": ["u31-i14", "u31-i08"]
+    },
+    {
+      "id": "u31-i08",
+      "te": "వేరే రోజు పెట్టుకుందామా?",
+      "gloss": "Shall we set it for another day?",
+      "words": [
+        { "te": "వేరే", "gloss": "another / different" },
+        { "te": "రోజు", "gloss": "day" },
+        { "te": "పెట్టుకుందామా", "gloss": "shall we set (for ourselves)?" }
+      ],
+      "tags": ["plans", "canceling", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u31-i09",
+      "te": "నేను కొంచెం లేట్ అవుతాను.",
+      "gloss": "I'll be a bit late.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "కొంచెం", "gloss": "a bit" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అవుతాను", "gloss": "will become" }
+      ],
+      "tags": ["plans", "time"],
+      "difficulty": 2,
+      "distractors": ["u31-i11", "u31-i10"]
+    },
+    {
+      "id": "u31-i10",
+      "te": "బయలుదేరాను, దారిలో ఉన్నాను.",
+      "gloss": "I've started out, I'm on the way.",
+      "words": [
+        { "te": "బయలుదేరాను", "gloss": "I set out" },
+        { "te": "దారిలో", "gloss": "on the way" },
+        { "te": "ఉన్నాను", "gloss": "I am" }
+      ],
+      "tags": ["plans", "time"],
+      "difficulty": 3,
+      "note": "బయలుదేరు (bayaludēru) = set out / leave for somewhere. దారిలో ఉన్నాను is the standard 'I'm on my way' — said even when you haven't left yet!"
+    },
+    {
+      "id": "u31-i11",
+      "te": "ఇంకా పది నిమిషాలు పడుతుంది.",
+      "gloss": "It will take ten more minutes.",
+      "words": [
+        { "te": "ఇంకా", "gloss": "still / more" },
+        { "te": "పది", "gloss": "ten" },
+        { "te": "నిమిషాలు", "gloss": "minutes" },
+        { "te": "పడుతుంది", "gloss": "will take" }
+      ],
+      "tags": ["plans", "time"],
+      "difficulty": 3
+    },
+    {
+      "id": "u31-i12",
+      "te": "ఎక్కడి దాకా వచ్చారు?",
+      "gloss": "How far have you come?",
+      "words": [
+        { "te": "ఎక్కడి", "gloss": "up to where" },
+        { "te": "దాకా", "gloss": "until" },
+        { "te": "వచ్చారు", "gloss": "have (you) come" }
+      ],
+      "tags": ["plans", "time", "questions"],
+      "difficulty": 3,
+      "note": "The classic chase-up call. With close friends it drops to informal: ఎక్కడి దాకా వచ్చావ్? (ekkadi daakaa vacchaav?)"
+    },
+    {
+      "id": "u31-i13",
+      "te": "మీ కోసం వెయిట్ చేస్తున్నాను.",
+      "gloss": "I'm waiting for you.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "కోసం", "gloss": "for the sake of" },
+        { "te": "వెయిట్", "gloss": "wait" },
+        { "te": "చేస్తున్నాను", "gloss": "I am doing" }
+      ],
+      "tags": ["plans", "time"],
+      "difficulty": 2,
+      "distractors": ["u31-i09", "u31-i12"]
+    },
+    {
+      "id": "u31-i14",
+      "te": "ప్లాన్ క్యాన్సిల్ చేద్దామా?",
+      "gloss": "Shall we cancel the plan?",
+      "words": [
+        { "te": "ప్లాన్", "gloss": "plan" },
+        { "te": "క్యాన్సిల్", "gloss": "cancel" },
+        { "te": "చేద్దామా", "gloss": "shall we do?" }
+      ],
+      "tags": ["plans", "canceling", "questions"],
+      "difficulty": 3,
+      "distractors": ["u31-i07", "u31-i01"]
+    },
+    {
+      "id": "u31-i15",
+      "te": "వచ్చే వారం పక్కా కలుద్దాం.",
+      "gloss": "Next week let's meet for sure.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "వారం", "gloss": "week" },
+        { "te": "పక్కా", "gloss": "for sure" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["plans"],
+      "difficulty": 3,
+      "note": "పక్కా (pakkaa) = 'confirmed, hundred percent'. A promise word everyone uses: పక్కా వస్తాను — I'll definitely come."
+    },
+    {
+      "id": "u31-i16",
+      "te": "టికెట్లు నేను బుక్ చేస్తాను.",
+      "gloss": "I'll book the tickets.",
+      "words": [
+        { "te": "టికెట్లు", "gloss": "tickets" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "చేస్తాను", "gloss": "will do" }
+      ],
+      "tags": ["plans"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Shall we go out?",
+      "itemIds": ["u31-i01", "u31-i02", "u31-i16"]
+    },
+    {
+      "id": "l2",
+      "title": "Fixing time and place",
+      "itemIds": ["u31-i03", "u31-i04", "u31-i05", "u31-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Sorry, can't make it",
+      "itemIds": ["u31-i07", "u31-i08", "u31-i14"]
+    },
+    {
+      "id": "l4",
+      "title": "Running late",
+      "itemIds": ["u31-i09", "u31-i10", "u31-i11"]
+    },
+    {
+      "id": "l5",
+      "title": "Where are you?!",
+      "itemIds": ["u31-i12", "u31-i13", "u31-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u31-d1",
+    "title": "Movie plan with Ravi",
+    "scene": "You call your friend Ravi to plan a movie. Tomorrow doesn't work, so it becomes this evening — and of course, you end up running late.",
+    "turns": [
+      { "speaker": "You", "itemId": "u31-i01", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u31-i07" },
+      { "speaker": "You", "itemId": "u31-i08", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u31-i02" },
+      { "speaker": "You", "itemId": "u31-i16", "userTurn": true },
+      { "speaker": "You", "itemId": "u31-i03", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u31-i04" },
+      { "speaker": "Ravi", "itemId": "u31-i05" },
+      { "speaker": "You", "itemId": "u31-i06", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u31-i12" },
+      { "speaker": "You", "itemId": "u31-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u31-i10", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u31-i13" },
+      { "speaker": "You", "itemId": "u31-i11", "userTurn": true }
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "id": "u45",
+  "section": 6,
+  "order": 5,
+  "title": "Negotiating",
+  "teTitle": "బేరం ఆడడం",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Talk prices for services, push back, meet in the middle, and even nudge a salary.",
+  "items": [
+    {
+      "id": "u45-i01",
+      "te": "మొత్తం ఎంత అవుతుంది?",
+      "gloss": "How much will it come to in total?",
+      "words": [
+        { "te": "మొత్తం", "gloss": "total" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అవుతుంది", "gloss": "will it become" }
+      ],
+      "tags": ["bargaining", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u45-i02", "u45-i03"]
+    },
+    {
+      "id": "u45-i02",
+      "te": "ఇల్లు పెయింట్ చేయడానికి ఎంత?",
+      "gloss": "How much to paint the house?",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "పెయింట్", "gloss": "paint" },
+        { "te": "చేయడానికి", "gloss": "for doing" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["bargaining", "services"],
+      "difficulty": 4,
+      "note": "చేయడానికి = 'for doing' — the -డానికి ending prices any job: బాగు చేయడానికి ఎంత?"
+    },
+    {
+      "id": "u45-i03",
+      "te": "ముప్ఫై వేలు అవుతుంది సర్.",
+      "gloss": "It'll be thirty thousand, sir.",
+      "words": [
+        { "te": "ముప్ఫై", "gloss": "thirty" },
+        { "te": "వేలు", "gloss": "thousands" },
+        { "te": "అవుతుంది", "gloss": "it will become" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["bargaining", "money", "numbers"],
+      "difficulty": 3
+    },
+    {
+      "id": "u45-i04",
+      "te": "అమ్మో, చాలా ఎక్కువ చెప్తున్నారు.",
+      "gloss": "Whoa, you're quoting way too much.",
+      "words": [
+        { "te": "అమ్మో", "gloss": "whoa! (alarm)" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఎక్కువ", "gloss": "too much" },
+        { "te": "చెప్తున్నారు", "gloss": "you are saying" }
+      ],
+      "tags": ["bargaining", "reactions"],
+      "difficulty": 4,
+      "note": "అమ్మో is the theatrical gasp that opens every good bargain. Deploy it with feeling.",
+      "distractors": ["u45-i15", "u45-i06"]
+    },
+    {
+      "id": "u45-i05",
+      "te": "ఫైనల్ ప్రైస్ చెప్పండి.",
+      "gloss": "Tell me the final price.",
+      "words": [
+        { "te": "ఫైనల్", "gloss": "final" },
+        { "te": "ప్రైస్", "gloss": "price" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["bargaining", "money"],
+      "difficulty": 3,
+      "note": "The signal that haggling is ending — after this, both sides expect one honest number.",
+      "distractors": ["u45-i01", "u45-i09"]
+    },
+    {
+      "id": "u45-i06",
+      "te": "అంతకంటే తగ్గించలేను అండి.",
+      "gloss": "I can't go lower than that.",
+      "words": [
+        { "te": "అంతకంటే", "gloss": "than that" },
+        { "te": "తగ్గించలేను", "gloss": "I cannot reduce" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["bargaining"],
+      "difficulty": 4,
+      "note": "-లేను says 'I am unable to': తగ్గించలేను, చేయలేను, రాలేను."
+    },
+    {
+      "id": "u45-i07",
+      "te": "మెటీరియల్ ఖర్చు పెరిగింది.",
+      "gloss": "Material costs have gone up.",
+      "words": [
+        { "te": "మెటీరియల్", "gloss": "material" },
+        { "te": "ఖర్చు", "gloss": "expense" },
+        { "te": "పెరిగింది", "gloss": "has increased" }
+      ],
+      "tags": ["bargaining", "money"],
+      "difficulty": 4,
+      "distractors": ["u45-i03", "u45-i06"]
+    },
+    {
+      "id": "u45-i08",
+      "te": "సరే, మధ్యలో సెటిల్ అవుదాం.",
+      "gloss": "Okay, let's settle in the middle.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "మధ్యలో", "gloss": "in the middle" },
+        { "te": "సెటిల్", "gloss": "settle" },
+        { "te": "అవుదాం", "gloss": "let's become" }
+      ],
+      "tags": ["bargaining"],
+      "difficulty": 4,
+      "distractors": ["u45-i09", "u45-i16"]
+    },
+    {
+      "id": "u45-i09",
+      "te": "ఇరవై ఐదు వేలకు చేయండి.",
+      "gloss": "Do it for twenty-five thousand.",
+      "words": [
+        { "te": "ఇరవై", "gloss": "twenty" },
+        { "te": "ఐదు", "gloss": "five" },
+        { "te": "వేలకు", "gloss": "for thousands" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["bargaining", "money", "numbers"],
+      "difficulty": 4
+    },
+    {
+      "id": "u45-i10",
+      "te": "క్వాలిటీ మాత్రం తగ్గకూడదు.",
+      "gloss": "But the quality must not drop.",
+      "words": [
+        { "te": "క్వాలిటీ", "gloss": "quality" },
+        { "te": "మాత్రం", "gloss": "however / only" },
+        { "te": "తగ్గకూడదు", "gloss": "must not decrease" }
+      ],
+      "tags": ["bargaining", "services"],
+      "difficulty": 4,
+      "note": "-కూడదు forbids: తగ్గకూడదు, చేయకూడదు, రాకూడదు — 'must not'."
+    },
+    {
+      "id": "u45-i11",
+      "te": "అడ్వాన్స్ కొంచెం ఇవ్వండి సర్.",
+      "gloss": "Give a bit of an advance, sir.",
+      "words": [
+        { "te": "అడ్వాన్స్", "gloss": "advance" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["bargaining", "money"],
+      "difficulty": 3
+    },
+    {
+      "id": "u45-i12",
+      "te": "పని అయ్యాక మిగతాది ఇస్తాను.",
+      "gloss": "I'll give the rest after the work is done.",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "అయ్యాక", "gloss": "after it's done" },
+        { "te": "మిగతాది", "gloss": "the remainder" },
+        { "te": "ఇస్తాను", "gloss": "I will give" }
+      ],
+      "tags": ["bargaining", "money"],
+      "difficulty": 4,
+      "note": "అయ్యాక = 'after (it) finishes'. Smart payment structure — and standard practice.",
+      "distractors": ["u45-i11", "u45-i08"]
+    },
+    {
+      "id": "u45-i13",
+      "te": "జీతం కొంచెం పెంచండి సర్.",
+      "gloss": "Please raise my salary a little, sir.",
+      "words": [
+        { "te": "జీతం", "gloss": "salary" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "పెంచండి", "gloss": "increase (polite)" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["bargaining", "work"],
+      "difficulty": 4,
+      "distractors": ["u45-i14", "u45-i11"]
+    },
+    {
+      "id": "u45-i14",
+      "te": "వచ్చే నెల చూద్దాం లే.",
+      "gloss": "We'll see next month, okay.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "నెల", "gloss": "month" },
+        { "te": "చూద్దాం", "gloss": "let's see" },
+        { "te": "లే", "gloss": "casual softener" }
+      ],
+      "tags": ["bargaining", "time"],
+      "difficulty": 4,
+      "note": "చూద్దాం లే is the classic gentle postponement — half promise, half brush-off."
+    },
+    {
+      "id": "u45-i15",
+      "te": "ఇంకో చోట తక్కువ చెప్పారు.",
+      "gloss": "Somewhere else they quoted less.",
+      "words": [
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "చోట", "gloss": "place" },
+        { "te": "తక్కువ", "gloss": "less" },
+        { "te": "చెప్పారు", "gloss": "they said" }
+      ],
+      "tags": ["bargaining"],
+      "difficulty": 4
+    },
+    {
+      "id": "u45-i16",
+      "te": "సరే సర్, మీ ఇష్టం.",
+      "gloss": "Alright sir, as you wish.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "సర్", "gloss": "sir" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇష్టం", "gloss": "wish / preference" }
+      ],
+      "tags": ["bargaining", "politeness"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Getting a quote",
+      "itemIds": ["u45-i02", "u45-i01", "u45-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Pushing back",
+      "itemIds": ["u45-i04", "u45-i15", "u45-i07", "u45-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Meeting in the middle",
+      "itemIds": ["u45-i05", "u45-i09", "u45-i08", "u45-i10"]
+    },
+    {
+      "id": "l4",
+      "title": "Advance and balance",
+      "itemIds": ["u45-i11", "u45-i12", "u45-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Salary talk",
+      "itemIds": ["u45-i13", "u45-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u45-d1",
+    "title": "The painter's quote",
+    "scene": "A painter has just inspected your flat, notebook in hand. The opening number is bold, and you have exactly one weapon: patience and a rival quote from the next street.",
+    "turns": [
+      { "speaker": "You", "itemId": "u45-i02", "userTurn": true },
+      { "speaker": "Painter", "itemId": "u45-i03" },
+      { "speaker": "You", "itemId": "u45-i04", "userTurn": true },
+      { "speaker": "Painter", "itemId": "u45-i07" },
+      { "speaker": "You", "itemId": "u45-i15", "userTurn": true },
+      { "speaker": "Painter", "itemId": "u45-i06" },
+      { "speaker": "You", "itemId": "u45-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u45-i09", "userTurn": true },
+      { "speaker": "Painter", "itemId": "u45-i08" },
+      { "speaker": "You", "itemId": "u45-i10", "userTurn": true },
+      { "speaker": "Painter", "itemId": "u45-i16" },
+      { "speaker": "Painter", "itemId": "u45-i11" },
+      { "speaker": "You", "itemId": "u45-i12", "userTurn": true }
+    ]
+  }
+}

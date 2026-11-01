@@ -1,0 +1,539 @@
+{
+  "id": "u01",
+  "section": 1,
+  "order": 1,
+  "title": "Greetings & how are you",
+  "teTitle": "పలకరింపులు",
+  "cefr": "A1+",
+  "register": "standard",
+  "description": "Greet people warmly, ask how they are, and answer naturally.",
+  "items": [
+    {
+      "id": "u01-i01",
+      "te": "మీరు ఎలా ఉన్నారు?",
+      "gloss": "How are you? (polite)",
+      "words": [
+        {
+          "te": "మీరు",
+          "gloss": "you (polite)"
+        },
+        {
+          "te": "ఎలా",
+          "gloss": "how"
+        },
+        {
+          "te": "ఉన్నారు",
+          "gloss": "are (you)"
+        }
+      ],
+      "tags": [
+        "greetings",
+        "questions"
+      ],
+      "difficulty": 1,
+      "note": "Use మీరు (meeru) with elders and strangers. With friends your own age you can use నువ్వు (nuvvu)."
+    },
+    {
+      "id": "u01-i02",
+      "te": "నేను బాగున్నాను.",
+      "gloss": "I am fine.",
+      "words": [
+        {
+          "te": "నేను",
+          "gloss": "I"
+        },
+        {
+          "te": "బాగున్నాను",
+          "gloss": "am fine"
+        }
+      ],
+      "tags": [
+        "greetings"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u01-i01",
+        "u01-i04"
+      ]
+    },
+    {
+      "id": "u01-i03",
+      "te": "మీరు బాగున్నారా?",
+      "gloss": "Are you doing well?",
+      "words": [
+        {
+          "te": "మీరు",
+          "gloss": "you (polite)"
+        },
+        {
+          "te": "బాగున్నారా",
+          "gloss": "are (you) well?"
+        }
+      ],
+      "tags": [
+        "greetings",
+        "questions"
+      ],
+      "difficulty": 1,
+      "note": "The -ఆ (-aa) ending turns a statement into a yes/no question: బాగున్నారు → బాగున్నారా?"
+    },
+    {
+      "id": "u01-i04",
+      "te": "నేను కూడా బాగున్నాను.",
+      "gloss": "I am also fine.",
+      "words": [
+        {
+          "te": "నేను",
+          "gloss": "I"
+        },
+        {
+          "te": "కూడా",
+          "gloss": "also"
+        },
+        {
+          "te": "బాగున్నాను",
+          "gloss": "am fine"
+        }
+      ],
+      "tags": [
+        "greetings"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u01-i05",
+      "te": "మీ పేరు ఏంటి?",
+      "gloss": "What is your name?",
+      "words": [
+        {
+          "te": "మీ",
+          "gloss": "your (polite)"
+        },
+        {
+          "te": "పేరు",
+          "gloss": "name"
+        },
+        {
+          "te": "ఏంటి",
+          "gloss": "what"
+        }
+      ],
+      "tags": [
+        "introductions",
+        "questions"
+      ],
+      "difficulty": 1,
+      "note": "ఏంటి (enti) is how everyone actually says 'what' — the textbook form ఏమిటి (emiti) sounds formal in conversation."
+    },
+    {
+      "id": "u01-i06",
+      "te": "నా పేరు అర్జున్.",
+      "gloss": "My name is Arjun.",
+      "words": [
+        {
+          "te": "నా",
+          "gloss": "my"
+        },
+        {
+          "te": "పేరు",
+          "gloss": "name"
+        },
+        {
+          "te": "అర్జున్",
+          "gloss": "Arjun"
+        }
+      ],
+      "tags": [
+        "introductions"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u01-i07",
+      "te": "మిమ్మల్ని కలవడం చాలా సంతోషం.",
+      "gloss": "Very happy to meet you.",
+      "words": [
+        {
+          "te": "మిమ్మల్ని",
+          "gloss": "you (object, polite)"
+        },
+        {
+          "te": "కలవడం",
+          "gloss": "meeting"
+        },
+        {
+          "te": "చాలా",
+          "gloss": "very"
+        },
+        {
+          "te": "సంతోషం",
+          "gloss": "happiness"
+        }
+      ],
+      "tags": [
+        "introductions"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "u01-i08",
+      "te": "చాలా రోజుల తరువాత కలిశాము!",
+      "gloss": "We met after so many days!",
+      "words": [
+        {
+          "te": "చాలా",
+          "gloss": "many"
+        },
+        {
+          "te": "రోజుల",
+          "gloss": "of days"
+        },
+        {
+          "te": "తరువాత",
+          "gloss": "after"
+        },
+        {
+          "te": "కలిశాము",
+          "gloss": "we met"
+        }
+      ],
+      "tags": [
+        "greetings",
+        "smalltalk"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "u01-i09",
+      "te": "ఇంట్లో అందరూ బాగున్నారా?",
+      "gloss": "Is everyone at home doing well?",
+      "words": [
+        {
+          "te": "ఇంట్లో",
+          "gloss": "at home"
+        },
+        {
+          "te": "అందరూ",
+          "gloss": "everyone"
+        },
+        {
+          "te": "బాగున్నారా",
+          "gloss": "are (they) well?"
+        }
+      ],
+      "tags": [
+        "family",
+        "questions"
+      ],
+      "difficulty": 2,
+      "note": "This is THE classic caring question in Telugu families — ask it on every call."
+    },
+    {
+      "id": "u01-i10",
+      "te": "అందరూ బాగున్నారు.",
+      "gloss": "Everyone is fine.",
+      "words": [
+        {
+          "te": "అందరూ",
+          "gloss": "everyone"
+        },
+        {
+          "te": "బాగున్నారు",
+          "gloss": "are fine"
+        }
+      ],
+      "tags": [
+        "family"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u01-i11",
+      "te": "ఏం విశేషాలు?",
+      "gloss": "What's new? (any news?)",
+      "words": [
+        {
+          "te": "ఏం",
+          "gloss": "what"
+        },
+        {
+          "te": "విశేషాలు",
+          "gloss": "news / special things"
+        }
+      ],
+      "tags": [
+        "smalltalk",
+        "questions"
+      ],
+      "difficulty": 2,
+      "note": "The go-to conversation opener after greetings. Casual reply: పెద్దగా ఏమీ లేవు (nothing much)."
+    },
+    {
+      "id": "u01-i12",
+      "te": "పెద్దగా ఏమీ లేవు.",
+      "gloss": "Nothing much.",
+      "words": [
+        {
+          "te": "పెద్దగా",
+          "gloss": "much / big-ly"
+        },
+        {
+          "te": "ఏమీ",
+          "gloss": "anything"
+        },
+        {
+          "te": "లేవు",
+          "gloss": "there aren't"
+        }
+      ],
+      "tags": [
+        "smalltalk"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "u01-i13",
+      "te": "రండి, కూర్చోండి.",
+      "gloss": "Come, sit down. (polite)",
+      "words": [
+        {
+          "te": "రండి",
+          "gloss": "come (polite)"
+        },
+        {
+          "te": "కూర్చోండి",
+          "gloss": "sit (polite)"
+        }
+      ],
+      "tags": [
+        "hospitality",
+        "commands"
+      ],
+      "difficulty": 1,
+      "note": "The -ండి (-nDi) ending makes a command polite: రా → రండి, కూర్చో → కూర్చోండి."
+    },
+    {
+      "id": "u01-i14",
+      "te": "భోజనం చేశారా?",
+      "gloss": "Have you eaten? (a caring greeting)",
+      "words": [
+        {
+          "te": "భోజనం",
+          "gloss": "meal"
+        },
+        {
+          "te": "చేశారా",
+          "gloss": "did (you) do?"
+        }
+      ],
+      "tags": [
+        "hospitality",
+        "questions"
+      ],
+      "difficulty": 2,
+      "note": "Asking if someone ate is a warm greeting in Telugu culture, not literal curiosity."
+    },
+    {
+      "id": "u01-i15",
+      "te": "వెళ్ళొస్తాను.",
+      "gloss": "I'll take leave. (lit: I'll go and come)",
+      "words": [
+        {
+          "te": "వెళ్ళొస్తాను",
+          "gloss": "I'll go and come back"
+        }
+      ],
+      "tags": [
+        "greetings"
+      ],
+      "difficulty": 2,
+      "note": "Telugu never says a flat goodbye — వెళ్ళొస్తాను ('I'll go and come') keeps the door open."
+    },
+    {
+      "id": "u01-i16",
+      "te": "మళ్ళీ కలుద్దాం.",
+      "gloss": "Let's meet again.",
+      "words": [
+        {
+          "te": "మళ్ళీ",
+          "gloss": "again"
+        },
+        {
+          "te": "కలుద్దాం",
+          "gloss": "let's meet"
+        }
+      ],
+      "tags": [
+        "greetings"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u01-i17",
+      "te": "జాగ్రత్తగా వెళ్ళండి.",
+      "gloss": "Go safely / take care.",
+      "words": [
+        {
+          "te": "జాగ్రత్తగా",
+          "gloss": "carefully"
+        },
+        {
+          "te": "వెళ్ళండి",
+          "gloss": "go (polite)"
+        }
+      ],
+      "tags": [
+        "greetings",
+        "commands"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "u01-i18",
+      "te": "శుభోదయం, అంకుల్!",
+      "gloss": "Good morning, uncle!",
+      "words": [
+        {
+          "te": "శుభోదయం",
+          "gloss": "good morning"
+        },
+        {
+          "te": "అంకుల్",
+          "gloss": "uncle"
+        }
+      ],
+      "tags": [
+        "greetings"
+      ],
+      "difficulty": 1,
+      "note": "శుభోదయం is a bit formal — most families just start with ఏం అంకుల్, బాగున్నారా?"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Hello, how are you?",
+      "itemIds": [
+        "u01-i01",
+        "u01-i02",
+        "u01-i03",
+        "u01-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Who are you?",
+      "itemIds": [
+        "u01-i05",
+        "u01-i06",
+        "u01-i07",
+        "u01-i18"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Family check-in",
+      "itemIds": [
+        "u01-i09",
+        "u01-i10",
+        "u01-i11",
+        "u01-i12"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "Being a guest",
+      "itemIds": [
+        "u01-i08",
+        "u01-i13",
+        "u01-i14"
+      ]
+    },
+    {
+      "id": "l5",
+      "title": "Taking leave",
+      "itemIds": [
+        "u01-i15",
+        "u01-i16",
+        "u01-i17"
+      ]
+    }
+  ],
+  "dialogue": {
+    "id": "u01-d1",
+    "title": "Sunday morning at Padma aunty's",
+    "scene": "Sunday morning in Hyderabad. Uncle opens Padma aunty's door, delighted to see you after ages; Padma calls you in from the kitchen, and the neighbor aunty pops in to meet the visitor.",
+    "turns": [
+      {
+        "speaker": "You",
+        "itemId": "u01-i18",
+        "userTurn": true
+      },
+      {
+        "speaker": "Uncle",
+        "itemId": "u01-i08"
+      },
+      {
+        "speaker": "Uncle",
+        "itemId": "u01-i13"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u01-i01",
+        "userTurn": true
+      },
+      {
+        "speaker": "Uncle",
+        "itemId": "u01-i02"
+      },
+      {
+        "speaker": "Padma",
+        "itemId": "u01-i09"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u01-i10",
+        "userTurn": true
+      },
+      {
+        "speaker": "Padma",
+        "itemId": "u01-i11"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u01-i12",
+        "userTurn": true
+      },
+      {
+        "speaker": "Padma",
+        "itemId": "u01-i14"
+      },
+      {
+        "speaker": "Neighbor",
+        "itemId": "u01-i05"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u01-i06",
+        "userTurn": true
+      },
+      {
+        "speaker": "Neighbor",
+        "itemId": "u01-i07"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u01-i15",
+        "userTurn": true
+      },
+      {
+        "speaker": "Padma",
+        "itemId": "u01-i16"
+      },
+      {
+        "speaker": "Uncle",
+        "itemId": "u01-i17"
+      }
+    ]
+  }
+}

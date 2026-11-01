@@ -1,0 +1,241 @@
+{
+  "id": "u11",
+  "section": 2,
+  "order": 3,
+  "title": "Getting around",
+  "teTitle": "ప్రయాణం",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Autos, buses and trains: ask fares, give directions, and get down at the right stop.",
+  "items": [
+    {
+      "id": "u11-i01",
+      "te": "ఎక్కడికి వెళ్ళాలి?",
+      "gloss": "Where do you want to go?",
+      "words": [
+        { "te": "ఎక్కడికి", "gloss": "to where" },
+        { "te": "వెళ్ళాలి", "gloss": "need to go" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 2,
+      "note": "Every auto ride starts with this. The -ఆలి (-aali) ending means 'must / need to': వెళ్ళాలి (veLLaali) 'need to go'.",
+      "distractors": ["u11-i09", "u11-i04"]
+    },
+    {
+      "id": "u11-i02",
+      "te": "అమీర్పేటకి ఎంత?",
+      "gloss": "How much to Ameerpet?",
+      "words": [
+        { "te": "అమీర్పేటకి", "gloss": "to Ameerpet" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["travel", "questions", "money"],
+      "difficulty": 2,
+      "note": "Place + -కి (-ki) + ఎంత (enta) — the whole fare negotiation in two words. Ameerpet is a busy Hyderabad hub."
+    },
+    {
+      "id": "u11-i03",
+      "te": "ఆటోలో వెళ్దాం.",
+      "gloss": "Let's go by auto.",
+      "words": [
+        { "te": "ఆటోలో", "gloss": "by auto" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 2,
+      "note": "-లో (-lo) marks the vehicle you ride in: ఆటోలో (auto-lo), బస్సులో (bassu-lo), కారులో (kaaru-lo)."
+    },
+    {
+      "id": "u11-i04",
+      "te": "బస్సు ఎప్పుడు వస్తుంది?",
+      "gloss": "When does the bus come?",
+      "words": [
+        { "te": "బస్సు", "gloss": "bus" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తుంది", "gloss": "comes / will come" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 2,
+      "distractors": ["u11-i05", "u11-i01"]
+    },
+    {
+      "id": "u11-i05",
+      "te": "రైలు ఆలస్యంగా వస్తోంది.",
+      "gloss": "The train is running late.",
+      "words": [
+        { "te": "రైలు", "gloss": "train" },
+        { "te": "ఆలస్యంగా", "gloss": "late" },
+        { "te": "వస్తోంది", "gloss": "is coming" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 3
+    },
+    {
+      "id": "u11-i06",
+      "te": "ఇక్కడ ఆపండి.",
+      "gloss": "Stop here.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "ఆపండి", "gloss": "stop (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 1,
+      "distractors": ["u11-i16", "u11-i14"]
+    },
+    {
+      "id": "u11-i07",
+      "te": "కుడి వైపు తిరగండి.",
+      "gloss": "Turn to the right.",
+      "words": [
+        { "te": "కుడి", "gloss": "right" },
+        { "te": "వైపు", "gloss": "side / direction" },
+        { "te": "తిరగండి", "gloss": "turn (polite)" }
+      ],
+      "tags": ["travel", "directions", "commands"],
+      "difficulty": 2,
+      "note": "కుడి (kuDi) = right, ఎడమ (eDama) = left. Drill this pair before your next auto ride.",
+      "distractors": ["u11-i08", "u11-i06"]
+    },
+    {
+      "id": "u11-i08",
+      "te": "ఎడమ వైపు వెళ్ళండి.",
+      "gloss": "Go to the left.",
+      "words": [
+        { "te": "ఎడమ", "gloss": "left" },
+        { "te": "వైపు", "gloss": "side / direction" },
+        { "te": "వెళ్ళండి", "gloss": "go (polite)" }
+      ],
+      "tags": ["travel", "directions", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u11-i09",
+      "te": "ఎంత దూరం?",
+      "gloss": "How far is it?",
+      "words": [
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "దూరం", "gloss": "distance / far" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 1,
+      "distractors": ["u11-i02", "u11-i10"]
+    },
+    {
+      "id": "u11-i10",
+      "te": "చాలా దూరం లేదు.",
+      "gloss": "It's not very far.",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "దూరం", "gloss": "far" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 2,
+      "distractors": ["u11-i09", "u11-i11"]
+    },
+    {
+      "id": "u11-i11",
+      "te": "ట్రాఫిక్ చాలా ఎక్కువగా ఉంది.",
+      "gloss": "The traffic is really heavy.",
+      "words": [
+        { "te": "ట్రాఫిక్", "gloss": "traffic" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఎక్కువగా", "gloss": "heavy / excessive" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 3
+    },
+    {
+      "id": "u11-i12",
+      "te": "రెండు టికెట్లు ఇవ్వండి.",
+      "gloss": "Give me two tickets.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "టికెట్లు", "gloss": "tickets" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 2,
+      "distractors": ["u11-i13", "u11-i02"]
+    },
+    {
+      "id": "u11-i13",
+      "te": "మీటర్ వెయ్యండి.",
+      "gloss": "Put the meter on.",
+      "words": [
+        { "te": "మీటర్", "gloss": "meter" },
+        { "te": "వెయ్యండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 2,
+      "note": "The classic opening move with an auto driver — and he will still quote a flat rate!"
+    },
+    {
+      "id": "u11-i14",
+      "te": "నెమ్మదిగా నడపండి.",
+      "gloss": "Drive slowly.",
+      "words": [
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "నడపండి", "gloss": "drive (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 3,
+      "note": "నడుపు (naDupu) 'to drive' is literally 'to make it walk'."
+    },
+    {
+      "id": "u11-i15",
+      "te": "కారులో వెళ్దామా?",
+      "gloss": "Shall we go by car?",
+      "words": [
+        { "te": "కారులో", "gloss": "by car" },
+        { "te": "వెళ్దామా", "gloss": "shall we go?" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u11-i16",
+      "te": "ఇక్కడ దిగుతాను.",
+      "gloss": "I'll get down here.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "దిగుతాను", "gloss": "I get down" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 2,
+      "note": "దిగు (digu) = get off / alight — works for buses, autos and trains alike.",
+      "distractors": ["u11-i06", "u11-i03"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Grab an auto", "itemIds": ["u11-i01", "u11-i02", "u11-i13"] },
+    { "id": "l2", "title": "Bus & train", "itemIds": ["u11-i04", "u11-i05", "u11-i12"] },
+    { "id": "l3", "title": "How far is it?", "itemIds": ["u11-i09", "u11-i10", "u11-i11"] },
+    { "id": "l4", "title": "Turn here!", "itemIds": ["u11-i07", "u11-i08", "u11-i14"] },
+    { "id": "l5", "title": "Hop on, hop off", "itemIds": ["u11-i03", "u11-i15", "u11-i06", "u11-i16"] }
+  ],
+  "dialogue": {
+    "id": "u11-d1",
+    "title": "Auto to Ameerpet",
+    "scene": "Outside Secunderabad station with your friend on a busy evening: the train is late, the buses are stuck in traffic, and an auto is waiting.",
+    "turns": [
+      { "speaker": "Friend", "itemId": "u11-i05" },
+      { "speaker": "You", "itemId": "u11-i04", "userTurn": true },
+      { "speaker": "Friend", "itemId": "u11-i11" },
+      { "speaker": "You", "itemId": "u11-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u11-i09", "userTurn": true },
+      { "speaker": "Friend", "itemId": "u11-i10" },
+      { "speaker": "Friend", "itemId": "u11-i03" },
+      { "speaker": "Driver", "itemId": "u11-i01" },
+      { "speaker": "You", "itemId": "u11-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u11-i13", "userTurn": true },
+      { "speaker": "Driver", "itemId": "u11-i11" },
+      { "speaker": "You", "itemId": "u11-i14", "userTurn": true },
+      { "speaker": "Friend", "itemId": "u11-i07" },
+      { "speaker": "Friend", "itemId": "u11-i08" },
+      { "speaker": "You", "itemId": "u11-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u11-i16", "userTurn": true }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "id": "u37",
+  "section": 5,
+  "order": 5,
+  "title": "Phone gossip",
+  "teTitle": "ఫోన్ కబుర్లు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Share juicy family news — 'did you hear?', hearsay with -అంట, big reactions, and sworn secrecy.",
+  "items": [
+    {
+      "id": "u37-i01",
+      "te": "విన్నారా సంగతి?",
+      "gloss": "Did you hear the news?",
+      "words": [
+        { "te": "విన్నారా", "gloss": "did you hear?" },
+        { "te": "సంగతి", "gloss": "the matter" }
+      ],
+      "tags": ["gossip", "questions"],
+      "difficulty": 2,
+      "note": "The classic gossip opener. సంగతి is 'the matter' — vague on purpose, so you HAVE to ask what it is.",
+      "distractors": ["u37-i04", "u37-i08"]
+    },
+    {
+      "id": "u37-i02",
+      "te": "సుధ పెళ్ళి కుదిరిందంట!",
+      "gloss": "Apparently Sudha's marriage got fixed!",
+      "words": [
+        { "te": "సుధ", "gloss": "Sudha's" },
+        { "te": "పెళ్ళి", "gloss": "marriage" },
+        { "te": "కుదిరిందంట", "gloss": "got fixed, they say" }
+      ],
+      "tags": ["gossip", "family"],
+      "difficulty": 3,
+      "note": "-అంట glued onto a verb means 'they say / apparently' — the official grammar of gossip. కుదిరింది + అంట → కుదిరిందంట.",
+      "distractors": ["u37-i05", "u37-i12"]
+    },
+    {
+      "id": "u37-i03",
+      "te": "నిజంగా?! నమ్మలేకపోతున్నాను!",
+      "gloss": "Really?! I can't believe it!",
+      "words": [
+        { "te": "నిజంగా", "gloss": "really" },
+        { "te": "నమ్మలేకపోతున్నాను", "gloss": "I'm unable to believe" }
+      ],
+      "tags": ["gossip", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u37-i13", "u37-i10"]
+    },
+    {
+      "id": "u37-i04",
+      "te": "ఎవరు చెప్పారు మీకు?",
+      "gloss": "Who told you?",
+      "words": [
+        { "te": "ఎవరు", "gloss": "who" },
+        { "te": "చెప్పారు", "gloss": "told (polite)" },
+        { "te": "మీకు", "gloss": "to you" }
+      ],
+      "tags": ["gossip", "questions"],
+      "difficulty": 2,
+      "distractors": ["u37-i01", "u37-i08"]
+    },
+    {
+      "id": "u37-i05",
+      "te": "అబ్బాయి అమెరికాలో ఉంటాడంట.",
+      "gloss": "Apparently the boy lives in America.",
+      "words": [
+        { "te": "అబ్బాయి", "gloss": "the boy / groom" },
+        { "te": "అమెరికాలో", "gloss": "in America" },
+        { "te": "ఉంటాడంట", "gloss": "lives, they say" }
+      ],
+      "tags": ["gossip", "family"],
+      "difficulty": 3,
+      "distractors": ["u37-i02", "u37-i12"]
+    },
+    {
+      "id": "u37-i06",
+      "te": "ఇది ఎవరికీ చెప్పకండి.",
+      "gloss": "Don't tell this to anyone.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఎవరికీ", "gloss": "to anyone" },
+        { "te": "చెప్పకండి", "gloss": "don't tell (polite)" }
+      ],
+      "tags": ["gossip", "secrets"],
+      "difficulty": 2,
+      "note": "Every Telugu secret travels with this exact disclaimer attached — and travels anyway.",
+      "distractors": ["u37-i07", "u37-i15"]
+    },
+    {
+      "id": "u37-i07",
+      "te": "మీకే చెప్తున్నాను, జాగ్రత్త.",
+      "gloss": "I'm telling only you — careful.",
+      "words": [
+        { "te": "మీకే", "gloss": "only to you" },
+        { "te": "చెప్తున్నాను", "gloss": "I am telling" },
+        { "te": "జాగ్రత్త", "gloss": "careful" }
+      ],
+      "tags": ["gossip", "secrets"],
+      "difficulty": 3,
+      "distractors": ["u37-i06", "u37-i14"]
+    },
+    {
+      "id": "u37-i08",
+      "te": "అవునా? ఎప్పుడు జరిగింది?",
+      "gloss": "Oh really? When did it happen?",
+      "words": [
+        { "te": "అవునా", "gloss": "is that so?" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "జరిగింది", "gloss": "did it happen" }
+      ],
+      "tags": ["gossip", "reactions", "questions"],
+      "difficulty": 2,
+      "distractors": ["u37-i03", "u37-i04"]
+    },
+    {
+      "id": "u37-i09",
+      "te": "పక్కింటి వాళ్ళు ఇల్లు అమ్మేస్తున్నారంట.",
+      "gloss": "Apparently the neighbors are selling off their house.",
+      "words": [
+        { "te": "పక్కింటి", "gloss": "next-door" },
+        { "te": "వాళ్ళు", "gloss": "people" },
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "అమ్మేస్తున్నారంట", "gloss": "are selling off, they say" }
+      ],
+      "tags": ["gossip", "neighbors"],
+      "difficulty": 4,
+      "note": "అమ్మేస్తున్నారు has the -ఏసెయ్ 'completely, off' flavor: not just selling — selling OFF. Add -అంట and it's certified hearsay."
+    },
+    {
+      "id": "u37-i10",
+      "te": "నాకు ముందే తెలుసు.",
+      "gloss": "I already knew.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ముందే", "gloss": "already / beforehand" },
+        { "te": "తెలుసు", "gloss": "it is known" }
+      ],
+      "tags": ["gossip", "reactions"],
+      "difficulty": 2,
+      "distractors": ["u37-i03", "u37-i13"]
+    },
+    {
+      "id": "u37-i11",
+      "te": "అసలు విషయం ఏంటంటే...",
+      "gloss": "The real story is...",
+      "words": [
+        { "te": "అసలు", "gloss": "actual / real" },
+        { "te": "విషయం", "gloss": "matter" },
+        { "te": "ఏంటంటే", "gloss": "what it is, is..." }
+      ],
+      "tags": ["gossip"],
+      "difficulty": 3,
+      "note": "ఏంటంటే is the drumroll before the juicy part — lean in when you hear it."
+    },
+    {
+      "id": "u37-i12",
+      "te": "పెళ్ళి వచ్చే నెలంట.",
+      "gloss": "The wedding is next month, apparently.",
+      "words": [
+        { "te": "పెళ్ళి", "gloss": "the wedding" },
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "నెలంట", "gloss": "month, they say" }
+      ],
+      "tags": ["gossip", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u37-i13",
+      "te": "అమ్మో, ఎంత పెద్ద వార్త!",
+      "gloss": "Wow, what big news!",
+      "words": [
+        { "te": "అమ్మో", "gloss": "oh my!" },
+        { "te": "ఎంత", "gloss": "how" },
+        { "te": "పెద్ద", "gloss": "big" },
+        { "te": "వార్త", "gloss": "news" }
+      ],
+      "tags": ["gossip", "reactions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u37-i14",
+      "te": "ఫోన్ పెట్టేయకండి, ఇంకా ఉంది.",
+      "gloss": "Don't hang up, there's more.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "పెట్టేయకండి", "gloss": "don't put down" },
+        { "te": "ఇంకా", "gloss": "still / more" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["gossip", "phone"],
+      "difficulty": 3,
+      "distractors": ["u37-i15", "u37-i07"]
+    },
+    {
+      "id": "u37-i15",
+      "te": "తరువాత మెల్లగా చెప్తాను.",
+      "gloss": "I'll tell you the rest slowly later.",
+      "words": [
+        { "te": "తరువాత", "gloss": "later" },
+        { "te": "మెల్లగా", "gloss": "slowly / quietly" },
+        { "te": "చెప్తాను", "gloss": "I will tell" }
+      ],
+      "tags": ["gossip", "phone"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Did you hear?",
+      "itemIds": ["u37-i01", "u37-i04", "u37-i08"]
+    },
+    {
+      "id": "l2",
+      "title": "Apparently…",
+      "itemIds": ["u37-i02", "u37-i05", "u37-i12"]
+    },
+    {
+      "id": "l3",
+      "title": "No way!",
+      "itemIds": ["u37-i03", "u37-i13", "u37-i10"]
+    },
+    {
+      "id": "l4",
+      "title": "Between us only",
+      "itemIds": ["u37-i06", "u37-i07", "u37-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "There's more",
+      "itemIds": ["u37-i09", "u37-i11", "u37-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u37-d1",
+    "title": "Lakshmi aunty has news",
+    "scene": "Tuesday evening. Lakshmi aunty calls, voice dropped to that special volume reserved for breaking family news. You settle in — this is going to be good.",
+    "turns": [
+      { "speaker": "Aunty", "itemId": "u37-i01" },
+      { "speaker": "Aunty", "itemId": "u37-i02" },
+      { "speaker": "You", "itemId": "u37-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u37-i08", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u37-i05" },
+      { "speaker": "Aunty", "itemId": "u37-i12" },
+      { "speaker": "You", "itemId": "u37-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u37-i04", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u37-i07" },
+      { "speaker": "Aunty", "itemId": "u37-i06" },
+      { "speaker": "Aunty", "itemId": "u37-i11" },
+      { "speaker": "Aunty", "itemId": "u37-i09" },
+      { "speaker": "You", "itemId": "u37-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u37-i15", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u37-i14" }
+    ]
+  }
+}

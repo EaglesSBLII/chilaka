@@ -1,0 +1,304 @@
+{
+  "id": "u60",
+  "section": 8,
+  "order": 4,
+  "title": "Jokes & idioms",
+  "teTitle": "నవ్వులు, జాతీయాలు",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Laugh in Telugu — everyday idioms with their real meanings, gentle leg-pulling, and how to take a joke and give one back.",
+  "items": [
+    {
+      "id": "u60-i01",
+      "te": "వాళ్ళ నాన్నకి చేతికి ఎముక లేదు.",
+      "gloss": "Their father is endlessly generous. (idiom)",
+      "words": [
+        { "te": "వాళ్ళ", "gloss": "their" },
+        { "te": "నాన్నకి", "gloss": "to (their) father" },
+        { "te": "చేతికి", "gloss": "to the hand" },
+        { "te": "ఎముక", "gloss": "bone" },
+        { "te": "లేదు", "gloss": "there is not" }
+      ],
+      "tags": ["idioms", "praise"],
+      "difficulty": 4,
+      "note": "Literally 'his hand has no bone' — the hand bends freely to give. Real meaning: he is extremely generous, gives without hesitation."
+    },
+    {
+      "id": "u60-i02",
+      "te": "నువ్వు నన్ను ఆట పట్టిస్తున్నావా?",
+      "gloss": "Are you pulling my leg?",
+      "words": [
+        { "te": "నువ్వు", "gloss": "you (casual)" },
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "ఆట", "gloss": "game / play" },
+        { "te": "పట్టిస్తున్నావా", "gloss": "are (you) making (me) into?" }
+      ],
+      "tags": ["idioms", "teasing", "questions"],
+      "difficulty": 3,
+      "note": "ఆట పట్టించడం — literally 'making someone into a game'. Real meaning: teasing them, pulling their leg. Said with a smile, never real anger.",
+      "distractors": ["u60-i08"]
+    },
+    {
+      "id": "u60-i03",
+      "te": "నీకు నూరేళ్ళ ఆయుష్షు, ఇప్పుడే నీ మాటే అనుకున్నాం.",
+      "gloss": "May you live a hundred years — we were just talking about you!",
+      "words": [
+        { "te": "నీకు", "gloss": "to you" },
+        { "te": "నూరేళ్ళ", "gloss": "of a hundred years" },
+        { "te": "ఆయుష్షు", "gloss": "lifespan" },
+        { "te": "ఇప్పుడే", "gloss": "just now" },
+        { "te": "నీ", "gloss": "your" },
+        { "te": "మాటే", "gloss": "your very mention" },
+        { "te": "అనుకున్నాం", "gloss": "we were saying" }
+      ],
+      "tags": ["idioms", "greetings"],
+      "difficulty": 5,
+      "note": "Literally 'a hundred years of life to you'. Real meaning: said when someone walks in just as you mention them — the Telugu 'speak of the devil', except it's a blessing."
+    },
+    {
+      "id": "u60-i04",
+      "te": "పని అయ్యేసరికి తలప్రాణం తోకకి వచ్చింది.",
+      "gloss": "By the time the work was done, I was completely drained. (idiom)",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "అయ్యేసరికి", "gloss": "by the time (it) finished" },
+        { "te": "తలప్రాణం", "gloss": "the head's life-breath" },
+        { "te": "తోకకి", "gloss": "to the tail" },
+        { "te": "వచ్చింది", "gloss": "came" }
+      ],
+      "tags": ["idioms", "complaints"],
+      "difficulty": 5,
+      "note": "Literally 'the life in my head came down to my tail'. Real meaning: the task squeezed everything out of me — utter exhaustion after a struggle."
+    },
+    {
+      "id": "u60-i05",
+      "te": "మేము కడుపు చెక్కలయ్యేలా నవ్వాం.",
+      "gloss": "We laughed till our stomachs split. (idiom)",
+      "words": [
+        { "te": "మేము", "gloss": "we" },
+        { "te": "కడుపు", "gloss": "stomach" },
+        { "te": "చెక్కలయ్యేలా", "gloss": "so as to shatter into pieces" },
+        { "te": "నవ్వాం", "gloss": "we laughed" }
+      ],
+      "tags": ["idioms", "laughter"],
+      "difficulty": 4,
+      "note": "Literally 'we laughed so our stomachs became wood-splinters'. Real meaning: uncontrollable, doubled-over laughter.",
+      "distractors": ["u60-i12"]
+    },
+    {
+      "id": "u60-i06",
+      "te": "వాడి నోట్లో నువ్వు గింజ నానదు.",
+      "gloss": "He can't keep a secret. (idiom)",
+      "words": [
+        { "te": "వాడి", "gloss": "his (casual)" },
+        { "te": "నోట్లో", "gloss": "in the mouth" },
+        { "te": "నువ్వు", "gloss": "sesame" },
+        { "te": "గింజ", "gloss": "seed" },
+        { "te": "నానదు", "gloss": "won't soak" }
+      ],
+      "tags": ["idioms", "gossip"],
+      "difficulty": 5,
+      "note": "Literally 'a sesame seed won't even soak in his mouth' — it pops right out. Real meaning: he blurts out every secret the moment he hears it."
+    },
+    {
+      "id": "u60-i07",
+      "te": "గోరంత దానికి కొండంత చేస్తున్నావు.",
+      "gloss": "You're making a mountain out of a molehill. (idiom)",
+      "words": [
+        { "te": "గోరంత", "gloss": "fingernail-sized" },
+        { "te": "దానికి", "gloss": "for that thing" },
+        { "te": "కొండంత", "gloss": "mountain-sized" },
+        { "te": "చేస్తున్నావు", "gloss": "you are making" }
+      ],
+      "tags": ["idioms", "teasing"],
+      "difficulty": 4,
+      "note": "Literally 'you're making a nail-sized thing mountain-sized'. Real meaning: you're blowing a tiny matter way out of proportion.",
+      "distractors": ["u60-i15"]
+    },
+    {
+      "id": "u60-i08",
+      "te": "ఊరికే సరదాగా అన్నాను, కోపం వద్దు.",
+      "gloss": "I only said it for fun — don't be angry.",
+      "words": [
+        { "te": "ఊరికే", "gloss": "just / for nothing" },
+        { "te": "సరదాగా", "gloss": "playfully" },
+        { "te": "అన్నాను", "gloss": "I said" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "వద్దు", "gloss": "don't (have)" }
+      ],
+      "tags": ["teasing", "apologies"],
+      "difficulty": 3,
+      "distractors": ["u60-i02"]
+    },
+    {
+      "id": "u60-i09",
+      "te": "నీ జోకు విని పడి పడి నవ్వాను.",
+      "gloss": "I heard your joke and laughed my head off.",
+      "words": [
+        { "te": "నీ", "gloss": "your" },
+        { "te": "జోకు", "gloss": "joke" },
+        { "te": "విని", "gloss": "having heard" },
+        { "te": "పడి", "gloss": "falling" },
+        { "te": "పడి", "gloss": "falling (repeated)" },
+        { "te": "నవ్వాను", "gloss": "I laughed" }
+      ],
+      "tags": ["laughter", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u60-i12"]
+    },
+    {
+      "id": "u60-i10",
+      "te": "అతనికి కోపం ముక్కు మీదే ఉంటుంది.",
+      "gloss": "He has a hair-trigger temper. (idiom)",
+      "words": [
+        { "te": "అతనికి", "gloss": "for him" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "ముక్కు", "gloss": "nose" },
+        { "te": "మీదే", "gloss": "right on top of" },
+        { "te": "ఉంటుంది", "gloss": "stays" }
+      ],
+      "tags": ["idioms", "personality"],
+      "difficulty": 4,
+      "note": "Literally 'his anger sits right on his nose'. Real meaning: he flares up at the smallest thing — a short fuse."
+    },
+    {
+      "id": "u60-i11",
+      "te": "ఇంకో జోకు చెప్పు, భలే ఉంది!",
+      "gloss": "Tell another joke — that was great!",
+      "words": [
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "జోకు", "gloss": "joke" },
+        { "te": "చెప్పు", "gloss": "tell (casual)" },
+        { "te": "భలే", "gloss": "wonderfully" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["laughter", "requests"],
+      "difficulty": 3,
+      "distractors": ["u60-i16"]
+    },
+    {
+      "id": "u60-i12",
+      "te": "నవ్వు ఆపుకోలేక కళ్ళలో నీళ్ళు వచ్చాయి.",
+      "gloss": "I couldn't hold the laughter — tears came to my eyes.",
+      "words": [
+        { "te": "నవ్వు", "gloss": "laughter" },
+        { "te": "ఆపుకోలేక", "gloss": "unable to hold back" },
+        { "te": "కళ్ళలో", "gloss": "in the eyes" },
+        { "te": "నీళ్ళు", "gloss": "water / tears" },
+        { "te": "వచ్చాయి", "gloss": "came" }
+      ],
+      "tags": ["laughter"],
+      "difficulty": 4,
+      "distractors": ["u60-i05"]
+    },
+    {
+      "id": "u60-i13",
+      "te": "గోడలకు చెవులు ఉంటాయి, నెమ్మదిగా మాట్లాడు.",
+      "gloss": "Walls have ears — speak softly. (idiom)",
+      "words": [
+        { "te": "గోడలకు", "gloss": "to walls" },
+        { "te": "చెవులు", "gloss": "ears" },
+        { "te": "ఉంటాయి", "gloss": "there are" },
+        { "te": "నెమ్మదిగా", "gloss": "softly" },
+        { "te": "మాట్లాడు", "gloss": "speak (casual)" }
+      ],
+      "tags": ["idioms", "gossip"],
+      "difficulty": 4,
+      "note": "Literally 'walls have ears'. Real meaning: someone may be overhearing — lower your voice before you gossip."
+    },
+    {
+      "id": "u60-i14",
+      "te": "నన్ను చూసి నవ్వకు, నీ వంతు వస్తుంది.",
+      "gloss": "Don't laugh at me — your turn will come.",
+      "words": [
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "చూసి", "gloss": "looking at" },
+        { "te": "నవ్వకు", "gloss": "don't laugh (casual)" },
+        { "te": "నీ", "gloss": "your" },
+        { "te": "వంతు", "gloss": "turn" },
+        { "te": "వస్తుంది", "gloss": "will come" }
+      ],
+      "tags": ["teasing"],
+      "difficulty": 3,
+      "distractors": ["u60-i11"]
+    },
+    {
+      "id": "u60-i15",
+      "te": "అతను చెప్పేది అంతా గాలి కబుర్లు.",
+      "gloss": "Everything he says is empty gossip. (idiom)",
+      "words": [
+        { "te": "అతను", "gloss": "he" },
+        { "te": "చెప్పేది", "gloss": "what (he) says" },
+        { "te": "అంతా", "gloss": "all of it" },
+        { "te": "గాలి", "gloss": "wind / air" },
+        { "te": "కబుర్లు", "gloss": "talk / chatter" }
+      ],
+      "tags": ["idioms", "gossip"],
+      "difficulty": 4,
+      "note": "గాలి కబుర్లు — literally 'wind talk'. Real meaning: baseless chatter and rumors, words with nothing inside them."
+    },
+    {
+      "id": "u60-i16",
+      "te": "నవ్వుతూ ఉంటే చాలు, అదే పెద్ద ఆరోగ్యం.",
+      "gloss": "Just keep laughing — that itself is the best health.",
+      "words": [
+        { "te": "నవ్వుతూ", "gloss": "laughing" },
+        { "te": "ఉంటే", "gloss": "if (one) stays" },
+        { "te": "చాలు", "gloss": "it is enough" },
+        { "te": "అదే", "gloss": "that itself" },
+        { "te": "పెద్ద", "gloss": "big / great" },
+        { "te": "ఆరోగ్యం", "gloss": "health" }
+      ],
+      "tags": ["laughter", "wisdom"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Generous hands, short fuses",
+      "itemIds": ["u60-i01", "u60-i07", "u60-i10"]
+    },
+    {
+      "id": "l2",
+      "title": "Speak of the devil",
+      "itemIds": ["u60-i03", "u60-i13", "u60-i15"]
+    },
+    {
+      "id": "l3",
+      "title": "Secrets don't soak",
+      "itemIds": ["u60-i04", "u60-i06", "u60-i02"]
+    },
+    {
+      "id": "l4",
+      "title": "Laughing together",
+      "itemIds": ["u60-i05", "u60-i09", "u60-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Just kidding",
+      "itemIds": ["u60-i08", "u60-i11", "u60-i14", "u60-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u60-d1",
+    "title": "Verandah evening with the cousins",
+    "scene": "Dusk on the verandah. You and cousin Meena are trading gossip in low voices when bava walks in at the exact moment his name comes up — and the leg-pulling begins.",
+    "turns": [
+      { "speaker": "Meena", "itemId": "u60-i06" },
+      { "speaker": "You", "itemId": "u60-i15", "userTurn": true },
+      { "speaker": "Meena", "itemId": "u60-i13" },
+      { "speaker": "You", "itemId": "u60-i03", "userTurn": true },
+      { "speaker": "Bava", "itemId": "u60-i02" },
+      { "speaker": "You", "itemId": "u60-i08", "userTurn": true },
+      { "speaker": "Meena", "itemId": "u60-i10" },
+      { "speaker": "Bava", "itemId": "u60-i14" },
+      { "speaker": "You", "itemId": "u60-i07", "userTurn": true },
+      { "speaker": "Meena", "itemId": "u60-i11" },
+      { "speaker": "Bava", "itemId": "u60-i04" },
+      { "speaker": "You", "itemId": "u60-i05", "userTurn": true },
+      { "speaker": "Meena", "itemId": "u60-i12" },
+      { "speaker": "You", "itemId": "u60-i16", "userTurn": true }
+    ]
+  }
+}

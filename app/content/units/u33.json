@@ -1,0 +1,264 @@
+{
+  "id": "u33",
+  "section": 5,
+  "order": 1,
+  "title": "Feelings, properly",
+  "teTitle": "మనసులో మాట",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Name the feelings that matter — pride, jealousy, embarrassment, relief, missing someone, and a heavy heart.",
+  "items": [
+    {
+      "id": "u33-i01",
+      "te": "నాకు చాలా గర్వంగా ఉంది.",
+      "gloss": "I feel so proud.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "గర్వంగా", "gloss": "proudly / proud" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "pride"],
+      "difficulty": 2,
+      "note": "Feelings in Telugu land ON you: నాకు ... గా ఉంది — 'to me it is proud-ly'. You'll use this pattern for almost every emotion.",
+      "distractors": ["u33-i04", "u33-i12"]
+    },
+    {
+      "id": "u33-i02",
+      "te": "అమ్మ మీ గురించి గర్వపడుతోంది.",
+      "gloss": "Mom is proud of you.",
+      "words": [
+        { "te": "అమ్మ", "gloss": "mom" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "గురించి", "gloss": "about" },
+        { "te": "గర్వపడుతోంది", "gloss": "is feeling proud" }
+      ],
+      "tags": ["feelings", "pride", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u33-i03",
+      "te": "వాళ్ళని చూస్తే అసూయగా ఉంది.",
+      "gloss": "Seeing them, I feel jealous.",
+      "words": [
+        { "te": "వాళ్ళని", "gloss": "them" },
+        { "te": "చూస్తే", "gloss": "if (I) see" },
+        { "te": "అసూయగా", "gloss": "jealous" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "jealousy"],
+      "difficulty": 3,
+      "note": "అసూయ is the standard word for envy. Among friends you'll also hear the cheeky కుళ్ళు — నీకు కుళ్ళు! (you're just jealous!).",
+      "distractors": ["u33-i01", "u33-i11"]
+    },
+    {
+      "id": "u33-i04",
+      "te": "నాకు చాలా సిగ్గుగా అనిపించింది.",
+      "gloss": "I felt so embarrassed.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "సిగ్గుగా", "gloss": "embarrassed / shy" },
+        { "te": "అనిపించింది", "gloss": "it felt" }
+      ],
+      "tags": ["feelings", "embarrassment"],
+      "difficulty": 3,
+      "distractors": ["u33-i01", "u33-i12"]
+    },
+    {
+      "id": "u33-i05",
+      "te": "అందరి ముందు సిగ్గు పడ్డాను.",
+      "gloss": "I got embarrassed in front of everyone.",
+      "words": [
+        { "te": "అందరి", "gloss": "of everyone" },
+        { "te": "ముందు", "gloss": "in front" },
+        { "te": "సిగ్గు", "gloss": "embarrassment" },
+        { "te": "పడ్డాను", "gloss": "I underwent" }
+      ],
+      "tags": ["feelings", "embarrassment"],
+      "difficulty": 3
+    },
+    {
+      "id": "u33-i06",
+      "te": "హమ్మయ్య, పని అయిపోయింది!",
+      "gloss": "Phew, the work is done!",
+      "words": [
+        { "te": "హమ్మయ్య", "gloss": "phew (relief)" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "అయిపోయింది", "gloss": "got finished" }
+      ],
+      "tags": ["feelings", "relief"],
+      "difficulty": 2,
+      "note": "హమ్మయ్య is the sound of relief itself — the sigh you let out when the tension is finally over.",
+      "distractors": ["u33-i07", "u33-i15"]
+    },
+    {
+      "id": "u33-i07",
+      "te": "ఇప్పుడు మనసు తేలికైంది.",
+      "gloss": "Now my mind feels lighter.",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "మనసు", "gloss": "mind / heart" },
+        { "te": "తేలికైంది", "gloss": "became light" }
+      ],
+      "tags": ["feelings", "relief"],
+      "difficulty": 3,
+      "distractors": ["u33-i10", "u33-i06"]
+    },
+    {
+      "id": "u33-i08",
+      "te": "మీరు చాలా గుర్తొస్తున్నారు.",
+      "gloss": "I miss you so much.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "చాలా", "gloss": "a lot" },
+        { "te": "గుర్తొస్తున్నారు", "gloss": "keep coming to memory" }
+      ],
+      "tags": ["feelings", "missing"],
+      "difficulty": 2,
+      "note": "Telugu has no verb 'to miss' — the person you miss 'keeps coming to memory': గుర్తు + వస్తున్నారు → గుర్తొస్తున్నారు.",
+      "distractors": ["u33-i09", "u33-i13"]
+    },
+    {
+      "id": "u33-i09",
+      "te": "అమ్మ వంట గుర్తొస్తోంది.",
+      "gloss": "I miss mom's cooking.",
+      "words": [
+        { "te": "అమ్మ", "gloss": "mom's" },
+        { "te": "వంట", "gloss": "cooking" },
+        { "te": "గుర్తొస్తోంది", "gloss": "keeps coming to memory" }
+      ],
+      "tags": ["feelings", "missing", "food"],
+      "difficulty": 2,
+      "distractors": ["u33-i08", "u33-i14"]
+    },
+    {
+      "id": "u33-i10",
+      "te": "నా మనసు భారంగా ఉంది.",
+      "gloss": "My heart is heavy.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "మనసు", "gloss": "heart / mind" },
+        { "te": "భారంగా", "gloss": "heavy" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["feelings", "sadness"],
+      "difficulty": 3,
+      "note": "మనసు covers both heart and mind — the seat of feelings. A heavy మనసు means you're carrying something unsaid.",
+      "distractors": ["u33-i07", "u33-i11"]
+    },
+    {
+      "id": "u33-i11",
+      "te": "ఎందుకో దిగులుగా ఉంది.",
+      "gloss": "For some reason I feel down.",
+      "words": [
+        { "te": "ఎందుకో", "gloss": "for some reason" },
+        { "te": "దిగులుగా", "gloss": "gloomy / down" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "sadness"],
+      "difficulty": 3,
+      "note": "The -ఓ tacked onto a question word makes it vague: ఎందుకు (why) → ఎందుకో (for some unknown reason), ఎవరు → ఎవరో (someone)."
+    },
+    {
+      "id": "u33-i12",
+      "te": "నాకు కొంచెం బాధగా ఉంది.",
+      "gloss": "I'm feeling a little hurt.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "బాధగా", "gloss": "sad / hurt" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "sadness"],
+      "difficulty": 2,
+      "distractors": ["u33-i10", "u33-i11"]
+    },
+    {
+      "id": "u33-i13",
+      "te": "ఊరు గుర్తొచ్చి కళ్ళు తడిశాయి.",
+      "gloss": "Remembering home, my eyes welled up.",
+      "words": [
+        { "te": "ఊరు", "gloss": "hometown" },
+        { "te": "గుర్తొచ్చి", "gloss": "having come to memory" },
+        { "te": "కళ్ళు", "gloss": "eyes" },
+        { "te": "తడిశాయి", "gloss": "got wet" }
+      ],
+      "tags": ["feelings", "missing"],
+      "difficulty": 4
+    },
+    {
+      "id": "u33-i14",
+      "te": "మనసులో ఏదో వెలితిగా ఉంది.",
+      "gloss": "Something feels empty inside.",
+      "words": [
+        { "te": "మనసులో", "gloss": "in the heart" },
+        { "te": "ఏదో", "gloss": "something" },
+        { "te": "వెలితిగా", "gloss": "empty / lacking" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "sadness"],
+      "difficulty": 4
+    },
+    {
+      "id": "u33-i15",
+      "te": "ఇప్పుడు హాయిగా ఉంది.",
+      "gloss": "Now it feels peaceful.",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "హాయిగా", "gloss": "at ease / comfortable" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "relief"],
+      "difficulty": 2,
+      "distractors": ["u33-i06", "u33-i07"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Proud & jealous",
+      "itemIds": ["u33-i01", "u33-i02", "u33-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "So embarrassed",
+      "itemIds": ["u33-i04", "u33-i05", "u33-i12"]
+    },
+    {
+      "id": "l3",
+      "title": "What a relief",
+      "itemIds": ["u33-i06", "u33-i07", "u33-i15"]
+    },
+    {
+      "id": "l4",
+      "title": "Missing someone",
+      "itemIds": ["u33-i08", "u33-i09", "u33-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "A heavy heart",
+      "itemIds": ["u33-i10", "u33-i11", "u33-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u33-d1",
+    "title": "Sunday night call with Vasantha pinni",
+    "scene": "Sunday night video call. Your exams just ended, and Vasantha pinni calls from Guntur to congratulate you — then the talk drifts to how much you both miss each other.",
+    "turns": [
+      { "speaker": "You", "itemId": "u33-i06", "userTurn": true },
+      { "speaker": "Pinni", "itemId": "u33-i01" },
+      { "speaker": "Pinni", "itemId": "u33-i02" },
+      { "speaker": "You", "itemId": "u33-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u33-i07", "userTurn": true },
+      { "speaker": "Pinni", "itemId": "u33-i11" },
+      { "speaker": "Pinni", "itemId": "u33-i10" },
+      { "speaker": "You", "itemId": "u33-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u33-i09", "userTurn": true },
+      { "speaker": "Pinni", "itemId": "u33-i14" },
+      { "speaker": "Pinni", "itemId": "u33-i13" },
+      { "speaker": "You", "itemId": "u33-i12", "userTurn": true },
+      { "speaker": "Pinni", "itemId": "u33-i15" }
+    ]
+  }
+}

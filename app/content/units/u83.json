@@ -1,0 +1,156 @@
+{
+  "id": "u83",
+  "track": "script",
+  "section": 1,
+  "order": 3,
+  "title": "ka to nya",
+  "teTitle": "హల్లులు 1",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "Your first consonant rows: క ఖ గ ఘ and చ ఛ జ ఝ — every one carries a hidden అ.",
+  "items": [
+    {
+      "id": "u83-i01",
+      "te": "క",
+      "audioTe": "క. కారు.",
+      "gloss": "ka — as in 'kaaru' (car)",
+      "words": [{ "te": "క", "gloss": "ka — a plain consonant always carries the అ sound inside" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u83-i02"],
+      "note": "క alone already reads 'ka' — the అ is built in. That's why Telugu needs no letter between క and ల to write కల."
+    },
+    {
+      "id": "u83-i02",
+      "te": "ఖ",
+      "audioTe": "ఖ. ఖర్చు.",
+      "gloss": "kha — as in 'kharchu' (expense)",
+      "words": [{ "te": "ఖ", "gloss": "kha — క with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u83-i01"],
+      "note": "Aspirated letters like ఖ are just their plain twin plus a burst of air: క → ఖ."
+    },
+    {
+      "id": "u83-i03",
+      "te": "గ",
+      "audioTe": "గ. గది.",
+      "gloss": "ga — as in 'gadi' (room)",
+      "words": [{ "te": "గ", "gloss": "ga" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u83-i04"],
+      "note": "You met గ already inside ఈగ (fly). Now it has a name."
+    },
+    {
+      "id": "u83-i04",
+      "te": "ఘ",
+      "audioTe": "ఘ. ఘనం.",
+      "gloss": "gha — as in 'ghanam' (grand, solid)",
+      "words": [{ "te": "ఘ", "gloss": "gha — గ with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u83-i03", "u83-i08"],
+      "note": "ఘ and ఝ are lookalike loops — ఘ belongs to the క row, ఝ to the చ row."
+    },
+    {
+      "id": "u83-i05",
+      "te": "చ",
+      "audioTe": "చ. చాయ్.",
+      "gloss": "cha — as in 'chaay' (tea)",
+      "words": [{ "te": "చ", "gloss": "cha" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u83-i06"],
+      "note": "చ starts చాయ్ — the word you order every single day. Soon you'll read it on the menu."
+    },
+    {
+      "id": "u83-i06",
+      "te": "ఛ",
+      "audioTe": "ఛ. ఛత్రం.",
+      "gloss": "chha — as in 'chhatram' (umbrella)",
+      "words": [{ "te": "ఛ", "gloss": "chha — చ with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u83-i05"]
+    },
+    {
+      "id": "u83-i07",
+      "te": "జ",
+      "audioTe": "జ. జడ.",
+      "gloss": "ja — as in 'jaDa' (braid)",
+      "words": [{ "te": "జ", "gloss": "ja" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u83-i08"]
+    },
+    {
+      "id": "u83-i08",
+      "te": "ఝ",
+      "audioTe": "ఝ. ఝరి.",
+      "gloss": "jha — as in 'jhari' (stream)",
+      "words": [{ "te": "ఝ", "gloss": "jha — జ with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u83-i07", "u83-i04"]
+    },
+    {
+      "id": "u83-i09",
+      "te": "ఙ ఞ",
+      "audioTe": "ఙ. ఞ.",
+      "gloss": "nga & nya — the rare nasals of these two rows",
+      "words": [
+        { "te": "ఙ", "gloss": "nga — almost never appears alone" },
+        { "te": "ఞ", "gloss": "nya — mostly hides in clusters like జ్ఞ" }
+      ],
+      "tags": ["consonant", "rare"],
+      "difficulty": 2,
+      "note": "Just recognize these two — modern Telugu nearly always writes their sound with the sunna ం instead (గంగ, not గఙ్గ)."
+    },
+    {
+      "id": "u83-i10",
+      "te": "కలం",
+      "gloss": "kalam — pen",
+      "words": [
+        { "te": "క", "gloss": "ka" },
+        { "te": "లం", "gloss": "lam — ల with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u83-i11", "u83-i12"],
+      "note": "Two plain letters plus a sunna and you've read 'pen'. ల gets its own lesson soon — meet it early here."
+    },
+    {
+      "id": "u83-i11",
+      "te": "జడ",
+      "gloss": "jaDa — braid, plait",
+      "words": [
+        { "te": "జ", "gloss": "ja" },
+        { "te": "డ", "gloss": "Da" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u83-i10"]
+    },
+    {
+      "id": "u83-i12",
+      "te": "చకచక",
+      "gloss": "chakachaka — briskly, quick-quick",
+      "words": [
+        { "te": "చ", "gloss": "cha" },
+        { "te": "క", "gloss": "ka" },
+        { "te": "చ", "gloss": "cha" },
+        { "te": "క", "gloss": "ka" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u83-i10", "u83-i11"],
+      "note": "చకచక పని చెయ్! (work briskly!) — four aksharas, only this unit's letters, zero extra marks."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "ka kha ga gha", "itemIds": ["u83-i01", "u83-i02", "u83-i03", "u83-i04"] },
+    { "id": "l2", "title": "cha chha ja jha", "itemIds": ["u83-i05", "u83-i06", "u83-i07", "u83-i08"] },
+    { "id": "l3", "title": "rare nasals & first words", "itemIds": ["u83-i09", "u83-i10", "u83-i11", "u83-i12"] }
+  ]
+}

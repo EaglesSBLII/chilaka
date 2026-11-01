@@ -1,0 +1,265 @@
+{
+  "id": "u04",
+  "section": 1,
+  "order": 4,
+  "title": "Question words",
+  "teTitle": "ప్రశ్నలు",
+  "cefr": "A1+",
+  "register": "standard",
+  "description": "Ask who, what, where, when, why, how, and how much — and answer back.",
+  "items": [
+    {
+      "id": "u04-i01",
+      "te": "ఆయన ఎవరు?",
+      "gloss": "Who is he?",
+      "words": [
+        { "te": "ఆయన", "gloss": "he (respectful)" },
+        { "te": "ఎవరు", "gloss": "who" }
+      ],
+      "tags": ["questions", "people"],
+      "difficulty": 1
+    },
+    {
+      "id": "u04-i02",
+      "te": "ఆయన మా మామయ్య.",
+      "gloss": "He is my uncle.",
+      "words": [
+        { "te": "ఆయన", "gloss": "he (respectful)" },
+        { "te": "మా", "gloss": "our / my (family)" },
+        { "te": "మామయ్య", "gloss": "uncle (mother's brother)" }
+      ],
+      "tags": ["people", "family"],
+      "difficulty": 1,
+      "note": "మామయ్య (maamayya) is your mother's brother — and also what you call your father-in-law!",
+      "distractors": ["u04-i16", "u04-i01"]
+    },
+    {
+      "id": "u04-i03",
+      "te": "ఇది ఏంటి?",
+      "gloss": "What is this?",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఏంటి", "gloss": "what (spoken)" }
+      ],
+      "tags": ["questions", "things"],
+      "difficulty": 1,
+      "note": "ఏమిటి (eemiTi) is the full form of 'what'; in everyday speech it becomes ఏంటి (eenTi), often glued on: ఇదేంటి?"
+    },
+    {
+      "id": "u04-i04",
+      "te": "ఇది నా ఫోన్.",
+      "gloss": "This is my phone.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఫోన్", "gloss": "phone" }
+      ],
+      "tags": ["things"],
+      "difficulty": 1,
+      "distractors": ["u04-i03", "u04-i14"]
+    },
+    {
+      "id": "u04-i05",
+      "te": "మీ ఇల్లు ఎక్కడ?",
+      "gloss": "Where is your house?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "ఎక్కడ", "gloss": "where" }
+      ],
+      "tags": ["questions", "places"],
+      "difficulty": 1
+    },
+    {
+      "id": "u04-i06",
+      "te": "మా ఇల్లు హైదరాబాదులో.",
+      "gloss": "Our house is in Hyderabad.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "హైదరాబాదులో", "gloss": "in Hyderabad" }
+      ],
+      "tags": ["places"],
+      "difficulty": 1,
+      "note": "-లో (-lo) = 'in'. Telugu drops 'is' in simple sentences: మా ఇల్లు హైదరాబాదులో — 'our house (is) in Hyderabad'.",
+      "distractors": ["u04-i05", "u04-i16"]
+    },
+    {
+      "id": "u04-i07",
+      "te": "మీరు ఎప్పుడు వస్తారు?",
+      "gloss": "When will you come?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తారు", "gloss": "will (you) come" }
+      ],
+      "tags": ["questions", "time"],
+      "difficulty": 1
+    },
+    {
+      "id": "u04-i08",
+      "te": "రేపు వస్తాను.",
+      "gloss": "I'll come tomorrow.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "వస్తాను", "gloss": "I will come" }
+      ],
+      "tags": ["time"],
+      "difficulty": 1,
+      "distractors": ["u04-i07", "u04-i10"]
+    },
+    {
+      "id": "u04-i09",
+      "te": "ఎందుకు రాలేదు?",
+      "gloss": "Why didn't you come?",
+      "words": [
+        { "te": "ఎందుకు", "gloss": "why" },
+        { "te": "రాలేదు", "gloss": "didn't come" }
+      ],
+      "tags": ["questions"],
+      "difficulty": 2,
+      "note": "Past negative is easy: వచ్చారు 'came' → రాలేదు 'didn't come'. One లేదు (leedu) fits every person."
+    },
+    {
+      "id": "u04-i10",
+      "te": "పని ఉంది.",
+      "gloss": "I had work. (there is work)",
+      "words": [
+        { "te": "పని", "gloss": "work" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["smalltalk"],
+      "difficulty": 1,
+      "note": "పని ఉంది (pani undi), literally 'there is work' — the universal Telugu excuse for everything.",
+      "distractors": ["u04-i08", "u04-i09"]
+    },
+    {
+      "id": "u04-i11",
+      "te": "అక్కడికి ఎలా వెళ్ళాలి?",
+      "gloss": "How do I get there?",
+      "words": [
+        { "te": "అక్కడికి", "gloss": "to there" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "వెళ్ళాలి", "gloss": "should (one) go" }
+      ],
+      "tags": ["questions", "places"],
+      "difficulty": 2
+    },
+    {
+      "id": "u04-i12",
+      "te": "బస్సులో వెళ్ళండి.",
+      "gloss": "Go by bus.",
+      "words": [
+        { "te": "బస్సులో", "gloss": "by bus" },
+        { "te": "వెళ్ళండి", "gloss": "go (polite)" }
+      ],
+      "tags": ["places", "commands"],
+      "difficulty": 1,
+      "note": "-లో also covers 'by' for transport: బస్సులో by bus, కారులో by car, ట్రైన్లో by train.",
+      "distractors": ["u04-i11", "u04-i06"]
+    },
+    {
+      "id": "u04-i13",
+      "te": "ఇది ఎంత?",
+      "gloss": "How much is this?",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["questions", "shopping"],
+      "difficulty": 1
+    },
+    {
+      "id": "u04-i14",
+      "te": "వంద రూపాయలు.",
+      "gloss": "A hundred rupees.",
+      "words": [
+        { "te": "వంద", "gloss": "hundred" },
+        { "te": "రూపాయలు", "gloss": "rupees" }
+      ],
+      "tags": ["shopping", "numbers"],
+      "difficulty": 1,
+      "distractors": ["u04-i13", "u04-i04"]
+    },
+    {
+      "id": "u04-i15",
+      "te": "మీది ఏ ఊరు?",
+      "gloss": "Which town are you from?",
+      "words": [
+        { "te": "మీది", "gloss": "yours" },
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "ఊరు", "gloss": "town / village" }
+      ],
+      "tags": ["questions", "smalltalk"],
+      "difficulty": 2,
+      "note": "THE Telugu icebreaker. మీది (miidi) = 'yours': literally 'yours is which town?' Answer with మాది (maadi) = 'ours'."
+    },
+    {
+      "id": "u04-i16",
+      "te": "మాది విజయవాడ.",
+      "gloss": "We're from Vijayawada.",
+      "words": [
+        { "te": "మాది", "gloss": "ours" },
+        { "te": "విజయవాడ", "gloss": "Vijayawada" }
+      ],
+      "tags": ["smalltalk", "places"],
+      "difficulty": 1,
+      "distractors": ["u04-i06", "u04-i02"]
+    },
+    {
+      "id": "u04-i17",
+      "te": "సినిమా ఎలా ఉంది?",
+      "gloss": "How was the movie?",
+      "words": [
+        { "te": "సినిమా", "gloss": "movie" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉంది", "gloss": "is (it)" }
+      ],
+      "tags": ["questions", "smalltalk"],
+      "difficulty": 1
+    },
+    {
+      "id": "u04-i18",
+      "te": "బాత్రూమ్ ఎక్కడ ఉంది?",
+      "gloss": "Where is the bathroom?",
+      "words": [
+        { "te": "బాత్రూమ్", "gloss": "bathroom" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is (it)" }
+      ],
+      "tags": ["questions", "places"],
+      "difficulty": 1,
+      "distractors": ["u04-i05", "u04-i03"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Who's that?", "itemIds": ["u04-i01", "u04-i02", "u04-i15", "u04-i16"] },
+    { "id": "l2", "title": "What & how much", "itemIds": ["u04-i03", "u04-i04", "u04-i13", "u04-i14"] },
+    { "id": "l3", "title": "Where is it?", "itemIds": ["u04-i05", "u04-i06", "u04-i18"] },
+    { "id": "l4", "title": "When & why", "itemIds": ["u04-i07", "u04-i08", "u04-i09", "u04-i10"] },
+    { "id": "l5", "title": "How?", "itemIds": ["u04-i11", "u04-i12", "u04-i17"] }
+  ],
+  "dialogue": {
+    "id": "u04-d1",
+    "title": "Wedding smalltalk",
+    "scene": "At a cousin's wedding, a friendly uncle sits next to you and starts the classic questions — town, house, even your phone. By the end you've promised him a visit, and stopped at the flower stall on the way out.",
+    "turns": [
+      { "speaker": "Uncle", "itemId": "u04-i15" },
+      { "speaker": "You", "itemId": "u04-i16", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u04-i05" },
+      { "speaker": "You", "itemId": "u04-i06", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u04-i03" },
+      { "speaker": "You", "itemId": "u04-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u04-i01", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u04-i02" },
+      { "speaker": "Uncle", "itemId": "u04-i09" },
+      { "speaker": "You", "itemId": "u04-i10", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u04-i07" },
+      { "speaker": "You", "itemId": "u04-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u04-i11", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u04-i12" },
+      { "speaker": "You", "itemId": "u04-i13", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u04-i14" }
+    ]
+  }
+}

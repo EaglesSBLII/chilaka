@@ -1,0 +1,267 @@
+{
+  "id": "u38",
+  "section": 5,
+  "order": 6,
+  "title": "Arguments & patching up",
+  "teTitle": "గొడవలు, రాజీలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Disagree kindly, say sorry like you mean it, and patch things up over coffee.",
+  "items": [
+    {
+      "id": "u38-i01",
+      "te": "మీరు నా మాట వినట్లేదు.",
+      "gloss": "You're not listening to me.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "word" },
+        { "te": "వినట్లేదు", "gloss": "are not listening" }
+      ],
+      "tags": ["arguments"],
+      "difficulty": 3,
+      "note": "వినట్లేదు is spoken shorthand for వినడం లేదు. The -ట్లేదు squeeze works everywhere: చేయట్లేదు, రావట్లేదు.",
+      "distractors": ["u38-i03", "u38-i09"]
+    },
+    {
+      "id": "u38-i02",
+      "te": "అలా కాదు, నా ఉద్దేశం వేరే.",
+      "gloss": "Not like that — I meant something else.",
+      "words": [
+        { "te": "అలా", "gloss": "like that" },
+        { "te": "కాదు", "gloss": "it is not" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఉద్దేశం", "gloss": "intention" },
+        { "te": "వేరే", "gloss": "different" }
+      ],
+      "tags": ["arguments", "disagreeing"],
+      "difficulty": 3,
+      "note": "అలా కాదు is the gentle way in — it disagrees with the words, not the person.",
+      "distractors": ["u38-i14", "u38-i01"]
+    },
+    {
+      "id": "u38-i03",
+      "te": "నన్ను కూడా మాట్లాడనివ్వండి.",
+      "gloss": "Let me speak too.",
+      "words": [
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "కూడా", "gloss": "also" },
+        { "te": "మాట్లాడనివ్వండి", "gloss": "allow to speak (polite)" }
+      ],
+      "tags": ["arguments"],
+      "difficulty": 3,
+      "distractors": ["u38-i01", "u38-i09"]
+    },
+    {
+      "id": "u38-i04",
+      "te": "సారీ, నాదే తప్పు.",
+      "gloss": "Sorry, the fault is mine.",
+      "words": [
+        { "te": "సారీ", "gloss": "sorry" },
+        { "te": "నాదే", "gloss": "mine indeed" },
+        { "te": "తప్పు", "gloss": "fault" }
+      ],
+      "tags": ["apology"],
+      "difficulty": 2,
+      "note": "నాదే — 'mine and no one else's' — that little -ఏ makes the apology land as fully owned.",
+      "distractors": ["u38-i05", "u38-i12"]
+    },
+    {
+      "id": "u38-i05",
+      "te": "నేను అలా అనాల్సింది కాదు.",
+      "gloss": "I shouldn't have said that.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "అలా", "gloss": "like that" },
+        { "te": "అనాల్సింది", "gloss": "should have said" },
+        { "te": "కాదు", "gloss": "not" }
+      ],
+      "tags": ["apology"],
+      "difficulty": 3,
+      "distractors": ["u38-i04", "u38-i11"]
+    },
+    {
+      "id": "u38-i06",
+      "te": "వదిలేయండి, పెద్ద విషయం కాదు.",
+      "gloss": "Let it go, it's not a big deal.",
+      "words": [
+        { "te": "వదిలేయండి", "gloss": "let it go (polite)" },
+        { "te": "పెద్ద", "gloss": "big" },
+        { "te": "విషయం", "gloss": "matter" },
+        { "te": "కాదు", "gloss": "is not" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 3,
+      "distractors": ["u38-i07", "u38-i12"]
+    },
+    {
+      "id": "u38-i07",
+      "te": "మనసులో పెట్టుకోకండి.",
+      "gloss": "Don't hold it in your heart.",
+      "words": [
+        { "te": "మనసులో", "gloss": "in the heart" },
+        { "te": "పెట్టుకోకండి", "gloss": "don't keep (polite)" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 3,
+      "note": "Grudges in Telugu are 'kept in the మనసు'. This line asks someone not to file the hurt away.",
+      "distractors": ["u38-i06", "u38-i08"]
+    },
+    {
+      "id": "u38-i08",
+      "te": "మీ మీద కోపం లేదు.",
+      "gloss": "I'm not angry with you.",
+      "words": [
+        { "te": "మీ", "gloss": "you (polite)" },
+        { "te": "మీద", "gloss": "on / towards" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "లేదు", "gloss": "there is not" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 2,
+      "note": "Anger sits ON people in Telugu: మీ మీద కోపం — 'anger on you'. కోపం వచ్చింది = anger came; it arrives and leaves on its own."
+    },
+    {
+      "id": "u38-i09",
+      "te": "ఒక్క నిమిషం నా మాట వినండి.",
+      "gloss": "Listen to me for just one minute.",
+      "words": [
+        { "te": "ఒక్క", "gloss": "just one" },
+        { "te": "నిమిషం", "gloss": "minute" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "word" },
+        { "te": "వినండి", "gloss": "listen (polite)" }
+      ],
+      "tags": ["arguments"],
+      "difficulty": 2
+    },
+    {
+      "id": "u38-i10",
+      "te": "మనం ఇలా గొడవ పడొద్దు.",
+      "gloss": "Let's not fight like this.",
+      "words": [
+        { "te": "మనం", "gloss": "we (you and I)" },
+        { "te": "ఇలా", "gloss": "like this" },
+        { "te": "గొడవ", "gloss": "quarrel" },
+        { "te": "పడొద్దు", "gloss": "shouldn't fall into" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 3,
+      "distractors": ["u38-i12", "u38-i13"]
+    },
+    {
+      "id": "u38-i11",
+      "te": "నాకు కొంచెం కోపం వచ్చింది, నిజమే.",
+      "gloss": "I did get a little angry, it's true.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "వచ్చింది", "gloss": "came" },
+        { "te": "నిజమే", "gloss": "it's true" }
+      ],
+      "tags": ["arguments", "apology"],
+      "difficulty": 3
+    },
+    {
+      "id": "u38-i12",
+      "te": "సరే, మర్చిపోదాం.",
+      "gloss": "Okay, let's forget it.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "మర్చిపోదాం", "gloss": "let's forget" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 2,
+      "distractors": ["u38-i10", "u38-i15"]
+    },
+    {
+      "id": "u38-i13",
+      "te": "మనం మళ్ళీ ఫ్రెండ్సే కదా?",
+      "gloss": "We're friends again, right?",
+      "words": [
+        { "te": "మనం", "gloss": "we" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "ఫ్రెండ్సే", "gloss": "friends indeed" },
+        { "te": "కదా", "gloss": "right?" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 2,
+      "distractors": ["u38-i12", "u38-i15"]
+    },
+    {
+      "id": "u38-i14",
+      "te": "మీరు అన్నది కూడా నిజమే.",
+      "gloss": "What you said is also true.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "అన్నది", "gloss": "what was said" },
+        { "te": "కూడా", "gloss": "also" },
+        { "te": "నిజమే", "gloss": "is true indeed" }
+      ],
+      "tags": ["arguments", "disagreeing"],
+      "difficulty": 3,
+      "note": "The peacemaker's move: concede a point before making yours. కూడా నిజమే — 'that's also true' — softens everything after it."
+    },
+    {
+      "id": "u38-i15",
+      "te": "రండి, కాఫీ తాగుదాం.",
+      "gloss": "Come, let's have coffee.",
+      "words": [
+        { "te": "రండి", "gloss": "come (polite)" },
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "తాగుదాం", "gloss": "let's drink" }
+      ],
+      "tags": ["making-peace"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Disagreeing kindly",
+      "itemIds": ["u38-i02", "u38-i14", "u38-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "You're not listening",
+      "itemIds": ["u38-i01", "u38-i09", "u38-i11"]
+    },
+    {
+      "id": "l3",
+      "title": "Saying sorry",
+      "itemIds": ["u38-i04", "u38-i05", "u38-i08"]
+    },
+    {
+      "id": "l4",
+      "title": "Let it go",
+      "itemIds": ["u38-i06", "u38-i07", "u38-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Making peace",
+      "itemIds": ["u38-i10", "u38-i13", "u38-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u38-d1",
+    "title": "The birthday party squabble",
+    "scene": "You and your cousin Suresh are planning grandma's 75th birthday — and disagree about the venue. Voices rise a little, then hearts soften, and it ends the only proper way: over coffee.",
+    "turns": [
+      { "speaker": "Suresh", "itemId": "u38-i01" },
+      { "speaker": "You", "itemId": "u38-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u38-i09", "userTurn": true },
+      { "speaker": "Suresh", "itemId": "u38-i03" },
+      { "speaker": "You", "itemId": "u38-i10", "userTurn": true },
+      { "speaker": "Suresh", "itemId": "u38-i11" },
+      { "speaker": "You", "itemId": "u38-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u38-i04", "userTurn": true },
+      { "speaker": "Suresh", "itemId": "u38-i06" },
+      { "speaker": "Suresh", "itemId": "u38-i08" },
+      { "speaker": "You", "itemId": "u38-i14", "userTurn": true },
+      { "speaker": "Suresh", "itemId": "u38-i12" },
+      { "speaker": "You", "itemId": "u38-i13", "userTurn": true },
+      { "speaker": "Suresh", "itemId": "u38-i15" }
+    ]
+  }
+}

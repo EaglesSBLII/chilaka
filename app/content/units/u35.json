@@ -1,0 +1,270 @@
+{
+  "id": "u35",
+  "section": 5,
+  "order": 3,
+  "title": "Childhood memories",
+  "teTitle": "చిన్నప్పటి రోజులు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Talk about how things used to be — summers at grandma's, school days, and the habitual past.",
+  "items": [
+    {
+      "id": "u35-i01",
+      "te": "చిన్నప్పుడు మేము చాలా అల్లరి చేసేవాళ్ళం.",
+      "gloss": "When we were small, we used to be so naughty.",
+      "words": [
+        { "te": "చిన్నప్పుడు", "gloss": "in childhood" },
+        { "te": "మేము", "gloss": "we" },
+        { "te": "చాలా", "gloss": "a lot of" },
+        { "te": "అల్లరి", "gloss": "mischief" },
+        { "te": "చేసేవాళ్ళం", "gloss": "used to do" }
+      ],
+      "tags": ["memories", "childhood"],
+      "difficulty": 3,
+      "note": "చిన్నప్పుడు — 'when (I was) small' — is how every childhood story begins. Add మీ: మీ చిన్నప్పుడు (when YOU were small).",
+      "distractors": ["u35-i03", "u35-i08"]
+    },
+    {
+      "id": "u35-i02",
+      "te": "ప్రతి వేసవి అమ్మమ్మ ఊరికి వెళ్ళేవాళ్ళం.",
+      "gloss": "Every summer we'd go to grandma's village.",
+      "words": [
+        { "te": "ప్రతి", "gloss": "every" },
+        { "te": "వేసవి", "gloss": "summer" },
+        { "te": "అమ్మమ్మ", "gloss": "grandma's" },
+        { "te": "ఊరికి", "gloss": "to the village" },
+        { "te": "వెళ్ళేవాళ్ళం", "gloss": "we used to go" }
+      ],
+      "tags": ["memories", "grandma"],
+      "difficulty": 3,
+      "note": "The habitual past: verb + -ఏవాళ్ళం = 'we used to...'. వెళ్ళేవాళ్ళం, తినేవాళ్ళం, ఆడేవాళ్ళం — the sound of nostalgia.",
+      "distractors": ["u35-i13", "u35-i03"]
+    },
+    {
+      "id": "u35-i03",
+      "te": "సాయంత్రం అంతా ఆడుకునేవాళ్ళం.",
+      "gloss": "We'd play the whole evening.",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "evening" },
+        { "te": "అంతా", "gloss": "entire" },
+        { "te": "ఆడుకునేవాళ్ళం", "gloss": "we used to play" }
+      ],
+      "tags": ["memories", "play"],
+      "difficulty": 3,
+      "distractors": ["u35-i01", "u35-i09"]
+    },
+    {
+      "id": "u35-i04",
+      "te": "అమ్మమ్మ కథలు చెప్పేది.",
+      "gloss": "Grandma would tell stories.",
+      "words": [
+        { "te": "అమ్మమ్మ", "gloss": "grandma" },
+        { "te": "కథలు", "gloss": "stories" },
+        { "te": "చెప్పేది", "gloss": "she used to tell" }
+      ],
+      "tags": ["memories", "grandma"],
+      "difficulty": 3,
+      "note": "Habitual past changes with the person: చెప్పేది (she used to), చెప్పేవారు (he/they, respectful), చెప్పేవాళ్ళం (we used to).",
+      "distractors": ["u35-i05", "u35-i14"]
+    },
+    {
+      "id": "u35-i05",
+      "te": "తాతయ్య చెట్టు కింద కూర్చునేవారు.",
+      "gloss": "Grandpa would sit under the tree.",
+      "words": [
+        { "te": "తాతయ్య", "gloss": "grandpa" },
+        { "te": "చెట్టు", "gloss": "tree" },
+        { "te": "కింద", "gloss": "under" },
+        { "te": "కూర్చునేవారు", "gloss": "used to sit (respectful)" }
+      ],
+      "tags": ["memories", "grandpa"],
+      "difficulty": 3,
+      "distractors": ["u35-i04", "u35-i08"]
+    },
+    {
+      "id": "u35-i06",
+      "te": "మా స్కూల్ ఇంటికి దగ్గరే.",
+      "gloss": "Our school was right near home.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "స్కూల్", "gloss": "school" },
+        { "te": "ఇంటికి", "gloss": "to home" },
+        { "te": "దగ్గరే", "gloss": "quite near" }
+      ],
+      "tags": ["memories", "school"],
+      "difficulty": 2
+    },
+    {
+      "id": "u35-i07",
+      "te": "అప్పుడు రోజులు చాలా బాగుండేవి.",
+      "gloss": "The days back then were so good.",
+      "words": [
+        { "te": "అప్పుడు", "gloss": "back then" },
+        { "te": "రోజులు", "gloss": "days" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుండేవి", "gloss": "used to be good" }
+      ],
+      "tags": ["memories", "nostalgia"],
+      "difficulty": 3,
+      "distractors": ["u35-i12", "u35-i11"]
+    },
+    {
+      "id": "u35-i08",
+      "te": "చిన్నప్పుడు మామిడికాయలు కోసేవాళ్ళం.",
+      "gloss": "As kids we'd pluck raw mangoes.",
+      "words": [
+        { "te": "చిన్నప్పుడు", "gloss": "in childhood" },
+        { "te": "మామిడికాయలు", "gloss": "raw mangoes" },
+        { "te": "కోసేవాళ్ళం", "gloss": "we used to pluck" }
+      ],
+      "tags": ["memories", "play"],
+      "difficulty": 3
+    },
+    {
+      "id": "u35-i09",
+      "te": "వానలో తడుస్తూ ఇంటికి వచ్చేవాళ్ళం.",
+      "gloss": "We'd come home getting soaked in the rain.",
+      "words": [
+        { "te": "వానలో", "gloss": "in the rain" },
+        { "te": "తడుస్తూ", "gloss": "getting wet" },
+        { "te": "ఇంటికి", "gloss": "home" },
+        { "te": "వచ్చేవాళ్ళం", "gloss": "we used to come" }
+      ],
+      "tags": ["memories", "play"],
+      "difficulty": 4
+    },
+    {
+      "id": "u35-i10",
+      "te": "మీ చిన్నప్పటి సంగతులు చెప్పండి.",
+      "gloss": "Tell me about your childhood.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "చిన్నప్పటి", "gloss": "childhood-time" },
+        { "te": "సంగతులు", "gloss": "matters / stories" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["memories", "questions"],
+      "difficulty": 3,
+      "note": "The magic question with elders — ask this and settle in, the stories won't stop coming.",
+      "distractors": ["u35-i11", "u35-i04"]
+    },
+    {
+      "id": "u35-i11",
+      "te": "నాకు ఇప్పటికీ బాగా గుర్తు.",
+      "gloss": "I still remember it well.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఇప్పటికీ", "gloss": "even now" },
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "గుర్తు", "gloss": "memory / remembered" }
+      ],
+      "tags": ["memories"],
+      "difficulty": 2,
+      "distractors": ["u35-i12", "u35-i07"]
+    },
+    {
+      "id": "u35-i12",
+      "te": "ఆ రోజులు మళ్ళీ రావు.",
+      "gloss": "Those days won't come again.",
+      "words": [
+        { "te": "ఆ", "gloss": "those" },
+        { "te": "రోజులు", "gloss": "days" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "రావు", "gloss": "won't come" }
+      ],
+      "tags": ["memories", "nostalgia"],
+      "difficulty": 2,
+      "distractors": ["u35-i07", "u35-i11"]
+    },
+    {
+      "id": "u35-i13",
+      "te": "స్కూల్ నుంచి నడుచుకుంటూ వచ్చేవాళ్ళం.",
+      "gloss": "We'd walk back home from school.",
+      "words": [
+        { "te": "స్కూల్", "gloss": "school" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "నడుచుకుంటూ", "gloss": "walking along" },
+        { "te": "వచ్చేవాళ్ళం", "gloss": "we used to come" }
+      ],
+      "tags": ["memories", "school"],
+      "difficulty": 3
+    },
+    {
+      "id": "u35-i14",
+      "te": "అమ్మమ్మ చేతి వంట అదిరిపోయేది.",
+      "gloss": "Grandma's hand-cooked food used to be amazing.",
+      "words": [
+        { "te": "అమ్మమ్మ", "gloss": "grandma's" },
+        { "te": "చేతి", "gloss": "hand's" },
+        { "te": "వంట", "gloss": "cooking" },
+        { "te": "అదిరిపోయేది", "gloss": "used to be stunning" }
+      ],
+      "tags": ["memories", "grandma", "food"],
+      "difficulty": 3,
+      "note": "చేతి వంట — 'hand cooking' — praises the person, not the recipe. అదిరిపోయింది is the spoken superlative for anything fantastic."
+    },
+    {
+      "id": "u35-i15",
+      "te": "సెలవుల్లో అస్సలు ఇంట్లో ఉండేవాళ్ళం కాదు.",
+      "gloss": "During holidays we'd never stay home at all.",
+      "words": [
+        { "te": "సెలవుల్లో", "gloss": "in the holidays" },
+        { "te": "అస్సలు", "gloss": "at all" },
+        { "te": "ఇంట్లో", "gloss": "at home" },
+        { "te": "ఉండేవాళ్ళం", "gloss": "used to stay" },
+        { "te": "కాదు", "gloss": "not" }
+      ],
+      "tags": ["memories", "play"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "When I was small",
+      "itemIds": ["u35-i10", "u35-i01", "u35-i11"]
+    },
+    {
+      "id": "l2",
+      "title": "Grandma's house",
+      "itemIds": ["u35-i02", "u35-i04", "u35-i14"]
+    },
+    {
+      "id": "l3",
+      "title": "Mangoes & rain",
+      "itemIds": ["u35-i05", "u35-i08", "u35-i09"]
+    },
+    {
+      "id": "l4",
+      "title": "School days",
+      "itemIds": ["u35-i06", "u35-i13", "u35-i03"]
+    },
+    {
+      "id": "l5",
+      "title": "Those days",
+      "itemIds": ["u35-i07", "u35-i12", "u35-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u35-d1",
+    "title": "The old photo album",
+    "scene": "A rainy afternoon at Peddamma's place. You find a faded photo album on the shelf, and one question sends her — and you — straight back to the village summers.",
+    "turns": [
+      { "speaker": "You", "itemId": "u35-i10", "userTurn": true },
+      { "speaker": "Peddamma", "itemId": "u35-i02" },
+      { "speaker": "Peddamma", "itemId": "u35-i03" },
+      { "speaker": "You", "itemId": "u35-i11", "userTurn": true },
+      { "speaker": "Peddamma", "itemId": "u35-i04" },
+      { "speaker": "Peddamma", "itemId": "u35-i14" },
+      { "speaker": "You", "itemId": "u35-i08", "userTurn": true },
+      { "speaker": "Peddamma", "itemId": "u35-i05" },
+      { "speaker": "Peddamma", "itemId": "u35-i09" },
+      { "speaker": "You", "itemId": "u35-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u35-i13", "userTurn": true },
+      { "speaker": "Peddamma", "itemId": "u35-i15" },
+      { "speaker": "Peddamma", "itemId": "u35-i01" },
+      { "speaker": "Peddamma", "itemId": "u35-i07" },
+      { "speaker": "You", "itemId": "u35-i12", "userTurn": true }
+    ]
+  }
+}

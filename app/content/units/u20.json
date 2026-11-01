@@ -1,0 +1,250 @@
+{
+  "id": "u20",
+  "section": 3,
+  "order": 4,
+  "title": "Directions",
+  "teTitle": "దారి అడగడం",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Ask the way, follow directions, and survive getting lost in an Indian city.",
+  "items": [
+    {
+      "id": "u20-i01",
+      "te": "బాత్రూమ్ ఎక్కడ ఉంది?",
+      "gloss": "Where is the bathroom?",
+      "words": [
+        { "te": "బాత్రూమ్", "gloss": "bathroom" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u20-i02",
+      "te": "తిన్నగా వెళ్ళండి.",
+      "gloss": "Go straight.",
+      "words": [
+        { "te": "తిన్నగా", "gloss": "straight" },
+        { "te": "వెళ్ళండి", "gloss": "go (polite)" }
+      ],
+      "tags": ["directions", "commands"],
+      "difficulty": 2,
+      "note": "తిన్నగా (tinnagaa) = straight ahead. In cities you'll also hear the English borrow: స్ట్రెయిట్ గా వెళ్ళండి.",
+      "distractors": ["u20-i03", "u20-i04"]
+    },
+    {
+      "id": "u20-i03",
+      "te": "ఎడమ వైపు తిరగండి.",
+      "gloss": "Turn left.",
+      "words": [
+        { "te": "ఎడమ", "gloss": "left" },
+        { "te": "వైపు", "gloss": "side / direction" },
+        { "te": "తిరగండి", "gloss": "turn (polite)" }
+      ],
+      "tags": ["directions", "commands"],
+      "difficulty": 3,
+      "note": "ఎడమ (eDama) = left, కుడి (kuDi) = right, వైపు (vaipu) = side. Mixing these up is how family road trips get exciting.",
+      "distractors": ["u20-i04", "u20-i02"]
+    },
+    {
+      "id": "u20-i04",
+      "te": "కుడి వైపు తిరగండి.",
+      "gloss": "Turn right.",
+      "words": [
+        { "te": "కుడి", "gloss": "right" },
+        { "te": "వైపు", "gloss": "side / direction" },
+        { "te": "తిరగండి", "gloss": "turn (polite)" }
+      ],
+      "tags": ["directions", "commands"],
+      "difficulty": 3,
+      "distractors": ["u20-i03", "u20-i02"]
+    },
+    {
+      "id": "u20-i05",
+      "te": "గుడి పక్కన ఉంది.",
+      "gloss": "It's next to the temple.",
+      "words": [
+        { "te": "గుడి", "gloss": "temple" },
+        { "te": "పక్కన", "gloss": "next to" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["directions", "landmarks"],
+      "difficulty": 3,
+      "distractors": ["u20-i12", "u20-i16"]
+    },
+    {
+      "id": "u20-i06",
+      "te": "ఇక్కడికి దగ్గరేనా?",
+      "gloss": "Is it close to here?",
+      "words": [
+        { "te": "ఇక్కడికి", "gloss": "to here" },
+        { "te": "దగ్గరేనా", "gloss": "is (it) near?" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 4,
+      "distractors": ["u20-i07", "u20-i13"]
+    },
+    {
+      "id": "u20-i07",
+      "te": "లేదు, చాలా దూరం.",
+      "gloss": "No, it's very far.",
+      "words": [
+        { "te": "లేదు", "gloss": "no" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "దూరం", "gloss": "far / distance" }
+      ],
+      "tags": ["directions"],
+      "difficulty": 2,
+      "distractors": ["u20-i06", "u20-i15"]
+    },
+    {
+      "id": "u20-i08",
+      "te": "నేను దారి తప్పాను!",
+      "gloss": "I'm lost! (lit: I missed the way)",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "దారి", "gloss": "way / road" },
+        { "te": "తప్పాను", "gloss": "missed / strayed (I)" }
+      ],
+      "tags": ["directions", "emergencies"],
+      "difficulty": 3,
+      "note": "దారి తప్పాను (daari tappaanu) = 'I lost the way'. Say this with a helpless smile and any auto driver will rescue you."
+    },
+    {
+      "id": "u20-i09",
+      "te": "ఈ బస్సు చార్మినార్ వెళ్తుందా?",
+      "gloss": "Does this bus go to Charminar?",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "బస్సు", "gloss": "bus" },
+        { "te": "చార్మినార్", "gloss": "Charminar" },
+        { "te": "వెళ్తుందా", "gloss": "does (it) go?" }
+      ],
+      "tags": ["directions", "transport", "questions"],
+      "difficulty": 4
+    },
+    {
+      "id": "u20-i10",
+      "te": "సిగ్నల్ దగ్గర ఆగండి.",
+      "gloss": "Stop near the signal.",
+      "words": [
+        { "te": "సిగ్నల్", "gloss": "traffic signal" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "ఆగండి", "gloss": "stop (polite)" }
+      ],
+      "tags": ["directions", "transport", "commands"],
+      "difficulty": 3,
+      "distractors": ["u20-i02", "u20-i03"]
+    },
+    {
+      "id": "u20-i11",
+      "te": "అటు కాదు, ఇటు!",
+      "gloss": "Not that way — this way!",
+      "words": [
+        { "te": "అటు", "gloss": "that way" },
+        { "te": "కాదు", "gloss": "not" },
+        { "te": "ఇటు", "gloss": "this way" }
+      ],
+      "tags": ["directions"],
+      "difficulty": 3,
+      "note": "ఇటు (iTu) = this way, అటు (aTu) = that way — perfect for gesturing wildly from the back of an auto.",
+      "distractors": ["u20-i02", "u20-i07"]
+    },
+    {
+      "id": "u20-i12",
+      "te": "ఆ బిల్డింగ్ వెనక ఉంది.",
+      "gloss": "It's behind that building.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "బిల్డింగ్", "gloss": "building" },
+        { "te": "వెనక", "gloss": "behind" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["directions", "landmarks"],
+      "difficulty": 3,
+      "distractors": ["u20-i05", "u20-i16"]
+    },
+    {
+      "id": "u20-i13",
+      "te": "ఎంత దూరం ఉంటుంది?",
+      "gloss": "How far is it?",
+      "words": [
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "దూరం", "gloss": "distance" },
+        { "te": "ఉంటుంది", "gloss": "will be" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u20-i14",
+      "te": "నడిచి వెళ్ళొచ్చా?",
+      "gloss": "Can I walk there?",
+      "words": [
+        { "te": "నడిచి", "gloss": "having walked" },
+        { "te": "వెళ్ళొచ్చా", "gloss": "may (one) go?" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 4,
+      "note": "వెళ్ళొచ్చు (veLLochchu) = 'one may go'; add -ఆ (-aa) to make it a question: వెళ్ళొచ్చా?"
+    },
+    {
+      "id": "u20-i15",
+      "te": "పది నిమిషాలు పడుతుంది.",
+      "gloss": "It takes ten minutes.",
+      "words": [
+        { "te": "పది", "gloss": "ten" },
+        { "te": "నిమిషాలు", "gloss": "minutes" },
+        { "te": "పడుతుంది", "gloss": "it takes" }
+      ],
+      "tags": ["directions", "time"],
+      "difficulty": 3,
+      "distractors": ["u20-i13", "u20-i07"]
+    },
+    {
+      "id": "u20-i16",
+      "te": "ముందు పెట్రోల్ బంకు వస్తుంది.",
+      "gloss": "First you'll come to a petrol bunk.",
+      "words": [
+        { "te": "ముందు", "gloss": "first / ahead" },
+        { "te": "పెట్రోల్", "gloss": "petrol" },
+        { "te": "బంకు", "gloss": "bunk / station" },
+        { "te": "వస్తుంది", "gloss": "comes" }
+      ],
+      "tags": ["directions", "landmarks"],
+      "difficulty": 4,
+      "note": "In India a petrol station is a పెట్రోల్ బంకు (peTrol banku) — and in directions, landmarks 'come' to you: బంకు వస్తుంది."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Which way?", "itemIds": ["u20-i02", "u20-i03", "u20-i04", "u20-i11"] },
+    { "id": "l2", "title": "Landmark hopping", "itemIds": ["u20-i05", "u20-i12", "u20-i16"] },
+    { "id": "l3", "title": "Near or far?", "itemIds": ["u20-i06", "u20-i07", "u20-i13"] },
+    { "id": "l4", "title": "Buses & autos", "itemIds": ["u20-i09", "u20-i10", "u20-i15"] },
+    { "id": "l5", "title": "Lost!", "itemIds": ["u20-i01", "u20-i08", "u20-i14"] }
+  ],
+  "dialogue": {
+    "id": "u20-d1",
+    "title": "Lost in the lanes",
+    "scene": "The lanes near Charminar have swallowed you whole. You show your cousin's address to a kind stranger at a tea stall, who swears everything is ten minutes away — and your cousin talks you through the last few turns by phone.",
+    "turns": [
+      { "speaker": "You", "itemId": "u20-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u20-i06", "userTurn": true },
+      { "speaker": "Stranger", "itemId": "u20-i07" },
+      { "speaker": "You", "itemId": "u20-i13", "userTurn": true },
+      { "speaker": "Stranger", "itemId": "u20-i15" },
+      { "speaker": "You", "itemId": "u20-i09", "userTurn": true },
+      { "speaker": "Stranger", "itemId": "u20-i11" },
+      { "speaker": "You", "itemId": "u20-i14", "userTurn": true },
+      { "speaker": "Stranger", "itemId": "u20-i16" },
+      { "speaker": "Stranger", "itemId": "u20-i04" },
+      { "speaker": "Stranger", "itemId": "u20-i05" },
+      { "speaker": "Cousin", "itemId": "u20-i02" },
+      { "speaker": "Cousin", "itemId": "u20-i03" },
+      { "speaker": "Cousin", "itemId": "u20-i12" },
+      { "speaker": "Cousin", "itemId": "u20-i11" },
+      { "speaker": "You", "itemId": "u20-i01", "userTurn": true }
+    ]
+  }
+}

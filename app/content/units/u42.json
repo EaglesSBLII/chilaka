@@ -1,0 +1,273 @@
+{
+  "id": "u42",
+  "section": 6,
+  "order": 2,
+  "title": "At the bank",
+  "teTitle": "బ్యాంకులో",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Open an account, fill forms, survive an ATM mishap, and send money.",
+  "items": [
+    {
+      "id": "u42-i01",
+      "te": "అకౌంటు తెరవాలి అండి.",
+      "gloss": "I need to open an account.",
+      "words": [
+        { "te": "అకౌంటు", "gloss": "account" },
+        { "te": "తెరవాలి", "gloss": "must open" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["bank", "requests"],
+      "difficulty": 3,
+      "note": "-ఆలి on a verb means 'need to / must': తెరవాలి, కట్టాలి, వెళ్ళాలి. Your errand workhorse.",
+      "distractors": ["u42-i09", "u42-i02"]
+    },
+    {
+      "id": "u42-i02",
+      "te": "ఏ కౌంటరుకు వెళ్ళాలి?",
+      "gloss": "Which counter should I go to?",
+      "words": [
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "కౌంటరుకు", "gloss": "to (which) counter" },
+        { "te": "వెళ్ళాలి", "gloss": "should go" }
+      ],
+      "tags": ["bank", "questions"],
+      "difficulty": 3,
+      "distractors": ["u42-i01", "u42-i16"]
+    },
+    {
+      "id": "u42-i03",
+      "te": "ఈ ఫారం నింపండి.",
+      "gloss": "Fill in this form.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ఫారం", "gloss": "form" },
+        { "te": "నింపండి", "gloss": "fill (polite)" }
+      ],
+      "tags": ["bank", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u42-i04",
+      "te": "ఇక్కడ సంతకం పెట్టండి.",
+      "gloss": "Sign here.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "సంతకం", "gloss": "signature" },
+        { "te": "పెట్టండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["bank", "commands"],
+      "difficulty": 3,
+      "note": "సంతకం పెట్టు = to sign. You'll hear this at every office window in India.",
+      "distractors": ["u42-i03", "u42-i15"]
+    },
+    {
+      "id": "u42-i05",
+      "te": "ఆధార్ కార్డు తెచ్చారా?",
+      "gloss": "Did you bring your Aadhaar card?",
+      "words": [
+        { "te": "ఆధార్", "gloss": "Aadhaar" },
+        { "te": "కార్డు", "gloss": "card" },
+        { "te": "తెచ్చారా", "gloss": "did (you) bring?" }
+      ],
+      "tags": ["bank", "documents", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u42-i06",
+      "te": "తెచ్చాను అండి, ఇదిగోండి.",
+      "gloss": "I brought it — here you go.",
+      "words": [
+        { "te": "తెచ్చాను", "gloss": "I brought" },
+        { "te": "అండి", "gloss": "polite tag" },
+        { "te": "ఇదిగోండి", "gloss": "here you go (polite)" }
+      ],
+      "tags": ["bank", "documents"],
+      "difficulty": 3,
+      "note": "ఇదిగోండి is the polite 'here, take this' when handing anything over."
+    },
+    {
+      "id": "u42-i07",
+      "te": "ఏటీఎం కార్డు పని చేయట్లేదు.",
+      "gloss": "My ATM card isn't working.",
+      "words": [
+        { "te": "ఏటీఎం", "gloss": "ATM" },
+        { "te": "కార్డు", "gloss": "card" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "చేయట్లేదు", "gloss": "isn't doing" }
+      ],
+      "tags": ["bank", "problems"],
+      "difficulty": 4,
+      "note": "పని చేయట్లేదు ('isn't working') works for any dead device — card, phone, fan, lift.",
+      "distractors": ["u42-i08", "u42-i13"]
+    },
+    {
+      "id": "u42-i08",
+      "te": "మెషీన్ నా కార్డు మింగేసింది.",
+      "gloss": "The machine swallowed my card.",
+      "words": [
+        { "te": "మెషీన్", "gloss": "machine" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "కార్డు", "gloss": "card" },
+        { "te": "మింగేసింది", "gloss": "swallowed (it) up" }
+      ],
+      "tags": ["bank", "problems"],
+      "difficulty": 4,
+      "distractors": ["u42-i07", "u42-i16"]
+    },
+    {
+      "id": "u42-i09",
+      "te": "డబ్బులు ట్రాన్స్ఫర్ చేయాలి.",
+      "gloss": "I need to transfer money.",
+      "words": [
+        { "te": "డబ్బులు", "gloss": "money" },
+        { "te": "ట్రాన్స్ఫర్", "gloss": "transfer" },
+        { "te": "చేయాలి", "gloss": "must do" }
+      ],
+      "tags": ["bank", "money"],
+      "difficulty": 3
+    },
+    {
+      "id": "u42-i10",
+      "te": "ఎంత పంపించాలి అండి?",
+      "gloss": "How much should I send?",
+      "words": [
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "పంపించాలి", "gloss": "should send" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["bank", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u42-i11", "u42-i09"]
+    },
+    {
+      "id": "u42-i11",
+      "te": "పది వేలు పంపించండి.",
+      "gloss": "Send ten thousand.",
+      "words": [
+        { "te": "పది", "gloss": "ten" },
+        { "te": "వేలు", "gloss": "thousands" },
+        { "te": "పంపించండి", "gloss": "send (polite)" }
+      ],
+      "tags": ["bank", "money", "numbers"],
+      "difficulty": 3
+    },
+    {
+      "id": "u42-i12",
+      "te": "మీ ఫోన్ నంబరు చెప్పండి.",
+      "gloss": "Tell me your phone number.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "నంబరు", "gloss": "number" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["bank"],
+      "difficulty": 3
+    },
+    {
+      "id": "u42-i13",
+      "te": "ఓటీపీ వచ్చిందా చూడండి.",
+      "gloss": "Check whether the OTP has come.",
+      "words": [
+        { "te": "ఓటీపీ", "gloss": "OTP" },
+        { "te": "వచ్చిందా", "gloss": "did it come?" },
+        { "te": "చూడండి", "gloss": "look (polite)" }
+      ],
+      "tags": ["bank", "phone"],
+      "difficulty": 4,
+      "note": "వచ్చిందా చూడండి — 'see if it came' — is the standard nudge while everyone stares at a phone."
+    },
+    {
+      "id": "u42-i14",
+      "te": "బ్యాలెన్స్ ఎంత ఉందో చూడండి.",
+      "gloss": "Please check how much balance there is.",
+      "words": [
+        { "te": "బ్యాలెన్స్", "gloss": "balance" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "ఉందో", "gloss": "there is (indirect)" },
+        { "te": "చూడండి", "gloss": "check (polite)" }
+      ],
+      "tags": ["bank", "money"],
+      "difficulty": 4,
+      "note": "The -ఓ ending folds a question into a sentence: ఎంత ఉందో = 'how much there is'.",
+      "distractors": ["u42-i13", "u42-i10"]
+    },
+    {
+      "id": "u42-i15",
+      "te": "పాస్ బుక్ అప్డేట్ చేయండి.",
+      "gloss": "Please update my passbook.",
+      "words": [
+        { "te": "పాస్", "gloss": "pass" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "అప్డేట్", "gloss": "update" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["bank", "requests"],
+      "difficulty": 4
+    },
+    {
+      "id": "u42-i16",
+      "te": "రేపు వచ్చి తీసుకోండి.",
+      "gloss": "Come tomorrow and collect it.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "వచ్చి", "gloss": "having come" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["bank", "time"],
+      "difficulty": 3,
+      "distractors": ["u42-i04", "u42-i03"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Opening an account",
+      "itemIds": ["u42-i01", "u42-i02", "u42-i05", "u42-i06"]
+    },
+    {
+      "id": "l2",
+      "title": "Forms and signatures",
+      "itemIds": ["u42-i03", "u42-i12", "u42-i04"]
+    },
+    {
+      "id": "l3",
+      "title": "ATM trouble",
+      "itemIds": ["u42-i07", "u42-i08", "u42-i16"]
+    },
+    {
+      "id": "l4",
+      "title": "Sending money",
+      "itemIds": ["u42-i09", "u42-i10", "u42-i11", "u42-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Balance and passbook",
+      "itemIds": ["u42-i14", "u42-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u42-d1",
+    "title": "One morning, three errands",
+    "scene": "A crowded bank branch on a Monday morning. You need a new account, your ATM card just got eaten by the machine outside, and Amma wants ten thousand sent home — all before lunch.",
+    "turns": [
+      { "speaker": "You", "itemId": "u42-i01", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i05" },
+      { "speaker": "You", "itemId": "u42-i06", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i03" },
+      { "speaker": "Clerk", "itemId": "u42-i12" },
+      { "speaker": "Clerk", "itemId": "u42-i04" },
+      { "speaker": "You", "itemId": "u42-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u42-i08", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i16" },
+      { "speaker": "You", "itemId": "u42-i09", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i10" },
+      { "speaker": "You", "itemId": "u42-i11", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i13" },
+      { "speaker": "You", "itemId": "u42-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u42-i15", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u42-i16" }
+    ]
+  }
+}

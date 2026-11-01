@@ -1,0 +1,276 @@
+{
+  "id": "u41",
+  "section": 6,
+  "order": 1,
+  "title": "Finding a place",
+  "teTitle": "ఇల్లు వెతకడం",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Ask about rent, deposit, and rooms, talk to the owner, and buy time politely.",
+  "items": [
+    {
+      "id": "u41-i01",
+      "te": "ఇల్లు అద్దెకు ఇస్తారా?",
+      "gloss": "Will you give the house for rent?",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "అద్దెకు", "gloss": "for rent" },
+        { "te": "ఇస్తారా", "gloss": "will (you) give?" }
+      ],
+      "tags": ["housing", "questions"],
+      "difficulty": 3,
+      "note": "టు-లెట్ board spotted? This is your opener. అద్దె is rent; అద్దెకు = 'for rent'.",
+      "distractors": ["u41-i11", "u41-i02"]
+    },
+    {
+      "id": "u41-i02",
+      "te": "అద్దె ఎంత చెప్పండి.",
+      "gloss": "Tell me how much the rent is.",
+      "words": [
+        { "te": "అద్దె", "gloss": "rent" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["housing", "money"],
+      "difficulty": 3,
+      "distractors": ["u41-i06", "u41-i12"]
+    },
+    {
+      "id": "u41-i03",
+      "te": "నెలకు పదిహేను వేలు అండి.",
+      "gloss": "Fifteen thousand a month.",
+      "words": [
+        { "te": "నెలకు", "gloss": "per month" },
+        { "te": "పదిహేను", "gloss": "fifteen" },
+        { "te": "వేలు", "gloss": "thousands" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["housing", "money", "numbers"],
+      "difficulty": 3,
+      "note": "Tacking అండి onto the end keeps any sentence respectful — you'll hear it constantly in these talks."
+    },
+    {
+      "id": "u41-i04",
+      "te": "ఎన్ని బెడ్రూంలు ఉన్నాయి?",
+      "gloss": "How many bedrooms are there?",
+      "words": [
+        { "te": "ఎన్ని", "gloss": "how many" },
+        { "te": "బెడ్రూంలు", "gloss": "bedrooms" },
+        { "te": "ఉన్నాయి", "gloss": "are there" }
+      ],
+      "tags": ["housing", "questions"],
+      "difficulty": 3,
+      "distractors": ["u41-i05", "u41-i08"]
+    },
+    {
+      "id": "u41-i05",
+      "te": "రెండు బెడ్రూంలు, ఒక హాలు.",
+      "gloss": "Two bedrooms, one hall.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "బెడ్రూంలు", "gloss": "bedrooms" },
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "హాలు", "gloss": "hall" }
+      ],
+      "tags": ["housing"],
+      "difficulty": 3,
+      "note": "This is the classic 2BHK description — Telugu house talk mixes English room words freely."
+    },
+    {
+      "id": "u41-i06",
+      "te": "అడ్వాన్స్ ఎంత ఇవ్వాలి?",
+      "gloss": "How much advance (deposit) should I give?",
+      "words": [
+        { "te": "అడ్వాన్స్", "gloss": "advance / deposit" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "ఇవ్వాలి", "gloss": "must give" }
+      ],
+      "tags": ["housing", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u41-i02", "u41-i07"]
+    },
+    {
+      "id": "u41-i07",
+      "te": "రెండు నెలల అద్దె అడ్వాన్స్.",
+      "gloss": "Two months' rent as advance.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "నెలల", "gloss": "months'" },
+        { "te": "అద్దె", "gloss": "rent" },
+        { "te": "అడ్వాన్స్", "gloss": "advance" }
+      ],
+      "tags": ["housing", "money"],
+      "difficulty": 4
+    },
+    {
+      "id": "u41-i08",
+      "te": "నీళ్ళ సౌకర్యం ఎలా ఉంటుంది?",
+      "gloss": "How is the water supply?",
+      "words": [
+        { "te": "నీళ్ళ", "gloss": "of water" },
+        { "te": "సౌకర్యం", "gloss": "facility" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉంటుంది", "gloss": "will it be" }
+      ],
+      "tags": ["housing", "questions"],
+      "difficulty": 4,
+      "note": "Always ask this before renting — water timings vary wildly between buildings and areas."
+    },
+    {
+      "id": "u41-i09",
+      "te": "కరెంటు బిల్లు మీరే కట్టాలి.",
+      "gloss": "You have to pay the electricity bill yourselves.",
+      "words": [
+        { "te": "కరెంటు", "gloss": "electricity" },
+        { "te": "బిల్లు", "gloss": "bill" },
+        { "te": "మీరే", "gloss": "you yourselves" },
+        { "te": "కట్టాలి", "gloss": "must pay" }
+      ],
+      "tags": ["housing", "money"],
+      "difficulty": 4,
+      "note": "కట్టు is the everyday verb for paying bills and fees: బిల్లు కట్టు, ఫీజు కట్టు.",
+      "distractors": ["u41-i03", "u41-i16"]
+    },
+    {
+      "id": "u41-i10",
+      "te": "ఓనరు పైనే ఉంటారు.",
+      "gloss": "The owner lives right upstairs.",
+      "words": [
+        { "te": "ఓనరు", "gloss": "owner" },
+        { "te": "పైనే", "gloss": "right upstairs" },
+        { "te": "ఉంటారు", "gloss": "lives (polite)" }
+      ],
+      "tags": ["housing"],
+      "difficulty": 3
+    },
+    {
+      "id": "u41-i11",
+      "te": "ఇల్లు ఒకసారి చూడొచ్చా?",
+      "gloss": "Can we see the house once?",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "ఒకసారి", "gloss": "once" },
+        { "te": "చూడొచ్చా", "gloss": "may (we) see?" }
+      ],
+      "tags": ["housing", "questions"],
+      "difficulty": 3,
+      "note": "-ఒచ్చా asks for permission: చూడొచ్చా? రావొచ్చా? — softer than a direct demand."
+    },
+    {
+      "id": "u41-i12",
+      "te": "కొంచెం అద్దె తగ్గించండి.",
+      "gloss": "Please reduce the rent a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "అద్దె", "gloss": "rent" },
+        { "te": "తగ్గించండి", "gloss": "reduce (polite)" }
+      ],
+      "tags": ["housing", "bargaining"],
+      "difficulty": 3,
+      "distractors": ["u41-i02", "u41-i13"]
+    },
+    {
+      "id": "u41-i13",
+      "te": "ఆలోచించి చెప్తాము అండి.",
+      "gloss": "We'll think it over and tell you.",
+      "words": [
+        { "te": "ఆలోచించి", "gloss": "having thought" },
+        { "te": "చెప్తాము", "gloss": "we will tell" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["housing", "politeness"],
+      "difficulty": 4,
+      "note": "The polite exit line for any deal you're not sure about — no one is offended by it.",
+      "distractors": ["u41-i14", "u41-i15"]
+    },
+    {
+      "id": "u41-i14",
+      "te": "ఇల్లు మాకు బాగా నచ్చింది.",
+      "gloss": "We liked the house a lot.",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "మాకు", "gloss": "to us" },
+        { "te": "బాగా", "gloss": "very much" },
+        { "te": "నచ్చింది", "gloss": "was liked" }
+      ],
+      "tags": ["housing", "opinions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u41-i15",
+      "te": "వచ్చే నెల నుంచి దిగుతాము.",
+      "gloss": "We'll move in from next month.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "నెల", "gloss": "month" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "దిగుతాము", "gloss": "we will move in" }
+      ],
+      "tags": ["housing", "time"],
+      "difficulty": 4,
+      "distractors": ["u41-i13", "u41-i14"]
+    },
+    {
+      "id": "u41-i16",
+      "te": "మెయింటెనెన్స్ అందులోనే కలిపి ఉంది.",
+      "gloss": "Maintenance is included in that.",
+      "words": [
+        { "te": "మెయింటెనెన్స్", "gloss": "maintenance" },
+        { "te": "అందులోనే", "gloss": "in that itself" },
+        { "te": "కలిపి", "gloss": "combined" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["housing", "money"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Is it for rent?",
+      "itemIds": ["u41-i01", "u41-i10", "u41-i11", "u41-i04"]
+    },
+    {
+      "id": "l2",
+      "title": "Rooms and water",
+      "itemIds": ["u41-i05", "u41-i08", "u41-i09"]
+    },
+    {
+      "id": "l3",
+      "title": "Rent and deposit",
+      "itemIds": ["u41-i02", "u41-i03", "u41-i06", "u41-i07"]
+    },
+    {
+      "id": "l4",
+      "title": "Talking it down",
+      "itemIds": ["u41-i12", "u41-i16", "u41-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Sealing it",
+      "itemIds": ["u41-i14", "u41-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u41-d1",
+    "title": "The 2BHK near the park",
+    "scene": "A Saturday morning house hunt in Kukatpally. A broker shows you a flat while the owner watches from the balcony upstairs, ready to talk money.",
+    "turns": [
+      { "speaker": "You", "itemId": "u41-i01", "userTurn": true },
+      { "speaker": "Broker", "itemId": "u41-i10" },
+      { "speaker": "You", "itemId": "u41-i04", "userTurn": true },
+      { "speaker": "Broker", "itemId": "u41-i05" },
+      { "speaker": "You", "itemId": "u41-i11", "userTurn": true },
+      { "speaker": "You", "itemId": "u41-i08", "userTurn": true },
+      { "speaker": "Owner", "itemId": "u41-i09" },
+      { "speaker": "You", "itemId": "u41-i02", "userTurn": true },
+      { "speaker": "Owner", "itemId": "u41-i03" },
+      { "speaker": "You", "itemId": "u41-i06", "userTurn": true },
+      { "speaker": "Owner", "itemId": "u41-i07" },
+      { "speaker": "You", "itemId": "u41-i12", "userTurn": true },
+      { "speaker": "Owner", "itemId": "u41-i16" },
+      { "speaker": "You", "itemId": "u41-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u41-i13", "userTurn": true }
+    ]
+  }
+}

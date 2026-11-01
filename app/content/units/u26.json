@@ -1,0 +1,274 @@
+{
+  "id": "u26",
+  "section": 4,
+  "order": 2,
+  "title": "Street food",
+  "teTitle": "బండి దగ్గర",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Order dosa and punugulu at the bandi, set your spice level, and pay like a regular.",
+  "items": [
+    {
+      "id": "u26-i01",
+      "te": "బండి దగ్గర ఆగుదామా?",
+      "gloss": "Shall we stop at the bandi?",
+      "words": [
+        { "te": "బండి", "gloss": "street cart" },
+        { "te": "దగ్గర", "gloss": "near / at" },
+        { "te": "ఆగుదామా", "gloss": "shall we stop?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "note": "బండి (bandi, lit. 'cart') is the beloved word for any street-food stall. ఆగుదామా uses -దామా (-daamaa) = 'shall we…?'",
+      "distractors": ["u26-i14", "u26-i16"]
+    },
+    {
+      "id": "u26-i02",
+      "te": "ఒక ప్లేట్ పునుగులు ఇవ్వండి.",
+      "gloss": "Give one plate of punugulu.",
+      "words": [
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "ప్లేట్", "gloss": "plate" },
+        { "te": "పునుగులు", "gloss": "punugulu" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u26-i11", "u26-i04"]
+    },
+    {
+      "id": "u26-i03",
+      "te": "దోశ ఎంత?",
+      "gloss": "How much is a dosa?",
+      "words": [
+        { "te": "దోశ", "gloss": "dosa" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["food", "money", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u26-i04",
+      "te": "రెండు ఇడ్లీ పార్సిల్ చేయండి.",
+      "gloss": "Parcel two idlis.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "ఇడ్లీ", "gloss": "idli" },
+        { "te": "పార్సిల్", "gloss": "parcel" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 2,
+      "note": "పార్సిల్ (parcel) = takeaway, all over India. పార్సిల్ చేయండి = 'pack it to go'.",
+      "distractors": ["u26-i02", "u26-i05"]
+    },
+    {
+      "id": "u26-i05",
+      "te": "ఇక్కడే తింటారా, పార్సిలా?",
+      "gloss": "Eating right here, or parcel?",
+      "words": [
+        { "te": "ఇక్కడే", "gloss": "right here" },
+        { "te": "తింటారా", "gloss": "will you eat?" },
+        { "te": "పార్సిలా", "gloss": "or parcel?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 3,
+      "note": "The vendor's classic question. The -ఆ ending on పార్సిలా makes it 'or is it parcel?' — answer ఇక్కడే (right here) or పార్సిల్."
+    },
+    {
+      "id": "u26-i06",
+      "te": "మిర్చి బజ్జీ వేడిగా ఉందా?",
+      "gloss": "Is the mirchi bajji hot and fresh?",
+      "words": [
+        { "te": "మిర్చి", "gloss": "chili" },
+        { "te": "బజ్జీ", "gloss": "bajji (fritter)" },
+        { "te": "వేడిగా", "gloss": "hot" },
+        { "te": "ఉందా", "gloss": "is it?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "distractors": ["u26-i15", "u26-i10"]
+    },
+    {
+      "id": "u26-i07",
+      "te": "కారం తక్కువ వేయండి.",
+      "gloss": "Put less spice.",
+      "words": [
+        { "te": "కారం", "gloss": "spice / chili heat" },
+        { "te": "తక్కువ", "gloss": "less" },
+        { "te": "వేయండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u26-i08", "u26-i09"]
+    },
+    {
+      "id": "u26-i08",
+      "te": "నాకు కారం బాగా కావాలి.",
+      "gloss": "I want it really spicy.",
+      "words": [
+        { "te": "నాకు", "gloss": "for me" },
+        { "te": "కారం", "gloss": "spice / chili heat" },
+        { "te": "బాగా", "gloss": "really / well" },
+        { "te": "కావాలి", "gloss": "is wanted" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u26-i07", "u26-i09"]
+    },
+    {
+      "id": "u26-i09",
+      "te": "చట్నీ ఇంకొంచెం వేయండి.",
+      "gloss": "Put a little more chutney.",
+      "words": [
+        { "te": "చట్నీ", "gloss": "chutney" },
+        { "te": "ఇంకొంచెం", "gloss": "a little more" },
+        { "te": "వేయండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 3,
+      "note": "ఇంకొంచెం = ఇంకా + కొంచెం, 'a bit more'. Extra chutney at the bandi is free — asking is completely normal."
+    },
+    {
+      "id": "u26-i10",
+      "te": "చాలా రుచిగా ఉంది!",
+      "gloss": "It's very tasty!",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "రుచిగా", "gloss": "tasty" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food"],
+      "difficulty": 2
+    },
+    {
+      "id": "u26-i11",
+      "te": "ఇంకో ప్లేట్ ఇవ్వండి.",
+      "gloss": "Give one more plate.",
+      "words": [
+        { "te": "ఇంకో", "gloss": "one more" },
+        { "te": "ప్లేట్", "gloss": "plate" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u26-i02", "u26-i03"]
+    },
+    {
+      "id": "u26-i12",
+      "te": "మొత్తం ఎంత అయ్యింది?",
+      "gloss": "How much did it come to in total?",
+      "words": [
+        { "te": "మొత్తం", "gloss": "total" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అయ్యింది", "gloss": "did it become" }
+      ],
+      "tags": ["food", "money", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u26-i13",
+      "te": "చిల్లర లేదు, ఫోన్ పే చేయనా?",
+      "gloss": "No change — shall I do PhonePe?",
+      "words": [
+        { "te": "చిల్లర", "gloss": "small change" },
+        { "te": "లేదు", "gloss": "there isn't" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "పే", "gloss": "pay" },
+        { "te": "చేయనా", "gloss": "shall I do?" }
+      ],
+      "tags": ["food", "money"],
+      "difficulty": 3,
+      "note": "చిల్లర = small change. Even the smallest bandi takes UPI now — just ask ఫోన్ పే చేయనా? (phone pay cheyanaa) and scan the QR code."
+    },
+    {
+      "id": "u26-i14",
+      "te": "సాయంత్రం బండి దగ్గర కలుద్దాం.",
+      "gloss": "Let's meet at the bandi in the evening.",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "in the evening" },
+        { "te": "బండి", "gloss": "street cart" },
+        { "te": "దగ్గర", "gloss": "near / at" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["food", "plans"],
+      "difficulty": 3
+    },
+    {
+      "id": "u26-i15",
+      "te": "వేడి వేడి దోశ వేయండి.",
+      "gloss": "Make a piping hot dosa.",
+      "words": [
+        { "te": "వేడి", "gloss": "hot" },
+        { "te": "వేడి", "gloss": "hot" },
+        { "te": "దోశ", "gloss": "dosa" },
+        { "te": "వేయండి", "gloss": "make (polite)" }
+      ],
+      "tags": ["food", "ordering"],
+      "difficulty": 3,
+      "note": "Doubling for emphasis — వేడి వేడి (vedi vedi) = piping hot. Telugu loves this pattern: మెల్ల మెల్లగా (slowly slowly), వేరే వేరే (different different)."
+    },
+    {
+      "id": "u26-i16",
+      "te": "ఈ బండి చాలా ఫేమస్.",
+      "gloss": "This bandi is very famous.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "బండి", "gloss": "street cart" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఫేమస్", "gloss": "famous" }
+      ],
+      "tags": ["food"],
+      "difficulty": 2,
+      "distractors": ["u26-i01", "u26-i14"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Spot the bandi",
+      "itemIds": ["u26-i01", "u26-i16", "u26-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "One plate, anna!",
+      "itemIds": ["u26-i02", "u26-i03", "u26-i11"]
+    },
+    {
+      "id": "l3",
+      "title": "Set your spice level",
+      "itemIds": ["u26-i06", "u26-i07", "u26-i08", "u26-i09"]
+    },
+    {
+      "id": "l4",
+      "title": "Here or parcel?",
+      "itemIds": ["u26-i05", "u26-i04", "u26-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Tasty — now pay up",
+      "itemIds": ["u26-i10", "u26-i12", "u26-i13"]
+    }
+  ],
+  "dialogue": {
+    "id": "u26-d1",
+    "title": "Punugulu hour at the corner bandi",
+    "scene": "Golden evening light, sizzling oil. You and Divya hit the famous bandi at the street corner while the vendor works the tawa.",
+    "turns": [
+      { "speaker": "You", "itemId": "u26-i01", "userTurn": true },
+      { "speaker": "Divya", "itemId": "u26-i16" },
+      { "speaker": "You", "itemId": "u26-i02", "userTurn": true },
+      { "speaker": "Divya", "itemId": "u26-i15" },
+      { "speaker": "Vendor", "itemId": "u26-i05" },
+      { "speaker": "You", "itemId": "u26-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u26-i07", "userTurn": true },
+      { "speaker": "Divya", "itemId": "u26-i08" },
+      { "speaker": "You", "itemId": "u26-i06", "userTurn": true },
+      { "speaker": "Divya", "itemId": "u26-i09" },
+      { "speaker": "You", "itemId": "u26-i10", "userTurn": true },
+      { "speaker": "Divya", "itemId": "u26-i11" },
+      { "speaker": "You", "itemId": "u26-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u26-i13", "userTurn": true }
+    ]
+  }
+}

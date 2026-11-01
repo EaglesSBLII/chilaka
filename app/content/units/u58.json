@@ -1,0 +1,286 @@
+{
+  "id": "u58",
+  "section": 8,
+  "order": 2,
+  "title": "Debating nicely",
+  "teTitle": "మంచి చర్చ",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Hold a strong opinion without losing a friend — open with నా ఉద్దేశం ఏంటంటే, concede with ఒప్పుకుంటాను కానీ, and agree to disagree gracefully.",
+  "items": [
+    {
+      "id": "u58-i01",
+      "te": "నా ఉద్దేశం ఏంటంటే, ఇది సరైనది కాదు.",
+      "gloss": "My point is this: it just isn't right.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఉద్దేశం", "gloss": "intention / point" },
+        { "te": "ఏంటంటే", "gloss": "is this (lit. 'what it is, is')" },
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "సరైనది", "gloss": "the right thing" },
+        { "te": "కాదు", "gloss": "is not" }
+      ],
+      "tags": ["debate", "opinions"],
+      "difficulty": 4,
+      "note": "నా ఉద్దేశం ఏంటంటే... is the classic runway for an opinion — it politely warns the listener, 'here comes my point.'"
+    },
+    {
+      "id": "u58-i02",
+      "te": "మీరు చెప్పింది కొంతవరకు నిజమే.",
+      "gloss": "What you said is true, up to a point.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "చెప్పింది", "gloss": "what (you) said" },
+        { "te": "కొంతవరకు", "gloss": "to some extent" },
+        { "te": "నిజమే", "gloss": "is indeed true" }
+      ],
+      "tags": ["debate", "conceding"],
+      "difficulty": 4,
+      "note": "The -ఏ on నిజమే adds emphasis: 'it IS true.' Concede warmly before you push back.",
+      "distractors": ["u58-i07", "u58-i03"]
+    },
+    {
+      "id": "u58-i03",
+      "te": "ఒప్పుకుంటాను కానీ, ఇంకో విషయం ఉంది.",
+      "gloss": "I agree — but there's one more thing.",
+      "words": [
+        { "te": "ఒప్పుకుంటాను", "gloss": "I agree / accept" },
+        { "te": "కానీ", "gloss": "but" },
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "విషయం", "gloss": "matter / point" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["debate", "conceding"],
+      "difficulty": 4,
+      "note": "ఒప్పుకుంటాను కానీ... = 'I'll grant you that, but...' Concede first, counter second — that's debating nicely."
+    },
+    {
+      "id": "u58-i04",
+      "te": "నా అభిప్రాయం పూర్తిగా వేరు.",
+      "gloss": "My opinion is completely different.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "అభిప్రాయం", "gloss": "opinion" },
+        { "te": "పూర్తిగా", "gloss": "completely" },
+        { "te": "వేరు", "gloss": "different" }
+      ],
+      "tags": ["debate", "opinions"],
+      "difficulty": 3,
+      "distractors": ["u58-i01"]
+    },
+    {
+      "id": "u58-i05",
+      "te": "ఎందుకో కొంచెం వివరంగా చెప్పండి.",
+      "gloss": "Tell me why, in a little detail.",
+      "words": [
+        { "te": "ఎందుకో", "gloss": "why (I wonder)" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "వివరంగా", "gloss": "in detail" },
+        { "te": "చెప్పండి", "gloss": "please tell" }
+      ],
+      "tags": ["debate", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u58-i06",
+      "te": "ఉదాహరణకి, మన ఊరి రోడ్లే చూడండి.",
+      "gloss": "For example, just look at our town's roads.",
+      "words": [
+        { "te": "ఉదాహరణకి", "gloss": "for example" },
+        { "te": "మన", "gloss": "our" },
+        { "te": "ఊరి", "gloss": "town's" },
+        { "te": "రోడ్లే", "gloss": "the roads themselves" },
+        { "te": "చూడండి", "gloss": "look (polite)" }
+      ],
+      "tags": ["debate", "examples"],
+      "difficulty": 4
+    },
+    {
+      "id": "u58-i07",
+      "te": "అది నిజమే, కాదనను.",
+      "gloss": "That's true — I won't deny it.",
+      "words": [
+        { "te": "అది", "gloss": "that" },
+        { "te": "నిజమే", "gloss": "is indeed true" },
+        { "te": "కాదనను", "gloss": "I won't say no" }
+      ],
+      "tags": ["debate", "conceding"],
+      "difficulty": 3,
+      "distractors": ["u58-i02"]
+    },
+    {
+      "id": "u58-i08",
+      "te": "కానీ ఇంకో వైపు నుంచి ఆలోచించండి.",
+      "gloss": "But think about it from the other side.",
+      "words": [
+        { "te": "కానీ", "gloss": "but" },
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "వైపు", "gloss": "side" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "ఆలోచించండి", "gloss": "think (polite)" }
+      ],
+      "tags": ["debate", "counterpoints"],
+      "difficulty": 3,
+      "distractors": ["u58-i03"]
+    },
+    {
+      "id": "u58-i09",
+      "te": "మీ పాయింట్ నాకు అర్థమైంది.",
+      "gloss": "I understood your point.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "పాయింట్", "gloss": "point" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అర్థమైంది", "gloss": "was understood" }
+      ],
+      "tags": ["debate", "listening"],
+      "difficulty": 3,
+      "distractors": ["u58-i02", "u58-i07"]
+    },
+    {
+      "id": "u58-i10",
+      "te": "అయినా నా మాట మీద నిలబడతాను.",
+      "gloss": "Even so, I stand by what I said.",
+      "words": [
+        { "te": "అయినా", "gloss": "even so" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "word" },
+        { "te": "మీద", "gloss": "on" },
+        { "te": "నిలబడతాను", "gloss": "I will stand" }
+      ],
+      "tags": ["debate", "opinions"],
+      "difficulty": 4,
+      "note": "మాట మీద నిలబడటం — 'standing on one's word' — is holding your ground without raising your voice."
+    },
+    {
+      "id": "u58-i11",
+      "te": "సరే, ఎవరి అభిప్రాయం వాళ్ళది.",
+      "gloss": "Okay — to each their own opinion.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "ఎవరి", "gloss": "whosever" },
+        { "te": "అభిప్రాయం", "gloss": "opinion" },
+        { "te": "వాళ్ళది", "gloss": "is theirs" }
+      ],
+      "tags": ["debate", "closing"],
+      "difficulty": 4,
+      "note": "The graceful Telugu way to agree to disagree: 'each person's opinion is their own.' It ends the debate and keeps the friendship."
+    },
+    {
+      "id": "u58-i12",
+      "te": "చర్చ బాగుంది, కోపం వద్దు.",
+      "gloss": "The debate is good — let's not get angry.",
+      "words": [
+        { "te": "చర్చ", "gloss": "discussion / debate" },
+        { "te": "బాగుంది", "gloss": "is good" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "వద్దు", "gloss": "let's not have" }
+      ],
+      "tags": ["debate", "closing"],
+      "difficulty": 3,
+      "distractors": ["u58-i11"]
+    },
+    {
+      "id": "u58-i13",
+      "te": "మీతో మాట్లాడితే కొత్త విషయాలు తెలుస్తాయి.",
+      "gloss": "Talking with you, I always learn new things.",
+      "words": [
+        { "te": "మీతో", "gloss": "with you" },
+        { "te": "మాట్లాడితే", "gloss": "if (I) talk" },
+        { "te": "కొత్త", "gloss": "new" },
+        { "te": "విషయాలు", "gloss": "things" },
+        { "te": "తెలుస్తాయి", "gloss": "become known" }
+      ],
+      "tags": ["debate", "closing"],
+      "difficulty": 4
+    },
+    {
+      "id": "u58-i14",
+      "te": "దీని గురించి మీరేమంటారు?",
+      "gloss": "What do you say about this?",
+      "words": [
+        { "te": "దీని", "gloss": "this (oblique)" },
+        { "te": "గురించి", "gloss": "about" },
+        { "te": "మీరేమంటారు", "gloss": "what do you say?" }
+      ],
+      "tags": ["debate", "questions"],
+      "difficulty": 3,
+      "distractors": ["u58-i05"]
+    },
+    {
+      "id": "u58-i15",
+      "te": "రెండు వైపులా న్యాయం ఉంది.",
+      "gloss": "There's a fair point on both sides.",
+      "words": [
+        { "te": "రెండు", "gloss": "both / two" },
+        { "te": "వైపులా", "gloss": "on (both) sides" },
+        { "te": "న్యాయం", "gloss": "justice / fairness" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["debate", "listening"],
+      "difficulty": 3,
+      "distractors": ["u58-i11", "u58-i12"]
+    },
+    {
+      "id": "u58-i16",
+      "te": "చివరికి తేల్చుకోవాల్సింది మనమే.",
+      "gloss": "In the end, it's we who must decide.",
+      "words": [
+        { "te": "చివరికి", "gloss": "in the end" },
+        { "te": "తేల్చుకోవాల్సింది", "gloss": "what must be settled" },
+        { "te": "మనమే", "gloss": "we ourselves" }
+      ],
+      "tags": ["debate", "closing"],
+      "difficulty": 5,
+      "note": "తేల్చుకోవడం = to settle something for yourself. A debate can end without a referee — మనమే, 'we ourselves,' decide."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Making your point",
+      "itemIds": ["u58-i01", "u58-i04", "u58-i06", "u58-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "Yes — and yet",
+      "itemIds": ["u58-i02", "u58-i03", "u58-i07"]
+    },
+    {
+      "id": "l3",
+      "title": "Pushing back politely",
+      "itemIds": ["u58-i05", "u58-i08", "u58-i10"]
+    },
+    {
+      "id": "l4",
+      "title": "Hearing them out",
+      "itemIds": ["u58-i09", "u58-i13", "u58-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Ending well",
+      "itemIds": ["u58-i11", "u58-i12", "u58-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u58-d1",
+    "title": "Tea-stall showdown",
+    "scene": "The corner tea stall, second round of chai. Ravi asks what you think of moving back to the village; the friendly argument heats up — and cools into respect.",
+    "turns": [
+      { "speaker": "Ravi", "itemId": "u58-i14" },
+      { "speaker": "You", "itemId": "u58-i01", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u58-i05" },
+      { "speaker": "You", "itemId": "u58-i06", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u58-i02" },
+      { "speaker": "Ravi", "itemId": "u58-i04" },
+      { "speaker": "You", "itemId": "u58-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u58-i03", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u58-i08" },
+      { "speaker": "You", "itemId": "u58-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u58-i10", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u58-i11" },
+      { "speaker": "You", "itemId": "u58-i12", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u58-i13" }
+    ]
+  }
+}

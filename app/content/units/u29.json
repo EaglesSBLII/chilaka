@@ -1,0 +1,269 @@
+{
+  "id": "u29",
+  "section": 4,
+  "order": 5,
+  "title": "Asking for help",
+  "teTitle": "సాయం అడగడం",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Get unlost: stop a stranger, ask for directions, slow the Telugu down, and say thanks.",
+  "items": [
+    {
+      "id": "u29-i01",
+      "te": "కొంచెం సాయం చేస్తారా?",
+      "gloss": "Will you help me a little?",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "సాయం", "gloss": "help" },
+        { "te": "చేస్తారా", "gloss": "will you do?" }
+      ],
+      "tags": ["help", "questions"],
+      "difficulty": 2,
+      "note": "సాయం is the spoken form of సహాయం (sahaayam, help). Opening with కొంచెం makes any request gentler."
+    },
+    {
+      "id": "u29-i02",
+      "te": "నేను దారి తప్పాను.",
+      "gloss": "I lost my way.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "దారి", "gloss": "way / road" },
+        { "te": "తప్పాను", "gloss": "missed / lost" }
+      ],
+      "tags": ["help", "directions"],
+      "difficulty": 2,
+      "distractors": ["u29-i03", "u29-i08"]
+    },
+    {
+      "id": "u29-i03",
+      "te": "ఈ అడ్రస్ ఎక్కడ ఉంది?",
+      "gloss": "Where is this address?",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "అడ్రస్", "gloss": "address" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["help", "directions", "questions"],
+      "difficulty": 2,
+      "distractors": ["u29-i02", "u29-i08"]
+    },
+    {
+      "id": "u29-i04",
+      "te": "నాకు తెలుగు కొంచెమే వచ్చు.",
+      "gloss": "I know only a little Telugu.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "తెలుగు", "gloss": "Telugu" },
+        { "te": "కొంచెమే", "gloss": "only a little" },
+        { "te": "వచ్చు", "gloss": "comes / is known" }
+      ],
+      "tags": ["help", "language"],
+      "difficulty": 3,
+      "note": "వచ్చు for languages = 'know': నాకు తెలుగు వచ్చు. The -ే on కొంచెమే means 'only'. A magic sentence — people instantly slow down and warm up."
+    },
+    {
+      "id": "u29-i05",
+      "te": "నాకు అర్థం కాలేదు.",
+      "gloss": "I didn't understand.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అర్థం", "gloss": "understanding" },
+        { "te": "కాలేదు", "gloss": "didn't happen" }
+      ],
+      "tags": ["help", "language"],
+      "difficulty": 2,
+      "distractors": ["u29-i06", "u29-i07"]
+    },
+    {
+      "id": "u29-i06",
+      "te": "మళ్ళీ ఒకసారి చెప్పండి.",
+      "gloss": "Please say it once again.",
+      "words": [
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "ఒకసారి", "gloss": "once" },
+        { "te": "చెప్పండి", "gloss": "say (polite)" }
+      ],
+      "tags": ["help", "language", "commands"],
+      "difficulty": 2,
+      "distractors": ["u29-i07", "u29-i05"]
+    },
+    {
+      "id": "u29-i07",
+      "te": "కొంచెం నెమ్మదిగా మాట్లాడండి.",
+      "gloss": "Please speak a bit slowly.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "మాట్లాడండి", "gloss": "speak (polite)" }
+      ],
+      "tags": ["help", "language", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u29-i08",
+      "te": "ఇక్కడ నుంచి ఎంత దూరం?",
+      "gloss": "How far from here?",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "దూరం", "gloss": "distance" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 2,
+      "distractors": ["u29-i09", "u29-i03"]
+    },
+    {
+      "id": "u29-i09",
+      "te": "నడిచి వెళ్ళొచ్చా?",
+      "gloss": "Can I walk there?",
+      "words": [
+        { "te": "నడిచి", "gloss": "having walked" },
+        { "te": "వెళ్ళొచ్చా", "gloss": "can one go?" }
+      ],
+      "tags": ["directions", "questions"],
+      "difficulty": 3,
+      "note": "-ఒచ్చా (-occhaa) asks 'is it possible / okay?': వెళ్ళొచ్చా, తినొచ్చా, రావొచ్చా."
+    },
+    {
+      "id": "u29-i10",
+      "te": "కుడి వైపు తిరగండి.",
+      "gloss": "Turn to the right.",
+      "words": [
+        { "te": "కుడి", "gloss": "right" },
+        { "te": "వైపు", "gloss": "side / direction" },
+        { "te": "తిరగండి", "gloss": "turn (polite)" }
+      ],
+      "tags": ["directions", "commands"],
+      "difficulty": 2,
+      "distractors": ["u29-i11", "u29-i12"]
+    },
+    {
+      "id": "u29-i11",
+      "te": "సిగ్నల్ దగ్గర ఎడమ వైపు.",
+      "gloss": "Left at the signal.",
+      "words": [
+        { "te": "సిగ్నల్", "gloss": "signal" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "ఎడమ", "gloss": "left" },
+        { "te": "వైపు", "gloss": "side / direction" }
+      ],
+      "tags": ["directions"],
+      "difficulty": 3,
+      "distractors": ["u29-i10", "u29-i12"]
+    },
+    {
+      "id": "u29-i12",
+      "te": "ఆ గుడి పక్కనే ఉంది.",
+      "gloss": "It's right next to that temple.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "గుడి", "gloss": "temple" },
+        { "te": "పక్కనే", "gloss": "right next to" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["directions"],
+      "difficulty": 3,
+      "note": "పక్కనే = పక్కన + ే, 'RIGHT next to'. That little -ē adds 'exactly / only' to almost any word."
+    },
+    {
+      "id": "u29-i13",
+      "te": "అక్కడ ఎవరినైనా అడగండి.",
+      "gloss": "Ask anyone there.",
+      "words": [
+        { "te": "అక్కడ", "gloss": "there" },
+        { "te": "ఎవరినైనా", "gloss": "anyone" },
+        { "te": "అడగండి", "gloss": "ask (polite)" }
+      ],
+      "tags": ["directions", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u29-i14",
+      "te": "చాలా థాంక్స్ అండి!",
+      "gloss": "Thanks a lot!",
+      "words": [
+        { "te": "చాలా", "gloss": "very much" },
+        { "te": "థాంక్స్", "gloss": "thanks" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["help", "courtesy"],
+      "difficulty": 2,
+      "note": "Everyday Telugu rarely uses the formal ధన్యవాదాలు (dhanyavaadaalu) — people say థాంక్స్ with a warm అండి, or just show gratitude with a smile and a head-tilt."
+    },
+    {
+      "id": "u29-i15",
+      "te": "పర్వాలేదు అండి.",
+      "gloss": "No problem at all.",
+      "words": [
+        { "te": "పర్వాలేదు", "gloss": "no problem" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["help", "courtesy"],
+      "difficulty": 2
+    },
+    {
+      "id": "u29-i16",
+      "te": "మీ ఫోన్ ఒకసారి ఇస్తారా?",
+      "gloss": "Will you give your phone for a moment?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "ఒకసారి", "gloss": "once" },
+        { "te": "ఇస్తారా", "gloss": "will you give?" }
+      ],
+      "tags": ["help", "questions"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Stopping a stranger",
+      "itemIds": ["u29-i01", "u29-i02", "u29-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Say that again?",
+      "itemIds": ["u29-i05", "u29-i06", "u29-i07"]
+    },
+    {
+      "id": "l3",
+      "title": "Little Telugu, big smile",
+      "itemIds": ["u29-i04", "u29-i16", "u29-i14", "u29-i15"]
+    },
+    {
+      "id": "l4",
+      "title": "Right, left, next to the temple",
+      "itemIds": ["u29-i10", "u29-i11", "u29-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "How far to walk?",
+      "itemIds": ["u29-i08", "u29-i09", "u29-i13"]
+    }
+  ],
+  "dialogue": {
+    "id": "u29-d1",
+    "title": "Lost near the old city",
+    "scene": "You're hunting for a friend's new flat in the old city with a dying phone. A kind aunty at a vegetable stall and a passing uncle come to the rescue.",
+    "turns": [
+      { "speaker": "You", "itemId": "u29-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u29-i02", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u29-i06" },
+      { "speaker": "You", "itemId": "u29-i03", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u29-i10" },
+      { "speaker": "You", "itemId": "u29-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u29-i07", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u29-i11" },
+      { "speaker": "Aunty", "itemId": "u29-i12" },
+      { "speaker": "You", "itemId": "u29-i08", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u29-i13" },
+      { "speaker": "You", "itemId": "u29-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u29-i16", "userTurn": true },
+      { "speaker": "You", "itemId": "u29-i14", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u29-i15" }
+    ]
+  }
+}

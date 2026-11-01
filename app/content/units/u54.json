@@ -1,0 +1,289 @@
+{
+  "id": "u54",
+  "section": 7,
+  "order": 6,
+  "title": "Movies & cricket",
+  "teTitle": "సినిమా, క్రికెట్",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "First day first show, picture ettlundi, and last-over tension — the two religions of Hyderabad.",
+  "items": [
+    {
+      "id": "u54-i01",
+      "te": "ఫస్ట్ డే ఫస్ట్ షో పోదాం.",
+      "gloss": "Let's go to the first day first show.",
+      "words": [
+        { "te": "ఫస్ట్", "gloss": "first" },
+        { "te": "డే", "gloss": "day" },
+        { "te": "ఫస్ట్", "gloss": "first" },
+        { "te": "షో", "gloss": "show" },
+        { "te": "పోదాం", "gloss": "let's go (Telangana)" }
+      ],
+      "tags": ["movies", "plans"],
+      "difficulty": 2,
+      "note": "FDFS — first day first show — is a festival in Hyderabad: cutouts, whistles, dancing at 6 am. Watching the film later is almost beside the point.",
+      "distractors": ["u54-i15", "u54-i05"]
+    },
+    {
+      "id": "u54-i02",
+      "te": "పిక్చర్ ఎట్లుంది రా?",
+      "gloss": "How's the picture, ra?",
+      "words": [
+        { "te": "పిక్చర్", "gloss": "picture / movie" },
+        { "te": "ఎట్లుంది", "gloss": "how is it (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["movies", "questions"],
+      "difficulty": 2,
+      "note": "ఎట్లుంది is Telangana for standard ఎలా ఉంది. Movies are పిక్చర్ here more often than సినిమా.",
+      "distractors": ["u54-i03", "u54-i04"]
+    },
+    {
+      "id": "u54-i03",
+      "te": "ఫుల్ మాస్ ఉంది భయ్.",
+      "gloss": "It's full mass, bhai.",
+      "words": [
+        { "te": "ఫుల్", "gloss": "full / totally" },
+        { "te": "మాస్", "gloss": "mass (rowdy-fun)" },
+        { "te": "ఉంది", "gloss": "it is" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["movies", "flavor"],
+      "difficulty": 2,
+      "note": "మాస్ = loud, heroic, whistle-worthy cinema (opposite: క్లాస్, the subtle stuff). ఫుల్ మాస్ is the highest praise a Telugu movie can get.",
+      "distractors": ["u54-i04", "u54-i14"]
+    },
+    {
+      "id": "u54-i04",
+      "te": "సెకండ్ హాఫ్ కొంచెం స్లో.",
+      "gloss": "The second half is a bit slow.",
+      "words": [
+        { "te": "సెకండ్", "gloss": "second" },
+        { "te": "హాఫ్", "gloss": "half" },
+        { "te": "కొంచెం", "gloss": "a bit" },
+        { "te": "స్లో", "gloss": "slow" }
+      ],
+      "tags": ["movies", "opinions"],
+      "difficulty": 3,
+      "distractors": ["u54-i03", "u54-i06"]
+    },
+    {
+      "id": "u54-i05",
+      "te": "టికెట్లు ఫోన్ లో బుక్ చెయ్.",
+      "gloss": "Book the tickets on the phone.",
+      "words": [
+        { "te": "టికెట్లు", "gloss": "tickets" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "లో", "gloss": "on / in" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "చెయ్", "gloss": "do (casual)" }
+      ],
+      "tags": ["movies", "plans"],
+      "difficulty": 3
+    },
+    {
+      "id": "u54-i06",
+      "te": "హీరో ఎంట్రీ కి సీటీలు పడ్డయ్.",
+      "gloss": "Whistles rang out at the hero's entry.",
+      "words": [
+        { "te": "హీరో", "gloss": "hero" },
+        { "te": "ఎంట్రీ", "gloss": "entry" },
+        { "te": "కి", "gloss": "for / at" },
+        { "te": "సీటీలు", "gloss": "whistles" },
+        { "te": "పడ్డయ్", "gloss": "fell / rang out (Telangana)" }
+      ],
+      "tags": ["movies", "flavor"],
+      "difficulty": 4,
+      "note": "పడ్డయ్ = Telangana for standard పడ్డాయి. సీటీలు (whistles) are how a Hyderabad theatre applauds — the louder, the better the ఎంట్రీ."
+    },
+    {
+      "id": "u54-i07",
+      "te": "ఇవాళ మ్యాచ్ ఎవరితో రా?",
+      "gloss": "Who's the match against today, ra?",
+      "words": [
+        { "te": "ఇవాళ", "gloss": "today" },
+        { "te": "మ్యాచ్", "gloss": "match" },
+        { "te": "ఎవరితో", "gloss": "with whom" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["cricket", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u54-i08",
+      "te": "ఆర్సీబీ ఈసారి కప్ కొడతది.",
+      "gloss": "RCB will take the cup this time.",
+      "words": [
+        { "te": "ఆర్సీబీ", "gloss": "RCB" },
+        { "te": "ఈసారి", "gloss": "this time" },
+        { "te": "కప్", "gloss": "cup" },
+        { "te": "కొడతది", "gloss": "will hit / grab (Telangana)" }
+      ],
+      "tags": ["cricket", "flavor"],
+      "difficulty": 4,
+      "note": "కప్ కొట్టడం = 'hitting the cup' = winning the trophy. కొడతది is Telangana for కొడుతుంది. Saying this about RCB starts a fight in any Hyderabad chai bandi — say it anyway.",
+      "distractors": ["u54-i11", "u54-i09"]
+    },
+    {
+      "id": "u54-i09",
+      "te": "లాస్ట్ ఓవర్ లో ఫుల్ టెన్షన్.",
+      "gloss": "Full tension in the last over.",
+      "words": [
+        { "te": "లాస్ట్", "gloss": "last" },
+        { "te": "ఓవర్", "gloss": "over" },
+        { "te": "లో", "gloss": "in" },
+        { "te": "ఫుల్", "gloss": "full" },
+        { "te": "టెన్షన్", "gloss": "tension" }
+      ],
+      "tags": ["cricket", "flavor"],
+      "difficulty": 3,
+      "distractors": ["u54-i08", "u54-i10"]
+    },
+    {
+      "id": "u54-i10",
+      "te": "సిక్స్ కొట్టిండు రా, చూడు.",
+      "gloss": "He hit a six, ra, look!",
+      "words": [
+        { "te": "సిక్స్", "gloss": "six" },
+        { "te": "కొట్టిండు", "gloss": "he hit (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "చూడు", "gloss": "look" }
+      ],
+      "tags": ["cricket", "flavor"],
+      "difficulty": 4,
+      "note": "కొట్టిండు = Telangana for standard కొట్టాడు. The -ఇండు he-past (వచ్చిండు, చేసిండు) is one of the strongest Telangana markers."
+    },
+    {
+      "id": "u54-i11",
+      "te": "మ్యాచ్ మనమే గెలుస్తం రా.",
+      "gloss": "We'll win the match, ra.",
+      "words": [
+        { "te": "మ్యాచ్", "gloss": "match" },
+        { "te": "మనమే", "gloss": "we ourselves" },
+        { "te": "గెలుస్తం", "gloss": "will win (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["cricket", "flavor"],
+      "difficulty": 3,
+      "note": "గెలుస్తం = Telangana for standard గెలుస్తాం — the same clipped -ం ending as పోదాం/వస్తం you hear all over the city."
+    },
+    {
+      "id": "u54-i12",
+      "te": "బాల్కనీ టికెట్ దొరికితే చాలు.",
+      "gloss": "If we get balcony tickets, that's enough.",
+      "words": [
+        { "te": "బాల్కనీ", "gloss": "balcony" },
+        { "te": "టికెట్", "gloss": "ticket" },
+        { "te": "దొరికితే", "gloss": "if (it) is found" },
+        { "te": "చాలు", "gloss": "enough" }
+      ],
+      "tags": ["movies", "plans"],
+      "difficulty": 3,
+      "distractors": ["u54-i05", "u54-i15"]
+    },
+    {
+      "id": "u54-i13",
+      "te": "రివ్యూలు నక్కో, డైరెక్ట్ పోదాం.",
+      "gloss": "No reviews, let's go directly.",
+      "words": [
+        { "te": "రివ్యూలు", "gloss": "reviews" },
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" },
+        { "te": "డైరెక్ట్", "gloss": "directly" },
+        { "te": "పోదాం", "gloss": "let's go (Telangana)" }
+      ],
+      "tags": ["movies", "flavor"],
+      "difficulty": 3,
+      "note": "True fans don't read reviews — నక్కో! For a hero's film you go first, judge later. Standard: రివ్యూలు వద్దు."
+    },
+    {
+      "id": "u54-i14",
+      "te": "హీరోయిన్ డాన్స్ కిరాక్ ఉంది.",
+      "gloss": "The heroine's dance is kirak.",
+      "words": [
+        { "te": "హీరోయిన్", "gloss": "heroine" },
+        { "te": "డాన్స్", "gloss": "dance" },
+        { "te": "కిరాక్", "gloss": "awesome (Hyderabadi)" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["movies", "flavor"],
+      "difficulty": 3
+    },
+    {
+      "id": "u54-i15",
+      "te": "శనివారం షో కి ప్లాన్ చెయ్.",
+      "gloss": "Plan for the Saturday show.",
+      "words": [
+        { "te": "శనివారం", "gloss": "Saturday" },
+        { "te": "షో", "gloss": "show" },
+        { "te": "కి", "gloss": "for" },
+        { "te": "ప్లాన్", "gloss": "plan" },
+        { "te": "చెయ్", "gloss": "do (casual)" }
+      ],
+      "tags": ["movies", "plans"],
+      "difficulty": 3
+    },
+    {
+      "id": "u54-i16",
+      "te": "క్రికెట్ అంటే మాకు పిచ్చి రా.",
+      "gloss": "We're crazy about cricket, ra.",
+      "words": [
+        { "te": "క్రికెట్", "gloss": "cricket" },
+        { "te": "అంటే", "gloss": "when it comes to" },
+        { "te": "మాకు", "gloss": "for us" },
+        { "te": "పిచ్చి", "gloss": "madness / craze" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["cricket", "opinions"],
+      "difficulty": 3,
+      "note": "X అంటే పిచ్చి = 'crazy about X'. Works for cricket, biryani, heroes — the three true loves of Hyderabad."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "First day first show",
+      "itemIds": ["u54-i01", "u54-i05", "u54-i12", "u54-i15"]
+    },
+    {
+      "id": "l2",
+      "title": "Picture ettlundi?",
+      "itemIds": ["u54-i02", "u54-i03", "u54-i04"]
+    },
+    {
+      "id": "l3",
+      "title": "Mass moments",
+      "itemIds": ["u54-i06", "u54-i14", "u54-i13"]
+    },
+    {
+      "id": "l4",
+      "title": "Match day",
+      "itemIds": ["u54-i07", "u54-i08", "u54-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Last over drama",
+      "itemIds": ["u54-i09", "u54-i10", "u54-i11"]
+    }
+  ],
+  "dialogue": {
+    "id": "u54-d1",
+    "title": "FDFS and the last over",
+    "scene": "Friday at RTC X Roads. Anil drags you to a first day first show; by evening you're both glued to his phone as the IPL match goes to the last over.",
+    "turns": [
+      { "speaker": "Anil", "itemId": "u54-i01" },
+      { "speaker": "You", "itemId": "u54-i05", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i13" },
+      { "speaker": "You", "itemId": "u54-i12", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i02" },
+      { "speaker": "You", "itemId": "u54-i03", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i06" },
+      { "speaker": "You", "itemId": "u54-i04", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i14" },
+      { "speaker": "You", "itemId": "u54-i07", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i08" },
+      { "speaker": "You", "itemId": "u54-i10", "userTurn": true },
+      { "speaker": "Anil", "itemId": "u54-i09" },
+      { "speaker": "You", "itemId": "u54-i11", "userTurn": true }
+    ]
+  }
+}

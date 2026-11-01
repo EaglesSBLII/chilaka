@@ -1,0 +1,31 @@
+node_modules/
+dist/
+dist-electron/
+vendor/whisper.cpp/
+vendor/whisper-assets/
+vendor/convert-venv/
+vendor/hf-telugu-medium/
+vendor/ggml-out/
+vendor/tts-spike/node_modules/
+vendor/tts-spike/*.wav
+vendor/*.log
+desktop/resources/models/*.bin
+desktop/resources/models/vits-mms-tel/
+desktop/resources/bin/
+# app/public/audio/ is tracked on purpose (15 MB of rendered clips)
+app/dev-dist/
+*.dmg
+.DS_Store
+test-results/
+playwright-report/
+
+# Build copies and generated artifacts (rebuilt by the scripts)
+desktop/web/
+site/pdf/
+.wrangler/
+.claude/settings.local.json
+vendor/syspin/*.pt
+vendor/syspin/*.pth
+vendor/*/__pycache__/
+*.log
+vendor/tts-spike/vits-mms-tel/

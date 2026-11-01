@@ -1,0 +1,244 @@
+{
+  "id": "u23",
+  "section": 3,
+  "order": 7,
+  "title": "Money & errands",
+  "teTitle": "డబ్బు వ్యవహారాలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Handle cash, change, bills and recharges — and borrow a hundred rupees with grace.",
+  "items": [
+    {
+      "id": "u23-i01",
+      "te": "చిల్లర ఉందా?",
+      "gloss": "Do you have change?",
+      "words": [
+        { "te": "చిల్లర", "gloss": "loose change" },
+        { "te": "ఉందా", "gloss": "is there?" }
+      ],
+      "tags": ["money", "questions"],
+      "difficulty": 2,
+      "note": "చిల్లర (chillara) = loose change — the eternal question at every Indian shop counter.",
+      "distractors": ["u23-i02", "u23-i15"]
+    },
+    {
+      "id": "u23-i02",
+      "te": "మొత్తం ఎంత అయింది?",
+      "gloss": "How much is it in total?",
+      "words": [
+        { "te": "మొత్తం", "gloss": "total" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అయింది", "gloss": "did (it) become?" }
+      ],
+      "tags": ["money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u23-i01", "u23-i12"]
+    },
+    {
+      "id": "u23-i03",
+      "te": "బిల్లు ఇవ్వండి.",
+      "gloss": "Please give me the bill.",
+      "words": [
+        { "te": "బిల్లు", "gloss": "bill" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["money", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u23-i04",
+      "te": "నేను బ్యాంకుకి వెళ్ళాలి.",
+      "gloss": "I have to go to the bank.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "బ్యాంకుకి", "gloss": "to the bank" },
+        { "te": "వెళ్ళాలి", "gloss": "must go" }
+      ],
+      "tags": ["errands", "bank"],
+      "difficulty": 3,
+      "distractors": ["u23-i05", "u23-i06"]
+    },
+    {
+      "id": "u23-i05",
+      "te": "డబ్బులు తీసుకోవాలి.",
+      "gloss": "I need to withdraw money.",
+      "words": [
+        { "te": "డబ్బులు", "gloss": "money" },
+        { "te": "తీసుకోవాలి", "gloss": "must take / withdraw" }
+      ],
+      "tags": ["money", "bank"],
+      "difficulty": 3,
+      "note": "డబ్బు (dabbu) = money, but spoken Telugu loves the plural: డబ్బులు (dabbulu) — as if every rupee counts separately."
+    },
+    {
+      "id": "u23-i06",
+      "te": "ఫోన్ రీచార్జ్ చెయ్యాలి.",
+      "gloss": "I have to recharge my phone.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "రీచార్జ్", "gloss": "recharge" },
+        { "te": "చెయ్యాలి", "gloss": "must do" }
+      ],
+      "tags": ["errands"],
+      "difficulty": 3,
+      "distractors": ["u23-i04", "u23-i03"]
+    },
+    {
+      "id": "u23-i07",
+      "te": "వంద రూపాయలు అప్పు ఇస్తారా?",
+      "gloss": "Will you lend me a hundred rupees?",
+      "words": [
+        { "te": "వంద", "gloss": "hundred" },
+        { "te": "రూపాయలు", "gloss": "rupees" },
+        { "te": "అప్పు", "gloss": "loan" },
+        { "te": "ఇస్తారా", "gloss": "will (you) give?" }
+      ],
+      "tags": ["money", "questions"],
+      "difficulty": 4,
+      "note": "అప్పు (appu) = loan or debt: అప్పు ఇవ్వడం = to lend, అప్పు తీసుకోవడం = to borrow."
+    },
+    {
+      "id": "u23-i08",
+      "te": "రేపు తిరిగి ఇచ్చేస్తాను.",
+      "gloss": "I'll give it right back tomorrow.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "తిరిగి", "gloss": "back / in return" },
+        { "te": "ఇచ్చేస్తాను", "gloss": "will give back (fully)" }
+      ],
+      "tags": ["money", "promises"],
+      "difficulty": 4,
+      "note": "ఇచ్చేస్తాను (ichchestaanu) — the -ఏస్ (-es) squeezed into the verb means 'completely, and be done with it'. Every borrower's favourite word.",
+      "distractors": ["u23-i07", "u23-i14"]
+    },
+    {
+      "id": "u23-i09",
+      "te": "క్యాష్ లేదు, కార్డ్ ఉంది.",
+      "gloss": "No cash — I have a card.",
+      "words": [
+        { "te": "క్యాష్", "gloss": "cash" },
+        { "te": "లేదు", "gloss": "there isn't" },
+        { "te": "కార్డ్", "gloss": "card" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["money", "payments"],
+      "difficulty": 3,
+      "distractors": ["u23-i01", "u23-i13"]
+    },
+    {
+      "id": "u23-i10",
+      "te": "ఏటీఎం ఎక్కడ ఉంది?",
+      "gloss": "Where is the ATM?",
+      "words": [
+        { "te": "ఏటీఎం", "gloss": "ATM" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["money", "bank", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u23-i11",
+      "te": "కొంచెం తగ్గించండి.",
+      "gloss": "Bring the price down a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "తగ్గించండి", "gloss": "reduce (polite)" }
+      ],
+      "tags": ["money", "shopping"],
+      "difficulty": 3,
+      "note": "Bargaining is expected in bazaars — తగ్గించండి (tagginchanDi) = 'bring it down'. Said with a smile, it always works a little."
+    },
+    {
+      "id": "u23-i12",
+      "te": "రెండు వందలు అయింది.",
+      "gloss": "It came to two hundred.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "వందలు", "gloss": "hundreds" },
+        { "te": "అయింది", "gloss": "became / came to" }
+      ],
+      "tags": ["money", "numbers"],
+      "difficulty": 3,
+      "distractors": ["u23-i02", "u23-i15"]
+    },
+    {
+      "id": "u23-i13",
+      "te": "డబ్బులు సరిపోవు.",
+      "gloss": "The money isn't enough.",
+      "words": [
+        { "te": "డబ్బులు", "gloss": "money" },
+        { "te": "సరిపోవు", "gloss": "won't suffice" }
+      ],
+      "tags": ["money"],
+      "difficulty": 4
+    },
+    {
+      "id": "u23-i14",
+      "te": "జీతం ఇంకా రాలేదు.",
+      "gloss": "The salary hasn't come yet.",
+      "words": [
+        { "te": "జీతం", "gloss": "salary" },
+        { "te": "ఇంకా", "gloss": "yet / still" },
+        { "te": "రాలేదు", "gloss": "hasn't come" }
+      ],
+      "tags": ["money"],
+      "difficulty": 4,
+      "note": "ఇంకా (inkaa) + negative = 'not yet': ఇంకా రాలేదు (inkaa raaledu). Before an adjective the same word means 'even more' — context decides."
+    },
+    {
+      "id": "u23-i15",
+      "te": "పది రూపాయలు మిగిలాయి.",
+      "gloss": "Ten rupees are left.",
+      "words": [
+        { "te": "పది", "gloss": "ten" },
+        { "te": "రూపాయలు", "gloss": "rupees" },
+        { "te": "మిగిలాయి", "gloss": "remained (they)" }
+      ],
+      "tags": ["money", "numbers"],
+      "difficulty": 3,
+      "distractors": ["u23-i12", "u23-i13"]
+    },
+    {
+      "id": "u23-i16",
+      "te": "అకౌంట్లో డబ్బులు వేశాను.",
+      "gloss": "I deposited money in the account.",
+      "words": [
+        { "te": "అకౌంట్లో", "gloss": "in the account" },
+        { "te": "డబ్బులు", "gloss": "money" },
+        { "te": "వేశాను", "gloss": "put / deposited (I)" }
+      ],
+      "tags": ["money", "bank"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "At the counter", "itemIds": ["u23-i01", "u23-i02", "u23-i03"] },
+    { "id": "l2", "title": "Bank run", "itemIds": ["u23-i04", "u23-i05", "u23-i10", "u23-i16"] },
+    { "id": "l3", "title": "Cash or card?", "itemIds": ["u23-i06", "u23-i09", "u23-i12"] },
+    { "id": "l4", "title": "Borrow & return", "itemIds": ["u23-i07", "u23-i08", "u23-i14"] },
+    { "id": "l5", "title": "Counting rupees", "itemIds": ["u23-i11", "u23-i13", "u23-i15"] }
+  ],
+  "dialogue": {
+    "id": "u23-d1",
+    "title": "The wallet crisis",
+    "scene": "Snack run at the kirana shop near Mamayya's house. The bill keeps growing, the card machine has been 'coming next week' for a year, and your cousin turns out to be even more broke than you.",
+    "turns": [
+      { "speaker": "You", "itemId": "u23-i02", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u23-i12" },
+      { "speaker": "You", "itemId": "u23-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u23-i11", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u23-i06" },
+      { "speaker": "You", "itemId": "u23-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u23-i09", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u23-i14" },
+      { "speaker": "You", "itemId": "u23-i07", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u23-i16" },
+      { "speaker": "You", "itemId": "u23-i10", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u23-i04" },
+      { "speaker": "Cousin", "itemId": "u23-i05" },
+      { "speaker": "You", "itemId": "u23-i08", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u23-i15" }
+    ]
+  }
+}

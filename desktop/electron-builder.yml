@@ -1,0 +1,31 @@
+appId: com.chilaka.telugu
+productName: Chilaka
+directories:
+  output: dist-electron
+files:
+  - src/**/*
+  - web/**/*
+  - package.json
+extraResources:
+  - from: resources/models
+    to: models
+  - from: resources/bin
+    to: bin
+  - from: resources/icons
+    to: icons
+asarUnpack:
+  - "**/*.node"
+  - "node_modules/sherpa-onnx-darwin-arm64/**"
+mac:
+  target:
+    - target: dmg
+      arch: [arm64]
+  category: public.app-category.education
+  icon: resources/icons/app.icns
+  darkModeSupport: true
+  extendInfo:
+    NSMicrophoneUsageDescription: "Chilaka listens to your Telugu speaking practice to give pronunciation feedback. Audio never leaves your Mac."
+dmg:
+  title: "Chilaka"
+npmRebuild: false
+electronVersion: 36.9.5

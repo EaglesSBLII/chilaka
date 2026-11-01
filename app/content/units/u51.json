@@ -1,0 +1,283 @@
+{
+  "id": "u51",
+  "section": 7,
+  "order": 3,
+  "title": "Auto anna",
+  "teTitle": "ఆటో అన్నా",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "Flag an auto, fight for the meter, survive the traffic, and get dropped exactly where you want — Hyderabad style.",
+  "items": [
+    {
+      "id": "u51-i01",
+      "te": "అన్నా, చార్మినార్ వస్తావా?",
+      "gloss": "Anna, will you come to Charminar?",
+      "words": [
+        { "te": "అన్నా", "gloss": "anna (brother)" },
+        { "te": "చార్మినార్", "gloss": "Charminar" },
+        { "te": "వస్తావా", "gloss": "will you come?" }
+      ],
+      "tags": ["auto", "questions"],
+      "difficulty": 2,
+      "note": "Every auto driver in Hyderabad is అన్నా (big brother). Starting with అన్నా instantly softens the negotiation.",
+      "distractors": ["u51-i02", "u51-i16"]
+    },
+    {
+      "id": "u51-i02",
+      "te": "మీటర్ మీద రా అన్నా.",
+      "gloss": "Come on the meter, anna.",
+      "words": [
+        { "te": "మీటర్", "gloss": "meter" },
+        { "te": "మీద", "gloss": "on" },
+        { "te": "రా", "gloss": "come (casual)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "bargaining"],
+      "difficulty": 2,
+      "note": "THE Hyderabad auto line. మీటర్ మీద = 'by the meter'. Say it confidently — hesitation costs twenty rupees.",
+      "distractors": ["u51-i09", "u51-i04"]
+    },
+    {
+      "id": "u51-i03",
+      "te": "యాభై అంటే ఎక్కువ భయ్.",
+      "gloss": "Fifty is too much, bhai.",
+      "words": [
+        { "te": "యాభై", "gloss": "fifty" },
+        { "te": "అంటే", "gloss": "if you say / means" },
+        { "te": "ఎక్కువ", "gloss": "too much" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["auto", "bargaining"],
+      "difficulty": 3,
+      "distractors": ["u51-i04", "u51-i09"]
+    },
+    {
+      "id": "u51-i04",
+      "te": "సరే, ముప్పై ఇస్తా.",
+      "gloss": "Fine, I'll give thirty.",
+      "words": [
+        { "te": "సరే", "gloss": "okay / fine" },
+        { "te": "ముప్పై", "gloss": "thirty" },
+        { "te": "ఇస్తా", "gloss": "I'll give (casual)" }
+      ],
+      "tags": ["auto", "bargaining"],
+      "difficulty": 2,
+      "distractors": ["u51-i03", "u51-i13"]
+    },
+    {
+      "id": "u51-i05",
+      "te": "షార్ట్ కట్ లో పోదాం అన్నా.",
+      "gloss": "Let's go by the shortcut, anna.",
+      "words": [
+        { "te": "షార్ట్", "gloss": "short" },
+        { "te": "కట్", "gloss": "cut" },
+        { "te": "లో", "gloss": "by / in" },
+        { "te": "పోదాం", "gloss": "let's go (Telangana)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "route"],
+      "difficulty": 3,
+      "note": "పోదాం is Telangana for 'let's go' — standard Telugu says వెళ్దాం. పో (go) replaces వెళ్ళు all over Hyderabad speech."
+    },
+    {
+      "id": "u51-i06",
+      "te": "ట్రాఫిక్ ఫుల్ జామ్ ఉంది.",
+      "gloss": "The traffic is fully jammed.",
+      "words": [
+        { "te": "ట్రాఫిక్", "gloss": "traffic" },
+        { "te": "ఫుల్", "gloss": "full / totally" },
+        { "te": "జామ్", "gloss": "jam" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["auto", "traffic"],
+      "difficulty": 2
+    },
+    {
+      "id": "u51-i07",
+      "te": "ఈ రూట్ తోపు అన్నా.",
+      "gloss": "This route is great, anna.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "రూట్", "gloss": "route" },
+        { "te": "తోపు", "gloss": "great / awesome (Hyderabadi)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "flavor"],
+      "difficulty": 3,
+      "note": "తోపు is Hyderabadi slang for 'first-class, awesome' — standard Telugu would say అద్భుతం or సూపర్. Works for routes, biryani, movies, people.",
+      "distractors": ["u51-i05", "u51-i12"]
+    },
+    {
+      "id": "u51-i08",
+      "te": "సిగ్నల్ దగ్గర ఆపు అన్నా.",
+      "gloss": "Stop near the signal, anna.",
+      "words": [
+        { "te": "సిగ్నల్", "gloss": "signal" },
+        { "te": "దగ్గర", "gloss": "near" },
+        { "te": "ఆపు", "gloss": "stop" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "commands"],
+      "difficulty": 2,
+      "distractors": ["u51-i14", "u51-i11"]
+    },
+    {
+      "id": "u51-i09",
+      "te": "కైకు అంత రేటు అన్నా?",
+      "gloss": "Why that much rate, anna?",
+      "words": [
+        { "te": "కైకు", "gloss": "why (Hyderabadi)" },
+        { "te": "అంత", "gloss": "that much" },
+        { "te": "రేటు", "gloss": "rate / price" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "bargaining"],
+      "difficulty": 3,
+      "note": "కైకు (why, Dakhni) + రేటు in one sentence — pure Hyderabad. Standard version: ఎందుకు అంత రేటు?"
+    },
+    {
+      "id": "u51-i10",
+      "te": "ఇక్కడ నెమ్మదిగా పో అన్నా.",
+      "gloss": "Go slowly here, anna.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "పో", "gloss": "go (casual)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u51-i11",
+      "te": "అన్నా, ఇటు నుంచి తిప్పు.",
+      "gloss": "Anna, turn from this side.",
+      "words": [
+        { "te": "అన్నా", "gloss": "anna (brother)" },
+        { "te": "ఇటు", "gloss": "this way" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "తిప్పు", "gloss": "turn" }
+      ],
+      "tags": ["auto", "route"],
+      "difficulty": 3,
+      "distractors": ["u51-i08", "u51-i05"]
+    },
+    {
+      "id": "u51-i12",
+      "te": "పది నిమిషాల్లో వస్తది అన్నా.",
+      "gloss": "It'll arrive in ten minutes, anna.",
+      "words": [
+        { "te": "పది", "gloss": "ten" },
+        { "te": "నిమిషాల్లో", "gloss": "in minutes" },
+        { "te": "వస్తది", "gloss": "it will come (Telangana)" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["auto", "traffic"],
+      "difficulty": 4,
+      "note": "వస్తది is Telangana for standard వస్తుంది. The -తది ending (వస్తది, ఉంటది, అవుతది) is the sound of Hyderabad Telugu."
+    },
+    {
+      "id": "u51-i13",
+      "te": "చిల్లర లేదు అన్నా, చూడు.",
+      "gloss": "There's no change, anna, look.",
+      "words": [
+        { "te": "చిల్లర", "gloss": "change (coins)" },
+        { "te": "లేదు", "gloss": "there isn't" },
+        { "te": "అన్నా", "gloss": "anna (brother)" },
+        { "te": "చూడు", "gloss": "look" }
+      ],
+      "tags": ["auto", "paying"],
+      "difficulty": 3,
+      "note": "చిల్లర (small change) battles end every Hyderabad auto ride. Keep tens and twenties on you — the anna never has change."
+    },
+    {
+      "id": "u51-i14",
+      "te": "హౌ, అక్కడే దింపు.",
+      "gloss": "Yes, drop me right there.",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "అక్కడే", "gloss": "right there" },
+        { "te": "దింపు", "gloss": "drop (me)" }
+      ],
+      "tags": ["auto", "commands"],
+      "difficulty": 3,
+      "distractors": ["u51-i08", "u51-i10"]
+    },
+    {
+      "id": "u51-i15",
+      "te": "ట్రాఫిక్ లో టైం వేస్ట్ యార్.",
+      "gloss": "Time waste in this traffic, yaar.",
+      "words": [
+        { "te": "ట్రాఫిక్", "gloss": "traffic" },
+        { "te": "లో", "gloss": "in" },
+        { "te": "టైం", "gloss": "time" },
+        { "te": "వేస్ట్", "gloss": "waste" },
+        { "te": "యార్", "gloss": "yaar (friend)" }
+      ],
+      "tags": ["auto", "traffic"],
+      "difficulty": 3,
+      "note": "టైం వేస్ట్ is a complete Hyderabadi sentence on its own. Complaining about traffic is the city's shared hobby."
+    },
+    {
+      "id": "u51-i16",
+      "te": "ఆటో ఎక్కు, జల్దీ పోదాం.",
+      "gloss": "Get in the auto, let's go quickly.",
+      "words": [
+        { "te": "ఆటో", "gloss": "auto" },
+        { "te": "ఎక్కు", "gloss": "climb in" },
+        { "te": "జల్దీ", "gloss": "quickly (Urdu)" },
+        { "te": "పోదాం", "gloss": "let's go (Telangana)" }
+      ],
+      "tags": ["auto", "flavor"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Flagging the auto",
+      "itemIds": ["u51-i01", "u51-i02", "u51-i16", "u51-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "Rate fight",
+      "itemIds": ["u51-i03", "u51-i04", "u51-i09"]
+    },
+    {
+      "id": "l3",
+      "title": "Route master",
+      "itemIds": ["u51-i05", "u51-i07", "u51-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "Stuck in traffic",
+      "itemIds": ["u51-i06", "u51-i10", "u51-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Getting down",
+      "itemIds": ["u51-i08", "u51-i12", "u51-i13"]
+    }
+  ],
+  "dialogue": {
+    "id": "u51-d1",
+    "title": "Koti to Charminar with auto anna",
+    "scene": "You flag an auto at Koti. Anna wants fifty rupees flat; you want the meter. A deal at thirty, a 'shortcut', a full jam, and the inevitable no-change drama at the end.",
+    "turns": [
+      { "speaker": "You", "itemId": "u51-i01", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i16" },
+      { "speaker": "You", "itemId": "u51-i02", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i12" },
+      { "speaker": "You", "itemId": "u51-i09", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i06" },
+      { "speaker": "You", "itemId": "u51-i04", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i07" },
+      { "speaker": "You", "itemId": "u51-i05", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i06" },
+      { "speaker": "You", "itemId": "u51-i15", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i12" },
+      { "speaker": "You", "itemId": "u51-i08", "userTurn": true },
+      { "speaker": "Anna", "itemId": "u51-i13" }
+    ]
+  }
+}

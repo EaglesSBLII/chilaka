@@ -1,0 +1,274 @@
+{
+  "id": "u34",
+  "section": 5,
+  "order": 2,
+  "title": "Comfort & advice",
+  "teTitle": "ఓదార్పు మాటలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Console someone, ask for advice, and make gentle suggestions the Telugu way.",
+  "items": [
+    {
+      "id": "u34-i01",
+      "te": "దిగులు పడకండి, అంతా సర్దుకుంటుంది.",
+      "gloss": "Don't worry, everything will settle down.",
+      "words": [
+        { "te": "దిగులు", "gloss": "worry / gloom" },
+        { "te": "పడకండి", "gloss": "don't undergo (polite)" },
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "సర్దుకుంటుంది", "gloss": "will settle itself" }
+      ],
+      "tags": ["comfort"],
+      "difficulty": 3,
+      "note": "సర్దుకుంటుంది — 'it will adjust itself' — is THE consoling word. Life in Telugu doesn't get fixed, it settles.",
+      "distractors": ["u34-i07", "u34-i08"]
+    },
+    {
+      "id": "u34-i02",
+      "te": "ఏం కాదండి, ధైర్యంగా ఉండండి.",
+      "gloss": "Nothing will happen, stay strong.",
+      "words": [
+        { "te": "ఏం", "gloss": "nothing / what" },
+        { "te": "కాదండి", "gloss": "it won't be (polite)" },
+        { "te": "ధైర్యంగా", "gloss": "bravely" },
+        { "te": "ఉండండి", "gloss": "stay (polite)" }
+      ],
+      "tags": ["comfort"],
+      "difficulty": 3,
+      "distractors": ["u34-i01", "u34-i08"]
+    },
+    {
+      "id": "u34-i03",
+      "te": "అంతా మంచే జరుగుతుంది.",
+      "gloss": "Only good things will happen.",
+      "words": [
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "మంచే", "gloss": "only good" },
+        { "te": "జరుగుతుంది", "gloss": "will happen" }
+      ],
+      "tags": ["comfort", "hope"],
+      "difficulty": 2,
+      "note": "The -ఏ ending adds 'only/exactly': మంచి → మంచే (only good). A tiny sound that carries a lot of reassurance.",
+      "distractors": ["u34-i08", "u34-i02"]
+    },
+    {
+      "id": "u34-i04",
+      "te": "నేను ఏం చేయాలంటారు?",
+      "gloss": "What do you think I should do?",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేయాలంటారు", "gloss": "should do, you say?" }
+      ],
+      "tags": ["advice", "questions"],
+      "difficulty": 3,
+      "note": "చేయాలి + అంటారు = 'what do you say I should do?' — the natural way to ask an elder for advice.",
+      "distractors": ["u34-i14", "u34-i09"]
+    },
+    {
+      "id": "u34-i05",
+      "te": "ఒకసారి వాళ్ళతో మాట్లాడొచ్చు.",
+      "gloss": "You could talk with them once.",
+      "words": [
+        { "te": "ఒకసారి", "gloss": "once" },
+        { "te": "వాళ్ళతో", "gloss": "with them" },
+        { "te": "మాట్లాడొచ్చు", "gloss": "could talk" }
+      ],
+      "tags": ["advice", "suggestions"],
+      "difficulty": 3,
+      "note": "-వచ్చు (spoken -ఒచ్చు) makes a soft suggestion: మాట్లాడొచ్చు 'you could talk' — advice without pressure.",
+      "distractors": ["u34-i11", "u34-i06"]
+    },
+    {
+      "id": "u34-i06",
+      "te": "కొంచెం రెస్ట్ తీసుకోండి.",
+      "gloss": "Take a little rest.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "రెస్ట్", "gloss": "rest" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["advice", "suggestions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u34-i07",
+      "te": "టెన్షన్ పడకండి.",
+      "gloss": "Don't stress.",
+      "words": [
+        { "te": "టెన్షన్", "gloss": "tension / stress" },
+        { "te": "పడకండి", "gloss": "don't undergo (polite)" }
+      ],
+      "tags": ["comfort"],
+      "difficulty": 2,
+      "distractors": ["u34-i01", "u34-i02"]
+    },
+    {
+      "id": "u34-i08",
+      "te": "అంతా బాగానే అవుతుంది.",
+      "gloss": "It will all be alright.",
+      "words": [
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "బాగానే", "gloss": "just fine" },
+        { "te": "అవుతుంది", "gloss": "will become" }
+      ],
+      "tags": ["comfort", "hope"],
+      "difficulty": 2,
+      "distractors": ["u34-i03", "u34-i01"]
+    },
+    {
+      "id": "u34-i09",
+      "te": "నా మాట వినండి.",
+      "gloss": "Listen to me.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "word" },
+        { "te": "వినండి", "gloss": "listen (polite)" }
+      ],
+      "tags": ["advice"],
+      "difficulty": 2
+    },
+    {
+      "id": "u34-i10",
+      "te": "మీకు ఏది మంచిదో అదే చేయండి.",
+      "gloss": "Do whatever is best for you.",
+      "words": [
+        { "te": "మీకు", "gloss": "for you (polite)" },
+        { "te": "ఏది", "gloss": "which" },
+        { "te": "మంచిదో", "gloss": "is good (whichever)" },
+        { "te": "అదే", "gloss": "that itself" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["advice"],
+      "difficulty": 4,
+      "note": "The ఏది...ఓ, అదే pattern: 'whichever is good — do exactly that'. Wise-elder grammar for handing the choice back gently."
+    },
+    {
+      "id": "u34-i11",
+      "te": "తొందర పడకుండా ఆలోచించండి.",
+      "gloss": "Think it over without rushing.",
+      "words": [
+        { "te": "తొందర", "gloss": "hurry" },
+        { "te": "పడకుండా", "gloss": "without falling into" },
+        { "te": "ఆలోచించండి", "gloss": "think (polite)" }
+      ],
+      "tags": ["advice", "suggestions"],
+      "difficulty": 3,
+      "distractors": ["u34-i05", "u34-i06"]
+    },
+    {
+      "id": "u34-i12",
+      "te": "నేను మీ పక్కన ఉన్నాను.",
+      "gloss": "I am right beside you.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "పక్కన", "gloss": "beside" },
+        { "te": "ఉన్నాను", "gloss": "am" }
+      ],
+      "tags": ["comfort", "support"],
+      "difficulty": 2,
+      "distractors": ["u34-i13", "u34-i02"]
+    },
+    {
+      "id": "u34-i13",
+      "te": "కావాలంటే నేను వస్తాను.",
+      "gloss": "If you want, I'll come.",
+      "words": [
+        { "te": "కావాలంటే", "gloss": "if (you) want" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "వస్తాను", "gloss": "will come" }
+      ],
+      "tags": ["comfort", "support"],
+      "difficulty": 3
+    },
+    {
+      "id": "u34-i14",
+      "te": "మీరు అయితే ఏం చేస్తారు?",
+      "gloss": "What would you do, if it were you?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "అయితే", "gloss": "if it were" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేస్తారు", "gloss": "would do" }
+      ],
+      "tags": ["advice", "questions"],
+      "difficulty": 3,
+      "distractors": ["u34-i04", "u34-i09"]
+    },
+    {
+      "id": "u34-i15",
+      "te": "రేపు మళ్ళీ మాట్లాడుకుందాం.",
+      "gloss": "Let's talk again tomorrow.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "మాట్లాడుకుందాం", "gloss": "let's talk (together)" }
+      ],
+      "tags": ["comfort", "support"],
+      "difficulty": 2
+    },
+    {
+      "id": "u34-i16",
+      "te": "నాకు చాలా భయంగా ఉంది.",
+      "gloss": "I'm really scared.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "భయంగా", "gloss": "scared" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["feelings", "worry"],
+      "difficulty": 2,
+      "distractors": ["u34-i07", "u34-i01"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Don't worry",
+      "itemIds": ["u34-i16", "u34-i01", "u34-i07", "u34-i08"]
+    },
+    {
+      "id": "l2",
+      "title": "It'll be alright",
+      "itemIds": ["u34-i02", "u34-i03", "u34-i12"]
+    },
+    {
+      "id": "l3",
+      "title": "Asking for advice",
+      "itemIds": ["u34-i04", "u34-i14", "u34-i09"]
+    },
+    {
+      "id": "l4",
+      "title": "Gentle suggestions",
+      "itemIds": ["u34-i05", "u34-i06", "u34-i11"]
+    },
+    {
+      "id": "l5",
+      "title": "I'm here for you",
+      "itemIds": ["u34-i10", "u34-i13", "u34-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u34-d1",
+    "title": "Ravi's big decision",
+    "scene": "Late evening call. Your cousin Ravi got a job offer in another city and is torn about leaving home. He's anxious; you talk him through it.",
+    "turns": [
+      { "speaker": "Ravi", "itemId": "u34-i16" },
+      { "speaker": "You", "itemId": "u34-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u34-i01", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u34-i04" },
+      { "speaker": "You", "itemId": "u34-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u34-i11", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u34-i14" },
+      { "speaker": "You", "itemId": "u34-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u34-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u34-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u34-i13", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u34-i03" },
+      { "speaker": "You", "itemId": "u34-i02", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u34-i15" }
+    ]
+  }
+}

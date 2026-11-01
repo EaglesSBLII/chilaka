@@ -1,0 +1,256 @@
+{
+  "id": "u09",
+  "section": 2,
+  "order": 1,
+  "title": "Food & eating",
+  "teTitle": "భోజనం",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Talk your way through a Telugu meal: hunger, taste, asking for more, and stopping the refills.",
+  "items": [
+    {
+      "id": "u09-i01",
+      "te": "నాకు ఆకలిగా ఉంది.",
+      "gloss": "I'm hungry.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఆకలిగా", "gloss": "hungry" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food", "feelings"],
+      "difficulty": 1,
+      "note": "Telugu says 'to me hunger is': నాకు (naaku) + ఆకలిగా (aakaligaa) + ఉంది (undi). Feelings almost always take this dative pattern.",
+      "distractors": ["u09-i02", "u09-i14"]
+    },
+    {
+      "id": "u09-i02",
+      "te": "నాకు దాహంగా ఉంది.",
+      "gloss": "I'm thirsty.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "దాహంగా", "gloss": "thirsty" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food", "feelings"],
+      "difficulty": 1,
+      "distractors": ["u09-i01", "u09-i15"]
+    },
+    {
+      "id": "u09-i03",
+      "te": "అన్నం తిన్నారా?",
+      "gloss": "Did you eat?",
+      "words": [
+        { "te": "అన్నం", "gloss": "rice / food" },
+        { "te": "తిన్నారా", "gloss": "did (you) eat?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "note": "అన్నం (annam) is literally cooked rice but stands for food in general. Informal singular: అన్నం తిన్నావా? (tinnaavaa)."
+    },
+    {
+      "id": "u09-i04",
+      "te": "ఇంకా తినలేదు.",
+      "gloss": "I haven't eaten yet.",
+      "words": [
+        { "te": "ఇంకా", "gloss": "yet / still" },
+        { "te": "తినలేదు", "gloss": "didn't eat" }
+      ],
+      "tags": ["food"],
+      "difficulty": 2,
+      "distractors": ["u09-i14", "u09-i09"]
+    },
+    {
+      "id": "u09-i05",
+      "te": "కూర చాలా బాగుంది.",
+      "gloss": "The curry is very good.",
+      "words": [
+        { "te": "కూర", "gloss": "curry / vegetable dish" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["food", "compliments"],
+      "difficulty": 2,
+      "distractors": ["u09-i10", "u09-i12"]
+    },
+    {
+      "id": "u09-i06",
+      "te": "పప్పు కొంచెం వెయ్యండి.",
+      "gloss": "Serve a little pappu (dal).",
+      "words": [
+        { "te": "పప్పు", "gloss": "dal / lentils" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "వెయ్యండి", "gloss": "serve / put (polite)" }
+      ],
+      "tags": ["food", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u09-i07",
+      "te": "ఇంకొంచెం అన్నం పెట్టండి.",
+      "gloss": "Serve a little more rice.",
+      "words": [
+        { "te": "ఇంకొంచెం", "gloss": "a little more" },
+        { "te": "అన్నం", "gloss": "rice" },
+        { "te": "పెట్టండి", "gloss": "serve (polite)" }
+      ],
+      "tags": ["food", "commands"],
+      "difficulty": 2,
+      "note": "పెట్టు (peTTu) is the verb for serving food onto a plate. ఇంకొంచెం (inkonchem) = ఇంకా + కొంచెం merged: 'a little more'."
+    },
+    {
+      "id": "u09-i08",
+      "te": "చాలా రుచిగా ఉంది!",
+      "gloss": "It's very tasty!",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "రుచిగా", "gloss": "tasty" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food", "compliments"],
+      "difficulty": 2,
+      "distractors": ["u09-i12", "u09-i05"]
+    },
+    {
+      "id": "u09-i09",
+      "te": "చాలు చాలు, ఇంక వద్దు!",
+      "gloss": "Enough, enough — no more!",
+      "words": [
+        { "te": "చాలు", "gloss": "enough" },
+        { "te": "చాలు", "gloss": "enough" },
+        { "te": "ఇంక", "gloss": "any more" },
+        { "te": "వద్దు", "gloss": "don't want" }
+      ],
+      "tags": ["food", "hospitality"],
+      "difficulty": 2,
+      "note": "చాలు (chaalu) = enough. Say it twice, fast, before more rice lands on your plate.",
+      "distractors": ["u09-i04", "u09-i14"]
+    },
+    {
+      "id": "u09-i10",
+      "te": "చారు వేడిగా ఉంది.",
+      "gloss": "The chaaru (rasam) is hot.",
+      "words": [
+        { "te": "చారు", "gloss": "chaaru / rasam" },
+        { "te": "వేడిగా", "gloss": "hot" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food"],
+      "difficulty": 2
+    },
+    {
+      "id": "u09-i11",
+      "te": "కారంగా ఉందా?",
+      "gloss": "Is it spicy?",
+      "words": [
+        { "te": "కారంగా", "gloss": "spicy" },
+        { "te": "ఉందా", "gloss": "is it?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "distractors": ["u09-i12", "u09-i10"]
+    },
+    {
+      "id": "u09-i12",
+      "te": "కొంచెం కారంగా ఉంది.",
+      "gloss": "It's a little spicy.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "కారంగా", "gloss": "spicy" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["food"],
+      "difficulty": 2
+    },
+    {
+      "id": "u09-i13",
+      "te": "రండి, భోజనం చేద్దాం.",
+      "gloss": "Come, let's eat.",
+      "words": [
+        { "te": "రండి", "gloss": "come (polite)" },
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "చేద్దాం", "gloss": "let's do" }
+      ],
+      "tags": ["food", "hospitality"],
+      "difficulty": 2,
+      "note": "భోజనం చేయడం (bhojanam cheyaDam) is the respectful way to say 'have a meal' — warmer than plain తినడం (tinaDam)."
+    },
+    {
+      "id": "u09-i14",
+      "te": "కడుపు నిండింది.",
+      "gloss": "My stomach is full.",
+      "words": [
+        { "te": "కడుపు", "gloss": "stomach" },
+        { "te": "నిండింది", "gloss": "got full" }
+      ],
+      "tags": ["food", "hospitality"],
+      "difficulty": 2,
+      "note": "The polite way to decline another helping: కడుపు (kaDupu) stomach + నిండింది (ninDindi) 'got full'."
+    },
+    {
+      "id": "u09-i15",
+      "te": "నీళ్ళు ఇవ్వండి.",
+      "gloss": "Please give me water.",
+      "words": [
+        { "te": "నీళ్ళు", "gloss": "water" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["food", "commands"],
+      "difficulty": 1,
+      "distractors": ["u09-i07", "u09-i06"]
+    },
+    {
+      "id": "u09-i16",
+      "te": "వంట ఎవరు చేశారు?",
+      "gloss": "Who cooked?",
+      "words": [
+        { "te": "వంట", "gloss": "cooking" },
+        { "te": "ఎవరు", "gloss": "who" },
+        { "te": "చేశారు", "gloss": "did (polite)" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u09-i17",
+      "te": "టిఫిన్ చేశారా?",
+      "gloss": "Did you have tiffin (breakfast)?",
+      "words": [
+        { "te": "టిఫిన్", "gloss": "tiffin / breakfast" },
+        { "te": "చేశారా", "gloss": "did (you) do?" }
+      ],
+      "tags": ["food", "questions"],
+      "difficulty": 2,
+      "note": "టిఫిన్ (Tiphin) covers idli, dosa, upma — any light meal. Note it takes చేశారా (did you do), not తిన్నారా."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "I'm starving!", "itemIds": ["u09-i01", "u09-i02", "u09-i15"] },
+    { "id": "l2", "title": "Did you eat?", "itemIds": ["u09-i03", "u09-i04", "u09-i17", "u09-i13"] },
+    { "id": "l3", "title": "On your plate", "itemIds": ["u09-i05", "u09-i06", "u09-i07", "u09-i10"] },
+    { "id": "l4", "title": "Tasty or spicy?", "itemIds": ["u09-i08", "u09-i11", "u09-i12"] },
+    { "id": "l5", "title": "That's plenty", "itemIds": ["u09-i09", "u09-i14", "u09-i16"] }
+  ],
+  "dialogue": {
+    "id": "u09-d1",
+    "title": "Dinner at Ammamma's",
+    "scene": "You arrive at Ammamma's house hungry, and the full feast treatment begins — course after course, with the rice pot always hovering. Resistance is futile.",
+    "turns": [
+      { "speaker": "Ammamma", "itemId": "u09-i03" },
+      { "speaker": "You", "itemId": "u09-i04", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u09-i17" },
+      { "speaker": "You", "itemId": "u09-i01", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u09-i13" },
+      { "speaker": "You", "itemId": "u09-i05", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u09-i11" },
+      { "speaker": "You", "itemId": "u09-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i16", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u09-i10" },
+      { "speaker": "You", "itemId": "u09-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u09-i14", "userTurn": true }
+    ]
+  }
+}

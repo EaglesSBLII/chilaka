@@ -1,0 +1,249 @@
+{
+  "id": "u24",
+  "section": 3,
+  "order": 8,
+  "title": "Weather & small talk",
+  "teTitle": "వాన కబుర్లు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Chat about rain, heat, cricket and the news — the small talk that fills every Telugu veranda.",
+  "items": [
+    {
+      "id": "u24-i01",
+      "te": "బయట వాన పడుతోంది.",
+      "gloss": "It's raining outside.",
+      "words": [
+        { "te": "బయట", "gloss": "outside" },
+        { "te": "వాన", "gloss": "rain" },
+        { "te": "పడుతోంది", "gloss": "is falling" }
+      ],
+      "tags": ["weather"],
+      "difficulty": 3,
+      "distractors": ["u24-i02", "u24-i09"]
+    },
+    {
+      "id": "u24-i02",
+      "te": "నిన్న రాత్రి పెద్ద వాన పడింది.",
+      "gloss": "It rained heavily last night.",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "రాత్రి", "gloss": "night" },
+        { "te": "పెద్ద", "gloss": "big / heavy" },
+        { "te": "వాన", "gloss": "rain" },
+        { "te": "పడింది", "gloss": "fell" }
+      ],
+      "tags": ["weather", "past"],
+      "difficulty": 3
+    },
+    {
+      "id": "u24-i03",
+      "te": "గొడుగు తీసుకెళ్ళండి.",
+      "gloss": "Take an umbrella with you.",
+      "words": [
+        { "te": "గొడుగు", "gloss": "umbrella" },
+        { "te": "తీసుకెళ్ళండి", "gloss": "take along (polite)" }
+      ],
+      "tags": ["weather", "commands"],
+      "difficulty": 3,
+      "distractors": ["u24-i07", "u24-i16"]
+    },
+    {
+      "id": "u24-i04",
+      "te": "ఈ ఎండలు భరించలేము!",
+      "gloss": "This heat is unbearable!",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ఎండలు", "gloss": "hot spells / heat" },
+        { "te": "భరించలేము", "gloss": "(we) can't bear" }
+      ],
+      "tags": ["weather", "exclamations"],
+      "difficulty": 4,
+      "note": "ఎండ (enDa) = sunshine; summer heat goes plural: ఎండలు (enDalu), as if each scorching day counts separately."
+    },
+    {
+      "id": "u24-i05",
+      "te": "హైదరాబాదులో చాలా వేడిగా ఉంది.",
+      "gloss": "It's very hot in Hyderabad.",
+      "words": [
+        { "te": "హైదరాబాదులో", "gloss": "in Hyderabad" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "వేడిగా", "gloss": "hot" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["weather"],
+      "difficulty": 3,
+      "distractors": ["u24-i06", "u24-i08"]
+    },
+    {
+      "id": "u24-i06",
+      "te": "ఈరోజు చలి ఎక్కువగా ఉంది.",
+      "gloss": "It's quite cold today.",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "చలి", "gloss": "cold" },
+        { "te": "ఎక్కువగా", "gloss": "a lot / very" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["weather"],
+      "difficulty": 3,
+      "distractors": ["u24-i05", "u24-i08"]
+    },
+    {
+      "id": "u24-i07",
+      "te": "స్వెట్టర్ వేసుకోండి.",
+      "gloss": "Put on a sweater.",
+      "words": [
+        { "te": "స్వెట్టర్", "gloss": "sweater" },
+        { "te": "వేసుకోండి", "gloss": "put on (yourself)" }
+      ],
+      "tags": ["weather", "commands"],
+      "difficulty": 3,
+      "note": "Clothes are put on YOURSELF in Telugu: వేసుకోండి (vesukonDi) — the -కో (-ko) makes the action reflexive."
+    },
+    {
+      "id": "u24-i08",
+      "te": "వాతావరణం చాలా బాగుంది.",
+      "gloss": "The weather is lovely.",
+      "words": [
+        { "te": "వాతావరణం", "gloss": "weather" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is nice" }
+      ],
+      "tags": ["weather", "smalltalk"],
+      "difficulty": 3
+    },
+    {
+      "id": "u24-i09",
+      "te": "వానాకాలం వచ్చేసింది.",
+      "gloss": "The rainy season is well and truly here.",
+      "words": [
+        { "te": "వానాకాలం", "gloss": "rainy season" },
+        { "te": "వచ్చేసింది", "gloss": "has (fully) arrived" }
+      ],
+      "tags": ["weather", "seasons"],
+      "difficulty": 4,
+      "note": "The three seasons of small talk: వానాకాలం (vaanaakaalam) rains, ఎండాకాలం (enDaakaalam) summer, చలికాలం (chalikaalam) winter."
+    },
+    {
+      "id": "u24-i10",
+      "te": "నిన్న మ్యాచ్ చూశారా?",
+      "gloss": "Did you watch the match yesterday?",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "మ్యాచ్", "gloss": "match" },
+        { "te": "చూశారా", "gloss": "did (you) watch?" }
+      ],
+      "tags": ["cricket", "smalltalk", "questions"],
+      "difficulty": 3,
+      "distractors": ["u24-i14", "u24-i11"]
+    },
+    {
+      "id": "u24-i11",
+      "te": "ఇండియా గెలిచింది!",
+      "gloss": "India won!",
+      "words": [
+        { "te": "ఇండియా", "gloss": "India" },
+        { "te": "గెలిచింది", "gloss": "won" }
+      ],
+      "tags": ["cricket", "exclamations"],
+      "difficulty": 2,
+      "distractors": ["u24-i10", "u24-i13"]
+    },
+    {
+      "id": "u24-i12",
+      "te": "ఆఖరి బంతి వరకు చూశాను.",
+      "gloss": "I watched till the very last ball.",
+      "words": [
+        { "te": "ఆఖరి", "gloss": "last / final" },
+        { "te": "బంతి", "gloss": "ball" },
+        { "te": "వరకు", "gloss": "until" },
+        { "te": "చూశాను", "gloss": "watched (I)" }
+      ],
+      "tags": ["cricket", "past"],
+      "difficulty": 4
+    },
+    {
+      "id": "u24-i13",
+      "te": "క్రికెట్ అంటే నాకు పిచ్చి!",
+      "gloss": "I'm crazy about cricket!",
+      "words": [
+        { "te": "క్రికెట్", "gloss": "cricket" },
+        { "te": "అంటే", "gloss": "as for / speaking of" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "పిచ్చి", "gloss": "madness / craze" }
+      ],
+      "tags": ["cricket", "preferences"],
+      "difficulty": 4,
+      "note": "X అంటే పిచ్చి (anTe pichchi, 'madness') — a whole level above ఇష్టం. Reserve it for cricket, biryani and your favourite hero."
+    },
+    {
+      "id": "u24-i14",
+      "te": "వార్తలు చూశారా?",
+      "gloss": "Did you see the news?",
+      "words": [
+        { "te": "వార్తలు", "gloss": "news" },
+        { "te": "చూశారా", "gloss": "did (you) see?" }
+      ],
+      "tags": ["smalltalk", "questions"],
+      "difficulty": 3,
+      "distractors": ["u24-i10", "u24-i15"]
+    },
+    {
+      "id": "u24-i15",
+      "te": "ఉదయం నుంచి కరెంటు లేదు.",
+      "gloss": "There's been no power since morning.",
+      "words": [
+        { "te": "ఉదయం", "gloss": "morning" },
+        { "te": "నుంచి", "gloss": "since / from" },
+        { "te": "కరెంటు", "gloss": "electricity" },
+        { "te": "లేదు", "gloss": "there isn't" }
+      ],
+      "tags": ["smalltalk"],
+      "difficulty": 4,
+      "note": "కరెంటు (karenTu) = electricity. Power cuts are certified small-talk material, right up there with the weather."
+    },
+    {
+      "id": "u24-i16",
+      "te": "వాన తగ్గాక వెళ్దాం.",
+      "gloss": "Let's go after the rain lets up.",
+      "words": [
+        { "te": "వాన", "gloss": "rain" },
+        { "te": "తగ్గాక", "gloss": "after (it) reduces" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["weather", "plans"],
+      "difficulty": 4,
+      "note": "-ఆక (-aaka) = 'after ...ing': తగ్గాక (taggaaka) = after it lets up, తిన్నాక = after eating."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Rain check", "itemIds": ["u24-i01", "u24-i02", "u24-i03"] },
+    { "id": "l2", "title": "Too hot, too cold", "itemIds": ["u24-i04", "u24-i05", "u24-i06", "u24-i07"] },
+    { "id": "l3", "title": "Season talk", "itemIds": ["u24-i08", "u24-i09", "u24-i16"] },
+    { "id": "l4", "title": "Cricket fever", "itemIds": ["u24-i10", "u24-i11", "u24-i13"] },
+    { "id": "l5", "title": "Last ball & headlines", "itemIds": ["u24-i12", "u24-i14", "u24-i15"] }
+  ],
+  "dialogue": {
+    "id": "u24-d1",
+    "title": "Chai on the veranda",
+    "scene": "Rain drums on the veranda roof while Tata pours two cups of chai. You just arrived from sweltering Hyderabad and were about to head to the market — but the sky, last night's match and a power cut all have other plans.",
+    "turns": [
+      { "speaker": "Tata", "itemId": "u24-i01" },
+      { "speaker": "You", "itemId": "u24-i02", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i09" },
+      { "speaker": "You", "itemId": "u24-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u24-i04", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i08" },
+      { "speaker": "You", "itemId": "u24-i06", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i07" },
+      { "speaker": "Tata", "itemId": "u24-i10" },
+      { "speaker": "You", "itemId": "u24-i12", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i11" },
+      { "speaker": "You", "itemId": "u24-i13", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i14" },
+      { "speaker": "You", "itemId": "u24-i15", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u24-i16" },
+      { "speaker": "Tata", "itemId": "u24-i03" }
+    ]
+  }
+}

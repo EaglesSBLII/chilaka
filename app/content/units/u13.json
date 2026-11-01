@@ -1,0 +1,246 @@
+{
+  "id": "u13",
+  "section": 2,
+  "order": 5,
+  "title": "Phone calls with family",
+  "teTitle": "ఫోన్లో మాటలు",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Survive the family phone call: bad signal, video calls, and 'when are you coming to India?'",
+  "items": [
+    {
+      "id": "u13-i01",
+      "te": "హలో, ఎవరు మాట్లాడుతున్నారు?",
+      "gloss": "Hello, who's speaking?",
+      "words": [
+        { "te": "హలో", "gloss": "hello" },
+        { "te": "ఎవరు", "gloss": "who" },
+        { "te": "మాట్లాడుతున్నారు", "gloss": "is speaking (polite)" }
+      ],
+      "tags": ["phone", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u13-i02",
+      "te": "అమ్మమ్మా, నేనే!",
+      "gloss": "Ammamma, it's me!",
+      "words": [
+        { "te": "అమ్మమ్మా", "gloss": "grandma! (calling out)" },
+        { "te": "నేనే", "gloss": "it's me" }
+      ],
+      "tags": ["phone", "family"],
+      "difficulty": 1,
+      "note": "నేనే (neenee) = నేను + emphatic -ఏ: 'it's me, who else!'. అమ్మమ్మ is mother's mother; father's mother is నానమ్మ (naanamma).",
+      "distractors": ["u13-i01", "u13-i13"]
+    },
+    {
+      "id": "u13-i03",
+      "te": "నా మాట వినిపిస్తోందా?",
+      "gloss": "Can you hear me?",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "మాట", "gloss": "voice / words" },
+        { "te": "వినిపిస్తోందా", "gloss": "is it audible?" }
+      ],
+      "tags": ["phone", "questions"],
+      "difficulty": 3,
+      "note": "Literally 'is my speech being heard?' — వినిపించు (vinipinchu) = to be audible."
+    },
+    {
+      "id": "u13-i04",
+      "te": "సిగ్నల్ బాగా లేదు.",
+      "gloss": "The signal is bad.",
+      "words": [
+        { "te": "సిగ్నల్", "gloss": "signal" },
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 2,
+      "distractors": ["u13-i07", "u13-i16"]
+    },
+    {
+      "id": "u13-i05",
+      "te": "తరువాత మళ్ళీ చేస్తాను.",
+      "gloss": "I'll call back later.",
+      "words": [
+        { "te": "తరువాత", "gloss": "later" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "చేస్తాను", "gloss": "I'll do / call" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 2,
+      "note": "ఫోన్ చేయు (phone cheyu) = to call; once you're on the phone, Telugu drops ఫోన్ and just says చేస్తాను.",
+      "distractors": ["u13-i15", "u13-i16"]
+    },
+    {
+      "id": "u13-i06",
+      "te": "గట్టిగా మాట్లాడండి.",
+      "gloss": "Speak up (loudly).",
+      "words": [
+        { "te": "గట్టిగా", "gloss": "loudly" },
+        { "te": "మాట్లాడండి", "gloss": "speak (polite)" }
+      ],
+      "tags": ["phone", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u13-i07",
+      "te": "మీ మాట వినిపించడం లేదు.",
+      "gloss": "I can't hear you.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "మాట", "gloss": "voice / words" },
+        { "te": "వినిపించడం", "gloss": "being audible" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 3,
+      "distractors": ["u13-i09", "u13-i03"]
+    },
+    {
+      "id": "u13-i08",
+      "te": "వీడియో కాల్ చెయ్యండి.",
+      "gloss": "Make it a video call.",
+      "words": [
+        { "te": "వీడియో", "gloss": "video" },
+        { "te": "కాల్", "gloss": "call" },
+        { "te": "చెయ్యండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["phone", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u13-i09",
+      "te": "మీరు కనిపించడం లేదు.",
+      "gloss": "I can't see you.",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "కనిపించడం", "gloss": "being visible" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 3,
+      "note": "The video-call pair: కనిపించు (kanipinchu) be visible, వినిపించు (vinipinchu) be audible.",
+      "distractors": ["u13-i07", "u13-i08"]
+    },
+    {
+      "id": "u13-i10",
+      "te": "మిమ్మల్ని చాలా మిస్ అవుతున్నాం.",
+      "gloss": "We miss you so much.",
+      "words": [
+        { "te": "మిమ్మల్ని", "gloss": "you (object, polite)" },
+        { "te": "చాలా", "gloss": "very much" },
+        { "te": "మిస్", "gloss": "miss" },
+        { "te": "అవుతున్నాం", "gloss": "we are becoming" }
+      ],
+      "tags": ["phone", "family", "feelings"],
+      "difficulty": 3,
+      "note": "Spoken Telugu happily borrows 'miss': మిస్ అవుతున్నాం (miss avutunnaam). Pure Telugu: మీరు గుర్తొస్తున్నారు."
+    },
+    {
+      "id": "u13-i11",
+      "te": "ఇండియాకి ఎప్పుడు వస్తున్నారు?",
+      "gloss": "When are you coming to India?",
+      "words": [
+        { "te": "ఇండియాకి", "gloss": "to India" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తున్నారు", "gloss": "are (you) coming?" }
+      ],
+      "tags": ["phone", "family", "questions"],
+      "difficulty": 2,
+      "note": "THE question every relative asks on every single call. Have an answer ready.",
+      "distractors": ["u13-i12", "u13-i02"]
+    },
+    {
+      "id": "u13-i12",
+      "te": "డిసెంబర్లో వస్తాను.",
+      "gloss": "I'm coming in December.",
+      "words": [
+        { "te": "డిసెంబర్లో", "gloss": "in December" },
+        { "te": "వస్తాను", "gloss": "I'll come" }
+      ],
+      "tags": ["phone", "family"],
+      "difficulty": 2
+    },
+    {
+      "id": "u13-i13",
+      "te": "అందరూ ఎలా ఉన్నారు?",
+      "gloss": "How is everyone?",
+      "words": [
+        { "te": "అందరూ", "gloss": "everyone" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉన్నారు", "gloss": "are (they)?" }
+      ],
+      "tags": ["phone", "family", "questions"],
+      "difficulty": 1,
+      "distractors": ["u13-i01", "u13-i11"]
+    },
+    {
+      "id": "u13-i14",
+      "te": "తాతయ్యకి ఫోన్ ఇవ్వండి.",
+      "gloss": "Give the phone to grandpa.",
+      "words": [
+        { "te": "తాతయ్యకి", "gloss": "to grandpa" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["phone", "family", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u13-i15",
+      "te": "తరువాత మాట్లాడదాం.",
+      "gloss": "Let's talk later.",
+      "words": [
+        { "te": "తరువాత", "gloss": "later" },
+        { "te": "మాట్లాడదాం", "gloss": "let's talk" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 2,
+      "distractors": ["u13-i05", "u13-i16"]
+    },
+    {
+      "id": "u13-i16",
+      "te": "ఫోన్ పెట్టేస్తున్నాను.",
+      "gloss": "I'm hanging up now.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "పెట్టేస్తున్నాను", "gloss": "I'm putting down (for good)" }
+      ],
+      "tags": ["phone"],
+      "difficulty": 3,
+      "note": "The -ఏస్ (-ees) inside పెట్టేస్తున్నాను (peTTeestunnaanu) adds 'completely, finally' — this is the hanging-up verb."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Who's this?", "itemIds": ["u13-i01", "u13-i02", "u13-i13"] },
+    { "id": "l2", "title": "Can you hear me?", "itemIds": ["u13-i03", "u13-i04", "u13-i06", "u13-i07"] },
+    { "id": "l3", "title": "Video call", "itemIds": ["u13-i08", "u13-i09", "u13-i16"] },
+    { "id": "l4", "title": "We miss you", "itemIds": ["u13-i10", "u13-i11", "u13-i12"] },
+    { "id": "l5", "title": "Call you back", "itemIds": ["u13-i05", "u13-i14", "u13-i15"] }
+  ],
+  "dialogue": {
+    "id": "u13-d1",
+    "title": "Crackly call to Vijayawada",
+    "scene": "Sunday morning. You call your ammamma in Vijayawada: the line crackles, the video call misbehaves — and Tatayya is waiting for his turn.",
+    "turns": [
+      { "speaker": "Ammamma", "itemId": "u13-i01" },
+      { "speaker": "You", "itemId": "u13-i02", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u13-i07" },
+      { "speaker": "Ammamma", "itemId": "u13-i06" },
+      { "speaker": "You", "itemId": "u13-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u13-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u13-i08", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u13-i09" },
+      { "speaker": "Ammamma", "itemId": "u13-i10" },
+      { "speaker": "You", "itemId": "u13-i13", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u13-i11" },
+      { "speaker": "You", "itemId": "u13-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u13-i14", "userTurn": true },
+      { "speaker": "Tatayya", "itemId": "u13-i11" },
+      { "speaker": "You", "itemId": "u13-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u13-i15", "userTurn": true }
+    ]
+  }
+}

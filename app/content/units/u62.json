@@ -1,0 +1,290 @@
+{
+  "id": "u62",
+  "section": 8,
+  "order": 6,
+  "title": "The hard moments",
+  "teTitle": "కష్ట సమయాలు",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Be there when it matters — condolences, serious apologies, hospital visits, and saying difficult things with kindness.",
+  "items": [
+    {
+      "id": "u62-i01",
+      "te": "జరిగింది విని చాలా బాధపడ్డాం.",
+      "gloss": "We were deeply saddened to hear what happened.",
+      "words": [
+        { "te": "జరిగింది", "gloss": "what happened" },
+        { "te": "విని", "gloss": "having heard" },
+        { "te": "చాలా", "gloss": "very much" },
+        { "te": "బాధపడ్డాం", "gloss": "we grieved" }
+      ],
+      "tags": ["condolences"],
+      "difficulty": 4,
+      "distractors": ["u62-i15"]
+    },
+    {
+      "id": "u62-i02",
+      "te": "మీ నాన్నగారు చాలా మంచి మనిషి.",
+      "gloss": "Your father was a very good man.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "నాన్నగారు", "gloss": "father (honorific)" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "మంచి", "gloss": "good" },
+        { "te": "మనిషి", "gloss": "person" }
+      ],
+      "tags": ["condolences"],
+      "difficulty": 3,
+      "note": "The -గారు honorific stays attached even in memory — respect does not end. Recalling one true good quality of the person comforts more than any general phrase."
+    },
+    {
+      "id": "u62-i03",
+      "te": "మేమున్నాం మీకు, ధైర్యంగా ఉండండి.",
+      "gloss": "We are here for you — be strong.",
+      "words": [
+        { "te": "మేమున్నాం", "gloss": "we are here" },
+        { "te": "మీకు", "gloss": "for you (polite)" },
+        { "te": "ధైర్యంగా", "gloss": "with courage" },
+        { "te": "ఉండండి", "gloss": "stay (polite)" }
+      ],
+      "tags": ["condolences", "comfort"],
+      "difficulty": 4,
+      "note": "మేమున్నాం మీకు — 'we exist, for you' — is the single most comforting Telugu sentence. It promises presence, which matters more than any advice."
+    },
+    {
+      "id": "u62-i04",
+      "te": "ఈ కష్టం మీరు ఒక్కరే మోయక్కర్లేదు.",
+      "gloss": "You don't have to carry this hardship alone.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "కష్టం", "gloss": "hardship" },
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఒక్కరే", "gloss": "all alone" },
+        { "te": "మోయక్కర్లేదు", "gloss": "need not carry" }
+      ],
+      "tags": ["comfort"],
+      "difficulty": 5,
+      "distractors": ["u62-i03"]
+    },
+    {
+      "id": "u62-i05",
+      "te": "ఏమైనా అవసరం ఉంటే వెంటనే చెప్పండి.",
+      "gloss": "If you need anything at all, tell me at once.",
+      "words": [
+        { "te": "ఏమైనా", "gloss": "anything" },
+        { "te": "అవసరం", "gloss": "need" },
+        { "te": "ఉంటే", "gloss": "if there is" },
+        { "te": "వెంటనే", "gloss": "immediately" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["comfort", "offers"],
+      "difficulty": 3,
+      "distractors": ["u62-i12"]
+    },
+    {
+      "id": "u62-i06",
+      "te": "నా వల్ల పెద్ద తప్పు జరిగింది, క్షమించండి.",
+      "gloss": "A serious wrong happened because of me — please forgive me.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "వల్ల", "gloss": "because of" },
+        { "te": "పెద్ద", "gloss": "big" },
+        { "te": "తప్పు", "gloss": "mistake" },
+        { "te": "జరిగింది", "gloss": "happened" },
+        { "te": "క్షమించండి", "gloss": "forgive (polite)" }
+      ],
+      "tags": ["apologies"],
+      "difficulty": 4,
+      "note": "A serious Telugu apology owns the fault out loud: నా వల్ల — 'because of me'. No excuses attached; క్షమించండి lands only after you've named the wrong."
+    },
+    {
+      "id": "u62-i07",
+      "te": "మిమ్మల్ని బాధపెట్టడం నా ఉద్దేశం కాదు.",
+      "gloss": "Hurting you was never my intention.",
+      "words": [
+        { "te": "మిమ్మల్ని", "gloss": "you (object, polite)" },
+        { "te": "బాధపెట్టడం", "gloss": "causing pain" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఉద్దేశం", "gloss": "intention" },
+        { "te": "కాదు", "gloss": "is not" }
+      ],
+      "tags": ["apologies"],
+      "difficulty": 4,
+      "distractors": ["u62-i06", "u62-i08"]
+    },
+    {
+      "id": "u62-i08",
+      "te": "మనసులో పెట్టుకోకండి, మళ్ళీ ఇలా జరగదు.",
+      "gloss": "Please don't hold it in your heart — this won't happen again.",
+      "words": [
+        { "te": "మనసులో", "gloss": "in the heart" },
+        { "te": "పెట్టుకోకండి", "gloss": "don't keep (polite)" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "ఇలా", "gloss": "like this" },
+        { "te": "జరగదు", "gloss": "won't happen" }
+      ],
+      "tags": ["apologies"],
+      "difficulty": 4
+    },
+    {
+      "id": "u62-i09",
+      "te": "ఇప్పుడు ఆరోగ్యం ఎలా ఉంది?",
+      "gloss": "How is your health now?",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "ఆరోగ్యం", "gloss": "health" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["hospital", "questions"],
+      "difficulty": 3,
+      "distractors": ["u62-i10"]
+    },
+    {
+      "id": "u62-i10",
+      "te": "డాక్టర్ ఏమన్నారు, మందులు వాడుతున్నారా?",
+      "gloss": "What did the doctor say — are you taking the medicines?",
+      "words": [
+        { "te": "డాక్టర్", "gloss": "doctor" },
+        { "te": "ఏమన్నారు", "gloss": "what did (they) say" },
+        { "te": "మందులు", "gloss": "medicines" },
+        { "te": "వాడుతున్నారా", "gloss": "are (you) using?" }
+      ],
+      "tags": ["hospital", "questions"],
+      "difficulty": 4,
+      "distractors": ["u62-i09"]
+    },
+    {
+      "id": "u62-i11",
+      "te": "త్వరగా కోలుకోవాలని మనసారా కోరుకుంటున్నాం.",
+      "gloss": "We wholeheartedly wish you a quick recovery.",
+      "words": [
+        { "te": "త్వరగా", "gloss": "quickly" },
+        { "te": "కోలుకోవాలని", "gloss": "that (you) should recover" },
+        { "te": "మనసారా", "gloss": "with a full heart" },
+        { "te": "కోరుకుంటున్నాం", "gloss": "we are wishing" }
+      ],
+      "tags": ["hospital", "comfort"],
+      "difficulty": 4,
+      "distractors": ["u62-i12"]
+    },
+    {
+      "id": "u62-i12",
+      "te": "భయం లేదు, అంతా మంచే జరుగుతుంది.",
+      "gloss": "There's nothing to fear — everything will turn out well.",
+      "words": [
+        { "te": "భయం", "gloss": "fear" },
+        { "te": "లేదు", "gloss": "there is none" },
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "మంచే", "gloss": "only good" },
+        { "te": "జరుగుతుంది", "gloss": "will happen" }
+      ],
+      "tags": ["hospital", "comfort"],
+      "difficulty": 3
+    },
+    {
+      "id": "u62-i13",
+      "te": "ఒక మాట చెప్పాలి, కోపం తెచ్చుకోకండి.",
+      "gloss": "I need to say something — please don't take it badly.",
+      "words": [
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "మాట", "gloss": "word / thing" },
+        { "te": "చెప్పాలి", "gloss": "must say" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "తెచ్చుకోకండి", "gloss": "don't bring upon yourself (polite)" }
+      ],
+      "tags": ["difficult-news"],
+      "difficulty": 4,
+      "note": "The softening opener for hard conversations. Naming that something difficult is coming — and asking for calm — gives the listener a moment to brace, which is itself a kindness."
+    },
+    {
+      "id": "u62-i14",
+      "te": "నిదానంగా చెప్తాను, ముందు కూర్చోండి.",
+      "gloss": "I'll tell you gently — first, please sit down.",
+      "words": [
+        { "te": "నిదానంగా", "gloss": "calmly / gently" },
+        { "te": "చెప్తాను", "gloss": "I will tell" },
+        { "te": "ముందు", "gloss": "first" },
+        { "te": "కూర్చోండి", "gloss": "sit (polite)" }
+      ],
+      "tags": ["difficult-news"],
+      "difficulty": 4
+    },
+    {
+      "id": "u62-i15",
+      "te": "మీ బాధ నాకు అర్థమవుతుంది.",
+      "gloss": "I understand your pain.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "బాధ", "gloss": "pain / sorrow" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అర్థమవుతుంది", "gloss": "is understood" }
+      ],
+      "tags": ["comfort"],
+      "difficulty": 3,
+      "distractors": ["u62-i01"]
+    },
+    {
+      "id": "u62-i16",
+      "te": "కాలమే అన్నిటికీ మందు అంటారు.",
+      "gloss": "They say time is the medicine for everything.",
+      "words": [
+        { "te": "కాలమే", "gloss": "time itself" },
+        { "te": "అన్నిటికీ", "gloss": "for everything" },
+        { "te": "మందు", "gloss": "medicine" },
+        { "te": "అంటారు", "gloss": "they say" }
+      ],
+      "tags": ["condolences", "wisdom"],
+      "difficulty": 4,
+      "note": "A gentle line for grief — 'time itself is the medicine'. Offered quietly and late in the visit, never as a quick fix in the first minutes of someone's pain."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Condolences",
+      "itemIds": ["u62-i01", "u62-i02", "u62-i16"]
+    },
+    {
+      "id": "l2",
+      "title": "We are here for you",
+      "itemIds": ["u62-i03", "u62-i04", "u62-i05"]
+    },
+    {
+      "id": "l3",
+      "title": "A real apology",
+      "itemIds": ["u62-i06", "u62-i07", "u62-i08"]
+    },
+    {
+      "id": "l4",
+      "title": "At the hospital",
+      "itemIds": ["u62-i09", "u62-i10", "u62-i11", "u62-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Saying it kindly",
+      "itemIds": ["u62-i13", "u62-i14", "u62-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u62-d1",
+    "title": "Visiting Rao gaaru in the hospital",
+    "scene": "A quiet hospital room. Rao gaaru is recovering from surgery; his son Kiran keeps watch. You came late — work kept you away all week — and you want to make it right.",
+    "turns": [
+      { "speaker": "You", "itemId": "u62-i09", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u62-i12" },
+      { "speaker": "You", "itemId": "u62-i10", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u62-i13" },
+      { "speaker": "Kiran", "itemId": "u62-i14" },
+      { "speaker": "You", "itemId": "u62-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i08", "userTurn": true },
+      { "speaker": "Rao gaaru", "itemId": "u62-i16" },
+      { "speaker": "You", "itemId": "u62-i11", "userTurn": true },
+      { "speaker": "You", "itemId": "u62-i05", "userTurn": true }
+    ]
+  }
+}

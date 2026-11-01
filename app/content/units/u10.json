@@ -1,0 +1,243 @@
+{
+  "id": "u10",
+  "section": 2,
+  "order": 2,
+  "title": "Home & daily routine",
+  "teTitle": "ఇంట్లో ఒక రోజు",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Describe your day at home — waking, bathing, chores, TV, and bedtime.",
+  "items": [
+    {
+      "id": "u10-i01",
+      "te": "నేను ఏడు గంటలకు లేస్తాను.",
+      "gloss": "I wake up at seven.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఏడు", "gloss": "seven" },
+        { "te": "గంటలకు", "gloss": "at (the hour of)" },
+        { "te": "లేస్తాను", "gloss": "I wake up / get up" }
+      ],
+      "tags": ["routine", "time"],
+      "difficulty": 2,
+      "note": "-కు (-ku) on గంటలు gives clock time: ఏడు గంటలకు (eeDu ganTalaku) 'at 7 o'clock'. లేస్తాను (leestaanu) covers both the daily habit and 'I will get up'.",
+      "distractors": ["u10-i14", "u10-i03"]
+    },
+    {
+      "id": "u10-i02",
+      "te": "ముందు పళ్ళు తోముకుంటాను.",
+      "gloss": "First I brush my teeth.",
+      "words": [
+        { "te": "ముందు", "gloss": "first" },
+        { "te": "పళ్ళు", "gloss": "teeth" },
+        { "te": "తోముకుంటాను", "gloss": "I brush (my own)" }
+      ],
+      "tags": ["routine"],
+      "difficulty": 3,
+      "note": "-కుంటాను (-kunTaanu) marks doing something to or for yourself: తోముకుంటాను (toomukunTaanu) 'I brush my own teeth'."
+    },
+    {
+      "id": "u10-i03",
+      "te": "తరువాత స్నానం చేస్తాను.",
+      "gloss": "Then I take a bath.",
+      "words": [
+        { "te": "తరువాత", "gloss": "then / after that" },
+        { "te": "స్నానం", "gloss": "bath" },
+        { "te": "చేస్తాను", "gloss": "I do" }
+      ],
+      "tags": ["routine"],
+      "difficulty": 2,
+      "distractors": ["u10-i02", "u10-i01"]
+    },
+    {
+      "id": "u10-i04",
+      "te": "త్వరగా తయారవ్వండి!",
+      "gloss": "Get ready quickly!",
+      "words": [
+        { "te": "త్వరగా", "gloss": "quickly" },
+        { "te": "తయారవ్వండి", "gloss": "get ready (polite)" }
+      ],
+      "tags": ["routine", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u10-i05",
+      "te": "కాఫీ తాగుతారా?",
+      "gloss": "Will you have coffee?",
+      "words": [
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "తాగుతారా", "gloss": "will (you) drink?" }
+      ],
+      "tags": ["routine", "questions", "hospitality"],
+      "difficulty": 2,
+      "distractors": ["u10-i12", "u10-i04"]
+    },
+    {
+      "id": "u10-i06",
+      "te": "వంటగదిలో ఉన్నాను.",
+      "gloss": "I'm in the kitchen.",
+      "words": [
+        { "te": "వంటగదిలో", "gloss": "in the kitchen" },
+        { "te": "ఉన్నాను", "gloss": "I am" }
+      ],
+      "tags": ["home"],
+      "difficulty": 2,
+      "note": "-లో (-lo) = in. వంటగది (vanTagadi) is literally 'cooking room'; the bedroom is పడకగది (paDakagadi)."
+    },
+    {
+      "id": "u10-i07",
+      "te": "హాల్లో టీవీ చూస్తున్నాం.",
+      "gloss": "We're watching TV in the hall.",
+      "words": [
+        { "te": "హాల్లో", "gloss": "in the hall" },
+        { "te": "టీవీ", "gloss": "TV" },
+        { "te": "చూస్తున్నాం", "gloss": "we are watching" }
+      ],
+      "tags": ["home", "routine"],
+      "difficulty": 2,
+      "distractors": ["u10-i08", "u10-i15"]
+    },
+    {
+      "id": "u10-i08",
+      "te": "ఇల్లు శుభ్రం చేస్తున్నాను.",
+      "gloss": "I'm cleaning the house.",
+      "words": [
+        { "te": "ఇల్లు", "gloss": "house" },
+        { "te": "శుభ్రం", "gloss": "clean" },
+        { "te": "చేస్తున్నాను", "gloss": "I am doing" }
+      ],
+      "tags": ["home", "chores"],
+      "difficulty": 3
+    },
+    {
+      "id": "u10-i09",
+      "te": "బట్టలు ఉతుకుతున్నాను.",
+      "gloss": "I'm washing clothes.",
+      "words": [
+        { "te": "బట్టలు", "gloss": "clothes" },
+        { "te": "ఉతుకుతున్నాను", "gloss": "I am washing" }
+      ],
+      "tags": ["home", "chores"],
+      "difficulty": 3,
+      "note": "ఉతుకు (utuku) is only for washing clothes. Dishes take కడుగు (kaDugu), and your face is కడుక్కో (kaDukko).",
+      "distractors": ["u10-i16", "u10-i08"]
+    },
+    {
+      "id": "u10-i10",
+      "te": "తలుపు వెయ్యండి.",
+      "gloss": "Close the door.",
+      "words": [
+        { "te": "తలుపు", "gloss": "door" },
+        { "te": "వెయ్యండి", "gloss": "close / put (polite)" }
+      ],
+      "tags": ["home", "commands"],
+      "difficulty": 2,
+      "note": "తలుపు వెయ్యండి (talupu veyyanDi) = close the door; తలుపు తియ్యండి (tiyyanDi) = open it."
+    },
+    {
+      "id": "u10-i11",
+      "te": "లైట్ ఆపండి.",
+      "gloss": "Turn off the light.",
+      "words": [
+        { "te": "లైట్", "gloss": "light" },
+        { "te": "ఆపండి", "gloss": "turn off / stop (polite)" }
+      ],
+      "tags": ["home", "commands"],
+      "difficulty": 1,
+      "distractors": ["u10-i10", "u10-i04"]
+    },
+    {
+      "id": "u10-i12",
+      "te": "నాకు నిద్ర వస్తోంది.",
+      "gloss": "I'm getting sleepy.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "నిద్ర", "gloss": "sleep" },
+        { "te": "వస్తోంది", "gloss": "is coming" }
+      ],
+      "tags": ["routine", "feelings"],
+      "difficulty": 2,
+      "note": "Sleep 'comes' to you in Telugu: నిద్ర వస్తోంది (nidra vastondi)."
+    },
+    {
+      "id": "u10-i13",
+      "te": "వెళ్ళి పడుకోండి.",
+      "gloss": "Go to bed.",
+      "words": [
+        { "te": "వెళ్ళి", "gloss": "having gone" },
+        { "te": "పడుకోండి", "gloss": "sleep / lie down (polite)" }
+      ],
+      "tags": ["routine", "commands"],
+      "difficulty": 2,
+      "note": "Informal singular, for kids and friends: వెళ్ళి పడుకో (veLLi paDuko).",
+      "distractors": ["u10-i12", "u10-i14"]
+    },
+    {
+      "id": "u10-i14",
+      "te": "రాత్రి పది గంటలకు పడుకుంటాను.",
+      "gloss": "I go to bed at ten at night.",
+      "words": [
+        { "te": "రాత్రి", "gloss": "night" },
+        { "te": "పది", "gloss": "ten" },
+        { "te": "గంటలకు", "gloss": "at (the hour of)" },
+        { "te": "పడుకుంటాను", "gloss": "I sleep / go to bed" }
+      ],
+      "tags": ["routine", "time"],
+      "difficulty": 3
+    },
+    {
+      "id": "u10-i15",
+      "te": "ఈరోజు ఇంట్లోనే ఉంటాను.",
+      "gloss": "Today I'm staying right at home.",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "ఇంట్లోనే", "gloss": "right at home" },
+        { "te": "ఉంటాను", "gloss": "I will stay" }
+      ],
+      "tags": ["home", "routine"],
+      "difficulty": 2,
+      "distractors": ["u10-i01", "u10-i14"]
+    },
+    {
+      "id": "u10-i16",
+      "te": "గిన్నెలు కడుగుతున్నాను.",
+      "gloss": "I'm washing the dishes.",
+      "words": [
+        { "te": "గిన్నెలు", "gloss": "dishes / vessels" },
+        { "te": "కడుగుతున్నాను", "gloss": "I am washing" }
+      ],
+      "tags": ["home", "chores"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Rise and shine", "itemIds": ["u10-i01", "u10-i02", "u10-i03"] },
+    { "id": "l2", "title": "Morning rush", "itemIds": ["u10-i04", "u10-i05", "u10-i15"] },
+    { "id": "l3", "title": "Around the house", "itemIds": ["u10-i06", "u10-i07", "u10-i10", "u10-i11"] },
+    { "id": "l4", "title": "Chore time", "itemIds": ["u10-i08", "u10-i09", "u10-i16"] },
+    { "id": "l5", "title": "Good night", "itemIds": ["u10-i12", "u10-i13", "u10-i14"] }
+  ],
+  "dialogue": {
+    "id": "u10-d1",
+    "title": "A Saturday with Amma",
+    "scene": "A whole Saturday at home: Amma thinks you're heading out, but the day fills with coffee, chores and TV — until the nightly lights-out drill.",
+    "turns": [
+      { "speaker": "Amma", "itemId": "u10-i04" },
+      { "speaker": "You", "itemId": "u10-i15", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u10-i06" },
+      { "speaker": "Amma", "itemId": "u10-i05" },
+      { "speaker": "You", "itemId": "u10-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u10-i03", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u10-i09" },
+      { "speaker": "You", "itemId": "u10-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u10-i16", "userTurn": true },
+      { "speaker": "You", "itemId": "u10-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u10-i12", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u10-i13" },
+      { "speaker": "Amma", "itemId": "u10-i10" },
+      { "speaker": "Amma", "itemId": "u10-i11" },
+      { "speaker": "You", "itemId": "u10-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u10-i01", "userTurn": true }
+    ]
+  }
+}

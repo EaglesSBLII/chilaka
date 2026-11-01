@@ -1,0 +1,286 @@
+{
+  "id": "u52",
+  "section": 7,
+  "order": 4,
+  "title": "Bazaar bargaining",
+  "teTitle": "బజార్ బేరం",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "Laad Bazaar bangle shopping — kam karo, the walking-away trick, and closing at the aakhri rate.",
+  "items": [
+    {
+      "id": "u52-i01",
+      "te": "లాడ్ బజార్ ఎటు వైపు?",
+      "gloss": "Which way is Laad Bazaar?",
+      "words": [
+        { "te": "లాడ్", "gloss": "Laad" },
+        { "te": "బజార్", "gloss": "bazaar" },
+        { "te": "ఎటు", "gloss": "which way" },
+        { "te": "వైపు", "gloss": "side / direction" }
+      ],
+      "tags": ["bazaar", "questions"],
+      "difficulty": 2,
+      "note": "Laad Bazaar, the centuries-old bangle lane right next to Charminar — 'laad' is lacquer, the shiny coating on the bangles."
+    },
+    {
+      "id": "u52-i02",
+      "te": "ఈ గాజులు ఎంత భయ్?",
+      "gloss": "How much are these bangles, bhai?",
+      "words": [
+        { "te": "ఈ", "gloss": "these" },
+        { "te": "గాజులు", "gloss": "bangles" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["bazaar", "questions"],
+      "difficulty": 2,
+      "distractors": ["u52-i06", "u52-i15"]
+    },
+    {
+      "id": "u52-i03",
+      "te": "కొంచెం కమ్ కరో భయ్.",
+      "gloss": "Reduce it a little, bhai.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "కమ్", "gloss": "less (Urdu)" },
+        { "te": "కరో", "gloss": "make / do (Urdu)" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 3,
+      "note": "కమ్ కరో is straight Urdu ('make it less') dropped into Telugu — the standard equivalent is తగ్గించు. In the old city, the mix IS the language.",
+      "distractors": ["u52-i12", "u52-i04"]
+    },
+    {
+      "id": "u52-i04",
+      "te": "ఆఖరి రేటు చెప్పు అన్నా.",
+      "gloss": "Tell me the final rate, anna.",
+      "words": [
+        { "te": "ఆఖరి", "gloss": "final (Urdu)" },
+        { "te": "రేటు", "gloss": "rate" },
+        { "te": "చెప్పు", "gloss": "tell" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 2,
+      "note": "ఆఖరి (aakhri, Urdu) = last/final — standard Telugu చివరి. ఆఖరి రేటు is the checkpoint question before you commit or walk.",
+      "distractors": ["u52-i03", "u52-i06"]
+    },
+    {
+      "id": "u52-i05",
+      "te": "రెండు వందలు అంటే ఎక్కువ.",
+      "gloss": "Two hundred is too much.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "వందలు", "gloss": "hundreds" },
+        { "te": "అంటే", "gloss": "if you say" },
+        { "te": "ఎక్కువ", "gloss": "too much" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 3,
+      "distractors": ["u52-i06", "u52-i12"]
+    },
+    {
+      "id": "u52-i06",
+      "te": "వంద కి ఇస్తావా భయ్?",
+      "gloss": "Will you give it for a hundred, bhai?",
+      "words": [
+        { "te": "వంద", "gloss": "hundred" },
+        { "te": "కి", "gloss": "for" },
+        { "te": "ఇస్తావా", "gloss": "will you give?" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 3,
+      "note": "Open at half the quoted price. Nobody is offended — in Laad Bazaar a first quote is an invitation, not a price."
+    },
+    {
+      "id": "u52-i07",
+      "te": "నక్కో అంటే వేరే షాపు చూస్తా.",
+      "gloss": "If it's no, I'll check another shop.",
+      "words": [
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" },
+        { "te": "అంటే", "gloss": "if (you) say" },
+        { "te": "వేరే", "gloss": "another" },
+        { "te": "షాపు", "gloss": "shop" },
+        { "te": "చూస్తా", "gloss": "I'll look (casual)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 4,
+      "note": "The walking-away trick: say this, turn slowly, count to three. The price drops before you reach the next shop."
+    },
+    {
+      "id": "u52-i08",
+      "te": "సరే సరే, ఆగు యార్.",
+      "gloss": "Okay okay, wait yaar.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "ఆగు", "gloss": "wait / stop" },
+        { "te": "యార్", "gloss": "yaar (friend)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 3,
+      "distractors": ["u52-i07", "u52-i13"]
+    },
+    {
+      "id": "u52-i09",
+      "te": "ఈ రంగు తోపు ఉంది.",
+      "gloss": "This color is fantastic.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "రంగు", "gloss": "color" },
+        { "te": "తోపు", "gloss": "great / awesome (Hyderabadi)" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["bazaar", "flavor"],
+      "difficulty": 3,
+      "note": "తోపు again — the Hyderabadi 'top-class'. Careful: praising the color too early weakens your bargaining position!"
+    },
+    {
+      "id": "u52-i10",
+      "te": "మ్యాచింగ్ గాజులు చూపించు అన్నా.",
+      "gloss": "Show me matching bangles, anna.",
+      "words": [
+        { "te": "మ్యాచింగ్", "gloss": "matching" },
+        { "te": "గాజులు", "gloss": "bangles" },
+        { "te": "చూపించు", "gloss": "show" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["bazaar", "shopping"],
+      "difficulty": 3
+    },
+    {
+      "id": "u52-i11",
+      "te": "క్వాలిటీ చూడు, డిజైన్ చూడు.",
+      "gloss": "Look at the quality, look at the design.",
+      "words": [
+        { "te": "క్వాలిటీ", "gloss": "quality" },
+        { "te": "చూడు", "gloss": "look" },
+        { "te": "డిజైన్", "gloss": "design" },
+        { "te": "చూడు", "gloss": "look" }
+      ],
+      "tags": ["bazaar", "shopping"],
+      "difficulty": 3,
+      "note": "The shopkeeper's opening spell. Whatever you do, don't nod — nodding here costs fifty rupees."
+    },
+    {
+      "id": "u52-i12",
+      "te": "ఇంకో పది తగ్గించు భయ్.",
+      "gloss": "Reduce ten more, bhai.",
+      "words": [
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "పది", "gloss": "ten" },
+        { "te": "తగ్గించు", "gloss": "reduce" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["bazaar", "bargaining"],
+      "difficulty": 3,
+      "note": "తగ్గించు is the standard-Telugu 'reduce' — same job as Urdu కమ్ కరో. Hyderabadis use both, sometimes in the same breath."
+    },
+    {
+      "id": "u52-i13",
+      "te": "బోణీ టైం, తీస్కో అమ్మా.",
+      "gloss": "It's boni time, take it, amma.",
+      "words": [
+        { "te": "బోణీ", "gloss": "first sale of the day" },
+        { "te": "టైం", "gloss": "time" },
+        { "te": "తీస్కో", "gloss": "take (casual)" },
+        { "te": "అమ్మా", "gloss": "amma (madam)" }
+      ],
+      "tags": ["bazaar", "shopping"],
+      "difficulty": 4,
+      "note": "బోణీ = the day's first sale, considered lucky. Shopkeepers give real discounts for బోణీ — morning shopping is cheaper. తీస్కో is clipped from తీసుకో."
+    },
+    {
+      "id": "u52-i14",
+      "te": "ప్యాక్ చెయ్యి, తీస్కుంటా.",
+      "gloss": "Pack it, I'll take it.",
+      "words": [
+        { "te": "ప్యాక్", "gloss": "pack" },
+        { "te": "చెయ్యి", "gloss": "do / make" },
+        { "te": "తీస్కుంటా", "gloss": "I'll take (casual)" }
+      ],
+      "tags": ["bazaar", "shopping"],
+      "difficulty": 3,
+      "note": "తీస్కుంటా = casual clipped తీసుకుంటాను. Deal closed — but only after the ఆఖరి రేటు, never before.",
+      "distractors": ["u52-i04", "u52-i15"]
+    },
+    {
+      "id": "u52-i15",
+      "te": "చిల్లర ఉందా మీ దగ్గర?",
+      "gloss": "Do you have change on you?",
+      "words": [
+        { "te": "చిల్లర", "gloss": "change (coins)" },
+        { "te": "ఉందా", "gloss": "is there?" },
+        { "te": "మీ", "gloss": "your" },
+        { "te": "దగ్గర", "gloss": "near / with" }
+      ],
+      "tags": ["bazaar", "paying"],
+      "difficulty": 3,
+      "distractors": ["u52-i14", "u51-i13"]
+    },
+    {
+      "id": "u52-i16",
+      "te": "ఇక్కడ బేరం ఆడటం మామూలే.",
+      "gloss": "Bargaining here is just normal.",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "బేరం", "gloss": "bargain" },
+        { "te": "ఆడటం", "gloss": "playing" },
+        { "te": "మామూలే", "gloss": "is normal" }
+      ],
+      "tags": ["bazaar", "culture"],
+      "difficulty": 4,
+      "note": "బేరం ఆడు = literally 'play the bargain'. In the old city it's a sport with rules — both sides expect it and enjoy it."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Into Laad Bazaar",
+      "itemIds": ["u52-i01", "u52-i02", "u52-i10", "u52-i09"]
+    },
+    {
+      "id": "l2",
+      "title": "Kam karo!",
+      "itemIds": ["u52-i03", "u52-i04", "u52-i12"]
+    },
+    {
+      "id": "l3",
+      "title": "The number game",
+      "itemIds": ["u52-i05", "u52-i06", "u52-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "The walk-away",
+      "itemIds": ["u52-i07", "u52-i08", "u52-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Sealing the deal",
+      "itemIds": ["u52-i14", "u52-i15", "u52-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u52-d1",
+    "title": "Bangles at Laad Bazaar",
+    "scene": "Sunday near Charminar. You find a bangle shop in Laad Bazaar; the shopkeeper opens at two hundred rupees. Kam karo, the walk-away, and a happy deal at the aakhri rate.",
+    "turns": [
+      { "speaker": "You", "itemId": "u52-i01", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i11" },
+      { "speaker": "You", "itemId": "u52-i02", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i13" },
+      { "speaker": "You", "itemId": "u52-i05", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i09" },
+      { "speaker": "You", "itemId": "u52-i03", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i16" },
+      { "speaker": "You", "itemId": "u52-i06", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i13" },
+      { "speaker": "You", "itemId": "u52-i07", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i08" },
+      { "speaker": "You", "itemId": "u52-i14", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u52-i15" }
+    ]
+  }
+}

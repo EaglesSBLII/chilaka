@@ -1,0 +1,180 @@
+{
+  "id": "u86",
+  "track": "script",
+  "section": 1,
+  "order": 6,
+  "title": "The last letters",
+  "teTitle": "హల్లులు 4",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "శ ష స హ, the special ళ and ఱ, and the fused sign క్ష — the alphabet is yours.",
+  "items": [
+    {
+      "id": "u86-i01",
+      "te": "శ",
+      "audioTe": "శ. శనివారం.",
+      "gloss": "sha — as in 'shanivaaram' (Saturday)",
+      "words": [{ "te": "శ", "gloss": "sha — soft sh, at the front of the mouth" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u86-i02", "u86-i03"],
+      "note": "Three s-sounds ahead: శ (sha), ష (Sha, tongue curled), స (plain sa). Most speech blurs them; writing keeps them apart."
+    },
+    {
+      "id": "u86-i02",
+      "te": "ష",
+      "audioTe": "ష. షరతు.",
+      "gloss": "Sha — as in 'Sharatu' (condition)",
+      "words": [{ "te": "ష", "gloss": "Sha — sh with the tongue curled back" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u86-i01", "u86-i03"],
+      "note": "ష mostly lives in Sanskrit and English loans: భాష (language), బస్సు... and స్పెషల్!"
+    },
+    {
+      "id": "u86-i03",
+      "te": "స",
+      "audioTe": "స. సరే.",
+      "gloss": "sa — as in 'saree' (okay)",
+      "words": [{ "te": "స", "gloss": "sa — plain s" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u86-i01", "u86-i02"],
+      "note": "సరే! — you end half your conversations with this word. Its first letter is స."
+    },
+    {
+      "id": "u86-i04",
+      "te": "హ",
+      "audioTe": "హ. హలం.",
+      "gloss": "ha — as in 'halam' (plough)",
+      "words": [{ "te": "హ", "gloss": "ha" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u86-i03"]
+    },
+    {
+      "id": "u86-i05",
+      "te": "ళ",
+      "audioTe": "ళ. కళ.",
+      "gloss": "La — as in 'kaLa' (art)",
+      "words": [{ "te": "ళ", "gloss": "La — the curled, retroflex L" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u85-i08"],
+      "note": "The 'thick' L of నీళ్ళు (water) and తెలుగుTALKS... తెలుగు itself is fine with ల — but వేళ్ళు, మళ్ళీ need ళ. Never starts a word."
+    },
+    {
+      "id": "u86-i06",
+      "te": "ఱ",
+      "audioTe": "ఱ. గుఱ్ఱం.",
+      "gloss": "rra — the old 'bandi ra', as in 'gurram' (horse)",
+      "words": [{ "te": "ఱ", "gloss": "rra — an old-fashioned hard r" }],
+      "tags": ["consonant", "rare"],
+      "difficulty": 2,
+      "distractors": ["u85-i07"],
+      "note": "ఱ sounds just like ర today. You'll spot it in older spellings like గుఱ్ఱం (horse) — recognize it and move on."
+    },
+    {
+      "id": "u86-i07",
+      "te": "క్ష",
+      "audioTe": "క్ష. క్షణం.",
+      "gloss": "kSha — as in 'kShaNam' (moment)",
+      "words": [{ "te": "క్ష", "gloss": "kSha — క and ష fused into one sign" }],
+      "tags": ["conjunct"],
+      "difficulty": 3,
+      "distractors": ["u86-i02", "u83-i01"],
+      "note": "Traditionally listed with the alphabet: క + ష welded together. ఒక్క క్షణం! (one moment!) — you say it while reading it."
+    },
+    {
+      "id": "u86-i08",
+      "te": "శతం",
+      "gloss": "shatam — hundred (as in percent)",
+      "words": [
+        { "te": "శ", "gloss": "sha" },
+        { "te": "తం", "gloss": "tam — త with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u86-i10"]
+    },
+    {
+      "id": "u86-i09",
+      "te": "కళ",
+      "gloss": "kaLa — art",
+      "words": [
+        { "te": "క", "gloss": "ka" },
+        { "te": "ళ", "gloss": "La" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u86-i08", "u83-i10"],
+      "note": "కల (dream, with ల) vs కళ (art, with ళ) — the two L's really do change the word."
+    },
+    {
+      "id": "u86-i10",
+      "te": "హలం",
+      "gloss": "halam — plough",
+      "words": [
+        { "te": "హ", "gloss": "ha" },
+        { "te": "లం", "gloss": "lam — ల with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u86-i08", "u86-i11"]
+    },
+    {
+      "id": "u86-i11",
+      "te": "సహనం",
+      "gloss": "sahanam — patience",
+      "words": [
+        { "te": "స", "gloss": "sa" },
+        { "te": "హ", "gloss": "ha" },
+        { "te": "నం", "gloss": "nam — న with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u86-i10"],
+      "note": "సహనం — what you've shown learning 40+ letters. Almost there: matras next!"
+    },
+    {
+      "id": "u86-i12",
+      "te": "అ ఆ ఇ ఈ ఉ ఊ ఎ ఏ ఐ ఒ ఓ ఔ",
+      "audioTe": "అ, ఆ, ఇ, ఈ, ఉ, ఊ, ఎ, ఏ, ఐ, ఒ, ఓ, ఔ.",
+      "gloss": "all twelve vowels in order — the full అచ్చులు",
+      "words": [
+        { "te": "అఆ", "gloss": "a, aa" },
+        { "te": "ఇఈ", "gloss": "i, ee" },
+        { "te": "ఉఊ", "gloss": "u, oo" },
+        { "te": "ఎఏ", "gloss": "e, ee" },
+        { "te": "ఐ", "gloss": "ai" },
+        { "te": "ఒఓ", "gloss": "o, oo" },
+        { "te": "ఔ", "gloss": "au" }
+      ],
+      "tags": ["review"],
+      "difficulty": 3,
+      "note": "Read them aloud in one breath — short-long, short-long. This chant echoes in every Telugu classroom."
+    },
+    {
+      "id": "u86-i13",
+      "te": "క చ ట త ప",
+      "audioTe": "క, చ, ట, త, ప.",
+      "gloss": "the five row-leaders of the consonant grid",
+      "words": [
+        { "te": "క", "gloss": "ka — throat row" },
+        { "te": "చ", "gloss": "cha — palate row" },
+        { "te": "ట", "gloss": "Ta — curled-tongue row" },
+        { "te": "త", "gloss": "ta — teeth row" },
+        { "te": "ప", "gloss": "pa — lips row" }
+      ],
+      "tags": ["review"],
+      "difficulty": 2,
+      "note": "Each leader heads a row of five (plain, breathy, voiced, breathy-voiced, nasal) — the whole grid marches from throat to lips."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "sha Sha sa", "itemIds": ["u86-i01", "u86-i02", "u86-i03", "u86-i08"] },
+    { "id": "l2", "title": "ha & La", "itemIds": ["u86-i04", "u86-i05", "u86-i09", "u86-i10"] },
+    { "id": "l3", "title": "rra & kSha", "itemIds": ["u86-i06", "u86-i07", "u86-i11"] },
+    { "id": "l4", "title": "the whole alphabet", "itemIds": ["u86-i12", "u86-i13"] }
+  ]
+}

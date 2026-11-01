@@ -1,0 +1,295 @@
+{
+  "id": "u63",
+  "section": 8,
+  "order": 7,
+  "title": "Wedding season",
+  "teTitle": "పెళ్ళిళ్ళ సీజన్",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Survive and shine at a Telugu wedding — pelli choopulu to muhurtam, blessings, the annadanam feast, and small talk with fifty relatives.",
+  "items": [
+    {
+      "id": "u63-i01",
+      "te": "వచ్చే నెలలో మా చెల్లి పెళ్ళిచూపులు.",
+      "gloss": "Next month is my younger sister's pelli choopulu.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "నెలలో", "gloss": "in the month" },
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "చెల్లి", "gloss": "younger sister" },
+        { "te": "పెళ్ళిచూపులు", "gloss": "match-viewing meeting" }
+      ],
+      "tags": ["wedding", "family"],
+      "difficulty": 4,
+      "note": "పెళ్ళిచూపులు — literally 'wedding viewings' — is the formal first meeting where the two families (and the couple) size each other up over tea and pakodi."
+    },
+    {
+      "id": "u63-i02",
+      "te": "ముహూర్తం ఉదయం పది గంటలకు పెట్టారు.",
+      "gloss": "They fixed the muhurtam for ten in the morning.",
+      "words": [
+        { "te": "ముహూర్తం", "gloss": "auspicious moment" },
+        { "te": "ఉదయం", "gloss": "morning" },
+        { "te": "పది", "gloss": "ten" },
+        { "te": "గంటలకు", "gloss": "at o'clock" },
+        { "te": "పెట్టారు", "gloss": "they set" }
+      ],
+      "tags": ["wedding", "time"],
+      "difficulty": 4,
+      "note": "ముహూర్తం is the astrologically fixed auspicious instant — the wedding's true start time. Everything else may run late; the muhurtam may not."
+    },
+    {
+      "id": "u63-i03",
+      "te": "కొత్త జంట నూరేళ్ళు చల్లగా ఉండాలి!",
+      "gloss": "May the new couple live coolly for a hundred years!",
+      "words": [
+        { "te": "కొత్త", "gloss": "new" },
+        { "te": "జంట", "gloss": "couple" },
+        { "te": "నూరేళ్ళు", "gloss": "a hundred years" },
+        { "te": "చల్లగా", "gloss": "coolly / peacefully" },
+        { "te": "ఉండాలి", "gloss": "may (they) remain" }
+      ],
+      "tags": ["wedding", "blessings"],
+      "difficulty": 4,
+      "note": "The classic blessing. చల్లగా — literally 'coolly' — means a calm, safe, prosperous life; in Telugu, coolness is well-being.",
+      "distractors": ["u63-i04"]
+    },
+    {
+      "id": "u63-i04",
+      "te": "పెద్దలందరి ఆశీర్వాదం తీసుకోండి.",
+      "gloss": "Take the blessings of all the elders.",
+      "words": [
+        { "te": "పెద్దలందరి", "gloss": "of all the elders" },
+        { "te": "ఆశీర్వాదం", "gloss": "blessing" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["wedding", "blessings"],
+      "difficulty": 3
+    },
+    {
+      "id": "u63-i05",
+      "te": "మీరు అమ్మాయి వైపా, అబ్బాయి వైపా?",
+      "gloss": "Are you from the bride's side or the groom's side?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "అమ్మాయి", "gloss": "girl / bride" },
+        { "te": "వైపా", "gloss": "on the side of?" },
+        { "te": "అబ్బాయి", "gloss": "boy / groom" },
+        { "te": "వైపా", "gloss": "on the side of?" }
+      ],
+      "tags": ["wedding", "smalltalk", "questions"],
+      "difficulty": 3,
+      "distractors": ["u63-i06"]
+    },
+    {
+      "id": "u63-i06",
+      "te": "నేను అమ్మాయి వైపు, దగ్గరి బంధువుని.",
+      "gloss": "I'm from the bride's side — a close relative.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "అమ్మాయి", "gloss": "girl / bride" },
+        { "te": "వైపు", "gloss": "side" },
+        { "te": "దగ్గరి", "gloss": "close" },
+        { "te": "బంధువుని", "gloss": "am a relative" }
+      ],
+      "tags": ["wedding", "smalltalk"],
+      "difficulty": 3,
+      "distractors": ["u63-i05"]
+    },
+    {
+      "id": "u63-i07",
+      "te": "భోజనాలు అటు వైపు, అన్నదానం మొదలైంది.",
+      "gloss": "Meals are that way — the annadanam has begun.",
+      "words": [
+        { "te": "భోజనాలు", "gloss": "meals" },
+        { "te": "అటు", "gloss": "that" },
+        { "te": "వైపు", "gloss": "direction" },
+        { "te": "అన్నదానం", "gloss": "gift of food" },
+        { "te": "మొదలైంది", "gloss": "has started" }
+      ],
+      "tags": ["wedding", "food"],
+      "difficulty": 4,
+      "note": "అన్నదానం — literally 'the gift of rice/food' — feeding every single guest is considered a sacred duty of the hosts, and skipping the meal borders on an insult."
+    },
+    {
+      "id": "u63-i08",
+      "te": "పెళ్ళి భోజనం తినకుండా వెళ్ళకూడదు.",
+      "gloss": "You must not leave without eating the wedding meal.",
+      "words": [
+        { "te": "పెళ్ళి", "gloss": "wedding" },
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "తినకుండా", "gloss": "without eating" },
+        { "te": "వెళ్ళకూడదు", "gloss": "must not go" }
+      ],
+      "tags": ["wedding", "food"],
+      "difficulty": 3,
+      "distractors": ["u63-i13"]
+    },
+    {
+      "id": "u63-i09",
+      "te": "అమ్మాయి పట్టుచీరలో చాలా అందంగా ఉంది.",
+      "gloss": "The bride looks beautiful in her silk saree.",
+      "words": [
+        { "te": "అమ్మాయి", "gloss": "the girl / bride" },
+        { "te": "పట్టుచీరలో", "gloss": "in a silk saree" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "అందంగా", "gloss": "beautifully" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["wedding", "compliments"],
+      "difficulty": 3,
+      "distractors": ["u63-i16"]
+    },
+    {
+      "id": "u63-i10",
+      "te": "తాళి కట్టే టైముకి అందరూ ముందుకు రండి.",
+      "gloss": "Everyone come forward for the tying of the taali.",
+      "words": [
+        { "te": "తాళి", "gloss": "taali (sacred thread)" },
+        { "te": "కట్టే", "gloss": "tying" },
+        { "te": "టైముకి", "gloss": "by the time" },
+        { "te": "అందరూ", "gloss": "everyone" },
+        { "te": "ముందుకు", "gloss": "forward" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["wedding", "commands"],
+      "difficulty": 4,
+      "note": "తాళి కట్టడం — tying the mangalsutram — is the heart of the ceremony, done exactly at muhurtam while the drums peak and the whole crowd presses forward to shower akshintalu."
+    },
+    {
+      "id": "u63-i11",
+      "te": "నన్ను గుర్తుపట్టావా? చిన్నప్పుడు ఎత్తుకున్నాను!",
+      "gloss": "Do you recognize me? I carried you when you were little!",
+      "words": [
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "గుర్తుపట్టావా", "gloss": "did (you) recognize?" },
+        { "te": "చిన్నప్పుడు", "gloss": "in childhood" },
+        { "te": "ఎత్తుకున్నాను", "gloss": "I carried (you)" }
+      ],
+      "tags": ["wedding", "smalltalk", "relatives"],
+      "difficulty": 4,
+      "note": "The legendary wedding-aunty line. The safe reply is a big smile and ఆ, గుర్తున్నారు! — whether or not you actually remember."
+    },
+    {
+      "id": "u63-i12",
+      "te": "మీ పెళ్ళి ఎప్పుడు అని అందరూ అడుగుతున్నారు.",
+      "gloss": "Everyone keeps asking when YOUR wedding is.",
+      "words": [
+        { "te": "మీ", "gloss": "your" },
+        { "te": "పెళ్ళి", "gloss": "wedding" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "అని", "gloss": "that (quotative)" },
+        { "te": "అందరూ", "gloss": "everyone" },
+        { "te": "అడుగుతున్నారు", "gloss": "are asking" }
+      ],
+      "tags": ["wedding", "smalltalk"],
+      "difficulty": 4,
+      "distractors": ["u63-i11"]
+    },
+    {
+      "id": "u63-i13",
+      "te": "పప్పు, ఆవకాయ, గారెలు, అన్నీ అద్భుతం!",
+      "gloss": "The pappu, avakaya, garelu — everything is fantastic!",
+      "words": [
+        { "te": "పప్పు", "gloss": "dal" },
+        { "te": "ఆవకాయ", "gloss": "mango pickle" },
+        { "te": "గారెలు", "gloss": "garelu (lentil fritters)" },
+        { "te": "అన్నీ", "gloss": "all of them" },
+        { "te": "అద్భుతం", "gloss": "wonderful" }
+      ],
+      "tags": ["wedding", "food", "compliments"],
+      "difficulty": 3,
+      "distractors": ["u63-i08"]
+    },
+    {
+      "id": "u63-i14",
+      "te": "ఫోటో తీద్దాం, జంట పక్కన నిలబడండి.",
+      "gloss": "Let's take a photo — stand next to the couple.",
+      "words": [
+        { "te": "ఫోటో", "gloss": "photo" },
+        { "te": "తీద్దాం", "gloss": "let's take" },
+        { "te": "జంట", "gloss": "couple" },
+        { "te": "పక్కన", "gloss": "beside" },
+        { "te": "నిలబడండి", "gloss": "stand (polite)" }
+      ],
+      "tags": ["wedding", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u63-i15",
+      "te": "సన్నాయి మేళం వినపడుతోంది, ముహూర్తం దగ్గరపడింది.",
+      "gloss": "The sannayi band is playing — the muhurtam is drawing near.",
+      "words": [
+        { "te": "సన్నాయి", "gloss": "sannayi (nadaswaram pipe)" },
+        { "te": "మేళం", "gloss": "band / ensemble" },
+        { "te": "వినపడుతోంది", "gloss": "is being heard" },
+        { "te": "ముహూర్తం", "gloss": "auspicious moment" },
+        { "te": "దగ్గరపడింది", "gloss": "has drawn near" }
+      ],
+      "tags": ["wedding", "time"],
+      "difficulty": 5
+    },
+    {
+      "id": "u63-i16",
+      "te": "పెళ్ళి చాలా ఘనంగా జరిగింది.",
+      "gloss": "The wedding was celebrated very grandly.",
+      "words": [
+        { "te": "పెళ్ళి", "gloss": "wedding" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఘనంగా", "gloss": "grandly" },
+        { "te": "జరిగింది", "gloss": "took place" }
+      ],
+      "tags": ["wedding", "compliments"],
+      "difficulty": 3,
+      "distractors": ["u63-i09"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Before the big day",
+      "itemIds": ["u63-i01", "u63-i02", "u63-i15"]
+    },
+    {
+      "id": "l2",
+      "title": "Blessings",
+      "itemIds": ["u63-i03", "u63-i04", "u63-i10"]
+    },
+    {
+      "id": "l3",
+      "title": "Which side are you?",
+      "itemIds": ["u63-i05", "u63-i06", "u63-i11", "u63-i12"]
+    },
+    {
+      "id": "l4",
+      "title": "The feast",
+      "itemIds": ["u63-i07", "u63-i08", "u63-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Beautiful moments",
+      "itemIds": ["u63-i09", "u63-i14", "u63-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u63-d1",
+    "title": "At Swathi's wedding",
+    "scene": "A kalyana mandapam in full roar — sannayi, marigolds, fifty relatives. An aunty corners you near the entrance while the muhurtam clock ticks down.",
+    "turns": [
+      { "speaker": "Aunty", "itemId": "u63-i05" },
+      { "speaker": "You", "itemId": "u63-i06", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u63-i11" },
+      { "speaker": "You", "itemId": "u63-i12", "userTurn": true },
+      { "speaker": "Uncle", "itemId": "u63-i15" },
+      { "speaker": "Uncle", "itemId": "u63-i10" },
+      { "speaker": "You", "itemId": "u63-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u63-i03", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u63-i04" },
+      { "speaker": "Uncle", "itemId": "u63-i07" },
+      { "speaker": "Aunty", "itemId": "u63-i08" },
+      { "speaker": "You", "itemId": "u63-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u63-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u63-i16", "userTurn": true }
+    ]
+  }
+}

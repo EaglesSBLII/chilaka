@@ -1,0 +1,539 @@
+{
+  "id": "u08",
+  "section": 1,
+  "order": 8,
+  "title": "This, that, here, there",
+  "teTitle": "ఇది, అది",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Point at things, say where they are, and ask who or what is where.",
+  "items": [
+    {
+      "id": "u08-i01",
+      "te": "ఇది ఏంటి?",
+      "gloss": "What is this?",
+      "words": [
+        {
+          "te": "ఇది",
+          "gloss": "this"
+        },
+        {
+          "te": "ఏంటి",
+          "gloss": "what"
+        }
+      ],
+      "tags": [
+        "questions",
+        "things"
+      ],
+      "difficulty": 1,
+      "note": "Near things take ఇ- (idi, ikkaDa); far things take అ- (adi, akkaDa). One vowel does all the pointing."
+    },
+    {
+      "id": "u08-i02",
+      "te": "ఇది బెల్లం.",
+      "gloss": "This is jaggery.",
+      "words": [
+        {
+          "te": "ఇది",
+          "gloss": "this"
+        },
+        {
+          "te": "బెల్లం",
+          "gloss": "jaggery"
+        }
+      ],
+      "tags": [
+        "things",
+        "food"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u08-i01",
+        "u08-i07"
+      ]
+    },
+    {
+      "id": "u08-i03",
+      "te": "నా ఫోన్ ఇక్కడ ఉంది.",
+      "gloss": "My phone is here.",
+      "words": [
+        {
+          "te": "నా",
+          "gloss": "my"
+        },
+        {
+          "te": "ఫోన్",
+          "gloss": "phone"
+        },
+        {
+          "te": "ఇక్కడ",
+          "gloss": "here"
+        },
+        {
+          "te": "ఉంది",
+          "gloss": "is (thing)"
+        }
+      ],
+      "tags": [
+        "things",
+        "places"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u08-i04",
+      "te": "మీ బ్యాగ్ అక్కడ ఉంది.",
+      "gloss": "Your bag is there.",
+      "words": [
+        {
+          "te": "మీ",
+          "gloss": "your (polite)"
+        },
+        {
+          "te": "బ్యాగ్",
+          "gloss": "bag"
+        },
+        {
+          "te": "అక్కడ",
+          "gloss": "there"
+        },
+        {
+          "te": "ఉంది",
+          "gloss": "is (thing)"
+        }
+      ],
+      "tags": [
+        "things",
+        "places"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u08-i03",
+        "u08-i09"
+      ]
+    },
+    {
+      "id": "u08-i05",
+      "te": "ఇవి నా చెప్పులు.",
+      "gloss": "These are my sandals.",
+      "words": [
+        {
+          "te": "ఇవి",
+          "gloss": "these (things)"
+        },
+        {
+          "te": "నా",
+          "gloss": "my"
+        },
+        {
+          "te": "చెప్పులు",
+          "gloss": "sandals / chappals"
+        }
+      ],
+      "tags": [
+        "things"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u08-i06",
+      "te": "అవి ఎవరివి?",
+      "gloss": "Whose are those?",
+      "words": [
+        {
+          "te": "అవి",
+          "gloss": "those (things)"
+        },
+        {
+          "te": "ఎవరివి",
+          "gloss": "whose (things)"
+        }
+      ],
+      "tags": [
+        "questions",
+        "things"
+      ],
+      "difficulty": 2,
+      "note": "-వి makes 'belonging to': ఎవరివి (evarivi) 'whose?', నావి (naavi) 'mine', మీవి (miivi) 'yours'."
+    },
+    {
+      "id": "u08-i07",
+      "te": "అవి నావి.",
+      "gloss": "Those are mine.",
+      "words": [
+        {
+          "te": "అవి",
+          "gloss": "those (things)"
+        },
+        {
+          "te": "నావి",
+          "gloss": "mine (things)"
+        }
+      ],
+      "tags": [
+        "things"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u08-i06",
+        "u08-i05"
+      ]
+    },
+    {
+      "id": "u08-i08",
+      "te": "తాళాలు ఎక్కడ ఉన్నాయి?",
+      "gloss": "Where are the keys?",
+      "words": [
+        {
+          "te": "తాళాలు",
+          "gloss": "keys"
+        },
+        {
+          "te": "ఎక్కడ",
+          "gloss": "where"
+        },
+        {
+          "te": "ఉన్నాయి",
+          "gloss": "are (things)"
+        }
+      ],
+      "tags": [
+        "questions",
+        "things",
+        "places"
+      ],
+      "difficulty": 1,
+      "note": "Existence three ways: ఉంది (undi) one thing, ఉన్నాయి (unnaayi) many things, ఉన్నాడు/ఉన్నారు (unnaaDu/unnaaru) for people."
+    },
+    {
+      "id": "u08-i09",
+      "te": "టేబుల్ మీద ఉన్నాయి.",
+      "gloss": "They're on the table.",
+      "words": [
+        {
+          "te": "టేబుల్",
+          "gloss": "table"
+        },
+        {
+          "te": "మీద",
+          "gloss": "on top of"
+        },
+        {
+          "te": "ఉన్నాయి",
+          "gloss": "are (things)"
+        }
+      ],
+      "tags": [
+        "things",
+        "places"
+      ],
+      "difficulty": 1,
+      "note": "మీద (miida) = on top of: టేబుల్ మీద on the table, గోడ మీద on the wall.",
+      "distractors": [
+        "u08-i08",
+        "u08-i04"
+      ]
+    },
+    {
+      "id": "u08-i10",
+      "te": "నాన్న ఇంట్లో ఉన్నారా?",
+      "gloss": "Is Dad at home?",
+      "words": [
+        {
+          "te": "నాన్న",
+          "gloss": "dad"
+        },
+        {
+          "te": "ఇంట్లో",
+          "gloss": "at home"
+        },
+        {
+          "te": "ఉన్నారా",
+          "gloss": "is (he) there? (respectful)"
+        }
+      ],
+      "tags": [
+        "questions",
+        "family"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u08-i11",
+      "te": "లేరు, బయటికి వెళ్ళారు.",
+      "gloss": "No, he went out.",
+      "words": [
+        {
+          "te": "లేరు",
+          "gloss": "(he) is not here (respectful)"
+        },
+        {
+          "te": "బయటికి",
+          "gloss": "to outside"
+        },
+        {
+          "te": "వెళ్ళారు",
+          "gloss": "went (respectful)"
+        }
+      ],
+      "tags": [
+        "family",
+        "places"
+      ],
+      "difficulty": 2,
+      "note": "లేరు (leeru) = 'is not here' for a respected person — the negative of ఉన్నారు.",
+      "distractors": [
+        "u08-i10",
+        "u08-i12"
+      ]
+    },
+    {
+      "id": "u08-i12",
+      "te": "తమ్ముడు పైన ఉన్నాడు.",
+      "gloss": "Little brother is upstairs.",
+      "words": [
+        {
+          "te": "తమ్ముడు",
+          "gloss": "younger brother"
+        },
+        {
+          "te": "పైన",
+          "gloss": "up / upstairs"
+        },
+        {
+          "te": "ఉన్నాడు",
+          "gloss": "he is (there)"
+        }
+      ],
+      "tags": [
+        "family",
+        "places"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u08-i10",
+        "u08-i11"
+      ]
+    },
+    {
+      "id": "u08-i13",
+      "te": "ఇక్కడ కూర్చోండి.",
+      "gloss": "Sit here.",
+      "words": [
+        {
+          "te": "ఇక్కడ",
+          "gloss": "here"
+        },
+        {
+          "te": "కూర్చోండి",
+          "gloss": "sit (polite)"
+        }
+      ],
+      "tags": [
+        "commands",
+        "places"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u08-i14",
+      "te": "అక్కడ పెట్టండి.",
+      "gloss": "Put it there.",
+      "words": [
+        {
+          "te": "అక్కడ",
+          "gloss": "there"
+        },
+        {
+          "te": "పెట్టండి",
+          "gloss": "put / place (polite)"
+        }
+      ],
+      "tags": [
+        "commands",
+        "places"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u08-i13",
+        "u08-i15"
+      ]
+    },
+    {
+      "id": "u08-i15",
+      "te": "ఇదిగో, తీసుకోండి.",
+      "gloss": "Here you go, take it.",
+      "words": [
+        {
+          "te": "ఇదిగో",
+          "gloss": "here it is"
+        },
+        {
+          "te": "తీసుకోండి",
+          "gloss": "take (polite)"
+        }
+      ],
+      "tags": [
+        "things",
+        "commands"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "u08-i16",
+      "te": "అదిగో, అక్కడ ఉంది!",
+      "gloss": "There it is, over there!",
+      "words": [
+        {
+          "te": "అదిగో",
+          "gloss": "there it is"
+        },
+        {
+          "te": "అక్కడ",
+          "gloss": "there"
+        },
+        {
+          "te": "ఉంది",
+          "gloss": "is (thing)"
+        }
+      ],
+      "tags": [
+        "things",
+        "places"
+      ],
+      "difficulty": 2,
+      "note": "అదిగో (adigoo) = 'there it is!'; ఇదిగో (idigoo) = 'here it is / here you go'. Essential pointing words.",
+      "distractors": [
+        "u08-i15",
+        "u08-i14"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "What is this?",
+      "itemIds": [
+        "u08-i01",
+        "u08-i02",
+        "u08-i15"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "These & those",
+      "itemIds": [
+        "u08-i05",
+        "u08-i06",
+        "u08-i07"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Where is my stuff?",
+      "itemIds": [
+        "u08-i03",
+        "u08-i04",
+        "u08-i08",
+        "u08-i09"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "Who's home?",
+      "itemIds": [
+        "u08-i10",
+        "u08-i11",
+        "u08-i12"
+      ]
+    },
+    {
+      "id": "l5",
+      "title": "Here & there",
+      "itemIds": [
+        "u08-i13",
+        "u08-i14",
+        "u08-i16"
+      ]
+    }
+  ],
+  "dialogue": {
+    "id": "u08-d1",
+    "title": "Monday morning hunt",
+    "scene": "Monday morning rush — keys, phone, chappals, bus. Amma, as always, knows where everything is; Chelli has been raiding your things; and the clock is winning.",
+    "turns": [
+      {
+        "speaker": "You",
+        "itemId": "u08-i08",
+        "userTurn": true
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i09"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i01",
+        "userTurn": true
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i02"
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i04"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i03",
+        "userTurn": true
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i06",
+        "userTurn": true
+      },
+      {
+        "speaker": "Chelli",
+        "itemId": "u08-i07"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i05",
+        "userTurn": true
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i13"
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i14"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i10",
+        "userTurn": true
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i11"
+      },
+      {
+        "speaker": "Chelli",
+        "itemId": "u08-i12"
+      },
+      {
+        "speaker": "Amma",
+        "itemId": "u08-i15"
+      },
+      {
+        "speaker": "You",
+        "itemId": "u08-i16",
+        "userTurn": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "id": "u22",
+  "section": 3,
+  "order": 6,
+  "title": "Respect & relationships",
+  "teTitle": "మర్యాద",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Navigate meeru vs nuvvu, the garu honorific, blessings, and the great web of Telugu relatives.",
+  "items": [
+    {
+      "id": "u22-i01",
+      "te": "పెద్దవాళ్ళతో మీరు అనాలి.",
+      "gloss": "With elders you must say 'meeru'.",
+      "words": [
+        { "te": "పెద్దవాళ్ళతో", "gloss": "with elders" },
+        { "te": "మీరు", "gloss": "'meeru' (polite you)" },
+        { "te": "అనాలి", "gloss": "must say" }
+      ],
+      "tags": ["respect", "grammar"],
+      "difficulty": 3,
+      "note": "-ఆలి (-aali) = 'must': అనాలి = must say. మీరు (meeru) for elders and strangers, నువ్వు (nuvvu) for friends and kids — the single most important etiquette rule in Telugu.",
+      "distractors": ["u22-i02", "u22-i14"]
+    },
+    {
+      "id": "u22-i02",
+      "te": "స్నేహితులతో నువ్వు చాలు.",
+      "gloss": "With friends 'nuvvu' is enough.",
+      "words": [
+        { "te": "స్నేహితులతో", "gloss": "with friends" },
+        { "te": "నువ్వు", "gloss": "'nuvvu' (informal you)" },
+        { "te": "చాలు", "gloss": "is enough" }
+      ],
+      "tags": ["respect", "grammar"],
+      "difficulty": 3,
+      "distractors": ["u22-i01", "u22-i14"]
+    },
+    {
+      "id": "u22-i03",
+      "te": "రావు గారు వచ్చారు.",
+      "gloss": "Rao garu has arrived.",
+      "words": [
+        { "te": "రావు", "gloss": "Rao (name)" },
+        { "te": "గారు", "gloss": "garu (honorific)" },
+        { "te": "వచ్చారు", "gloss": "came (respectful)" }
+      ],
+      "tags": ["respect"],
+      "difficulty": 3,
+      "note": "గారు (gaaru) after a name adds respect, like 'ji' in Hindi. Notice the plural verb వచ్చారు (vachchaaru) for one respected person."
+    },
+    {
+      "id": "u22-i04",
+      "te": "ఆయనని అంకుల్ అని పిలవండి.",
+      "gloss": "Call him uncle.",
+      "words": [
+        { "te": "ఆయనని", "gloss": "him (respectful)" },
+        { "te": "అంకుల్", "gloss": "uncle" },
+        { "te": "అని", "gloss": "as (quotative)" },
+        { "te": "పిలవండి", "gloss": "call (polite)" }
+      ],
+      "tags": ["respect", "family"],
+      "difficulty": 4,
+      "distractors": ["u22-i08", "u22-i03"]
+    },
+    {
+      "id": "u22-i05",
+      "te": "తను నాకంటే పెద్దది.",
+      "gloss": "She is elder to me.",
+      "words": [
+        { "te": "తను", "gloss": "she" },
+        { "te": "నాకంటే", "gloss": "than me" },
+        { "te": "పెద్దది", "gloss": "the elder one" }
+      ],
+      "tags": ["family", "comparison"],
+      "difficulty": 3,
+      "note": "Age order is social order: elder sister is అక్క (akka), younger is చెల్లి (chelli) — Telugu has no plain word for just 'sister'.",
+      "distractors": ["u22-i07", "u22-i13"]
+    },
+    {
+      "id": "u22-i06",
+      "te": "తాతయ్య కాళ్ళకి దండం పెట్టండి.",
+      "gloss": "Touch grandfather's feet (in respect).",
+      "words": [
+        { "te": "తాతయ్య", "gloss": "grandfather" },
+        { "te": "కాళ్ళకి", "gloss": "to the feet" },
+        { "te": "దండం", "gloss": "salutation" },
+        { "te": "పెట్టండి", "gloss": "put / offer (polite)" }
+      ],
+      "tags": ["respect", "customs"],
+      "difficulty": 4,
+      "note": "దండం పెట్టడం (danDam peTTaDam) — bowing to an elder's feet for blessings, done at festivals, weddings and big goodbyes."
+    },
+    {
+      "id": "u22-i07",
+      "te": "మా అత్తయ్య చాలా మంచిది.",
+      "gloss": "My mother-in-law (or aunt) is very kind.",
+      "words": [
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "అత్తయ్య", "gloss": "mother-in-law / aunt" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "మంచిది", "gloss": "a good one (she)" }
+      ],
+      "tags": ["family"],
+      "difficulty": 3,
+      "note": "అత్త(య్య) (attha) = mother-in-law or paternal aunt; మామ(య్య) (maava/maamayya) = father-in-law or maternal uncle. Same words on purpose — a trace of traditional cross-cousin marriages."
+    },
+    {
+      "id": "u22-i08",
+      "te": "మామయ్యకి ఫోన్ చెయ్యండి.",
+      "gloss": "Call maamayya (uncle).",
+      "words": [
+        { "te": "మామయ్యకి", "gloss": "to uncle" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చెయ్యండి", "gloss": "do / make (polite)" }
+      ],
+      "tags": ["family"],
+      "difficulty": 3,
+      "distractors": ["u22-i04", "u22-i06"]
+    },
+    {
+      "id": "u22-i09",
+      "te": "పెద్దల మాట వినాలి.",
+      "gloss": "One must listen to the elders' words.",
+      "words": [
+        { "te": "పెద్దల", "gloss": "of the elders" },
+        { "te": "మాట", "gloss": "word / saying" },
+        { "te": "వినాలి", "gloss": "must listen" }
+      ],
+      "tags": ["respect", "sayings"],
+      "difficulty": 3,
+      "distractors": ["u22-i01", "u22-i10"]
+    },
+    {
+      "id": "u22-i10",
+      "te": "మమ్మల్ని దీవించండి.",
+      "gloss": "Please bless us.",
+      "words": [
+        { "te": "మమ్మల్ని", "gloss": "us (object)" },
+        { "te": "దీవించండి", "gloss": "bless (polite)" }
+      ],
+      "tags": ["blessings", "customs"],
+      "difficulty": 4
+    },
+    {
+      "id": "u22-i11",
+      "te": "అమ్మమ్మ నిన్ను దీవించింది.",
+      "gloss": "Grandma blessed you.",
+      "words": [
+        { "te": "అమ్మమ్మ", "gloss": "grandma (mother's mother)" },
+        { "te": "నిన్ను", "gloss": "you (object, informal)" },
+        { "te": "దీవించింది", "gloss": "blessed (she)" }
+      ],
+      "tags": ["blessings", "family"],
+      "difficulty": 4,
+      "distractors": ["u22-i10", "u22-i03"]
+    },
+    {
+      "id": "u22-i12",
+      "te": "ఆయన మా నాన్న గారి ఫ్రెండ్.",
+      "gloss": "He is my father's friend.",
+      "words": [
+        { "te": "ఆయన", "gloss": "he (respectful)" },
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "నాన్న", "gloss": "father" },
+        { "te": "గారి", "gloss": "garu's (honorific)" },
+        { "te": "ఫ్రెండ్", "gloss": "friend" }
+      ],
+      "tags": ["respect", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u22-i13",
+      "te": "వాళ్ళు మా బంధువులు.",
+      "gloss": "They are our relatives.",
+      "words": [
+        { "te": "వాళ్ళు", "gloss": "they" },
+        { "te": "మా", "gloss": "our" },
+        { "te": "బంధువులు", "gloss": "relatives" }
+      ],
+      "tags": ["family"],
+      "difficulty": 3,
+      "distractors": ["u22-i12", "u22-i07"]
+    },
+    {
+      "id": "u22-i14",
+      "te": "చిన్నపిల్లలతో నువ్వు అనొచ్చు.",
+      "gloss": "With little kids you can say 'nuvvu'.",
+      "words": [
+        { "te": "చిన్నపిల్లలతో", "gloss": "with little children" },
+        { "te": "నువ్వు", "gloss": "'nuvvu' (informal you)" },
+        { "te": "అనొచ్చు", "gloss": "may say" }
+      ],
+      "tags": ["respect", "grammar"],
+      "difficulty": 4
+    },
+    {
+      "id": "u22-i15",
+      "te": "అత్తయ్యా, భోజనం చాలా బాగుంది!",
+      "gloss": "Aunty, the meal is wonderful!",
+      "words": [
+        { "te": "అత్తయ్యా", "gloss": "aunty! (calling)" },
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["family", "hospitality"],
+      "difficulty": 3,
+      "distractors": ["u22-i07", "u22-i13"]
+    },
+    {
+      "id": "u22-i16",
+      "te": "మీ అమ్మగారు ఎలా ఉన్నారు?",
+      "gloss": "How is your mother? (respectful)",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "అమ్మగారు", "gloss": "respected mother" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉన్నారు", "gloss": "is (respectful plural)" }
+      ],
+      "tags": ["respect", "family", "questions"],
+      "difficulty": 4,
+      "note": "One respected person takes the PLURAL verb: అమ్మగారు ఉన్నారు (unnaaru), never ఉంది. Respect literally multiplies people in Telugu grammar."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Meeru or nuvvu?", "itemIds": ["u22-i01", "u22-i02", "u22-i14"] },
+    { "id": "l2", "title": "The garu effect", "itemIds": ["u22-i03", "u22-i12", "u22-i16"] },
+    { "id": "l3", "title": "Blessings & feet", "itemIds": ["u22-i06", "u22-i09", "u22-i10", "u22-i11"] },
+    { "id": "l4", "title": "The family web", "itemIds": ["u22-i07", "u22-i08", "u22-i13"] },
+    { "id": "l5", "title": "Meeting the elders", "itemIds": ["u22-i04", "u22-i05", "u22-i15"] }
+  ],
+  "dialogue": {
+    "id": "u22-d1",
+    "title": "Wedding crowd navigation",
+    "scene": "A cousin's wedding hall. Amma steers you through a sea of relatives — Rao garu at the entrance, Tata by the stage, kids underfoot, the buffet at the end — coaching your meeru and nuvvu the whole way.",
+    "turns": [
+      { "speaker": "Amma", "itemId": "u22-i03" },
+      { "speaker": "Amma", "itemId": "u22-i12" },
+      { "speaker": "Amma", "itemId": "u22-i04" },
+      { "speaker": "Amma", "itemId": "u22-i01" },
+      { "speaker": "You", "itemId": "u22-i16", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u22-i05" },
+      { "speaker": "Amma", "itemId": "u22-i06" },
+      { "speaker": "You", "itemId": "u22-i10", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u22-i09" },
+      { "speaker": "Tata", "itemId": "u22-i11" },
+      { "speaker": "Amma", "itemId": "u22-i14" },
+      { "speaker": "You", "itemId": "u22-i16", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u22-i02" },
+      { "speaker": "You", "itemId": "u22-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u22-i07", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u22-i08" }
+    ]
+  }
+}

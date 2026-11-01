@@ -1,0 +1,259 @@
+{
+  "id": "u19",
+  "section": 3,
+  "order": 3,
+  "title": "Comparing & preferring",
+  "teTitle": "పోలికలు",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Compare things with kanTe, pick favourites, and haggle over which one is best.",
+  "items": [
+    {
+      "id": "u19-i01",
+      "te": "ఇది ఇంకా బాగుంది.",
+      "gloss": "This is even better.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఇంకా", "gloss": "even more" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["comparison"],
+      "difficulty": 3,
+      "distractors": ["u19-i09", "u19-i05"]
+    },
+    {
+      "id": "u19-i02",
+      "te": "కాఫీ కంటే టీ బాగుంటుంది.",
+      "gloss": "Tea is better than coffee.",
+      "words": [
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "కంటే", "gloss": "than" },
+        { "te": "టీ", "gloss": "tea" },
+        { "te": "బాగుంటుంది", "gloss": "is (generally) better" }
+      ],
+      "tags": ["comparison", "food"],
+      "difficulty": 3,
+      "note": "X కంటే (kanTe) Y బాగుంటుంది = 'Y is better than X' — the thing being beaten takes కంటే.",
+      "distractors": ["u19-i10", "u19-i15"]
+    },
+    {
+      "id": "u19-i03",
+      "te": "మీకు ఏది ఎక్కువ ఇష్టం?",
+      "gloss": "Which one do you like more?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "ఏది", "gloss": "which one" },
+        { "te": "ఎక్కువ", "gloss": "more" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["preferences", "questions"],
+      "difficulty": 3,
+      "distractors": ["u19-i04", "u19-i13"]
+    },
+    {
+      "id": "u19-i04",
+      "te": "నాకు టీ అంటే చాలా ఇష్టం.",
+      "gloss": "I really love tea.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "టీ", "gloss": "tea" },
+        { "te": "అంటే", "gloss": "as for / speaking of" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["preferences", "food"],
+      "difficulty": 3,
+      "note": "X అంటే ఇష్టం (anTe ishTam) is the everyday 'I like X' — literally 'if you say X, (there is) liking'."
+    },
+    {
+      "id": "u19-i05",
+      "te": "అన్నిటికంటే ఇదే బాగుంది.",
+      "gloss": "This one is the best of all.",
+      "words": [
+        { "te": "అన్నిటికంటే", "gloss": "than all of them" },
+        { "te": "ఇదే", "gloss": "this very one" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["comparison"],
+      "difficulty": 4,
+      "note": "Telugu has no separate 'best' — you say అన్నిటికంటే (anniTikanTe, 'than everything') plus emphatic ఇదే (ide)."
+    },
+    {
+      "id": "u19-i06",
+      "te": "ఈ చీర ఆ చీర కంటే బాగుంది.",
+      "gloss": "This saree is nicer than that saree.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "చీర", "gloss": "saree" },
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "చీర", "gloss": "saree" },
+        { "te": "కంటే", "gloss": "than" },
+        { "te": "బాగుంది", "gloss": "is nicer" }
+      ],
+      "tags": ["comparison", "shopping"],
+      "difficulty": 4
+    },
+    {
+      "id": "u19-i07",
+      "te": "రెండూ బాగున్నాయి.",
+      "gloss": "Both are nice.",
+      "words": [
+        { "te": "రెండూ", "gloss": "both" },
+        { "te": "బాగున్నాయి", "gloss": "are nice (they)" }
+      ],
+      "tags": ["comparison"],
+      "difficulty": 3,
+      "note": "Stretch the last vowel and 'two' becomes 'both': రెండు (renDu) → రెండూ (renDuu). Same trick: అందరు → అందరూ (everyone)."
+    },
+    {
+      "id": "u19-i08",
+      "te": "కానీ ఇది కొంచెం ఖరీదు.",
+      "gloss": "But this one is a bit pricey.",
+      "words": [
+        { "te": "కానీ", "gloss": "but" },
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "ఖరీదు", "gloss": "expensive" }
+      ],
+      "tags": ["shopping"],
+      "difficulty": 3,
+      "distractors": ["u19-i09", "u19-i01"]
+    },
+    {
+      "id": "u19-i09",
+      "te": "అది ఇంకా చవక.",
+      "gloss": "That one is even cheaper.",
+      "words": [
+        { "te": "అది", "gloss": "that" },
+        { "te": "ఇంకా", "gloss": "even more" },
+        { "te": "చవక", "gloss": "cheap" }
+      ],
+      "tags": ["shopping", "comparison"],
+      "difficulty": 3,
+      "distractors": ["u19-i08", "u19-i12"]
+    },
+    {
+      "id": "u19-i10",
+      "te": "నాకు ఇడ్లీ కంటే దోశ ఇష్టం.",
+      "gloss": "I prefer dosa to idli.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఇడ్లీ", "gloss": "idli" },
+        { "te": "కంటే", "gloss": "than" },
+        { "te": "దోశ", "gloss": "dosa" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["preferences", "food"],
+      "difficulty": 3,
+      "distractors": ["u19-i02", "u19-i04"]
+    },
+    {
+      "id": "u19-i11",
+      "te": "ఏది తీసుకోమంటారు?",
+      "gloss": "Which one do you say I should take?",
+      "words": [
+        { "te": "ఏది", "gloss": "which one" },
+        { "te": "తీసుకోమంటారు", "gloss": "do (you) say to take?" }
+      ],
+      "tags": ["shopping", "questions"],
+      "difficulty": 5,
+      "note": "తీసుకోమంటారు (tiisukomanTaaru) packs 'do you say I should take?' into one verb — shopkeeper Telugu at its finest."
+    },
+    {
+      "id": "u19-i12",
+      "te": "ఇది దాని కంటే పెద్దది.",
+      "gloss": "This one is bigger than that.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "దాని", "gloss": "of that" },
+        { "te": "కంటే", "gloss": "than" },
+        { "te": "పెద్దది", "gloss": "the bigger one" }
+      ],
+      "tags": ["comparison"],
+      "difficulty": 4
+    },
+    {
+      "id": "u19-i13",
+      "te": "నాకు ఇదే బాగా నచ్చింది.",
+      "gloss": "I like this one the best.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఇదే", "gloss": "this very one" },
+        { "te": "బాగా", "gloss": "really / well" },
+        { "te": "నచ్చింది", "gloss": "was liked" }
+      ],
+      "tags": ["preferences"],
+      "difficulty": 3,
+      "distractors": ["u19-i03", "u19-i07"]
+    },
+    {
+      "id": "u19-i14",
+      "te": "వేరే ఏమైనా ఉన్నాయా?",
+      "gloss": "Do you have anything else?",
+      "words": [
+        { "te": "వేరే", "gloss": "other / different" },
+        { "te": "ఏమైనా", "gloss": "anything" },
+        { "te": "ఉన్నాయా", "gloss": "are there?" }
+      ],
+      "tags": ["shopping", "questions"],
+      "difficulty": 4
+    },
+    {
+      "id": "u19-i15",
+      "te": "సినిమా కంటే పుస్తకం బాగుంది.",
+      "gloss": "The book is better than the movie.",
+      "words": [
+        { "te": "సినిమా", "gloss": "movie" },
+        { "te": "కంటే", "gloss": "than" },
+        { "te": "పుస్తకం", "gloss": "book" },
+        { "te": "బాగుంది", "gloss": "is better" }
+      ],
+      "tags": ["comparison", "opinions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u19-i16",
+      "te": "మీ ఇష్టం, రెండూ తీసుకోండి!",
+      "gloss": "As you wish — take both!",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇష్టం", "gloss": "wish" },
+        { "te": "రెండూ", "gloss": "both" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["shopping"],
+      "difficulty": 3,
+      "distractors": ["u19-i11", "u19-i14"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Better than that", "itemIds": ["u19-i01", "u19-i02", "u19-i15"] },
+    { "id": "l2", "title": "What do you like?", "itemIds": ["u19-i03", "u19-i04", "u19-i10"] },
+    { "id": "l3", "title": "The best of all", "itemIds": ["u19-i05", "u19-i06", "u19-i13"] },
+    { "id": "l4", "title": "Price check", "itemIds": ["u19-i08", "u19-i09", "u19-i12"] },
+    { "id": "l5", "title": "Take both!", "itemIds": ["u19-i07", "u19-i11", "u19-i14", "u19-i16"] }
+  ],
+  "dialogue": {
+    "id": "u19-d1",
+    "title": "Two sarees, one wallet",
+    "scene": "A busy cloth shop in Vijayawada. The shopkeeper keeps unfolding better and better sarees, chai appears mid-bargain, and Aunty has promised tiffin afterwards — if the wallet survives.",
+    "turns": [
+      { "speaker": "Shopkeeper", "itemId": "u19-i03" },
+      { "speaker": "You", "itemId": "u19-i06", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u19-i08" },
+      { "speaker": "Shopkeeper", "itemId": "u19-i09" },
+      { "speaker": "Aunty", "itemId": "u19-i12" },
+      { "speaker": "You", "itemId": "u19-i14", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u19-i05" },
+      { "speaker": "You", "itemId": "u19-i01", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u19-i07" },
+      { "speaker": "You", "itemId": "u19-i11", "userTurn": true },
+      { "speaker": "Shopkeeper", "itemId": "u19-i16" },
+      { "speaker": "Aunty", "itemId": "u19-i13" },
+      { "speaker": "Shopkeeper", "itemId": "u19-i03" },
+      { "speaker": "You", "itemId": "u19-i04", "userTurn": true },
+      { "speaker": "Aunty", "itemId": "u19-i02" },
+      { "speaker": "You", "itemId": "u19-i10", "userTurn": true }
+    ]
+  }
+}

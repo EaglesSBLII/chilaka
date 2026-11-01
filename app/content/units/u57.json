@@ -1,0 +1,291 @@
+{
+  "id": "u57",
+  "section": 8,
+  "order": 1,
+  "title": "Telling the story",
+  "teTitle": "కథ చెప్పడం",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Narrate a whole story out loud — hook your listener, chain events with అప్పుడు, ఆ తర్వాత, ఇంతలో, and land the ending with చివరికి.",
+  "items": [
+    {
+      "id": "u57-i01",
+      "te": "నిన్న ఏం జరిగిందో మీరు నమ్మరు!",
+      "gloss": "You won't believe what happened yesterday!",
+      "words": [
+        { "te": "నిన్న", "gloss": "yesterday" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "జరిగిందో", "gloss": "happened (suspense form)" },
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "నమ్మరు", "gloss": "won't believe" }
+      ],
+      "tags": ["storytelling", "openers"],
+      "difficulty": 4,
+      "note": "The -ఓ ending on జరిగిందో adds suspense — 'what happened...!' It is THE classic Telugu story opener.",
+      "distractors": ["u57-i02", "u57-i12"]
+    },
+    {
+      "id": "u57-i02",
+      "te": "చెప్పు చెప్పు, ఏం జరిగింది?",
+      "gloss": "Tell me, tell me — what happened?",
+      "words": [
+        { "te": "చెప్పు", "gloss": "tell (casual)" },
+        { "te": "చెప్పు", "gloss": "tell (repeated for eagerness)" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "జరిగింది", "gloss": "happened" }
+      ],
+      "tags": ["storytelling", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u57-i03",
+      "te": "పొద్దున్నే నేను బస్సు కోసం వెళ్ళాను.",
+      "gloss": "Early in the morning I went for the bus.",
+      "words": [
+        { "te": "పొద్దున్నే", "gloss": "early in the morning" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "బస్సు", "gloss": "bus" },
+        { "te": "కోసం", "gloss": "for" },
+        { "te": "వెళ్ళాను", "gloss": "I went" }
+      ],
+      "tags": ["storytelling", "daily-life"],
+      "difficulty": 3
+    },
+    {
+      "id": "u57-i04",
+      "te": "అప్పుడు హఠాత్తుగా పెద్ద వర్షం మొదలైంది.",
+      "gloss": "Then, all of a sudden, heavy rain started.",
+      "words": [
+        { "te": "అప్పుడు", "gloss": "then / at that point" },
+        { "te": "హఠాత్తుగా", "gloss": "suddenly" },
+        { "te": "పెద్ద", "gloss": "big / heavy" },
+        { "te": "వర్షం", "gloss": "rain" },
+        { "te": "మొదలైంది", "gloss": "started" }
+      ],
+      "tags": ["storytelling", "connectors"],
+      "difficulty": 4,
+      "note": "అప్పుడు ('then') is your basic story connector — drop it in whenever the next event begins.",
+      "distractors": ["u57-i05", "u57-i06"]
+    },
+    {
+      "id": "u57-i05",
+      "te": "ఆ తర్వాత బస్సు అసలు రాలేదు.",
+      "gloss": "After that, the bus never came at all.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "తర్వాత", "gloss": "after" },
+        { "te": "బస్సు", "gloss": "bus" },
+        { "te": "అసలు", "gloss": "at all" },
+        { "te": "రాలేదు", "gloss": "didn't come" }
+      ],
+      "tags": ["storytelling", "connectors"],
+      "difficulty": 3,
+      "distractors": ["u57-i04", "u57-i06"]
+    },
+    {
+      "id": "u57-i06",
+      "te": "ఇంతలో నా ఫోన్ మోగింది.",
+      "gloss": "Just then, my phone rang.",
+      "words": [
+        { "te": "ఇంతలో", "gloss": "meanwhile / just then" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "మోగింది", "gloss": "rang" }
+      ],
+      "tags": ["storytelling", "connectors"],
+      "difficulty": 3,
+      "note": "ఇంతలో = 'just then / meanwhile' — the connector that announces a surprise interruption in a story."
+    },
+    {
+      "id": "u57-i07",
+      "te": "అవతల నుంచి మా బాస్ మాట్లాడారు.",
+      "gloss": "From the other end, my boss was speaking.",
+      "words": [
+        { "te": "అవతల", "gloss": "the other side" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "బాస్", "gloss": "boss" },
+        { "te": "మాట్లాడారు", "gloss": "spoke (respectful)" }
+      ],
+      "tags": ["storytelling", "work"],
+      "difficulty": 4
+    },
+    {
+      "id": "u57-i08",
+      "te": "ఆయన ఏమన్నారో తెలుసా?",
+      "gloss": "Do you know what he said?",
+      "words": [
+        { "te": "ఆయన", "gloss": "he (respectful)" },
+        { "te": "ఏమన్నారో", "gloss": "what (he) said (suspense form)" },
+        { "te": "తెలుసా", "gloss": "do you know?" }
+      ],
+      "tags": ["storytelling", "questions"],
+      "difficulty": 4,
+      "distractors": ["u57-i01", "u57-i02"]
+    },
+    {
+      "id": "u57-i09",
+      "te": "ఈరోజు ఆఫీసుకి సెలవు అన్నారు!",
+      "gloss": "He said today is a holiday at the office!",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "ఆఫీసుకి", "gloss": "for the office" },
+        { "te": "సెలవు", "gloss": "holiday" },
+        { "te": "అన్నారు", "gloss": "(he) said" }
+      ],
+      "tags": ["storytelling", "work"],
+      "difficulty": 3
+    },
+    {
+      "id": "u57-i10",
+      "te": "అయ్యో, నేను అప్పటికే తడిసిపోయాను!",
+      "gloss": "Oh no — by then I was already drenched!",
+      "words": [
+        { "te": "అయ్యో", "gloss": "oh no" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "అప్పటికే", "gloss": "by then / already" },
+        { "te": "తడిసిపోయాను", "gloss": "got completely drenched" }
+      ],
+      "tags": ["storytelling", "feelings"],
+      "difficulty": 4
+    },
+    {
+      "id": "u57-i11",
+      "te": "చివరికి నేను ఇంటికి తిరిగి వచ్చేశాను.",
+      "gloss": "In the end, I just came back home.",
+      "words": [
+        { "te": "చివరికి", "gloss": "finally / in the end" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఇంటికి", "gloss": "to home" },
+        { "te": "తిరిగి", "gloss": "back" },
+        { "te": "వచ్చేశాను", "gloss": "came (for good)" }
+      ],
+      "tags": ["storytelling", "connectors"],
+      "difficulty": 3,
+      "note": "చివరికి ('in the end') wraps the story up. With అప్పుడు, ఆ తర్వాత and ఇంతలో you now have the full narration kit.",
+      "distractors": ["u57-i03"]
+    },
+    {
+      "id": "u57-i12",
+      "te": "నిజంగా? ఇది సినిమా కథలా ఉంది!",
+      "gloss": "Really? This sounds like a movie plot!",
+      "words": [
+        { "te": "నిజంగా", "gloss": "really" },
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "సినిమా", "gloss": "movie" },
+        { "te": "కథలా", "gloss": "like a story" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["storytelling", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u57-i02", "u57-i14"]
+    },
+    {
+      "id": "u57-i13",
+      "te": "ఆగండి, అసలు మలుపు ఇంకా ఉంది.",
+      "gloss": "Wait — the real twist is still coming.",
+      "words": [
+        { "te": "ఆగండి", "gloss": "wait (polite)" },
+        { "te": "అసలు", "gloss": "real / actual" },
+        { "te": "మలుపు", "gloss": "twist / turn" },
+        { "te": "ఇంకా", "gloss": "still" },
+        { "te": "ఉంది", "gloss": "is (there)" }
+      ],
+      "tags": ["storytelling"],
+      "difficulty": 4,
+      "note": "మలుపు is literally a bend in the road — and also a plot twist. Every good Telugu story keeps one in reserve."
+    },
+    {
+      "id": "u57-i14",
+      "te": "మధ్యలో ఆపకండి, పూర్తిగా చెప్పండి.",
+      "gloss": "Don't stop in the middle — tell it fully.",
+      "words": [
+        { "te": "మధ్యలో", "gloss": "in the middle" },
+        { "te": "ఆపకండి", "gloss": "don't stop" },
+        { "te": "పూర్తిగా", "gloss": "fully" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" }
+      ],
+      "tags": ["storytelling", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u57-i13"]
+    },
+    {
+      "id": "u57-i15",
+      "te": "ఆ రోజు నేను ఎప్పటికీ మర్చిపోలేను.",
+      "gloss": "I can never forget that day.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "రోజు", "gloss": "day" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఎప్పటికీ", "gloss": "ever / for all time" },
+        { "te": "మర్చిపోలేను", "gloss": "cannot forget" }
+      ],
+      "tags": ["storytelling", "feelings"],
+      "difficulty": 4
+    },
+    {
+      "id": "u57-i16",
+      "te": "తర్వాత ఏమైంది? త్వరగా చెప్పు!",
+      "gloss": "What happened next? Tell me quickly!",
+      "words": [
+        { "te": "తర్వాత", "gloss": "afterwards / next" },
+        { "te": "ఏమైంది", "gloss": "what happened" },
+        { "te": "త్వరగా", "gloss": "quickly" },
+        { "te": "చెప్పు", "gloss": "tell (casual)" }
+      ],
+      "tags": ["storytelling", "reactions"],
+      "difficulty": 3,
+      "distractors": ["u57-i02", "u57-i08"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Grab their attention",
+      "itemIds": ["u57-i01", "u57-i02", "u57-i03", "u57-i04"]
+    },
+    {
+      "id": "l2",
+      "title": "Then, after that...",
+      "itemIds": ["u57-i05", "u57-i06", "u57-i07"]
+    },
+    {
+      "id": "l3",
+      "title": "The twist",
+      "itemIds": ["u57-i08", "u57-i09", "u57-i13"]
+    },
+    {
+      "id": "l4",
+      "title": "Listening along",
+      "itemIds": ["u57-i12", "u57-i14", "u57-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Wrapping it up",
+      "itemIds": ["u57-i10", "u57-i11", "u57-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u57-d1",
+    "title": "The rainy morning story",
+    "scene": "Evening chai at Kiran's place. You burst in bursting to tell the saga of your soaked, ridiculous morning — and Kiran hangs on every word.",
+    "turns": [
+      { "speaker": "You", "itemId": "u57-i01", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u57-i02" },
+      { "speaker": "You", "itemId": "u57-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i05", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u57-i16" },
+      { "speaker": "You", "itemId": "u57-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i08", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u57-i14" },
+      { "speaker": "You", "itemId": "u57-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i09", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u57-i12" },
+      { "speaker": "You", "itemId": "u57-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i11", "userTurn": true },
+      { "speaker": "You", "itemId": "u57-i15", "userTurn": true }
+    ]
+  }
+}

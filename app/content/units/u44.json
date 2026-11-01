@@ -1,0 +1,274 @@
+{
+  "id": "u44",
+  "section": 6,
+  "order": 4,
+  "title": "Work talk",
+  "teTitle": "ఆఫీసు మాటలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Handle meetings, deadlines, leave requests, and quick calls with colleagues.",
+  "items": [
+    {
+      "id": "u44-i01",
+      "te": "ఈరోజు మీటింగ్ ఎన్నింటికి?",
+      "gloss": "What time is today's meeting?",
+      "words": [
+        { "te": "ఈరోజు", "gloss": "today" },
+        { "te": "మీటింగ్", "gloss": "meeting" },
+        { "te": "ఎన్నింటికి", "gloss": "at what time" }
+      ],
+      "tags": ["work", "time", "questions"],
+      "difficulty": 3,
+      "note": "ఎన్నింటికి = 'at how many (o'clock)'. Answer with -ఇంటికి: పదింటికి (at ten), ఐదింటికి (at five).",
+      "distractors": ["u44-i02", "u44-i12"]
+    },
+    {
+      "id": "u44-i02",
+      "te": "పదింటికి కాల్ ఉంది.",
+      "gloss": "There's a call at ten.",
+      "words": [
+        { "te": "పదింటికి", "gloss": "at ten" },
+        { "te": "కాల్", "gloss": "call" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["work", "time"],
+      "difficulty": 3
+    },
+    {
+      "id": "u44-i03",
+      "te": "డెడ్లైన్ ఎప్పుడు అండి?",
+      "gloss": "When is the deadline?",
+      "words": [
+        { "te": "డెడ్లైన్", "gloss": "deadline" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["work", "questions"],
+      "difficulty": 3,
+      "distractors": ["u44-i04", "u44-i06"]
+    },
+    {
+      "id": "u44-i04",
+      "te": "సాయంత్రంలోపు పంపిస్తాను.",
+      "gloss": "I'll send it by evening.",
+      "words": [
+        { "te": "సాయంత్రంలోపు", "gloss": "by evening" },
+        { "te": "పంపిస్తాను", "gloss": "I will send" }
+      ],
+      "tags": ["work", "time"],
+      "difficulty": 4,
+      "note": "-లోపు means 'within / before': సాయంత్రంలోపు, రేపటిలోపు. The word that keeps deadlines alive.",
+      "distractors": ["u44-i06", "u44-i14"]
+    },
+    {
+      "id": "u44-i05",
+      "te": "రిపోర్ట్ ఇంకా అవ్వలేదు.",
+      "gloss": "The report isn't done yet.",
+      "words": [
+        { "te": "రిపోర్ట్", "gloss": "report" },
+        { "te": "ఇంకా", "gloss": "yet / still" },
+        { "te": "అవ్వలేదు", "gloss": "hasn't gotten done" }
+      ],
+      "tags": ["work"],
+      "difficulty": 3
+    },
+    {
+      "id": "u44-i06",
+      "te": "రేపటిలోపు అయిపోతుంది సర్.",
+      "gloss": "It'll be finished by tomorrow, sir.",
+      "words": [
+        { "te": "రేపటిలోపు", "gloss": "by tomorrow" },
+        { "te": "అయిపోతుంది", "gloss": "will get done" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["work", "time"],
+      "difficulty": 4
+    },
+    {
+      "id": "u44-i07",
+      "te": "నాకు రేపు సెలవు కావాలి.",
+      "gloss": "I need leave tomorrow.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "సెలవు", "gloss": "leave / day off" },
+        { "te": "కావాలి", "gloss": "is needed" }
+      ],
+      "tags": ["work", "requests"],
+      "difficulty": 3,
+      "note": "సెలవు is the native word for leave; you'll also hear లీవ్ కావాలి — both work.",
+      "distractors": ["u44-i09", "u44-i10"]
+    },
+    {
+      "id": "u44-i08",
+      "te": "ఎందుకు, ఏమైనా పని ఉందా?",
+      "gloss": "Why — do you have something on?",
+      "words": [
+        { "te": "ఎందుకు", "gloss": "why" },
+        { "te": "ఏమైనా", "gloss": "anything" },
+        { "te": "పని", "gloss": "work / matter" },
+        { "te": "ఉందా", "gloss": "is there?" }
+      ],
+      "tags": ["work", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u44-i09",
+      "te": "ఇంట్లో చిన్న ఫంక్షన్ ఉంది.",
+      "gloss": "There's a small function at home.",
+      "words": [
+        { "te": "ఇంట్లో", "gloss": "at home" },
+        { "te": "చిన్న", "gloss": "small" },
+        { "te": "ఫంక్షన్", "gloss": "function / event" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["work", "family"],
+      "difficulty": 3,
+      "note": "ఫంక్షన్ covers every family event — pooja, birthday, engagement. No boss questions it further.",
+      "distractors": ["u44-i07", "u44-i16"]
+    },
+    {
+      "id": "u44-i10",
+      "te": "సరే, మెయిల్ పెట్టండి.",
+      "gloss": "Okay, put it in a mail.",
+      "words": [
+        { "te": "సరే", "gloss": "okay" },
+        { "te": "మెయిల్", "gloss": "mail" },
+        { "te": "పెట్టండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["work", "commands"],
+      "difficulty": 3,
+      "note": "మెయిల్ పెట్టు — 'put a mail' — is exactly how office Telugu says 'send an email'."
+    },
+    {
+      "id": "u44-i11",
+      "te": "ఐదు నిమిషాల్లో కాల్ చేస్తాను.",
+      "gloss": "I'll call you in five minutes.",
+      "words": [
+        { "te": "ఐదు", "gloss": "five" },
+        { "te": "నిమిషాల్లో", "gloss": "in minutes" },
+        { "te": "కాల్", "gloss": "call" },
+        { "te": "చేస్తాను", "gloss": "I will do" }
+      ],
+      "tags": ["work", "phone"],
+      "difficulty": 4,
+      "distractors": ["u44-i02", "u44-i14"]
+    },
+    {
+      "id": "u44-i12",
+      "te": "మీటింగ్ కొంచెం ఆలస్యం అవుతుంది.",
+      "gloss": "The meeting will be a little late.",
+      "words": [
+        { "te": "మీటింగ్", "gloss": "meeting" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "ఆలస్యం", "gloss": "delay" },
+        { "te": "అవుతుంది", "gloss": "will become" }
+      ],
+      "tags": ["work", "time"],
+      "difficulty": 4
+    },
+    {
+      "id": "u44-i13",
+      "te": "ఆ ఫైల్ నాకు పంపించండి.",
+      "gloss": "Send me that file.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "ఫైల్", "gloss": "file" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "పంపించండి", "gloss": "send (polite)" }
+      ],
+      "tags": ["work", "commands"],
+      "difficulty": 3,
+      "distractors": ["u44-i14", "u44-i10"]
+    },
+    {
+      "id": "u44-i14",
+      "te": "ఇప్పుడే మెయిల్ చేశాను, చూడండి.",
+      "gloss": "I just mailed it — take a look.",
+      "words": [
+        { "te": "ఇప్పుడే", "gloss": "just now" },
+        { "te": "మెయిల్", "gloss": "mail" },
+        { "te": "చేశాను", "gloss": "I did" },
+        { "te": "చూడండి", "gloss": "look (polite)" }
+      ],
+      "tags": ["work"],
+      "difficulty": 4
+    },
+    {
+      "id": "u44-i15",
+      "te": "క్లయింట్ ఏమన్నారు అండి?",
+      "gloss": "What did the client say?",
+      "words": [
+        { "te": "క్లయింట్", "gloss": "client" },
+        { "te": "ఏమన్నారు", "gloss": "what did (they) say?" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["work", "questions"],
+      "difficulty": 4,
+      "note": "ఏమన్నారు = ఏమి + అన్నారు, 'what did they say' — the polite plural respects the client too.",
+      "distractors": ["u44-i05", "u44-i03"]
+    },
+    {
+      "id": "u44-i16",
+      "te": "ఈ వారం పని ఎక్కువగా ఉంది.",
+      "gloss": "There's a lot of work this week.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "వారం", "gloss": "week" },
+        { "te": "పని", "gloss": "work" },
+        { "te": "ఎక్కువగా", "gloss": "in excess" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["work", "smalltalk"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Meetings and calls",
+      "itemIds": ["u44-i01", "u44-i02", "u44-i12", "u44-i11"]
+    },
+    {
+      "id": "l2",
+      "title": "Deadline promises",
+      "itemIds": ["u44-i03", "u44-i04", "u44-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Files and reports",
+      "itemIds": ["u44-i13", "u44-i14", "u44-i05", "u44-i15"]
+    },
+    {
+      "id": "l4",
+      "title": "Asking for leave",
+      "itemIds": ["u44-i07", "u44-i08", "u44-i09"]
+    },
+    {
+      "id": "l5",
+      "title": "Wrapping the week",
+      "itemIds": ["u44-i10", "u44-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u44-d1",
+    "title": "Monday at the office",
+    "scene": "A buzzing Hyderabad office on Monday morning. Your colleague Ravi wants the meeting time, the boss wants a file and a client update, and you need tomorrow off for a family function.",
+    "turns": [
+      { "speaker": "Ravi", "itemId": "u44-i01" },
+      { "speaker": "You", "itemId": "u44-i02", "userTurn": true },
+      { "speaker": "Boss", "itemId": "u44-i12" },
+      { "speaker": "Boss", "itemId": "u44-i13" },
+      { "speaker": "You", "itemId": "u44-i14", "userTurn": true },
+      { "speaker": "Boss", "itemId": "u44-i15" },
+      { "speaker": "You", "itemId": "u44-i05", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u44-i03" },
+      { "speaker": "You", "itemId": "u44-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u44-i07", "userTurn": true },
+      { "speaker": "Boss", "itemId": "u44-i08" },
+      { "speaker": "You", "itemId": "u44-i09", "userTurn": true },
+      { "speaker": "Boss", "itemId": "u44-i10" },
+      { "speaker": "Ravi", "itemId": "u44-i11" }
+    ]
+  }
+}

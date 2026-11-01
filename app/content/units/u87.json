@@ -1,0 +1,181 @@
+{
+  "id": "u87",
+  "track": "script",
+  "section": 2,
+  "order": 1,
+  "title": "Gunintam 1",
+  "teTitle": "గుణింతం 1",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "Matras! Small marks swap a consonant's vowel: క → కా కి కీ కు కూ. Real words unlock.",
+  "items": [
+    {
+      "id": "u87-i01",
+      "te": "కా",
+      "audioTe": "కా. కారు.",
+      "gloss": "kaa — as in 'kaaru' (car)",
+      "words": [{ "te": "కా", "gloss": "kaa — the ా tail stretches the inner అ into ఆ" }],
+      "tags": ["syllable"],
+      "difficulty": 1,
+      "distractors": ["u87-i02", "u83-i01"],
+      "note": "A matra replaces the built-in అ. కా is ONE akshara — the క and the ా mark are read together, never separately."
+    },
+    {
+      "id": "u87-i02",
+      "te": "కి",
+      "audioTe": "కి. కిటికీ.",
+      "gloss": "ki — as in 'kiTikee' (window)",
+      "words": [{ "te": "కి", "gloss": "ki — the ి hook adds the ఇ sound" }],
+      "tags": ["syllable"],
+      "difficulty": 1,
+      "distractors": ["u87-i03", "u87-i01"],
+      "note": "Short ి curls up from the right; long ీ is the same hook with an extra mark. One squiggle = one vowel change."
+    },
+    {
+      "id": "u87-i03",
+      "te": "కీ",
+      "audioTe": "కీ. కీలు.",
+      "gloss": "kee — as in 'keelu' (joint)",
+      "words": [{ "te": "కీ", "gloss": "kee — the ీ hook adds the long ఈ sound" }],
+      "tags": ["syllable"],
+      "difficulty": 1,
+      "distractors": ["u87-i02"]
+    },
+    {
+      "id": "u87-i04",
+      "te": "కు",
+      "audioTe": "కు. కుక్క.",
+      "gloss": "ku — as in 'kukka' (dog)",
+      "words": [{ "te": "కు", "gloss": "ku — the ు stroke adds the ఉ sound" }],
+      "tags": ["syllable"],
+      "difficulty": 1,
+      "distractors": ["u87-i05", "u87-i02"],
+      "note": "You met ు already in u81's words: ఊరు, ఆవు, ఇల్లు all end with it. Now you know its name."
+    },
+    {
+      "id": "u87-i05",
+      "te": "కూ",
+      "audioTe": "కూ. కూర.",
+      "gloss": "koo — as in 'koora' (curry)",
+      "words": [{ "te": "కూ", "gloss": "koo — the ూ stroke adds the long ఊ sound" }],
+      "tags": ["syllable"],
+      "difficulty": 1,
+      "distractors": ["u87-i04"]
+    },
+    {
+      "id": "u87-i06",
+      "te": "క కా కి కీ కు కూ",
+      "audioTe": "క, కా, కి, కీ, కు, కూ.",
+      "gloss": "the gunintam chant — one consonant, six vowels so far",
+      "words": [
+        { "te": "క", "gloss": "ka" },
+        { "te": "కా", "gloss": "kaa" },
+        { "te": "కి", "gloss": "ki" },
+        { "te": "కీ", "gloss": "kee" },
+        { "te": "కు", "gloss": "ku" },
+        { "te": "కూ", "gloss": "koo" }
+      ],
+      "tags": ["review"],
+      "difficulty": 2,
+      "note": "Every Telugu schoolchild chants this. The same marks work on EVERY consonant: మా, మి, మీ, ము, మూ..."
+    },
+    {
+      "id": "u87-i07",
+      "te": "కారు",
+      "gloss": "kaaru — car",
+      "words": [
+        { "te": "కా", "gloss": "kaa" },
+        { "te": "రు", "gloss": "ru" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u81-i10", "u87-i09"],
+      "note": "కారు (car) vs ఊరు (town) — both end in రు; the first akshara decides where you're going."
+    },
+    {
+      "id": "u87-i08",
+      "te": "పాట",
+      "gloss": "paaTa — song",
+      "words": [
+        { "te": "పా", "gloss": "paa" },
+        { "te": "ట", "gloss": "Ta" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u87-i09"],
+      "note": "పాట (song) — and change one letter for పాఠం (lesson). Songs and lessons: this whole app."
+    },
+    {
+      "id": "u87-i09",
+      "te": "పాలు",
+      "gloss": "paalu — milk",
+      "words": [
+        { "te": "పా", "gloss": "paa" },
+        { "te": "లు", "gloss": "lu" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u87-i08", "u87-i10"],
+      "note": "పాలు, పెరుగు, నెయ్యి — your grocery list is becoming readable."
+    },
+    {
+      "id": "u87-i10",
+      "te": "నీరు",
+      "gloss": "neeru — water",
+      "words": [
+        { "te": "నీ", "gloss": "nee" },
+        { "te": "రు", "gloss": "ru" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u87-i09", "u87-i07"],
+      "note": "నీరు is water on paper and in books; నీళ్ళు is water in daily talk. You'll read both."
+    },
+    {
+      "id": "u87-i11",
+      "te": "పులి",
+      "gloss": "puli — tiger",
+      "words": [
+        { "te": "పు", "gloss": "pu" },
+        { "te": "లి", "gloss": "li" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u87-i09", "u87-i08"]
+    },
+    {
+      "id": "u87-i12",
+      "te": "మామిడి",
+      "gloss": "maamiDi — mango",
+      "words": [
+        { "te": "మా", "gloss": "maa" },
+        { "te": "మి", "gloss": "mi" },
+        { "te": "డి", "gloss": "Di" }
+      ],
+      "tags": ["word"],
+      "difficulty": 3,
+      "distractors": ["u87-i11"],
+      "note": "మా + మి — same మ, different matra. Reading is watching the marks."
+    },
+    {
+      "id": "u87-i13",
+      "te": "చిలక",
+      "gloss": "chilaka — parrot",
+      "words": [
+        { "te": "చి", "gloss": "chi" },
+        { "te": "ల", "gloss": "la" },
+        { "te": "క", "gloss": "ka" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u87-i12", "u87-i11"],
+      "note": "చిలక — the parrot this app is named after! Parrots repeat what they hear; you now READ what you hear."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "kaa & ki", "itemIds": ["u87-i01", "u87-i02", "u87-i07", "u87-i08"] },
+    { "id": "l2", "title": "kee, ku, koo", "itemIds": ["u87-i03", "u87-i04", "u87-i05", "u87-i09"] },
+    { "id": "l3", "title": "reading with matras", "itemIds": ["u87-i10", "u87-i11", "u87-i12"] },
+    { "id": "l4", "title": "the chant & the parrot", "itemIds": ["u87-i06", "u87-i13"] }
+  ]
+}

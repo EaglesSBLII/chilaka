@@ -1,0 +1,240 @@
+{
+  "id": "u12",
+  "section": 2,
+  "order": 4,
+  "title": "At the market",
+  "teTitle": "మార్కెట్లో",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Buy vegetables and fruit like a local: ask prices, bargain, and get the fresh stuff.",
+  "items": [
+    {
+      "id": "u12-i01",
+      "te": "టమాటాలు ఎంత?",
+      "gloss": "How much are the tomatoes?",
+      "words": [
+        { "te": "టమాటాలు", "gloss": "tomatoes" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["market", "questions", "money"],
+      "difficulty": 1,
+      "note": "ఎంత? (enta?) is the single most useful market word — point at anything and ask.",
+      "distractors": ["u12-i11", "u12-i15"]
+    },
+    {
+      "id": "u12-i02",
+      "te": "కిలో ముప్పై రూపాయలు.",
+      "gloss": "Thirty rupees a kilo.",
+      "words": [
+        { "te": "కిలో", "gloss": "kilo" },
+        { "te": "ముప్పై", "gloss": "thirty" },
+        { "te": "రూపాయలు", "gloss": "rupees" }
+      ],
+      "tags": ["market", "money"],
+      "difficulty": 2
+    },
+    {
+      "id": "u12-i03",
+      "te": "చాలా ఎక్కువ!",
+      "gloss": "That's way too much!",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "ఎక్కువ", "gloss": "too much / expensive" }
+      ],
+      "tags": ["market", "money"],
+      "difficulty": 1,
+      "distractors": ["u12-i14", "u12-i16"]
+    },
+    {
+      "id": "u12-i04",
+      "te": "కొంచెం తగ్గించండి.",
+      "gloss": "Reduce it a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "తగ్గించండి", "gloss": "reduce (polite)" }
+      ],
+      "tags": ["market", "commands", "money"],
+      "difficulty": 2,
+      "note": "కొంచెం తగ్గించండి (konchem tagginchanDi) — the bargaining magic words. Say them with a smile, never anger."
+    },
+    {
+      "id": "u12-i05",
+      "te": "తాజాగా ఉన్నాయా?",
+      "gloss": "Are they fresh?",
+      "words": [
+        { "te": "తాజాగా", "gloss": "fresh" },
+        { "te": "ఉన్నాయా", "gloss": "are they?" }
+      ],
+      "tags": ["market", "questions"],
+      "difficulty": 2,
+      "distractors": ["u12-i10", "u12-i12"]
+    },
+    {
+      "id": "u12-i06",
+      "te": "ఇవి ఈరోజే వచ్చాయి.",
+      "gloss": "These came in just today.",
+      "words": [
+        { "te": "ఇవి", "gloss": "these" },
+        { "te": "ఈరోజే", "gloss": "just today" },
+        { "te": "వచ్చాయి", "gloss": "came" }
+      ],
+      "tags": ["market"],
+      "difficulty": 3,
+      "note": "The -ఏ on ఈరోజే (eeroojee) means 'this very day' — every vendor's favourite claim."
+    },
+    {
+      "id": "u12-i07",
+      "te": "అర కిలో ఇవ్వండి.",
+      "gloss": "Give me half a kilo.",
+      "words": [
+        { "te": "అర", "gloss": "half" },
+        { "te": "కిలో", "gloss": "kilo" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["market", "commands"],
+      "difficulty": 2,
+      "note": "అర (ara) = half, పావు (paavu) = quarter: పావు కిలో, అర కిలో, కిలో.",
+      "distractors": ["u12-i08", "u12-i09"]
+    },
+    {
+      "id": "u12-i08",
+      "te": "రెండు కిలోలు ఇవ్వండి.",
+      "gloss": "Give me two kilos.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "కిలోలు", "gloss": "kilos" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["market", "commands"],
+      "difficulty": 2,
+      "distractors": ["u12-i07", "u12-i12"]
+    },
+    {
+      "id": "u12-i09",
+      "te": "ఉల్లిపాయలు కావాలి.",
+      "gloss": "I need onions.",
+      "words": [
+        { "te": "ఉల్లిపాయలు", "gloss": "onions" },
+        { "te": "కావాలి", "gloss": "are needed / want" }
+      ],
+      "tags": ["market", "vegetables"],
+      "difficulty": 2,
+      "note": "కావాలి (kaavaali) 'is wanted' — Telugu wants things dative-style: (నాకు) ఉల్లిపాయలు కావాలి."
+    },
+    {
+      "id": "u12-i10",
+      "te": "మామిడిపండ్లు తియ్యగా ఉన్నాయా?",
+      "gloss": "Are the mangoes sweet?",
+      "words": [
+        { "te": "మామిడిపండ్లు", "gloss": "mangoes" },
+        { "te": "తియ్యగా", "gloss": "sweet" },
+        { "te": "ఉన్నాయా", "gloss": "are they?" }
+      ],
+      "tags": ["market", "fruits", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u12-i11",
+      "te": "అరటిపండ్లు డజను ఎంత?",
+      "gloss": "How much for a dozen bananas?",
+      "words": [
+        { "te": "అరటిపండ్లు", "gloss": "bananas" },
+        { "te": "డజను", "gloss": "dozen" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["market", "fruits", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u12-i12",
+      "te": "వంకాయలు బాగున్నాయి.",
+      "gloss": "The brinjals look good.",
+      "words": [
+        { "te": "వంకాయలు", "gloss": "brinjals / eggplants" },
+        { "te": "బాగున్నాయి", "gloss": "are good" }
+      ],
+      "tags": ["market", "vegetables"],
+      "difficulty": 2,
+      "note": "వంకాయ (vankaaya) — the king of Telugu vegetables. Think గుత్తి వంకాయ కూర."
+    },
+    {
+      "id": "u12-i13",
+      "te": "ఇంకేమైనా కావాలా?",
+      "gloss": "Do you want anything else?",
+      "words": [
+        { "te": "ఇంకేమైనా", "gloss": "anything else" },
+        { "te": "కావాలా", "gloss": "do (you) want?" }
+      ],
+      "tags": ["market", "questions"],
+      "difficulty": 3,
+      "distractors": ["u12-i14", "u12-i05"]
+    },
+    {
+      "id": "u12-i14",
+      "te": "అంతే, చాలు.",
+      "gloss": "That's all, that's enough.",
+      "words": [
+        { "te": "అంతే", "gloss": "that's all" },
+        { "te": "చాలు", "gloss": "enough" }
+      ],
+      "tags": ["market"],
+      "difficulty": 1,
+      "distractors": ["u12-i03", "u12-i13"]
+    },
+    {
+      "id": "u12-i15",
+      "te": "మొత్తం ఎంత అయ్యింది?",
+      "gloss": "How much is it altogether?",
+      "words": [
+        { "te": "మొత్తం", "gloss": "total" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అయ్యింది", "gloss": "did it become" }
+      ],
+      "tags": ["market", "money", "questions"],
+      "difficulty": 2,
+      "distractors": ["u12-i01", "u12-i02"]
+    },
+    {
+      "id": "u12-i16",
+      "te": "చిల్లర లేదు.",
+      "gloss": "I don't have change.",
+      "words": [
+        { "te": "చిల్లర", "gloss": "small change" },
+        { "te": "లేదు", "gloss": "there isn't" }
+      ],
+      "tags": ["market", "money"],
+      "difficulty": 2,
+      "note": "చిల్లర (chillara) = coins / small change — the eternal end-of-transaction standoff."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "What's the price?", "itemIds": ["u12-i01", "u12-i02", "u12-i15"] },
+    { "id": "l2", "title": "Drive a bargain", "itemIds": ["u12-i03", "u12-i04", "u12-i16"] },
+    { "id": "l3", "title": "Fresh & sweet", "itemIds": ["u12-i05", "u12-i06", "u12-i10", "u12-i12"] },
+    { "id": "l4", "title": "Kilo please", "itemIds": ["u12-i07", "u12-i08", "u12-i09"] },
+    { "id": "l5", "title": "Wrapping up", "itemIds": ["u12-i11", "u12-i13", "u12-i14"] }
+  ],
+  "dialogue": {
+    "id": "u12-d1",
+    "title": "The Sunday bazaar haul",
+    "scene": "A busy Sunday rythu bazaar. It starts with a tomato standoff and ends with a full bag — onions, brinjals, fruit, and the eternal hunt for change.",
+    "turns": [
+      { "speaker": "You", "itemId": "u12-i01", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u12-i02" },
+      { "speaker": "You", "itemId": "u12-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i05", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u12-i06" },
+      { "speaker": "You", "itemId": "u12-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i09", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u12-i12" },
+      { "speaker": "You", "itemId": "u12-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i11", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u12-i13" },
+      { "speaker": "You", "itemId": "u12-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u12-i15", "userTurn": true },
+      { "speaker": "Vendor", "itemId": "u12-i16" }
+    ]
+  }
+}

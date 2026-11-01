@@ -1,0 +1,268 @@
+{
+  "id": "u28",
+  "section": 4,
+  "order": 4,
+  "title": "Shops & services",
+  "teTitle": "షాపుల్లో",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Get a recharge, deal with the tailor, survive the salon, and ask when it'll be ready.",
+  "items": [
+    {
+      "id": "u28-i01",
+      "te": "నా ఫోన్ రీఛార్జ్ చేయండి.",
+      "gloss": "Recharge my phone.",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "రీఛార్జ్", "gloss": "recharge" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["shops", "phone"],
+      "difficulty": 2,
+      "distractors": ["u28-i02", "u28-i16"]
+    },
+    {
+      "id": "u28-i02",
+      "te": "రెండు వందల ప్లాన్ వేయండి.",
+      "gloss": "Put the two-hundred plan.",
+      "words": [
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "వందల", "gloss": "hundreds'" },
+        { "te": "ప్లాన్", "gloss": "plan" },
+        { "te": "వేయండి", "gloss": "put (polite)" }
+      ],
+      "tags": ["shops", "phone", "money"],
+      "difficulty": 3,
+      "note": "వేయండి ('put') is the all-purpose shop verb: ప్లాన్ వేయండి, కారం వేయండి. రెండు వందల = 'of two hundred'."
+    },
+    {
+      "id": "u28-i03",
+      "te": "ఈ చొక్కా కుట్టించాలి.",
+      "gloss": "I need to get this shirt stitched.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "చొక్కా", "gloss": "shirt" },
+        { "te": "కుట్టించాలి", "gloss": "must get stitched" }
+      ],
+      "tags": ["shops", "tailor"],
+      "difficulty": 3,
+      "note": "-ించు makes 'get something done by someone': కుట్టు (stitch) → కుట్టించు (get stitched). Same pattern everywhere: కట్టించు, చేయించు."
+    },
+    {
+      "id": "u28-i04",
+      "te": "ఎప్పటికి రెడీ అవుతుంది?",
+      "gloss": "By when will it be ready?",
+      "words": [
+        { "te": "ఎప్పటికి", "gloss": "by when" },
+        { "te": "రెడీ", "gloss": "ready" },
+        { "te": "అవుతుంది", "gloss": "will become" }
+      ],
+      "tags": ["shops", "questions"],
+      "difficulty": 2,
+      "distractors": ["u28-i05", "u28-i15"]
+    },
+    {
+      "id": "u28-i05",
+      "te": "రేపు సాయంత్రానికి వచ్చి తీసుకోండి.",
+      "gloss": "Come and collect it by tomorrow evening.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "సాయంత్రానికి", "gloss": "by evening" },
+        { "te": "వచ్చి", "gloss": "having come" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["shops"],
+      "difficulty": 3,
+      "note": "వచ్చి తీసుకోండి = 'come and take'. Joining verbs with -ి (vachchi = having come) is how Telugu chains actions."
+    },
+    {
+      "id": "u28-i06",
+      "te": "కొలతలు తీసుకోండి.",
+      "gloss": "Take my measurements.",
+      "words": [
+        { "te": "కొలతలు", "gloss": "measurements" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["shops", "tailor"],
+      "difficulty": 3
+    },
+    {
+      "id": "u28-i07",
+      "te": "ఇది కొంచెం వదులుగా ఉంది.",
+      "gloss": "This is a bit loose.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "వదులుగా", "gloss": "loose" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["shops", "tailor"],
+      "difficulty": 3,
+      "distractors": ["u28-i08", "u28-i10"]
+    },
+    {
+      "id": "u28-i08",
+      "te": "కొంచెం టైట్ చేయగలరా?",
+      "gloss": "Can you make it a bit tight?",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "టైట్", "gloss": "tight" },
+        { "te": "చేయగలరా", "gloss": "can you do?" }
+      ],
+      "tags": ["shops", "tailor", "questions"],
+      "difficulty": 3,
+      "note": "-గలరా (-galaraa) asks politely about ability: చేయగలరా? = 'would you be able to do it?' Softer than a plain command."
+    },
+    {
+      "id": "u28-i09",
+      "te": "నాకు సైజు తెలియదు.",
+      "gloss": "I don't know my size.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "సైజు", "gloss": "size" },
+        { "te": "తెలియదు", "gloss": "is not known" }
+      ],
+      "tags": ["shops"],
+      "difficulty": 2,
+      "distractors": ["u28-i10", "u28-i07"]
+    },
+    {
+      "id": "u28-i10",
+      "te": "ఇంకో సైజు ఉందా?",
+      "gloss": "Is there another size?",
+      "words": [
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "సైజు", "gloss": "size" },
+        { "te": "ఉందా", "gloss": "is there?" }
+      ],
+      "tags": ["shops", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u28-i11",
+      "te": "హెయిర్ కట్ ఎంత?",
+      "gloss": "How much is a haircut?",
+      "words": [
+        { "te": "హెయిర్", "gloss": "hair" },
+        { "te": "కట్", "gloss": "cut" },
+        { "te": "ఎంత", "gloss": "how much" }
+      ],
+      "tags": ["shops", "salon", "money"],
+      "difficulty": 2,
+      "distractors": ["u28-i12", "u28-i13"]
+    },
+    {
+      "id": "u28-i12",
+      "te": "కొంచెం చిన్నగా కత్తిరించండి.",
+      "gloss": "Cut it a bit short.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "చిన్నగా", "gloss": "short" },
+        { "te": "కత్తిరించండి", "gloss": "cut (polite)" }
+      ],
+      "tags": ["shops", "salon"],
+      "difficulty": 3
+    },
+    {
+      "id": "u28-i13",
+      "te": "గడ్డం కూడా చేయండి.",
+      "gloss": "Do the beard too.",
+      "words": [
+        { "te": "గడ్డం", "gloss": "beard" },
+        { "te": "కూడా", "gloss": "also" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["shops", "salon"],
+      "difficulty": 2,
+      "distractors": ["u28-i12", "u28-i11"]
+    },
+    {
+      "id": "u28-i14",
+      "te": "షాపులో చాలా రష్ ఉంది.",
+      "gloss": "The shop is very busy.",
+      "words": [
+        { "te": "షాపులో", "gloss": "in the shop" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "రష్", "gloss": "rush / crowd" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["shops"],
+      "difficulty": 2,
+      "note": "రష్ (rush) is the pan-Indian word for a crowd at any counter. షాపులో = షాప్ + లో fused into one word."
+    },
+    {
+      "id": "u28-i15",
+      "te": "ఆల్టరేషన్ ఎంత అవుతుంది?",
+      "gloss": "How much will the alteration cost?",
+      "words": [
+        { "te": "ఆల్టరేషన్", "gloss": "alteration" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అవుతుంది", "gloss": "will it become" }
+      ],
+      "tags": ["shops", "tailor", "money"],
+      "difficulty": 3
+    },
+    {
+      "id": "u28-i16",
+      "te": "రసీదు ఇవ్వండి.",
+      "gloss": "Please give the receipt.",
+      "words": [
+        { "te": "రసీదు", "gloss": "receipt" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["shops", "money"],
+      "difficulty": 2,
+      "distractors": ["u28-i01", "u28-i04"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Recharge counter",
+      "itemIds": ["u28-i01", "u28-i02", "u28-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "Tailor talk",
+      "itemIds": ["u28-i03", "u28-i06", "u28-i15"]
+    },
+    {
+      "id": "l3",
+      "title": "Does it fit?",
+      "itemIds": ["u28-i07", "u28-i08", "u28-i09", "u28-i10"]
+    },
+    {
+      "id": "l4",
+      "title": "Salon chair stories",
+      "itemIds": ["u28-i11", "u28-i12", "u28-i13"]
+    },
+    {
+      "id": "l5",
+      "title": "Ready when?",
+      "itemIds": ["u28-i04", "u28-i05", "u28-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u28-d1",
+    "title": "Saturday errand run",
+    "scene": "Saturday morning errands with your cousin Ravi — the recharge shop first, then the tailor, the barber, and a quick stop for a new shirt.",
+    "turns": [
+      { "speaker": "Ravi", "itemId": "u28-i14" },
+      { "speaker": "You", "itemId": "u28-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u28-i02", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u28-i03" },
+      { "speaker": "You", "itemId": "u28-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u28-i08", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u28-i15" },
+      { "speaker": "You", "itemId": "u28-i04", "userTurn": true },
+      { "speaker": "Tailor", "itemId": "u28-i05" },
+      { "speaker": "Ravi", "itemId": "u28-i11" },
+      { "speaker": "You", "itemId": "u28-i12", "userTurn": true },
+      { "speaker": "Ravi", "itemId": "u28-i13" },
+      { "speaker": "Ravi", "itemId": "u28-i09" },
+      { "speaker": "You", "itemId": "u28-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u28-i16", "userTurn": true }
+    ]
+  }
+}

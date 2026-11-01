@@ -1,0 +1,278 @@
+{
+  "id": "u48",
+  "section": 6,
+  "order": 8,
+  "title": "Online orders",
+  "teTitle": "ఆన్లైన్ ఆర్డర్లు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Track a package, guide the delivery guy, share the OTP, and fight for a refund.",
+  "items": [
+    {
+      "id": "u48-i01",
+      "te": "నా ఆర్డర్ ఎక్కడ ఉంది?",
+      "gloss": "Where is my order?",
+      "words": [
+        { "te": "నా", "gloss": "my" },
+        { "te": "ఆర్డర్", "gloss": "order" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["delivery", "questions"],
+      "difficulty": 3,
+      "distractors": ["u48-i02", "u48-i16"]
+    },
+    {
+      "id": "u48-i02",
+      "te": "ప్యాకేజ్ డెలివరీకి బయలుదేరింది.",
+      "gloss": "The package is out for delivery.",
+      "words": [
+        { "te": "ప్యాకేజ్", "gloss": "package" },
+        { "te": "డెలివరీకి", "gloss": "for delivery" },
+        { "te": "బయలుదేరింది", "gloss": "has set out" }
+      ],
+      "tags": ["delivery"],
+      "difficulty": 4,
+      "note": "బయలుదేరింది ('has set out') is how apps and agents say 'out for delivery' in Telugu."
+    },
+    {
+      "id": "u48-i03",
+      "te": "సర్, మీ పార్సిల్ తెచ్చాను.",
+      "gloss": "Sir, I've brought your parcel.",
+      "words": [
+        { "te": "సర్", "gloss": "sir" },
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "పార్సిల్", "gloss": "parcel" },
+        { "te": "తెచ్చాను", "gloss": "I brought" }
+      ],
+      "tags": ["delivery"],
+      "difficulty": 3
+    },
+    {
+      "id": "u48-i04",
+      "te": "అడ్రస్ దొరకట్లేదు అండి.",
+      "gloss": "I can't find the address.",
+      "words": [
+        { "te": "అడ్రస్", "gloss": "address" },
+        { "te": "దొరకట్లేదు", "gloss": "isn't being found" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["delivery", "problems"],
+      "difficulty": 4,
+      "note": "దొరుకు = 'to be found'. దొరకట్లేదు is the delivery guy's daily lament.",
+      "distractors": ["u48-i05", "u48-i06"]
+    },
+    {
+      "id": "u48-i05",
+      "te": "లొకేషన్ పంపిస్తాను, ఆగండి.",
+      "gloss": "I'll send you the location — hold on.",
+      "words": [
+        { "te": "లొకేషన్", "gloss": "location" },
+        { "te": "పంపిస్తాను", "gloss": "I will send" },
+        { "te": "ఆగండి", "gloss": "wait (polite)" }
+      ],
+      "tags": ["delivery", "phone"],
+      "difficulty": 4,
+      "distractors": ["u48-i04", "u48-i06"]
+    },
+    {
+      "id": "u48-i06",
+      "te": "గుడి పక్కన మూడో ఇల్లు.",
+      "gloss": "The third house next to the temple.",
+      "words": [
+        { "te": "గుడి", "gloss": "temple" },
+        { "te": "పక్కన", "gloss": "next to" },
+        { "te": "మూడో", "gloss": "third" },
+        { "te": "ఇల్లు", "gloss": "house" }
+      ],
+      "tags": ["delivery", "directions"],
+      "difficulty": 4,
+      "note": "Indian addresses run on landmarks — a temple, a bank, a big tree — not street numbers."
+    },
+    {
+      "id": "u48-i07",
+      "te": "ఓటీపీ చెప్పండి సర్.",
+      "gloss": "Tell me the OTP, sir.",
+      "words": [
+        { "te": "ఓటీపీ", "gloss": "OTP" },
+        { "te": "చెప్పండి", "gloss": "tell (polite)" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["delivery"],
+      "difficulty": 3,
+      "distractors": ["u48-i08", "u48-i09"]
+    },
+    {
+      "id": "u48-i08",
+      "te": "ఓటీపీ నాలుగు ఐదు ఆరు రెండు.",
+      "gloss": "The OTP is four five six two.",
+      "words": [
+        { "te": "ఓటీపీ", "gloss": "OTP" },
+        { "te": "నాలుగు", "gloss": "four" },
+        { "te": "ఐదు", "gloss": "five" },
+        { "te": "ఆరు", "gloss": "six" },
+        { "te": "రెండు", "gloss": "two" }
+      ],
+      "tags": ["delivery", "numbers"],
+      "difficulty": 3
+    },
+    {
+      "id": "u48-i09",
+      "te": "క్యాష్ ఇస్తారా, ఆన్లైన్ చేస్తారా?",
+      "gloss": "Will you pay cash or online?",
+      "words": [
+        { "te": "క్యాష్", "gloss": "cash" },
+        { "te": "ఇస్తారా", "gloss": "will you give?" },
+        { "te": "ఆన్లైన్", "gloss": "online" },
+        { "te": "చేస్తారా", "gloss": "will you do?" }
+      ],
+      "tags": ["delivery", "money", "questions"],
+      "difficulty": 4,
+      "note": "Stacking two -ఆ questions offers a choice: ఇస్తారా, చేస్తారా? — 'will you X, or will you Y?'",
+      "distractors": ["u48-i10", "u48-i07"]
+    },
+    {
+      "id": "u48-i10",
+      "te": "ఫోన్ పే చేస్తాను ఆగండి.",
+      "gloss": "I'll pay by PhonePe — hold on.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "పే", "gloss": "pay (PhonePe)" },
+        { "te": "చేస్తాను", "gloss": "I will do" },
+        { "te": "ఆగండి", "gloss": "wait (polite)" }
+      ],
+      "tags": ["delivery", "money"],
+      "difficulty": 4
+    },
+    {
+      "id": "u48-i11",
+      "te": "సైజు సరిపోలేదు, రిటర్న్ చేయాలి.",
+      "gloss": "The size didn't fit; I need to return it.",
+      "words": [
+        { "te": "సైజు", "gloss": "size" },
+        { "te": "సరిపోలేదు", "gloss": "didn't fit" },
+        { "te": "రిటర్న్", "gloss": "return" },
+        { "te": "చేయాలి", "gloss": "must do" }
+      ],
+      "tags": ["returns", "problems"],
+      "difficulty": 4,
+      "note": "సరిపోవు = to fit / be sufficient. సరిపోలేదు works for clothes, money, and time alike.",
+      "distractors": ["u48-i12", "u48-i13"]
+    },
+    {
+      "id": "u48-i12",
+      "te": "రాంగ్ ఐటమ్ వచ్చింది అండి.",
+      "gloss": "The wrong item arrived.",
+      "words": [
+        { "te": "రాంగ్", "gloss": "wrong" },
+        { "te": "ఐటమ్", "gloss": "item" },
+        { "te": "వచ్చింది", "gloss": "came" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["returns", "problems"],
+      "difficulty": 4
+    },
+    {
+      "id": "u48-i13",
+      "te": "రీఫండ్ ఎప్పుడు వస్తుంది?",
+      "gloss": "When will the refund come?",
+      "words": [
+        { "te": "రీఫండ్", "gloss": "refund" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తుంది", "gloss": "will come" }
+      ],
+      "tags": ["returns", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u48-i14", "u48-i15"]
+    },
+    {
+      "id": "u48-i14",
+      "te": "మూడు రోజుల్లో వచ్చేస్తుంది.",
+      "gloss": "It'll come within three days.",
+      "words": [
+        { "te": "మూడు", "gloss": "three" },
+        { "te": "రోజుల్లో", "gloss": "within days" },
+        { "te": "వచ్చేస్తుంది", "gloss": "will come (for sure)" }
+      ],
+      "tags": ["returns", "time"],
+      "difficulty": 3,
+      "note": "వచ్చేస్తుంది — the -ఏస్తు flavor adds 'completely, no worries'. Customer-care reassurance mode."
+    },
+    {
+      "id": "u48-i15",
+      "te": "రేపు పికప్ ఉంటుంది అండి.",
+      "gloss": "The pickup will be tomorrow.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "పికప్", "gloss": "pickup" },
+        { "te": "ఉంటుంది", "gloss": "will be" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["returns", "time"],
+      "difficulty": 4
+    },
+    {
+      "id": "u48-i16",
+      "te": "డెలివరీ చాలా లేట్ అయింది.",
+      "gloss": "The delivery got very late.",
+      "words": [
+        { "te": "డెలివరీ", "gloss": "delivery" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "లేట్", "gloss": "late" },
+        { "te": "అయింది", "gloss": "became" }
+      ],
+      "tags": ["delivery", "problems"],
+      "difficulty": 3,
+      "distractors": ["u48-i02", "u48-i01"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Tracking the order",
+      "itemIds": ["u48-i01", "u48-i02", "u48-i16"]
+    },
+    {
+      "id": "l2",
+      "title": "Guiding the delivery",
+      "itemIds": ["u48-i04", "u48-i06", "u48-i05", "u48-i03"]
+    },
+    {
+      "id": "l3",
+      "title": "OTP at the door",
+      "itemIds": ["u48-i07", "u48-i08"]
+    },
+    {
+      "id": "l4",
+      "title": "Cash or online?",
+      "itemIds": ["u48-i09", "u48-i10"]
+    },
+    {
+      "id": "l5",
+      "title": "Returns and refunds",
+      "itemIds": ["u48-i11", "u48-i12", "u48-i15", "u48-i13", "u48-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u48-d1",
+    "title": "The parcel and the wrong kurta",
+    "scene": "Your kurta order is finally out for delivery, but the delivery guy is lost near the temple. The parcel arrives, the OTP is exchanged — and inside is the wrong item entirely. Time to call customer care.",
+    "turns": [
+      { "speaker": "You", "itemId": "u48-i01", "userTurn": true },
+      { "speaker": "Agent", "itemId": "u48-i02" },
+      { "speaker": "Delivery", "itemId": "u48-i04" },
+      { "speaker": "You", "itemId": "u48-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u48-i05", "userTurn": true },
+      { "speaker": "Delivery", "itemId": "u48-i03" },
+      { "speaker": "Delivery", "itemId": "u48-i07" },
+      { "speaker": "You", "itemId": "u48-i08", "userTurn": true },
+      { "speaker": "Delivery", "itemId": "u48-i09" },
+      { "speaker": "You", "itemId": "u48-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u48-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u48-i11", "userTurn": true },
+      { "speaker": "Agent", "itemId": "u48-i15" },
+      { "speaker": "You", "itemId": "u48-i13", "userTurn": true },
+      { "speaker": "Agent", "itemId": "u48-i14" }
+    ]
+  }
+}

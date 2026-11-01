@@ -1,0 +1,247 @@
+{
+  "id": "u06",
+  "section": 1,
+  "order": 6,
+  "title": "Wants, needs & likes",
+  "teTitle": "కావాలి, వద్దు",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Say what you want, refuse politely, and talk about what you like and don't like.",
+  "items": [
+    {
+      "id": "u06-i01",
+      "te": "మీకు ఏం కావాలి?",
+      "gloss": "What do you want?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "కావాలి", "gloss": "is wanted / needed" }
+      ],
+      "tags": ["wants", "questions"],
+      "difficulty": 1,
+      "note": "Wanting is dative in Telugu: నాకు కావాలి (naaku kaavaali) = 'to me (it) is wanted' = I want."
+    },
+    {
+      "id": "u06-i02",
+      "te": "నాకు కాఫీ కావాలి.",
+      "gloss": "I want coffee.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "కావాలి", "gloss": "is wanted" }
+      ],
+      "tags": ["wants", "food"],
+      "difficulty": 1,
+      "distractors": ["u06-i04", "u06-i11"]
+    },
+    {
+      "id": "u06-i03",
+      "te": "టీ కావాలా, కాఫీ కావాలా?",
+      "gloss": "Do you want tea or coffee?",
+      "words": [
+        { "te": "టీ", "gloss": "tea" },
+        { "te": "కావాలా", "gloss": "is (it) wanted?" },
+        { "te": "కాఫీ", "gloss": "coffee" },
+        { "te": "కావాలా", "gloss": "is (it) wanted?" }
+      ],
+      "tags": ["wants", "food", "questions"],
+      "difficulty": 2,
+      "note": "Telugu skips 'or' in questions — just ask both with -ఆ: టీ కావాలా, కాఫీ కావాలా?"
+    },
+    {
+      "id": "u06-i04",
+      "te": "నాకు వద్దు.",
+      "gloss": "I don't want (it).",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "వద్దు", "gloss": "not wanted / no" }
+      ],
+      "tags": ["wants"],
+      "difficulty": 1,
+      "distractors": ["u06-i02", "u06-i06"]
+    },
+    {
+      "id": "u06-i05",
+      "te": "ఇంకొంచెం అన్నం కావాలా?",
+      "gloss": "Do you want a little more rice?",
+      "words": [
+        { "te": "ఇంకొంచెం", "gloss": "a little more" },
+        { "te": "అన్నం", "gloss": "rice" },
+        { "te": "కావాలా", "gloss": "is (it) wanted?" }
+      ],
+      "tags": ["food", "questions", "hospitality"],
+      "difficulty": 2,
+      "note": "ఇంకా + కొంచెం merge into ఇంకొంచెం (inkonchem) 'a little more' — you'll hear it at every Telugu meal."
+    },
+    {
+      "id": "u06-i06",
+      "te": "చాలు, చాలు!",
+      "gloss": "Enough, enough!",
+      "words": [
+        { "te": "చాలు", "gloss": "enough" },
+        { "te": "చాలు", "gloss": "enough" }
+      ],
+      "tags": ["food", "hospitality"],
+      "difficulty": 1,
+      "note": "చాలు (chaalu) is the only word that slows down a Telugu host. Say it twice, hand over the plate, for full effect.",
+      "distractors": ["u06-i04", "u06-i13"]
+    },
+    {
+      "id": "u06-i07",
+      "te": "నాకు మామిడిపండు అంటే ఇష్టం.",
+      "gloss": "I like mangoes.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "మామిడిపండు", "gloss": "mango" },
+        { "te": "అంటే", "gloss": "if (you) say / as for" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["likes", "food"],
+      "difficulty": 2,
+      "note": "The pattern for likes: X అంటే ఇష్టం (X anTee ishTam), literally 'if you say X — liking'."
+    },
+    {
+      "id": "u06-i08",
+      "te": "మీకు ఏం ఇష్టం?",
+      "gloss": "What do you like?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["likes", "questions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u06-i09",
+      "te": "ఈ పాట నాకు నచ్చింది.",
+      "gloss": "I liked this song.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "పాట", "gloss": "song" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "నచ్చింది", "gloss": "it pleased" }
+      ],
+      "tags": ["likes"],
+      "difficulty": 2,
+      "note": "నచ్చింది (nachchindi) = 'it pleased (me)' — the liked thing is the subject, and you are నాకు.",
+      "distractors": ["u06-i10", "u06-i15"]
+    },
+    {
+      "id": "u06-i10",
+      "te": "ఇది నాకు నచ్చలేదు.",
+      "gloss": "I didn't like this.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "నచ్చలేదు", "gloss": "didn't please" }
+      ],
+      "tags": ["likes"],
+      "difficulty": 2,
+      "distractors": ["u06-i09", "u06-i04"]
+    },
+    {
+      "id": "u06-i11",
+      "te": "నాకు నీళ్ళు కావాలి.",
+      "gloss": "I need water.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "నీళ్ళు", "gloss": "water" },
+        { "te": "కావాలి", "gloss": "is needed" }
+      ],
+      "tags": ["needs", "food"],
+      "difficulty": 1,
+      "note": "నీళ్ళు (niiLLu) 'water' is grammatically plural in Telugu — 'waters'!",
+      "distractors": ["u06-i02", "u06-i12"]
+    },
+    {
+      "id": "u06-i12",
+      "te": "కారం వద్దు.",
+      "gloss": "No chili spice, please.",
+      "words": [
+        { "te": "కారం", "gloss": "chili heat / spice" },
+        { "te": "వద్దు", "gloss": "not wanted" }
+      ],
+      "tags": ["food", "needs"],
+      "difficulty": 1
+    },
+    {
+      "id": "u06-i13",
+      "te": "నాకు కొంచెం చాలు.",
+      "gloss": "A little is enough for me.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "చాలు", "gloss": "is enough" }
+      ],
+      "tags": ["food", "hospitality"],
+      "difficulty": 1,
+      "distractors": ["u06-i06", "u06-i12"]
+    },
+    {
+      "id": "u06-i14",
+      "te": "మీకు సినిమాలు ఇష్టమా?",
+      "gloss": "Do you like movies?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "సినిమాలు", "gloss": "movies" },
+        { "te": "ఇష్టమా", "gloss": "liking?" }
+      ],
+      "tags": ["likes", "questions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u06-i15",
+      "te": "చాలా ఇష్టం!",
+      "gloss": "I love it!",
+      "words": [
+        { "te": "చాలా", "gloss": "very much" },
+        { "te": "ఇష్టం", "gloss": "liking" }
+      ],
+      "tags": ["likes"],
+      "difficulty": 1,
+      "distractors": ["u06-i09", "u06-i14"]
+    },
+    {
+      "id": "u06-i16",
+      "te": "ఇంకేం వద్దు.",
+      "gloss": "I don't want anything else.",
+      "words": [
+        { "te": "ఇంకేం", "gloss": "anything more" },
+        { "te": "వద్దు", "gloss": "not wanted" }
+      ],
+      "tags": ["wants", "hospitality"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "I want coffee", "itemIds": ["u06-i01", "u06-i02", "u06-i03"] },
+    { "id": "l2", "title": "No thanks, enough!", "itemIds": ["u06-i04", "u06-i06", "u06-i16"] },
+    { "id": "l3", "title": "At the table", "itemIds": ["u06-i05", "u06-i11", "u06-i12", "u06-i13"] },
+    { "id": "l4", "title": "What do you like?", "itemIds": ["u06-i07", "u06-i08", "u06-i14"] },
+    { "id": "l5", "title": "Loved it or not", "itemIds": ["u06-i09", "u06-i10", "u06-i15"] }
+  ],
+  "dialogue": {
+    "id": "u06-d1",
+    "title": "A day at Ammamma's",
+    "scene": "A whole day of eating at Ammamma's house — coffee on arrival, a fiery lunch you survive with love, mangoes and movies afterwards, Tatayya grumbling at the TV, and one last offer you must gently refuse.",
+    "turns": [
+      { "speaker": "Ammamma", "itemId": "u06-i03" },
+      { "speaker": "You", "itemId": "u06-i02", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u06-i01" },
+      { "speaker": "You", "itemId": "u06-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u06-i12", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u06-i05" },
+      { "speaker": "You", "itemId": "u06-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u06-i11", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u06-i08" },
+      { "speaker": "You", "itemId": "u06-i07", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u06-i14" },
+      { "speaker": "You", "itemId": "u06-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u06-i09", "userTurn": true },
+      { "speaker": "Tatayya", "itemId": "u06-i10" },
+      { "speaker": "Ammamma", "itemId": "u06-i03" },
+      { "speaker": "You", "itemId": "u06-i16", "userTurn": true }
+    ]
+  }
+}

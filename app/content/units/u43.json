@@ -1,0 +1,278 @@
+{
+  "id": "u43",
+  "section": 6,
+  "order": 3,
+  "title": "Offices & documents",
+  "teTitle": "ఆఫీసులు, పత్రాలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Survive government-office errands: queues, photocopies, originals, and the 'come tomorrow' culture.",
+  "items": [
+    {
+      "id": "u43-i01",
+      "te": "ఆధార్ కార్డులో అడ్రస్ మార్చాలి.",
+      "gloss": "I need to change the address on my Aadhaar card.",
+      "words": [
+        { "te": "ఆధార్", "gloss": "Aadhaar" },
+        { "te": "కార్డులో", "gloss": "on the card" },
+        { "te": "అడ్రస్", "gloss": "address" },
+        { "te": "మార్చాలి", "gloss": "must change" }
+      ],
+      "tags": ["documents", "errands"],
+      "difficulty": 3,
+      "distractors": ["u43-i12", "u43-i15"]
+    },
+    {
+      "id": "u43-i02",
+      "te": "ఏ లైన్లో నిలబడాలి?",
+      "gloss": "Which line should I stand in?",
+      "words": [
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "లైన్లో", "gloss": "in (which) line" },
+        { "te": "నిలబడాలి", "gloss": "should stand" }
+      ],
+      "tags": ["queues", "questions"],
+      "difficulty": 3,
+      "distractors": ["u43-i03", "u43-i04"]
+    },
+    {
+      "id": "u43-i03",
+      "te": "టోకెన్ తీసుకుని కూర్చోండి.",
+      "gloss": "Take a token and sit down.",
+      "words": [
+        { "te": "టోకెన్", "gloss": "token" },
+        { "te": "తీసుకుని", "gloss": "having taken" },
+        { "te": "కూర్చోండి", "gloss": "sit (polite)" }
+      ],
+      "tags": ["queues", "commands"],
+      "difficulty": 3,
+      "note": "తీసుకుని ('having taken') chains two actions into one sentence — very common in instructions."
+    },
+    {
+      "id": "u43-i04",
+      "te": "లైన్ చాలా పొడవుగా ఉంది.",
+      "gloss": "The line is very long.",
+      "words": [
+        { "te": "లైన్", "gloss": "line / queue" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "పొడవుగా", "gloss": "long (adverbial)" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["queues"],
+      "difficulty": 3
+    },
+    {
+      "id": "u43-i05",
+      "te": "ఒరిజినల్స్ తీసుకుని రండి.",
+      "gloss": "Bring the originals.",
+      "words": [
+        { "te": "ఒరిజినల్స్", "gloss": "originals" },
+        { "te": "తీసుకుని", "gloss": "having taken" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["documents", "commands"],
+      "difficulty": 3,
+      "note": "The dreaded sentence — copies are never enough. Always carry ఒరిజినల్స్ to any office.",
+      "distractors": ["u43-i06", "u43-i08"]
+    },
+    {
+      "id": "u43-i06",
+      "te": "జిరాక్స్ కాపీలు రెండు కావాలి.",
+      "gloss": "Two photocopies are needed.",
+      "words": [
+        { "te": "జిరాక్స్", "gloss": "Xerox / photocopy" },
+        { "te": "కాపీలు", "gloss": "copies" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "కావాలి", "gloss": "are needed" }
+      ],
+      "tags": ["documents"],
+      "difficulty": 3,
+      "note": "In India every photocopy is a జిరాక్స్ — the brand became the word."
+    },
+    {
+      "id": "u43-i07",
+      "te": "పక్కనే జిరాక్స్ షాపు ఉంది.",
+      "gloss": "There's a photocopy shop right next door.",
+      "words": [
+        { "te": "పక్కనే", "gloss": "right next door" },
+        { "te": "జిరాక్స్", "gloss": "Xerox" },
+        { "te": "షాపు", "gloss": "shop" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["documents", "places"],
+      "difficulty": 3,
+      "distractors": ["u43-i06", "u43-i05"]
+    },
+    {
+      "id": "u43-i08",
+      "te": "ఈ ఫారం మీద ఫోటో అతికించండి.",
+      "gloss": "Stick a photo on this form.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ఫారం", "gloss": "form" },
+        { "te": "మీద", "gloss": "on" },
+        { "te": "ఫోటో", "gloss": "photo" },
+        { "te": "అతికించండి", "gloss": "stick (polite)" }
+      ],
+      "tags": ["documents", "commands"],
+      "difficulty": 4
+    },
+    {
+      "id": "u43-i09",
+      "te": "సర్, ఇవాళ అయిపోతుందా?",
+      "gloss": "Sir, will it get done today?",
+      "words": [
+        { "te": "సర్", "gloss": "sir" },
+        { "te": "ఇవాళ", "gloss": "today" },
+        { "te": "అయిపోతుందా", "gloss": "will it get done?" }
+      ],
+      "tags": ["errands", "questions"],
+      "difficulty": 4,
+      "note": "అయిపోతుంది = 'it will get completely done'. The -ఆ makes it the hopeful question you'll ask often.",
+      "distractors": ["u43-i10", "u43-i11"]
+    },
+    {
+      "id": "u43-i10",
+      "te": "రేపు రండి, ఇవాళ కుదరదు.",
+      "gloss": "Come tomorrow — it won't work out today.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "రండి", "gloss": "come (polite)" },
+        { "te": "ఇవాళ", "gloss": "today" },
+        { "te": "కుదరదు", "gloss": "won't be possible" }
+      ],
+      "tags": ["errands"],
+      "difficulty": 3,
+      "note": "కుదరదు is the all-purpose 'not possible'. Paired with రేపు రండి, it's the office anthem."
+    },
+    {
+      "id": "u43-i11",
+      "te": "సర్వర్ డౌన్ అయింది అండి.",
+      "gloss": "The server is down.",
+      "words": [
+        { "te": "సర్వర్", "gloss": "server" },
+        { "te": "డౌన్", "gloss": "down" },
+        { "te": "అయింది", "gloss": "has become" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["errands", "problems"],
+      "difficulty": 4,
+      "distractors": ["u43-i10", "u43-i16"]
+    },
+    {
+      "id": "u43-i12",
+      "te": "పాస్పోర్ట్ కోసం అప్లై చేశాను.",
+      "gloss": "I applied for a passport.",
+      "words": [
+        { "te": "పాస్పోర్ట్", "gloss": "passport" },
+        { "te": "కోసం", "gloss": "for" },
+        { "te": "అప్లై", "gloss": "apply" },
+        { "te": "చేశాను", "gloss": "I did" }
+      ],
+      "tags": ["documents"],
+      "difficulty": 4
+    },
+    {
+      "id": "u43-i13",
+      "te": "పొద్దున్నే వచ్చి లైన్లో నిలబడ్డాను.",
+      "gloss": "I came early in the morning and stood in line.",
+      "words": [
+        { "te": "పొద్దున్నే", "gloss": "early in the morning" },
+        { "te": "వచ్చి", "gloss": "having come" },
+        { "te": "లైన్లో", "gloss": "in the line" },
+        { "te": "నిలబడ్డాను", "gloss": "I stood" }
+      ],
+      "tags": ["queues"],
+      "difficulty": 4,
+      "distractors": ["u43-i04", "u43-i02"]
+    },
+    {
+      "id": "u43-i14",
+      "te": "మీ వంతు వచ్చినప్పుడు పిలుస్తాము.",
+      "gloss": "We'll call you when your turn comes.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "వంతు", "gloss": "turn" },
+        { "te": "వచ్చినప్పుడు", "gloss": "when it comes" },
+        { "te": "పిలుస్తాము", "gloss": "we will call" }
+      ],
+      "tags": ["queues"],
+      "difficulty": 5,
+      "note": "వచ్చినప్పుడు = 'at the time it comes' — the -అప్పుడు ending builds 'when' clauses."
+    },
+    {
+      "id": "u43-i15",
+      "te": "అన్ని పేపర్లు సరిగ్గా ఉన్నాయా?",
+      "gloss": "Are all the papers in order?",
+      "words": [
+        { "te": "అన్ని", "gloss": "all" },
+        { "te": "పేపర్లు", "gloss": "papers" },
+        { "te": "సరిగ్గా", "gloss": "properly" },
+        { "te": "ఉన్నాయా", "gloss": "are they?" }
+      ],
+      "tags": ["documents", "questions"],
+      "difficulty": 4,
+      "distractors": ["u43-i05", "u43-i06"]
+    },
+    {
+      "id": "u43-i16",
+      "te": "వారంలో సర్టిఫికెట్ వస్తుంది.",
+      "gloss": "The certificate will come within a week.",
+      "words": [
+        { "te": "వారంలో", "gloss": "within a week" },
+        { "te": "సర్టిఫికెట్", "gloss": "certificate" },
+        { "te": "వస్తుంది", "gloss": "will come" }
+      ],
+      "tags": ["documents", "time"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Joining the queue",
+      "itemIds": ["u43-i02", "u43-i03", "u43-i04", "u43-i13"]
+    },
+    {
+      "id": "l2",
+      "title": "What you came for",
+      "itemIds": ["u43-i01", "u43-i12", "u43-i14"]
+    },
+    {
+      "id": "l3",
+      "title": "Copies and originals",
+      "itemIds": ["u43-i05", "u43-i06", "u43-i07"]
+    },
+    {
+      "id": "l4",
+      "title": "At the window",
+      "itemIds": ["u43-i15", "u43-i08", "u43-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Come tomorrow",
+      "itemIds": ["u43-i09", "u43-i11", "u43-i10"]
+    }
+  ],
+  "dialogue": {
+    "id": "u43-d1",
+    "title": "The Aadhaar center marathon",
+    "scene": "8 a.m. at the Aadhaar seva kendram. The line already snakes around the building. You clutch a folder of papers and hope today is the day the address finally gets changed.",
+    "turns": [
+      { "speaker": "You", "itemId": "u43-i02", "userTurn": true },
+      { "speaker": "Guard", "itemId": "u43-i03" },
+      { "speaker": "Neighbor", "itemId": "u43-i04" },
+      { "speaker": "You", "itemId": "u43-i13", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u43-i14" },
+      { "speaker": "You", "itemId": "u43-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u43-i15", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u43-i05" },
+      { "speaker": "Clerk", "itemId": "u43-i06" },
+      { "speaker": "Clerk", "itemId": "u43-i07" },
+      { "speaker": "Clerk", "itemId": "u43-i08" },
+      { "speaker": "You", "itemId": "u43-i09", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u43-i11" },
+      { "speaker": "Clerk", "itemId": "u43-i10" }
+    ]
+  }
+}

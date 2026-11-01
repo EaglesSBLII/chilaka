@@ -1,0 +1,280 @@
+{
+  "id": "u46",
+  "section": 6,
+  "order": 6,
+  "title": "Trips & tickets",
+  "teTitle": "ప్రయాణాలు, టికెట్లు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Book tickets, check the PNR, find the platform, and get packed off with love.",
+  "items": [
+    {
+      "id": "u46-i01",
+      "te": "తిరుపతికి రెండు టికెట్లు కావాలి.",
+      "gloss": "I need two tickets to Tirupati.",
+      "words": [
+        { "te": "తిరుపతికి", "gloss": "to Tirupati" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "టికెట్లు", "gloss": "tickets" },
+        { "te": "కావాలి", "gloss": "are needed" }
+      ],
+      "tags": ["travel", "requests"],
+      "difficulty": 3,
+      "note": "-కి on a place name means 'to': తిరుపతికి, హైదరాబాదుకి. Place + కి + కావాలి books anything.",
+      "distractors": ["u46-i04", "u46-i16"]
+    },
+    {
+      "id": "u46-i02",
+      "te": "ఏ రోజు ప్రయాణం అండి?",
+      "gloss": "Which day is the journey?",
+      "words": [
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "రోజు", "gloss": "day" },
+        { "te": "ప్రయాణం", "gloss": "journey" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u46-i03",
+      "te": "శుక్రవారం రాత్రి బయలుదేరాలి.",
+      "gloss": "We need to leave Friday night.",
+      "words": [
+        { "te": "శుక్రవారం", "gloss": "Friday" },
+        { "te": "రాత్రి", "gloss": "night" },
+        { "te": "బయలుదేరాలి", "gloss": "must set out" }
+      ],
+      "tags": ["travel", "time"],
+      "difficulty": 4,
+      "distractors": ["u46-i12", "u46-i02"]
+    },
+    {
+      "id": "u46-i04",
+      "te": "స్లీపర్ బెర్తులు ఖాళీ ఉన్నాయా?",
+      "gloss": "Are there sleeper berths free?",
+      "words": [
+        { "te": "స్లీపర్", "gloss": "sleeper" },
+        { "te": "బెర్తులు", "gloss": "berths" },
+        { "te": "ఖాళీ", "gloss": "vacant" },
+        { "te": "ఉన్నాయా", "gloss": "are there?" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 4,
+      "note": "ఖాళీ ('empty/vacant') is the word for any availability — seats, rooms, parking spots.",
+      "distractors": ["u46-i05", "u46-i01"]
+    },
+    {
+      "id": "u46-i05",
+      "te": "టికెట్ ఇంకా కన్ఫర్మ్ అవ్వలేదు.",
+      "gloss": "The ticket isn't confirmed yet.",
+      "words": [
+        { "te": "టికెట్", "gloss": "ticket" },
+        { "te": "ఇంకా", "gloss": "yet" },
+        { "te": "కన్ఫర్మ్", "gloss": "confirmed" },
+        { "te": "అవ్వలేదు", "gloss": "hasn't become" }
+      ],
+      "tags": ["travel"],
+      "difficulty": 4
+    },
+    {
+      "id": "u46-i06",
+      "te": "పీఎన్ఆర్ నంబరు చెక్ చేయండి.",
+      "gloss": "Check the PNR number.",
+      "words": [
+        { "te": "పీఎన్ఆర్", "gloss": "PNR" },
+        { "te": "నంబరు", "gloss": "number" },
+        { "te": "చెక్", "gloss": "check" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 4,
+      "note": "Waitlisted families refresh the PNR like a cricket score until the chart comes out."
+    },
+    {
+      "id": "u46-i07",
+      "te": "రైలు ఏ ప్లాట్ఫారం మీదకు వస్తుంది?",
+      "gloss": "Which platform does the train come on?",
+      "words": [
+        { "te": "రైలు", "gloss": "train" },
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "ప్లాట్ఫారం", "gloss": "platform" },
+        { "te": "మీదకు", "gloss": "onto" },
+        { "te": "వస్తుంది", "gloss": "will come" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 4,
+      "distractors": ["u46-i08", "u46-i12"]
+    },
+    {
+      "id": "u46-i08",
+      "te": "మూడో ప్లాట్ఫారం మీదకు వెళ్ళండి.",
+      "gloss": "Go to platform three.",
+      "words": [
+        { "te": "మూడో", "gloss": "third" },
+        { "te": "ప్లాట్ఫారం", "gloss": "platform" },
+        { "te": "మీదకు", "gloss": "onto" },
+        { "te": "వెళ్ళండి", "gloss": "go (polite)" }
+      ],
+      "tags": ["travel", "commands"],
+      "difficulty": 4,
+      "note": "-ఓ turns numbers ordinal: మూడు → మూడో (third), ఐదు → ఐదో (fifth)."
+    },
+    {
+      "id": "u46-i09",
+      "te": "బట్టలు అన్నీ సర్దుకున్నారా?",
+      "gloss": "Did you pack all your clothes?",
+      "words": [
+        { "te": "బట్టలు", "gloss": "clothes" },
+        { "te": "అన్నీ", "gloss": "all" },
+        { "te": "సర్దుకున్నారా", "gloss": "did you pack (for yourself)?" }
+      ],
+      "tags": ["travel", "packing", "questions"],
+      "difficulty": 3,
+      "note": "సర్దుకో = pack/arrange for yourself — the -కో makes the action for your own benefit.",
+      "distractors": ["u46-i10", "u46-i11"]
+    },
+    {
+      "id": "u46-i10",
+      "te": "చార్జర్ మర్చిపోకుండా పెట్టుకోండి.",
+      "gloss": "Pack the charger without forgetting it.",
+      "words": [
+        { "te": "చార్జర్", "gloss": "charger" },
+        { "te": "మర్చిపోకుండా", "gloss": "without forgetting" },
+        { "te": "పెట్టుకోండి", "gloss": "keep (for yourself, polite)" }
+      ],
+      "tags": ["travel", "packing"],
+      "difficulty": 4,
+      "distractors": ["u46-i09", "u46-i15"]
+    },
+    {
+      "id": "u46-i11",
+      "te": "దారిలో తినడానికి ఏమైనా పట్టుకెళ్ళండి.",
+      "gloss": "Take something along to eat on the way.",
+      "words": [
+        { "te": "దారిలో", "gloss": "on the way" },
+        { "te": "తినడానికి", "gloss": "for eating" },
+        { "te": "ఏమైనా", "gloss": "something" },
+        { "te": "పట్టుకెళ్ళండి", "gloss": "carry along (polite)" }
+      ],
+      "tags": ["travel", "packing", "food"],
+      "difficulty": 5,
+      "note": "No Telugu family lets you board a train without food. Resistance is futile."
+    },
+    {
+      "id": "u46-i12",
+      "te": "రైలు ఎన్నింటికి బయలుదేరుతుంది?",
+      "gloss": "What time does the train leave?",
+      "words": [
+        { "te": "రైలు", "gloss": "train" },
+        { "te": "ఎన్నింటికి", "gloss": "at what time" },
+        { "te": "బయలుదేరుతుంది", "gloss": "will set out" }
+      ],
+      "tags": ["travel", "time", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u46-i13",
+      "te": "రైలు అరగంట ఆలస్యంగా నడుస్తోంది.",
+      "gloss": "The train is running half an hour late.",
+      "words": [
+        { "te": "రైలు", "gloss": "train" },
+        { "te": "అరగంట", "gloss": "half an hour" },
+        { "te": "ఆలస్యంగా", "gloss": "late (adverbial)" },
+        { "te": "నడుస్తోంది", "gloss": "is running" }
+      ],
+      "tags": ["travel", "time"],
+      "difficulty": 4,
+      "distractors": ["u46-i12", "u46-i08"]
+    },
+    {
+      "id": "u46-i14",
+      "te": "చేరగానే ఫోన్ చేయండి.",
+      "gloss": "Call as soon as you reach.",
+      "words": [
+        { "te": "చేరగానే", "gloss": "as soon as (you) reach" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["travel", "family"],
+      "difficulty": 3,
+      "note": "-గానే means 'as soon as': చేరగానే, రాగానే, లేవగానే. The send-off line of every Telugu parent.",
+      "distractors": ["u46-i15", "u46-i10"]
+    },
+    {
+      "id": "u46-i15",
+      "te": "జాగ్రత్త, లగేజ్ చూసుకోండి.",
+      "gloss": "Careful — keep an eye on the luggage.",
+      "words": [
+        { "te": "జాగ్రత్త", "gloss": "carefulness" },
+        { "te": "లగేజ్", "gloss": "luggage" },
+        { "te": "చూసుకోండి", "gloss": "watch (for yourself, polite)" }
+      ],
+      "tags": ["travel", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u46-i16",
+      "te": "హోటల్ రూమ్ బుక్ చేశారా?",
+      "gloss": "Did you book the hotel room?",
+      "words": [
+        { "te": "హోటల్", "gloss": "hotel" },
+        { "te": "రూమ్", "gloss": "room" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "చేశారా", "gloss": "did you do?" }
+      ],
+      "tags": ["travel", "questions"],
+      "difficulty": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "At the booking counter",
+      "itemIds": ["u46-i01", "u46-i02", "u46-i03", "u46-i04"]
+    },
+    {
+      "id": "l2",
+      "title": "Waiting on the PNR",
+      "itemIds": ["u46-i05", "u46-i06", "u46-i16"]
+    },
+    {
+      "id": "l3",
+      "title": "Packing up",
+      "itemIds": ["u46-i09", "u46-i10", "u46-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "The send-off",
+      "itemIds": ["u46-i14", "u46-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "At the station",
+      "itemIds": ["u46-i12", "u46-i13", "u46-i07", "u46-i08"]
+    }
+  ],
+  "dialogue": {
+    "id": "u46-d1",
+    "title": "Friday night to Tirupati",
+    "scene": "A trip to Tirupati with cousin Ravi: first the reservation counter, then Amma supervising the packing at home, and finally the platform scramble at Secunderabad station.",
+    "turns": [
+      { "speaker": "You", "itemId": "u46-i01", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u46-i02" },
+      { "speaker": "You", "itemId": "u46-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u46-i04", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u46-i05" },
+      { "speaker": "Clerk", "itemId": "u46-i06" },
+      { "speaker": "Amma", "itemId": "u46-i09" },
+      { "speaker": "You", "itemId": "u46-i16", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u46-i10" },
+      { "speaker": "Amma", "itemId": "u46-i11" },
+      { "speaker": "Amma", "itemId": "u46-i14" },
+      { "speaker": "Amma", "itemId": "u46-i15" },
+      { "speaker": "You", "itemId": "u46-i12", "userTurn": true },
+      { "speaker": "Staff", "itemId": "u46-i13" },
+      { "speaker": "You", "itemId": "u46-i07", "userTurn": true },
+      { "speaker": "Staff", "itemId": "u46-i08" }
+    ]
+  }
+}

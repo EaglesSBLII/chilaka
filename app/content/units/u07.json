@@ -1,0 +1,263 @@
+{
+  "id": "u07",
+  "section": 1,
+  "order": 7,
+  "title": "Requests & polite commands",
+  "teTitle": "మర్యాద మాటలు",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Ask for things politely, slow people down, and handle thanks and sorry the Telugu way.",
+  "items": [
+    {
+      "id": "u07-i01",
+      "te": "కొంచెం నీళ్ళు ఇవ్వండి.",
+      "gloss": "Please give me some water.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little / please" },
+        { "te": "నీళ్ళు", "gloss": "water" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["requests", "commands"],
+      "difficulty": 1,
+      "note": "Telugu has no everyday word for 'please' — కొంచెం (konchem, 'a little') plus the polite -ండి ending does that job.",
+      "distractors": ["u07-i09", "u07-i02"]
+    },
+    {
+      "id": "u07-i02",
+      "te": "మళ్ళీ చెప్పండి.",
+      "gloss": "Please say it again.",
+      "words": [
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "చెప్పండి", "gloss": "say (polite)" }
+      ],
+      "tags": ["requests", "learner"],
+      "difficulty": 1,
+      "distractors": ["u07-i03", "u07-i04"]
+    },
+    {
+      "id": "u07-i03",
+      "te": "కొంచెం నెమ్మదిగా చెప్పండి.",
+      "gloss": "Please say it a little slowly.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "చెప్పండి", "gloss": "say (polite)" }
+      ],
+      "tags": ["requests", "learner"],
+      "difficulty": 1,
+      "note": "Your superpower sentence as a learner — use it freely. నెమ్మదిగా (nemmadigaa) = slowly; మెల్లగా (mellagaa) works too."
+    },
+    {
+      "id": "u07-i04",
+      "te": "ఇది చూడండి.",
+      "gloss": "Look at this.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "చూడండి", "gloss": "look (polite)" }
+      ],
+      "tags": ["commands"],
+      "difficulty": 1
+    },
+    {
+      "id": "u07-i05",
+      "te": "ఇక్కడికి రండి.",
+      "gloss": "Please come here.",
+      "words": [
+        { "te": "ఇక్కడికి", "gloss": "to here" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["commands"],
+      "difficulty": 1,
+      "distractors": ["u07-i07", "u07-i06"]
+    },
+    {
+      "id": "u07-i06",
+      "te": "ఒక్క నిమిషం ఆగండి.",
+      "gloss": "Please wait one minute.",
+      "words": [
+        { "te": "ఒక్క", "gloss": "just one" },
+        { "te": "నిమిషం", "gloss": "minute" },
+        { "te": "ఆగండి", "gloss": "wait / stop (polite)" }
+      ],
+      "tags": ["requests", "commands"],
+      "difficulty": 1
+    },
+    {
+      "id": "u07-i07",
+      "te": "లోపలికి రండి.",
+      "gloss": "Please come inside.",
+      "words": [
+        { "te": "లోపలికి", "gloss": "to inside" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["commands", "hospitality"],
+      "difficulty": 1,
+      "distractors": ["u07-i05", "u07-i08"]
+    },
+    {
+      "id": "u07-i08",
+      "te": "తలుపు తీయండి.",
+      "gloss": "Please open the door.",
+      "words": [
+        { "te": "తలుపు", "gloss": "door" },
+        { "te": "తీయండి", "gloss": "open (polite)" }
+      ],
+      "tags": ["commands"],
+      "difficulty": 1,
+      "note": "Doors are 'taken' and 'thrown' in Telugu: తలుపు తీయండి = open the door, తలుపు వేయండి = close it!"
+    },
+    {
+      "id": "u07-i09",
+      "te": "నాకు అది ఇవ్వండి.",
+      "gloss": "Please give me that.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అది", "gloss": "that" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["requests", "commands"],
+      "difficulty": 1,
+      "distractors": ["u07-i01", "u07-i04"]
+    },
+    {
+      "id": "u07-i10",
+      "te": "కొంచెం సాయం చేయండి.",
+      "gloss": "Please help me a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little / please" },
+        { "te": "సాయం", "gloss": "help" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["requests"],
+      "difficulty": 2
+    },
+    {
+      "id": "u07-i11",
+      "te": "అర్థం కాలేదు.",
+      "gloss": "I didn't understand.",
+      "words": [
+        { "te": "అర్థం", "gloss": "meaning" },
+        { "te": "కాలేదు", "gloss": "didn't happen" }
+      ],
+      "tags": ["learner"],
+      "difficulty": 1,
+      "note": "Literally 'meaning didn't happen'. Say it without shame — it is every learner's best friend."
+    },
+    {
+      "id": "u07-i12",
+      "te": "ధన్యవాదాలు!",
+      "gloss": "Thank you!",
+      "words": [
+        { "te": "ధన్యవాదాలు", "gloss": "thanks (formal)" }
+      ],
+      "tags": ["politeness"],
+      "difficulty": 1,
+      "note": "ధన్యవాదాలు (dhanyavaadaalu) is formal. Telugu families rarely say thanks out loud — gratitude lives in actions. With friends, a light థాంక్స్ works.",
+      "distractors": ["u07-i13", "u07-i14"]
+    },
+    {
+      "id": "u07-i13",
+      "te": "థాంక్స్ అన్నయ్యా!",
+      "gloss": "Thanks, anna!",
+      "words": [
+        { "te": "థాంక్స్", "gloss": "thanks" },
+        { "te": "అన్నయ్యా", "gloss": "elder brother (calling)" }
+      ],
+      "tags": ["politeness"],
+      "difficulty": 1
+    },
+    {
+      "id": "u07-i14",
+      "te": "పర్వాలేదు.",
+      "gloss": "It's okay / no problem.",
+      "words": [
+        { "te": "పర్వాలేదు", "gloss": "no problem" }
+      ],
+      "tags": ["politeness"],
+      "difficulty": 1,
+      "distractors": ["u07-i12", "u07-i15"]
+    },
+    {
+      "id": "u07-i15",
+      "te": "క్షమించండి, ఆలస్యం అయ్యింది.",
+      "gloss": "Sorry, I got late.",
+      "words": [
+        { "te": "క్షమించండి", "gloss": "forgive (me) (polite)" },
+        { "te": "ఆలస్యం", "gloss": "delay / lateness" },
+        { "te": "అయ్యింది", "gloss": "it happened" }
+      ],
+      "tags": ["politeness"],
+      "difficulty": 2,
+      "note": "క్షమించండి (kshaminchanDi) is the formal 'sorry'; among friends people just say సారీ."
+    },
+    {
+      "id": "u07-i16",
+      "te": "కొంచెం అటు జరగండి.",
+      "gloss": "Please move over a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "అటు", "gloss": "that way" },
+        { "te": "జరగండి", "gloss": "move (polite)" }
+      ],
+      "tags": ["requests", "commands"],
+      "difficulty": 2,
+      "distractors": ["u07-i06", "u07-i05"]
+    },
+    {
+      "id": "u07-i17",
+      "te": "ఇది ఎలా చెప్పాలి?",
+      "gloss": "How do I say this?",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "చెప్పాలి", "gloss": "should (one) say" }
+      ],
+      "tags": ["learner", "questions"],
+      "difficulty": 2,
+      "note": "-ఆలి (-aali) = must/should: చెప్పాలి 'should say', వెళ్ళాలి 'must go'.",
+      "distractors": ["u07-i02", "u07-i03"]
+    },
+    {
+      "id": "u07-i18",
+      "te": "నాకు తెలుగు నేర్పండి.",
+      "gloss": "Please teach me Telugu.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "తెలుగు", "gloss": "Telugu" },
+        { "te": "నేర్పండి", "gloss": "teach (polite)" }
+      ],
+      "tags": ["requests", "learner"],
+      "difficulty": 1
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Slowly, once more", "itemIds": ["u07-i02", "u07-i03", "u07-i11", "u07-i17"] },
+    { "id": "l2", "title": "Give me, open up", "itemIds": ["u07-i01", "u07-i08", "u07-i09"] },
+    { "id": "l3", "title": "Come, wait, look", "itemIds": ["u07-i04", "u07-i05", "u07-i06", "u07-i07"] },
+    { "id": "l4", "title": "Thanks & sorry", "itemIds": ["u07-i12", "u07-i13", "u07-i14", "u07-i15"] },
+    { "id": "l5", "title": "A little help", "itemIds": ["u07-i10", "u07-i16", "u07-i18"] }
+  ],
+  "dialogue": {
+    "id": "u07-d1",
+    "title": "Telugu class with Mavayya",
+    "scene": "Telugu practice at Chandra mavayya's house. You knock, late as usual; cousin Ravi is sprawled across the bench; and Mavayya turns full teacher — glasses, primer, drills and all.",
+    "turns": [
+      { "speaker": "Mavayya", "itemId": "u07-i08" },
+      { "speaker": "You", "itemId": "u07-i15", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u07-i14" },
+      { "speaker": "Mavayya", "itemId": "u07-i07" },
+      { "speaker": "You", "itemId": "u07-i16", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u07-i05" },
+      { "speaker": "You", "itemId": "u07-i18", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u07-i09" },
+      { "speaker": "Mavayya", "itemId": "u07-i04" },
+      { "speaker": "You", "itemId": "u07-i06", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u07-i02" },
+      { "speaker": "You", "itemId": "u07-i11", "userTurn": true },
+      { "speaker": "You", "itemId": "u07-i17", "userTurn": true },
+      { "speaker": "Mavayya", "itemId": "u07-i04" },
+      { "speaker": "You", "itemId": "u07-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u07-i12", "userTurn": true }
+    ]
+  }
+}

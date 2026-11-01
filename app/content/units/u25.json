@@ -1,0 +1,274 @@
+{
+  "id": "u25",
+  "section": 4,
+  "order": 1,
+  "title": "Metro, bus & auto",
+  "teTitle": "మెట్రో, బస్సు, ఆటో",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Ride the metro, squeeze onto crowded buses, and bargain with auto drivers like a local.",
+  "items": [
+    {
+      "id": "u25-i01",
+      "te": "మెట్రో స్టేషన్ ఎక్కడ ఉంది?",
+      "gloss": "Where is the metro station?",
+      "words": [
+        { "te": "మెట్రో", "gloss": "metro" },
+        { "te": "స్టేషన్", "gloss": "station" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["transport", "questions"],
+      "difficulty": 2,
+      "distractors": ["u25-i04", "u25-i15"]
+    },
+    {
+      "id": "u25-i02",
+      "te": "నాకు మెట్రో కార్డ్ కావాలి.",
+      "gloss": "I need a metro card.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "మెట్రో", "gloss": "metro" },
+        { "te": "కార్డ్", "gloss": "card" },
+        { "te": "కావాలి", "gloss": "is needed" }
+      ],
+      "tags": ["transport"],
+      "difficulty": 2,
+      "distractors": ["u25-i03", "u25-i01"]
+    },
+    {
+      "id": "u25-i03",
+      "te": "కార్డ్ రీఛార్జ్ చేయాలి.",
+      "gloss": "Need to recharge the card.",
+      "words": [
+        { "te": "కార్డ్", "gloss": "card" },
+        { "te": "రీఛార్జ్", "gloss": "recharge" },
+        { "te": "చేయాలి", "gloss": "must do" }
+      ],
+      "tags": ["transport"],
+      "difficulty": 2,
+      "note": "English loanwords slot straight into Telugu with చేయాలి (cheyaali, 'must do'): రీఛార్జ్ చేయాలి, బుక్ చేయాలి, క్యాన్సిల్ చేయాలి."
+    },
+    {
+      "id": "u25-i04",
+      "te": "ఈ మెట్రో ఎటు వెళ్తుంది?",
+      "gloss": "Which way does this metro go?",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "మెట్రో", "gloss": "metro" },
+        { "te": "ఎటు", "gloss": "which way" },
+        { "te": "వెళ్తుంది", "gloss": "goes" }
+      ],
+      "tags": ["transport", "questions"],
+      "difficulty": 2,
+      "distractors": ["u25-i01", "u25-i05"]
+    },
+    {
+      "id": "u25-i05",
+      "te": "ఏ స్టాపులో దిగాలి?",
+      "gloss": "At which stop should I get down?",
+      "words": [
+        { "te": "ఏ", "gloss": "which" },
+        { "te": "స్టాపులో", "gloss": "at the stop" },
+        { "te": "దిగాలి", "gloss": "should get down" }
+      ],
+      "tags": ["transport", "questions"],
+      "difficulty": 2,
+      "note": "దిగు (digu) = get down, the everyday verb for leaving any vehicle. Note స్టాపులో: the loanword స్టాప్ fuses with లో (in/at), just like బస్సులో."
+    },
+    {
+      "id": "u25-i06",
+      "te": "బస్సు చాలా రద్దీగా ఉంది.",
+      "gloss": "The bus is very crowded.",
+      "words": [
+        { "te": "బస్సు", "gloss": "bus" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "రద్దీగా", "gloss": "crowded" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["transport"],
+      "difficulty": 2,
+      "distractors": ["u25-i07", "u25-i16"]
+    },
+    {
+      "id": "u25-i07",
+      "te": "కొంచెం పక్కకి జరగండి.",
+      "gloss": "Please move aside a little.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "పక్కకి", "gloss": "to the side" },
+        { "te": "జరగండి", "gloss": "move (polite)" }
+      ],
+      "tags": ["transport", "commands"],
+      "difficulty": 3
+    },
+    {
+      "id": "u25-i08",
+      "te": "నేను ఇక్కడ దిగుతాను.",
+      "gloss": "I'm getting down here.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "దిగుతాను", "gloss": "will get down" }
+      ],
+      "tags": ["transport"],
+      "difficulty": 2,
+      "note": "Say this loudly as your stop nears — on a packed bus, that's how the conductor knows to signal a halt.",
+      "distractors": ["u25-i16", "u25-i05"]
+    },
+    {
+      "id": "u25-i09",
+      "te": "ఆటో, చార్మినార్ వెళ్తారా?",
+      "gloss": "Auto, will you go to Charminar?",
+      "words": [
+        { "te": "ఆటో", "gloss": "auto" },
+        { "te": "చార్మినార్", "gloss": "Charminar" },
+        { "te": "వెళ్తారా", "gloss": "will you go?" }
+      ],
+      "tags": ["transport", "questions"],
+      "difficulty": 2,
+      "distractors": ["u25-i10", "u25-i13"]
+    },
+    {
+      "id": "u25-i10",
+      "te": "ఎంత తీసుకుంటారు?",
+      "gloss": "How much will you take?",
+      "words": [
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "తీసుకుంటారు", "gloss": "will you take" }
+      ],
+      "tags": ["transport", "money", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u25-i11",
+      "te": "మీటర్ ప్రకారం వెళ్దాం.",
+      "gloss": "Let's go by the meter.",
+      "words": [
+        { "te": "మీటర్", "gloss": "meter" },
+        { "te": "ప్రకారం", "gloss": "according to" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["transport", "money"],
+      "difficulty": 3,
+      "note": "ప్రకారం (prakaaram) = 'according to'. Asking for the meter is standard — many drivers still quote a flat rate, so be ready to bargain."
+    },
+    {
+      "id": "u25-i12",
+      "te": "అంత ఎక్కువా? కొంచెం తగ్గించండి.",
+      "gloss": "That much? Bring it down a little.",
+      "words": [
+        { "te": "అంత", "gloss": "that much" },
+        { "te": "ఎక్కువా", "gloss": "is it too much?" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "తగ్గించండి", "gloss": "reduce (polite)" }
+      ],
+      "tags": ["transport", "money"],
+      "difficulty": 3,
+      "note": "తగ్గించండి (tagginchandi) = 'bring it down'. Friendly bargaining with autos is expected — smile, quote lower, meet in the middle.",
+      "distractors": ["u25-i10", "u25-i11"]
+    },
+    {
+      "id": "u25-i13",
+      "te": "నేను ఓలా బుక్ చేశాను.",
+      "gloss": "I booked an Ola.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఓలా", "gloss": "Ola" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "చేశాను", "gloss": "did" }
+      ],
+      "tags": ["transport"],
+      "difficulty": 2,
+      "distractors": ["u25-i14", "u25-i09"]
+    },
+    {
+      "id": "u25-i14",
+      "te": "డ్రైవర్ ఫోన్ ఎత్తడం లేదు.",
+      "gloss": "The driver isn't picking up the phone.",
+      "words": [
+        { "te": "డ్రైవర్", "gloss": "driver" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "ఎత్తడం", "gloss": "lifting" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["transport", "phone"],
+      "difficulty": 3,
+      "note": "ఫోన్ ఎత్తు (phone ettu, lit. 'lift the phone') = answer a call. ఎత్తడం లేదు = 'is not picking up'."
+    },
+    {
+      "id": "u25-i15",
+      "te": "చివరి మెట్రో ఎప్పుడు?",
+      "gloss": "When is the last metro?",
+      "words": [
+        { "te": "చివరి", "gloss": "last" },
+        { "te": "మెట్రో", "gloss": "metro" },
+        { "te": "ఎప్పుడు", "gloss": "when" }
+      ],
+      "tags": ["transport", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u25-i16",
+      "te": "తర్వాతి స్టాపులో దిగండి.",
+      "gloss": "Get down at the next stop.",
+      "words": [
+        { "te": "తర్వాతి", "gloss": "next" },
+        { "te": "స్టాపులో", "gloss": "at the stop" },
+        { "te": "దిగండి", "gloss": "get down (polite)" }
+      ],
+      "tags": ["transport", "commands"],
+      "difficulty": 3,
+      "distractors": ["u25-i08", "u25-i05"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Tap in, top up",
+      "itemIds": ["u25-i01", "u25-i02", "u25-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Which way, which stop?",
+      "itemIds": ["u25-i04", "u25-i05", "u25-i16"]
+    },
+    {
+      "id": "l3",
+      "title": "Packed bus survival",
+      "itemIds": ["u25-i06", "u25-i07", "u25-i08"]
+    },
+    {
+      "id": "l4",
+      "title": "The great auto bargain",
+      "itemIds": ["u25-i09", "u25-i10", "u25-i11", "u25-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Late night, last metro",
+      "itemIds": ["u25-i13", "u25-i14", "u25-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u25-d1",
+    "title": "Charminar by metro and auto",
+    "scene": "Evening in Hyderabad. You and your friend Kiran are heading to Charminar — first the metro from Ameerpet, then the classic auto negotiation for the last stretch.",
+    "turns": [
+      { "speaker": "You", "itemId": "u25-i01", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u25-i06" },
+      { "speaker": "You", "itemId": "u25-i02", "userTurn": true },
+      { "speaker": "Clerk", "itemId": "u25-i03" },
+      { "speaker": "You", "itemId": "u25-i15", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u25-i05" },
+      { "speaker": "You", "itemId": "u25-i16", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u25-i07" },
+      { "speaker": "You", "itemId": "u25-i08", "userTurn": true },
+      { "speaker": "Kiran", "itemId": "u25-i13" },
+      { "speaker": "Kiran", "itemId": "u25-i14" },
+      { "speaker": "You", "itemId": "u25-i09", "userTurn": true },
+      { "speaker": "You", "itemId": "u25-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u25-i12", "userTurn": true },
+      { "speaker": "Driver", "itemId": "u25-i11" }
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "id": "u27",
+  "section": 4,
+  "order": 3,
+  "title": "At a restaurant",
+  "teTitle": "హోటల్ భోజనం",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Read the menu, order for the whole family, and handle the bill with confidence.",
+  "items": [
+    {
+      "id": "u27-i01",
+      "te": "మెనూ ఒకసారి ఇవ్వండి.",
+      "gloss": "Please give the menu.",
+      "words": [
+        { "te": "మెనూ", "gloss": "menu" },
+        { "te": "ఒకసారి", "gloss": "once" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["food", "restaurant"],
+      "difficulty": 2,
+      "note": "ఒకసారి (okasaari, 'once') softens requests — like English 'could you just…'. You'll hear it constantly: ఒకసారి చూడండి, ఒకసారి రండి."
+    },
+    {
+      "id": "u27-i02",
+      "te": "మీ దగ్గర ఏం స్పెషల్?",
+      "gloss": "What's the special here?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "దగ్గర", "gloss": "at / with" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "స్పెషల్", "gloss": "special" }
+      ],
+      "tags": ["restaurant", "questions"],
+      "difficulty": 2,
+      "distractors": ["u27-i03", "u27-i05"]
+    },
+    {
+      "id": "u27-i03",
+      "te": "మీరు ఏం రికమెండ్ చేస్తారు?",
+      "gloss": "What do you recommend?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "రికమెండ్", "gloss": "recommend" },
+        { "te": "చేస్తారు", "gloss": "will do" }
+      ],
+      "tags": ["restaurant", "questions"],
+      "difficulty": 3,
+      "distractors": ["u27-i02", "u27-i16"]
+    },
+    {
+      "id": "u27-i04",
+      "te": "మేము నలుగురం.",
+      "gloss": "We are four people.",
+      "words": [
+        { "te": "మేము", "gloss": "we" },
+        { "te": "నలుగురం", "gloss": "are four (people)" }
+      ],
+      "tags": ["restaurant"],
+      "difficulty": 2,
+      "note": "Person-counting words: ఇద్దరం (two of us), ముగ్గురం (three), నలుగురం (four). Say it as you walk in and the waiter sets the table."
+    },
+    {
+      "id": "u27-i05",
+      "te": "వెజ్ ఏం ఉన్నాయి?",
+      "gloss": "What veg dishes are there?",
+      "words": [
+        { "te": "వెజ్", "gloss": "veg" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "ఉన్నాయి", "gloss": "are there" }
+      ],
+      "tags": ["restaurant", "questions"],
+      "difficulty": 2,
+      "distractors": ["u27-i06", "u27-i02"]
+    },
+    {
+      "id": "u27-i06",
+      "te": "మా అమ్మ నాన్ వెజ్ తినదు.",
+      "gloss": "My mother doesn't eat non-veg.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "అమ్మ", "gloss": "mother" },
+        { "te": "నాన్", "gloss": "non" },
+        { "te": "వెజ్", "gloss": "veg" },
+        { "te": "తినదు", "gloss": "doesn't eat (she)" }
+      ],
+      "tags": ["restaurant", "family"],
+      "difficulty": 3,
+      "note": "Family members are 'ours' in Telugu — మా అమ్మ, మా నాన్న — never నా అమ్మ. తినదు = she doesn't eat."
+    },
+    {
+      "id": "u27-i07",
+      "te": "అందరికీ చికెన్ బిర్యానీ.",
+      "gloss": "Chicken biryani for everyone.",
+      "words": [
+        { "te": "అందరికీ", "gloss": "for everyone" },
+        { "te": "చికెన్", "gloss": "chicken" },
+        { "te": "బిర్యానీ", "gloss": "biryani" }
+      ],
+      "tags": ["restaurant", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u27-i08", "u27-i06"]
+    },
+    {
+      "id": "u27-i08",
+      "te": "ఒక ఫుల్, రెండు హాఫ్.",
+      "gloss": "One full, two half.",
+      "words": [
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "ఫుల్", "gloss": "full" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "హాఫ్", "gloss": "half" }
+      ],
+      "tags": ["restaurant", "ordering"],
+      "difficulty": 3
+    },
+    {
+      "id": "u27-i09",
+      "te": "మంచినీళ్ళు ఇవ్వండి.",
+      "gloss": "Please give drinking water.",
+      "words": [
+        { "te": "మంచినీళ్ళు", "gloss": "drinking water" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["restaurant", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u27-i10", "u27-i12"]
+    },
+    {
+      "id": "u27-i10",
+      "te": "ఇంకో రెండు రొట్టెలు తీసుకురండి.",
+      "gloss": "Bring two more rotis.",
+      "words": [
+        { "te": "ఇంకో", "gloss": "another" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "రొట్టెలు", "gloss": "rotis" },
+        { "te": "తీసుకురండి", "gloss": "bring (polite)" }
+      ],
+      "tags": ["restaurant", "ordering"],
+      "difficulty": 3,
+      "note": "తీసుకురండి = తీసుకుని + రండి, 'take and come' = bring. The everyday way to ask a waiter for more of anything."
+    },
+    {
+      "id": "u27-i11",
+      "te": "ఇందులో కారం ఎక్కువా?",
+      "gloss": "Is this one very spicy?",
+      "words": [
+        { "te": "ఇందులో", "gloss": "in this" },
+        { "te": "కారం", "gloss": "spice / chili heat" },
+        { "te": "ఎక్కువా", "gloss": "is it a lot?" }
+      ],
+      "tags": ["restaurant", "questions"],
+      "difficulty": 3,
+      "distractors": ["u27-i05", "u27-i09"]
+    },
+    {
+      "id": "u27-i12",
+      "te": "బిల్ తీసుకురండి.",
+      "gloss": "Bring the bill.",
+      "words": [
+        { "te": "బిల్", "gloss": "bill" },
+        { "te": "తీసుకురండి", "gloss": "bring (polite)" }
+      ],
+      "tags": ["restaurant", "money"],
+      "difficulty": 2,
+      "distractors": ["u27-i13", "u27-i09"]
+    },
+    {
+      "id": "u27-i13",
+      "te": "కార్డ్ తీసుకుంటారా?",
+      "gloss": "Do you take card?",
+      "words": [
+        { "te": "కార్డ్", "gloss": "card" },
+        { "te": "తీసుకుంటారా", "gloss": "do you take?" }
+      ],
+      "tags": ["restaurant", "money", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u27-i14",
+      "te": "టిప్ టేబుల్ మీద పెట్టాను.",
+      "gloss": "I put the tip on the table.",
+      "words": [
+        { "te": "టిప్", "gloss": "tip" },
+        { "te": "టేబుల్", "gloss": "table" },
+        { "te": "మీద", "gloss": "on" },
+        { "te": "పెట్టాను", "gloss": "I put" }
+      ],
+      "tags": ["restaurant", "money"],
+      "difficulty": 3,
+      "note": "Tipping is low-key in India — rounding up or 5-10% at sit-down places is plenty, and nobody tips at a bandi."
+    },
+    {
+      "id": "u27-i15",
+      "te": "భోజనం చాలా బాగుంది.",
+      "gloss": "The meal was very good.",
+      "words": [
+        { "te": "భోజనం", "gloss": "meal" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "బాగుంది", "gloss": "is good" }
+      ],
+      "tags": ["restaurant", "food"],
+      "difficulty": 2
+    },
+    {
+      "id": "u27-i16",
+      "te": "ఇంకేమైనా కావాలా?",
+      "gloss": "Do you want anything else?",
+      "words": [
+        { "te": "ఇంకేమైనా", "gloss": "anything else" },
+        { "te": "కావాలా", "gloss": "is it wanted?" }
+      ],
+      "tags": ["restaurant", "questions"],
+      "difficulty": 2,
+      "distractors": ["u27-i15", "u27-i11"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Walking in hungry",
+      "itemIds": ["u27-i04", "u27-i01", "u27-i02"]
+    },
+    {
+      "id": "l2",
+      "title": "What's good here?",
+      "itemIds": ["u27-i03", "u27-i05", "u27-i11"]
+    },
+    {
+      "id": "l3",
+      "title": "Ordering for the family",
+      "itemIds": ["u27-i06", "u27-i07", "u27-i08", "u27-i16"]
+    },
+    {
+      "id": "l4",
+      "title": "Water and extra roti",
+      "itemIds": ["u27-i09", "u27-i10", "u27-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Bill, card, tip",
+      "itemIds": ["u27-i12", "u27-i13", "u27-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u27-d1",
+    "title": "Family dinner at the biryani place",
+    "scene": "Friday night. You, Nanna and the family take a corner table at a busy biryani hotel; the waiter hovers with a notepad.",
+    "turns": [
+      { "speaker": "You", "itemId": "u27-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u27-i01", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u27-i02" },
+      { "speaker": "You", "itemId": "u27-i03", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u27-i05" },
+      { "speaker": "You", "itemId": "u27-i11", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u27-i07" },
+      { "speaker": "You", "itemId": "u27-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u27-i08", "userTurn": true },
+      { "speaker": "Waiter", "itemId": "u27-i16" },
+      { "speaker": "You", "itemId": "u27-i09", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u27-i10" },
+      { "speaker": "You", "itemId": "u27-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u27-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u27-i13", "userTurn": true },
+      { "speaker": "Nanna", "itemId": "u27-i14" }
+    ]
+  }
+}

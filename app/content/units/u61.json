@@ -1,0 +1,282 @@
+{
+  "id": "u61",
+  "section": 8,
+  "order": 5,
+  "title": "Saametalu",
+  "teTitle": "సామెతలు",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "Classic Telugu proverbs — what they literally say, what they really mean, and the exact moment to drop each one.",
+  "items": [
+    {
+      "id": "u61-i01",
+      "te": "గోటితో పోయేదానికి గొడ్డలి ఎందుకు?",
+      "gloss": "Why an axe for what a fingernail can handle? (proverb)",
+      "words": [
+        { "te": "గోటితో", "gloss": "with a fingernail" },
+        { "te": "పోయేదానికి", "gloss": "for what would go away" },
+        { "te": "గొడ్డలి", "gloss": "axe" },
+        { "te": "ఎందుకు", "gloss": "why" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'why an axe for something a fingernail could remove?' Real meaning: don't use heavy force or drama on a problem that a small, early fix would solve."
+    },
+    {
+      "id": "u61-i02",
+      "te": "తిన్న ఇంటి వాసాలు లెక్కపెట్టినట్టు ఉంది.",
+      "gloss": "It's like counting the rafters of the house that fed you. (proverb)",
+      "words": [
+        { "te": "తిన్న", "gloss": "(where one) ate" },
+        { "te": "ఇంటి", "gloss": "of the house" },
+        { "te": "వాసాలు", "gloss": "rafters" },
+        { "te": "లెక్కపెట్టినట్టు", "gloss": "as if counting" },
+        { "te": "ఉంది", "gloss": "it is" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'counting the roof-beams of the house where you ate'. Real meaning: betraying or finding fault with the very people who helped you — ingratitude at its worst."
+    },
+    {
+      "id": "u61-i03",
+      "te": "ఇంటి దొంగను ఈశ్వరుడైనా పట్టలేడు.",
+      "gloss": "Even God cannot catch the thief inside the house. (proverb)",
+      "words": [
+        { "te": "ఇంటి", "gloss": "of the house" },
+        { "te": "దొంగను", "gloss": "the thief (object)" },
+        { "te": "ఈశ్వరుడైనా", "gloss": "even Lord Ishwara" },
+        { "te": "పట్టలేడు", "gloss": "cannot catch" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'even God can't catch the house's own thief'. Real meaning: when the betrayer is an insider who knows everything, no one can detect them."
+    },
+    {
+      "id": "u61-i04",
+      "te": "చేతులు కాలాక ఆకులు పట్టుకుంటే ఏం లాభం?",
+      "gloss": "What use grabbing leaves after your hands are burnt? (proverb)",
+      "words": [
+        { "te": "చేతులు", "gloss": "hands" },
+        { "te": "కాలాక", "gloss": "after burning" },
+        { "te": "ఆకులు", "gloss": "leaves" },
+        { "te": "పట్టుకుంటే", "gloss": "if (you) hold" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "లాభం", "gloss": "use / profit" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'what good are healing leaves once the hands have already burned?' Real meaning: precautions taken after the damage is done are useless — act before, not after."
+    },
+    {
+      "id": "u61-i05",
+      "te": "ఆలస్యం అమృతం విషం అంటారు కదా.",
+      "gloss": "They say delay turns nectar into poison. (proverb)",
+      "words": [
+        { "te": "ఆలస్యం", "gloss": "delay" },
+        { "te": "అమృతం", "gloss": "nectar" },
+        { "te": "విషం", "gloss": "poison" },
+        { "te": "అంటారు", "gloss": "they say" },
+        { "te": "కదా", "gloss": "right?" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 4,
+      "note": "Literally 'delay makes even nectar poison'. Real meaning: put a good thing off long enough and it spoils — seize the moment.",
+      "distractors": ["u61-i04"]
+    },
+    {
+      "id": "u61-i06",
+      "te": "అడిగేవాడికి చెప్పేవాడు లోకువ.",
+      "gloss": "To the endless asker, the answerer looks cheap. (proverb)",
+      "words": [
+        { "te": "అడిగేవాడికి", "gloss": "to the one who asks" },
+        { "te": "చెప్పేవాడు", "gloss": "the one who answers" },
+        { "te": "లోకువ", "gloss": "held cheap / taken lightly" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'the answerer is cheap to the asker'. Real meaning: keep obliging every demand and people stop valuing you — said with a sigh by every helpful person in a Telugu family."
+    },
+    {
+      "id": "u61-i07",
+      "te": "మొక్కై వంగనిది మానై వంగుతుందా?",
+      "gloss": "What didn't bend as a sapling — will it bend as a tree? (proverb)",
+      "words": [
+        { "te": "మొక్కై", "gloss": "as a sapling" },
+        { "te": "వంగనిది", "gloss": "that which didn't bend" },
+        { "te": "మానై", "gloss": "as a full tree" },
+        { "te": "వంగుతుందా", "gloss": "will it bend?" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'will what refused to bend as a sapling bend once it's a tree?' Real meaning: habits and character must be shaped young — it's too late once they harden."
+    },
+    {
+      "id": "u61-i08",
+      "te": "నోరు మంచిదైతే ఊరు మంచిదవుతుంది.",
+      "gloss": "If your tongue is good, the whole town becomes good to you. (proverb)",
+      "words": [
+        { "te": "నోరు", "gloss": "mouth / tongue" },
+        { "te": "మంచిదైతే", "gloss": "if it is good" },
+        { "te": "ఊరు", "gloss": "town" },
+        { "te": "మంచిదవుతుంది", "gloss": "becomes good" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 4,
+      "note": "Literally 'if the mouth is good, the town turns good'. Real meaning: speak kindly and the whole world softens toward you.",
+      "distractors": ["u61-i06"]
+    },
+    {
+      "id": "u61-i09",
+      "te": "కష్టే ఫలి అని పెద్దలు అన్నారు.",
+      "gloss": "The elders said: hard work alone bears fruit. (proverb)",
+      "words": [
+        { "te": "కష్టే", "gloss": "toil alone" },
+        { "te": "ఫలి", "gloss": "bears fruit" },
+        { "te": "అని", "gloss": "that (quotative)" },
+        { "te": "పెద్దలు", "gloss": "the elders" },
+        { "te": "అన్నారు", "gloss": "said" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 4,
+      "note": "కష్టే ఫలి — literally 'effort itself is the fruit-giver'. Real meaning: there is no reward without work. Quoting పెద్దలు (the elders) is how proverbs are traditionally introduced.",
+      "distractors": ["u61-i07"]
+    },
+    {
+      "id": "u61-i10",
+      "te": "పిల్లికి చెలగాటం ఎలుకకు ప్రాణసంకటం.",
+      "gloss": "Play for the cat, mortal peril for the mouse. (proverb)",
+      "words": [
+        { "te": "పిల్లికి", "gloss": "for the cat" },
+        { "te": "చెలగాటం", "gloss": "playful fun" },
+        { "te": "ఎలుకకు", "gloss": "for the mouse" },
+        { "te": "ప్రాణసంకటం", "gloss": "danger to life" }
+      ],
+      "tags": ["proverbs", "wisdom"],
+      "difficulty": 5,
+      "note": "Literally 'the cat's game is the mouse's life-crisis'. Real meaning: what is casual fun for the powerful can be devastating for the one on the receiving end."
+    },
+    {
+      "id": "u61-i11",
+      "te": "ఈ సామెత ఇక్కడ సరిగ్గా సరిపోతుంది.",
+      "gloss": "This proverb fits perfectly here.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "సామెత", "gloss": "proverb" },
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "సరిగ్గా", "gloss": "exactly" },
+        { "te": "సరిపోతుంది", "gloss": "fits" }
+      ],
+      "tags": ["proverbs", "usage"],
+      "difficulty": 3,
+      "distractors": ["u61-i13"]
+    },
+    {
+      "id": "u61-i12",
+      "te": "మా అమ్మమ్మ మాటకో సామెత చెప్తుంది.",
+      "gloss": "My grandmother has a proverb for every single thing.",
+      "words": [
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "అమ్మమ్మ", "gloss": "grandmother (mother's mother)" },
+        { "te": "మాటకో", "gloss": "for every word" },
+        { "te": "సామెత", "gloss": "proverb" },
+        { "te": "చెప్తుంది", "gloss": "says" }
+      ],
+      "tags": ["proverbs", "family"],
+      "difficulty": 3,
+      "distractors": ["u61-i11"]
+    },
+    {
+      "id": "u61-i13",
+      "te": "ఆ సామెత అర్థం ఏంటో చెప్పు.",
+      "gloss": "Tell me what that proverb means.",
+      "words": [
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "సామెత", "gloss": "proverb" },
+        { "te": "అర్థం", "gloss": "meaning" },
+        { "te": "ఏంటో", "gloss": "what (it) is" },
+        { "te": "చెప్పు", "gloss": "tell (casual)" }
+      ],
+      "tags": ["proverbs", "questions"],
+      "difficulty": 3,
+      "distractors": ["u61-i11", "u61-i12"]
+    },
+    {
+      "id": "u61-i14",
+      "te": "చిన్న విషయానికి అంత హడావిడి అవసరమా?",
+      "gloss": "Is all that fuss needed for such a small thing?",
+      "words": [
+        { "te": "చిన్న", "gloss": "small" },
+        { "te": "విషయానికి", "gloss": "for a matter" },
+        { "te": "అంత", "gloss": "that much" },
+        { "te": "హడావిడి", "gloss": "commotion / fuss" },
+        { "te": "అవసరమా", "gloss": "is it necessary?" }
+      ],
+      "tags": ["usage", "questions"],
+      "difficulty": 4,
+      "distractors": ["u61-i01"]
+    },
+    {
+      "id": "u61-i15",
+      "te": "ముందే చెప్పాను కదా, నువ్వు వినలేదు.",
+      "gloss": "I told you beforehand, didn't I — you didn't listen.",
+      "words": [
+        { "te": "ముందే", "gloss": "beforehand" },
+        { "te": "చెప్పాను", "gloss": "I told" },
+        { "te": "కదా", "gloss": "didn't I?" },
+        { "te": "నువ్వు", "gloss": "you (casual)" },
+        { "te": "వినలేదు", "gloss": "didn't listen" }
+      ],
+      "tags": ["usage", "complaints"],
+      "difficulty": 3,
+      "distractors": ["u61-i05"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Small problem, small tool",
+      "itemIds": ["u61-i01", "u61-i14", "u61-i11"]
+    },
+    {
+      "id": "l2",
+      "title": "Gratitude and betrayal",
+      "itemIds": ["u61-i02", "u61-i03", "u61-i13"]
+    },
+    {
+      "id": "l3",
+      "title": "Too late, too slow",
+      "itemIds": ["u61-i04", "u61-i05", "u61-i15"]
+    },
+    {
+      "id": "l4",
+      "title": "Raise them right",
+      "itemIds": ["u61-i06", "u61-i07", "u61-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Words and work",
+      "itemIds": ["u61-i08", "u61-i09", "u61-i10"]
+    }
+  ],
+  "dialogue": {
+    "id": "u61-d1",
+    "title": "Ammamma's proverb hour",
+    "scene": "Afternoon on the swing-bench. You mention the scooter repair you kept postponing, and ammamma — who has a proverb for everything — settles in to educate you, one saameta at a time.",
+    "turns": [
+      { "speaker": "You", "itemId": "u61-i12", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u61-i05" },
+      { "speaker": "You", "itemId": "u61-i13", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u61-i15" },
+      { "speaker": "Ammamma", "itemId": "u61-i04" },
+      { "speaker": "You", "itemId": "u61-i14", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u61-i01" },
+      { "speaker": "You", "itemId": "u61-i11", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u61-i03" },
+      { "speaker": "Ammamma", "itemId": "u61-i02" },
+      { "speaker": "You", "itemId": "u61-i13", "userTurn": true },
+      { "speaker": "Ammamma", "itemId": "u61-i06" },
+      { "speaker": "Ammamma", "itemId": "u61-i07" },
+      { "speaker": "You", "itemId": "u61-i09", "userTurn": true }
+    ]
+  }
+}

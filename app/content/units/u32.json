@@ -1,0 +1,279 @@
+{
+  "id": "u32",
+  "section": 4,
+  "order": 8,
+  "title": "Doctor & pharmacy",
+  "teTitle": "డాక్టర్, మెడికల్ షాప్",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Book an appointment, describe what hurts, understand the dosage, and pick up your medicines.",
+  "items": [
+    {
+      "id": "u32-i01",
+      "te": "డాక్టర్ అపాయింట్మెంట్ కావాలి.",
+      "gloss": "I need a doctor appointment.",
+      "words": [
+        { "te": "డాక్టర్", "gloss": "doctor" },
+        { "te": "అపాయింట్మెంట్", "gloss": "appointment" },
+        { "te": "కావాలి", "gloss": "is needed" }
+      ],
+      "tags": ["health"],
+      "difficulty": 2,
+      "distractors": ["u32-i02", "u32-i09"]
+    },
+    {
+      "id": "u32-i02",
+      "te": "డాక్టర్ గారు ఎప్పుడు ఉంటారు?",
+      "gloss": "When will the doctor be in?",
+      "words": [
+        { "te": "డాక్టర్", "gloss": "doctor" },
+        { "te": "గారు", "gloss": "honorific" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "ఉంటారు", "gloss": "will be (present)" }
+      ],
+      "tags": ["health", "questions"],
+      "difficulty": 2,
+      "note": "గారు (gaaru) is the respect tag for professionals and elders: డాక్టర్ గారు, మేడం గారు, రావు గారు. Always use it for your doctor."
+    },
+    {
+      "id": "u32-i03",
+      "te": "నిన్నటి నుంచి జ్వరం ఉంది.",
+      "gloss": "I've had fever since yesterday.",
+      "words": [
+        { "te": "నిన్నటి", "gloss": "yesterday's" },
+        { "te": "నుంచి", "gloss": "since" },
+        { "te": "జ్వరం", "gloss": "fever" },
+        { "te": "ఉంది", "gloss": "there is" }
+      ],
+      "tags": ["health", "symptoms"],
+      "difficulty": 2,
+      "distractors": ["u32-i04", "u32-i05"]
+    },
+    {
+      "id": "u32-i04",
+      "te": "తల నొప్పిగా ఉంది.",
+      "gloss": "My head is aching.",
+      "words": [
+        { "te": "తల", "gloss": "head" },
+        { "te": "నొప్పిగా", "gloss": "achingly / in pain" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["health", "symptoms"],
+      "difficulty": 2,
+      "distractors": ["u32-i03", "u32-i06"]
+    },
+    {
+      "id": "u32-i05",
+      "te": "దగ్గు, జలుబు కూడా ఉన్నాయి.",
+      "gloss": "There's also a cough and a cold.",
+      "words": [
+        { "te": "దగ్గు", "gloss": "cough" },
+        { "te": "జలుబు", "gloss": "cold (illness)" },
+        { "te": "కూడా", "gloss": "also" },
+        { "te": "ఉన్నాయి", "gloss": "there are" }
+      ],
+      "tags": ["health", "symptoms"],
+      "difficulty": 3
+    },
+    {
+      "id": "u32-i06",
+      "te": "ఇంకా ఏమైనా ఇబ్బంది ఉందా?",
+      "gloss": "Is there any other trouble?",
+      "words": [
+        { "te": "ఇంకా", "gloss": "still / else" },
+        { "te": "ఏమైనా", "gloss": "anything" },
+        { "te": "ఇబ్బంది", "gloss": "trouble / discomfort" },
+        { "te": "ఉందా", "gloss": "is there?" }
+      ],
+      "tags": ["health", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u32-i07",
+      "te": "భయపడాల్సింది ఏమీ లేదు.",
+      "gloss": "There's nothing to be afraid of.",
+      "words": [
+        { "te": "భయపడాల్సింది", "gloss": "what should be feared" },
+        { "te": "ఏమీ", "gloss": "anything" },
+        { "te": "లేదు", "gloss": "there isn't" }
+      ],
+      "tags": ["health"],
+      "difficulty": 3,
+      "note": "భయపడు = to fear; -ఆల్సింది ఏమీ లేదు = 'there's nothing that needs to be X-ed'. The doctor's favorite reassurance line."
+    },
+    {
+      "id": "u32-i08",
+      "te": "ఈ మందులు రాసిస్తున్నాను.",
+      "gloss": "I'm prescribing these medicines.",
+      "words": [
+        { "te": "ఈ", "gloss": "these" },
+        { "te": "మందులు", "gloss": "medicines" },
+        { "te": "రాసిస్తున్నాను", "gloss": "am writing-and-giving" }
+      ],
+      "tags": ["health", "pharmacy"],
+      "difficulty": 3,
+      "note": "రాసివ్వు (raasivvu, 'write and give') = to prescribe. మందు = medicine; the prescription slip itself is just చీటీ (chiiti)."
+    },
+    {
+      "id": "u32-i09",
+      "te": "ఈ టాబ్లెట్ ఎలా వేసుకోవాలి?",
+      "gloss": "How should I take this tablet?",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "టాబ్లెట్", "gloss": "tablet" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "వేసుకోవాలి", "gloss": "should (I) take?" }
+      ],
+      "tags": ["health", "pharmacy", "questions"],
+      "difficulty": 3,
+      "note": "Medicine is 'put into oneself': మందు వేసుకో (take the medicine). Never తిను (eat) — వేసుకో is the natural verb."
+    },
+    {
+      "id": "u32-i10",
+      "te": "రోజుకి రెండు సార్లు వేసుకోండి.",
+      "gloss": "Take it twice a day.",
+      "words": [
+        { "te": "రోజుకి", "gloss": "per day" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "సార్లు", "gloss": "times" },
+        { "te": "వేసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["health", "pharmacy", "commands"],
+      "difficulty": 2,
+      "distractors": ["u32-i12", "u32-i11"]
+    },
+    {
+      "id": "u32-i11",
+      "te": "భోజనం తర్వాత వేసుకోవాలా?",
+      "gloss": "Should I take it after food?",
+      "words": [
+        { "te": "భోజనం", "gloss": "meal / food" },
+        { "te": "తర్వాత", "gloss": "after" },
+        { "te": "వేసుకోవాలా", "gloss": "should (I) take?" }
+      ],
+      "tags": ["health", "pharmacy", "questions"],
+      "difficulty": 3,
+      "distractors": ["u32-i10", "u32-i12"]
+    },
+    {
+      "id": "u32-i12",
+      "te": "ఇది భోజనం ముందు వేసుకోండి.",
+      "gloss": "Take this one before food.",
+      "words": [
+        { "te": "ఇది", "gloss": "this" },
+        { "te": "భోజనం", "gloss": "meal / food" },
+        { "te": "ముందు", "gloss": "before" },
+        { "te": "వేసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["health", "pharmacy", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u32-i13",
+      "te": "మెడికల్ షాపులో ఇవి దొరుకుతాయా?",
+      "gloss": "Will these be available at the medical shop?",
+      "words": [
+        { "te": "మెడికల్", "gloss": "medical" },
+        { "te": "షాపులో", "gloss": "at the shop" },
+        { "te": "ఇవి", "gloss": "these" },
+        { "te": "దొరుకుతాయా", "gloss": "will (they) be available?" }
+      ],
+      "tags": ["health", "pharmacy", "questions"],
+      "difficulty": 3,
+      "note": "A pharmacy is a మెడికల్ షాప్ in everyday speech. దొరుకు (doruku) = to be available / obtainable: అక్కడ దొరుకుతుంది — you'll get it there."
+    },
+    {
+      "id": "u32-i14",
+      "te": "మూడు రోజులకి సరిపడా ఇవ్వండి.",
+      "gloss": "Give me enough for three days.",
+      "words": [
+        { "te": "మూడు", "gloss": "three" },
+        { "te": "రోజులకి", "gloss": "for days" },
+        { "te": "సరిపడా", "gloss": "sufficient for" },
+        { "te": "ఇవ్వండి", "gloss": "give (polite)" }
+      ],
+      "tags": ["health", "pharmacy", "commands"],
+      "difficulty": 3,
+      "distractors": ["u32-i10", "u32-i15"]
+    },
+    {
+      "id": "u32-i15",
+      "te": "వారం తర్వాత మళ్ళీ రండి.",
+      "gloss": "Come again after a week.",
+      "words": [
+        { "te": "వారం", "gloss": "week" },
+        { "te": "తర్వాత", "gloss": "after" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["health", "commands"],
+      "difficulty": 2,
+      "distractors": ["u32-i16", "u32-i14"]
+    },
+    {
+      "id": "u32-i16",
+      "te": "తగ్గకపోతే వెంటనే ఫోన్ చేయండి.",
+      "gloss": "If it doesn't come down, call immediately.",
+      "words": [
+        { "te": "తగ్గకపోతే", "gloss": "if (it) doesn't reduce" },
+        { "te": "వెంటనే", "gloss": "immediately" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చేయండి", "gloss": "do (polite)" }
+      ],
+      "tags": ["health", "commands"],
+      "difficulty": 4,
+      "note": "-కపోతే (-kapōtē) = 'if not': తగ్గకపోతే (if it doesn't reduce), రాకపోతే (if they don't come). Fever 'reduces' in Telugu: జ్వరం తగ్గింది.",
+      "distractors": ["u32-i15", "u32-i03"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Booking the doctor",
+      "itemIds": ["u32-i01", "u32-i02", "u32-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Where does it hurt?",
+      "itemIds": ["u32-i04", "u32-i05", "u32-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "The prescription",
+      "itemIds": ["u32-i07", "u32-i08", "u32-i09"]
+    },
+    {
+      "id": "l4",
+      "title": "Before or after food?",
+      "itemIds": ["u32-i10", "u32-i11", "u32-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Pharmacy and follow-up",
+      "itemIds": ["u32-i13", "u32-i14", "u32-i15", "u32-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u32-d1",
+    "title": "Fever at the clinic",
+    "scene": "A rough night of fever lands you at the neighborhood clinic. Dr. Lakshmi checks you over, writes a prescription, and you finish at the medical shop next door.",
+    "turns": [
+      { "speaker": "You", "itemId": "u32-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u32-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u32-i03", "userTurn": true },
+      { "speaker": "You", "itemId": "u32-i04", "userTurn": true },
+      { "speaker": "Doctor", "itemId": "u32-i06" },
+      { "speaker": "You", "itemId": "u32-i05", "userTurn": true },
+      { "speaker": "Doctor", "itemId": "u32-i07" },
+      { "speaker": "Doctor", "itemId": "u32-i08" },
+      { "speaker": "You", "itemId": "u32-i09", "userTurn": true },
+      { "speaker": "Doctor", "itemId": "u32-i10" },
+      { "speaker": "You", "itemId": "u32-i11", "userTurn": true },
+      { "speaker": "Doctor", "itemId": "u32-i12" },
+      { "speaker": "Doctor", "itemId": "u32-i15" },
+      { "speaker": "Doctor", "itemId": "u32-i16" },
+      { "speaker": "You", "itemId": "u32-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u32-i14", "userTurn": true }
+    ]
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "id": "u14",
+  "section": 2,
+  "order": 6,
+  "title": "Health & feelings",
+  "teTitle": "ఆరోగ్యం",
+  "cefr": "A2",
+  "register": "standard",
+  "description": "Say how you feel — sick or well, happy or scared — and comfort someone who's worried.",
+  "items": [
+    {
+      "id": "u14-i01",
+      "te": "నాకు ఒంట్లో బాగా లేదు.",
+      "gloss": "I'm not feeling well.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఒంట్లో", "gloss": "in the body" },
+        { "te": "బాగా", "gloss": "well" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["health"],
+      "difficulty": 2,
+      "note": "ఒళ్ళు (oLLu) = body; ఒంట్లో బాగా లేదు — literally 'not well in the body' — is THE way to say you're unwell.",
+      "distractors": ["u14-i09", "u14-i04"]
+    },
+    {
+      "id": "u14-i02",
+      "te": "నాకు జ్వరం వచ్చింది.",
+      "gloss": "I've got a fever.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "జ్వరం", "gloss": "fever" },
+        { "te": "వచ్చింది", "gloss": "came" }
+      ],
+      "tags": ["health"],
+      "difficulty": 2,
+      "note": "Sicknesses 'come' to you in Telugu: జ్వరం వచ్చింది (jvaram vachindi), జలుబు వచ్చింది (a cold came).",
+      "distractors": ["u14-i03", "u14-i12"]
+    },
+    {
+      "id": "u14-i03",
+      "te": "తలనొప్పిగా ఉంది.",
+      "gloss": "I have a headache.",
+      "words": [
+        { "te": "తలనొప్పిగా", "gloss": "with a headache" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["health"],
+      "difficulty": 2,
+      "note": "తల (tala) head + నొప్పి (noppi) pain. Same recipe everywhere: కడుపునొప్పి stomach ache, ఒళ్ళునొప్పులు body aches."
+    },
+    {
+      "id": "u14-i04",
+      "te": "చాలా అలసటగా ఉంది.",
+      "gloss": "I'm feeling very tired.",
+      "words": [
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "అలసటగా", "gloss": "tired" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["health", "feelings"],
+      "difficulty": 2,
+      "distractors": ["u14-i03", "u14-i01"]
+    },
+    {
+      "id": "u14-i05",
+      "te": "డాక్టర్ దగ్గరకు వెళ్ళండి.",
+      "gloss": "Go to the doctor.",
+      "words": [
+        { "te": "డాక్టర్", "gloss": "doctor" },
+        { "te": "దగ్గరకు", "gloss": "to (near)" },
+        { "te": "వెళ్ళండి", "gloss": "go (polite)" }
+      ],
+      "tags": ["health", "commands"],
+      "difficulty": 2,
+      "note": "For going to a person, Telugu says 'to near them': డాక్టర్ దగ్గరకు (DaakTar daggaraku)."
+    },
+    {
+      "id": "u14-i06",
+      "te": "మందులు వేసుకున్నారా?",
+      "gloss": "Did you take your medicines?",
+      "words": [
+        { "te": "మందులు", "gloss": "medicines" },
+        { "te": "వేసుకున్నారా", "gloss": "did (you) take (for yourself)?" }
+      ],
+      "tags": ["health", "questions"],
+      "difficulty": 3,
+      "note": "Medicines are 'put in for yourself': మందులు వేసుకోవడం (mandulu veesukovaDam) — never తినడం."
+    },
+    {
+      "id": "u14-i07",
+      "te": "కొంచెం విశ్రాంతి తీసుకోండి.",
+      "gloss": "Take a little rest.",
+      "words": [
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "విశ్రాంతి", "gloss": "rest" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["health", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u14-i08",
+      "te": "ఇప్పుడు ఎలా ఉంది?",
+      "gloss": "How is it now?",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "ఎలా", "gloss": "how" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["health", "questions"],
+      "difficulty": 1,
+      "distractors": ["u14-i09", "u14-i11"]
+    },
+    {
+      "id": "u14-i09",
+      "te": "ఇప్పుడు కొంచెం నయం.",
+      "gloss": "A little better now.",
+      "words": [
+        { "te": "ఇప్పుడు", "gloss": "now" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "నయం", "gloss": "better" }
+      ],
+      "tags": ["health"],
+      "difficulty": 2,
+      "distractors": ["u14-i08", "u14-i01"]
+    },
+    {
+      "id": "u14-i10",
+      "te": "నాకు చాలా సంతోషంగా ఉంది.",
+      "gloss": "I'm feeling very happy.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "చాలా", "gloss": "very" },
+        { "te": "సంతోషంగా", "gloss": "happy" },
+        { "te": "ఉంది", "gloss": "is" }
+      ],
+      "tags": ["feelings"],
+      "difficulty": 2,
+      "distractors": ["u14-i11", "u14-i12"]
+    },
+    {
+      "id": "u14-i11",
+      "te": "ఎందుకు బాధగా ఉన్నారు?",
+      "gloss": "Why are you sad?",
+      "words": [
+        { "te": "ఎందుకు", "gloss": "why" },
+        { "te": "బాధగా", "gloss": "sad" },
+        { "te": "ఉన్నారు", "gloss": "are (you)?" }
+      ],
+      "tags": ["feelings", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u14-i12",
+      "te": "నాకు కోపం వచ్చింది.",
+      "gloss": "I got angry.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "వచ్చింది", "gloss": "came" }
+      ],
+      "tags": ["feelings"],
+      "difficulty": 2,
+      "note": "Like fever, anger also 'comes': కోపం వచ్చింది (koopam vachindi)."
+    },
+    {
+      "id": "u14-i13",
+      "te": "భయపడకండి.",
+      "gloss": "Don't be scared.",
+      "words": [
+        { "te": "భయపడకండి", "gloss": "don't be scared (polite)" }
+      ],
+      "tags": ["feelings", "commands"],
+      "difficulty": 2,
+      "note": "-కండి (-kanDi) makes a polite 'don't': భయపడండి → భయపడకండి. Informal singular: భయపడకు (bhayapaDaku).",
+      "distractors": ["u14-i14", "u14-i15"]
+    },
+    {
+      "id": "u14-i14",
+      "te": "కంగారు పడకండి.",
+      "gloss": "Don't panic.",
+      "words": [
+        { "te": "కంగారు", "gloss": "panic / fluster" },
+        { "te": "పడకండి", "gloss": "don't fall into (polite)" }
+      ],
+      "tags": ["feelings", "commands"],
+      "difficulty": 2
+    },
+    {
+      "id": "u14-i15",
+      "te": "అంతా మంచే జరుగుతుంది.",
+      "gloss": "Everything will turn out fine.",
+      "words": [
+        { "te": "అంతా", "gloss": "everything" },
+        { "te": "మంచే", "gloss": "only good" },
+        { "te": "జరుగుతుంది", "gloss": "will happen" }
+      ],
+      "tags": ["feelings"],
+      "difficulty": 3
+    },
+    {
+      "id": "u14-i16",
+      "te": "త్వరగా కోలుకోండి.",
+      "gloss": "Get well soon.",
+      "words": [
+        { "te": "త్వరగా", "gloss": "quickly / soon" },
+        { "te": "కోలుకోండి", "gloss": "recover (polite)" }
+      ],
+      "tags": ["health"],
+      "difficulty": 3,
+      "distractors": ["u14-i07", "u14-i05"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Feeling sick", "itemIds": ["u14-i01", "u14-i02", "u14-i03", "u14-i04"] },
+    { "id": "l2", "title": "Doctor, doctor", "itemIds": ["u14-i05", "u14-i06", "u14-i07"] },
+    { "id": "l3", "title": "On the mend", "itemIds": ["u14-i08", "u14-i09", "u14-i16"] },
+    { "id": "l4", "title": "Big feelings", "itemIds": ["u14-i10", "u14-i11", "u14-i12"] },
+    { "id": "l5", "title": "Don't worry", "itemIds": ["u14-i13", "u14-i14", "u14-i15"] }
+  ],
+  "dialogue": {
+    "id": "u14-d1",
+    "title": "Amma's fever check",
+    "scene": "You've come down with a fever. Amma calls in full worried-mother mode — symptoms, advice, reassurance, and an evening check-in.",
+    "turns": [
+      { "speaker": "Amma", "itemId": "u14-i08" },
+      { "speaker": "You", "itemId": "u14-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u14-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u14-i03", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u14-i06" },
+      { "speaker": "You", "itemId": "u14-i04", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u14-i05" },
+      { "speaker": "Amma", "itemId": "u14-i13" },
+      { "speaker": "You", "itemId": "u14-i14", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u14-i11" },
+      { "speaker": "You", "itemId": "u14-i12", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u14-i15" },
+      { "speaker": "Amma", "itemId": "u14-i07" },
+      { "speaker": "You", "itemId": "u14-i09", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u14-i10" },
+      { "speaker": "Amma", "itemId": "u14-i16" }
+    ]
+  }
+}

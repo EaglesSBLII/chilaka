@@ -1,0 +1,275 @@
+{
+  "id": "u47",
+  "section": 6,
+  "order": 7,
+  "title": "Repairs at home",
+  "teTitle": "ఇంట్లో రిపేర్లు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Describe what broke, summon the repair guy, haggle the estimate, and survive the rebreak.",
+  "items": [
+    {
+      "id": "u47-i01",
+      "te": "బాత్రూంలో పైపు లీక్ అవుతోంది.",
+      "gloss": "The pipe in the bathroom is leaking.",
+      "words": [
+        { "te": "బాత్రూంలో", "gloss": "in the bathroom" },
+        { "te": "పైపు", "gloss": "pipe" },
+        { "te": "లీక్", "gloss": "leak" },
+        { "te": "అవుతోంది", "gloss": "is happening" }
+      ],
+      "tags": ["repairs", "problems"],
+      "difficulty": 4,
+      "note": "లీక్ అవుతోంది — English noun + అవుతోంది describes lots of ongoing trouble: లేట్ అవుతోంది, బంద్ అవుతోంది.",
+      "distractors": ["u47-i12", "u47-i13"]
+    },
+    {
+      "id": "u47-i02",
+      "te": "ప్లంబర్ వెంటనే కావాలి అండి.",
+      "gloss": "We need a plumber right away.",
+      "words": [
+        { "te": "ప్లంబర్", "gloss": "plumber" },
+        { "te": "వెంటనే", "gloss": "immediately" },
+        { "te": "కావాలి", "gloss": "is needed" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["repairs", "requests"],
+      "difficulty": 3
+    },
+    {
+      "id": "u47-i03",
+      "te": "మీరు ఎప్పుడు రాగలరు?",
+      "gloss": "When can you come?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "రాగలరు", "gloss": "can (you) come" }
+      ],
+      "tags": ["repairs", "questions"],
+      "difficulty": 3,
+      "note": "-గల adds ability: రాగలరు 'can come', చేయగలరు 'can do'. Politer than a bare ఎప్పుడు వస్తారు?",
+      "distractors": ["u47-i04", "u47-i05"]
+    },
+    {
+      "id": "u47-i04",
+      "te": "రేపు పొద్దున వస్తాను అండి.",
+      "gloss": "I'll come tomorrow morning.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "పొద్దున", "gloss": "in the morning" },
+        { "te": "వస్తాను", "gloss": "I will come" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["repairs", "time"],
+      "difficulty": 3
+    },
+    {
+      "id": "u47-i05",
+      "te": "ఇవాళే రండి, అర్జెంటు.",
+      "gloss": "Come today itself — it's urgent.",
+      "words": [
+        { "te": "ఇవాళే", "gloss": "today itself" },
+        { "te": "రండి", "gloss": "come (polite)" },
+        { "te": "అర్జెంటు", "gloss": "urgent" }
+      ],
+      "tags": ["repairs", "commands"],
+      "difficulty": 4,
+      "note": "The -ఏ on ఇవాళే adds insistence: today ITSELF. Same trick as ఇప్పుడే, అక్కడే.",
+      "distractors": ["u47-i04", "u47-i03"]
+    },
+    {
+      "id": "u47-i06",
+      "te": "ఏసీ అస్సలు చల్లగా లేదు.",
+      "gloss": "The AC isn't cold at all.",
+      "words": [
+        { "te": "ఏసీ", "gloss": "AC" },
+        { "te": "అస్సలు", "gloss": "at all" },
+        { "te": "చల్లగా", "gloss": "cold (adverbial)" },
+        { "te": "లేదు", "gloss": "is not" }
+      ],
+      "tags": ["repairs", "problems"],
+      "difficulty": 3,
+      "distractors": ["u47-i07", "u47-i12"]
+    },
+    {
+      "id": "u47-i07",
+      "te": "గ్యాస్ అయిపోయింది, నింపాలి.",
+      "gloss": "The gas has run out; it needs refilling.",
+      "words": [
+        { "te": "గ్యాస్", "gloss": "gas" },
+        { "te": "అయిపోయింది", "gloss": "is finished" },
+        { "te": "నింపాలి", "gloss": "must fill" }
+      ],
+      "tags": ["repairs"],
+      "difficulty": 4
+    },
+    {
+      "id": "u47-i08",
+      "te": "రిపేరుకు ఎంత అవుతుంది?",
+      "gloss": "How much will the repair cost?",
+      "words": [
+        { "te": "రిపేరుకు", "gloss": "for the repair" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "అవుతుంది", "gloss": "will it become" }
+      ],
+      "tags": ["repairs", "money", "questions"],
+      "difficulty": 3,
+      "distractors": ["u47-i10", "u47-i09"]
+    },
+    {
+      "id": "u47-i09",
+      "te": "చూసి చెప్తాను సర్.",
+      "gloss": "I'll take a look and tell you, sir.",
+      "words": [
+        { "te": "చూసి", "gloss": "having seen" },
+        { "te": "చెప్తాను", "gloss": "I will tell" },
+        { "te": "సర్", "gloss": "sir" }
+      ],
+      "tags": ["repairs"],
+      "difficulty": 3,
+      "note": "చూసి చెప్తాను — 'I'll see and then say' — every technician's answer before an estimate."
+    },
+    {
+      "id": "u47-i10",
+      "te": "మొత్తం రెండు వేలు అవుతుంది.",
+      "gloss": "It'll be two thousand in total.",
+      "words": [
+        { "te": "మొత్తం", "gloss": "total" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "వేలు", "gloss": "thousands" },
+        { "te": "అవుతుంది", "gloss": "will become" }
+      ],
+      "tags": ["repairs", "money"],
+      "difficulty": 3
+    },
+    {
+      "id": "u47-i11",
+      "te": "పార్టు మార్చాల్సి వస్తుంది.",
+      "gloss": "The part will have to be replaced.",
+      "words": [
+        { "te": "పార్టు", "gloss": "part" },
+        { "te": "మార్చాల్సి", "gloss": "needing to change" },
+        { "te": "వస్తుంది", "gloss": "it will come to" }
+      ],
+      "tags": ["repairs"],
+      "difficulty": 4,
+      "note": "మార్చాల్సి వస్తుంది = 'it will become necessary to replace' — softer than a flat మార్చాలి.",
+      "distractors": ["u47-i10", "u47-i07"]
+    },
+    {
+      "id": "u47-i12",
+      "te": "ఫ్యాన్ నుంచి శబ్దం వస్తోంది.",
+      "gloss": "There's a noise coming from the fan.",
+      "words": [
+        { "te": "ఫ్యాన్", "gloss": "fan" },
+        { "te": "నుంచి", "gloss": "from" },
+        { "te": "శబ్దం", "gloss": "sound / noise" },
+        { "te": "వస్తోంది", "gloss": "is coming" }
+      ],
+      "tags": ["repairs", "problems"],
+      "difficulty": 4
+    },
+    {
+      "id": "u47-i13",
+      "te": "కరెంటు మాటిమాటికి పోతోంది.",
+      "gloss": "The power keeps going out.",
+      "words": [
+        { "te": "కరెంటు", "gloss": "electricity" },
+        { "te": "మాటిమాటికి", "gloss": "again and again" },
+        { "te": "పోతోంది", "gloss": "is going" }
+      ],
+      "tags": ["repairs", "problems"],
+      "difficulty": 4,
+      "note": "మాటిమాటికి — 'every other minute' — a lovely doubled word for anything annoyingly frequent.",
+      "distractors": ["u47-i01", "u47-i06"]
+    },
+    {
+      "id": "u47-i14",
+      "te": "నిన్ననే కదా బాగు చేశారు!",
+      "gloss": "You fixed it just yesterday, didn't you!",
+      "words": [
+        { "te": "నిన్ననే", "gloss": "just yesterday" },
+        { "te": "కదా", "gloss": "isn't it so" },
+        { "te": "బాగు", "gloss": "repair / good" },
+        { "te": "చేశారు", "gloss": "you did" }
+      ],
+      "tags": ["repairs", "reactions"],
+      "difficulty": 4,
+      "note": "కదా appeals to shared knowledge — 'right?!'. Perfect for indignation.",
+      "distractors": ["u47-i15", "u47-i16"]
+    },
+    {
+      "id": "u47-i15",
+      "te": "మళ్ళీ పాడైపోయింది అండి!",
+      "gloss": "It has broken down again!",
+      "words": [
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "పాడైపోయింది", "gloss": "got ruined" },
+        { "te": "అండి", "gloss": "polite tag" }
+      ],
+      "tags": ["repairs", "problems"],
+      "difficulty": 4
+    },
+    {
+      "id": "u47-i16",
+      "te": "ఈసారి గ్యారంటీగా చేస్తాను.",
+      "gloss": "This time I'll do it with a guarantee.",
+      "words": [
+        { "te": "ఈసారి", "gloss": "this time" },
+        { "te": "గ్యారంటీగా", "gloss": "with guarantee" },
+        { "te": "చేస్తాను", "gloss": "I will do" }
+      ],
+      "tags": ["repairs"],
+      "difficulty": 4
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "What broke",
+      "itemIds": ["u47-i01", "u47-i06", "u47-i12", "u47-i13"]
+    },
+    {
+      "id": "l2",
+      "title": "Calling for help",
+      "itemIds": ["u47-i02", "u47-i03", "u47-i04", "u47-i05"]
+    },
+    {
+      "id": "l3",
+      "title": "The diagnosis",
+      "itemIds": ["u47-i09", "u47-i07", "u47-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "The estimate",
+      "itemIds": ["u47-i08", "u47-i10"]
+    },
+    {
+      "id": "l5",
+      "title": "It broke again!",
+      "itemIds": ["u47-i15", "u47-i14", "u47-i16"]
+    }
+  ],
+  "dialogue": {
+    "id": "u47-d1",
+    "title": "Raju and the dying AC",
+    "scene": "Peak summer. The AC blows warm air, the bathroom pipe drips, and the power flickers. Raju — the colony's electrician-cum-everything — answers your call, fixes things, and is back sooner than promised.",
+    "turns": [
+      { "speaker": "You", "itemId": "u47-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u47-i03", "userTurn": true },
+      { "speaker": "Raju", "itemId": "u47-i04" },
+      { "speaker": "You", "itemId": "u47-i05", "userTurn": true },
+      { "speaker": "You", "itemId": "u47-i08", "userTurn": true },
+      { "speaker": "Raju", "itemId": "u47-i09" },
+      { "speaker": "Raju", "itemId": "u47-i07" },
+      { "speaker": "Raju", "itemId": "u47-i11" },
+      { "speaker": "Raju", "itemId": "u47-i10" },
+      { "speaker": "You", "itemId": "u47-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u47-i13", "userTurn": true },
+      { "speaker": "Raju", "itemId": "u47-i04" },
+      { "speaker": "You", "itemId": "u47-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u47-i14", "userTurn": true },
+      { "speaker": "Raju", "itemId": "u47-i16" }
+    ]
+  }
+}

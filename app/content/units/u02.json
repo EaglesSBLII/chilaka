@@ -1,0 +1,260 @@
+{
+  "id": "u02",
+  "section": 1,
+  "order": 2,
+  "title": "Family & people",
+  "teTitle": "కుటుంబం",
+  "cefr": "A1+",
+  "register": "standard",
+  "description": "Introduce your family, ask about someone's family, and talk about ages.",
+  "items": [
+    {
+      "id": "u02-i01",
+      "te": "ఈయన మా నాన్న.",
+      "gloss": "This is my father.",
+      "words": [
+        { "te": "ఈయన", "gloss": "this man (respectful)" },
+        { "te": "మా", "gloss": "our / my (family)" },
+        { "te": "నాన్న", "gloss": "dad" }
+      ],
+      "tags": ["family", "introductions"],
+      "difficulty": 1,
+      "note": "Telugu says మా (maa, 'our') for your own parents — మా నాన్న, మా అమ్మ — because family is shared. Use నా (naa, 'my') for things only yours.",
+      "distractors": ["u02-i02", "u02-i03"]
+    },
+    {
+      "id": "u02-i02",
+      "te": "ఈవిడ మా అమ్మ.",
+      "gloss": "This is my mother.",
+      "words": [
+        { "te": "ఈవిడ", "gloss": "this woman (respectful)" },
+        { "te": "మా", "gloss": "our / my (family)" },
+        { "te": "అమ్మ", "gloss": "mom" }
+      ],
+      "tags": ["family", "introductions"],
+      "difficulty": 1,
+      "distractors": ["u02-i01", "u02-i04"]
+    },
+    {
+      "id": "u02-i03",
+      "te": "వీడు నా తమ్ముడు.",
+      "gloss": "This is my younger brother.",
+      "words": [
+        { "te": "వీడు", "gloss": "this guy (casual)" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "తమ్ముడు", "gloss": "younger brother" }
+      ],
+      "tags": ["family", "introductions"],
+      "difficulty": 1,
+      "note": "వీడు (viiDu) is casual — perfect for your little brother, rude for anyone else. For a stranger use ఇతను (itanu) or the respectful ఈయన (iiyana)."
+    },
+    {
+      "id": "u02-i04",
+      "te": "ఈమె నా చెల్లి.",
+      "gloss": "This is my younger sister.",
+      "words": [
+        { "te": "ఈమె", "gloss": "this girl / woman" },
+        { "te": "నా", "gloss": "my" },
+        { "te": "చెల్లి", "gloss": "younger sister" }
+      ],
+      "tags": ["family", "introductions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u02-i05",
+      "te": "మీ ఇంట్లో ఎంతమంది ఉన్నారు?",
+      "gloss": "How many people are in your house?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "ఇంట్లో", "gloss": "in the house" },
+        { "te": "ఎంతమంది", "gloss": "how many people" },
+        { "te": "ఉన్నారు", "gloss": "are (there)" }
+      ],
+      "tags": ["family", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u02-i06",
+      "te": "మేము నలుగురం.",
+      "gloss": "We are four (people).",
+      "words": [
+        { "te": "మేము", "gloss": "we" },
+        { "te": "నలుగురం", "gloss": "four of us" }
+      ],
+      "tags": ["family", "numbers"],
+      "difficulty": 2,
+      "note": "People get special numbers: ఇద్దరు (iddaru) two, ముగ్గురు (mugguru) three, నలుగురు (naluguru) four. మేము నలుగురం = 'we are four'.",
+      "distractors": ["u02-i12", "u02-i08"]
+    },
+    {
+      "id": "u02-i07",
+      "te": "మీకు అక్క ఉందా?",
+      "gloss": "Do you have an elder sister?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "అక్క", "gloss": "elder sister" },
+        { "te": "ఉందా", "gloss": "is there?" }
+      ],
+      "tags": ["family", "questions"],
+      "difficulty": 1
+    },
+    {
+      "id": "u02-i08",
+      "te": "లేదు, నాకు అన్నయ్య ఉన్నాడు.",
+      "gloss": "No, I have an elder brother.",
+      "words": [
+        { "te": "లేదు", "gloss": "no / there isn't" },
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "అన్నయ్య", "gloss": "elder brother" },
+        { "te": "ఉన్నాడు", "gloss": "he is (there)" }
+      ],
+      "tags": ["family"],
+      "difficulty": 2,
+      "distractors": ["u02-i06", "u02-i07"]
+    },
+    {
+      "id": "u02-i09",
+      "te": "అమ్మమ్మ ఊళ్ళో ఉంటుంది.",
+      "gloss": "Grandma lives in the village.",
+      "words": [
+        { "te": "అమ్మమ్మ", "gloss": "grandma (mother's mother)" },
+        { "te": "ఊళ్ళో", "gloss": "in the village / hometown" },
+        { "te": "ఉంటుంది", "gloss": "she lives / stays" }
+      ],
+      "tags": ["family"],
+      "difficulty": 2,
+      "note": "అమ్మమ్మ (ammamma) is your mother's mother; your father's mother is నానమ్మ (naanamma). Telugu never mixes them up!"
+    },
+    {
+      "id": "u02-i10",
+      "te": "తాతయ్య మాతో ఉంటారు.",
+      "gloss": "Grandpa lives with us.",
+      "words": [
+        { "te": "తాతయ్య", "gloss": "grandpa" },
+        { "te": "మాతో", "gloss": "with us" },
+        { "te": "ఉంటారు", "gloss": "he lives (respectful)" }
+      ],
+      "tags": ["family"],
+      "difficulty": 2
+    },
+    {
+      "id": "u02-i11",
+      "te": "నీకు ఎన్ని ఏళ్ళు?",
+      "gloss": "How old are you? (informal)",
+      "words": [
+        { "te": "నీకు", "gloss": "to you (informal)" },
+        { "te": "ఎన్ని", "gloss": "how many" },
+        { "te": "ఏళ్ళు", "gloss": "years" }
+      ],
+      "tags": ["age", "questions"],
+      "difficulty": 1,
+      "note": "నీకు (niiku) is informal — fine for kids and close friends. To an elder, ask మీ వయసు ఎంత? (mee vayasu enta)."
+    },
+    {
+      "id": "u02-i12",
+      "te": "నాకు ఇరవై ఏళ్ళు.",
+      "gloss": "I am twenty years old.",
+      "words": [
+        { "te": "నాకు", "gloss": "to me" },
+        { "te": "ఇరవై", "gloss": "twenty" },
+        { "te": "ఏళ్ళు", "gloss": "years" }
+      ],
+      "tags": ["age"],
+      "difficulty": 1,
+      "distractors": ["u02-i13", "u02-i06"]
+    },
+    {
+      "id": "u02-i13",
+      "te": "చెల్లికి పదేళ్ళు.",
+      "gloss": "My little sister is ten.",
+      "words": [
+        { "te": "చెల్లికి", "gloss": "to little sister" },
+        { "te": "పదేళ్ళు", "gloss": "ten years" }
+      ],
+      "tags": ["age", "family"],
+      "difficulty": 2,
+      "note": "పది (padi) + ఏళ్ళు (eeLLu) merges into పదేళ్ళు (padeeLLu) 'ten years'. Ages take the dative -కి: చెల్లికి = 'to little sister'.",
+      "distractors": ["u02-i12", "u02-i11"]
+    },
+    {
+      "id": "u02-i14",
+      "te": "మీ నాన్న ఏం చేస్తారు?",
+      "gloss": "What does your father do?",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "నాన్న", "gloss": "dad" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేస్తారు", "gloss": "does (respectful)" }
+      ],
+      "tags": ["family", "questions", "work"],
+      "difficulty": 2,
+      "note": "Respect lives in the verb: dad is one person but gets the plural చేస్తారు (cheestaaru). Singular చేస్తాడు would sound rude here."
+    },
+    {
+      "id": "u02-i15",
+      "te": "మా నాన్న డాక్టర్.",
+      "gloss": "My dad is a doctor.",
+      "words": [
+        { "te": "మా", "gloss": "our / my (family)" },
+        { "te": "నాన్న", "gloss": "dad" },
+        { "te": "డాక్టర్", "gloss": "doctor" }
+      ],
+      "tags": ["family", "work"],
+      "difficulty": 1,
+      "distractors": ["u02-i16", "u02-i01"]
+    },
+    {
+      "id": "u02-i16",
+      "te": "మా అమ్మ టీచర్.",
+      "gloss": "My mom is a teacher.",
+      "words": [
+        { "te": "మా", "gloss": "our / my (family)" },
+        { "te": "అమ్మ", "gloss": "mom" },
+        { "te": "టీచర్", "gloss": "teacher" }
+      ],
+      "tags": ["family", "work"],
+      "difficulty": 1,
+      "distractors": ["u02-i15", "u02-i02"]
+    },
+    {
+      "id": "u02-i17",
+      "te": "మీకు పిల్లలు ఉన్నారా?",
+      "gloss": "Do you have children?",
+      "words": [
+        { "te": "మీకు", "gloss": "to you (polite)" },
+        { "te": "పిల్లలు", "gloss": "children" },
+        { "te": "ఉన్నారా", "gloss": "are there?" }
+      ],
+      "tags": ["family", "questions"],
+      "difficulty": 2
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Meet amma & nanna", "itemIds": ["u02-i01", "u02-i02", "u02-i15", "u02-i16"] },
+    { "id": "l2", "title": "Brothers & sisters", "itemIds": ["u02-i03", "u02-i04", "u02-i07", "u02-i08"] },
+    { "id": "l3", "title": "How many at home?", "itemIds": ["u02-i05", "u02-i06", "u02-i17"] },
+    { "id": "l4", "title": "Respect for elders", "itemIds": ["u02-i09", "u02-i10", "u02-i14"] },
+    { "id": "l5", "title": "How old are you?", "itemIds": ["u02-i11", "u02-i12", "u02-i13"] }
+  ],
+  "dialogue": {
+    "id": "u02-d1",
+    "title": "Priya meets the family",
+    "scene": "Your office friend Priya visits your home for the first time. You introduce everyone — four of you at home, since your annayya works away in Bengaluru. Amma arrives with tea and, of course, her own questions.",
+    "turns": [
+      { "speaker": "Priya", "itemId": "u02-i05" },
+      { "speaker": "You", "itemId": "u02-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u02-i01", "userTurn": true },
+      { "speaker": "Priya", "itemId": "u02-i14" },
+      { "speaker": "You", "itemId": "u02-i15", "userTurn": true },
+      { "speaker": "You", "itemId": "u02-i02", "userTurn": true },
+      { "speaker": "Tammudu", "itemId": "u02-i16" },
+      { "speaker": "You", "itemId": "u02-i03", "userTurn": true },
+      { "speaker": "Priya", "itemId": "u02-i11" },
+      { "speaker": "Tammudu", "itemId": "u02-i12" },
+      { "speaker": "Priya", "itemId": "u02-i07" },
+      { "speaker": "You", "itemId": "u02-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u02-i09", "userTurn": true },
+      { "speaker": "Amma", "itemId": "u02-i17" }
+    ]
+  }
+}

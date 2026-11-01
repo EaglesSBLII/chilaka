@@ -1,0 +1,290 @@
+{
+  "id": "u53",
+  "section": 7,
+  "order": 5,
+  "title": "Friends & teasing",
+  "teTitle": "దోస్తులతో మజాక్",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "Mama, bhai, light theesko — the affectionate roasting that holds Hyderabadi friendships together.",
+  "items": [
+    {
+      "id": "u53-i01",
+      "te": "లైట్ తీస్కో మామా.",
+      "gloss": "Take it lightly, mama.",
+      "words": [
+        { "te": "లైట్", "gloss": "light" },
+        { "te": "తీస్కో", "gloss": "take (casual)" },
+        { "te": "మామా", "gloss": "mama (dude)" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 2,
+      "note": "లైట్ తీస్కో = 'take it light', the Hyderabadi cure for every problem. Standard Telugu would be పట్టించుకోకు (don't mind it).",
+      "distractors": ["u53-i12", "u53-i16"]
+    },
+    {
+      "id": "u53-i02",
+      "te": "సాల్తే, కాల్ కైకు ఎత్తలే?",
+      "gloss": "Salte, why didn't you pick the call?",
+      "words": [
+        { "te": "సాల్తే", "gloss": "you rascal (very close friends only)" },
+        { "te": "కాల్", "gloss": "call" },
+        { "te": "కైకు", "gloss": "why (Hyderabadi)" },
+        { "te": "ఎత్తలే", "gloss": "didn't pick (Telangana)" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 4,
+      "note": "సాల్తే (from Urdu saale) is mock-abuse — pure affection between very close friends, a genuine insult to anyone else. Never use it with strangers or elders. ఎత్తలే = ఎత్తలేదు.",
+      "distractors": ["u53-i03", "u53-i11"]
+    },
+    {
+      "id": "u53-i03",
+      "te": "ఏం సీన్ రా ఇవాళ?",
+      "gloss": "What's the scene today, ra?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "సీన్", "gloss": "scene" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఇవాళ", "gloss": "today" }
+      ],
+      "tags": ["friends", "smalltalk"],
+      "difficulty": 2,
+      "note": "ఏం సీన్? = 'what's the plan / what's happening?' Standard Telugu: ఏం ప్లాన్ / ఏం సంగతి. Cinema runs deep in Hyderabadi slang.",
+      "distractors": ["u49-i12", "u53-i10"]
+    },
+    {
+      "id": "u53-i04",
+      "te": "మామా, ఒక హెల్ప్ కావాలి.",
+      "gloss": "Mama, I need a favor.",
+      "words": [
+        { "te": "మామా", "gloss": "mama (dude)" },
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "హెల్ప్", "gloss": "help / favor" },
+        { "te": "కావాలి", "gloss": "is needed" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 2,
+      "note": "మామా literally means maternal uncle, but in Hyderabad it's 'dude / bro' between friends. భయ్ (bhai) does the same job with an Urdu flavor."
+    },
+    {
+      "id": "u53-i05",
+      "te": "భయ్, నువ్వు ఫుల్ మారిపోయినవ్.",
+      "gloss": "Bhai, you've fully changed.",
+      "words": [
+        { "te": "భయ్", "gloss": "bhai (brother)" },
+        { "te": "నువ్వు", "gloss": "you" },
+        { "te": "ఫుల్", "gloss": "fully" },
+        { "te": "మారిపోయినవ్", "gloss": "have changed (Telangana)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 4,
+      "note": "మారిపోయినవ్ is Telangana for standard మారిపోయావు. The -ఇనవ్ past ending (వచ్చినవ్, చేసినవ్) marks Hyderabad speech instantly."
+    },
+    {
+      "id": "u53-i06",
+      "te": "సీన్ లేదు రా నీకు.",
+      "gloss": "You've got no chance, ra.",
+      "words": [
+        { "te": "సీన్", "gloss": "scene / chance" },
+        { "te": "లేదు", "gloss": "there isn't" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "నీకు", "gloss": "for you" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 3,
+      "note": "సీన్ లేదు = 'no scene' = zero chance, forget it. The definitive Hyderabadi shutdown, always delivered with a grin.",
+      "distractors": ["u53-i03", "u53-i07"]
+    },
+    {
+      "id": "u53-i07",
+      "te": "ఫుల్ బిల్డప్ ఇస్తున్నావ్ రా.",
+      "gloss": "You're giving full buildup, ra.",
+      "words": [
+        { "te": "ఫుల్", "gloss": "full" },
+        { "te": "బిల్డప్", "gloss": "buildup (showing off)" },
+        { "te": "ఇస్తున్నావ్", "gloss": "you're giving" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 3,
+      "note": "బిల్డప్ ఇవ్వడం = building yourself up / showing off, another film-industry word. Deflate a friend's buildup immediately — it's the law."
+    },
+    {
+      "id": "u53-i08",
+      "te": "ఏం అనుకోకు రా, జోక్ చేసిన.",
+      "gloss": "Don't mind, ra, I was joking.",
+      "words": [
+        { "te": "ఏం", "gloss": "anything" },
+        { "te": "అనుకోకు", "gloss": "don't mind" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "జోక్", "gloss": "joke" },
+        { "te": "చేసిన", "gloss": "I did (Telangana)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 4,
+      "note": "చేసిన = Telangana for standard చేశాను — the final -ను drops and the vowel shortens: వచ్చిన, చూసిన, చేసిన."
+    },
+    {
+      "id": "u53-i09",
+      "te": "నీ జోకులు పాత అయినయ్ రా.",
+      "gloss": "Your jokes have gotten old, ra.",
+      "words": [
+        { "te": "నీ", "gloss": "your" },
+        { "te": "జోకులు", "gloss": "jokes" },
+        { "te": "పాత", "gloss": "old" },
+        { "te": "అయినయ్", "gloss": "have become (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 4,
+      "note": "అయినయ్ = Telangana plural of 'became' — standard అయ్యాయి. Same family: పడ్డయ్ (fell), వచ్చినయ్ (came).",
+      "distractors": ["u53-i07", "u53-i06"]
+    },
+    {
+      "id": "u53-i10",
+      "te": "మామా, పార్టీ ఎప్పుడు రా?",
+      "gloss": "Mama, when's the party, ra?",
+      "words": [
+        { "te": "మామా", "gloss": "mama (dude)" },
+        { "te": "పార్టీ", "gloss": "party / treat" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["friends", "smalltalk"],
+      "difficulty": 2,
+      "note": "Any good news — new job, new phone, new haircut — triggers పార్టీ ఎప్పుడు? The treat is owed until paid.",
+      "distractors": ["u53-i03", "u53-i04"]
+    },
+    {
+      "id": "u53-i11",
+      "te": "ఏంది రా ఆ పోజు?",
+      "gloss": "What's with that pose, ra?",
+      "words": [
+        { "te": "ఏంది", "gloss": "what (Telangana)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "పోజు", "gloss": "pose / attitude" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 3,
+      "distractors": ["u53-i07", "u49-i06"]
+    },
+    {
+      "id": "u53-i12",
+      "te": "అరేయ్, సీరియస్ అవ్వకు రా.",
+      "gloss": "Hey, don't get serious, ra.",
+      "words": [
+        { "te": "అరేయ్", "gloss": "hey!" },
+        { "te": "సీరియస్", "gloss": "serious" },
+        { "te": "అవ్వకు", "gloss": "don't become" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 3
+    },
+    {
+      "id": "u53-i13",
+      "te": "నీతో పెట్టుకుంటే అంతే మామా.",
+      "gloss": "Mess with you and that's the end, mama.",
+      "words": [
+        { "te": "నీతో", "gloss": "with you" },
+        { "te": "పెట్టుకుంటే", "gloss": "if one messes" },
+        { "te": "అంతే", "gloss": "that's it" },
+        { "te": "మామా", "gloss": "mama (dude)" }
+      ],
+      "tags": ["friends", "teasing"],
+      "difficulty": 4,
+      "note": "పెట్టుకోవడం here = picking a fight / messing with someone. A compliment disguised as surrender."
+    },
+    {
+      "id": "u53-i14",
+      "te": "మా గ్యాంగ్ అంతా తోపు రా.",
+      "gloss": "Our whole gang is awesome, ra.",
+      "words": [
+        { "te": "మా", "gloss": "our" },
+        { "te": "గ్యాంగ్", "gloss": "gang (friend group)" },
+        { "te": "అంతా", "gloss": "entirely" },
+        { "te": "తోపు", "gloss": "awesome (Hyderabadi)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 3,
+      "distractors": ["u53-i15", "u51-i07"]
+    },
+    {
+      "id": "u53-i15",
+      "te": "హౌ మామా, నువ్వే కరెక్ట్.",
+      "gloss": "Yes mama, you're right.",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "మామా", "gloss": "mama (dude)" },
+        { "te": "నువ్వే", "gloss": "you yourself" },
+        { "te": "కరెక్ట్", "gloss": "correct" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 3
+    },
+    {
+      "id": "u53-i16",
+      "te": "కోపం నక్కో, చాయ్ తాగు.",
+      "gloss": "No anger, drink chai.",
+      "words": [
+        { "te": "కోపం", "gloss": "anger" },
+        { "te": "నక్కో", "gloss": "no / don't (Hyderabadi)" },
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "తాగు", "gloss": "drink" }
+      ],
+      "tags": ["friends", "flavor"],
+      "difficulty": 3,
+      "note": "నక్కో after a noun = 'no X, drop the X'. Standard: కోపం వద్దు. In Hyderabad, chai genuinely is the peace treaty."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Mama and bhai",
+      "itemIds": ["u53-i04", "u53-i10", "u53-i15", "u53-i05"]
+    },
+    {
+      "id": "l2",
+      "title": "What's the scene",
+      "itemIds": ["u53-i03", "u53-i02", "u53-i01"]
+    },
+    {
+      "id": "l3",
+      "title": "The roast",
+      "itemIds": ["u53-i06", "u53-i07", "u53-i11"]
+    },
+    {
+      "id": "l4",
+      "title": "Cooling down",
+      "itemIds": ["u53-i08", "u53-i12", "u53-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Gang love",
+      "itemIds": ["u53-i09", "u53-i13", "u53-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u53-d1",
+    "title": "Roast session at the dhaba",
+    "scene": "Your closest friend Farhan corners you at the dhaba — you missed his calls all week. Twelve rounds of teasing later, everything is settled over chai, as always.",
+    "turns": [
+      { "speaker": "Farhan", "itemId": "u53-i02" },
+      { "speaker": "You", "itemId": "u53-i01", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i11" },
+      { "speaker": "You", "itemId": "u53-i03", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i10" },
+      { "speaker": "You", "itemId": "u53-i06", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i07" },
+      { "speaker": "You", "itemId": "u53-i09", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i12" },
+      { "speaker": "You", "itemId": "u53-i08", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i05" },
+      { "speaker": "You", "itemId": "u53-i16", "userTurn": true },
+      { "speaker": "Farhan", "itemId": "u53-i15" },
+      { "speaker": "You", "itemId": "u53-i14", "userTurn": true }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+name = "chilaka-sync"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# KV namespace binding — created by tools/deploy-iphone.sh via:
+#   wrangler kv namespace create SYNC
+# which prints the id to paste below (the deploy script automates this).
+[[kv_namespaces]]
+binding = "SYNC"
+id = "5c9fe53aea6c44a48208a41d43f5b945"
+
+# Workers AI — powers phone-side speech scoring (free-tier allocation)
+[ai]
+binding = "AI"

@@ -1,0 +1,299 @@
+{
+  "id": "u64",
+  "section": 8,
+  "order": 8,
+  "title": "The India trip",
+  "teTitle": "ఇండియా ప్రయాణం",
+  "cefr": "B1+",
+  "register": "standard",
+  "description": "The capstone: one whole trip in Telugu — landing, the wave of relatives, the market, terrace evenings, and the goodbye that uses everything you've learned.",
+  "items": [
+    {
+      "id": "u64-i01",
+      "te": "ఫ్లైట్ దిగగానే ఆ గాలి వాసనే వేరు.",
+      "gloss": "The moment you step off the flight, even the air smells different.",
+      "words": [
+        { "te": "ఫ్లైట్", "gloss": "flight" },
+        { "te": "దిగగానే", "gloss": "as soon as (one) gets down" },
+        { "te": "ఆ", "gloss": "that" },
+        { "te": "గాలి", "gloss": "air" },
+        { "te": "వాసనే", "gloss": "the very smell" },
+        { "te": "వేరు", "gloss": "is different" }
+      ],
+      "tags": ["trip", "arrival"],
+      "difficulty": 4,
+      "distractors": ["u64-i05"]
+    },
+    {
+      "id": "u64-i02",
+      "te": "నాన్నమ్మ నన్ను చూసి కళ్ళనీళ్ళు పెట్టుకుంది.",
+      "gloss": "Grandma teared up the moment she saw me.",
+      "words": [
+        { "te": "నాన్నమ్మ", "gloss": "grandmother (father's mother)" },
+        { "te": "నన్ను", "gloss": "me" },
+        { "te": "చూసి", "gloss": "having seen" },
+        { "te": "కళ్ళనీళ్ళు", "gloss": "tears (eye-water)" },
+        { "te": "పెట్టుకుంది", "gloss": "welled up" }
+      ],
+      "tags": ["trip", "arrival", "family"],
+      "difficulty": 4,
+      "note": "కళ్ళనీళ్ళు పెట్టుకోవడం — literally 'putting on eye-water' — is how Telugu says welling up, for joy as much as for sorrow. At airport arrivals it's almost always joy."
+    },
+    {
+      "id": "u64-i03",
+      "te": "ఇన్నాళ్ళకి గుర్తొచ్చామా మేము మీకు?",
+      "gloss": "So you finally remembered us after all this time?",
+      "words": [
+        { "te": "ఇన్నాళ్ళకి", "gloss": "after all these days" },
+        { "te": "గుర్తొచ్చామా", "gloss": "did we come to memory?" },
+        { "te": "మేము", "gloss": "we" },
+        { "te": "మీకు", "gloss": "to you" }
+      ],
+      "tags": ["trip", "family", "teasing"],
+      "difficulty": 4,
+      "note": "The loving complaint every visitor from abroad hears in the first five minutes. It is affection wearing a frown — answer it with a hug and a laugh, never with logic."
+    },
+    {
+      "id": "u64-i04",
+      "te": "మీ చేతి వంట కోసమే వచ్చాను నాన్నమ్మా.",
+      "gloss": "I came just for your cooking, nanamma.",
+      "words": [
+        { "te": "మీ", "gloss": "your (polite)" },
+        { "te": "చేతి", "gloss": "of the hand" },
+        { "te": "వంట", "gloss": "cooking" },
+        { "te": "కోసమే", "gloss": "only for the sake of" },
+        { "te": "వచ్చాను", "gloss": "I came" },
+        { "te": "నాన్నమ్మా", "gloss": "grandma (address)" }
+      ],
+      "tags": ["trip", "family", "food"],
+      "difficulty": 4,
+      "distractors": ["u64-i02"]
+    },
+    {
+      "id": "u64-i05",
+      "te": "ఊరు చాలా మారిపోయింది కదా అనిపించింది.",
+      "gloss": "It felt like the whole town has changed so much.",
+      "words": [
+        { "te": "ఊరు", "gloss": "town" },
+        { "te": "చాలా", "gloss": "very much" },
+        { "te": "మారిపోయింది", "gloss": "has changed completely" },
+        { "te": "కదా", "gloss": "hasn't it" },
+        { "te": "అనిపించింది", "gloss": "it felt (to me)" }
+      ],
+      "tags": ["trip", "reflection"],
+      "difficulty": 4,
+      "distractors": ["u64-i01"]
+    },
+    {
+      "id": "u64-i06",
+      "te": "మార్కెట్లో బేరం ఆడటం మర్చిపోలేదు నేను.",
+      "gloss": "I haven't forgotten how to bargain in the market.",
+      "words": [
+        { "te": "మార్కెట్లో", "gloss": "in the market" },
+        { "te": "బేరం", "gloss": "bargaining" },
+        { "te": "ఆడటం", "gloss": "playing / doing" },
+        { "te": "మర్చిపోలేదు", "gloss": "haven't forgotten" },
+        { "te": "నేను", "gloss": "I" }
+      ],
+      "tags": ["trip", "market"],
+      "difficulty": 4,
+      "distractors": ["u64-i07"]
+    },
+    {
+      "id": "u64-i07",
+      "te": "సాయంత్రం డాబా మీద అందరం కబుర్లు చెప్పుకున్నాం.",
+      "gloss": "In the evening we all sat on the terrace trading stories.",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "in the evening" },
+        { "te": "డాబా", "gloss": "terrace / rooftop" },
+        { "te": "మీద", "gloss": "on top of" },
+        { "te": "అందరం", "gloss": "all of us" },
+        { "te": "కబుర్లు", "gloss": "chit-chat / stories" },
+        { "te": "చెప్పుకున్నాం", "gloss": "we told each other" }
+      ],
+      "tags": ["trip", "evenings", "family"],
+      "difficulty": 4
+    },
+    {
+      "id": "u64-i08",
+      "te": "ఈ వారం కళ్ళు మూసి తెరిచేలోపు అయిపోయింది.",
+      "gloss": "This week was over in the blink of an eye.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "వారం", "gloss": "week" },
+        { "te": "కళ్ళు", "gloss": "eyes" },
+        { "te": "మూసి", "gloss": "having closed" },
+        { "te": "తెరిచేలోపు", "gloss": "before opening" },
+        { "te": "అయిపోయింది", "gloss": "got finished" }
+      ],
+      "tags": ["trip", "reflection"],
+      "difficulty": 5,
+      "note": "Literally 'the week finished before I could close and open my eyes' — the Telugu way of saying time flew. Said, always, on the last day."
+    },
+    {
+      "id": "u64-i09",
+      "te": "వెళ్ళాలంటే మనసు రావట్లేదు.",
+      "gloss": "My heart just isn't in leaving.",
+      "words": [
+        { "te": "వెళ్ళాలంటే", "gloss": "at the thought of leaving" },
+        { "te": "మనసు", "gloss": "heart / mind" },
+        { "te": "రావట్లేదు", "gloss": "isn't coming" }
+      ],
+      "tags": ["trip", "goodbye"],
+      "difficulty": 4,
+      "note": "మనసు రావట్లేదు — literally 'the heart isn't coming' — means I can't bring myself to do it. The truest sentence of every departure day."
+    },
+    {
+      "id": "u64-i10",
+      "te": "వచ్చే ఏడాది తప్పకుండా మళ్ళీ వస్తాం.",
+      "gloss": "Next year we will definitely come again.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "ఏడాది", "gloss": "year" },
+        { "te": "తప్పకుండా", "gloss": "without fail" },
+        { "te": "మళ్ళీ", "gloss": "again" },
+        { "te": "వస్తాం", "gloss": "we will come" }
+      ],
+      "tags": ["trip", "goodbye", "promises"],
+      "difficulty": 3,
+      "distractors": ["u64-i14"]
+    },
+    {
+      "id": "u64-i11",
+      "te": "ఫోన్ చేస్తూ ఉండు, మర్చిపోకు మమ్మల్ని.",
+      "gloss": "Keep calling — don't you forget us.",
+      "words": [
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చేస్తూ", "gloss": "doing (continuously)" },
+        { "te": "ఉండు", "gloss": "keep on (casual)" },
+        { "te": "మర్చిపోకు", "gloss": "don't forget (casual)" },
+        { "te": "మమ్మల్ని", "gloss": "us" }
+      ],
+      "tags": ["trip", "goodbye", "family"],
+      "difficulty": 3,
+      "distractors": ["u64-i15"]
+    },
+    {
+      "id": "u64-i12",
+      "te": "ఈ ఆవకాయ డబ్బా జాగ్రత్తగా పెట్టుకో బ్యాగులో.",
+      "gloss": "Pack this jar of avakaya carefully in your bag.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ఆవకాయ", "gloss": "mango pickle" },
+        { "te": "డబ్బా", "gloss": "jar / tin" },
+        { "te": "జాగ్రత్తగా", "gloss": "carefully" },
+        { "te": "పెట్టుకో", "gloss": "keep (for yourself, casual)" },
+        { "te": "బ్యాగులో", "gloss": "in the bag" }
+      ],
+      "tags": ["trip", "goodbye", "food"],
+      "difficulty": 4,
+      "note": "No suitcase leaves a Telugu home without pickle jars wrapped in three plastic bags. The avakaya డబ్బా is love in a box — refuse it and watch the heartbreak."
+    },
+    {
+      "id": "u64-i13",
+      "te": "మీరందరూ ఉన్నారనే ధైర్యంతో వెళ్తున్నాను.",
+      "gloss": "I leave with the courage that you are all here.",
+      "words": [
+        { "te": "మీరందరూ", "gloss": "all of you" },
+        { "te": "ఉన్నారనే", "gloss": "that (you) are there" },
+        { "te": "ధైర్యంతో", "gloss": "with the courage" },
+        { "te": "వెళ్తున్నాను", "gloss": "I am going" }
+      ],
+      "tags": ["trip", "goodbye"],
+      "difficulty": 5,
+      "distractors": ["u64-i16"]
+    },
+    {
+      "id": "u64-i14",
+      "te": "రోజూ వీడియో కాల్ చేస్తాను కదా.",
+      "gloss": "I'll video call every day, won't I?",
+      "words": [
+        { "te": "రోజూ", "gloss": "every day" },
+        { "te": "వీడియో", "gloss": "video" },
+        { "te": "కాల్", "gloss": "call" },
+        { "te": "చేస్తాను", "gloss": "I will do" },
+        { "te": "కదా", "gloss": "right?" }
+      ],
+      "tags": ["trip", "goodbye", "promises"],
+      "difficulty": 3,
+      "distractors": ["u64-i10"]
+    },
+    {
+      "id": "u64-i15",
+      "te": "జాగ్రత్త నాన్నా, క్షేమంగా చేరాక ఫోన్ చెయ్యి.",
+      "gloss": "Take care, dear — call once you've reached safely.",
+      "words": [
+        { "te": "జాగ్రత్త", "gloss": "take care" },
+        { "te": "నాన్నా", "gloss": "dear (endearment)" },
+        { "te": "క్షేమంగా", "gloss": "safely" },
+        { "te": "చేరాక", "gloss": "after reaching" },
+        { "te": "ఫోన్", "gloss": "phone" },
+        { "te": "చెయ్యి", "gloss": "do / make (casual)" }
+      ],
+      "tags": ["trip", "goodbye", "family"],
+      "difficulty": 4,
+      "note": "Elders call younger people నాన్నా or అమ్మా as pure endearment — it isn't 'dad' here. క్షేమంగా చేరాక ఫోన్ చెయ్యి is the eternal parting instruction; the call home closes the loop."
+    },
+    {
+      "id": "u64-i16",
+      "te": "ఈ ప్రయాణం జీవితాంతం గుర్తుండిపోతుంది.",
+      "gloss": "This trip will stay with me for the rest of my life.",
+      "words": [
+        { "te": "ఈ", "gloss": "this" },
+        { "te": "ప్రయాణం", "gloss": "journey" },
+        { "te": "జీవితాంతం", "gloss": "for a whole lifetime" },
+        { "te": "గుర్తుండిపోతుంది", "gloss": "will remain in memory" }
+      ],
+      "tags": ["trip", "reflection"],
+      "difficulty": 4,
+      "distractors": ["u64-i13"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Touchdown",
+      "itemIds": ["u64-i01", "u64-i02", "u64-i03"]
+    },
+    {
+      "id": "l2",
+      "title": "Being home",
+      "itemIds": ["u64-i04", "u64-i05", "u64-i07"]
+    },
+    {
+      "id": "l3",
+      "title": "The week flies",
+      "itemIds": ["u64-i06", "u64-i08", "u64-i16"]
+    },
+    {
+      "id": "l4",
+      "title": "The goodbye",
+      "itemIds": ["u64-i09", "u64-i12", "u64-i15"]
+    },
+    {
+      "id": "l5",
+      "title": "Until next time",
+      "itemIds": ["u64-i10", "u64-i11", "u64-i13", "u64-i14"]
+    }
+  ],
+  "dialogue": {
+    "id": "u64-d1",
+    "title": "The goodbye at the airport",
+    "scene": "Departure day, before dawn. Bags weighed twice, nanamma quiet since breakfast. At the airport gate babai keeps checking his watch and nanamma presses one last jar into your hands. Everything the course taught you comes down to these few minutes.",
+    "turns": [
+      { "speaker": "You", "itemId": "u64-i08", "userTurn": true },
+      { "speaker": "Nanamma", "itemId": "u64-i12" },
+      { "speaker": "You", "itemId": "u64-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u64-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u64-i06", "userTurn": true },
+      { "speaker": "Nanamma", "itemId": "u64-i03" },
+      { "speaker": "You", "itemId": "u64-i09", "userTurn": true },
+      { "speaker": "Nanamma", "itemId": "u64-i11" },
+      { "speaker": "You", "itemId": "u64-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u64-i10", "userTurn": true },
+      { "speaker": "Babai", "itemId": "u64-i15" },
+      { "speaker": "You", "itemId": "u64-i13", "userTurn": true },
+      { "speaker": "You", "itemId": "u64-i16", "userTurn": true }
+    ]
+  }
+}

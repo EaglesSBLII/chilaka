@@ -1,0 +1,264 @@
+{
+  "id": "u40",
+  "section": 5,
+  "order": 8,
+  "title": "Elders & little ones",
+  "teTitle": "పెద్దలు, పిల్లలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Caring talk across generations — medicine reminders for grandparents, play talk for kids, and blessings.",
+  "items": [
+    {
+      "id": "u40-i01",
+      "te": "మందులు వేసుకున్నారా, నాన్నమ్మ?",
+      "gloss": "Did you take your medicines, grandma?",
+      "words": [
+        { "te": "మందులు", "gloss": "medicines" },
+        { "te": "వేసుకున్నారా", "gloss": "did you take?" },
+        { "te": "నాన్నమ్మ", "gloss": "grandma (dad's mom)" }
+      ],
+      "tags": ["elders", "health", "questions"],
+      "difficulty": 3,
+      "note": "Medicines are 'put on/in' — వేసుకో — the same verb as serving food or wearing clothes. మందులు వేసుకోండి = take your meds.",
+      "distractors": ["u40-i02", "u40-i04"]
+    },
+    {
+      "id": "u40-i02",
+      "te": "మర్చిపోకుండా టైముకి వేసుకోండి.",
+      "gloss": "Take them on time, without forgetting.",
+      "words": [
+        { "te": "మర్చిపోకుండా", "gloss": "without forgetting" },
+        { "te": "టైముకి", "gloss": "on time" },
+        { "te": "వేసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["elders", "health"],
+      "difficulty": 3,
+      "distractors": ["u40-i01", "u40-i15"]
+    },
+    {
+      "id": "u40-i03",
+      "te": "మెట్లు దిగేటప్పుడు జాగ్రత్త.",
+      "gloss": "Careful going down the stairs.",
+      "words": [
+        { "te": "మెట్లు", "gloss": "stairs" },
+        { "te": "దిగేటప్పుడు", "gloss": "while descending" },
+        { "te": "జాగ్రత్త", "gloss": "careful" }
+      ],
+      "tags": ["elders", "care"],
+      "difficulty": 3,
+      "note": "జాగ్రత్త on its own is a complete caring sentence — 'be careful'. Telugu families say it constantly, in every direction.",
+      "distractors": ["u40-i05", "u40-i12"]
+    },
+    {
+      "id": "u40-i04",
+      "te": "డాక్టర్ దగ్గరికి వెళ్దాం రేపు.",
+      "gloss": "Let's go to the doctor tomorrow.",
+      "words": [
+        { "te": "డాక్టర్", "gloss": "doctor" },
+        { "te": "దగ్గరికి", "gloss": "to (near)" },
+        { "te": "వెళ్దాం", "gloss": "let's go" },
+        { "te": "రేపు", "gloss": "tomorrow" }
+      ],
+      "tags": ["elders", "health"],
+      "difficulty": 2,
+      "distractors": ["u40-i01", "u40-i02"]
+    },
+    {
+      "id": "u40-i05",
+      "te": "చలిగా ఉంది, స్వెట్టర్ వేసుకోండి.",
+      "gloss": "It's cold — put on a sweater.",
+      "words": [
+        { "te": "చలిగా", "gloss": "cold" },
+        { "te": "ఉంది", "gloss": "it is" },
+        { "te": "స్వెట్టర్", "gloss": "sweater" },
+        { "te": "వేసుకోండి", "gloss": "put on (polite)" }
+      ],
+      "tags": ["elders", "care"],
+      "difficulty": 2,
+      "distractors": ["u40-i03", "u40-i15"]
+    },
+    {
+      "id": "u40-i06",
+      "te": "బాబు, నెమ్మదిగా పరుగెత్తు!",
+      "gloss": "Careful kiddo, run slowly!",
+      "words": [
+        { "te": "బాబు", "gloss": "little boy / kiddo" },
+        { "te": "నెమ్మదిగా", "gloss": "slowly" },
+        { "te": "పరుగెత్తు", "gloss": "run (informal)" }
+      ],
+      "tags": ["kids", "play"],
+      "difficulty": 2,
+      "note": "With little ones you switch to the informal singular: పరుగెత్తు, తిను, రా — no -ండి. బాబు for boys, పాప for girls.",
+      "distractors": ["u40-i09", "u40-i07"]
+    },
+    {
+      "id": "u40-i07",
+      "te": "అన్నం తిను, బంగారం.",
+      "gloss": "Eat your food, sweetie.",
+      "words": [
+        { "te": "అన్నం", "gloss": "rice / food" },
+        { "te": "తిను", "gloss": "eat (informal)" },
+        { "te": "బంగారం", "gloss": "gold (endearment)" }
+      ],
+      "tags": ["kids", "food"],
+      "difficulty": 2,
+      "note": "బంగారం — 'gold' — is the everyday endearment for children. Also బుజ్జి, కన్నా, చిట్టి — Telugu never runs out of these.",
+      "distractors": ["u40-i06", "u40-i08"]
+    },
+    {
+      "id": "u40-i08",
+      "te": "ఏడవకు, నేను ఉన్నాను కదా.",
+      "gloss": "Don't cry — I'm here, aren't I?",
+      "words": [
+        { "te": "ఏడవకు", "gloss": "don't cry (informal)" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "ఉన్నాను", "gloss": "am (here)" },
+        { "te": "కదా", "gloss": "right?" }
+      ],
+      "tags": ["kids", "comfort"],
+      "difficulty": 3,
+      "distractors": ["u40-i07", "u40-i10"]
+    },
+    {
+      "id": "u40-i09",
+      "te": "రా, ఆడుకుందాం!",
+      "gloss": "Come, let's play!",
+      "words": [
+        { "te": "రా", "gloss": "come (informal)" },
+        { "te": "ఆడుకుందాం", "gloss": "let's play" }
+      ],
+      "tags": ["kids", "play"],
+      "difficulty": 2
+    },
+    {
+      "id": "u40-i10",
+      "te": "ఒళ్ళో కూర్చో, కథ చెప్తాను.",
+      "gloss": "Sit in my lap, I'll tell you a story.",
+      "words": [
+        { "te": "ఒళ్ళో", "gloss": "in the lap" },
+        { "te": "కూర్చో", "gloss": "sit (informal)" },
+        { "te": "కథ", "gloss": "a story" },
+        { "te": "చెప్తాను", "gloss": "I will tell" }
+      ],
+      "tags": ["kids", "stories"],
+      "difficulty": 3
+    },
+    {
+      "id": "u40-i11",
+      "te": "చల్లగా నూరేళ్ళు ఉండాలి, తల్లీ.",
+      "gloss": "May you live cool and content for a hundred years, dear.",
+      "words": [
+        { "te": "చల్లగా", "gloss": "coolly / peacefully" },
+        { "te": "నూరేళ్ళు", "gloss": "a hundred years" },
+        { "te": "ఉండాలి", "gloss": "may (you) remain" },
+        { "te": "తల్లీ", "gloss": "dear (lit. mother)" }
+      ],
+      "tags": ["elders", "blessings"],
+      "difficulty": 4,
+      "note": "Elders bless with coolness — చల్లగా ఉండాలి — a wish for a calm, trouble-free life. తల్లీ is affection, said even to kids."
+    },
+    {
+      "id": "u40-i12",
+      "te": "తాతయ్య, కొంచెం నడిచి రండి.",
+      "gloss": "Grandpa, go walk a little.",
+      "words": [
+        { "te": "తాతయ్య", "gloss": "grandpa" },
+        { "te": "కొంచెం", "gloss": "a little" },
+        { "te": "నడిచి", "gloss": "having walked" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["elders", "health"],
+      "difficulty": 3,
+      "note": "నడిచి రండి — 'walk and come back' — the standard way to send someone on a stroll. Verbs pair up like this all the time."
+    },
+    {
+      "id": "u40-i13",
+      "te": "కళ్ళజోడు ఎక్కడ పెట్టారు?",
+      "gloss": "Where did you put your glasses?",
+      "words": [
+        { "te": "కళ్ళజోడు", "gloss": "spectacles" },
+        { "te": "ఎక్కడ", "gloss": "where" },
+        { "te": "పెట్టారు", "gloss": "did you put?" }
+      ],
+      "tags": ["elders", "questions"],
+      "difficulty": 2,
+      "distractors": ["u40-i01", "u40-i05"]
+    },
+    {
+      "id": "u40-i14",
+      "te": "పిల్లలు హోంవర్క్ చేశారా?",
+      "gloss": "Did the kids do their homework?",
+      "words": [
+        { "te": "పిల్లలు", "gloss": "children" },
+        { "te": "హోంవర్క్", "gloss": "homework" },
+        { "te": "చేశారా", "gloss": "did they do?" }
+      ],
+      "tags": ["kids", "questions"],
+      "difficulty": 3,
+      "distractors": ["u40-i07", "u40-i09"]
+    },
+    {
+      "id": "u40-i15",
+      "te": "పడుకునే ముందు పాలు తాగండి.",
+      "gloss": "Drink milk before going to bed.",
+      "words": [
+        { "te": "పడుకునే", "gloss": "sleeping" },
+        { "te": "ముందు", "gloss": "before" },
+        { "te": "పాలు", "gloss": "milk" },
+        { "te": "తాగండి", "gloss": "drink (polite)" }
+      ],
+      "tags": ["elders", "care"],
+      "difficulty": 2,
+      "distractors": ["u40-i02", "u40-i05"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Medicine time",
+      "itemIds": ["u40-i01", "u40-i02", "u40-i04"]
+    },
+    {
+      "id": "l2",
+      "title": "Be careful",
+      "itemIds": ["u40-i03", "u40-i05", "u40-i13"]
+    },
+    {
+      "id": "l3",
+      "title": "Little ones",
+      "itemIds": ["u40-i06", "u40-i07", "u40-i09"]
+    },
+    {
+      "id": "l4",
+      "title": "Stories & strolls",
+      "itemIds": ["u40-i08", "u40-i10", "u40-i12"]
+    },
+    {
+      "id": "l5",
+      "title": "Blessings & bedtime",
+      "itemIds": ["u40-i11", "u40-i14", "u40-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u40-d1",
+    "title": "An evening with nannamma and Chinnu",
+    "scene": "A full-house evening. You check on nannamma's medicines, little Chinnu drags you off to play, and grandma settles everyone down with a story and a blessing.",
+    "turns": [
+      { "speaker": "You", "itemId": "u40-i01", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i02", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i13", "userTurn": true },
+      { "speaker": "Nannamma", "itemId": "u40-i11" },
+      { "speaker": "You", "itemId": "u40-i04", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i05", "userTurn": true },
+      { "speaker": "Nannamma", "itemId": "u40-i14" },
+      { "speaker": "Chinnu", "itemId": "u40-i09" },
+      { "speaker": "You", "itemId": "u40-i06", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i08", "userTurn": true },
+      { "speaker": "Nannamma", "itemId": "u40-i10" },
+      { "speaker": "You", "itemId": "u40-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i12", "userTurn": true },
+      { "speaker": "You", "itemId": "u40-i15", "userTurn": true },
+      { "speaker": "Nannamma", "itemId": "u40-i03" }
+    ]
+  }
+}

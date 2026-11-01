@@ -1,0 +1,181 @@
+{
+  "id": "u85",
+  "track": "script",
+  "section": 1,
+  "order": 5,
+  "title": "pa to va",
+  "teTitle": "హల్లులు 3",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "The lip row ప ఫ బ భ మ and the smooth four య ర ల వ — now real words pour out.",
+  "items": [
+    {
+      "id": "u85-i01",
+      "te": "ప",
+      "audioTe": "ప. పాలు.",
+      "gloss": "pa — as in 'paalu' (milk)",
+      "words": [{ "te": "ప", "gloss": "pa — made with both lips" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i09", "u85-i02"],
+      "note": "ప and వ are the classic mix-up: ప has a flat, open top; వ closes into a round head."
+    },
+    {
+      "id": "u85-i02",
+      "te": "ఫ",
+      "audioTe": "ఫ. ఫలం.",
+      "gloss": "pha — as in 'phalam' (fruit)",
+      "words": [{ "te": "ఫ", "gloss": "pha — ప with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u85-i01"],
+      "note": "ఫ is ప with a curled flag on the right. In loanwords it reads like f: ఫోను (phone)."
+    },
+    {
+      "id": "u85-i03",
+      "te": "బ",
+      "audioTe": "బ. బడి.",
+      "gloss": "ba — as in 'baDi' (school)",
+      "words": [{ "te": "బ", "gloss": "ba" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i04", "u82-i03"],
+      "note": "బ looks a lot like the vowel ఐ — but బ is the everyday letter of బడి, బాగుంది, బండి."
+    },
+    {
+      "id": "u85-i04",
+      "te": "భ",
+      "audioTe": "భ. భయం.",
+      "gloss": "bha — as in 'bhayam' (fear)",
+      "words": [{ "te": "భ", "gloss": "bha — బ with a puff of breath" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u85-i03"],
+      "note": "భయం లేదు! (no fear!) — భ carries the heavy bh of భోజనం (meal) too."
+    },
+    {
+      "id": "u85-i05",
+      "te": "మ",
+      "audioTe": "మ. మనం.",
+      "gloss": "ma — as in 'manam' (we)",
+      "words": [{ "te": "మ", "gloss": "ma" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i06", "u85-i09"],
+      "note": "మ and య are twin double-loops — య grows an extra stem in the middle. మ starts అమ్మ's sound and మంచి."
+    },
+    {
+      "id": "u85-i06",
+      "te": "య",
+      "audioTe": "య. యాత్ర.",
+      "gloss": "ya — as in 'yaatra' (journey)",
+      "words": [{ "te": "య", "gloss": "ya" }],
+      "tags": ["consonant"],
+      "difficulty": 2,
+      "distractors": ["u85-i05"]
+    },
+    {
+      "id": "u85-i07",
+      "te": "ర",
+      "audioTe": "ర. రైలు.",
+      "gloss": "ra — as in 'railu' (train)",
+      "words": [{ "te": "ర", "gloss": "ra" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i08"],
+      "note": "You met ర inside ఊరు (town). It also hides in రెండు, రోడ్డు, రుచి — words you already say."
+    },
+    {
+      "id": "u85-i08",
+      "te": "ల",
+      "audioTe": "ల. లడ్డూ.",
+      "gloss": "la — as in 'laDDoo' (laddu)",
+      "words": [{ "te": "ల", "gloss": "la" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i07"],
+      "note": "Telugu has two L's: this everyday ల, and the curled ళ you'll meet in the next unit (నీళ్ళు!)."
+    },
+    {
+      "id": "u85-i09",
+      "te": "వ",
+      "audioTe": "వ. వల.",
+      "gloss": "va — as in 'vala' (net)",
+      "words": [{ "te": "వ", "gloss": "va — between English v and w" }],
+      "tags": ["consonant"],
+      "difficulty": 1,
+      "distractors": ["u85-i01", "u85-i05"],
+      "note": "వ opens వంద (hundred) and వస్తున్నాను (I'm coming). Round head = వ; open top = ప."
+    },
+    {
+      "id": "u85-i10",
+      "te": "మనం",
+      "gloss": "manam — we (all of us)",
+      "words": [
+        { "te": "మ", "gloss": "ma" },
+        { "te": "నం", "gloss": "nam — న with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u85-i12"],
+      "note": "మనం వెళ్దాం! (let's go!) — you've said it a hundred times; now it's two aksharas on a page."
+    },
+    {
+      "id": "u85-i11",
+      "te": "పలక",
+      "gloss": "palaka — slate",
+      "words": [
+        { "te": "ప", "gloss": "pa" },
+        { "te": "ల", "gloss": "la" },
+        { "te": "క", "gloss": "ka" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u85-i13", "u85-i12"],
+      "note": "పలక — the slate every Telugu child learns letters on. Fitting, no?"
+    },
+    {
+      "id": "u85-i12",
+      "te": "బలం",
+      "gloss": "balam — strength",
+      "words": [
+        { "te": "బ", "gloss": "ba" },
+        { "te": "లం", "gloss": "lam — ల with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u85-i10", "u85-i11"]
+    },
+    {
+      "id": "u85-i13",
+      "te": "వల",
+      "gloss": "vala — net",
+      "words": [
+        { "te": "వ", "gloss": "va" },
+        { "te": "ల", "gloss": "la" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u84-i11", "u85-i11"],
+      "note": "వల (net) vs తల (head) — one akshara apart. Reading is spotting that one difference."
+    },
+    {
+      "id": "u85-i14",
+      "te": "రథం",
+      "gloss": "ratham — chariot",
+      "words": [
+        { "te": "ర", "gloss": "ra" },
+        { "te": "థం", "gloss": "tham — థ with the sunna hum" }
+      ],
+      "tags": ["word"],
+      "difficulty": 2,
+      "distractors": ["u85-i12"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "pa pha ba bha", "itemIds": ["u85-i01", "u85-i02", "u85-i03", "u85-i04"] },
+    { "id": "l2", "title": "ma & ya", "itemIds": ["u85-i05", "u85-i06", "u85-i10"] },
+    { "id": "l3", "title": "ra la va", "itemIds": ["u85-i07", "u85-i08", "u85-i09", "u85-i13"] },
+    { "id": "l4", "title": "reading practice", "itemIds": ["u85-i11", "u85-i12", "u85-i14"] }
+  ]
+}

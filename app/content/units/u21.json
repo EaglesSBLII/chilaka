@@ -1,0 +1,249 @@
+{
+  "id": "u21",
+  "section": 3,
+  "order": 5,
+  "title": "Festivals & occasions",
+  "teTitle": "పండుగలు",
+  "cefr": "B1",
+  "register": "standard",
+  "description": "Celebrate Sankranti, Deepavali and weddings — wishes, sweets, new clothes and blessings.",
+  "items": [
+    {
+      "id": "u21-i01",
+      "te": "సంక్రాంతికి ఊరికి వెళ్తున్నారా?",
+      "gloss": "Are you going to your hometown for Sankranti?",
+      "words": [
+        { "te": "సంక్రాంతికి", "gloss": "for Sankranti" },
+        { "te": "ఊరికి", "gloss": "to the hometown" },
+        { "te": "వెళ్తున్నారా", "gloss": "are (you) going?" }
+      ],
+      "tags": ["festivals", "questions"],
+      "difficulty": 4,
+      "note": "Sankranti is THE go-home festival for Telugu families — trains sell out weeks ahead. ఊరు (uuru) here means your native place, not just any town."
+    },
+    {
+      "id": "u21-i02",
+      "te": "దీపావళి శుభాకాంక్షలు!",
+      "gloss": "Happy Deepavali!",
+      "words": [
+        { "te": "దీపావళి", "gloss": "Deepavali" },
+        { "te": "శుభాకాంక్షలు", "gloss": "good wishes" }
+      ],
+      "tags": ["festivals", "wishes"],
+      "difficulty": 3,
+      "distractors": ["u21-i03", "u21-i15"]
+    },
+    {
+      "id": "u21-i03",
+      "te": "నూతన సంవత్సర శుభాకాంక్షలు!",
+      "gloss": "Happy New Year!",
+      "words": [
+        { "te": "నూతన", "gloss": "new" },
+        { "te": "సంవత్సర", "gloss": "year" },
+        { "te": "శుభాకాంక్షలు", "gloss": "good wishes" }
+      ],
+      "tags": ["festivals", "wishes"],
+      "difficulty": 4,
+      "distractors": ["u21-i02", "u21-i15"]
+    },
+    {
+      "id": "u21-i04",
+      "te": "మా అక్క పెళ్ళి వచ్చే నెలలో.",
+      "gloss": "My elder sister's wedding is next month.",
+      "words": [
+        { "te": "మా", "gloss": "our / my" },
+        { "te": "అక్క", "gloss": "elder sister" },
+        { "te": "పెళ్ళి", "gloss": "wedding" },
+        { "te": "వచ్చే", "gloss": "coming" },
+        { "te": "నెలలో", "gloss": "in the month" }
+      ],
+      "tags": ["weddings", "family"],
+      "difficulty": 4
+    },
+    {
+      "id": "u21-i05",
+      "te": "ముహూర్తం ఎప్పుడు?",
+      "gloss": "When is the muhurtam?",
+      "words": [
+        { "te": "ముహూర్తం", "gloss": "auspicious time" },
+        { "te": "ఎప్పుడు", "gloss": "when" }
+      ],
+      "tags": ["weddings", "questions"],
+      "difficulty": 3,
+      "note": "ముహూర్తం (muhuurtam) is the auspicious moment fixed by the priest — the wedding's true start time, often at some heroic pre-dawn hour.",
+      "distractors": ["u21-i04", "u21-i11"]
+    },
+    {
+      "id": "u21-i06",
+      "te": "పెద్దల ఆశీర్వాదం తీసుకోండి.",
+      "gloss": "Take the elders' blessings.",
+      "words": [
+        { "te": "పెద్దల", "gloss": "of the elders" },
+        { "te": "ఆశీర్వాదం", "gloss": "blessing" },
+        { "te": "తీసుకోండి", "gloss": "take (polite)" }
+      ],
+      "tags": ["blessings", "customs"],
+      "difficulty": 4,
+      "distractors": ["u21-i11", "u21-i10"]
+    },
+    {
+      "id": "u21-i07",
+      "te": "కొత్త బట్టలు కొన్నారా?",
+      "gloss": "Did you buy new clothes?",
+      "words": [
+        { "te": "కొత్త", "gloss": "new" },
+        { "te": "బట్టలు", "gloss": "clothes" },
+        { "te": "కొన్నారా", "gloss": "did (you) buy?" }
+      ],
+      "tags": ["festivals", "questions"],
+      "difficulty": 3,
+      "distractors": ["u21-i09", "u21-i14"]
+    },
+    {
+      "id": "u21-i08",
+      "te": "పండక్కి ఇంటికి రండి!",
+      "gloss": "Come home for the festival!",
+      "words": [
+        { "te": "పండక్కి", "gloss": "for the festival" },
+        { "te": "ఇంటికి", "gloss": "to (our) home" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["festivals", "invitations"],
+      "difficulty": 3,
+      "note": "పండుగ (panDuga) = festival; in speech 'for the festival' squeezes into పండక్కి (panDakki)."
+    },
+    {
+      "id": "u21-i09",
+      "te": "అమ్మ అరిసెలు చేసింది.",
+      "gloss": "Mom made ariselu (Sankranti sweets).",
+      "words": [
+        { "te": "అమ్మ", "gloss": "mom" },
+        { "te": "అరిసెలు", "gloss": "ariselu (sweets)" },
+        { "te": "చేసింది", "gloss": "made (she)" }
+      ],
+      "tags": ["festivals", "food"],
+      "difficulty": 3
+    },
+    {
+      "id": "u21-i10",
+      "te": "స్వీట్లు తినండి, మొహమాటం వద్దు.",
+      "gloss": "Eat sweets — don't be shy.",
+      "words": [
+        { "te": "స్వీట్లు", "gloss": "sweets" },
+        { "te": "తినండి", "gloss": "eat (polite)" },
+        { "te": "మొహమాటం", "gloss": "polite hesitation" },
+        { "te": "వద్దు", "gloss": "don't (want)" }
+      ],
+      "tags": ["festivals", "food", "hospitality"],
+      "difficulty": 4,
+      "note": "మొహమాటం (mohamaaTam) — the untranslatable polite hesitation to accept food. Hosts will battle it relentlessly."
+    },
+    {
+      "id": "u21-i11",
+      "te": "పెళ్ళికి తప్పకుండా రండి.",
+      "gloss": "You must come to the wedding.",
+      "words": [
+        { "te": "పెళ్ళికి", "gloss": "to the wedding" },
+        { "te": "తప్పకుండా", "gloss": "without fail" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["weddings", "invitations"],
+      "difficulty": 3,
+      "distractors": ["u21-i08", "u21-i06"]
+    },
+    {
+      "id": "u21-i12",
+      "te": "ఈసారి పండుగ మా ఇంట్లోనే.",
+      "gloss": "This time the festival is at our house.",
+      "words": [
+        { "te": "ఈసారి", "gloss": "this time" },
+        { "te": "పండుగ", "gloss": "festival" },
+        { "te": "మా", "gloss": "our" },
+        { "te": "ఇంట్లోనే", "gloss": "right at home" }
+      ],
+      "tags": ["festivals"],
+      "difficulty": 4
+    },
+    {
+      "id": "u21-i13",
+      "te": "ముగ్గులు ఎంత బాగున్నాయో!",
+      "gloss": "How beautiful the muggulu (floor designs) are!",
+      "words": [
+        { "te": "ముగ్గులు", "gloss": "muggulu / rangoli" },
+        { "te": "ఎంత", "gloss": "how much" },
+        { "te": "బాగున్నాయో", "gloss": "nice (they) are!" }
+      ],
+      "tags": ["festivals", "exclamations"],
+      "difficulty": 4
+    },
+    {
+      "id": "u21-i14",
+      "te": "టపాసులు కాల్చేద్దామా?",
+      "gloss": "Shall we burst crackers?",
+      "words": [
+        { "te": "టపాసులు", "gloss": "firecrackers" },
+        { "te": "కాల్చేద్దామా", "gloss": "shall we burn (them)?" }
+      ],
+      "tags": ["festivals", "questions"],
+      "difficulty": 4,
+      "note": "-దామా (-daamaa) proposes 'shall we?': కాల్చేద్దామా (kaalcheddaamaa) = 'shall we burn them all up?'"
+    },
+    {
+      "id": "u21-i15",
+      "te": "అందరికీ పండుగ శుభాకాంక్షలు!",
+      "gloss": "Festival wishes to everyone!",
+      "words": [
+        { "te": "అందరికీ", "gloss": "to everyone" },
+        { "te": "పండుగ", "gloss": "festival" },
+        { "te": "శుభాకాంక్షలు", "gloss": "good wishes" }
+      ],
+      "tags": ["festivals", "wishes"],
+      "difficulty": 3,
+      "distractors": ["u21-i02", "u21-i03"]
+    },
+    {
+      "id": "u21-i16",
+      "te": "భోగి మంట చూద్దాం రండి!",
+      "gloss": "Come, let's watch the Bhogi bonfire!",
+      "words": [
+        { "te": "భోగి", "gloss": "Bhogi (day)" },
+        { "te": "మంట", "gloss": "bonfire / flame" },
+        { "te": "చూద్దాం", "gloss": "let's watch" },
+        { "te": "రండి", "gloss": "come (polite)" }
+      ],
+      "tags": ["festivals", "invitations"],
+      "difficulty": 4,
+      "note": "Bhogi, the first day of Sankranti, starts before dawn with bonfires — old things go into the flames to welcome the new."
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "Wish everyone!", "itemIds": ["u21-i02", "u21-i03", "u21-i15"] },
+    { "id": "l2", "title": "Going home", "itemIds": ["u21-i01", "u21-i08", "u21-i12"] },
+    { "id": "l3", "title": "Sweets & muggulu", "itemIds": ["u21-i09", "u21-i10", "u21-i13"] },
+    { "id": "l4", "title": "Wedding season", "itemIds": ["u21-i04", "u21-i05", "u21-i06", "u21-i11"] },
+    { "id": "l5", "title": "Sankranti morning", "itemIds": ["u21-i07", "u21-i14", "u21-i16"] }
+  ],
+  "dialogue": {
+    "id": "u21-d1",
+    "title": "Sankranti at Tata's village",
+    "scene": "Bhogi morning at your grandparents' village house. Fresh muggulu glow in the courtyard, ariselu wait in the kitchen, you have big wedding news — and your little cousin thinks every festival needs crackers.",
+    "turns": [
+      { "speaker": "You", "itemId": "u21-i03", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u21-i15" },
+      { "speaker": "Tata", "itemId": "u21-i08" },
+      { "speaker": "Amma", "itemId": "u21-i06" },
+      { "speaker": "Tata", "itemId": "u21-i12" },
+      { "speaker": "You", "itemId": "u21-i13", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u21-i09" },
+      { "speaker": "Tata", "itemId": "u21-i10" },
+      { "speaker": "Tata", "itemId": "u21-i07" },
+      { "speaker": "You", "itemId": "u21-i04", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u21-i05" },
+      { "speaker": "You", "itemId": "u21-i11", "userTurn": true },
+      { "speaker": "Cousin", "itemId": "u21-i14" },
+      { "speaker": "You", "itemId": "u21-i02", "userTurn": true },
+      { "speaker": "Tata", "itemId": "u21-i16" },
+      { "speaker": "You", "itemId": "u21-i15", "userTurn": true }
+    ]
+  }
+}

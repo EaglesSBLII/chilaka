@@ -1,0 +1,284 @@
+{
+  "id": "u50",
+  "section": 7,
+  "order": 2,
+  "title": "Chai bandi talk",
+  "teTitle": "చాయ్ బండి కబుర్లు",
+  "cefr": "B1",
+  "register": "hyderabad",
+  "description": "Irani chai, Osmania biscuits, and the sit-down bandi culture — ordering, sharing, and fighting over the bill.",
+  "items": [
+    {
+      "id": "u50-i01",
+      "te": "ఒక ఇరానీ చాయ్ చెప్పు.",
+      "gloss": "Order one Irani chai.",
+      "words": [
+        { "te": "ఒక", "gloss": "one" },
+        { "te": "ఇరానీ", "gloss": "Irani" },
+        { "te": "చాయ్", "gloss": "chai / tea" },
+        { "te": "చెప్పు", "gloss": "tell / order" }
+      ],
+      "tags": ["chai", "ordering"],
+      "difficulty": 2,
+      "note": "In Hyderabad you 'tell' (చెప్పు) an order, not 'ask for' it. చాయ్ is the Urdu word — standard Telugu టీ works, but at a bandi it's always చాయ్.",
+      "distractors": ["u50-i04", "u50-i14"]
+    },
+    {
+      "id": "u50-i02",
+      "te": "ఉస్మానియా బిస్కెట్ ఉందా భయ్?",
+      "gloss": "Do you have Osmania biscuits, bhai?",
+      "words": [
+        { "te": "ఉస్మానియా", "gloss": "Osmania" },
+        { "te": "బిస్కెట్", "gloss": "biscuit" },
+        { "te": "ఉందా", "gloss": "is there?" },
+        { "te": "భయ్", "gloss": "bhai (brother)" }
+      ],
+      "tags": ["chai", "ordering"],
+      "difficulty": 3,
+      "note": "Osmania biscuits — soft, salty-sweet, named after the last Nizam — are the only correct partner for Irani chai."
+    },
+    {
+      "id": "u50-i03",
+      "te": "బైఠో యార్, ఏం తొందర?",
+      "gloss": "Sit down yaar, what's the hurry?",
+      "words": [
+        { "te": "బైఠో", "gloss": "sit down (Urdu)" },
+        { "te": "యార్", "gloss": "yaar (friend)" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "తొందర", "gloss": "hurry" }
+      ],
+      "tags": ["chai", "hangout"],
+      "difficulty": 3,
+      "note": "బైఠో (baiTho, Urdu) = 'sit!' — standard Telugu కూర్చో. At an Irani cafe, బైఠో means the chat is just getting started; nobody leaves quickly.",
+      "distractors": ["u50-i05", "u50-i13"]
+    },
+    {
+      "id": "u50-i04",
+      "te": "ఇంకో చాయ్ చెప్పు అన్నా.",
+      "gloss": "Order one more chai, anna.",
+      "words": [
+        { "te": "ఇంకో", "gloss": "one more" },
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "చెప్పు", "gloss": "tell / order" },
+        { "te": "అన్నా", "gloss": "anna (brother)" }
+      ],
+      "tags": ["chai", "ordering"],
+      "difficulty": 2,
+      "distractors": ["u50-i01", "u50-i08"]
+    },
+    {
+      "id": "u50-i05",
+      "te": "చాయ్ బండి దగ్గర కలుద్దాం.",
+      "gloss": "Let's meet at the chai bandi.",
+      "words": [
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "బండి", "gloss": "cart / stall" },
+        { "te": "దగ్గర", "gloss": "near / at" },
+        { "te": "కలుద్దాం", "gloss": "let's meet" }
+      ],
+      "tags": ["chai", "plans"],
+      "difficulty": 3,
+      "note": "The chai bandi (roadside tea cart) is Hyderabad's default meeting point — cheaper than a cafe and better gossip."
+    },
+    {
+      "id": "u50-i06",
+      "te": "ఇక్కడ చాయ్ కిరాక్ ఉంటది.",
+      "gloss": "The chai here is kirak (awesome).",
+      "words": [
+        { "te": "ఇక్కడ", "gloss": "here" },
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "కిరాక్", "gloss": "awesome (Hyderabadi)" },
+        { "te": "ఉంటది", "gloss": "is / will be (Telangana)" }
+      ],
+      "tags": ["chai", "flavor"],
+      "difficulty": 3,
+      "note": "కిరాక్ (kirak) is pure Hyderabadi slang for 'fantastic' — standard Telugu అద్భుతం. ఉంటది is Telangana for standard ఉంటుంది.",
+      "distractors": ["u50-i07", "u50-i16"]
+    },
+    {
+      "id": "u50-i07",
+      "te": "చాయ్ లో బిస్కెట్ ముంచు.",
+      "gloss": "Dip the biscuit in the chai.",
+      "words": [
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "లో", "gloss": "in" },
+        { "te": "బిస్కెట్", "gloss": "biscuit" },
+        { "te": "ముంచు", "gloss": "dip" }
+      ],
+      "tags": ["chai", "hangout"],
+      "difficulty": 3
+    },
+    {
+      "id": "u50-i08",
+      "te": "సింగిల్ చాయ్, రెండు గ్లాసులు.",
+      "gloss": "Single chai, two glasses.",
+      "words": [
+        { "te": "సింగిల్", "gloss": "single" },
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "రెండు", "gloss": "two" },
+        { "te": "గ్లాసులు", "gloss": "glasses" }
+      ],
+      "tags": ["chai", "ordering"],
+      "difficulty": 3,
+      "note": "The classic broke-friends order: one chai split into two glasses. Every bandi anna understands it without blinking.",
+      "distractors": ["u50-i04", "u50-i01"]
+    },
+    {
+      "id": "u50-i09",
+      "te": "బిల్ నేను కడతా రా.",
+      "gloss": "I'll pay the bill, ra.",
+      "words": [
+        { "te": "బిల్", "gloss": "bill" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "కడతా", "gloss": "will pay (casual)" },
+        { "te": "రా", "gloss": "ra (casual particle)" }
+      ],
+      "tags": ["chai", "paying"],
+      "difficulty": 3,
+      "note": "కడతా is clipped colloquial for కడతాను. Fighting to pay for chai is a mandatory Hyderabadi friendship ritual.",
+      "distractors": ["u50-i10", "u50-i16"]
+    },
+    {
+      "id": "u50-i10",
+      "te": "నక్కో రా, ఈసారి నేను.",
+      "gloss": "No ra, this time it's me.",
+      "words": [
+        { "te": "నక్కో", "gloss": "no (Hyderabadi)" },
+        { "te": "రా", "gloss": "ra (casual particle)" },
+        { "te": "ఈసారి", "gloss": "this time" },
+        { "te": "నేను", "gloss": "I" }
+      ],
+      "tags": ["chai", "paying"],
+      "difficulty": 3,
+      "distractors": ["u50-i09", "u49-i02"]
+    },
+    {
+      "id": "u50-i11",
+      "te": "సాయంత్రం ఫ్రీగా ఉన్నావా?",
+      "gloss": "Are you free in the evening?",
+      "words": [
+        { "te": "సాయంత్రం", "gloss": "evening" },
+        { "te": "ఫ్రీగా", "gloss": "free-ly" },
+        { "te": "ఉన్నావా", "gloss": "are you?" }
+      ],
+      "tags": ["plans", "questions"],
+      "difficulty": 3
+    },
+    {
+      "id": "u50-i12",
+      "te": "హౌ, బండి దగ్గరికి వస్తా.",
+      "gloss": "Yes, I'll come to the bandi.",
+      "words": [
+        { "te": "హౌ", "gloss": "yes (Hyderabadi)" },
+        { "te": "బండి", "gloss": "cart / stall" },
+        { "te": "దగ్గరికి", "gloss": "to (near)" },
+        { "te": "వస్తా", "gloss": "I'll come (casual)" }
+      ],
+      "tags": ["plans", "flavor"],
+      "difficulty": 3,
+      "note": "వస్తా is clipped from వస్తాను — Hyderabadi speech drops final -ను all the time: వస్తా, చేస్తా, కడతా."
+    },
+    {
+      "id": "u50-i13",
+      "te": "చాయ్ తాగుతూ కబుర్లు చెప్పుకుందాం.",
+      "gloss": "Let's chat over chai.",
+      "words": [
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "తాగుతూ", "gloss": "while drinking" },
+        { "te": "కబుర్లు", "gloss": "chit-chat" },
+        { "te": "చెప్పుకుందాం", "gloss": "let's tell each other" }
+      ],
+      "tags": ["chai", "hangout"],
+      "difficulty": 4
+    },
+    {
+      "id": "u50-i14",
+      "te": "ఇంకో రౌండ్ చెప్పమంటావా?",
+      "gloss": "Shall I order another round?",
+      "words": [
+        { "te": "ఇంకో", "gloss": "one more" },
+        { "te": "రౌండ్", "gloss": "round" },
+        { "te": "చెప్పమంటావా", "gloss": "want me to order?" }
+      ],
+      "tags": ["chai", "ordering"],
+      "difficulty": 4,
+      "note": "చెప్పమంటావా = 'do you want me to tell (order)?' — the -మంటావా ending packs 'do you want me to X' into one word."
+    },
+    {
+      "id": "u50-i15",
+      "te": "చాయ్ చల్లారిపోతుంది, జల్దీ రా.",
+      "gloss": "The chai is getting cold, come quickly.",
+      "words": [
+        { "te": "చాయ్", "gloss": "chai" },
+        { "te": "చల్లారిపోతుంది", "gloss": "is getting cold" },
+        { "te": "జల్దీ", "gloss": "quickly (Urdu)" },
+        { "te": "రా", "gloss": "come (casual)" }
+      ],
+      "tags": ["chai", "flavor"],
+      "difficulty": 4,
+      "distractors": ["u50-i12", "u50-i05"]
+    },
+    {
+      "id": "u50-i16",
+      "te": "పైసలు తర్వాత, ముందు చాయ్.",
+      "gloss": "Money later, chai first.",
+      "words": [
+        { "te": "పైసలు", "gloss": "money (Telangana)" },
+        { "te": "తర్వాత", "gloss": "later" },
+        { "te": "ముందు", "gloss": "first" },
+        { "te": "చాయ్", "gloss": "chai" }
+      ],
+      "tags": ["chai", "paying"],
+      "difficulty": 3,
+      "note": "పైసలు is the Telangana everyday word for money — coastal standard usually says డబ్బులు."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Ordering like a regular",
+      "itemIds": ["u50-i01", "u50-i02", "u50-i04", "u50-i14"]
+    },
+    {
+      "id": "l2",
+      "title": "Baitho culture",
+      "itemIds": ["u50-i03", "u50-i05", "u50-i06"]
+    },
+    {
+      "id": "l3",
+      "title": "Chai rituals",
+      "itemIds": ["u50-i07", "u50-i08", "u50-i13"]
+    },
+    {
+      "id": "l4",
+      "title": "The bill fight",
+      "itemIds": ["u50-i09", "u50-i10", "u50-i16"]
+    },
+    {
+      "id": "l5",
+      "title": "Making the plan",
+      "itemIds": ["u50-i11", "u50-i12", "u50-i15"]
+    }
+  ],
+  "dialogue": {
+    "id": "u50-d1",
+    "title": "Evening at the bandi with Imran",
+    "scene": "Imran calls you in the afternoon, and by evening you're both on the bench at the chai bandi near Abids — Irani chai, Osmania biscuits, and the traditional fight over who pays.",
+    "turns": [
+      { "speaker": "Imran", "itemId": "u50-i11" },
+      { "speaker": "You", "itemId": "u50-i12", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u50-i05" },
+      { "speaker": "Imran", "itemId": "u50-i03" },
+      { "speaker": "You", "itemId": "u50-i01", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u50-i02" },
+      { "speaker": "Imran", "itemId": "u50-i06" },
+      { "speaker": "You", "itemId": "u50-i07", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u50-i13" },
+      { "speaker": "You", "itemId": "u50-i14", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u50-i08" },
+      { "speaker": "You", "itemId": "u50-i09", "userTurn": true },
+      { "speaker": "Imran", "itemId": "u50-i10" },
+      { "speaker": "Imran", "itemId": "u50-i16" }
+    ]
+  }
+}

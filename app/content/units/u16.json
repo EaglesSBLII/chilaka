@@ -1,0 +1,250 @@
+{
+  "id": "u16",
+  "section": 2,
+  "order": 8,
+  "title": "Future plans",
+  "teTitle": "రేపటి ప్లాన్లు",
+  "cefr": "A2+",
+  "register": "standard",
+  "description": "Make plans with -staanu futures and let's-do-it -daam: trips, movies, and tomorrow.",
+  "items": [
+    {
+      "id": "u16-i01",
+      "te": "రేపు నేను వస్తాను.",
+      "gloss": "I will come tomorrow.",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "నేను", "gloss": "I" },
+        { "te": "వస్తాను", "gloss": "will come" }
+      ],
+      "tags": ["future", "plans"],
+      "difficulty": 2,
+      "note": "-తాను/-స్తాను (-taanu/-staanu) is 'I will' and also 'I usually': వస్తాను, వెళ్తాను, చేస్తాను. One form covers future and habit.",
+      "distractors": ["u16-i07", "u16-i02"]
+    },
+    {
+      "id": "u16-i02",
+      "te": "మీరు ఎప్పుడు వస్తారు?",
+      "gloss": "When will you come?",
+      "words": [
+        { "te": "మీరు", "gloss": "you (polite)" },
+        { "te": "ఎప్పుడు", "gloss": "when" },
+        { "te": "వస్తారు", "gloss": "will (you) come?" }
+      ],
+      "tags": ["future", "questions"],
+      "difficulty": 2,
+      "distractors": ["u16-i04", "u16-i01"]
+    },
+    {
+      "id": "u16-i03",
+      "te": "వచ్చే ఏడాది ఇండియా వెళ్తాం.",
+      "gloss": "Next year we're going to India.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "coming / next" },
+        { "te": "ఏడాది", "gloss": "year" },
+        { "te": "ఇండియా", "gloss": "India" },
+        { "te": "వెళ్తాం", "gloss": "we will go" }
+      ],
+      "tags": ["future", "plans", "travel"],
+      "difficulty": 3,
+      "note": "వచ్చే (vacchee) 'coming' = next: వచ్చే వారం next week, వచ్చే నెల next month, వచ్చే ఏడాది next year."
+    },
+    {
+      "id": "u16-i04",
+      "te": "రేపు ఏం చేస్తారు?",
+      "gloss": "What will you do tomorrow?",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "చేస్తారు", "gloss": "will (you) do?" }
+      ],
+      "tags": ["future", "questions"],
+      "difficulty": 2,
+      "note": "Informal singular: రేపు ఏం చేస్తావ్? (cheestaav).",
+      "distractors": ["u16-i02", "u16-i12"]
+    },
+    {
+      "id": "u16-i05",
+      "te": "సినిమాకి వెళ్దాం!",
+      "gloss": "Let's go to a movie!",
+      "words": [
+        { "te": "సినిమాకి", "gloss": "to a movie" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["plans", "fun"],
+      "difficulty": 2,
+      "note": "-దాం (-daam) is the 'let's' ending: వెళ్దాం (veLdaam), చేద్దాం (cheeddaam), తిందాం (tindaam).",
+      "distractors": ["u16-i06", "u16-i13"]
+    },
+    {
+      "id": "u16-i06",
+      "te": "రేపు కలుద్దామా?",
+      "gloss": "Shall we meet tomorrow?",
+      "words": [
+        { "te": "రేపు", "gloss": "tomorrow" },
+        { "te": "కలుద్దామా", "gloss": "shall we meet?" }
+      ],
+      "tags": ["plans", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u16-i07",
+      "te": "తప్పకుండా వస్తాను.",
+      "gloss": "I'll definitely come.",
+      "words": [
+        { "te": "తప్పకుండా", "gloss": "definitely / without fail" },
+        { "te": "వస్తాను", "gloss": "I will come" }
+      ],
+      "tags": ["future", "plans"],
+      "difficulty": 2,
+      "note": "తప్పకుండా (tappakunDaa) 'without fail' — the warm, full-hearted Telugu yes.",
+      "distractors": ["u16-i01", "u16-i16"]
+    },
+    {
+      "id": "u16-i08",
+      "te": "వచ్చే వారం చెప్తాను.",
+      "gloss": "I'll tell you next week.",
+      "words": [
+        { "te": "వచ్చే", "gloss": "next" },
+        { "te": "వారం", "gloss": "week" },
+        { "te": "చెప్తాను", "gloss": "I will tell" }
+      ],
+      "tags": ["future", "plans"],
+      "difficulty": 2,
+      "distractors": ["u16-i16", "u16-i11"]
+    },
+    {
+      "id": "u16-i09",
+      "te": "మనం కలిసి వంట చేద్దాం.",
+      "gloss": "Let's cook together.",
+      "words": [
+        { "te": "మనం", "gloss": "we (including you)" },
+        { "te": "కలిసి", "gloss": "together" },
+        { "te": "వంట", "gloss": "cooking" },
+        { "te": "చేద్దాం", "gloss": "let's do" }
+      ],
+      "tags": ["plans", "food"],
+      "difficulty": 3,
+      "note": "మనం (manam) = we including you; మేము (meemu) = we excluding you. Telugu never mixes up the two."
+    },
+    {
+      "id": "u16-i10",
+      "te": "నేను తెలుగు నేర్చుకుంటాను.",
+      "gloss": "I will learn Telugu.",
+      "words": [
+        { "te": "నేను", "gloss": "I" },
+        { "te": "తెలుగు", "gloss": "Telugu" },
+        { "te": "నేర్చుకుంటాను", "gloss": "will learn (for myself)" }
+      ],
+      "tags": ["future", "plans"],
+      "difficulty": 3
+    },
+    {
+      "id": "u16-i11",
+      "te": "ప్రతి రోజూ ప్రాక్టీస్ చేస్తాను.",
+      "gloss": "I'll practice every day.",
+      "words": [
+        { "te": "ప్రతి", "gloss": "every" },
+        { "te": "రోజూ", "gloss": "day (each)" },
+        { "te": "ప్రాక్టీస్", "gloss": "practice" },
+        { "te": "చేస్తాను", "gloss": "I will do" }
+      ],
+      "tags": ["future", "habits"],
+      "difficulty": 3
+    },
+    {
+      "id": "u16-i12",
+      "te": "ఏం ప్లాన్ చేస్తున్నారు?",
+      "gloss": "What are you planning?",
+      "words": [
+        { "te": "ఏం", "gloss": "what" },
+        { "te": "ప్లాన్", "gloss": "plan" },
+        { "te": "చేస్తున్నారు", "gloss": "are (you) doing?" }
+      ],
+      "tags": ["plans", "questions"],
+      "difficulty": 2
+    },
+    {
+      "id": "u16-i13",
+      "te": "పెళ్ళికి అందరం వెళ్దాం.",
+      "gloss": "Let's all go to the wedding.",
+      "words": [
+        { "te": "పెళ్ళికి", "gloss": "to the wedding" },
+        { "te": "అందరం", "gloss": "all of us" },
+        { "te": "వెళ్దాం", "gloss": "let's go" }
+      ],
+      "tags": ["plans", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u16-i14",
+      "te": "ముందు టికెట్లు బుక్ చేద్దాం.",
+      "gloss": "Let's book the tickets first.",
+      "words": [
+        { "te": "ముందు", "gloss": "first" },
+        { "te": "టికెట్లు", "gloss": "tickets" },
+        { "te": "బుక్", "gloss": "book" },
+        { "te": "చేద్దాం", "gloss": "let's do" }
+      ],
+      "tags": ["plans", "travel"],
+      "difficulty": 3,
+      "distractors": ["u16-i08", "u16-i05"]
+    },
+    {
+      "id": "u16-i15",
+      "te": "అమ్మమ్మ ఇంట్లో ఉంటాం.",
+      "gloss": "We'll stay at ammamma's house.",
+      "words": [
+        { "te": "అమ్మమ్మ", "gloss": "grandma's" },
+        { "te": "ఇంట్లో", "gloss": "in the house" },
+        { "te": "ఉంటాం", "gloss": "we will stay" }
+      ],
+      "tags": ["future", "plans", "family"],
+      "difficulty": 3
+    },
+    {
+      "id": "u16-i16",
+      "te": "చూద్దాం, తరువాత చెప్తాను.",
+      "gloss": "We'll see — I'll tell you later.",
+      "words": [
+        { "te": "చూద్దాం", "gloss": "let's see" },
+        { "te": "తరువాత", "gloss": "later" },
+        { "te": "చెప్తాను", "gloss": "I'll tell" }
+      ],
+      "tags": ["plans"],
+      "difficulty": 2,
+      "note": "చూద్దాం (chuuddaam) 'let's see' — the famously non-committal Indian answer. Perfect when you need time.",
+      "distractors": ["u16-i08", "u16-i07"]
+    }
+  ],
+  "lessons": [
+    { "id": "l1", "title": "I'll be there", "itemIds": ["u16-i01", "u16-i02", "u16-i07"] },
+    { "id": "l2", "title": "What's the plan?", "itemIds": ["u16-i04", "u16-i12", "u16-i16"] },
+    { "id": "l3", "title": "Let's go!", "itemIds": ["u16-i05", "u16-i06", "u16-i09"] },
+    { "id": "l4", "title": "India trip", "itemIds": ["u16-i03", "u16-i13", "u16-i14", "u16-i15"] },
+    { "id": "l5", "title": "Little by little", "itemIds": ["u16-i08", "u16-i10", "u16-i11"] }
+  ],
+  "dialogue": {
+    "id": "u16-d1",
+    "title": "Wedding on the horizon",
+    "scene": "Your cousin Akka calls: the family wedding in India is next year, tickets must be booked, your Telugu mission is on — and meanwhile there's a movie out tomorrow.",
+    "turns": [
+      { "speaker": "Akka", "itemId": "u16-i12" },
+      { "speaker": "You", "itemId": "u16-i03", "userTurn": true },
+      { "speaker": "Akka", "itemId": "u16-i13" },
+      { "speaker": "You", "itemId": "u16-i07", "userTurn": true },
+      { "speaker": "You", "itemId": "u16-i14", "userTurn": true },
+      { "speaker": "You", "itemId": "u16-i15", "userTurn": true },
+      { "speaker": "Akka", "itemId": "u16-i02" },
+      { "speaker": "You", "itemId": "u16-i08", "userTurn": true },
+      { "speaker": "You", "itemId": "u16-i10", "userTurn": true },
+      { "speaker": "You", "itemId": "u16-i11", "userTurn": true },
+      { "speaker": "Akka", "itemId": "u16-i09" },
+      { "speaker": "Akka", "itemId": "u16-i04" },
+      { "speaker": "You", "itemId": "u16-i16", "userTurn": true },
+      { "speaker": "Akka", "itemId": "u16-i05" },
+      { "speaker": "Akka", "itemId": "u16-i06" },
+      { "speaker": "You", "itemId": "u16-i01", "userTurn": true }
+    ]
+  }
+}
