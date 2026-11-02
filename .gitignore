@@ -32,3 +32,5 @@ vendor/tts-spike/vits-mms-tel/
 site/slideroom/
 audio-src/
 tools/polish-report.json
+vendor/f5-venv/
+voice-ref/
