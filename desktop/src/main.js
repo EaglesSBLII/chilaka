@@ -7,6 +7,8 @@ const { LiveTts } = require('./tts');
 const { ReminderScheduler } = require('./reminders');
 const { writeBackup } = require('./backup');
 const { AppleMusic } = require('./applemusic');
+const { Updater } = require('./updater');
+const updater = new Updater();
 
 let appleMusicActive = false; // we started playback → pause it on quit
 
@@ -105,6 +107,14 @@ function buildTray() {
       click: (item) => app.setLoginItemSettings({ openAtLogin: item.checked, openAsHidden: true }),
     },
     { type: 'separator' },
+    { label: 'Check for updates…', click: () => void updater.check(true) },
+    {
+      label: 'Install updates automatically',
+      type: 'checkbox',
+      checked: updater.auto,
+      click: (item) => updater.setAuto(item.checked),
+    },
+    { type: 'separator' },
     {
       label: 'Quit Chilaka',
       click: () => {
@@ -196,12 +206,14 @@ app.whenReady().then(() => {
   powerMonitor.on('resume', () => scheduler.checkNow(20));
   // Warm the ASR model in the background so the first speaking exercise is fast.
   setTimeout(() => void asr.warmUp().catch(() => {}), 4000);
+  updater.start();
 });
 
 app.on('activate', () => showWindow());
 app.on('before-quit', () => {
   quitting = true;
   asr.stop();
+  updater.installStagedOnQuit();
   if (appleMusicActive) void AppleMusic.stop();
 });
 app.on('window-all-closed', () => {

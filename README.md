@@ -43,19 +43,23 @@ cd desktop/dist-electron/mac-arm64 && codesign --force --deep --sign - Chilaka.a
 cd .. && hdiutil create -volname "Chilaka" -srcfolder mac-arm64/Chilaka.app -ov -format UDZO Chilaka-0.1.0-arm64.dmg
 ```
 
+## Updates
+
+- **Mac app** updates itself: it checks the GitHub release feed on launch and every 6 hours, downloads a newer installer in the background, and asks to restart (tray menu → "Install updates automatically" to turn that off, "Check for updates…" to force a check).
+- **Web / iPhone**: `.github/workflows/deploy-web.yml` publishes `app/dist` to Cloudflare Pages and redeploys `sync-worker/` on every push to `main`. It needs two repository secrets, `CLOUDFLARE_API_TOKEN` (Pages: Edit, Workers Scripts: Edit) and `CLOUDFLARE_API_ACCOUNT_ID`. Installed web apps pick the new build up on their next launch.
+- **Releasing a Mac build**: bump the version in the three `package.json` files, `npm run build -w app`, `cd desktop && npm run dist`, re-sign + repackage (below), then `gh release create vX.Y.Z Chilaka-X.Y.Z-arm64.dmg`. Running apps find it within 6 hours.
+
 ## Adding content
 
 1. Add `app/content/units/uXX.json` (copy the shape of `u01.json`). You author **Telugu script only** — romanization is derived automatically so spelling always matches.
 2. `npm test -w app` — the content gate validates schema, word breakdowns, lesson coverage, distractors.
-3. `node tools/render-audio.mjs` — renders missing audio clips.
-4. `node tools/polish-audio.mjs` — post-production on every clip: 0.26 s lead-in, 0.4 s tail, loudness matched to −15 LUFS (keeps the untouched takes in `audio-src/`, so it is safe to re-run).
-5. `node tools/asr-qa.mjs` — re-checks every clip with the recognizer, decoding exactly as the app does (greedy + lesson-context prompt), and refreshes `reference-transcripts.json`.
-6. Rebuild.
+3. `node tools/render-voice.mjs --voice female` and `--voice male` — render missing clips in both native voices (AI4Bharat IndicF5 cloned from short OpenSLR Telugu references in `tools/voice-ref/`, CC BY-SA 4.0). Each take is checked by the recognizer, decoding exactly as the app grades (greedy + lesson-context prompt); misheard takes re-roll, winners get the polish pass (0.26 s lead-in, 0.4 s tail, −15 LUFS) and land in `app/public/audio/v-<voice>/`. The per-voice `reference-transcripts-<voice>.json` (the grader's calibration) is refreshed at the same time.
+4. Rebuild. The learner picks the voice in Settings (female by default); dialogue characters keep their own gender's voice.
 
 ## Models (already fetched/converted — for reference)
 
 - ASR: `vasista22/whisper-telugu-medium` → GGML q5_0 via `vendor/setup-asr.sh` (whisper.cpp + Python venv)
-- TTS: Meta MMS Telugu VITS (sherpa-onnx ONNX build, from `willwade/mms-tts-multilingual-models-onnx`)
+- TTS: AI4Bharat IndicF5 (`vendor/f5-venv`, Python 3.11, gated HF repo) cloned from OpenSLR SLR66 speakers; earlier courses used AI4Bharat vits_rasa_13 (`tools/rasa-render.py`) and Meta MMS
 - Runtime binaries: `desktop/resources/bin` (whisper-server + Metal dylibs, portable rpath)
 
 ## Layout

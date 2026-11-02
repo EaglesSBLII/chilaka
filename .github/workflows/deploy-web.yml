@@ -1,0 +1,47 @@
+# Publishes the web app (chilaka.pages.dev) and the sync/speech worker on every
+# push to main, so iPhones pick up a new version on their next launch without
+# anyone running a command. Needs two repository secrets (Settings → Secrets →
+# Actions): CLOUDFLARE_API_TOKEN (Pages:Edit + Workers Scripts:Edit) and
+# CLOUDFLARE_API_ACCOUNT_ID.
+name: Deploy web app
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-web
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci -w app --include-workspace-root
+      - run: npm test -w app
+      - run: npm run build -w app
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy app/dist --project-name chilaka --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
+
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Deploy the sync + speech worker
+        run: npx --yes wrangler deploy
+        working-directory: sync-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
