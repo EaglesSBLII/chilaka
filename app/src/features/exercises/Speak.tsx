@@ -10,6 +10,7 @@ import { asrHintFor } from '../../engine/speech/hint';
 import { unitById } from '../../content/load';
 import refsFemale from '../../content/reference-transcripts-female.json';
 import refsMale from '../../content/reference-transcripts-male.json';
+import refsLegacy from '../../content/reference-transcripts.json';
 import type { SpeakResult } from '../../engine/types';
 import { Button, Card } from '../../components/ui';
 import type { ExerciseProps } from './shared';
@@ -17,6 +18,7 @@ import { SentenceDisplay } from './shared';
 
 // what the recognizer hears in each voice's own reference clip — calibration per voice
 const REFS: Record<string, Record<string, string>> = { female: refsFemale, male: refsMale };
+const LEGACY_REFS = refsLegacy as Record<string, string>;
 
 type Mode = 'loading' | 'asr' | 'echo';
 type Stage = 'idle' | 'recording' | 'scoring' | 'result';
@@ -99,7 +101,7 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         setStage('idle');
         return;
       }
-      const scored = scoreSpeechCalibrated(item.te, res.text, REFS[getActiveVoice()]?.[item.id]);
+      const scored = scoreSpeechCalibrated(item.te, res.text, REFS[getActiveVoice()]?.[item.id] ?? LEGACY_REFS[item.id]);
       setResult(scored);
       setStage('result');
       onAutoResult({ correct: scored.pass, expected: item.roman, got: scored.transcriptRoman || '(nothing heard)' });

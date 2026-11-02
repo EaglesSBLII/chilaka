@@ -17,7 +17,9 @@ const raw = process.argv.includes('--raw');
 const since = new Date(Date.now() - days * 86400_000).toISOString();
 
 function wrangler(args) {
-  return execFileSync('npx', ['--yes', 'wrangler', ...args], { cwd: SITE, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  // account pinned so wrangler never tries to prompt (no terminal here)
+  const env = { ...process.env, CLOUDFLARE_ACCOUNT_ID: process.env.CLOUDFLARE_ACCOUNT_ID || 'a45e4bea84463476d41f6ce73ae2476a' };
+  return execFileSync('npx', ['--yes', 'wrangler', ...args], { cwd: SITE, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env });
 }
 
 const keys = JSON.parse(wrangler(['kv', 'key', 'list', '--namespace-id', NS, '--prefix', 'v:', '--remote']))

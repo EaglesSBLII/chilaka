@@ -91,7 +91,7 @@ test('PWA installs, teaches a lesson, does echo mode, and works offline', async 
         () =>
           page.evaluate(async () => {
             const ok = async (u: string) => Boolean(await caches.match(u, { ignoreSearch: true }));
-            return (await ok('index.html')) && (await ok('audio/v-female/u01-i01.m4a')) && (await ok('audio/v-female/u16-i01.m4a'));
+            return (await ok('index.html')) && (await ok('audio/v-female/u01-i01.m4a')) && (await ok('audio/u16-i01.m4a'));
           }),
         { timeout: 240_000, intervals: [2_000] },
       )
@@ -106,7 +106,7 @@ test('PWA installs, teaches a lesson, does echo mode, and works offline', async 
       return {
         indexHtml: await match('index.html'),
         audioA: await match('audio/v-female/u01-i01.m4a'),
-        audioB: await match('audio/v-female/u16-i01.m4a'),
+        audioB: await match('audio/u16-i01.m4a'),
         total,
       };
     });
