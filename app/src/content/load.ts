@@ -4,6 +4,7 @@
 import type { ContentItem, Unit, Word } from '../engine/types';
 import { teluguToRoman } from '../engine/speech/normalize';
 import { authoredUnitSchema, type AuthoredUnit } from './schema';
+import type { VoiceId } from './voices';
 
 export function romanize(te: string, override?: string): string {
   if (override) return override;
@@ -93,6 +94,6 @@ function itemMap(): Map<string, ContentItem> {
   return itemMapCache;
 }
 
-export function audioFileFor(itemId: string): string {
-  return `audio/${itemId}.m4a`;
+export function audioFileFor(itemId: string, voice: VoiceId): string {
+  return `audio/v-${voice}/${itemId}.m4a`;
 }

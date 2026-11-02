@@ -9,6 +9,8 @@ import { freezesEarned, DAILY_GOAL_XP } from './engine/xp';
 import { newCard, reviewCard, dueCards, type StoredCard, Rating } from './engine/srs';
 import type { Difficulty, ScriptMode, StreakStanding } from './engine/types';
 import { allUnits } from './content/load';
+import { DEFAULT_VOICE, type VoiceId } from './content/voices';
+import { setActiveVoice } from './audio';
 import { platform } from './platform';
 
 export type View =
@@ -50,6 +52,7 @@ interface AppState {
   setDifficulty(d: Difficulty): Promise<void>;
   setScriptMode(m: ScriptMode): Promise<void>;
   setSoundOn(on: boolean): Promise<void>;
+  setVoice(v: VoiceId): Promise<void>;
   awardXp(amount: number, source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus', refId: string): Promise<XpAward>;
   introduceItems(itemIds: string[]): Promise<void>;
   applyReview(itemId: string, rating: Rating): Promise<void>;
@@ -84,6 +87,7 @@ export const useApp = create<AppState>((set, get) => ({
 
   async init() {
     const profile = (await db.profile.get('main')) ?? null;
+    setActiveVoice(profile?.voice ?? DEFAULT_VOICE);
     const streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
     const unitProgress = Object.fromEntries((await db.unitProgress.toArray()).map((r) => [r.unitId, r]));
     const lessonProgress = Object.fromEntries((await db.lessonProgress.toArray()).map((r) => [r.id, r]));
@@ -152,6 +156,13 @@ export const useApp = create<AppState>((set, get) => ({
   async setScriptMode(scriptMode) {
     const profile = { ...get().profile!, scriptMode };
     await db.profile.put(profile);
+    set({ profile });
+  },
+
+  async setVoice(voice) {
+    const profile = { ...get().profile!, voice };
+    await db.profile.put(profile);
+    setActiveVoice(voice);
     set({ profile });
   },
 

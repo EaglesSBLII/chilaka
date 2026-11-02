@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useApp } from '../store';
 import { platform } from '../platform';
-import { setSfxEnabled } from '../audio';
+import { playItemAudio, setSfxEnabled } from '../audio';
+import { DEFAULT_VOICE, VOICES } from '../content/voices';
 import { music } from '../music';
 import { sync } from '../sync';
 import { SYNC_ENDPOINT } from '../sync-config';
@@ -17,6 +18,7 @@ export function Settings() {
   const setDifficulty = useApp((s) => s.setDifficulty);
   const setScriptMode = useApp((s) => s.setScriptMode);
   const setSoundOn = useApp((s) => s.setSoundOn);
+  const setVoice = useApp((s) => s.setVoice);
   const saveReminders = useApp((s) => s.saveReminders);
   const exportBackupJson = useApp((s) => s.exportBackupJson);
   const importBackupJson = useApp((s) => s.importBackupJson);
@@ -339,6 +341,28 @@ export function Settings() {
       </Card>
 
       <Card>
+        <h3 className="mb-1 font-extrabold">🎙 Voice</h3>
+        <p className="mb-3 text-xs font-semibold text-ink-soft">
+          Who reads the lessons. In dialogues, named men and women keep their own voice either way.
+        </p>
+        <div className="flex gap-2">
+          {VOICES.map((v) => (
+            <Button
+              key={v.id}
+              variant={(profile?.voice ?? DEFAULT_VOICE) === v.id ? 'secondary' : 'ghost'}
+              className="flex-1 px-2 text-sm normal-case tracking-normal"
+              onClick={() => {
+                void setVoice(v.id);
+                void playItemAudio('u01-i01', false, v.id);
+              }}
+            >
+              {v.label}
+            </Button>
+          ))}
+        </div>
+      </Card>
+
+      <Card>
         <h3 className="mb-3 font-extrabold">🔊 Sound effects</h3>
         <Button
           variant={profile?.soundOn !== false ? 'secondary' : 'ghost'}
@@ -394,6 +418,9 @@ export function Settings() {
 
       <p className="text-center text-xs font-bold text-ink-soft">
         Chilaka · build {__BUILD_STAMP__}
+      </p>
+      <p className="text-center text-[11px] font-semibold text-ink-soft">
+        Voices generated with AI4Bharat IndicF5 from OpenSLR Telugu speakers (CC BY-SA 4.0).
       </p>
 
       {savedFlash && (

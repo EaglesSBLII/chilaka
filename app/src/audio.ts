@@ -1,7 +1,17 @@
 // Audio: lesson clip playback (pre-rendered m4a) + WebAudio sound effects.
 
 import { audioFileFor } from './content/load';
+import { DEFAULT_VOICE, otherVoice, type VoiceId } from './content/voices';
 import { platform } from './platform';
+
+let activeVoice: VoiceId = DEFAULT_VOICE;
+/** The learner's chosen voice (set by the store when the profile loads or changes). */
+export function setActiveVoice(v: VoiceId): void {
+  activeVoice = v;
+}
+export function getActiveVoice(): VoiceId {
+  return activeVoice;
+}
 let current: HTMLAudioElement | null = null;
 
 /** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
@@ -33,21 +43,22 @@ export function stopItemAudio(): void {
   current = null;
 }
 
-/** Play an item's pre-rendered audio. slow=true stretches to 0.72x. */
-export function playItemAudio(itemId: string, slow = false): Promise<void> {
+/** Play an item's pre-rendered audio in the chosen voice (or a specific one). slow=true stretches to 0.72x. */
+export function playItemAudio(itemId: string, slow = false, voice: VoiceId = activeVoice): Promise<void> {
   return new Promise((resolve) => {
-    current?.pause();
-    const el = new Audio(audioFileFor(itemId));
-    current = el;
-    el.volume = VOICE_VOLUME;
-    el.playbackRate = slow ? 0.72 : 1;
-    if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
-    el.onended = () => resolve();
-    el.onerror = () => {
-      // Missing clip → try live TTS (desktop), else resolve silently.
-      void fallbackSpeak(itemId).finally(resolve);
+    const start = (v: VoiceId, onFail: () => void) => {
+      current?.pause();
+      const el = new Audio(audioFileFor(itemId, v));
+      current = el;
+      el.volume = VOICE_VOLUME;
+      el.playbackRate = slow ? 0.72 : 1;
+      if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
+      el.onended = () => resolve();
+      el.onerror = onFail;
+      void el.play().catch(() => resolve());
     };
-    void el.play().catch(() => resolve());
+    // a clip missing in one voice falls back to the other, then to live TTS (desktop)
+    start(voice, () => start(otherVoice(voice), () => void fallbackSpeak(itemId).finally(resolve)));
   });
 }
 

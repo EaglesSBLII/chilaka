@@ -1,6 +1,7 @@
 // Dexie (IndexedDB) persistence. Every mutation goes through liveStore
 // actions; this module only defines tables and plain row types.
 
+import type { VoiceId } from '../content/voices';
 import Dexie, { type EntityTable } from 'dexie';
 import type { Difficulty, ScriptMode, StreakState } from '../engine/types';
 import type { StoredCard } from '../engine/srs';
@@ -16,6 +17,8 @@ export interface ProfileRow {
   scriptMode: ScriptMode;
   timezone: string;
   soundOn: boolean;
+  /** which native voice reads the course (default female; older profiles have none) */
+  voice?: VoiceId;
 }
 
 export interface SettingRow {

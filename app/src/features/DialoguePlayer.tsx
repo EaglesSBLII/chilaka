@@ -5,7 +5,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../store';
 import { allItems, itemById, unitById } from '../content/load';
-import { playItemAudio, stopItemAudio, VOICE_LEAD_MS } from '../audio';
+import { getActiveVoice, playItemAudio, stopItemAudio, VOICE_LEAD_MS } from '../audio';
+import { voiceForSpeaker } from '../content/voices';
 import { genTiles } from '../engine/exercise-gen';
 import { rngFromSeed } from '../engine/rng';
 import { Button, Card } from '../components/ui';
@@ -38,6 +39,9 @@ export function DialoguePlayer({ unitId }: { unitId: string }) {
 
   const turns = dialogue?.turns ?? [];
   const turn = turns[turnIdx];
+  // scripted characters speak in their own gender's voice; the learner's lines use the chosen voice
+  const say = (t: { speaker: string; itemId: string; userTurn?: boolean }) =>
+    playItemAudio(t.itemId, false, t.userTurn ? getActiveVoice() : voiceForSpeaker(t.speaker, getActiveVoice()));
 
   // Auto-play scripted (non-user) turns, then advance
   useEffect(() => {
@@ -48,7 +52,7 @@ export function DialoguePlayer({ unitId }: { unitId: string }) {
       // partner taking a breath between turns
       let cancelled = false;
       const t = window.setTimeout(() => {
-        void playItemAudio(turn.itemId).then(() => {
+        void say(turn).then(() => {
           if (!cancelled) setTurnIdx((i) => i + 1);
         });
       }, VOICE_LEAD_MS);
@@ -121,7 +125,7 @@ export function DialoguePlayer({ unitId }: { unitId: string }) {
             return (
               <div key={i} className={`flex ${t.userTurn ? 'justify-end' : 'justify-start'}`}>
                 <button
-                  onClick={() => void playItemAudio(t.itemId)}
+                  onClick={() => void say(t)}
                   className={`max-w-[80%] rounded-3xl border-2 px-4 py-2.5 text-left ${
                     t.userTurn ? 'bg-teal text-white border-teal-dark rounded-br-lg' : 'bg-card border-line rounded-bl-lg'
                   }`}

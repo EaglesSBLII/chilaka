@@ -18,11 +18,19 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      // Precache the whole app including every audio clip (~5MB total) so the
-      // iPhone works fully offline from the very first launch.
+      // Precache the whole app plus the default (female) voice so the iPhone
+      // works fully offline from the first launch; the male voice is fetched
+      // and kept the first time it is chosen.
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json,m4a}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json}', 'audio/v-female/*.m4a'],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/audio/v-male/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'voice-male', expiration: { maxEntries: 1300, maxAgeSeconds: 365 * 24 * 3600 } },
+          },
+        ],
       },
       manifest: {
         name: 'Chilaka — Telugu',
