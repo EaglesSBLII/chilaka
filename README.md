@@ -48,7 +48,9 @@ cd .. && hdiutil create -volname "Chilaka" -srcfolder mac-arm64/Chilaka.app -ov 
 1. Add `app/content/units/uXX.json` (copy the shape of `u01.json`). You author **Telugu script only** — romanization is derived automatically so spelling always matches.
 2. `npm test -w app` — the content gate validates schema, word breakdowns, lesson coverage, distractors.
 3. `node tools/render-audio.mjs` — renders missing audio clips.
-4. Rebuild.
+4. `node tools/polish-audio.mjs` — post-production on every clip: 0.26 s lead-in, 0.4 s tail, loudness matched to −15 LUFS (keeps the untouched takes in `audio-src/`, so it is safe to re-run).
+5. `node tools/asr-qa.mjs` — re-checks every clip with the recognizer, decoding exactly as the app does (greedy + lesson-context prompt), and refreshes `reference-transcripts.json`.
+6. Rebuild.
 
 ## Models (already fetched/converted — for reference)
 

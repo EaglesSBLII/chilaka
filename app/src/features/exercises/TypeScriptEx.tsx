@@ -3,7 +3,7 @@
 // shows Telugu-side information only — English is behind a reveal.
 
 import { useEffect, useRef, useState } from 'react';
-import { playItemAudio } from '../../audio';
+import { playItemAudio, playItemAudioAfterPause } from '../../audio';
 import { Card } from '../../components/ui';
 import type { ExerciseProps } from './shared';
 import { RevealGloss } from './shared';
@@ -22,8 +22,9 @@ export function TypeScriptEx({ exercise, item, phase, onReady }: ExerciseProps) 
   useEffect(() => {
     setText('');
     onReady(null);
-    void playItemAudio(item.id);
+    const cancel = playItemAudioAfterPause(item.id);
     inputRef.current?.focus();
+    return cancel;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercise]);
 

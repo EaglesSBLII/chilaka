@@ -3,16 +3,17 @@
 import { useEffect } from 'react';
 import { Card } from '../../components/ui';
 import { Mascot } from '../../components/Mascot';
-import { playItemAudio } from '../../audio';
+import { playItemAudio, playItemAudioAfterPause } from '../../audio';
 import type { ExerciseProps } from './shared';
 import { RevealGloss, SentenceDisplay } from './shared';
 
 export function Intro({ item, unit, scriptMode, onAutoResult, phase }: ExerciseProps) {
   const isScript = unit.track === 'script';
   useEffect(() => {
-    void playItemAudio(item.id);
+    const cancel = playItemAudioAfterPause(item.id);
     // intro is always "correct" — it just needs a CONTINUE
     onAutoResult({ correct: true });
+    return cancel;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item.id]);
 

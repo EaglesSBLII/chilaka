@@ -119,9 +119,9 @@ function buildTray() {
 
 // ---- IPC bridge ----
 ipcMain.handle('asr:available', async () => asr.available());
-ipcMain.handle('asr:transcribe', async (_e, wavBuf) => {
+ipcMain.handle('asr:transcribe', async (_e, wavBuf, hint) => {
   try {
-    const text = await asr.transcribe(Buffer.from(wavBuf));
+    const text = await asr.transcribe(Buffer.from(wavBuf), hint && typeof hint.prompt === 'string' ? hint.prompt : '');
     return { ok: true, text };
   } catch (err) {
     return { ok: false, text: '', error: String(err.message || err) };

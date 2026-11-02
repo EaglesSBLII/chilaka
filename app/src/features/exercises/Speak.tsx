@@ -4,8 +4,10 @@
 import { useEffect, useState } from 'react';
 import { platform } from '../../platform';
 import { mic, type Recording } from '../../platform/recorder';
-import { playItemAudio, playUrl, stopItemAudio } from '../../audio';
+import { playItemAudio, playItemAudioAfterPause, playUrl, stopItemAudio } from '../../audio';
 import { scoreSpeechCalibrated } from '../../engine/speech/align';
+import { asrHintFor } from '../../engine/speech/hint';
+import { unitById } from '../../content/load';
 import referenceTranscripts from '../../content/reference-transcripts.json';
 import type { SpeakResult } from '../../engine/types';
 import { Button, Card } from '../../components/ui';
@@ -24,11 +26,13 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
   const [result, setResult] = useState<SpeakResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [echoWhy, setEchoWhy] = useState<'unpaired' | 'offline' | null>(null);
+  const [micTip, setMicTip] = useState<string | null>(null);
   useEffect(() => {
     setStage('idle');
     setTake(null);
     setResult(null);
     setError(null);
+    setMicTip(null);
     onReady(null);
     void platform.asrAvailable().then(async (ok) => {
       setMode(ok ? 'asr' : 'echo');
@@ -37,15 +41,13 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         setEchoWhy(sync.endpoint && sync.key ? 'offline' : 'unpaired');
       }
     });
-    // Let the card settle on screen for a beat before the voice speaks — it reads
-    // as a native pause instead of a clip cutting in the instant the page changes.
-    const autoplay = window.setTimeout(() => void playItemAudio(item.id), 900);
+    // Let the card settle on screen for a beat before the voice speaks.
+    const cancelAutoplay = playItemAudioAfterPause(item.id);
     // shared mic: cancel parks the take but keeps the stream, so iOS only
     // asks for permission once per session. Desktop never re-prompts, so it
     // releases fully (no lingering mic-in-use indicator).
     return () => {
-      window.clearTimeout(autoplay);
-      stopItemAudio();
+      cancelAutoplay();
       mic.cancel();
       if (platform.kind !== 'web') mic.release();
     };
@@ -67,14 +69,22 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
     if (!mic.recording) return;
     const rec = await mic.stop();
     setTake(rec);
+    if (rec.quality.silent) {
+      setStage('idle');
+      setError("Didn't hear anything — check the mic isn't muted, then try again.");
+      return;
+    }
     if (rec.durationSec < 0.35) {
       setStage('idle');
       setError("That was too short — tap, say the phrase, then tap again.");
       return;
     }
+    if (rec.quality.quiet) setMicTip('That came through faintly — a little closer to the mic helps.');
+    else if (rec.quality.clipped > 0.005) setMicTip('A touch loud for the mic — ease back a little.');
+    else setMicTip(null);
     if (mode === 'asr') {
       setStage('scoring');
-      const res = await platform.transcribe(rec.wav);
+      const res = await platform.transcribe(rec.wav, { prompt: asrHintFor(item, unitById(item.id.split('-')[0])) });
       if (!res.ok) {
         if (platform.kind === 'web') {
           // can't reach the scorer — degrade to echo self-grading, but SAY so
@@ -170,6 +180,7 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
           <p className="text-center font-semibold text-ink-soft">
             Chikki heard: <span className="font-extrabold text-ink">{result.transcriptRoman || '—'}</span>
           </p>
+          {micTip && <p className="text-center text-sm font-semibold text-marigold-dark">{micTip}</p>}
           <div className="flex justify-center gap-3">
             {take && (
               <Button variant="ghost" onClick={() => void playUrl(take.url)}>

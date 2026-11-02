@@ -2,11 +2,30 @@
 
 import { audioFileFor } from './content/load';
 import { platform } from './platform';
-
 let current: HTMLAudioElement | null = null;
 
 /** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
 export const VOICE_VOLUME = 0.55;
+
+/**
+ * Pause before the voice speaks when a card appears. Every lesson type (speaking,
+ * reading, writing, dialogues) waits this long after the page changes, so the
+ * phrase reads as a teacher taking a breath rather than a clip cutting in.
+ */
+export const VOICE_LEAD_MS = 900;
+
+/**
+ * Play an item's clip after the standard lead-in pause. Returns a cancel function
+ * for the exercise's cleanup: it clears the pending play and stops the clip if it
+ * already started, so leaving a card never leaves a voice talking over the next.
+ */
+export function playItemAudioAfterPause(itemId: string, slow = false): () => void {
+  const t = window.setTimeout(() => void playItemAudio(itemId, slow), VOICE_LEAD_MS);
+  return () => {
+    window.clearTimeout(t);
+    stopItemAudio();
+  };
+}
 
 /** Stop the reference clip (used when the learner starts recording, so the mic never hears it). */
 export function stopItemAudio(): void {

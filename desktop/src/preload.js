@@ -2,7 +2,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('chilakaBridge', {
   asrAvailable: () => ipcRenderer.invoke('asr:available'),
-  transcribe: (wav) => ipcRenderer.invoke('asr:transcribe', wav),
+  transcribe: (wav, hint) => ipcRenderer.invoke('asr:transcribe', wav, hint ?? null),
   speak: (text) => ipcRenderer.invoke('tts:speak', text),
   setReminders: (reminders) => ipcRenderer.invoke('reminders:set', reminders),
   saveBackup: (json) => ipcRenderer.invoke('backup:save', json),

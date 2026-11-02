@@ -15,12 +15,21 @@ export interface AsrResult {
   error?: string;
 }
 
+/**
+ * Context the recognizer may use while decoding: the phrases of the lesson
+ * around the one being said (never the sentence itself, so a pass still means
+ * the learner was understood, not that the model was told the answer).
+ */
+export interface AsrHint {
+  prompt?: string;
+}
+
 export interface PlatformBridge {
   kind: 'electron' | 'web';
   /** scored speaking available (whisper on desktop) */
   asrAvailable(): Promise<boolean>;
   /** transcribe 16kHz mono 16-bit WAV bytes → Telugu text */
-  transcribe(wav: ArrayBuffer): Promise<AsrResult>;
+  transcribe(wav: ArrayBuffer, hint?: AsrHint): Promise<AsrResult>;
   /** synthesize arbitrary Telugu text → WAV bytes (desktop only; null if unsupported) */
   speak(text: string): Promise<ArrayBuffer | null>;
   /** push the current reminder schedule to the host scheduler (no-op on web) */
@@ -51,7 +60,7 @@ export interface AppleMusicBridge {
 declare global {
   interface Window {
     chilakaBridge?: {
-      transcribe(wav: ArrayBuffer): Promise<AsrResult>;
+      transcribe(wav: ArrayBuffer, hint?: AsrHint): Promise<AsrResult>;
       speak(text: string): Promise<ArrayBuffer | null>;
       asrAvailable(): Promise<boolean>;
       setReminders(reminders: ReminderSpec[]): Promise<void>;

@@ -7,7 +7,7 @@
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET,PUT,POST,OPTIONS',
-  'Access-Control-Allow-Headers': 'content-type',
+  'Access-Control-Allow-Headers': 'content-type, x-chilaka-hint',
 };
 
 const MAX_BYTES = 4 * 1024 * 1024; // plenty for years of progress JSON
@@ -71,9 +71,18 @@ export default {
         for (let i = 0; i < bytes.length; i += 0x8000) {
           bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
         }
+        // lesson context from the app (percent-encoded header) primes the decoder
+        // with the surrounding phrases — never the target sentence itself
+        let hint = '';
+        try {
+          hint = decodeURIComponent(request.headers.get('x-chilaka-hint') ?? '').slice(0, 1500);
+        } catch {
+          hint = '';
+        }
         const result = await env.AI.run('@cf/openai/whisper-large-v3-turbo', {
           audio: btoa(bin),
           language: 'te',
+          ...(hint ? { initial_prompt: hint } : {}),
         });
         const text = String(result?.text ?? '').trim();
         return new Response(JSON.stringify({ text }), {

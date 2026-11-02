@@ -1,4 +1,4 @@
-import type { PlatformBridge, ReminderSpec } from './types';
+import type { AsrHint, PlatformBridge, ReminderSpec } from './types';
 
 class ElectronBridge implements PlatformBridge {
   kind = 'electron' as const;
@@ -6,8 +6,8 @@ class ElectronBridge implements PlatformBridge {
   asrAvailable() {
     return window.chilakaBridge!.asrAvailable();
   }
-  transcribe(wav: ArrayBuffer) {
-    return window.chilakaBridge!.transcribe(wav);
+  transcribe(wav: ArrayBuffer, hint?: AsrHint) {
+    return window.chilakaBridge!.transcribe(wav, hint);
   }
   speak(text: string) {
     return window.chilakaBridge!.speak(text);
@@ -34,15 +34,18 @@ class WebBridge implements PlatformBridge {
     const { sync } = await import('../sync');
     return Boolean(sync.endpoint && sync.key);
   }
-  async transcribe(wav: ArrayBuffer): Promise<{ ok: boolean; text: string; error?: string }> {
+  async transcribe(wav: ArrayBuffer, hint?: AsrHint): Promise<{ ok: boolean; text: string; error?: string }> {
     const { sync } = await import('../sync');
     if (!sync.endpoint || !sync.key) {
       return { ok: false, text: '', error: 'Pair sync in Settings to enable speech scoring.' };
     }
     try {
+      const headers: Record<string, string> = { 'content-type': 'audio/wav' };
+      // lesson context rides along as a header (percent-encoded: header values are ASCII only)
+      if (hint?.prompt) headers['x-chilaka-hint'] = encodeURIComponent(hint.prompt).slice(0, 4000);
       const res = await fetch(`${sync.endpoint}/asr/${sync.key}`, {
         method: 'POST',
-        headers: { 'content-type': 'audio/wav' },
+        headers,
         body: wav,
       });
       if (!res.ok) return { ok: false, text: '', error: `speech service unavailable (${res.status})` };

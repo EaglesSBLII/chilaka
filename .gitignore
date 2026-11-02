@@ -30,3 +30,5 @@ vendor/*/__pycache__/
 *.log
 vendor/tts-spike/vits-mms-tel/
 site/slideroom/
+audio-src/
+tools/polish-report.json

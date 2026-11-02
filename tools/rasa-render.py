@@ -53,7 +53,7 @@ def gap_secs(prev_sentence, seed, idx):
     base = 0.36 if prev_sentence.endswith('?') else 0.30
     return max(0.2, base + det_jitter(seed, idx + 100, 0.03))
 
-def synth(text, seed, style=STYLE_ID):
+def synth(text, seed, style=STYLE_ID, speaker=SPEAKER_ID):
     torch.manual_seed(seed)
     chunks = []
     sents = sentences(text)
@@ -63,7 +63,7 @@ def synth(text, seed, style=STYLE_ID):
         model.speaking_rate = BASE_RATE * (1 + det_jitter(seed, i, RATE_JITTER))
         inputs = tok(text=sent, return_tensors="pt")
         with torch.no_grad():
-            out = model(inputs['input_ids'], speaker_id=SPEAKER_ID, emotion_id=style)
+            out = model(inputs['input_ids'], speaker_id=speaker, emotion_id=style)
         chunks.append(out.waveform.squeeze().numpy().astype(np.float32))
         if i < len(sents) - 1:
             chunks.append(np.zeros(int(SR * gap_secs(sent, seed, i)), dtype=np.float32))
@@ -75,7 +75,8 @@ manifest_path, outdir = sys.argv[1], sys.argv[2]
 os.makedirs(outdir, exist_ok=True)
 jobs = json.load(open(manifest_path))['jobs']
 for i, job in enumerate(jobs):
-    wav = synth(job['text'], job.get('seed', 1234), job.get('style', STYLE_ID))
+    # jobs may pick another of the model's speakers (dialogue character voices)
+    wav = synth(job['text'], job.get('seed', 1234), job.get('style', STYLE_ID), job.get('speaker', SPEAKER_ID))
     write_wav(os.path.join(outdir, job['id'] + '.wav'), wav)
     if (i + 1) % 25 == 0:
         print(f"  tts {i+1}/{len(jobs)}", flush=True)

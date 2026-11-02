@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { useApp } from '../store';
 import { allItems, itemById, unitById } from '../content/load';
-import { playItemAudio } from '../audio';
+import { playItemAudio, stopItemAudio, VOICE_LEAD_MS } from '../audio';
 import { genTiles } from '../engine/exercise-gen';
 import { rngFromSeed } from '../engine/rng';
 import { Button, Card } from '../components/ui';
@@ -44,12 +44,18 @@ export function DialoguePlayer({ unitId }: { unitId: string }) {
     if (!turn || finished) return;
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
     if (!turn.userTurn) {
+      // each scripted line waits the standard beat before speaking, like a
+      // partner taking a breath between turns
       let cancelled = false;
-      void playItemAudio(turn.itemId).then(() => {
-        if (!cancelled) setTimeout(() => setTurnIdx((i) => i + 1), 500);
-      });
+      const t = window.setTimeout(() => {
+        void playItemAudio(turn.itemId).then(() => {
+          if (!cancelled) setTurnIdx((i) => i + 1);
+        });
+      }, VOICE_LEAD_MS);
       return () => {
         cancelled = true;
+        window.clearTimeout(t);
+        stopItemAudio();
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

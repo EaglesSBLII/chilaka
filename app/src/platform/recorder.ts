@@ -9,6 +9,21 @@ export interface Recording {
   durationSec: number;
   /** object URL for instant playback of the take */
   url: string;
+  /** how the take came off the mic, before normalization */
+  quality: TakeQuality;
+}
+
+export interface TakeQuality {
+  /** loudest sample of the raw take (0..1) */
+  peak: number;
+  /** RMS of the voiced part of the raw take (0..1) */
+  rms: number;
+  /** share of samples at the rails — >0.5% means the mic was overdriven */
+  clipped: number;
+  /** nothing but room noise */
+  silent: boolean;
+  /** too quiet for the recognizer to hear clearly */
+  quiet: boolean;
 }
 
 const TARGET_RATE = 16000;
@@ -112,11 +127,14 @@ export class MicRecorder {
     if (this.sampleRate !== TARGET_RATE) {
       samples = await resampleHQ(samples, this.sampleRate, TARGET_RATE);
     }
+    const quality = measureTake(samples);
     samples = trimSilence(samples);
-    samples = normalizePeak(samples); // AGC is off — restore healthy level
+    // AGC is off, so level the take ourselves: loudness (RMS) matched to what
+    // the recognizer was trained on, peaks kept off the rails.
+    samples = normalizeLoudness(samples);
     const wav = encodeWav(samples, TARGET_RATE);
     const url = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
-    return { wav, durationSec: samples.length / TARGET_RATE, url };
+    return { wav, durationSec: samples.length / TARGET_RATE, url, quality };
   }
 
   cancel(): void {
@@ -220,19 +238,86 @@ export function resample(input: Float32Array, from: number, to: number): Float32
   return out;
 }
 
-/** Trim leading/trailing silence relative to the take's own peak. */
+/** Short-window RMS envelope (window in samples). */
+function envelope(samples: Float32Array, win: number): Float32Array {
+  const n = Math.ceil(samples.length / win);
+  const env = new Float32Array(n);
+  for (let w = 0; w < n; w++) {
+    let acc = 0;
+    const from = w * win;
+    const to = Math.min(samples.length, from + win);
+    for (let i = from; i < to; i++) acc += samples[i] * samples[i];
+    env[w] = Math.sqrt(acc / Math.max(1, to - from));
+  }
+  return env;
+}
+
+/**
+ * Trim the room noise before and after the phrase. Decides on 20 ms RMS windows
+ * (energy, not single samples, so a breathy "హ" or a soft "వ" onset isn't cut)
+ * against the take's own noise floor, and keeps a short runway each side so the
+ * recognizer hears the phrase start and finish naturally.
+ */
 export function trimSilence(samples: Float32Array, threshold?: number, rate = TARGET_RATE): Float32Array {
+  const win = Math.max(1, Math.floor(0.02 * rate));
+  const env = envelope(samples, win);
+  if (env.length === 0) return samples;
+  const sorted = Float32Array.from(env).sort();
+  const floor = sorted[Math.floor(sorted.length * 0.1)]; // quietest 10% of windows = room noise
+  const peak = sorted[sorted.length - 1];
+  // gate: well above the noise floor but still far below the voice
+  const th = threshold ?? Math.max(0.004, floor * 3, peak * 0.06);
+  let first = 0;
+  while (first < env.length && env[first] < th) first++;
+  if (first >= env.length) return samples; // nothing voiced — leave it, the caller reports silence
+  let last = env.length - 1;
+  while (last > first && env[last] < th) last--;
+  const pad = Math.floor(0.2 * rate);
+  const start = Math.max(0, first * win - pad);
+  const end = Math.min(samples.length, (last + 1) * win + pad);
+  return samples.slice(start, end);
+}
+
+/**
+ * Loudness-match the take: RMS of the voiced windows to TARGET_RMS (about
+ * −20 dBFS, the level speech models expect), with the gain capped so peaks stay
+ * under 0.95 and silence is never amplified into hiss.
+ */
+export function normalizeLoudness(samples: Float32Array, targetRms = 0.1, maxGain = 30, rate = TARGET_RATE): Float32Array {
   let peak = 0;
   for (let i = 0; i < samples.length; i++) peak = Math.max(peak, Math.abs(samples[i]));
-  const th = threshold ?? Math.max(0.006, peak * 0.04);
-  let start = 0;
-  let end = samples.length - 1;
-  while (start < samples.length && Math.abs(samples[start]) < th) start++;
-  while (end > start && Math.abs(samples[end]) < th) end--;
-  const pad = Math.floor(0.15 * rate);
-  start = Math.max(0, start - pad);
-  end = Math.min(samples.length - 1, end + pad);
-  return samples.slice(start, end + 1);
+  if (peak < 0.002) return samples;
+  const env = envelope(samples, Math.max(1, Math.floor(0.02 * rate)));
+  const voiced = Array.from(env).filter((e) => e >= peak * 0.1);
+  const rms = voiced.length ? Math.sqrt(voiced.reduce((a, e) => a + e * e, 0) / voiced.length) : 0;
+  if (rms <= 0) return samples;
+  const gain = Math.min(targetRms / rms, 0.95 / peak, maxGain);
+  if (Math.abs(gain - 1) < 0.02) return samples;
+  const out = new Float32Array(samples.length);
+  for (let i = 0; i < samples.length; i++) out[i] = samples[i] * gain;
+  return out;
+}
+
+/** What the take looked like coming off the mic — drives the "closer / quieter" hints. */
+export function measureTake(samples: Float32Array, rate = TARGET_RATE): TakeQuality {
+  let peak = 0;
+  let clippedCount = 0;
+  for (let i = 0; i < samples.length; i++) {
+    const a = Math.abs(samples[i]);
+    if (a > peak) peak = a;
+    if (a >= 0.985) clippedCount++;
+  }
+  const env = envelope(samples, Math.max(1, Math.floor(0.02 * rate)));
+  const voiced = Array.from(env).filter((e) => e >= peak * 0.1);
+  const rms = voiced.length ? Math.sqrt(voiced.reduce((a, e) => a + e * e, 0) / voiced.length) : 0;
+  const clipped = samples.length ? clippedCount / samples.length : 0;
+  return {
+    peak,
+    rms,
+    clipped,
+    silent: peak < 0.01,
+    quiet: peak >= 0.01 && rms < 0.012, // roughly below −38 dBFS: far from the mic or whispering
+  };
 }
 
 export function encodeWav(samples: Float32Array, sampleRate: number): ArrayBuffer {

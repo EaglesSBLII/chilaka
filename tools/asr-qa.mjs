@@ -34,7 +34,17 @@ function freePort(){return new Promise((res,rej)=>{const s=net.createServer();s.
 async function waitReady(port){for(let i=0;i<120;i++){try{await fetch(`http://127.0.0.1:${port}/`);return}catch{await new Promise(r=>setTimeout(r,500))}}throw new Error('server not ready')}
 
 const items=[];
-for(const f of readdirSync(UNITS).filter(x=>x.endsWith('.json'))){const u=JSON.parse(readFileSync(join(UNITS,f),'utf8'));for(const it of u.items)items.push(it)}
+const unitOf=new Map();
+for(const f of readdirSync(UNITS).filter(x=>x.endsWith('.json'))){const u=JSON.parse(readFileSync(join(UNITS,f),'utf8'));for(const it of u.items){items.push(it);unitOf.set(it.id,u)}}
+/** mirror of app engine/speech/hint.ts: the unit's OTHER phrases, nearest first, ≤12 / ≤600 chars */
+function hintFor(it){
+  const u=unitOf.get(it.id); if(!u)return '';
+  const idx=u.items.findIndex(x=>x.id===it.id);
+  const ordered=[...u.items].sort((a,b)=>Math.abs(u.items.indexOf(a)-idx)-Math.abs(u.items.indexOf(b)-idx));
+  const out=[];let chars=0;
+  for(const x of ordered){if(x.id===it.id)continue;const te=x.te.trim();if(!te||te===it.te.trim())continue;if(out.length>=12||chars+te.length+1>600)break;out.push(te);chars+=te.length+1}
+  return out.join(' ');
+}
 const sample=items.filter(it=>existsSync(join(AUDIO,`${it.id}.m4a`))).slice(0,LIMIT===Infinity?items.length:LIMIT);
 
 const port=await freePort();
@@ -52,6 +62,8 @@ for(const it of sample){
   const form=new FormData();
   form.append('file',new Blob([readFileSync(wav)],{type:'audio/wav'}),'c.wav');
   form.append('response_format','json'); form.append('language','te'); form.append('temperature','0.0');
+  // decode exactly the way the app does (desktop/src/asr.js): greedy + lesson-context prompt
+  const hint=hintFor(it); if(hint)form.append('prompt',hint);
   const res=await fetch(`http://127.0.0.1:${port}/inference`,{method:'POST',body:form});
   const heard=String((await res.json()).text??'').trim();
   refMap[it.id]=heard;

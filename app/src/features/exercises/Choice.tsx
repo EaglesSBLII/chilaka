@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { itemById } from '../../content/load';
-import { playItemAudio } from '../../audio';
+import { playItemAudio, playItemAudioAfterPause } from '../../audio';
 import { Card } from '../../components/ui';
 import type { ChoiceExercise, ContentItem } from '../../engine/types';
 import type { ExerciseProps } from './shared';
@@ -30,7 +30,7 @@ export function Choice({ exercise, item, unit, scriptMode, phase, onReady }: Exe
   useEffect(() => {
     setSelected(null);
     onReady(null);
-    if (audioKinds) void playItemAudio(item.id);
+    if (audioKinds) return playItemAudioAfterPause(item.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercise]);
 
