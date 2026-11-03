@@ -22,7 +22,7 @@ export default defineConfig({
       // works fully offline from the first launch; the male voice is fetched
       // and kept the first time it is chosen.
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json}', 'audio/v-female/*.m4a', 'audio/*.m4a'], // audio/*.m4a: previous voice, until both native voices are complete
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json}', 'audio/v-female/*.m4a'], // default voice offline; the male voice caches on demand
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         runtimeCaching: [
           {

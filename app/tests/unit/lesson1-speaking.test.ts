@@ -3,9 +3,13 @@
 // different sentences — so the first thing a learner says is graded fairly.
 import { describe, expect, it } from 'vitest';
 import { scoreSpeechCalibrated } from '../../src/engine/speech/align';
-import refs from '../../src/content/reference-transcripts.json';
+import refsFemale from '../../src/content/reference-transcripts-female.json';
+import refsMale from '../../src/content/reference-transcripts-male.json';
 
-const REFS = refs as Record<string, string>;
+const VOICES: [string, Record<string, string>][] = [
+  ['female', refsFemale as Record<string, string>],
+  ['male', refsMale as Record<string, string>],
+];
 const LESSON1 = [
   { id: 'u01-i01', te: 'మీరు ఎలా ఉన్నారు?' },
   { id: 'u01-i02', te: 'నేను బాగున్నాను.' },
@@ -13,7 +17,7 @@ const LESSON1 = [
   { id: 'u01-i04', te: 'నేను కూడా బాగున్నాను.' },
 ];
 
-describe('lesson 1 speaking grades', () => {
+describe.each(VOICES)('lesson 1 speaking grades (%s voice)', (_voice, REFS) => {
   it('has a reference transcript for every lesson-1 sentence', () => {
     for (const it of LESSON1) expect(REFS[it.id], it.id).toBeTruthy();
   });

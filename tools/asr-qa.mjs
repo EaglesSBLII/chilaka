@@ -2,7 +2,7 @@
 // with the Telugu ASR (warm whisper-server), fold-compare to the expected text.
 // Flags clips the recognizer can't hear correctly. Reports, never mutates.
 //
-//   node asr-qa.mjs [--limit N]
+//   node asr-qa.mjs [--voice female|male] [--limit N]   (default: female)
 
 import { spawn, execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, writeFileSync, existsSync, mkdtempSync } from 'node:fs';
@@ -13,7 +13,9 @@ import net from 'node:net';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const R = join(__dirname, '..');
-const AUDIO = join(R, 'app/public/audio');
+const voiceArg = process.argv.indexOf('--voice');
+const VOICE = voiceArg > -1 ? process.argv[voiceArg + 1] : 'female';
+const AUDIO = join(R, `app/public/audio/v-${VOICE}`);
 const UNITS = join(R, 'app/content/units');
 const WSERVER = join(R, 'vendor/whisper.cpp/build/bin/whisper-server');
 const ASR_MODEL = join(R, 'desktop/resources/models/ggml-telugu-medium-q5_0.bin');
@@ -75,7 +77,7 @@ for(const it of sample){
 }
 proc.kill();
 writeFileSync(join(R,'tools/asr-qa-report.json'),JSON.stringify(fails,null,2));
-writeFileSync(join(R,'app/src/content/reference-transcripts.json'),JSON.stringify(refMap,null,1));
+writeFileSync(join(R,`app/src/content/reference-transcripts-${VOICE}.json`),JSON.stringify(refMap,null,1));
 const rate=(((sample.length-fails.length)/sample.length)*100).toFixed(1);
 console.log(`\nDone. ${sample.length-fails.length}/${sample.length} (${rate}%) transcribe correctly. ${fails.length} flagged → tools/asr-qa-report.json`);
-console.log(`Reference transcripts → app/src/content/reference-transcripts.json (${Object.keys(refMap).length} ids)`);
+console.log(`Reference transcripts → app/src/content/reference-transcripts-${VOICE}.json (${Object.keys(refMap).length} ids)`);

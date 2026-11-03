@@ -46,9 +46,9 @@ export function stopItemAudio(): void {
 /** Play an item's pre-rendered audio in the chosen voice (or a specific one). slow=true stretches to 0.72x. */
 export function playItemAudio(itemId: string, slow = false, voice: VoiceId = activeVoice): Promise<void> {
   return new Promise((resolve) => {
-    const start = (v: VoiceId | 'legacy', onFail: () => void) => {
+    const start = (v: VoiceId, onFail: () => void) => {
       current?.pause();
-      const el = new Audio(v === 'legacy' ? `audio/${itemId}.m4a` : audioFileFor(itemId, v));
+      const el = new Audio(audioFileFor(itemId, v));
       current = el;
       el.volume = VOICE_VOLUME;
       el.playbackRate = slow ? 0.72 : 1;
@@ -57,12 +57,8 @@ export function playItemAudio(itemId: string, slow = false, voice: VoiceId = act
       el.onerror = onFail;
       void el.play().catch(() => resolve());
     };
-    // a clip missing in one voice falls back to the other, then to the previous
-    // course voice (kept while the native voices are still being rendered), then
-    // to live TTS (desktop)
-    start(voice, () =>
-      start(otherVoice(voice), () => start('legacy', () => void fallbackSpeak(itemId).finally(resolve))),
-    );
+    // a clip missing in one voice falls back to the other, then to live TTS (desktop)
+    start(voice, () => start(otherVoice(voice), () => void fallbackSpeak(itemId).finally(resolve)));
   });
 }
 
