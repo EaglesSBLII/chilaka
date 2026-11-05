@@ -14,6 +14,13 @@ const { execFile } = require('node:child_process');
 const { promisify } = require('node:util');
 
 const run = promisify(execFile);
+
+/** Remove a bundle the way Finder would. Node's fs inside Electron treats
+ *  app.asar as a directory, so fs.rmSync(recursive) fails with ENOTDIR on it. */
+function removeBundle(p) {
+  if (!fs.existsSync(p)) return;
+  require('node:child_process').execFileSync('rm', ['-rf', p]);
+}
 const REPO = 'EaglesSBLII/chilaka';
 const FEED = `https://api.github.com/repos/${REPO}/releases/latest`;
 const CHECK_EVERY_MS = 6 * 60 * 60 * 1000;
@@ -154,15 +161,20 @@ class Updater {
     const target = this.bundlePath();
     const backup = `${target}.previous`;
     try {
-      fs.rmSync(backup, { recursive: true, force: true });
+      removeBundle(backup);
       fs.renameSync(target, backup);
       await run('ditto', [this.staged, target]);
-      fs.rmSync(backup, { recursive: true, force: true });
     } catch (err) {
       // put the old app back if anything went wrong mid-swap
       if (!fs.existsSync(target) && fs.existsSync(backup)) fs.renameSync(backup, target);
       dialog.showMessageBox({ type: 'error', message: 'Update failed', detail: String(err.message || err) });
       return;
+    }
+    // the new app is in place; a leftover backup must never block the relaunch
+    try {
+      removeBundle(backup);
+    } catch {
+      /* cleaned up on the next update */
     }
     this.staged = null;
     app.relaunch({ execPath: path.join(target, 'Contents', 'MacOS', 'Chilaka') });
@@ -175,10 +187,10 @@ class Updater {
     const target = this.bundlePath();
     try {
       const backup = `${target}.previous`;
-      fs.rmSync(backup, { recursive: true, force: true });
+      removeBundle(backup);
       fs.renameSync(target, backup);
       require('node:child_process').execFileSync('ditto', [this.staged, target]);
-      fs.rmSync(backup, { recursive: true, force: true });
+      removeBundle(backup);
     } catch {
       /* leave the current version in place */
     }
