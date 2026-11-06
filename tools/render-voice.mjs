@@ -34,8 +34,11 @@ if (!['female', 'male'].includes(VOICE)) throw new Error('--voice female|male');
 const force = process.argv.includes('--force');
 const only = arg('--only', null);
 const ROUNDS = Number(arg('--rounds', 3));
-const NFE = Number(arg('--nfe', 16));
-const SPEED = Number(arg('--speed', 0.92));
+// The male reference (6.7 s) throws a stray syllable before the sentence at
+// 16 steps / 0.92 pace (Arnav heard it on every clip); 32 steps at natural pace
+// was clean in every audition. The female reference is fine at the faster settings.
+const NFE = Number(arg('--nfe', VOICE === 'male' ? 32 : 16));
+const SPEED = Number(arg('--speed', VOICE === 'male' ? 1.0 : 0.92));
 const SIM_PASS = 0.7;
 const OUT_DIR = join(ROOT, `app/public/audio/v-${VOICE}`);
 const REF_WAV = join(__dirname, 'voice-ref', `${VOICE}.wav`);
@@ -128,7 +131,7 @@ function runPython(jobs, round){
 }
 
 if(todo.length>0)asr=await startAsr();
-let pending=todo.map((it,i)=>({...it,seed:(VOICE==='male'?70000:50000)+i}));
+let pending=todo.map((it,i)=>({...it,seed:(VOICE==='male'?90000:50000)+i}));
 for(let round=0; round<ROUNDS && pending.length>0; round++){
   console.log(`— round ${round+1}: ${pending.length} clips`);
   const dir=runPython(pending.map(p=>({id:p.id,text:p.te,seed:p.seed+round*17})),round);

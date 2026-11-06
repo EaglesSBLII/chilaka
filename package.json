@@ -1,6 +1,6 @@
 {
   "name": "chilaka",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Chilaka — Telugu fluency app (desktop + PWA)",
   "workspaces": [
