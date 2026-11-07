@@ -229,4 +229,4 @@ class Updater {
   }
 }
 
-module.exports = { Updater, cmp };
+module.exports = { Updater, cmp, removeBundle };

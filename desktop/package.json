@@ -9,7 +9,7 @@
     "start": "electron .",
     "predist": "rm -rf web && cp -R ../app/dist web",
     "dist": "electron-builder --mac dmg --arm64",
-    "smoke": "playwright test tests/smoke.spec.mjs"
+    "smoke": "playwright test tests"
   },
   "dependencies": {
     "sherpa-onnx-node": "^1.12.0"
