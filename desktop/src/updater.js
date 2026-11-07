@@ -72,11 +72,39 @@ class Updater {
     this.timer = setInterval(() => void this.check(), CHECK_EVERY_MS);
   }
 
+  /** Version of the bundle on disk — newer than the running process when an
+   *  update was swapped in but the app never relaunched. */
+  installedVersion() {
+    try {
+      const plist = fs.readFileSync(path.join(this.bundlePath(), 'Contents', 'Info.plist'), 'utf8');
+      return /<key>CFBundleShortVersionString<\/key>\s*<string>([^<]+)<\/string>/.exec(plist)?.[1] || null;
+    } catch {
+      return null;
+    }
+  }
+
   /** Look for a newer release. manual=true also reports "up to date". */
   async check(manual = false) {
     if (this.busy) return;
     this.busy = true;
     try {
+      const onDisk = this.installedVersion();
+      if (onDisk && cmp(onDisk, app.getVersion()) > 0) {
+        // the new app is already installed under this (old) process: just restart
+        const { response } = await dialog.showMessageBox({
+          type: 'info',
+          message: `Chilaka ${onDisk} is installed`,
+          detail: 'Restart to finish updating. Your progress is kept.',
+          buttons: ['Restart now', 'Later'],
+          defaultId: 0,
+          cancelId: 1,
+        });
+        if (response === 0) {
+          app.relaunch({ execPath: path.join(this.bundlePath(), 'Contents', 'MacOS', 'Chilaka') });
+          app.exit(0);
+        }
+        return;
+      }
       const res = await fetch(FEED, { headers: { accept: 'application/vnd.github+json', 'user-agent': 'chilaka-updater' } });
       if (!res.ok) throw new Error(`release feed ${res.status}`);
       const rel = await res.json();
