@@ -9,6 +9,8 @@ import { music } from '../music';
 import { sync } from '../sync';
 import { SYNC_ENDPOINT } from '../sync-config';
 import { Button, Card } from '../components/ui';
+import { AccountCard } from './settings/AccountCard';
+import { PushToggle } from './settings/PushToggle';
 import type { Difficulty, ScriptMode } from '../engine/types';
 import type { MusicTrackRow, ReminderRow } from '../db/schema';
 
@@ -68,13 +70,12 @@ export function Settings() {
     <div className="flex flex-col gap-5">
       <h2 className="text-2xl font-extrabold">Settings</h2>
 
+      <AccountCard />
+
       <Card>
         <h3 className="mb-3 font-extrabold">⏰ Daily reminders</h3>
         {!platform.remindersSupported && (
-          <p className="mb-3 rounded-xl bg-amber-soft px-3 py-2 text-sm font-semibold">
-            On iPhone, add a Shortcuts automation (Settings → guide below) — web apps can't schedule alarms by
-            themselves. Your times still sync into the app.
-          </p>
+          <PushToggle hh={drafts.find((d) => d.enabled)?.hh ?? 19} mm={drafts.find((d) => d.enabled)?.mm ?? 30} flash={flash} />
         )}
         <div className="flex flex-col gap-2">
           {drafts.map((r, i) => (
@@ -129,7 +130,6 @@ export function Settings() {
         </div>
       </Card>
 
-      <SyncCard flash={flash} />
 
       <Card>
         <h3 className="mb-1 font-extrabold">🎵 Background music</h3>
@@ -375,6 +375,13 @@ export function Settings() {
           {profile?.soundOn !== false ? 'On' : 'Off'}
         </Button>
       </Card>
+
+      <details className="group">
+        <summary className="cursor-pointer select-none px-1 text-sm font-extrabold text-ink-soft">Advanced: pair devices with a code (no account)</summary>
+        <div className="mt-3">
+          <SyncCard flash={flash} />
+        </div>
+      </details>
 
       <Card>
         <h3 className="mb-1 font-extrabold">💾 Backup & sync</h3>

@@ -76,7 +76,7 @@ export async function completeOnboarding(page: Page, name = 'Ravi'): Promise<voi
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByRole('button', { name: 'Continue' }).click(); // standard pace preselected
   await page.getByRole('button', { name: 'Start from the beginning' }).click();
-  await expect(page.getByText('Section 1', { exact: false }).first()).toBeVisible();
+  await expect(page.getByText('Section 0', { exact: false }).first()).toBeVisible();
 }
 
 /** Answer the currently shown exercise correctly. Returns the exercise kind,

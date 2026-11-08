@@ -44,8 +44,14 @@ async function mockSync(context: BrowserContext): Promise<void> {
   if (SYNC_ENDPOINT) await context.route(`${SYNC_ENDPOINT}/**`, handler);
 }
 
+// code pairing lives under an Advanced disclosure now that accounts exist
+async function openAdvanced(page: Page): Promise<void> {
+  if ((await page.locator('details[open]').count()) === 0) await page.getByText('Advanced: pair devices with a code').click();
+}
+
 async function pairViaSettings(page: Page): Promise<void> {
   await page.getByRole('button', { name: 'Settings' }).click();
+  await openAdvanced(page);
   // auto-sync self-configures new devices — joining now lives behind a button
   const joinToggle = page.getByRole('button', { name: 'Join another device' });
   if (await joinToggle.isVisible().catch(() => false)) await joinToggle.click();
@@ -57,6 +63,7 @@ async function pairViaSettings(page: Page): Promise<void> {
 
 async function syncNow(page: Page): Promise<void> {
   await page.getByRole('button', { name: 'Settings' }).click();
+  await openAdvanced(page);
   await page.getByRole('button', { name: 'Sync now' }).click();
   await expect(page.getByText(/Syncing…|Synced/).first()).toBeVisible();
   await expect(page.getByText(/^Synced$/)).toBeVisible({ timeout: 15_000 });
@@ -89,7 +96,7 @@ test('progress made on either device merges to both', async ({ browser }) => {
   await expect(b.getByLabel(/Streak: 1 days/)).toBeVisible({ timeout: 10_000 });
   await expect(b.getByRole('button', { name: /lesson 1/i }).first()).toContainText('✓');
   await b.getByRole('button', { name: 'Profile' }).click();
-  await expect(b.getByText('Ravi')).toBeVisible(); // original identity survives pairing
+  await expect(b.getByRole('heading', { name: 'Ravi' })).toBeVisible(); // original identity survives pairing
 
   // ---- device B practices: review one card, sync back ----
   await b.getByRole('button', { name: 'Review' }).click();

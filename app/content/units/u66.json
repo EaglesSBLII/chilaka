@@ -1,0 +1,285 @@
+{
+  "id": "u66",
+  "section": 0,
+  "order": 2,
+  "title": "Numbers 1–10",
+  "teTitle": "అంకెలు",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "Count from one to ten, learn zero, and ask \"how many?\" — handy at every shop and chai stall.",
+  "items": [
+    {
+      "id": "u66-i01",
+      "te": "ఒకటి",
+      "gloss": "one",
+      "words": [
+        {
+          "te": "ఒకటి",
+          "gloss": "one"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i02",
+        "u66-i03",
+        "u66-i04"
+      ]
+    },
+    {
+      "id": "u66-i02",
+      "te": "రెండు",
+      "gloss": "two",
+      "words": [
+        {
+          "te": "రెండు",
+          "gloss": "two"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i01",
+        "u66-i03",
+        "u66-i04"
+      ]
+    },
+    {
+      "id": "u66-i03",
+      "te": "మూడు",
+      "gloss": "three",
+      "words": [
+        {
+          "te": "మూడు",
+          "gloss": "three"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i01",
+        "u66-i02",
+        "u66-i04"
+      ]
+    },
+    {
+      "id": "u66-i04",
+      "te": "నాలుగు",
+      "gloss": "four",
+      "words": [
+        {
+          "te": "నాలుగు",
+          "gloss": "four"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i01",
+        "u66-i02",
+        "u66-i03"
+      ]
+    },
+    {
+      "id": "u66-i05",
+      "te": "ఐదు",
+      "gloss": "five",
+      "words": [
+        {
+          "te": "ఐదు",
+          "gloss": "five"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i06",
+        "u66-i07",
+        "u66-i08"
+      ]
+    },
+    {
+      "id": "u66-i06",
+      "te": "ఆరు",
+      "gloss": "six",
+      "words": [
+        {
+          "te": "ఆరు",
+          "gloss": "six"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i05",
+        "u66-i07",
+        "u66-i08"
+      ]
+    },
+    {
+      "id": "u66-i07",
+      "te": "ఏడు",
+      "gloss": "seven",
+      "words": [
+        {
+          "te": "ఏడు",
+          "gloss": "seven"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i05",
+        "u66-i06",
+        "u66-i08"
+      ]
+    },
+    {
+      "id": "u66-i08",
+      "te": "ఎనిమిది",
+      "gloss": "eight",
+      "words": [
+        {
+          "te": "ఎనిమిది",
+          "gloss": "eight"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i05",
+        "u66-i06",
+        "u66-i07"
+      ]
+    },
+    {
+      "id": "u66-i09",
+      "te": "తొమ్మిది",
+      "gloss": "nine",
+      "words": [
+        {
+          "te": "తొమ్మిది",
+          "gloss": "nine"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i10",
+        "u66-i11",
+        "u66-i12"
+      ]
+    },
+    {
+      "id": "u66-i10",
+      "te": "పది",
+      "gloss": "ten",
+      "words": [
+        {
+          "te": "పది",
+          "gloss": "ten"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i09",
+        "u66-i11",
+        "u66-i12"
+      ]
+    },
+    {
+      "id": "u66-i11",
+      "te": "సున్నా",
+      "gloss": "zero",
+      "words": [
+        {
+          "te": "సున్నా",
+          "gloss": "zero"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i09",
+        "u66-i10",
+        "u66-i12"
+      ]
+    },
+    {
+      "id": "u66-i12",
+      "te": "ఎన్ని",
+      "gloss": "how many?",
+      "words": [
+        {
+          "te": "ఎన్ని",
+          "gloss": "how many?"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u66-i09",
+        "u66-i10",
+        "u66-i11"
+      ],
+      "note": "ఎన్ని is \"how many\" for things you count. For people it's ఎంతమంది (entamandi)."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "One to four",
+      "itemIds": [
+        "u66-i01",
+        "u66-i02",
+        "u66-i03",
+        "u66-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Five to eight",
+      "itemIds": [
+        "u66-i05",
+        "u66-i06",
+        "u66-i07",
+        "u66-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Nine, ten and counting",
+      "itemIds": [
+        "u66-i09",
+        "u66-i10",
+        "u66-i11",
+        "u66-i12"
+      ]
+    }
+  ]
+}

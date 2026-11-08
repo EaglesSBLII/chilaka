@@ -151,4 +151,10 @@ export const sfx = {
     if (!sfxEnabled) return;
     [523, 659, 784, 1046, 1318].forEach((f, i) => tone(f, i * 0.09, 0.25, 'triangle', 0.1));
   },
+  /** coins landing: bright, short, two-note clink */
+  coin(): void {
+    if (!sfxEnabled) return;
+    tone(1568, 0, 0.08, 'sine', 0.08);
+    tone(2093, 0.07, 0.16, 'sine', 0.07);
+  },
 };

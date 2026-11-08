@@ -157,3 +157,39 @@ describe('mergeBackups', () => {
     expect((m.data.profile[0] as { name: string }).name).toBe('Ravi');
   });
 });
+
+describe('mergeBackups: coins, quests, badges', () => {
+  const coinA = { id: 1, ts: '2026-07-17T10:00:00Z', delta: 10, kind: 'lesson', refId: 'u01:l1', day: '2026-07-17' };
+  const coinB = { id: 1, ts: '2026-07-18T08:00:00Z', delta: -200, kind: 'spend', refId: 'freeze', day: '2026-07-18' };
+  const questA = { id: '2026-07-18:lessons', day: '2026-07-18', kind: 'lessons', target: 2, progress: 1, claimedAt: null, reward: null };
+  const questB = { ...questA, progress: 2, claimedAt: '2026-07-18T09:00:00Z', reward: 22 };
+  const badgeA = { id: 'first-steps', tier: 1, earnedAt: '2026-07-10T00:00:00Z' };
+  const badgeB = { id: 'first-steps', tier: 2, earnedAt: '2026-07-18T00:00:00Z' };
+  const a = () => mk({ ...deviceA().data, coinEvents: [coinA], quests: [questA], badges: [badgeA] }, '2026-07-18T09:00:00Z');
+  const b = () => mk({ ...deviceA().data, coinEvents: [coinA, coinB], quests: [questB], badges: [badgeB] }, '2026-07-18T10:00:00Z');
+
+  it('unions the coin ledger without double counting and drops ids', () => {
+    const m = mergeBackups(a(), b()).data as unknown as { coinEvents: Record<string, unknown>[] };
+    expect(m.coinEvents).toHaveLength(2);
+    expect(m.coinEvents.every((e) => !('id' in e))).toBe(true);
+    expect(m.coinEvents.reduce((s, e) => s + Number(e.delta), 0)).toBe(-190);
+  });
+  it('quest progress is a maximum and a claim anywhere carries its reward', () => {
+    const m = mergeBackups(a(), b()).data as unknown as { quests: typeof questB[] };
+    expect(m.quests).toEqual([questB]);
+    const m2 = mergeBackups(b(), a()).data as unknown as { quests: typeof questB[] };
+    expect(m2.quests).toEqual([questB]);
+  });
+  it('badges keep the higher tier', () => {
+    const m = mergeBackups(a(), b()).data as unknown as { badges: typeof badgeB[] };
+    expect(m.badges).toEqual([badgeB]);
+    const same = mergeBackups(a(), mk({ ...deviceA().data, badges: [{ ...badgeA, earnedAt: '2026-07-01T00:00:00Z' }] })).data as unknown as { badges: typeof badgeA[] };
+    expect(same.badges[0].earnedAt).toBe('2026-07-01T00:00:00Z');
+  });
+  it('tolerates an old backup without the new tables', () => {
+    const m = mergeBackups(deviceA(), b()).data as unknown as { coinEvents: unknown[]; quests: unknown[]; badges: unknown[] };
+    expect(m.coinEvents).toHaveLength(2);
+    expect(m.quests).toHaveLength(1);
+    expect(m.badges).toHaveLength(1);
+  });
+});

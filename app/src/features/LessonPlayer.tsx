@@ -144,11 +144,12 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
         await store.getState().applyReview(id, wrongItems.current.has(id) ? Rating.Hard : Rating.Good);
       }
     }
-    const award = await store.getState().awardXp(total, 'lesson', `${unitId}:${lessonId}`);
-    await store.getState().completeLesson(unitId, lessonId, pct, total);
+    const rewards = await store.getState().finishLesson(unitId, lessonId, pct, total);
     sfx.complete();
-    confetti({ particleCount: 120, spread: 75, origin: { y: 0.7 }, colors: ['#F5A623', '#FF5C39', '#3CB46E', '#0E6B63'] });
-    setDone({ xp: total, pct, award, unitTitle: unit.title, lessonTitle: lesson.title });
+    if (rewards.milestone === null) {
+      confetti({ particleCount: 120, spread: 75, origin: { y: 0.7 }, colors: ['#F5A623', '#FF5C39', '#3CB46E', '#0E6B63'] });
+    }
+    setDone({ xp: total, pct, award: rewards.award, rewards, unitTitle: unit.title, lessonTitle: lesson.title });
   };
 
   const ExComp =

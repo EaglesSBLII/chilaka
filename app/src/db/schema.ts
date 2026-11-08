@@ -5,6 +5,9 @@ import type { VoiceId } from '../content/voices';
 import Dexie, { type EntityTable } from 'dexie';
 import type { Difficulty, ScriptMode, StreakState } from '../engine/types';
 import type { StoredCard } from '../engine/srs';
+import type { CoinEvent } from '../engine/coins';
+import type { Quest } from '../engine/quests';
+import type { BadgeRow } from '../engine/badges';
 
 export interface ProfileRow {
   id: string; // 'main'
@@ -19,6 +22,10 @@ export interface ProfileRow {
   soundOn: boolean;
   /** which native voice reads the course (default female; older profiles have none) */
   voice?: VoiceId;
+  /** equipped mascot outfit (shop sku) */
+  outfit?: string;
+  /** equipped accent theme (shop sku) */
+  accent?: string;
 }
 
 export interface SettingRow {
@@ -85,6 +92,9 @@ export class ChilakaDB extends Dexie {
   reminders!: EntityTable<ReminderRow, 'id'>;
   meta!: EntityTable<MetaRow, 'key'>;
   musicTracks!: EntityTable<MusicTrackRow, 'id'>;
+  coinEvents!: EntityTable<CoinEvent, 'id'>;
+  quests!: EntityTable<Quest, 'id'>;
+  badges!: EntityTable<BadgeRow, 'id'>;
 
   constructor(name = 'chilaka') {
     super(name);
@@ -103,9 +113,15 @@ export class ChilakaDB extends Dexie {
     this.version(2).stores({
       musicTracks: '++id',
     });
+    // v3: coins ledger, daily quests, badges (all synced + backed up)
+    this.version(3).stores({
+      coinEvents: '++id, ts, day',
+      quests: 'id, day',
+      badges: 'id',
+    });
   }
 }
 
 export const db = new ChilakaDB();
 
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;

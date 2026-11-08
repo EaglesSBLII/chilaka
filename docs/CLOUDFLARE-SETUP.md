@@ -65,6 +65,43 @@ identical on both, automatically, in both directions.
   transcription (Cloudflare AI), then discards it. On the Mac, speech never
   leaves the machine at all.
 
+## Accounts (D1) — optional, for sign-in and reminders
+
+Pairing by key (above) needs nothing more. If you also want **sign in on any
+device** and **daily push reminders**, give the worker a tiny database. Once:
+
+```bash
+cd sync-worker
+npx wrangler d1 create chilaka
+```
+
+It prints a `database_id`. In `sync-worker/wrangler.toml`, uncomment the
+`[[d1_databases]]` block and paste the id in place of
+`PASTE-YOUR-DATABASE-ID-HERE`, commit, push. The deploy workflow then applies
+`sync-worker/migrations/` (`wrangler d1 migrations apply chilaka --remote`)
+before every deploy, and the cron trigger (`*/15 * * * *`) starts sweeping
+reminders. The GitHub `CLOUDFLARE_API_TOKEN` needs **D1:Edit** as well.
+
+How accounts work (no email is ever sent):
+
+- Your password never leaves the device. The app derives a key from it
+  (PBKDF2) and sends only that; the server stores a salted hash of the key.
+  Nobody — including the worker — can read your password.
+- Because there is no email delivery, there is no "forgot password" link.
+  Instead, sign-up shows a one-time **recovery code**
+  (`XXXX-XXXX-XXXX-XXXX-XXXX`). Save it somewhere safe. It is the only way to
+  set a new password; using it signs out every device and issues a fresh code.
+  Lose both the password and the code and the account cannot be recovered
+  (your progress on paired devices is unaffected — it is still on them).
+- Signing up on an already-paired device adopts that device's existing sync
+  key, so progress carries over; the data moves from KV into D1 once.
+- Reminders: the app registers a Web Push subscription with your local time
+  zone and preferred hour. The worker sends one nudge in that 15-minute
+  window, skips the day entirely if you already practised, and drops
+  subscriptions the push service reports as expired. Push keys (VAPID) and the
+  sign-in signing secret are generated automatically on first use and kept in
+  KV under `cfg:*`.
+
 ## If something goes wrong
 
 | Problem | Fix |
@@ -73,3 +110,5 @@ identical on both, automatically, in both directions.
 | "wrangler: command not found" | The script uses `npx` — make sure you ran it from the project folder with the `cd` line above. |
 | Script says it can't find a URL | Paste the full Terminal output to Claude. |
 | Safari shows no "Add to Home Screen" | You're in Chrome — use Safari. |
+| Sign-up says "accounts unavailable" | The worker has no D1 database yet — see "Accounts (D1)" above. |
+| Deploy fails at "d1 migrations apply" | the `[[d1_databases]]` block in `sync-worker/wrangler.toml` is uncommented but the id is wrong, or the API token lacks D1:Edit. |

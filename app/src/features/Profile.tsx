@@ -6,7 +6,9 @@ import { db } from '../db/schema';
 import { levelForXp, nextLevel } from '../engine/xp';
 import { allUnits } from '../content/load';
 import { localDay, addDays } from '../engine/streak';
-import { Card, ProgressBar } from '../components/ui';
+import { Award, ChevronRight, Flame, MessageCircle, Snowflake } from 'lucide-react';
+import { Card, Coin, ProgressBar } from '../components/ui';
+import { BADGES } from '../engine/badges';
 import { Mascot } from '../components/Mascot';
 
 export function Profile() {
@@ -16,6 +18,9 @@ export function Profile() {
   const unitProgress = useApp((s) => s.unitProgress);
   const srsCards = useApp((s) => s.srsCards);
   const { count } = useStreakStanding();
+  const coins = useApp((s) => s.coins);
+  const badges = useApp((s) => s.badges);
+  const navigate = useApp((s) => s.navigate);
   const [week, setWeek] = useState<{ day: string; xp: number }[]>([]);
 
   const tz = profile?.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -45,9 +50,9 @@ export function Profile() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center gap-4">
+      <div className="surface-hero flex items-center gap-4 p-5">
         <Mascot pose="cheer" size={90} />
-        <div>
+        <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-extrabold">{profile?.name ?? 'Friend'}</h2>
           <p className="font-bold text-teal">
             Level {level.level}: {level.name} · <span className="te-script">{level.teName}</span>
@@ -68,11 +73,31 @@ export function Profile() {
       )}
 
       <div className="grid grid-cols-2 gap-3">
-        <Stat label="Streak" value={`🔥 ${count}`} sub={`longest ${streak.longest}`} />
-        <Stat label="Freezes" value={`🧊 ${streak.freezesOwned}`} sub="auto-protect" />
-        <Stat label="Units done" value={`👑 ${unitsDone}`} sub={`of ${allUnits().length}`} />
-        <Stat label="Phrases" value={`💬 ${phrasesLearned}`} sub="in your deck" />
+        <Stat label="Streak" icon={<Flame size={20} className="fill-flame text-flame" />} value={String(count)} sub={`longest ${streak.longest}`} />
+        <Stat label="Freezes" icon={<Snowflake size={20} className="text-teal" />} value={String(streak.freezesOwned)} sub="auto-protect" />
+        <Stat label="Units done" icon={<Award size={20} className="text-accent-dark" />} value={String(unitsDone)} sub={`of ${allUnits().length}`} />
+        <Stat label="Phrases" icon={<MessageCircle size={20} className="text-teal" />} value={String(phrasesLearned)} sub="in your deck" />
       </div>
+
+      <button type="button" onClick={() => navigate({ name: 'shop' })} className="surface flex items-center gap-3 p-4 text-left active:scale-[0.99]">
+        <Coin size={28} />
+        <div className="flex-1">
+          <div className="font-extrabold">{coins} coins</div>
+          <div className="text-sm font-semibold text-ink-soft">Spend them in the shop</div>
+        </div>
+        <ChevronRight className="text-ink-soft" />
+      </button>
+
+      <button type="button" onClick={() => navigate({ name: 'badges' })} className="surface flex items-center gap-3 p-4 text-left active:scale-[0.99]" aria-label="See all badges">
+        <Award size={28} className="text-accent-dark" />
+        <div className="flex-1">
+          <div className="font-extrabold">
+            {badges.length} of {BADGES.length} badges
+          </div>
+          <div className="text-sm font-semibold text-ink-soft">See all</div>
+        </div>
+        <ChevronRight className="text-ink-soft" />
+      </button>
 
       <Card>
         <h3 className="mb-3 font-extrabold">This week</h3>
@@ -81,7 +106,7 @@ export function Profile() {
             <div key={w.day} className="flex flex-1 flex-col items-center gap-1">
               <span className="text-[10px] font-bold text-ink-soft">{w.xp || ''}</span>
               <div
-                className={`w-full rounded-t-lg ${w.day === today ? 'bg-marigold' : 'bg-teal/60'}`}
+                className={`w-full rounded-t-lg ${w.day === today ? 'bg-accent' : 'bg-teal/60'}`}
                 style={{ height: `${Math.max(4, (w.xp / maxWeek) * 80)}px` }}
               />
               <span className="text-[10px] font-bold text-ink-soft">
@@ -92,7 +117,7 @@ export function Profile() {
         </div>
       </Card>
 
-      <Card className="border-marigold bg-amber-soft">
+      <Card className="bg-accent-soft">
         <div className="flex items-center gap-3">
           <span className="text-3xl">🎯</span>
           <div>
@@ -107,11 +132,14 @@ export function Profile() {
   );
 }
 
-function Stat({ label, value, sub }: { label: string; value: string; sub: string }) {
+function Stat({ label, value, sub, icon }: { label: string; value: string; sub: string; icon?: React.ReactNode }) {
   return (
     <Card className="py-4">
       <div className="text-xs font-bold uppercase text-ink-soft">{label}</div>
-      <div className="text-2xl font-extrabold">{value}</div>
+      <div className="flex items-center gap-1.5 text-2xl font-extrabold">
+        {icon}
+        {value}
+      </div>
       <div className="text-xs font-semibold text-ink-soft">{sub}</div>
     </Card>
   );

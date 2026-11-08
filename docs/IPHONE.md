@@ -65,6 +65,8 @@ want to move progress again.)
 
 ## Step 4 — Daily reminders on iPhone
 
+**Easiest (push notifications):** once Chilaka is on your Home Screen, open Settings in the app → Account → create or sign in, then Settings → Daily reminders → turn on *Push reminders on this device* and allow notifications. Chilaka sends one nudge at the chosen time on days you have not practised (nothing if you already did your lesson). The older Shortcuts route below still works if you prefer no account.
+
 iOS doesn't let a web app schedule its own alarms reliably, so set a **Shortcuts
 automation** — it's free, built in, and rock-solid:
 

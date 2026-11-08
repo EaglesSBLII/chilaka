@@ -52,7 +52,7 @@ export const authoredUnitSchema = z.object({
   id: z.string().regex(/^u\d{2}$/),
   /** 'speak' = the main conversational course; 'script' = reading & writing */
   track: z.enum(['speak', 'script']).default('speak'),
-  section: z.number().int().min(1).max(8),
+  section: z.number().int().min(0).max(8),
   order: z.number().int().min(1).max(8),
   title: z.string().min(1),
   teTitle: z.string().optional(),

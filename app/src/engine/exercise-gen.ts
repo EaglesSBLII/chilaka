@@ -4,6 +4,12 @@
 
 import type { ChoiceExercise, ContentItem, Exercise, ExerciseKind, Lesson, Unit } from './types';
 import { rngFromSeed, shuffled, pickN, type Rng } from './rng';
+import { allUnits } from '../content/load';
+
+/** id of the very first speak-track unit on the path (hosts the demo opener). */
+function firstSpeakUnitId(): string | undefined {
+  return allUnits().find((u) => u.track === 'speak')?.id;
+}
 
 export interface GenOptions {
   seed: string;
@@ -70,13 +76,20 @@ export function genChoices(item: ContentItem, unit: Unit, pool: ContentItem[], r
   const poolMap = byId(pool);
   const chosen: string[] = [];
   const seen = new Set<string>([item.id]);
+  // reject candidates that read the same as the answer or an option already
+  // picked (identical te or gloss) — duplicates make the right answer ambiguous
+  const usedTe = new Set<string>([item.te]);
+  const usedGloss = new Set<string>([item.gloss.toLowerCase()]);
   const take = (ids: string[]) => {
     for (const id of ids) {
       if (chosen.length >= 3) break;
-      if (!seen.has(id) && poolMap.has(id)) {
-        chosen.push(id);
-        seen.add(id);
-      }
+      const cand = poolMap.get(id);
+      if (!cand || seen.has(id)) continue;
+      seen.add(id);
+      if (usedTe.has(cand.te) || usedGloss.has(cand.gloss.toLowerCase())) continue;
+      chosen.push(id);
+      usedTe.add(cand.te);
+      usedGloss.add(cand.gloss.toLowerCase());
     }
   };
   take(shuffled(item.distractors ?? [], rng));
@@ -152,7 +165,7 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   // 0. demo opener for the very first lesson: Listen → Speak → Flashcard on the
   // first phrase, so every part of the app shows up in the first minute.
   let newItems = items.filter((it) => !opts.seenItemIds.has(it.id));
-  if (unit.id === 'u01' && lesson.id === 'l1' && items.length > 0 && !opts.seenItemIds.has(items[0].id)) {
+  if (unit.id === firstSpeakUnitId() && lesson.id === 'l1' && items.length > 0 && !opts.seenItemIds.has(items[0].id)) {
     const first = items[0];
     out.push(exerciseFor('listen-pick', first, unit, opts.pool, rng));
     out.push(exerciseFor(speakOr('mc-audio'), first, unit, opts.pool, rng));

@@ -5,13 +5,15 @@ import { Fragment, useEffect, useState } from 'react';
 import { useApp, useDailyGoal, useStreakStanding, useUnitStatus } from '../store';
 import { trackUnits } from '../content/load';
 import { KeyboardHelp } from './exercises/KeyboardHelp';
+import { Check, Crown, Flame, Lock, MessageSquareText, Play, Snowflake, Star } from 'lucide-react';
 import { Mascot } from '../components/Mascot';
 import { FullJungle, JungleCanopy } from '../components/Jungle';
-import { ProgressBar } from '../components/ui';
+import { ProgressBar, Ring } from '../components/ui';
 import type { Unit } from '../engine/types';
 
 const SECTION_META: Record<string, Record<number, { title: string; color: string; emoji: string }>> = {
   speak: {
+    0: { title: 'First words', color: 'text-teal', emoji: '👋' },
     1: { title: 'Getting your Telugu back', color: 'text-teal', emoji: '🌱' },
     2: { title: 'Daily life', color: 'text-marigold-dark', emoji: '🏡' },
     3: { title: 'Real conversations', color: 'text-flame', emoji: '💬' },
@@ -54,19 +56,20 @@ function LessonNode({
         data-current-lesson={state === 'current' ? 'true' : undefined}
         aria-label={`${unit.title} lesson ${index + 1}`}
         onClick={() => navigate({ name: 'lesson', unitId: unit.id, lessonId })}
-        className={`relative h-16 w-16 rounded-full border-b-8 text-2xl font-extrabold shadow-lg transition-all active:border-b-2 active:translate-y-1 ${
+        className={`relative flex h-[68px] w-[68px] items-center justify-center rounded-full text-white transition-transform active:scale-95 ${
           state === 'done'
-            ? 'bg-marigold border-marigold-dark text-white shadow-marigold/40'
+            ? 'btn-accent shadow-float'
             : locked
-              ? 'bg-locked border-black/10 text-white/60 cursor-not-allowed shadow-none'
+              ? 'bg-locked/80 text-white/70 cursor-not-allowed'
               : state === 'replayable'
-                ? 'bg-teal/75 border-teal-dark text-white'
-                : 'bg-teal border-teal-dark text-white animate-pop ring-4 ring-white/70 shadow-teal/50'
+                ? 'btn-teal opacity-90 shadow-soft'
+                : 'btn-teal shadow-float animate-breathe ring-4 ring-white/70'
         }`}
       >
-        {state === 'done' ? '✓' : '★'}
+        {state === 'done' && <span className="sr-only">✓</span>}
+        {state === 'done' ? <Check size={30} strokeWidth={3} /> : locked ? <Lock size={24} /> : state === 'current' ? <Play size={28} className="ml-1 fill-white" /> : <Star size={26} className="fill-white/90" />}
         {state === 'current' && (
-          <span className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-card border-2 border-line px-2 py-0.5 text-xs font-bold text-teal shadow-md">
+          <span className="glass absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1 text-xs font-extrabold text-teal">
             START
           </span>
         )}
@@ -87,15 +90,11 @@ function DialogueNode({ unit, status }: { unit: Unit; status: 'locked' | 'active
         disabled={locked}
         onClick={() => navigate({ name: 'dialogue', unitId: unit.id })}
         aria-label={`${unit.title} dialogue`}
-        className={`h-16 w-16 rounded-2xl border-b-8 text-2xl shadow-lg transition-all active:border-b-2 active:translate-y-1 ${
-          done
-            ? 'bg-marigold border-marigold-dark'
-            : locked
-              ? 'bg-locked border-black/10 cursor-not-allowed opacity-70 shadow-none'
-              : 'bg-flame border-[#c93c1e] ring-4 ring-white/60'
+        className={`flex h-16 w-16 items-center justify-center rounded-[22px] text-white transition-transform active:scale-95 ${
+          done ? 'btn-accent shadow-float' : locked ? 'bg-locked/80 cursor-not-allowed text-white/70' : 'btn-error shadow-float ring-4 ring-white/60'
         }`}
       >
-        🎭
+        <MessageSquareText size={28} />
       </button>
     </div>
   );
@@ -146,21 +145,15 @@ function UnitBlock({ unit }: { unit: Unit }) {
   const doneCount = unit.lessons.filter((l) => doneSet.has(l.id)).length;
   return (
     <div id={`unit-${unit.id}`} className={`relative ${status === 'locked' ? 'opacity-60' : ''}`}>
-      <div className="relative mb-5 rounded-2xl border-2 border-line bg-card/90 px-4 py-3 shadow-sm backdrop-blur-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <h3 className="text-lg font-extrabold">
-              {unit.title} {status === 'done' && <span className="text-marigold">👑</span>}
-            </h3>
-            <p className="text-sm font-semibold text-ink-soft">{unit.description}</p>
-          </div>
-          <div className="text-right">
-            {unit.teTitle && <div className="te-script text-teal font-bold">{unit.teTitle}</div>}
-            <div className="text-xs font-bold text-ink-soft">
-              {doneCount}/{unit.lessons.length}
-            </div>
-          </div>
+      <div className="surface relative mb-5 flex items-center gap-3 px-4 py-3">
+        <Ring pct={doneCount / unit.lessons.length} size={44} stroke={5} color={status === 'done' ? 'var(--c-accent)' : 'var(--c-teal)'}>
+          {status === 'done' ? <Crown size={18} className="text-accent-dark" /> : <span className="text-[11px] font-extrabold text-ink-soft">{doneCount}/{unit.lessons.length}</span>}
+        </Ring>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-lg font-extrabold leading-tight">{unit.title}</h3>
+          <p className="text-sm font-semibold text-ink-soft">{unit.description}</p>
         </div>
+        {unit.teTitle && <div className="te-script shrink-0 text-right text-sm font-bold text-teal">{unit.teTitle}</div>}
       </div>
       <div className="relative flex flex-col gap-6 py-2">
         <Trail unit={unit} />
@@ -181,26 +174,26 @@ function Hero() {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'శుభోదయం' : hour < 17 ? 'నమస్కారం' : 'శుభ సాయంత్రం';
   return (
-    <div className="relative overflow-hidden rounded-3xl border-2 border-line bg-card/90 p-5 shadow-md backdrop-blur-sm">
+    <div className="surface-hero relative overflow-hidden p-5">
       <div className="flex items-center gap-4">
         <Mascot pose={pct >= 1 ? 'celebrate' : 'cheer'} size={92} />
-        <div className="flex-1">
-          <h1 className="text-2xl font-extrabold">
+        <div className="min-w-0 flex-1">
+          <h1 className="text-2xl font-extrabold leading-tight">
             <span className="te-script text-teal">{greeting}</span>
             {profile?.name ? `, ${profile.name}!` : '!'}
           </h1>
           <p className="text-sm font-semibold text-ink-soft">
-            {pct >= 1 ? 'Daily goal smashed — keep flying! 🎉' : `${goal - earned} XP to today's goal`}
+            {pct >= 1 ? 'Daily goal done — keep flying!' : `${goal - earned} XP to today's goal`}
           </p>
-          <ProgressBar pct={pct} className="mt-2" />
+          <ProgressBar pct={pct} className="mt-2" color={pct >= 1 ? 'btn-success' : 'btn-accent'} />
         </div>
       </div>
       <div className="mt-3 flex gap-2">
-        <span className="rounded-xl bg-error-soft border-2 border-flame/40 px-2.5 py-1 text-sm font-extrabold text-flame">
-          🔥 {count}-day streak
+        <span className="inline-flex items-center gap-1 rounded-full bg-card/70 px-3 py-1 text-sm font-extrabold text-flame shadow-press">
+          <Flame size={16} className="fill-flame" /> {count}-day streak
         </span>
-        <span className="rounded-xl bg-teal-soft border-2 border-teal/30 px-2.5 py-1 text-sm font-extrabold text-teal">
-          🧊 {streak.freezesOwned} freeze{streak.freezesOwned === 1 ? '' : 's'}
+        <span className="inline-flex items-center gap-1 rounded-full bg-card/70 px-3 py-1 text-sm font-extrabold text-teal shadow-press">
+          <Snowflake size={16} /> {streak.freezesOwned} freeze{streak.freezesOwned === 1 ? '' : 's'}
         </span>
       </div>
     </div>
@@ -218,7 +211,7 @@ export function Path() {
       const up = unitProgress[u.id];
       return !up || !u.lessons.every((l) => up.lessonsDone.includes(l.id));
     }) ?? units[units.length - 1];
-  let lastSection = 0;
+  let lastSection = -1;
 
   // Land the learner at their next lesson instead of the top of the course.
   // Runs on arrival at home and on track switch — not on every progress tick.
@@ -242,18 +235,18 @@ export function Path() {
       <Hero />
 
       {/* pathway switcher: speaking course ⟷ reading & writing course */}
-      <div className="relative flex rounded-3xl border-2 border-line bg-card/90 p-1 shadow-sm backdrop-blur-sm">
+      <div className="surface relative flex p-1">
         {(
           [
-            ['speak', '🗣️ Speaking', 'మాట్లాడటం'],
-            ['script', '✍️ Read & Write', 'చదవడం రాయడం'],
+            ['speak', 'Speaking', 'మాట్లాడటం'],
+            ['script', 'Read & Write', 'చదవడం రాయడం'],
           ] as ['speak' | 'script', string, string][]
         ).map(([t, label, teLabel]) => (
           <button
             key={t}
             onClick={() => setTrack(t)}
-            className={`flex-1 rounded-2xl px-3 py-2.5 text-center transition-all ${
-              track === t ? 'bg-teal text-white shadow-md' : 'text-ink-soft hover:bg-line/40'
+            className={`flex-1 rounded-[18px] px-3 py-2.5 text-center transition-all ${
+              track === t ? 'btn-teal text-white shadow-soft' : 'text-ink-soft hover:bg-line/40'
             }`}
           >
             <div className="font-extrabold">{label}</div>
@@ -271,11 +264,16 @@ export function Path() {
         return (
           <Fragment key={u.id}>
             {showHeader && (
-              <div className="relative mt-2 overflow-hidden rounded-2xl py-4 shadow-sm">
+              <div className="relative mt-2 overflow-hidden rounded-[22px] py-5 shadow-soft">
                 <JungleCanopy section={u.section} />
-                <h2 className={`relative text-center text-xl font-extrabold ${meta.color} drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]`}>
-                  {meta.emoji} Section {u.section} · {meta.title}
-                </h2>
+                <div className="relative text-center">
+                  <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-ink-soft">
+                    {u.section === 0 ? 'Start here · Section 0' : `Section ${u.section}`}
+                  </div>
+                  <h2 className={`text-xl font-extrabold ${meta.color} drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]`}>
+                    {meta.emoji} {meta.title}
+                  </h2>
+                </div>
               </div>
             )}
             <UnitBlock unit={u} />

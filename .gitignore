@@ -34,3 +34,4 @@ audio-src/
 tools/polish-report.json
 vendor/f5-venv/
 voice-ref/
+vendor/py311/

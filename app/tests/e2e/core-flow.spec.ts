@@ -9,9 +9,9 @@ test('full learner journey: onboard, learn, persist, review, backup', async ({ p
   await test.step('onboarding creates a profile and lands on the path', async () => {
     await wipeState(page);
     await completeOnboarding(page, 'Ravi');
-    await expect(page.getByText('Greetings & how are you')).toBeVisible();
+    await expect(page.getByText('Basic speech')).toBeVisible();
     await page.reload();
-    await expect(page.getByText('Greetings & how are you')).toBeVisible();
+    await expect(page.getByText('Basic speech')).toBeVisible();
     await expect(page.getByText("Let's go!")).toHaveCount(0);
   });
 

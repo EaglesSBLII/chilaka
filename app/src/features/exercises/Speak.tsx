@@ -2,12 +2,14 @@
 // Web/PWA: echo mode — record, compare by ear against the reference, self-grade.
 
 import { useEffect, useState } from 'react';
+import { Mic, Square } from 'lucide-react';
 import { platform } from '../../platform';
 import { mic, type Recording } from '../../platform/recorder';
 import { getActiveVoice, playItemAudio, playItemAudioAfterPause, playUrl, stopItemAudio } from '../../audio';
 import { scoreSpeechCalibrated } from '../../engine/speech/align';
 import { asrHintFor } from '../../engine/speech/hint';
 import { unitById } from '../../content/load';
+import { useApp } from '../../store';
 import refsFemale from '../../content/reference-transcripts-female.json';
 import refsMale from '../../content/reference-transcripts-male.json';
 import type { SpeakResult } from '../../engine/types';
@@ -102,6 +104,7 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
       const scored = scoreSpeechCalibrated(item.te, res.text, REFS[getActiveVoice()]?.[item.id]);
       setResult(scored);
       setStage('result');
+      if (scored.pass) void useApp.getState().recordSpeak();
       onAutoResult({ correct: scored.pass, expected: item.roman, got: scored.transcriptRoman || '(nothing heard)' });
     } else {
       setStage('result');
@@ -138,13 +141,13 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
           <button
             onClick={() => (stage === 'recording' ? void stopRec() : void startRec())}
             onContextMenu={(e) => e.preventDefault()}
-            className={`no-callout h-24 w-24 rounded-full border-b-8 text-4xl text-white transition-all active:border-b-2 active:translate-y-1 ${
-              stage === 'recording' ? 'bg-error border-error-dark animate-pulse' : 'bg-flame border-[#c93c1e]'
+            className={`no-callout flex h-24 w-24 items-center justify-center rounded-full text-white shadow-float transition-transform active:scale-95 ${
+              stage === 'recording' ? 'btn-error animate-pulse ring-8 ring-error/20' : 'btn-error'
             }`}
             style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
             aria-label={stage === 'recording' ? 'Recording — tap to stop' : 'Tap to record'}
           >
-            {stage === 'recording' ? '⏹' : '🎤'}
+            {stage === 'recording' ? <Square size={34} className="fill-white" /> : <Mic size={40} strokeWidth={2.4} />}
           </button>
           <p className="font-bold text-ink-soft">
             {stage === 'recording' ? 'Listening… tap when done' : 'Tap, speak, tap again'}

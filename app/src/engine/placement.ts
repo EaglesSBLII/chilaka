@@ -68,13 +68,13 @@ function highestPassedTier(state: PlacementState): number {
 }
 
 /**
- * Starting section for a settled tier. Tier 0 → section 1 (start of course);
+ * Starting section for a settled tier. Tier 0 → section 0 (start of course);
  * tier n → section where that difficulty begins. With 8 sections and 5 tiers,
  * tiers map to sections [1,2,4,6,7]→ pass tier t means content of tier t is
  * comfortable, so start one section past it.
  */
 export const TIER_TO_START_SECTION: Record<number, number> = {
-  0: 1,
+  0: 0,
   1: 2,
   2: 3,
   3: 5,

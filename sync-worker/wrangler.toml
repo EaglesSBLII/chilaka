@@ -12,3 +12,21 @@ id = "5c9fe53aea6c44a48208a41d43f5b945"
 # Workers AI — powers phone-side speech scoring (free-tier allocation)
 [ai]
 binding = "AI"
+
+# D1 — accounts, account-owned progress slots, push subscriptions.
+# Create once with `npx wrangler d1 create chilaka` and paste the id below
+# (docs/CLOUDFLARE-SETUP.md → "Accounts (D1)").
+# Accounts + push reminders need a D1 database. One-time setup (see
+# docs/CLOUDFLARE-SETUP.md): run `npx wrangler d1 create chilaka` in this
+# folder, then uncomment the block below and paste the printed database_id.
+# Until then the worker runs KV-only: sync and speech keep working, and the
+# auth routes answer 503 ("accounts unavailable").
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "chilaka"
+# database_id = "PASTE-YOUR-DATABASE-ID-HERE"
+
+# Reminder sweep: every 15 minutes, matching the 15-minute delivery window
+# in src/lib/schedule.js.
+[triggers]
+crons = ["*/15 * * * *"]

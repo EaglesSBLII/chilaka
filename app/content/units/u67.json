@@ -1,0 +1,289 @@
+{
+  "id": "u67",
+  "section": 0,
+  "order": 3,
+  "title": "Family & people",
+  "teTitle": "కుటుంబం",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "The words for the people around you — parents, siblings, grandparents, friends and kids.",
+  "items": [
+    {
+      "id": "u67-i01",
+      "te": "అమ్మ",
+      "gloss": "mom",
+      "words": [
+        {
+          "te": "అమ్మ",
+          "gloss": "mom"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i02",
+        "u67-i03",
+        "u67-i04"
+      ]
+    },
+    {
+      "id": "u67-i02",
+      "te": "నాన్న",
+      "gloss": "dad",
+      "words": [
+        {
+          "te": "నాన్న",
+          "gloss": "dad"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i01",
+        "u67-i03",
+        "u67-i04"
+      ]
+    },
+    {
+      "id": "u67-i03",
+      "te": "అక్క",
+      "gloss": "elder sister",
+      "words": [
+        {
+          "te": "అక్క",
+          "gloss": "elder sister"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i01",
+        "u67-i02",
+        "u67-i04"
+      ],
+      "note": "Telugu has separate words for elder and younger siblings. అక్క is also a friendly way to address any older woman."
+    },
+    {
+      "id": "u67-i04",
+      "te": "అన్న",
+      "gloss": "elder brother",
+      "words": [
+        {
+          "te": "అన్న",
+          "gloss": "elder brother"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i01",
+        "u67-i02",
+        "u67-i03"
+      ],
+      "note": "Also used for any slightly older man — shopkeepers, auto drivers — as a respectful \"brother\"."
+    },
+    {
+      "id": "u67-i05",
+      "te": "చెల్లి",
+      "gloss": "younger sister",
+      "words": [
+        {
+          "te": "చెల్లి",
+          "gloss": "younger sister"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i06",
+        "u67-i07",
+        "u67-i08"
+      ]
+    },
+    {
+      "id": "u67-i06",
+      "te": "తమ్ముడు",
+      "gloss": "younger brother",
+      "words": [
+        {
+          "te": "తమ్ముడు",
+          "gloss": "younger brother"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i05",
+        "u67-i07",
+        "u67-i08"
+      ]
+    },
+    {
+      "id": "u67-i07",
+      "te": "అమ్మమ్మ",
+      "gloss": "grandma (mother's side)",
+      "words": [
+        {
+          "te": "అమ్మమ్మ",
+          "gloss": "grandma (mother's side)"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i05",
+        "u67-i06",
+        "u67-i08"
+      ],
+      "note": "Literally \"mom's mom\". Your dad's mother is నానమ్మ (naanamma)."
+    },
+    {
+      "id": "u67-i08",
+      "te": "తాతయ్య",
+      "gloss": "grandpa",
+      "words": [
+        {
+          "te": "తాతయ్య",
+          "gloss": "grandpa"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i05",
+        "u67-i06",
+        "u67-i07"
+      ]
+    },
+    {
+      "id": "u67-i09",
+      "te": "స్నేహితుడు",
+      "gloss": "friend (male)",
+      "words": [
+        {
+          "te": "స్నేహితుడు",
+          "gloss": "friend (male)"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i10",
+        "u67-i11",
+        "u67-i12"
+      ],
+      "note": "A female friend is స్నేహితురాలు (snehituraalu). Many people just say ఫ్రెండ్."
+    },
+    {
+      "id": "u67-i10",
+      "te": "పాప",
+      "gloss": "little girl",
+      "words": [
+        {
+          "te": "పాప",
+          "gloss": "little girl"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i09",
+        "u67-i11",
+        "u67-i12"
+      ],
+      "note": "Used for a small girl or baby girl; a little boy is బాబు (baabu)."
+    },
+    {
+      "id": "u67-i11",
+      "te": "అబ్బాయి",
+      "gloss": "boy",
+      "words": [
+        {
+          "te": "అబ్బాయి",
+          "gloss": "boy"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i09",
+        "u67-i10",
+        "u67-i12"
+      ]
+    },
+    {
+      "id": "u67-i12",
+      "te": "అమ్మాయి",
+      "gloss": "girl",
+      "words": [
+        {
+          "te": "అమ్మాయి",
+          "gloss": "girl"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u67-i09",
+        "u67-i10",
+        "u67-i11"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Parents & elders",
+      "itemIds": [
+        "u67-i01",
+        "u67-i02",
+        "u67-i03",
+        "u67-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Younger ones & grandparents",
+      "itemIds": [
+        "u67-i05",
+        "u67-i06",
+        "u67-i07",
+        "u67-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Friends & kids",
+      "itemIds": [
+        "u67-i09",
+        "u67-i10",
+        "u67-i11",
+        "u67-i12"
+      ]
+    }
+  ]
+}

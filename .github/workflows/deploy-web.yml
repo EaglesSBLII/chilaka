@@ -1,7 +1,7 @@
 # Publishes the web app (chilaka.pages.dev) and the sync/speech worker on every
 # push to main, so iPhones pick up a new version on their next launch without
 # anyone running a command. Needs two repository secrets (Settings → Secrets →
-# Actions): CLOUDFLARE_API_TOKEN (Pages:Edit + Workers Scripts:Edit) and
+# Actions): CLOUDFLARE_API_TOKEN (Pages:Edit + Workers Scripts:Edit + D1:Edit) and
 # CLOUDFLARE_API_ACCOUNT_ID.
 name: Deploy web app
 
@@ -39,6 +39,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Test the worker
+        run: npm test
+        working-directory: sync-worker
+      - name: Apply D1 migrations (accounts + reminders)
+        # Needs the real database_id in sync-worker/wrangler.toml — see
+        # docs/CLOUDFLARE-SETUP.md → "Accounts (D1)".
+        # skipped until the D1 block in wrangler.toml is uncommented (one-time owner setup)
+        run: |
+          if grep -q '^\[\[d1_databases\]\]' wrangler.toml; then
+            npx --yes wrangler d1 migrations apply chilaka --remote
+          else
+            echo "D1 not configured yet — skipping migrations (accounts stay off)"
+          fi
+        working-directory: sync-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
       - name: Deploy the sync + speech worker
         run: npx --yes wrangler deploy
         working-directory: sync-worker

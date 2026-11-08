@@ -1,7 +1,10 @@
 import { devices, test } from '@playwright/test';
 import { completeOnboarding, solveCurrentExercise, wipeState } from './helpers';
 
-const SHOTS = '/private/tmp/claude-502/-Users-Arnav-Downloads-Claude-Code-test/104aea3c-4a4e-4a4d-96dc-bb96bff35555/scratchpad/shots';
+import { mkdirSync } from 'node:fs';
+
+const SHOTS = '/private/tmp/claude-502/-Users-Arnav/fea16b72-30ca-4e52-b84b-d61d4aee7ada/scratchpad/shots';
+mkdirSync(SHOTS, { recursive: true });
 
 test.use({ ...devices['iPhone 13'] });
 

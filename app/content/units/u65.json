@@ -1,0 +1,289 @@
+{
+  "id": "u65",
+  "section": 0,
+  "order": 1,
+  "title": "First words",
+  "teTitle": "మొదటి మాటలు",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "Your very first Telugu words — hello, thank you, yes, no and a few friendly replies you can use from day one.",
+  "items": [
+    {
+      "id": "u65-i01",
+      "te": "నమస్కారం",
+      "gloss": "hello",
+      "words": [
+        {
+          "te": "నమస్కారం",
+          "gloss": "hello"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i02",
+        "u65-i03",
+        "u65-i04"
+      ],
+      "note": "Works at any time of day, with anyone. Often said with palms together."
+    },
+    {
+      "id": "u65-i02",
+      "te": "ధన్యవాదాలు",
+      "gloss": "thank you",
+      "words": [
+        {
+          "te": "ధన్యవాదాలు",
+          "gloss": "thank you"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i01",
+        "u65-i03",
+        "u65-i04"
+      ]
+    },
+    {
+      "id": "u65-i03",
+      "te": "అవును",
+      "gloss": "yes",
+      "words": [
+        {
+          "te": "అవును",
+          "gloss": "yes"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i01",
+        "u65-i02",
+        "u65-i04"
+      ]
+    },
+    {
+      "id": "u65-i04",
+      "te": "కాదు",
+      "gloss": "no",
+      "words": [
+        {
+          "te": "కాదు",
+          "gloss": "no"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i01",
+        "u65-i02",
+        "u65-i03"
+      ],
+      "note": "కాదు means \"no, that's not it\". For \"no thanks\" to an offer, use వద్దు instead."
+    },
+    {
+      "id": "u65-i05",
+      "te": "దయచేసి",
+      "gloss": "please",
+      "words": [
+        {
+          "te": "దయచేసి",
+          "gloss": "please"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i06",
+        "u65-i07",
+        "u65-i08"
+      ]
+    },
+    {
+      "id": "u65-i06",
+      "te": "క్షమించండి",
+      "gloss": "sorry",
+      "words": [
+        {
+          "te": "క్షమించండి",
+          "gloss": "sorry"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i05",
+        "u65-i07",
+        "u65-i08"
+      ]
+    },
+    {
+      "id": "u65-i07",
+      "te": "సరే",
+      "gloss": "okay",
+      "words": [
+        {
+          "te": "సరే",
+          "gloss": "okay"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i05",
+        "u65-i06",
+        "u65-i08"
+      ]
+    },
+    {
+      "id": "u65-i08",
+      "te": "వద్దు",
+      "gloss": "no thanks",
+      "words": [
+        {
+          "te": "వద్దు",
+          "gloss": "no thanks"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i05",
+        "u65-i06",
+        "u65-i07"
+      ],
+      "note": "Literally \"don't\". Use it to turn down an offer politely — \"no thanks\" to more food or tea."
+    },
+    {
+      "id": "u65-i09",
+      "te": "బాగుంది",
+      "gloss": "it's good",
+      "words": [
+        {
+          "te": "బాగుంది",
+          "gloss": "it's good"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i10",
+        "u65-i11",
+        "u65-i12"
+      ]
+    },
+    {
+      "id": "u65-i10",
+      "te": "రండి",
+      "gloss": "come in",
+      "words": [
+        {
+          "te": "రండి",
+          "gloss": "come in"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i09",
+        "u65-i11",
+        "u65-i12"
+      ]
+    },
+    {
+      "id": "u65-i11",
+      "te": "వెళ్ళొస్తాను",
+      "gloss": "goodbye (lit. I'll go and come)",
+      "words": [
+        {
+          "te": "వెళ్ళొస్తాను",
+          "gloss": "goodbye (lit. I'll go and come)"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i09",
+        "u65-i10",
+        "u65-i12"
+      ],
+      "note": "Telugu goodbyes literally say \"I'll go and come back\" — it feels warmer than a flat \"bye\"."
+    },
+    {
+      "id": "u65-i12",
+      "te": "ఏమిటి",
+      "gloss": "what?",
+      "words": [
+        {
+          "te": "ఏమిటి",
+          "gloss": "what?"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u65-i09",
+        "u65-i10",
+        "u65-i11"
+      ],
+      "note": "In fast speech this shrinks to ఏంటి (enti). Both mean \"what?\"."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Hello & thanks",
+      "itemIds": [
+        "u65-i01",
+        "u65-i02",
+        "u65-i03",
+        "u65-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Please & sorry",
+      "itemIds": [
+        "u65-i05",
+        "u65-i06",
+        "u65-i07",
+        "u65-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Little replies",
+      "itemIds": [
+        "u65-i09",
+        "u65-i10",
+        "u65-i11",
+        "u65-i12"
+      ]
+    }
+  ]
+}

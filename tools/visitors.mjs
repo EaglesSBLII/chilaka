@@ -16,13 +16,29 @@ const days = Number(process.argv[2]) || 30;
 const raw = process.argv.includes('--raw');
 const since = new Date(Date.now() - days * 86400_000).toISOString();
 
-function wrangler(args) {
+function wrangler(args, attempt = 1) {
   // account pinned so wrangler never tries to prompt (no terminal here)
   const env = { ...process.env, CLOUDFLARE_ACCOUNT_ID: process.env.CLOUDFLARE_ACCOUNT_ID || 'a45e4bea84463476d41f6ce73ae2476a' };
-  return execFileSync('npx', ['--yes', 'wrangler', ...args], { cwd: SITE, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env });
+  try {
+    return execFileSync('npx', ['--yes', 'wrangler', ...args], { cwd: SITE, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], env });
+  } catch (e) {
+    // First call after a while can fail once while wrangler refreshes its OAuth token; retry before giving up.
+    if (attempt < 3) { execFileSync('sleep', ['2']); return wrangler(args, attempt + 1); }
+    const detail = ((e.stderr || '') + (e.stdout || '')).trim().split('\n').slice(-8).join('\n');
+    console.error(`wrangler ${args.slice(0, 3).join(' ')} failed after ${attempt} attempts:\n${detail}`);
+    console.error('If it says you are logged out, run: npx wrangler login');
+    process.exit(1);
+  }
 }
 
-const keys = JSON.parse(wrangler(['kv', 'key', 'list', '--namespace-id', NS, '--prefix', 'v:', '--remote']))
+// wrangler sometimes prints a banner or notice before the JSON; parse from the first bracket/brace.
+function json(text) {
+  const i = Math.min(...['[', '{'].map((c) => text.indexOf(c)).filter((n) => n >= 0));
+  if (!Number.isFinite(i)) throw new Error(`no JSON in wrangler output:\n${text.slice(0, 400)}`);
+  return JSON.parse(text.slice(i));
+}
+
+const keys = json(wrangler(['kv', 'key', 'list', '--namespace-id', NS, '--prefix', 'v:', '--remote']))
   .map((k) => k.name)
   .filter((k) => k.slice(2, 26) >= since)
   .sort()
@@ -35,7 +51,7 @@ if (keys.length === 0) {
 
 // Fetch values (one call each; fine for a personal site).
 const visits = keys.map((k) => {
-  try { return JSON.parse(wrangler(['kv', 'key', 'get', '--namespace-id', NS, k, '--remote'])); } catch { return null; }
+  try { return json(wrangler(['kv', 'key', 'get', '--namespace-id', NS, k, '--remote'])); } catch { return null; }
 }).filter(Boolean);
 
 const count = (f) => {

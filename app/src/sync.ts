@@ -129,6 +129,14 @@ class SyncManager {
     await this.syncNow();
   }
 
+  /** Accounts: point this device at the account's slot (merge happens on the next sync). */
+  async useSlot(endpoint: string, key: string): Promise<void> {
+    this.endpoint = endpoint;
+    this.key = key;
+    await this.persistConfig(true);
+    this.startPeriodic();
+  }
+
   /** Second device: paste the pairing code from the first. */
   async pair(code: string): Promise<boolean> {
     const decoded = SyncManager.decodeCode(code);

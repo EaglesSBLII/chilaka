@@ -21,6 +21,10 @@ A free, private, Duolingo-style app that takes you from "broken Telugu" to holdi
 
 ## Using it
 
+- **Accounts (free):** Settings → Account → Create account. Email + password; nothing is emailed. You get a one-time recovery code at signup — it is the only way back in if you forget the password. Signing in on another device merges progress both ways. Pairing with a code (no account) still works under Settings → Advanced.
+- **Coins, quests, badges, shop:** every lesson pays coins (bonuses for a perfect run, the daily goal and streak milestones); two quests a day open a chest; eight tiered badges; coins buy streak freezes, outfits for Chikki and accent themes.
+- **Reminders on iPhone:** install to the Home Screen, sign in, then Settings → Daily reminders → Push reminders. A nudge arrives at your chosen time only on days you have not practised.
+
 The installable app: **`desktop/dist-electron/Chilaka-0.1.0-arm64.dmg`**
 Open it, drag **Chilaka** to Applications. Sharing with family: AirDrop the .dmg + `docs/INSTALL-MAC.md` (they need a one-time "Open Anyway" in System Settings since it's not App-Store signed).
 

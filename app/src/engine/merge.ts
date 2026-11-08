@@ -172,6 +172,56 @@ export function mergeBackups(local: BackupFile, remote: BackupFile): BackupFile 
     out.xpEvents = [...seen.values()].sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
   }
 
+  // ---- coinEvents: union, deduped by identity (same shape of rule as xpEvents) ----
+  {
+    const seen = new Map<string, Row>();
+    for (const e of [...((L.coinEvents ?? []) as Row[]), ...((R.coinEvents ?? []) as Row[])]) {
+      const sig = `${e.ts}|${e.kind}|${e.refId}|${e.delta}`;
+      if (!seen.has(sig)) {
+        const { id: _dropped, ...rest } = e as { id?: unknown } & Row;
+        seen.set(sig, rest);
+      }
+    }
+    out.coinEvents = [...seen.values()].sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
+  }
+
+  // ---- quests: per id, progress is a maximum; a claim anywhere counts ----
+  {
+    const lq = rowsBy(L.quests, 'id');
+    const rq = rowsBy(R.quests, 'id');
+    const rows: Row[] = [];
+    for (const k of new Set([...lq.keys(), ...rq.keys()])) {
+      const l = lq.get(k);
+      const r = rq.get(k);
+      if (l && r) {
+        const claimed = (l.claimedAt ? l : r.claimedAt ? r : null) as Row | null;
+        rows.push({
+          ...l,
+          progress: Math.max(Number(l.progress ?? 0), Number(r.progress ?? 0)),
+          claimedAt: minNonNull(l.claimedAt ?? null, r.claimedAt ?? null),
+          reward: claimed ? (claimed.reward ?? null) : null,
+        });
+      } else rows.push((l ?? r)!);
+    }
+    out.quests = rows.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+  }
+
+  // ---- badges: per id, highest tier, earliest earnedAt ----
+  {
+    const lb = rowsBy(L.badges, 'id');
+    const rb = rowsBy(R.badges, 'id');
+    const rows: Row[] = [];
+    for (const k of new Set([...lb.keys(), ...rb.keys()])) {
+      const l = lb.get(k);
+      const r = rb.get(k);
+      if (l && r) {
+        const hi = Number(l.tier ?? 0) >= Number(r.tier ?? 0) ? l : r;
+        rows.push({ ...hi, earnedAt: Number(l.tier) === Number(r.tier) ? minNonNull(l.earnedAt, r.earnedAt) : hi.earnedAt });
+      } else rows.push((l ?? r)!);
+    }
+    out.badges = rows.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+  }
+
   // ---- reminders: newer export wins wholesale (a schedule is one intent) ----
   out.reminders = ((N.reminders ?? []) as Row[]).map(({ id: _dropped, ...rest }) => rest);
 

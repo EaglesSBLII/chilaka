@@ -19,7 +19,7 @@ const SECTION_PALETTES: Record<number, Palette> = {
 };
 
 function paletteFor(section: number): Palette {
-  return SECTION_PALETTES[((section - 1) % 3) + 1];
+  return SECTION_PALETTES[((((section - 1) % 3) + 3) % 3) + 1];
 }
 
 /** Feathered palm frond: a curved stem with leaflet pairs. */

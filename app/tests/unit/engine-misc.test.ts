@@ -114,14 +114,14 @@ describe('placement', () => {
     expect(startSectionForTier(5)).toBe(8);
   });
 
-  it('all wrong settles at 0 → section 1', () => {
+  it('all wrong settles at 0 → section 0', () => {
     let s = startPlacement();
     while (!s.done) {
       const q = nextPlacementItem(s, bank)!;
       s = answerPlacement(s, q, false);
     }
     expect(s.resultTier).toBe(0);
-    expect(startSectionForTier(0)).toBe(1);
+    expect(startSectionForTier(0)).toBe(0);
   });
 
   it('passing tier 2 then failing tier 3 settles at 2', () => {

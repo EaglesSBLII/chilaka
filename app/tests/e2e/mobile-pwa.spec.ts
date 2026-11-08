@@ -120,7 +120,7 @@ test('PWA installs, teaches a lesson, does echo mode, and works offline', async 
     // SPA navigation needs zero network; data comes from IndexedDB
     await page.getByRole('button', { name: 'Profile' }).click();
     await expect(page.getByText('Meena')).toBeVisible();
-    await expect(page.getByText(/🔥 1/)).toBeVisible();
+    await expect(page.getByLabel(/Streak: 1 days/)).toBeVisible();
     await context.setOffline(false);
   });
 });

@@ -2,6 +2,7 @@
 // mutation persists back inside the action. UI components never touch db.
 
 import { create } from 'zustand';
+import { useShallow } from 'zustand/react/shallow';
 import { db, type LessonProgressRow, type ProfileRow, type ReminderRow, type StreakRow, type UnitProgressRow } from './db/schema';
 import { exportAll, importAll } from './db/backup';
 import { emptyStreak, grantFreeze, localDay, recordActivity, standing, displayCount } from './engine/streak';
@@ -12,6 +13,11 @@ import { allUnits } from './content/load';
 import { DEFAULT_VOICE, type VoiceId } from './content/voices';
 import { setActiveVoice } from './audio';
 import { platform } from './platform';
+import { balance, COINS, earnedTotal, MILESTONES, ownedSkus, skuById, type CoinEvent, type CoinKind } from './engine/coins';
+import { bump, claim, dailyQuests, isComplete, type Quest, type QuestKind } from './engine/quests';
+import { evaluateBadges, newlyEarned, reconcileBadges, type BadgeRow, type BadgeStats } from './engine/badges';
+import type { LessonRewards } from './engine/rewards';
+import type { Session } from './auth';
 
 export type View =
   | { name: 'onboarding' }
@@ -21,7 +27,11 @@ export type View =
   | { name: 'dialogue'; unitId: string }
   | { name: 'review' }
   | { name: 'profile' }
-  | { name: 'settings' };
+  | { name: 'settings' }
+  | { name: 'quests' }
+  | { name: 'shop' }
+  | { name: 'badges' }
+  | { name: 'auth'; mode?: 'signin' | 'create' | 'recover' };
 
 export interface XpAward {
   amount: number;
@@ -43,8 +53,26 @@ interface AppState {
   lessonProgress: Record<string, LessonProgressRow>;
   srsCards: Record<string, StoredCard>;
   reminders: ReminderRow[];
+  /** coin ledger (synced); balance and ownership are derived */
+  coinEvents: CoinEvent[];
+  coins: number;
+  ownedSkus: Set<string>;
+  /** today's quests */
+  quests: Quest[];
+  badges: BadgeRow[];
+  reviewCount: number;
+  session: Session | null;
 
   navigate(view: View): void;
+  setSession(s: Session | null): void;
+  grantCoins(delta: number, kind: CoinKind, refId: string): Promise<void>;
+  spendCoins(skuId: string): Promise<boolean>;
+  equip(kind: 'outfit' | 'accent', skuId: string | null): Promise<void>;
+  bumpQuest(kind: QuestKind, n: number): Promise<Quest[]>;
+  claimQuest(id: string): Promise<number>;
+  refreshBadges(): Promise<BadgeRow[]>;
+  recordSpeak(): Promise<void>;
+  finishLesson(unitId: string, lessonId: string, pct: number, xp: number): Promise<LessonRewards>;
   init(): Promise<void>;
   createProfile(name: string, difficulty: Difficulty): Promise<void>;
   finishPlacement(startSection: number): Promise<void>;
@@ -79,10 +107,127 @@ export const useApp = create<AppState>((set, get) => ({
   lessonProgress: {},
   srsCards: {},
   reminders: [],
+  coinEvents: [],
+  coins: 0,
+  ownedSkus: new Set(),
+  quests: [],
+  badges: [],
+  reviewCount: 0,
+  session: null,
 
   navigate(view) {
     set({ view });
     window.scrollTo(0, 0);
+  },
+
+  setSession(session) {
+    set({ session });
+  },
+
+  async grantCoins(delta, kind, refId) {
+    const day = today(get().profile);
+    const ev: CoinEvent = { ts: new Date().toISOString(), day, delta, kind, refId };
+    const id = await db.coinEvents.add(ev);
+    const coinEvents = [...get().coinEvents, { ...ev, id }];
+    set({ coinEvents, coins: balance(coinEvents), ownedSkus: ownedSkus(coinEvents) });
+    void import('./sync').then(({ sync }) => sync.requestSync());
+  },
+
+  async spendCoins(skuId) {
+    const sku = skuById(skuId);
+    const state = get();
+    if (!sku || state.coins < sku.price) return false;
+    if (!sku.consumable && state.ownedSkus.has(sku.id)) return false;
+    if (sku.id === 'freeze') {
+      const next = grantFreeze(state.streak, 1);
+      if (next.freezesOwned === state.streak.freezesOwned) return false; // already holding the max
+      const streak: StreakRow = { id: 'main', ...next };
+      await db.streaks.put(streak);
+      set({ streak });
+    }
+    await get().grantCoins(-sku.price, 'spend', sku.id);
+    if (sku.kind === 'outfit' || sku.kind === 'accent') await get().equip(sku.kind, sku.id);
+    return true;
+  },
+
+  async equip(kind, skuId) {
+    const profile = get().profile;
+    if (!profile) return;
+    const next: ProfileRow = { ...profile, [kind]: skuId ?? undefined };
+    await db.profile.put(next);
+    set({ profile: next });
+    void import('./sync').then(({ sync }) => sync.requestSync());
+  },
+
+  async bumpQuest(kind, n) {
+    const before = get().quests;
+    const completed: Quest[] = [];
+    const after = before.map((q) => {
+      if (q.kind !== kind) return q;
+      const next = bump(q, n);
+      if (!isComplete(q) && isComplete(next)) completed.push(next);
+      return next;
+    });
+    if (after.some((q, i) => q !== before[i])) {
+      await db.quests.bulkPut(after);
+      set({ quests: after });
+    }
+    return completed;
+  },
+
+  async claimQuest(id) {
+    const q = get().quests.find((x) => x.id === id);
+    if (!q) return 0;
+    const claimed = claim(q);
+    if (claimed === q || claimed.reward === null) return 0;
+    await db.quests.put(claimed);
+    set({ quests: get().quests.map((x) => (x.id === id ? claimed : x)) });
+    await get().grantCoins(claimed.reward, 'quest', id);
+    return claimed.reward;
+  },
+
+  async refreshBadges() {
+    const state = get();
+    const stats = badgeStats(state);
+    const next = reconcileBadges(state.badges, evaluateBadges(stats));
+    const fresh = newlyEarned(state.badges, next);
+    if (fresh.length > 0) {
+      await db.badges.bulkPut(next);
+      set({ badges: next });
+      for (const b of fresh) await get().grantCoins(COINS.badge, 'badge', `${b.id}:${b.tier}`);
+    }
+    return fresh;
+  },
+
+  async recordSpeak() {
+    await get().bumpQuest('speak', 1);
+  },
+
+  async finishLesson(unitId, lessonId, pct, xp) {
+    const award = await get().awardXp(xp, 'lesson', `${unitId}:${lessonId}`);
+    await get().completeLesson(unitId, lessonId, pct, xp);
+    const ref = `${unitId}:${lessonId}`;
+    const perfect = pct >= 1;
+    const milestone = award.streakExtended && MILESTONES[award.streakCount] ? award.streakCount : null;
+    const coins = {
+      lesson: COINS.lesson,
+      perfect: perfect ? COINS.perfectBonus : 0,
+      goal: award.goalJustReached ? COINS.goal : 0,
+      milestone: milestone ? MILESTONES[milestone] : 0,
+      total: 0,
+    };
+    coins.total = coins.lesson + coins.perfect + coins.goal + coins.milestone;
+    await get().grantCoins(coins.lesson, 'lesson', ref);
+    if (coins.perfect) await get().grantCoins(coins.perfect, 'perfect', ref);
+    if (coins.goal) await get().grantCoins(coins.goal, 'goal', today(get().profile));
+    if (coins.milestone) await get().grantCoins(coins.milestone, 'milestone', `streak:${milestone}`);
+    const questsCompleted = [
+      ...(await get().bumpQuest('lessons', 1)),
+      ...(perfect ? await get().bumpQuest('perfect', 1) : []),
+      ...(await get().bumpQuest('earn-xp', 0)), // no-op bump reports nothing; earn-xp is bumped in awardXp
+    ];
+    const badgesEarned = await get().refreshBadges();
+    return { award, coins, milestone, questsCompleted, badgesEarned };
   },
 
   async init() {
@@ -97,6 +242,17 @@ export const useApp = create<AppState>((set, get) => ({
     const totalXp = events.reduce((s, e) => s + e.amount, 0);
     const day = today(profile);
     const todayXp = events.filter((e) => e.day === day).reduce((s, e) => s + e.amount, 0);
+    const reviewCount = events.filter((e) => e.source === 'review').length;
+    const coinEvents = await db.coinEvents.toArray();
+    let quests = await db.quests.where('day').equals(day).toArray();
+    if (quests.length === 0) {
+      quests = dailyQuests(day);
+      await db.quests.bulkPut(quests);
+    }
+    const badges = await db.badges.toArray();
+    const sess = await db.settings.bulkGet(['syncAuthToken', 'syncAuthEmail', 'syncAuthSlot']);
+    const [token, email, slot] = sess.map((r) => r?.value as string | undefined);
+    const session = token && email && slot ? { token, email, slot } : null;
     const wasLoaded = get().loaded;
     set({
       loaded: true,
@@ -108,6 +264,13 @@ export const useApp = create<AppState>((set, get) => ({
       reminders,
       totalXp,
       todayXp,
+      reviewCount,
+      coinEvents,
+      coins: balance(coinEvents),
+      ownedSkus: ownedSkus(coinEvents),
+      quests,
+      badges,
+      session,
       // First boot decides the landing view; re-hydration (e.g. after a
       // backup import) keeps the user where they are.
       view: wasLoaded ? get().view : profile?.onboarded ? { name: 'path' } : { name: 'onboarding' },
@@ -125,7 +288,7 @@ export const useApp = create<AppState>((set, get) => ({
       createdAt: new Date().toISOString(),
       onboarded: true,
       placementDone: false,
-      startSection: 1,
+      startSection: 0,
       difficulty,
       scriptMode: 'roman+telugu',
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -142,7 +305,7 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async skipPlacement() {
-    const profile = { ...get().profile!, placementDone: true, startSection: 1 };
+    const profile = { ...get().profile!, placementDone: true, startSection: 0 };
     await db.profile.put(profile);
     set({ profile, view: { name: 'path' } });
   },
@@ -191,7 +354,8 @@ export const useApp = create<AppState>((set, get) => ({
 
     const totalXp = prevTotal + amount;
     const todayXp = state.todayXp + amount;
-    set({ streak, totalXp, todayXp });
+    set({ streak, totalXp, todayXp, reviewCount: state.reviewCount + (source === 'review' ? 1 : 0) });
+    if (amount > 0) await get().bumpQuest('earn-xp', amount);
     // every progress event funnels through here — nudge the cross-device sync
     void import('./sync').then(({ sync }) => sync.requestSync());
     const goalNow = todayXp >= DAILY_GOAL_XP[state.profile?.difficulty ?? 'standard'];
@@ -228,6 +392,7 @@ export const useApp = create<AppState>((set, get) => ({
     const next = reviewCard(card, rating, new Date());
     await db.srsCards.put(next);
     set({ srsCards: { ...get().srsCards, [itemId]: next } });
+    await get().bumpQuest('review', 1);
   },
 
   async completeLesson(unitId, lessonId, pct, xp) {
@@ -295,6 +460,37 @@ export const useApp = create<AppState>((set, get) => ({
 }));
 
 // ---- selectors ----
+
+function badgeStats(state: AppState): BadgeStats {
+  const units = allUnits();
+  return {
+    lessons: Object.values(state.lessonProgress).reduce((s, r) => s + r.attempts, 0),
+    perfectLessons: state.coinEvents.filter((e) => e.kind === 'perfect').length,
+    longestStreak: state.streak.longest,
+    totalXp: state.totalXp,
+    reviews: state.reviewCount,
+    cards: Object.keys(state.srsCards).length,
+    coinsEarned: earnedTotal(state.coinEvents),
+    unitsDone: units.filter((u) => {
+      const up = state.unitProgress[u.id];
+      return up && u.lessons.every((l) => up.lessonsDone.includes(l.id));
+    }).length,
+  };
+}
+
+export function useBadgeStats(): BadgeStats {
+  // the stats object is rebuilt per call; shallow-compare so React only re-renders on real change
+  return useApp(useShallow(badgeStats));
+}
+
+// the shop's accent theme is a document attribute so CSS tokens can swap
+useApp.subscribe((state, prev) => {
+  if (state.profile?.accent !== prev.profile?.accent) {
+    const accent = state.profile?.accent;
+    if (accent) document.documentElement.dataset.accent = accent;
+    else delete document.documentElement.dataset.accent;
+  }
+});
 
 export function useStreakStanding(): { standing: StreakStanding; count: number } {
   const streak = useApp((s) => s.streak);

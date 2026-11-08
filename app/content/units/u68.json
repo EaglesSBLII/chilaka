@@ -1,0 +1,286 @@
+{
+  "id": "u68",
+  "section": 0,
+  "order": 4,
+  "title": "Everyday things",
+  "teTitle": "రోజువారీ వస్తువులు",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "Twelve things you see and use every day — from water and rice to your phone, the door and your sandals.",
+  "items": [
+    {
+      "id": "u68-i01",
+      "te": "నీళ్ళు",
+      "gloss": "water",
+      "words": [
+        {
+          "te": "నీళ్ళు",
+          "gloss": "water"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i02",
+        "u68-i03",
+        "u68-i04"
+      ]
+    },
+    {
+      "id": "u68-i02",
+      "te": "అన్నం",
+      "gloss": "rice (cooked)",
+      "words": [
+        {
+          "te": "అన్నం",
+          "gloss": "rice (cooked)"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i01",
+        "u68-i03",
+        "u68-i04"
+      ],
+      "note": "అన్నం is cooked rice, and by extension \"a meal\" — \"did you eat?\" is literally \"did you eat rice?\"."
+    },
+    {
+      "id": "u68-i03",
+      "te": "పాలు",
+      "gloss": "milk",
+      "words": [
+        {
+          "te": "పాలు",
+          "gloss": "milk"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i01",
+        "u68-i02",
+        "u68-i04"
+      ]
+    },
+    {
+      "id": "u68-i04",
+      "te": "ఇల్లు",
+      "gloss": "house",
+      "words": [
+        {
+          "te": "ఇల్లు",
+          "gloss": "house"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i01",
+        "u68-i02",
+        "u68-i03"
+      ]
+    },
+    {
+      "id": "u68-i05",
+      "te": "పుస్తకం",
+      "gloss": "book",
+      "words": [
+        {
+          "te": "పుస్తకం",
+          "gloss": "book"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i06",
+        "u68-i07",
+        "u68-i08"
+      ]
+    },
+    {
+      "id": "u68-i06",
+      "te": "ఫోన్",
+      "gloss": "phone",
+      "words": [
+        {
+          "te": "ఫోన్",
+          "gloss": "phone"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i05",
+        "u68-i07",
+        "u68-i08"
+      ]
+    },
+    {
+      "id": "u68-i07",
+      "te": "డబ్బు",
+      "gloss": "money",
+      "words": [
+        {
+          "te": "డబ్బు",
+          "gloss": "money"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i05",
+        "u68-i06",
+        "u68-i08"
+      ]
+    },
+    {
+      "id": "u68-i08",
+      "te": "కారు",
+      "gloss": "car",
+      "words": [
+        {
+          "te": "కారు",
+          "gloss": "car"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i05",
+        "u68-i06",
+        "u68-i07"
+      ]
+    },
+    {
+      "id": "u68-i09",
+      "te": "తలుపు",
+      "gloss": "door",
+      "words": [
+        {
+          "te": "తలుపు",
+          "gloss": "door"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i10",
+        "u68-i11",
+        "u68-i12"
+      ]
+    },
+    {
+      "id": "u68-i10",
+      "te": "కుర్చీ",
+      "gloss": "chair",
+      "words": [
+        {
+          "te": "కుర్చీ",
+          "gloss": "chair"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i09",
+        "u68-i11",
+        "u68-i12"
+      ]
+    },
+    {
+      "id": "u68-i11",
+      "te": "బట్టలు",
+      "gloss": "clothes",
+      "words": [
+        {
+          "te": "బట్టలు",
+          "gloss": "clothes"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i09",
+        "u68-i10",
+        "u68-i12"
+      ]
+    },
+    {
+      "id": "u68-i12",
+      "te": "చెప్పులు",
+      "gloss": "sandals",
+      "words": [
+        {
+          "te": "చెప్పులు",
+          "gloss": "sandals"
+        }
+      ],
+      "tags": [
+        "first-words"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u68-i09",
+        "u68-i10",
+        "u68-i11"
+      ],
+      "note": "Covers sandals, flip-flops and shoes in everyday speech. Always off at the door!"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "Food & home",
+      "itemIds": [
+        "u68-i01",
+        "u68-i02",
+        "u68-i03",
+        "u68-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Things you carry",
+      "itemIds": [
+        "u68-i05",
+        "u68-i06",
+        "u68-i07",
+        "u68-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Around the house",
+      "itemIds": [
+        "u68-i09",
+        "u68-i10",
+        "u68-i11",
+        "u68-i12"
+      ]
+    }
+  ]
+}

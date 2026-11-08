@@ -116,9 +116,21 @@ describe('content: per-unit integrity', () => {
         }
       });
 
+      it('no two items share te or (lower-cased) gloss', () => {
+        const tes = new Set<string>();
+        const glosses = new Set<string>();
+        for (const item of u.items) {
+          expect(tes.has(item.te), `${item.id}: duplicate te "${item.te}"`).toBe(false);
+          tes.add(item.te);
+          const g = item.gloss.toLowerCase();
+          expect(glosses.has(g), `${item.id}: duplicate gloss "${item.gloss}"`).toBe(false);
+          glosses.add(g);
+        }
+      });
+
       it('difficulty fits the section band (soft ±1)', () => {
         const bands: Record<string, Record<number, [number, number]>> = {
-          speak: { 1: [1, 3], 2: [1, 4], 3: [2, 5], 4: [2, 4], 5: [2, 4], 6: [3, 5], 7: [2, 5], 8: [3, 5] },
+          speak: { 0: [1, 1], 1: [1, 3], 2: [1, 4], 3: [2, 5], 4: [2, 4], 5: [2, 4], 6: [3, 5], 7: [2, 5], 8: [3, 5] },
           script: { 1: [1, 3], 2: [1, 4] },
         };
         const [lo, hi] = bands[u.track]?.[u.section] ?? [1, 5];

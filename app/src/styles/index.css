@@ -1,8 +1,41 @@
 @import 'tailwindcss';
 
+/* Nunito (OFL), self-hosted so the PWA and the Mac app render the same font
+   offline. Telugu glyphs fall through to the system stack (see .te-script). */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../assets/fonts/nunito-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../assets/fonts/nunito-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* Semantic tokens — light + dark. Utilities reference the vars, so dark mode
    is a pure variable swap. */
 :root {
+  /* accent = the "brand" colour of buttons, rings and highlights; shop themes
+     swap it via html[data-accent] */
+  --c-accent: #f5a623;
+  --c-accent-dark: #cf8a12;
+  --c-accent-soft: #fdf3dd;
+  --c-accent-2: #0e6b63;
+  --shadow-soft: 0 1px 2px rgb(38 34 28 / 0.04), 0 10px 28px -12px rgb(38 34 28 / 0.18);
+  --shadow-float: 0 2px 4px rgb(38 34 28 / 0.06), 0 18px 40px -16px rgb(38 34 28 / 0.28);
+  --shadow-press: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 1px 2px rgb(38 34 28 / 0.08);
+  --g-hero: linear-gradient(135deg, #fff2d6 0%, #ffe3ec 50%, #e3f2f0 100%);
+  --g-accent: linear-gradient(180deg, color-mix(in srgb, var(--c-accent) 88%, white) 0%, var(--c-accent) 60%, var(--c-accent-dark) 100%);
+  --g-teal: linear-gradient(180deg, #2a8f85 0%, #0e6b63 60%, #0a4f49 100%);
+  --g-success: linear-gradient(180deg, #58c585 0%, #3cb46e 60%, #2e9158 100%);
+  --g-error: linear-gradient(180deg, #ee7a8e 0%, #e4536b 60%, #c23752 100%);
   --c-bg: #fff8ed;
   --c-card: #ffffff;
   --c-ink: #26221c;
@@ -38,10 +71,45 @@
     --c-error-soft: #392228;
     --c-locked: #4a4338;
     --c-amber-soft: #33291a;
+    --c-accent-soft: #33291a;
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 28px -12px rgb(0 0 0 / 0.6);
+    --shadow-float: 0 2px 4px rgb(0 0 0 / 0.35), 0 18px 40px -16px rgb(0 0 0 / 0.7);
+    --g-hero: linear-gradient(135deg, #2b2418 0%, #2d2026 50%, #1e2f2d 100%);
   }
 }
 
+/* Accent themes bought in the shop */
+html[data-accent='lotus'] {
+  --c-accent: #e2578a;
+  --c-accent-dark: #b83a69;
+  --c-accent-soft: #fde8f0;
+  --g-hero: linear-gradient(135deg, #ffe4ef 0%, #fff2d6 50%, #e9e4ff 100%);
+}
+html[data-accent='peacock'] {
+  --c-accent: #1f8a9e;
+  --c-accent-dark: #146a7a;
+  --c-accent-soft: #e2f3f6;
+  --g-hero: linear-gradient(135deg, #dff4f7 0%, #e5e7ff 50%, #e3f2f0 100%);
+}
+html[data-accent='mango'] {
+  --c-accent: #ff8a2a;
+  --c-accent-dark: #d96a10;
+  --c-accent-soft: #ffeedd;
+  --g-hero: linear-gradient(135deg, #ffe9d2 0%, #fff6c8 50%, #ffe3ec 100%);
+}
+@media (prefers-color-scheme: dark) {
+  html[data-accent='lotus'] { --c-accent-soft: #3a2230; --g-hero: linear-gradient(135deg, #33202a 0%, #2b2418 50%, #24223a 100%); }
+  html[data-accent='peacock'] { --c-accent-soft: #1b2f33; --g-hero: linear-gradient(135deg, #1b2f33 0%, #21233a 50%, #1e2f2d 100%); }
+  html[data-accent='mango'] { --c-accent-soft: #3a2816; --g-hero: linear-gradient(135deg, #3a2816 0%, #33301a 50%, #2d2026 100%); }
+}
+
 @theme inline {
+  --color-accent: var(--c-accent);
+  --color-accent-dark: var(--c-accent-dark);
+  --color-accent-soft: var(--c-accent-soft);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-float: var(--shadow-float);
+  --shadow-press: var(--shadow-press);
   --color-bg: var(--c-bg);
   --color-card: var(--c-card);
   --color-ink: var(--c-ink);
@@ -61,7 +129,64 @@
   --color-error-soft: var(--c-error-soft);
   --color-locked: var(--c-locked);
   --color-amber-soft: var(--c-amber-soft);
-  --font-display: 'Avenir Next Rounded', 'Arial Rounded MT Bold', 'Nunito', ui-rounded, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Nunito', 'Avenir Next Rounded', ui-rounded, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Surfaces used across the redesign */
+.surface {
+  background: color-mix(in srgb, var(--c-card) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-line) 70%, transparent);
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.surface-hero {
+  background: var(--g-hero);
+  border: 1px solid color-mix(in srgb, var(--c-line) 60%, transparent);
+  border-radius: 26px;
+  box-shadow: var(--shadow-soft);
+}
+.glass {
+  background: color-mix(in srgb, var(--c-card) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, var(--c-line) 70%, transparent);
+  box-shadow: var(--shadow-float);
+}
+.btn-accent { background: var(--g-accent); }
+.btn-teal { background: var(--g-teal); }
+.btn-success { background: var(--g-success); }
+.btn-error { background: var(--g-error); }
+.text-balance { text-wrap: balance; }
+
+/* lesson node breathing pulse (current lesson) */
+/* glow only (no transform) so the node stays geometrically stable for taps */
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-accent) 45%, transparent), var(--shadow-float); }
+  50% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--c-accent) 0%, transparent), var(--shadow-float); }
+}
+.animate-breathe { animation: breathe 2.4s ease-in-out infinite; }
+
+/* coin shimmer */
+@keyframes coin-spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+.animate-coin { animation: coin-spin 1.2s ease-in-out; }
+
+/* chest wobble before opening */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-6deg); }
+  40% { transform: rotate(5deg); }
+  60% { transform: rotate(-4deg); }
+  80% { transform: rotate(3deg); }
+}
+.animate-wobble { animation: wobble 0.7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe, .animate-coin, .animate-wobble, .animate-pop, .animate-flame { animation: none; }
 }
 
 html {

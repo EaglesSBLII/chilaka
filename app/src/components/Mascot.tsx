@@ -1,8 +1,64 @@
 // Chikki the parrot (చిలక) — the app mascot. Pure SVG, five poses.
 
-export type MascotPose = 'idle' | 'cheer' | 'teach' | 'sleepy' | 'celebrate';
+import { useApp } from '../store';
 
-export function Mascot({ pose = 'idle', size = 120 }: { pose?: MascotPose; size?: number }) {
+export type MascotPose = 'idle' | 'cheer' | 'teach' | 'sleepy' | 'celebrate';
+export type MascotOutfit = 'scarf' | 'garland' | 'glasses' | 'crown';
+
+/** The outfit equipped on the profile (shop purchase), if any. */
+export function useMascotOutfit(): MascotOutfit | undefined {
+  return useApp((s) => s.profile?.outfit) as MascotOutfit | undefined;
+}
+
+function Outfit({ outfit }: { outfit?: MascotOutfit }) {
+  switch (outfit) {
+    case 'scarf':
+      return (
+        <g>
+          <path d="M40 54 Q58 66 84 52 L86 60 Q60 74 38 62 Z" fill="#C2185B" />
+          <path d="M44 60 Q40 78 34 90 L44 88 Q48 74 50 62 Z" fill="#E91E63" />
+          <path d="M42 58 Q58 68 82 56" stroke="#F8BBD0" strokeWidth="1.5" fill="none" strokeDasharray="2 3" />
+        </g>
+      );
+    case 'garland':
+      return (
+        <g>
+          <path d="M38 58 Q62 100 86 56" stroke="#2E9158" strokeWidth="3" fill="none" />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+            const t = i / 8;
+            const x = 38 + t * 48;
+            const y = 58 + Math.sin(t * Math.PI) * 38;
+            return <circle key={i} cx={x} cy={y} r="3.4" fill={i % 2 ? '#FFFFFF' : '#FFF59D'} stroke="#2E9158" strokeWidth="0.8" />;
+          })}
+        </g>
+      );
+    case 'glasses':
+      return (
+        <g stroke="#26221C" strokeWidth="2.2" fill="none">
+          <circle cx="66" cy="30" r="9.5" fill="rgba(255,255,255,0.25)" />
+          <circle cx="44" cy="30" r="9.5" fill="rgba(255,255,255,0.25)" />
+          <path d="M53.5 30 h3" />
+          <path d="M75.5 29 l6 -2" />
+        </g>
+      );
+    case 'crown':
+      return (
+        <g>
+          <path d="M40 16 L46 2 L54 12 L60 -2 L66 12 L74 2 L80 16 Z" fill="#F5A623" stroke="#CF8A12" strokeWidth="1.5" strokeLinejoin="round" />
+          <rect x="40" y="14" width="40" height="5" rx="2" fill="#CF8A12" />
+          <circle cx="60" cy="8" r="2.2" fill="#E4536B" />
+          <circle cx="47" cy="10" r="1.6" fill="#17A196" />
+          <circle cx="73" cy="10" r="1.6" fill="#17A196" />
+        </g>
+      );
+    default:
+      return null;
+  }
+}
+
+export function Mascot({ pose = 'idle', size = 120, outfit }: { pose?: MascotPose; size?: number; outfit?: MascotOutfit | null }) {
+  const equipped = useMascotOutfit();
+  const worn = outfit === null ? undefined : (outfit ?? equipped);
   const wingFlap = pose === 'cheer' || pose === 'celebrate';
   const eyesClosed = pose === 'sleepy';
   const openBeak = pose === 'teach' || pose === 'celebrate';
@@ -10,7 +66,7 @@ export function Mascot({ pose = 'idle', size = 120 }: { pose?: MascotPose; size?
     <svg
       width={size}
       height={size}
-      viewBox="0 0 120 120"
+      viewBox="0 -6 120 126"
       fill="none"
       role="img"
       aria-label="Chikki the parrot"
@@ -49,6 +105,8 @@ export function Mascot({ pose = 'idle', size = 120 }: { pose?: MascotPose; size?
       )}
       {/* head feather */}
       <path d="M52 12 Q56 2 64 8 Q60 12 60 16 Q56 12 52 12" fill="#FF5C39" />
+      {/* outfit (bought in the shop) */}
+      <Outfit outfit={worn} />
       {/* feet */}
       <path d="M52 102 l-3 8 M52 102 l3 8 M70 102 l-3 8 M70 102 l3 8" stroke="#D88E0F" strokeWidth="3.5" strokeLinecap="round" />
       {/* celebrate sparkles */}

@@ -30,6 +30,9 @@ const TABLES = [
   'xpEvents',
   'reminders',
   'meta',
+  'coinEvents',
+  'quests',
+  'badges',
 ] as const;
 
 export async function exportAll(now = new Date()): Promise<BackupFile> {

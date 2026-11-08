@@ -102,6 +102,9 @@ export function Onboarding() {
           <Button variant="ghost" className="w-full" onClick={() => void skipPlacement()}>
             Start from the beginning
           </Button>
+          <p className="text-center text-xs font-semibold text-ink-soft">
+            Want your progress on every device? Create a free account any time in Settings.
+          </p>
         </div>
       )}
     </div>
