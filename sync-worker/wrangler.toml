@@ -21,10 +21,10 @@ binding = "AI"
 # folder, then uncomment the block below and paste the printed database_id.
 # Until then the worker runs KV-only: sync and speech keep working, and the
 # auth routes answer 503 ("accounts unavailable").
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "chilaka"
-# database_id = "PASTE-YOUR-DATABASE-ID-HERE"
+[[d1_databases]]
+binding = "DB"
+database_name = "chilaka"
+database_id = "8af450c8-da49-4654-b0c4-eccf528b1438"
 
 # Reminder sweep: every 15 minutes, matching the 15-minute delivery window
 # in src/lib/schedule.js.
