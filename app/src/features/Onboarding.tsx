@@ -103,7 +103,7 @@ export function Onboarding() {
             Start from the beginning
           </Button>
           <p className="text-center text-xs font-semibold text-ink-soft">
-            Want your progress on every device? Create a free account any time in Settings.
+            Want your progress on every device? Sign in any time in Settings.
           </p>
         </div>
       )}

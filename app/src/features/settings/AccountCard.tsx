@@ -48,14 +48,14 @@ export function AccountCard() {
       ) : (
         <>
           <p className="text-sm font-semibold text-ink-soft">
-            Create a free account to keep your streak, coins and lessons on your Mac, iPhone and anywhere else you sign in.
+            Sign in to keep your streak, coins and lessons on your Mac, iPhone and anywhere else you use Chilaka. New here? A free account takes a minute.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Button className="px-4 py-2 text-sm" onClick={() => navigate({ name: 'auth', mode: 'create' })}>
-              Create account
-            </Button>
-            <Button variant="ghost" className="px-4 py-2 text-sm" onClick={() => navigate({ name: 'auth', mode: 'signin' })}>
+            <Button className="px-4 py-2 text-sm" onClick={() => navigate({ name: 'auth', mode: 'signin' })}>
               Sign in
+            </Button>
+            <Button variant="ghost" className="px-4 py-2 text-sm" onClick={() => navigate({ name: 'auth', mode: 'create' })}>
+              Create account
             </Button>
           </div>
         </>

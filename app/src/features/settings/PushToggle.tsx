@@ -34,7 +34,7 @@ export function PushToggle({ hh, mm, flash }: { hh: number; mm: number; flash: (
 
   const toggle = async () => {
     if (!session) {
-      navigate({ name: 'auth', mode: 'create' });
+      navigate({ name: 'auth', mode: 'signin' });
       return;
     }
     setBusy(true);
