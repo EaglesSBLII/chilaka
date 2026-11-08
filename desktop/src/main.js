@@ -107,9 +107,15 @@ function buildTray() {
       click: (item) => app.setLoginItemSettings({ openAtLogin: item.checked, openAsHidden: true }),
     },
     { type: 'separator' },
-    { label: 'Check for updates…', click: () => void updater.check(true) },
     {
-      label: 'Install updates automatically',
+      label: 'Check for updates…',
+      click: () => {
+        showWindow();
+        void updater.check(true);
+      },
+    },
+    {
+      label: 'Download updates automatically',
       type: 'checkbox',
       checked: updater.auto,
       click: (item) => updater.setAuto(item.checked),
@@ -128,6 +134,13 @@ function buildTray() {
 }
 
 // ---- IPC bridge ----
+updater.onState = (state) => {
+  if (win && !win.isDestroyed()) win.webContents.send('updater:state', state);
+};
+ipcMain.handle('updater:state', () => updater.state);
+ipcMain.handle('updater:check', () => void updater.check(true));
+ipcMain.handle('updater:download', () => void updater.download());
+ipcMain.handle('updater:install', () => void updater.installAndRelaunch());
 ipcMain.handle('asr:available', async () => asr.available());
 ipcMain.handle('asr:transcribe', async (_e, wavBuf, hint) => {
   try {

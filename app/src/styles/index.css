@@ -315,14 +315,6 @@ button {
 }
 
 /* update banner: sliding indeterminate bar */
-@keyframes update-slide {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(320%); }
-}
-.update-bar-indeterminate {
-  animation: update-slide 1.4s ease-in-out infinite;
-}
-
 /* record button: kill iOS long-press selection/callout on the mic emoji */
 .no-callout {
   -webkit-touch-callout: none;

@@ -3,14 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import './styles/index.css';
 
-// PWA service worker (no-ops under file:// in Electron)
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  import('virtual:pwa-register')
-    .then(({ registerSW }) => registerSW({ immediate: true }))
-    .catch(() => {
-      /* dev mode without PWA — fine */
-    });
-}
+// Updates: PWA service worker on the web (no-ops under file:// in Electron),
+// the Mac self-updater on desktop. Both feed the banner at the top of the home screen.
+import { startUpdateWatch } from './updates';
+startUpdateWatch();
 
 // Visit log: one beacon per app start so the owner can see how many people open the app
 // (the PWA shell is served from cache, so the server would otherwise never see repeat opens).

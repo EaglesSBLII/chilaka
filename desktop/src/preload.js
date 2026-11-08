@@ -6,6 +6,17 @@ contextBridge.exposeInMainWorld('chilakaBridge', {
   speak: (text) => ipcRenderer.invoke('tts:speak', text),
   setReminders: (reminders) => ipcRenderer.invoke('reminders:set', reminders),
   saveBackup: (json) => ipcRenderer.invoke('backup:save', json),
+  updater: {
+    state: () => ipcRenderer.invoke('updater:state'),
+    check: () => ipcRenderer.invoke('updater:check'),
+    download: () => ipcRenderer.invoke('updater:download'),
+    install: () => ipcRenderer.invoke('updater:install'),
+    onState: (cb) => {
+      const handler = (_e, state) => cb(state);
+      ipcRenderer.on('updater:state', handler);
+      return () => ipcRenderer.removeListener('updater:state', handler);
+    },
+  },
   appleMusic: {
     playlists: () => ipcRenderer.invoke('amusic:playlists'),
     play: (playlist, volume) => ipcRenderer.invoke('amusic:play', playlist, volume),

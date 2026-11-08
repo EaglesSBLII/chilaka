@@ -49,7 +49,7 @@ cd .. && hdiutil create -volname "Chilaka" -srcfolder mac-arm64/Chilaka.app -ov 
 
 ## Updates
 
-- **Mac app** updates itself: it checks the GitHub release feed on launch and every 6 hours, downloads a newer installer in the background, and asks to restart (tray menu → "Install updates automatically" to turn that off, "Check for updates…" to force a check).
+- **Updates are manual, with a banner.** The Mac app checks the GitHub release feed on launch and every 6 hours; a green banner at the top of the home screen says a version is available, **Update** downloads it with a live percentage, and **Restart** swaps it in (tray menu → "Check for updates…" to force a check, "Download updates automatically" to skip the Update press). The iPhone/web app downloads a new version in the background, shows the same progress, and switches only when you press **Restart**. QA: `desktop/tests/update-flow.spec.mjs` (fake release feed) and `app/tests/e2e/pwa-update.spec.ts`.
 - **Web / iPhone**: `.github/workflows/deploy-web.yml` publishes `app/dist` to Cloudflare Pages and redeploys `sync-worker/` on every push to `main`. It needs two repository secrets, `CLOUDFLARE_API_TOKEN` (Pages: Edit, Workers Scripts: Edit) and `CLOUDFLARE_API_ACCOUNT_ID`. Installed web apps pick the new build up on their next launch.
 - **Releasing a Mac build**: bump the version in the three `package.json` files, `npm run build -w app`, `cd desktop && npm run dist`, re-sign + repackage (below), then `gh release create vX.Y.Z Chilaka-X.Y.Z-arm64.dmg`. Running apps find it within 6 hours.
 

@@ -82,8 +82,9 @@ save with your profile so they travel in your backup.)
 ## Updating the app later
 
 When there's a new version, just re-run the deploy command from Step 1. Your
-iPhone picks up the update automatically the next time it's online (your progress
-is untouched).
+iPhone downloads it in the background the next time it's online and shows a
+banner at the top of the home screen with the progress; press **Restart** there
+to switch to it (your progress is untouched).
 
 ## Troubleshooting
 

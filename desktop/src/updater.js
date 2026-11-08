@@ -1,10 +1,19 @@
 // Self-updater for the Mac app. Checks the GitHub release feed on launch and
-// every few hours, downloads a newer installer in the background, stages the
-// new app bundle, and swaps it in when the learner says yes (or silently at the
-// next quit). No code-signing identity is needed: the app is ad-hoc signed, and
-// a bundle copied into place by the app itself carries no quarantine flag.
+// every few hours and tells the app window when a newer version exists. The
+// learner presses Update in the app (or the tray menu): the installer downloads
+// with live progress, the new bundle is staged, and a Restart button swaps it
+// in. With "Download updates automatically" on, the download starts by itself
+// and only the restart is manual. No code-signing identity is needed: the app
+// is ad-hoc signed, and a bundle copied into place by the app itself carries no
+// quarantine flag.
 //
-// Settings live in <userData>/updater.json: { auto: true }.
+// State pushed to the window (onState): { phase, version, notes, size, received,
+// percent, error } with phase one of idle | checking | up-to-date | available |
+// downloading | ready | error.
+//
+// Settings live in <userData>/updater.json: { auto: false }.
+// QA: CHILAKA_UPDATE_TEST=0.0.1 makes the build think it is that old;
+// CHILAKA_UPDATE_FEED=<url> reads the release JSON from somewhere else.
 
 const { app, dialog, shell } = require('electron');
 const fs = require('node:fs');
@@ -22,7 +31,7 @@ function removeBundle(p) {
   require('node:child_process').execFileSync('rm', ['-rf', p]);
 }
 const REPO = 'EaglesSBLII/chilaka';
-const FEED = `https://api.github.com/repos/${REPO}/releases/latest`;
+const FEED = process.env.CHILAKA_UPDATE_FEED || `https://api.github.com/repos/${REPO}/releases/latest`;
 const CHECK_EVERY_MS = 6 * 60 * 60 * 1000;
 
 function cmp(a, b) {
@@ -38,7 +47,7 @@ function cmp(a, b) {
 class Updater {
   constructor() {
     this.file = path.join(app.getPath('userData'), 'updater.json');
-    this.settings = { auto: true };
+    this.settings = { auto: false };
     try {
       this.settings = { ...this.settings, ...JSON.parse(fs.readFileSync(this.file, 'utf8')) };
     } catch {
@@ -49,10 +58,18 @@ class Updater {
     this.busy = false;
     this.timer = null;
     this.onState = () => {};
+    this.state = { phase: 'idle' };
   }
 
   get auto() {
-    return this.settings.auto !== false;
+    return this.settings.auto === true;
+  }
+
+  /** Replace the public state and tell the window. */
+  setState(patch) {
+    this.state = { ...this.state, ...patch };
+    this.onState(this.state);
+    return this.state;
   }
   setAuto(on) {
     this.settings.auto = Boolean(on);
@@ -87,8 +104,10 @@ class Updater {
   async check(manual = false) {
     if (this.busy) return;
     this.busy = true;
+    if (this.state.phase !== 'ready') this.setState({ phase: 'checking', error: undefined });
     try {
-      const onDisk = this.installedVersion();
+      // (packaged only: in a dev launch the bundle on disk is Electron itself)
+      const onDisk = app.isPackaged ? this.installedVersion() : null;
       if (onDisk && cmp(onDisk, app.getVersion()) > 0) {
         // the new app is already installed under this (old) process: just restart
         const { response } = await dialog.showMessageBox({
@@ -115,17 +134,38 @@ class Updater {
       const current = process.env.CHILAKA_UPDATE_TEST || app.getVersion();
       if (cmp(version, current) <= 0) {
         this.available = null;
+        this.setState({ phase: 'up-to-date', version: app.getVersion() });
         if (manual) {
           dialog.showMessageBox({ type: 'info', message: `Chilaka ${app.getVersion()} is up to date.` });
         }
         return;
       }
+      if (this.staged && this.stagedVersion === version) {
+        this.setState({ phase: 'ready', version, notes: String(rel.body || '') });
+        return;
+      }
       this.available = { version, url: asset.browser_download_url, size: asset.size, notes: String(rel.body || '') };
-      this.onState(this.available);
-      if (this.auto || manual) await this.downloadAndStage();
-      if (this.staged) this.offerInstall();
+      this.setState({ phase: 'available', version, notes: this.available.notes, size: asset.size, received: 0, percent: 0 });
     } catch (err) {
+      this.setState({ phase: 'error', error: String(err.message || err) });
       if (manual) dialog.showMessageBox({ type: 'warning', message: 'Could not check for updates.', detail: String(err.message || err) });
+    } finally {
+      this.busy = false;
+    }
+    if (this.state.phase === 'available' && this.auto) void this.download();
+  }
+
+  /** Learner pressed Update (or auto-download is on): fetch and stage the new version. */
+  async download() {
+    if (this.busy) return;
+    if (!this.available) return this.check(true); // "Try again" after a failed check
+
+    this.busy = true;
+    try {
+      await this.downloadAndStage();
+      this.setState({ phase: 'ready', version: this.stagedVersion, percent: 100 });
+    } catch (err) {
+      this.setState({ phase: 'error', error: String(err.message || err) });
     } finally {
       this.busy = false;
     }
@@ -139,17 +179,28 @@ class Updater {
     const dmg = path.join(dir, `Chilaka-${u.version}.dmg`);
     const res = await fetch(u.url, { headers: { 'user-agent': 'chilaka-updater' } });
     if (!res.ok || !res.body) throw new Error(`download ${res.status}`);
+    const total = u.size || Number(res.headers.get('content-length')) || 0;
+    this.setState({ phase: 'downloading', version: u.version, size: total, received: 0, percent: 0 });
     const out = fs.createWriteStream(dmg);
     const reader = res.body.getReader();
     let got = 0;
+    let lastTick = 0;
     for (;;) {
       const { done, value } = await reader.read();
       if (done) break;
       got += value.length;
       if (!out.write(value)) await new Promise((r) => out.once('drain', r));
+      // ~5 updates a second is plenty for a progress bar
+      const now = Date.now();
+      if (now - lastTick > 200) {
+        lastTick = now;
+        this.setState({ received: got, percent: total ? Math.min(99, Math.floor((got / total) * 100)) : 0 });
+      }
     }
     await new Promise((r) => out.end(r));
     if (u.size && got !== u.size) throw new Error(`download incomplete (${got} of ${u.size} bytes)`);
+    // unpacking the installer is the last stretch; the bar sits at 99% until the bundle is staged
+    this.setState({ received: got, percent: 99 });
     // mount, copy the bundle out, unmount
     const mount = path.join(dir, 'mnt');
     fs.mkdirSync(mount);
@@ -167,22 +218,6 @@ class Updater {
     }
   }
 
-  offerInstall() {
-    const u = this.available;
-    dialog
-      .showMessageBox({
-        type: 'info',
-        message: `Chilaka ${u.version} is ready to install`,
-        detail: `${u.notes.slice(0, 600)}\n\nThe app restarts to finish. Your progress is kept.`,
-        buttons: ['Restart and update', 'Later'],
-        defaultId: 0,
-        cancelId: 1,
-      })
-      .then(({ response }) => {
-        if (response === 0) void this.installAndRelaunch();
-      });
-  }
-
   /** Swap the staged bundle over the running one and relaunch. */
   async installAndRelaunch() {
     if (!this.staged) return;
@@ -195,7 +230,7 @@ class Updater {
     } catch (err) {
       // put the old app back if anything went wrong mid-swap
       if (!fs.existsSync(target) && fs.existsSync(backup)) fs.renameSync(backup, target);
-      dialog.showMessageBox({ type: 'error', message: 'Update failed', detail: String(err.message || err) });
+      this.setState({ phase: 'error', error: `Update failed: ${String(err.message || err)}` });
       return;
     }
     // the new app is in place; a leftover backup must never block the relaunch

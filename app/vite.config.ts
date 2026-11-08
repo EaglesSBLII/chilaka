@@ -17,7 +17,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt', // the learner presses Restart in the update banner
       // Our own service worker (src/sw.ts): precache the whole app plus the
       // default (female) voice so the iPhone works fully offline from the first
       // launch, cache the male voice on demand, and show push reminders.

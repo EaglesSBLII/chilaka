@@ -57,9 +57,29 @@ export interface AppleMusicBridge {
   stop(): Promise<AppleMusicResult>;
 }
 
+/** Mac app self-updater, as seen by the window (desktop/src/updater.js). */
+export type DesktopUpdatePhase = 'idle' | 'checking' | 'up-to-date' | 'available' | 'downloading' | 'ready' | 'error';
+export interface DesktopUpdateState {
+  phase: DesktopUpdatePhase;
+  version?: string;
+  notes?: string;
+  size?: number;
+  received?: number;
+  percent?: number;
+  error?: string;
+}
+export interface DesktopUpdaterBridge {
+  state(): Promise<DesktopUpdateState>;
+  check(): Promise<void>;
+  download(): Promise<void>;
+  install(): Promise<void>;
+  onState(cb: (state: DesktopUpdateState) => void): () => void;
+}
+
 declare global {
   interface Window {
     chilakaBridge?: {
+      updater?: DesktopUpdaterBridge;
       transcribe(wav: ArrayBuffer, hint?: AsrHint): Promise<AsrResult>;
       speak(text: string): Promise<ArrayBuffer | null>;
       asrAvailable(): Promise<boolean>;
