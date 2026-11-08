@@ -1,6 +1,6 @@
 {
   "name": "@chilaka/desktop",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "description": "Chilaka — learn to speak Telugu",
   "main": "src/main.js",

@@ -70,10 +70,18 @@ export function validateBackup(raw: unknown): BackupFile {
   return b;
 }
 
-/** Replace ALL local state with the backup's contents (atomic). */
+/** Settings that belong to this install, not to the learner's progress: sync
+ *  pairing (endpoint, slot key, paused flag) and the signed-in account session.
+ *  A backup or a sync merge must never replace them — doing so signed the
+ *  user out on the next launch. */
+export const isDeviceLocalSetting = (key: unknown): boolean => typeof key === 'string' && key.startsWith('sync');
+
+/** Replace ALL local state with the backup's contents (atomic), keeping this
+ *  device's own settings (see `isDeviceLocalSetting`). */
 export async function importAll(raw: unknown): Promise<void> {
   const b = validateBackup(raw);
   await db.transaction('rw', TABLES.map((t) => db.table(t)), async () => {
+    const deviceLocal = (await db.settings.toArray()).filter((r) => isDeviceLocalSetting(r.key));
     for (const t of TABLES) {
       await db.table(t).clear();
       const rows = b.data[t];
@@ -81,5 +89,8 @@ export async function importAll(raw: unknown): Promise<void> {
         await db.table(t).bulkPut(rows as never[]);
       }
     }
+    // Incoming sync* rows (another device's pairing) lose to ours.
+    await db.settings.bulkDelete((b.data.settings ?? []).map((r) => (r as { key: unknown }).key).filter(isDeviceLocalSetting) as string[]);
+    if (deviceLocal.length > 0) await db.settings.bulkPut(deviceLocal);
   });
 }

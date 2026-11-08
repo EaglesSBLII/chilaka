@@ -129,6 +129,15 @@ test('sign up on one device, sign in on another, recover the password', async ({
     await expect(b.getByRole('button', { name: /lesson 1/i }).first()).toContainText('✓');
   });
 
+  await test.step('device B stays signed in across a relaunch', async () => {
+    // the first sync after sign-in replaces local state with the merged
+    // account data; the session row must survive that
+    await expect.poll(() => kv.size, { timeout: 15_000 }).toBeGreaterThan(0);
+    await b.reload();
+    await b.getByRole('button', { name: 'Settings' }).click();
+    await expect(b.getByTestId('account-card')).toContainText('ravi@example.com', { timeout: 20_000 });
+  });
+
   await test.step('a wrong password is rejected; the recovery code resets it', async () => {
     await b.getByRole('button', { name: 'Settings' }).click();
     await b.getByRole('button', { name: 'Sign out', exact: true }).click();
