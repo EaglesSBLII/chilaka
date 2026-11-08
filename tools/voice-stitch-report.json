@@ -1,0 +1,132 @@
+{
+ "female/u81-i12": {
+  "ok": true,
+  "letters": [
+   "అ: u81-i01 0.34-0.45s pause 0.45s conf 0.94",
+   "ఆ: u81-i02 0.34-0.51s pause 0.46s conf 0.98",
+   "ఇ: u81-i03 0.36-0.54s pause 0.37s conf 0.85",
+   "ఈ: u81-i04 0.37-0.54s pause 0.28s conf 0.32",
+   "ఉ: u81-i05 0.34-0.56s pause 0.51s conf 0.19",
+   "ఊ: u81-i06 0.36-0.56s pause 0.37s conf 0.52"
+  ],
+  "polish": "{\"secs\":4.1,\"lufs\":-15.4}"
+ },
+ "female/u82-i15": {
+  "ok": true,
+  "letters": [
+   "ఎ: u82-i01 0.36-0.53s pause 0.36s conf 0.94",
+   "ఏ: u82-i02 0.36-0.54s pause 0.33s conf 0.51",
+   "ఐ: u82-i03 0.32-0.51s pause 0.62s conf 0.89",
+   "ఒ: u82-i04 0.36-0.56s pause 0.29s conf 0.91",
+   "ఓ: u82-i05 0.34-0.53s pause 0.52s conf 0.82",
+   "ఔ: u82-i06 0.32-0.47s pause 0.34s conf 0.64"
+  ],
+  "polish": "{\"secs\":4.3,\"lufs\":-15.2}"
+ },
+ "female/u86-i12": {
+  "ok": true,
+  "letters": [
+   "అ: u81-i01 0.34-0.45s pause 0.45s conf 0.94",
+   "ఆ: u81-i02 0.34-0.51s pause 0.46s conf 0.98",
+   "ఇ: u81-i03 0.36-0.54s pause 0.37s conf 0.85",
+   "ఈ: u81-i04 0.37-0.54s pause 0.28s conf 0.32",
+   "ఉ: u81-i05 0.34-0.56s pause 0.51s conf 0.19",
+   "ఊ: u81-i06 0.36-0.56s pause 0.37s conf 0.52",
+   "ఎ: u82-i01 0.36-0.53s pause 0.36s conf 0.94",
+   "ఏ: u82-i02 0.36-0.54s pause 0.33s conf 0.51",
+   "ఐ: u82-i03 0.32-0.51s pause 0.62s conf 0.89",
+   "ఒ: u82-i04 0.36-0.56s pause 0.29s conf 0.91",
+   "ఓ: u82-i05 0.34-0.53s pause 0.52s conf 0.82",
+   "ఔ: u82-i06 0.32-0.47s pause 0.34s conf 0.64"
+  ],
+  "polish": "{\"secs\":6.93,\"lufs\":-15.3}"
+ },
+ "female/u86-i13": {
+  "ok": true,
+  "letters": [
+   "క: u83-i01 0.28-0.45s pause 0.34s conf 0.94",
+   "చ: u83-i05 0.28-0.41s pause 0.47s conf 0.12",
+   "ట: u84-i01 0.28-0.40s pause 0.11s conf 0.67",
+   "త: u84-i06 0.26-0.49s pause 0.21s conf 1.00",
+   "ప: u85-i01 0.26-0.41s pause 0.02s conf 0.98"
+  ],
+  "polish": "{\"secs\":2.68,\"lufs\":-16.8}"
+ },
+ "female/u87-i06": {
+  "ok": true,
+  "letters": [
+   "క: u83-i01 0.28-0.45s pause 0.34s conf 0.94",
+   "కా: u87-i01 0.29-0.48s pause 0.05s conf 0.69",
+   "కి: u87-i02 0.28-0.53s pause 0.75s conf 0.59",
+   "కీ: u87-i03 0.28-0.46s pause 0.07s conf 0.64",
+   "కు: u87-i04 0.28-0.48s pause 0.36s conf 0.95",
+   "కూ: u87-i05 0.28-0.56s pause 0.60s conf 0.49"
+  ],
+  "polish": "{\"secs\":3.48,\"lufs\":-15.9}"
+ },
+ "male/u81-i12": {
+  "ok": true,
+  "letters": [
+   "అ: u81-i01 0.36-0.61s pause 0.41s conf 0.90",
+   "ఆ: u81-i02 0.34-0.64s pause 0.26s conf 0.68",
+   "ఇ: u81-i03 0.36-0.66s pause 0.36s conf 0.98",
+   "ఈ: u81-i04 0.36-0.58s pause 0.26s conf 0.49",
+   "ఉ: u81-i05 0.34-0.64s pause 0.21s conf 0.99",
+   "ఊ: u81-i06 0.36-0.74s pause 0.31s conf 0.90"
+  ],
+  "polish": "{\"secs\":4.83,\"lufs\":-15.4}"
+ },
+ "male/u82-i15": {
+  "ok": true,
+  "letters": [
+   "ఎ: u82-i01 0.36-0.66s pause 0.27s conf 0.11",
+   "ఏ: u82-i02 0.38-0.68s pause 0.45s conf 0.74",
+   "ఐ: u82-i03 0.32-0.64s pause 0.24s conf 0.97",
+   "ఒ: u82-i04 0.36-0.67s pause 0.34s conf 0.67",
+   "ఓ: u82-i05 0.34-0.66s pause 0.27s conf 0.72",
+   "ఔ: u82-i06 0.34-0.69s pause 0.30s conf 0.58"
+  ],
+  "polish": "{\"secs\":5.17,\"lufs\":-15.1}"
+ },
+ "male/u86-i12": {
+  "ok": true,
+  "letters": [
+   "అ: u81-i01 0.36-0.61s pause 0.41s conf 0.90",
+   "ఆ: u81-i02 0.34-0.64s pause 0.26s conf 0.68",
+   "ఇ: u81-i03 0.36-0.66s pause 0.36s conf 0.98",
+   "ఈ: u81-i04 0.36-0.58s pause 0.26s conf 0.49",
+   "ఉ: u81-i05 0.34-0.64s pause 0.21s conf 0.99",
+   "ఊ: u81-i06 0.36-0.74s pause 0.31s conf 0.90",
+   "ఎ: u82-i01 0.36-0.66s pause 0.27s conf 0.11",
+   "ఏ: u82-i02 0.38-0.68s pause 0.45s conf 0.74",
+   "ఐ: u82-i03 0.32-0.64s pause 0.24s conf 0.97",
+   "ఒ: u82-i04 0.36-0.67s pause 0.34s conf 0.67",
+   "ఓ: u82-i05 0.34-0.66s pause 0.27s conf 0.72",
+   "ఔ: u82-i06 0.34-0.69s pause 0.30s conf 0.58"
+  ],
+  "polish": "{\"secs\":8.52,\"lufs\":-15.3}"
+ },
+ "male/u86-i13": {
+  "ok": true,
+  "letters": [
+   "క: u83-i01 0.28-0.47s pause 0.04s conf 0.48",
+   "చ: u83-i05 0.28-0.59s pause 0.48s conf 0.87",
+   "ట: u84-i01 0.28-0.61s pause 0.29s conf 0.96",
+   "త: u84-i06 0.28-0.64s pause 0.30s conf 0.99",
+   "ప: u85-i01 0.26-0.58s pause 0.41s conf 0.98"
+  ],
+  "polish": "{\"secs\":3.38,\"lufs\":-15.3}"
+ },
+ "male/u87-i06": {
+  "ok": true,
+  "letters": [
+   "క: u83-i01 0.28-0.47s pause 0.04s conf 0.48",
+   "కా: u87-i01 0.26-0.48s pause 0.04s conf 0.99",
+   "కి: u87-i02 0.28-0.49s pause 0.04s conf 0.94",
+   "కీ: u87-i03 0.28-0.64s pause 0.41s conf 0.70",
+   "కు: u87-i04 0.28-0.59s pause 0.39s conf 0.67",
+   "కూ: u87-i05 0.28-0.65s pause 0.38s conf 0.63"
+  ],
+  "polish": "{\"secs\":3.85,\"lufs\":-15.9}"
+ }
+}

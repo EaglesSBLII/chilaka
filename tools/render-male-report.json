@@ -1,1 +1,106 @@
-[]
+[
+  {
+    "id": "u82-i06",
+    "te": "ఔ, ఔను.",
+    "heard": "ఓ అవును",
+    "score": 1.07,
+    "align": {
+      "tail": 0.104,
+      "head": 0.068,
+      "conf": 0.649,
+      "letter_span": 0.342,
+      "sep_dip": -79.6
+    }
+  },
+  {
+    "id": "u82-i08",
+    "te": "అః, దుఃఖం.",
+    "heard": "ఆహా దుఖం",
+    "score": 1.28,
+    "align": {
+      "tail": 0.083,
+      "head": 0.036,
+      "conf": 0.867,
+      "letter_span": 0.319,
+      "sep_dip": -76.9
+    }
+  },
+  {
+    "id": "u83-i09",
+    "te": "ఙ, ఞ.",
+    "heard": "ఆ నా",
+    "score": 1.07,
+    "align": {
+      "tail": 0.121,
+      "head": -0.025,
+      "conf": 0.494,
+      "letter_span": 0.275,
+      "sep_dip": -80.9
+    }
+  },
+  {
+    "id": "u84-i01",
+    "te": "ట, టమాటా.",
+    "heard": "టమాట",
+    "score": 1.17,
+    "align": {
+      "tail": 0.085,
+      "head": 0.016,
+      "conf": 0.958,
+      "letter_span": 0.314,
+      "sep_dip": -80.1
+    }
+  },
+  {
+    "id": "u84-i07",
+    "te": "థ, రథం.",
+    "heard": "రథం",
+    "score": 1.13,
+    "align": {
+      "tail": 0.102,
+      "head": 0.01,
+      "conf": 0.766,
+      "letter_span": 0.27,
+      "sep_dip": -81
+    }
+  },
+  {
+    "id": "u86-i04",
+    "te": "హ, హలం.",
+    "heard": "హలం",
+    "score": 1.13,
+    "align": {
+      "tail": 0.078,
+      "head": 0.005,
+      "conf": 0.859,
+      "letter_span": 0.275,
+      "sep_dip": -82.2
+    }
+  },
+  {
+    "id": "u86-i06",
+    "te": "ఱ, గుఱ్ఱం.",
+    "heard": "రా గుర్రం",
+    "score": 1.25,
+    "align": {
+      "tail": 0.063,
+      "head": 0.097,
+      "conf": 0.932,
+      "letter_span": 0.328,
+      "sep_dip": -84.3
+    }
+  },
+  {
+    "id": "u89-i01",
+    "te": "క, అక్క.",
+    "heard": "అక్క అక్క",
+    "score": 1.28,
+    "align": {
+      "tail": 0.137,
+      "head": 0.015,
+      "conf": 0.915,
+      "letter_span": 0.37,
+      "sep_dip": -83.4
+    }
+  }
+]

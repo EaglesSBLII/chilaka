@@ -10,7 +10,13 @@
 //            hears in each reference clip — the grader's calibration)
 //          tools/render-<voice>-report.json                      (flagged clips)
 //
-//   node tools/render-voice.mjs --voice female|male [--force] [--only u01] [--rounds 3] [--nfe 16]
+//   node tools/render-voice.mjs --voice female|male [--force] [--only u01] [--ids u65-i03,u66-i01 | --ids @list.txt] [--rounds 3] [--nfe 16]
+//
+// Second gate (Nov 2026, after Arnav heard stray syllables): every take is also
+// force-aligned to its text with Meta's MMS aligner (tools/voice-align.py); a take
+// is rejected when audio stretches past the last character (an extra syllable),
+// before the first one, or the characters align with low confidence (slur/warble).
+// Thresholds come from the corpus audit: --max-tail, --max-head, --min-conf.
 
 import { readdirSync, readFileSync, mkdirSync, existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
@@ -33,6 +39,20 @@ const VOICE = arg('--voice', 'female');
 if (!['female', 'male'].includes(VOICE)) throw new Error('--voice female|male');
 const force = process.argv.includes('--force');
 const only = arg('--only', null);
+const idsArg = arg('--ids', null);
+const onlyIds = idsArg ? new Set((idsArg.startsWith('@') ? readFileSync(idsArg.slice(1), 'utf8') : idsArg).split(/[\s,]+/).filter(Boolean)) : null;
+const ALIGNER = join(__dirname, 'voice-align.py');
+// corpus audit (Nov 2026): tail_extra median 0.006 s female / 0.063 s male, p95 0.062 / 0.142; the
+// clips Arnav heard with a stray syllable sit above that. Confidence is skipped for letter items.
+const MAX_TAIL = Number(arg('--max-tail', VOICE === 'male' ? 0.15 : 0.10));
+const MAX_HEAD = Number(arg('--max-head', 0.10));
+// alignment confidence is noisy on short words ('aavu' scores 0.31 while the recognizer hears it
+// perfectly), so it only gates items of six or more roman letters; regular clips sit at 0.55+
+const MIN_CONF = Number(arg('--min-conf', 0.4));
+const confApplies = (a) => (a?.roman || '').replace(/\s/g, '').length >= 6;
+// letter cards ("అ, అమ్మ.") must say the letter on its own: ≥80 ms, then a pause ≥25 dB down
+// before the word — the clone often fuses "ఇ, ఇల్లు" into one long "iillu" (tools/lib/mmsalign.py)
+const letterOk = (a) => a?.sep_dip === undefined || (a.letter_span >= 0.08 && a.sep_dip <= -25);
 const ROUNDS = Number(arg('--rounds', 3));
 // The male reference (6.7 s) throws a stray syllable before the sentence at
 // 16 steps / 0.92 pace (Arnav heard it on every clip); 32 steps at natural pace
@@ -116,9 +136,12 @@ const items=[];
 for(const f of files){
   const u=JSON.parse(readFileSync(join(UNITS_DIR,f),'utf-8'));
   if(only&&u.id!==only)continue;
-  for(const it of u.items)items.push({id:it.id,te:it.audioTe??it.te,hint:hintFor(u,it)});
+  for(const it of u.items)items.push({id:it.id,te:speakable(it.audioTe??it.te),hint:hintFor(u,it)});
 }
-const todo=items.filter(it=>force||!existsSync(join(OUT_DIR,`${it.id}.m4a`)));
+// Letter items ("అ. అమ్మ."): with a full stop the model merges the letter into the word about half
+// the time and only "amma" comes out; a comma gives a clear letter, a pause, then the word.
+function speakable(t){return t.replace(/^([\u0c00-\u0c7f]{1,2})\. /,'$1, ');}
+const todo=items.filter(it=>(onlyIds?onlyIds.has(it.id):true)&&(force||onlyIds||!existsSync(join(OUT_DIR,`${it.id}.m4a`))));
 mkdirSync(OUT_DIR,{recursive:true});
 console.log(`[${VOICE}] rendering ${todo.length}/${items.length} clips (nfe=${NFE}, speed=${SPEED}, rounds=${ROUNDS})`);
 
@@ -134,24 +157,61 @@ function runPython(jobs, round){
 }
 
 if(todo.length>0)asr=await startAsr();
-let pending=todo.map((it,i)=>({...it,seed:(VOICE==='male'?90000:50000)+i}));
+const takeScore=(te,heard,a)=>{
+  const ok=a&&!a.error&&!(a.buzz&&a.buzz.length)&&a.tail_extra<=MAX_TAIL&&a.head_extra<=MAX_HEAD&&(!confApplies(a)||a.conf>=MIN_CONF)&&letterOk(a);
+  return sim(te,heard)+(firstWordOk(te,heard)?0.25:0)+(ok?0.5:0)-(a&&!a.error?Math.max(0,a.tail_extra-MAX_TAIL)*2+Math.max(0,a.head_extra-MAX_HEAD)*2+(a.buzz&&a.buzz.length?0.5:0):0.5);
+};
+// Baseline: the clip already shipped. A re-render only replaces it when a new take scores higher,
+// so a clean clip is never traded for a worse one just because it was on the list.
+const keep=new Set();
+if(todo.length>0){
+  const existing=todo.filter(it=>existsSync(join(OUT_DIR,`${it.id}.m4a`))).map(it=>{
+    const wav=join(tmp,`${it.id}-current.wav`);
+    execFileSync('afconvert',['-f','WAVE','-d','LEF32@24000','-c','1',join(OUT_DIR,`${it.id}.m4a`),wav],{stdio:'pipe'});
+    return {id:it.id,wav,text:it.te};
+  });
+  if(existing.length){
+    const bf=join(tmp,'align-current.json'); writeFileSync(bf,JSON.stringify(existing));
+    const aligned=JSON.parse(execFileSync(PYTHON,['-W','ignore',ALIGNER,'--batch',bf],{encoding:'utf8',maxBuffer:64*1024*1024,stdio:['ignore','pipe','ignore']}));
+    for(const e of existing){
+      const it=todo.find(x=>x.id===e.id);
+      const wav16=join(tmp,'qa16.wav');
+      execFileSync('afconvert',['-f','WAVE','-d','LEI16@16000',e.wav,wav16],{stdio:'pipe'});
+      const heard=await transcribe(wav16,it.hint);
+      best.set(e.id,{score:takeScore(it.te,heard,aligned[e.id]),wavPath:null,heard,align:aligned[e.id],current:true});
+    }
+    console.log(`  baseline scored for ${existing.length} existing clips`);
+  }
+}
+let pending=todo.map((it,i)=>({...it,seed:(VOICE==='male'?90000:50000)+i+(onlyIds?7000:0)}));
 for(let round=0; round<ROUNDS && pending.length>0; round++){
   console.log(`— round ${round+1}: ${pending.length} clips`);
   const dir=runPython(pending.map(p=>({id:p.id,text:p.te,seed:p.seed+round*17})),round);
   const next=[];
-  for(const p of pending){
-    const raw=join(dir,`${p.id}.wav`);
-    if(!existsSync(raw)){next.push(p);continue;}
-    const {samples,sampleRate}=readWav(raw);
+  // alignment audit of every take in this round (one model load)
+  const takes=pending.filter(p=>existsSync(join(dir,`${p.id}.wav`))).map(p=>{
+    const {samples,sampleRate}=readWav(join(dir,`${p.id}.wav`));
     const cleanPath=join(tmp,`${p.id}-r${round}.wav`);
     writeWav(cleanPath,cleanAudio(samples,sampleRate),sampleRate);
+    return {id:p.id,wav:cleanPath,text:p.te};
+  });
+  const batchFile=join(tmp,`align-${round}.json`);
+  writeFileSync(batchFile,JSON.stringify(takes));
+  const aligned=takes.length?JSON.parse(execFileSync(PYTHON,['-W','ignore',ALIGNER,'--batch',batchFile],{encoding:'utf8',maxBuffer:64*1024*1024,stdio:['ignore','pipe','ignore']})):{};
+  const alignOk=(a)=>a&&!a.error&&!(a.buzz&&a.buzz.length)&&a.tail_extra<=MAX_TAIL&&a.head_extra<=MAX_HEAD&&(!confApplies(a)||a.conf>=MIN_CONF)&&letterOk(a);
+  for(const p of pending){
+    const cleanPath=join(tmp,`${p.id}-r${round}.wav`);
+    if(!existsSync(cleanPath)){next.push(p);continue;}
     const wav16=join(tmp,'qa16.wav');
     execFileSync('afconvert',['-f','WAVE','-d','LEI16@16000',cleanPath,wav16],{stdio:'pipe'});
     const heard=await transcribe(wav16,p.hint);
-    const score=sim(p.te,heard)+(firstWordOk(p.te,heard)?0.25:0);
+    const a=aligned[p.id];
+    const ok=alignOk(a);
+    const score=takeScore(p.te,heard,a);
     const prev=best.get(p.id);
-    if(!prev||score>prev.score)best.set(p.id,{score,wavPath:cleanPath,heard});
-    if(!(firstWordOk(p.te,heard)&&sim(p.te,heard)>=passSim(p.te)))next.push(p);
+    if(!prev||score>prev.score)best.set(p.id,{score,wavPath:cleanPath,heard,align:a});
+    const pass=firstWordOk(p.te,heard)&&sim(p.te,heard)>=passSim(p.te)&&ok;
+    if(!pass){next.push(p);console.log(`  ✗ ${p.id} r${round+1}: sim ${sim(p.te,heard).toFixed(2)} tail ${a?.tail_extra} head ${a?.head_extra} conf ${a?.conf}${a?.sep_dip!==undefined?` letter ${a.letter_span}s/${a.sep_dip}dB`:''}`);}
   }
   pending=next;
   console.log(`  round ${round+1} done: ${pending.length} still flagged`);
@@ -166,12 +226,17 @@ let encoded=0;
 for(const it of todo){
   const b=best.get(it.id);
   if(!b){flagged.push({id:it.id,reason:'no take generated'});continue;}
-  const polished=join(tmp,`${it.id}-final.wav`);
-  polishWav(b.wavPath,polished,tmp);
-  encodeM4a(polished,join(OUT_DIR,`${it.id}.m4a`));
-  refs[it.id]=b.heard;
-  encoded++;
-  if(!(sim(it.te,b.heard)>=passSim(it.te)&&firstWordOk(it.te,b.heard)))flagged.push({id:it.id,te:it.te,heard:b.heard,score:Number(b.score.toFixed(2))});
+  if(b.current){keep.add(it.id);}
+  else{
+    const polished=join(tmp,`${it.id}-final.wav`);
+    polishWav(b.wavPath,polished,tmp);
+    encodeM4a(polished,join(OUT_DIR,`${it.id}.m4a`));
+    refs[it.id]=b.heard;
+    encoded++;
+  }
+  const a=b.align;
+  const alignOk=a&&!a.error&&!(a.buzz&&a.buzz.length)&&a.tail_extra<=MAX_TAIL&&a.head_extra<=MAX_HEAD&&(!confApplies(a)||a.conf>=MIN_CONF)&&letterOk(a);
+  if(!(sim(it.te,b.heard)>=passSim(it.te)&&firstWordOk(it.te,b.heard)&&alignOk))flagged.push({id:it.id,te:it.te,heard:b.heard,score:Number(b.score.toFixed(2)),align:a&&{tail:a.tail_extra,head:a.head_extra,conf:a.conf,...(a.sep_dip!==undefined?{letter_span:a.letter_span,sep_dip:a.sep_dip}:{})}});
 }
 rmSync(tmp,{recursive:true,force:true});
 
@@ -183,4 +248,4 @@ for(const f of files){
 writeFileSync(join(OUT_DIR,'manifest.json'),JSON.stringify(manifest));
 writeFileSync(refFile,JSON.stringify(Object.fromEntries(Object.entries(refs).sort()),null,1)+'\n');
 writeFileSync(join(__dirname,`render-${VOICE}-report.json`),JSON.stringify(flagged,null,2));
-console.log(`\n[${VOICE}] encoded ${encoded}; ${manifest.length}/${items.length} clips present; ${flagged.length} flagged → tools/render-${VOICE}-report.json`);
+console.log(`\n[${VOICE}] encoded ${encoded}, kept ${keep.size} existing (no better take); ${manifest.length}/${items.length} clips present; ${flagged.length} flagged → tools/render-${VOICE}-report.json`);
