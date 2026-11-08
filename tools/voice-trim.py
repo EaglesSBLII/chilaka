@@ -26,7 +26,7 @@ with tempfile.TemporaryDirectory() as tmp:
         if te is None: continue
         path = os.path.join(d, f'{cid}.m4a')
         a16, _ = load16(path, tmp)
-        m = measure(a16, 16000, te)
+        m = measure(a16, 16000, te, cid)
         if m['tail_extra'] <= MAX_TAIL: continue
         a24, _ = load24(path, tmp)
         end = int((m['last_char'] + args.keep) * SR)
@@ -38,7 +38,7 @@ with tempfile.TemporaryDirectory() as tmp:
             print(f'{cid} tail {m["tail_extra"]:.3f} → would cut at {m["last_char"]+args.keep:.2f}s (env end {m["env"][1]:.2f}s)  {te}'); continue
         r = subprocess.run(['node', os.path.join(ROOT, 'tools/lib/polish-cli.mjs'), wav, path], capture_output=True, text=True)
         if r.returncode: print(f'{cid} ✗ polish failed: {r.stderr[-200:]}'); continue
-        b16, _ = load16(path, tmp); after = measure(b16, 16000, te)
+        b16, _ = load16(path, tmp); after = measure(b16, 16000, te, cid)
         report[cid] = {'te': te, 'tail_before': m['tail_extra'], 'tail_after': after['tail_extra'], 'conf_before': m['conf'], 'conf_after': after['conf']}
         trimmed += 1
         print(f'{cid} tail {m["tail_extra"]:.3f} → {after["tail_extra"]:.3f}  conf {m["conf"]:.2f} → {after["conf"]:.2f}  {te}')

@@ -1,23 +1,9 @@
 {
- "u83-i05": {
-  "te": "చ. చాయ్.",
-  "tail_before": 0.112,
-  "tail_after": -0.031,
-  "conf_before": 0.084,
-  "conf_after": 0.312
- },
- "u83-i09": {
-  "te": "ఙ. ఞ.",
-  "tail_before": 0.102,
-  "tail_after": 0.086,
-  "conf_before": 0.651,
-  "conf_after": 0.651
- },
- "u87-i04": {
-  "te": "కు. కుక్క.",
-  "tail_before": 0.121,
-  "tail_after": 0.09,
-  "conf_before": 0.832,
-  "conf_after": 0.77
+ "u88-i09": {
+  "te": "రైలు",
+  "tail_before": 0.103,
+  "tail_after": 0.066,
+  "conf_before": 0.984,
+  "conf_after": 0.968
  }
 }

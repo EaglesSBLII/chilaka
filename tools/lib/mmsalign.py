@@ -107,12 +107,16 @@ def db_envelope(a, sr, hop=0.005, win=0.02):
     rms = np.array([np.sqrt(np.mean(a[i*h:i*h+w]**2)) for i in range(max(1,(len(a)-w)//h))])
     return 20*np.log10(rms+1e-9) - 20*np.log10(rms.max()+1e-9)
 
-def letter_split(a, sr, te):
+def is_letter_card(te, cid=None):
+    """Only the alphabet units (u81–u89) have letter cards; "సరే, మర్చిపోదాం." merely looks like one."""
+    return LETTER_CARD.match(te) is not None and (cid is None or re.match(r'u8[1-9]-', cid) is not None)
+
+def letter_split(a, sr, te, cid=None):
     """For a letter card ("అ, అమ్మ."): where the spoken letter ends and how deep the pause
     before the word is. The aligner pins a lone vowel to a couple of frames, so the end is
     the energy dip: the first frame 35 dB under the peak between letter and word, else the
     quietest one. Returns {'letter_end', 'letter_span', 'sep_dip'} or None (not a letter card)."""
-    if not LETTER_CARD.match(te): return None
+    if not is_letter_card(te, cid): return None
     ws = word_spans(a, te)
     if len(ws) < 2: return {'letter_end': 0.0, 'letter_span': 0.0, 'sep_dip': 0.0}
     ls = ws[0][1]; wst = ws[1][1]; hop = 0.005
@@ -123,7 +127,7 @@ def letter_split(a, sr, te):
     le = (lo + k) * hop
     return {'letter_end': round(le,3), 'letter_span': round(le-ls,3), 'sep_dip': round(float(reg.min()),1)}
 
-def measure(a, sr, te):
+def measure(a, sr, te, cid=None):
     txt = roman(te)
     spans = align(a, txt)
     env_s, env_e = envelope(a, sr)
@@ -131,7 +135,7 @@ def measure(a, sr, te):
     out = {'buzz': buzz_spans(a, sr),'te':te,'roman':txt,'env':[round(env_s,3),round(env_e,3)],'first_char':round(first_s,3),'last_char':round(last_s,3),
             'head_extra':round(first_s-env_s,3),'tail_extra':round(env_e-last_s,3),'conf':round(float(np.mean([s[3] for s in spans])),3),
             'min_conf':round(float(min(s[3] for s in spans)),3)}
-    sep = letter_split(a, sr, te)
+    sep = letter_split(a, sr, te, cid)
     if sep: out.update(sep)
     return out
 

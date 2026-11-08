@@ -1,16 +1,16 @@
 {
- "u81-i05": {
-  "te": "ఉ. ఉడుత.",
-  "tail_before": 0.144,
-  "tail_after": 0.078,
-  "conf_before": 0.718,
-  "conf_after": 0.737
+ "u81-i12": {
+  "te": "అ, ఆ. ఇ, ఈ. ఉ, ఊ.",
+  "tail_before": 0.156,
+  "tail_after": 0.109,
+  "conf_before": 0.808,
+  "conf_after": 0.772
  },
- "u89-i01": {
-  "te": "క. అక్క.",
-  "tail_before": 0.151,
-  "tail_after": 0.092,
-  "conf_before": 0.972,
-  "conf_after": 0.957
+ "u86-i13": {
+  "te": "క, చ, ట, త, ప.",
+  "tail_before": 0.2,
+  "tail_after": 0.093,
+  "conf_before": 0.851,
+  "conf_after": 0.848
  }
 }

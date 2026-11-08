@@ -21,7 +21,7 @@ if args.batch:
     with tempfile.TemporaryDirectory() as tmp:
         for j in jobs:
             try:
-                a, sr = load16(j['wav'], tmp); out[j['id']] = measure(a, sr, j['text'])
+                a, sr = load16(j['wav'], tmp); out[j['id']] = measure(a, sr, j['text'], j['id'])
             except Exception as e:
                 out[j['id']] = {'error': str(e)[:120]}
     print(json.dumps(out, ensure_ascii=False)); sys.exit(0)
@@ -35,7 +35,7 @@ with tempfile.TemporaryDirectory() as tmp:
             cid = fn[:-4]; te = items.get(cid)
             if te is None: continue
             try:
-                a, sr = load16(os.path.join(d,fn), tmp); rows[cid] = measure(a, sr, te)
+                a, sr = load16(os.path.join(d,fn), tmp); rows[cid] = measure(a, sr, te, cid)
             except Exception as e:
                 rows[cid] = {'te':te,'error':str(e)[:80]}; continue
             if (k+1)%100==0: print(f'  {v} {k+1}/{len(files)}', flush=True)

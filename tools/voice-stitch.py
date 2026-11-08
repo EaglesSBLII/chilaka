@@ -50,7 +50,7 @@ with tempfile.TemporaryDirectory() as tmp:
             if len(ws) < 2: cache[letter] = (None, f'{cid}: alignment found {len(ws)} words'); return cache[letter]
             (lw, ls, le, lc), (ww, wst, _, _) = ws[0], ws[1]
             env_s, _ = envelope(a16, 16000)
-            sep = letter_split(a16, 16000, spoken); le = sep['letter_end']; gap = wst - le
+            sep = letter_split(a16, 16000, spoken, cid); le = sep['letter_end']; gap = wst - le
             if sep['letter_span'] < MIN_SPAN or sep['sep_dip'] > MAX_DIP:
                 cache[letter] = (None, f'{cid}: letter {letter} not spoken separately (span {sep["letter_span"]:.2f}s, dip {sep["sep_dip"]:.0f} dB)'); return cache[letter]
             s = max(0.0, min(env_s, ls) - 0.02); e = le
