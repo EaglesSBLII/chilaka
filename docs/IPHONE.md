@@ -9,7 +9,7 @@ Everything on iPhone is free. The one difference from the Mac app: **speaking
 practice uses "echo mode"** (record yourself, play it back against the native
 reference, self-grade) instead of AI pronunciation scoring. The AI word-by-word
 feedback needs the desktop speech engine and lives in the Mac app. Everything
-else — all lessons, listening, word-bank, typing, review, streaks, dialogues —
+else — all lessons, listening, word-bank, typing, games, streaks, dialogues —
 is identical.
 
 ## Why it needs a link (not just AirDrop)
@@ -59,7 +59,7 @@ If you've already been learning on the Mac and want to continue on your phone:
 1. Mac: **Settings → Backup & sync → Export backup** → AirDrop the file to your iPhone.
 2. iPhone: open Chilaka → **Settings → Backup & sync → Import backup** → pick the file.
 
-Your streak, XP, level, and review deck all carry over. (There's no automatic
+Your streak, XP, level, coins and game progress all carry over. (There's no automatic
 cloud sync — this keeps everything private on your devices. Re-export whenever you
 want to move progress again.)
 

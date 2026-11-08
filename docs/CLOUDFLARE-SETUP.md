@@ -53,7 +53,7 @@ app with sync built in and verifies the live deployment end-to-end.
 2. Send the code to your phone (iMessage to yourself works).
 3. iPhone Chilaka → **Settings → 🔄 Sync** → paste → **Pair**.
 
-That's it. From then on your streak, XP, lessons, and review deck stay
+That's it. From then on your streak, XP, lessons, and game progress stay
 identical on both, automatically, in both directions.
 
 ## What lives where (privacy)

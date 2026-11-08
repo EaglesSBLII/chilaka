@@ -6,19 +6,30 @@ import { Mic, Square } from 'lucide-react';
 import { platform } from '../../platform';
 import { mic, type Recording } from '../../platform/recorder';
 import { getActiveVoice, playItemAudio, playItemAudioAfterPause, playUrl, stopItemAudio } from '../../audio';
-import { scoreSpeechCalibrated } from '../../engine/speech/align';
+import { scoreSpeechCalibrated, transcriptLooksUnreliable } from '../../engine/speech/align';
 import { asrHintFor } from '../../engine/speech/hint';
 import { unitById } from '../../content/load';
 import { useApp } from '../../store';
 import refsFemale from '../../content/reference-transcripts-female.json';
 import refsMale from '../../content/reference-transcripts-male.json';
+import webRefsFemale from '../../content/reference-transcripts-web-female.json';
+import webRefsMale from '../../content/reference-transcripts-web-male.json';
 import type { SpeakResult } from '../../engine/types';
 import { Button, Card } from '../../components/ui';
 import type { ExerciseProps } from './shared';
 import { SentenceDisplay } from './shared';
 
-// what the recognizer hears in each voice's own reference clip — calibration per voice
-const REFS: Record<string, Record<string, string>> = { female: refsFemale, male: refsMale };
+// What the recognizer hears in each voice's own reference clip — calibration per
+// voice AND per recognizer: the Mac grades with whisper medium (Telugu GGML),
+// the phone with Workers AI whisper-large-v3-turbo, and they mishear
+// differently. Items not yet measured for the web fall back to the Mac set.
+const DESKTOP_REFS: Record<string, Record<string, string>> = { female: refsFemale, male: refsMale };
+const WEB_REFS: Record<string, Record<string, string>> = { female: webRefsFemale, male: webRefsMale };
+function referenceTranscript(itemId: string): string | undefined {
+  const voice = getActiveVoice();
+  if (platform.kind === 'web') return WEB_REFS[voice]?.[itemId] ?? DESKTOP_REFS[voice]?.[itemId];
+  return DESKTOP_REFS[voice]?.[itemId];
+}
 
 type Mode = 'loading' | 'asr' | 'echo';
 type Stage = 'idle' | 'recording' | 'scoring' | 'result';
@@ -88,7 +99,18 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
     else setMicTip(null);
     if (mode === 'asr') {
       setStage('scoring');
-      const res = await platform.transcribe(rec.wav, { prompt: asrHintFor(item, unitById(item.id.split('-')[0])) });
+      let res = await platform.transcribe(rec.wav, { prompt: asrHintFor(item, unitById(item.id.split('-')[0])) });
+      if (res.ok && transcriptLooksUnreliable(item.te, res.text)) {
+        // the recognizer ran away with the lesson prompt — once more without it
+        const plain = await platform.transcribe(rec.wav, {});
+        if (plain.ok) res = plain;
+      }
+      if (res.ok && transcriptLooksUnreliable(item.te, res.text)) {
+        // still nonsense: never grade it, just ask for another take
+        setStage('idle');
+        setError("Chikki couldn't make that out — try once more, a little closer to the mic.");
+        return;
+      }
       if (!res.ok) {
         if (platform.kind === 'web') {
           // can't reach the scorer — degrade to echo self-grading, but SAY so
@@ -101,7 +123,7 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         setStage('idle');
         return;
       }
-      const scored = scoreSpeechCalibrated(item.te, res.text, REFS[getActiveVoice()]?.[item.id]);
+      const scored = scoreSpeechCalibrated(item.te, res.text, referenceTranscript(item.id));
       setResult(scored);
       setStage('result');
       if (scored.pass) void useApp.getState().recordSpeak();

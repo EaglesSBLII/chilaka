@@ -3,6 +3,7 @@ import {
   alignWords,
   scoreSpeech,
   scoreSpeechCalibrated,
+  transcriptLooksUnreliable,
   SENTENCE_PASS_CREDIT,
 } from '../../src/engine/speech/align';
 
@@ -114,5 +115,37 @@ describe('scoreSpeechCalibrated', () => {
   it('still fails when neither target nor reference match', () => {
     const r = scoreSpeechCalibrated('nenu bagunnanu', 'poyindi', 'nenu bagunnanu');
     expect(r.pass).toBe(false);
+  });
+});
+
+describe('transcriptLooksUnreliable', () => {
+  const HALLUCINATION =
+    'ెసల్నా వెగున. సమోనాన్నానగు. లోెన్నా పలునా ఇవదల నంల్నారాశనానానా శిట్నానానా అందినా సినాఴినానాలు. సమునాకలు సివకునాలు. సము';
+
+  it('flags a runaway transcript of a two-word phrase', () => {
+    expect(transcriptLooksUnreliable('శుభోదయం, అంకుల్!', HALLUCINATION)).toBe(true);
+  });
+
+  it('accepts an ordinary mishearing and a sibling phrase', () => {
+    expect(transcriptLooksUnreliable('శుభోదయం, అంకుల్!', 'శ్వదాయమ ంగ్కుల్')).toBe(false);
+    expect(transcriptLooksUnreliable('నేను బాగున్నాను.', 'నేను కూడా బాగున్నారు')).toBe(false);
+    expect(transcriptLooksUnreliable('నమస్కారం', 'నమస్కారం అండి')).toBe(false);
+  });
+
+  it('never flags silence or an empty target', () => {
+    expect(transcriptLooksUnreliable('నమస్కారం', '')).toBe(false);
+    expect(transcriptLooksUnreliable('', HALLUCINATION)).toBe(false);
+  });
+});
+
+describe('web recognizer mishearings of the first lessons', () => {
+  it('a learner matching what Workers AI hears in our own clip passes via calibration', () => {
+    // large-v3-turbo hears the native female clip of u01-i02 as "బాగు నను"
+    const r = scoreSpeechCalibrated('నేను బాగున్నాను.', 'నేను బాగు నను', 'నేను బాగు నను');
+    expect(r.pass).toBe(true);
+  });
+  it('the common -nu/-ru confusion still passes against the target alone', () => {
+    expect(scoreSpeech('నేను బాగున్నాను.', 'నేను బాగున్నారు').pass).toBe(true);
+    expect(scoreSpeech('అవును', 'అవును.').pass).toBe(true);
   });
 });

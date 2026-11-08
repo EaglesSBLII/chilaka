@@ -119,3 +119,19 @@ export function scoreSpeechCalibrated(
   }
   return vsTarget;
 }
+
+/**
+ * A transcript the recognizer plainly ran away with: many more words or letters
+ * than any reading of the target could contain. Whisper does this on short
+ * clips now and then (it keeps "hearing" after the phrase ends), and grading
+ * such output would fail a learner who said the phrase perfectly. Callers
+ * retry without the lesson prompt, then ask for another take.
+ */
+export function transcriptLooksUnreliable(targetSentence: string, transcript: string): boolean {
+  const target = foldWords(targetSentence);
+  const said = foldWords(transcript);
+  if (target.length === 0 || said.length === 0) return false;
+  const targetChars = target.join('').length;
+  const saidChars = said.join('').length;
+  return said.length > target.length * 3 + 3 || saidChars > targetChars * 4 + 12;
+}

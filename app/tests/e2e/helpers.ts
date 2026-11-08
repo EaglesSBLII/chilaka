@@ -199,3 +199,57 @@ export async function completeLesson(page: Page, maxSteps = 40): Promise<void> {
   }
   await expect(page.getByText('Lesson complete!')).toBeVisible();
 }
+
+// ---- Chikki's games: solve rounds from the data attributes the games expose ----
+
+/** Feed Chikki: tap the fruit that carries the prompted phrase until the summary shows. */
+export async function playFeedRound(page: Page, maxPrompts = 12): Promise<void> {
+  for (let i = 0; i < maxPrompts; i++) {
+    if (await page.getByTestId('game-summary').isVisible().catch(() => false)) return;
+    const board = page.getByTestId('game-feed');
+    await board.waitFor({ state: 'visible', timeout: 10_000 });
+    const step = await board.getAttribute('data-step');
+    const id = await board.getAttribute('data-prompt-item');
+    await board.locator(`button[data-item-id="${id}"]`).click();
+    // wait for the next prompt (or the summary) before reading again
+    await expect
+      .poll(async () => (await page.getByTestId('game-summary').isVisible().catch(() => false)) || (await board.getAttribute('data-step').catch(() => null)) !== step, {
+        timeout: 10_000,
+      })
+      .toBe(true);
+  }
+}
+
+/** Pair Pop: tap each Telugu tile and then its meaning until the board is empty. */
+export async function playPairsRound(page: Page, maxPairs = 20): Promise<void> {
+  const board = page.getByTestId('game-pairs');
+  await board.locator('button[data-side="te"]').first().waitFor({ timeout: 10_000 });
+  for (let i = 0; i < maxPairs; i++) {
+    if (await page.getByTestId('game-summary').isVisible().catch(() => false)) return;
+    const left = board.locator('button[data-side="te"]').first();
+    if ((await left.count()) === 0) return;
+    const id = await left.getAttribute('data-item-id');
+    const matched = await board.getAttribute('data-matched');
+    await left.click();
+    await board.locator(`button[data-side="gloss"][data-item-id="${id}"]`).click();
+    await expect
+      .poll(async () => (await page.getByTestId('game-summary').isVisible().catch(() => false)) || (await board.getAttribute('data-matched').catch(() => null)) !== matched, {
+        timeout: 10_000,
+      })
+      .toBe(true);
+  }
+}
+
+/** Memory Flip: flip both cards of each phrase in turn. */
+export async function playMemoryRound(page: Page): Promise<void> {
+  const board = page.getByTestId('game-memory');
+  const ids = await board.locator('button[data-face="te"]').evaluateAll((els) => els.map((e) => e.getAttribute('data-item-id')!));
+  for (const id of ids) {
+    const found = await board.getAttribute('data-found');
+    const te = board.locator(`button[data-item-id="${id}"][data-face="te"]`);
+    await te.click();
+    await expect(te).toHaveAttribute('data-up', 'true');
+    await board.locator(`button[data-item-id="${id}"][data-face="gloss"]`).click();
+    await expect.poll(async () => board.getAttribute('data-found').catch(() => null), { timeout: 10_000 }).not.toBe(found);
+  }
+}

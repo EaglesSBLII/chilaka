@@ -1,5 +1,5 @@
 // App chrome: the top bar (goal ring, coins, streak) and the floating tab bar.
-import { Flame, Home, Layers, Settings as SettingsIcon, Target, Bird, type LucideIcon } from 'lucide-react';
+import { Flame, Gamepad2, Home, Settings as SettingsIcon, Target, Bird, type LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useApp, useDailyGoal, useDueCount, useStreakStanding, type View } from '../store';
 import { Mascot } from './Mascot';
@@ -51,7 +51,7 @@ export function Header() {
 
 const TABS: { key: View['name']; label: string; Icon: LucideIcon; to: View }[] = [
   { key: 'path', label: 'Learn', Icon: Home, to: { name: 'path' } },
-  { key: 'review', label: 'Review', Icon: Layers, to: { name: 'review' } },
+  { key: 'play', label: 'Play', Icon: Gamepad2, to: { name: 'play' } },
   { key: 'quests', label: 'Quests', Icon: Target, to: { name: 'quests' } },
   { key: 'profile', label: 'Profile', Icon: Bird, to: { name: 'profile' } },
   { key: 'settings', label: 'Settings', Icon: SettingsIcon, to: { name: 'settings' } },
@@ -63,14 +63,15 @@ export function Nav() {
   const due = useDueCount();
   const quests = useApp((s) => s.quests);
   const claimable = quests.filter((q) => q.progress >= q.target && !q.claimedAt).length;
-  // shop and badges live under their parent tabs for highlighting
-  const active = view.name === 'shop' ? 'profile' : view.name === 'badges' ? 'profile' : view.name;
+  // shop and badges live under their parent tabs for highlighting; a running game under Play
+  const active = view.name === 'shop' ? 'profile' : view.name === 'badges' ? 'profile' : view.name === 'game' ? 'play' : view.name;
   return (
     <nav className="fixed inset-x-0 bottom-3 z-30 px-4 pb-[env(safe-area-inset-bottom)]">
       <div className="glass mx-auto flex max-w-md rounded-[26px] p-1.5">
         {TABS.map(({ key, label, Icon, to }) => {
           const on = active === key;
-          const badge = key === 'review' ? due : key === 'quests' ? claimable : 0;
+          // Play shows how many phrases are ready for a round (capped so it stays a nudge, not a chore)
+          const badge = key === 'play' ? Math.min(due, 20) : key === 'quests' ? claimable : 0;
           return (
             <button
               key={key}

@@ -56,7 +56,7 @@ export interface XpEventRow {
   id?: number;
   ts: string;
   amount: number;
-  source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus';
+  source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus' | 'game';
   refId: string;
   day: string; // local YYYY-MM-DD at time of earning
 }

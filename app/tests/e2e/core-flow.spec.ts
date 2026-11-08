@@ -1,11 +1,11 @@
 // The main product journey in one continuous session (IndexedDB state is
 // per-context, so the steps share one page): onboard → lesson → XP/streak →
-// reload persistence → review → backup round-trip.
+// reload persistence → a game round → backup round-trip.
 
 import { expect, test } from '@playwright/test';
-import { completeLesson, completeOnboarding, wipeState } from './helpers';
+import { completeLesson, completeOnboarding, playFeedRound, wipeState } from './helpers';
 
-test('full learner journey: onboard, learn, persist, review, backup', async ({ page }) => {
+test('full learner journey: onboard, learn, persist, play, backup', async ({ page }) => {
   await test.step('onboarding creates a profile and lands on the path', async () => {
     await wipeState(page);
     await completeOnboarding(page, 'Ravi');
@@ -29,12 +29,13 @@ test('full learner journey: onboard, learn, persist, review, backup', async ({ p
     await expect(page.getByRole('button', { name: /lesson 1/i }).first()).toContainText('✓');
   });
 
-  await test.step('review deck has cards and the review flow works', async () => {
-    await page.getByRole('button', { name: 'Review' }).click();
-    await expect(page.getByText(/^1 \/ \d+/)).toBeVisible();
-    await page.getByRole('button', { name: 'Show answer' }).click();
-    await page.getByRole('button', { name: 'Good' }).click();
-    await expect(page.getByText(/Reviewed \d+ cards!|2 \/ \d+/).first()).toBeVisible();
+  await test.step('the lesson unlocked the games and a round can be played', async () => {
+    await page.getByRole('button', { name: 'Play' }).click();
+    await expect(page.getByTestId('play-hub')).toHaveAttribute('data-learned', /^[1-9]/);
+    await page.getByRole('button', { name: 'Play Feed Chikki' }).click();
+    await playFeedRound(page);
+    await expect(page.getByTestId('game-summary')).toBeVisible();
+    await page.getByRole('button', { name: 'Done' }).click();
   });
 
   let backupPath: string;

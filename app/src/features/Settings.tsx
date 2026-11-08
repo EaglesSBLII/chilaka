@@ -454,7 +454,7 @@ function SyncCard({ flash }: { flash: (msg: string) => void }) {
     <Card>
       <h3 className="mb-1 font-extrabold">🔄 Sync between devices</h3>
       <p className="mb-3 text-sm font-semibold text-ink-soft">
-        Sync is on automatically — your streak, XP, and review deck stay identical on every paired device. AI speech
+        Sync is on automatically — your streak, XP, coins and game progress stay identical on every paired device. AI speech
         grading on the phone rides on it too.
       </p>
 

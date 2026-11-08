@@ -17,6 +17,7 @@ import { balance, COINS, earnedTotal, MILESTONES, ownedSkus, skuById, type CoinE
 import { bump, claim, dailyQuests, isComplete, type Quest, type QuestKind } from './engine/quests';
 import { evaluateBadges, newlyEarned, reconcileBadges, type BadgeRow, type BadgeStats } from './engine/badges';
 import type { LessonRewards } from './engine/rewards';
+import { ratingForOutcome, REWARDED_ROUNDS_PER_DAY, roundCoins, roundXp, type GameId, type RoundResult } from './engine/games';
 import type { Session } from './auth';
 
 export type View =
@@ -25,13 +26,25 @@ export type View =
   | { name: 'path' }
   | { name: 'lesson'; unitId: string; lessonId: string }
   | { name: 'dialogue'; unitId: string }
-  | { name: 'review' }
+  | { name: 'play' }
+  | { name: 'game'; game: GameId }
   | { name: 'profile' }
   | { name: 'settings' }
   | { name: 'quests' }
   | { name: 'shop' }
   | { name: 'badges' }
   | { name: 'auth'; mode?: 'signin' | 'create' | 'recover' };
+
+export interface GameRewards {
+  xp: number;
+  coins: number;
+  /** false once the day's rewarded rounds are used up — the round still counts */
+  rewarded: boolean;
+  roundsToday: number;
+  award: XpAward;
+  questsCompleted: Quest[];
+  badgesEarned: BadgeRow[];
+}
 
 export interface XpAward {
   amount: number;
@@ -60,6 +73,7 @@ interface AppState {
   /** today's quests */
   quests: Quest[];
   badges: BadgeRow[];
+  /** game rounds played (and, historically, flashcards reviewed) */
   reviewCount: number;
   session: Session | null;
 
@@ -81,7 +95,8 @@ interface AppState {
   setScriptMode(m: ScriptMode): Promise<void>;
   setSoundOn(on: boolean): Promise<void>;
   setVoice(v: VoiceId): Promise<void>;
-  awardXp(amount: number, source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus', refId: string): Promise<XpAward>;
+  awardXp(amount: number, source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus' | 'game', refId: string): Promise<XpAward>;
+  finishGameRound(result: RoundResult): Promise<GameRewards>;
   introduceItems(itemIds: string[]): Promise<void>;
   applyReview(itemId: string, rating: Rating): Promise<void>;
   completeLesson(unitId: string, lessonId: string, pct: number, xp: number): Promise<void>;
@@ -242,7 +257,7 @@ export const useApp = create<AppState>((set, get) => ({
     const totalXp = events.reduce((s, e) => s + e.amount, 0);
     const day = today(profile);
     const todayXp = events.filter((e) => e.day === day).reduce((s, e) => s + e.amount, 0);
-    const reviewCount = events.filter((e) => e.source === 'review').length;
+    const reviewCount = events.filter((e) => e.source === 'review' || e.source === 'game').length;
     const coinEvents = await db.coinEvents.toArray();
     let quests = await db.quests.where('day').equals(day).toArray();
     if (quests.length === 0) {
@@ -354,7 +369,7 @@ export const useApp = create<AppState>((set, get) => ({
 
     const totalXp = prevTotal + amount;
     const todayXp = state.todayXp + amount;
-    set({ streak, totalXp, todayXp, reviewCount: state.reviewCount + (source === 'review' ? 1 : 0) });
+    set({ streak, totalXp, todayXp, reviewCount: state.reviewCount + (source === 'review' || source === 'game' ? 1 : 0) });
     if (amount > 0) await get().bumpQuest('earn-xp', amount);
     // every progress event funnels through here — nudge the cross-device sync
     void import('./sync').then(({ sync }) => sync.requestSync());
@@ -392,7 +407,25 @@ export const useApp = create<AppState>((set, get) => ({
     const next = reviewCard(card, rating, new Date());
     await db.srsCards.put(next);
     set({ srsCards: { ...get().srsCards, [itemId]: next } });
-    await get().bumpQuest('review', 1);
+  },
+
+  async finishGameRound(result) {
+    const day = today(get().profile);
+    // the round is recorded as an XP event even when it pays nothing, so the
+    // day's count and the badge stat see every round
+    const played = (await db.xpEvents.toArray()).filter((e) => e.source === 'game' && e.day === day).length;
+    const rewarded = played < REWARDED_ROUNDS_PER_DAY;
+    for (const o of result.outcomes) {
+      if (get().srsCards[o.itemId]) await get().applyReview(o.itemId, ratingForOutcome(o));
+    }
+    const ref = `${result.game}:${new Date().toISOString()}`;
+    const xp = rewarded ? roundXp(result) : 0;
+    const coins = rewarded ? roundCoins(result) : 0;
+    const award = await get().awardXp(xp, 'game', ref);
+    if (coins > 0) await get().grantCoins(coins, 'game', ref);
+    const questsCompleted = await get().bumpQuest('review', 1);
+    const badgesEarned = await get().refreshBadges();
+    return { xp, coins, rewarded, roundsToday: played + 1, award, questsCompleted, badgesEarned };
   },
 
   async completeLesson(unitId, lessonId, pct, xp) {

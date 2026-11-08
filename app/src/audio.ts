@@ -38,10 +38,13 @@ function decodedClip(url: string): Promise<AudioBuffer> {
 }
 
 /** Play a decoded buffer at VOICE_VOLUME; resolves when it ends (or is stopped). */
-function playBuffer(buffer: AudioBuffer, rate = 1): Promise<void> {
+async function playBuffer(buffer: AudioBuffer, rate = 1): Promise<void> {
+  const c = ctx();
+  // iOS suspends the context between gestures and after interruptions (a call,
+  // Siri, the lock screen); a card's autoplay runs outside any gesture, so
+  // wait for the resume instead of starting into a frozen clock
+  if (c.state !== 'running') await c.resume().catch(() => {});
   return new Promise((resolve) => {
-    const c = ctx();
-    if (c.state === 'suspended') void c.resume();
     const src = c.createBufferSource();
     src.buffer = buffer;
     src.playbackRate.value = rate;
@@ -55,6 +58,15 @@ function playBuffer(buffer: AudioBuffer, rate = 1): Promise<void> {
     currentSource = src;
     src.start();
   });
+}
+
+/**
+ * Warm the decode cache for the clips a screen is about to use (a game round, a
+ * dialogue), so the first tap plays instantly and offline-cached clips decode
+ * ahead of time. Failures are ignored; playback has its own fallbacks.
+ */
+export function preloadItemAudio(itemIds: readonly string[], voice: VoiceId = activeVoice): void {
+  for (const id of itemIds) decodedClip(audioFileFor(id, voice)).catch(() => {});
 }
 
 /** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
@@ -161,6 +173,35 @@ export function setSfxEnabled(on: boolean): void {
 function ctx(): AudioContext {
   if (!sfxCtx) sfxCtx = new AudioContext();
   return sfxCtx;
+}
+
+// iOS Safari (and the installed PWA) only lets a context start inside a user
+// gesture, and it suspends again after an interruption. The first tap anywhere
+// creates the context, resumes it and plays one silent frame; later gestures
+// re-resume it when needed, so lesson cards that autoplay after a pause are
+// never silent on the phone.
+function unlockAudio(): void {
+  const c = ctx();
+  if (c.state === 'running') return;
+  void c.resume().catch(() => {});
+  try {
+    const src = c.createBufferSource();
+    src.buffer = c.createBuffer(1, 1, c.sampleRate);
+    src.connect(c.destination);
+    src.start(0);
+  } catch {
+    /* a context that refuses a silent frame will still resume on the next gesture */
+  }
+}
+if (typeof window !== 'undefined') {
+  for (const ev of ['pointerdown', 'touchend', 'keydown'] as const) {
+    window.addEventListener(ev, unlockAudio, { capture: true, passive: true });
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && sfxCtx && sfxCtx.state !== 'running') {
+      void sfxCtx.resume().catch(() => {});
+    }
+  });
 }
 
 function tone(freq: number, start: number, dur: number, type: OscillatorType = 'sine', gain = 0.12): void {

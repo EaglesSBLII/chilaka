@@ -14,6 +14,7 @@ export interface BadgeStats {
   perfectLessons: number;
   longestStreak: number;
   totalXp: number;
+  /** game rounds played (plus flashcards reviewed before the games existed) */
   reviews: number;
   cards: number;
   coinsEarned: number;
@@ -31,7 +32,7 @@ export const BADGES: BadgeDef[] = [
   { id: 'perfectionist', name: 'Perfectionist', blurb: 'Perfect lessons', tiers: [1, 10, 50], stat: 'perfectLessons' },
   { id: 'on-fire', name: 'On fire', blurb: 'Longest streak (days)', tiers: [7, 30, 100], stat: 'longestStreak' },
   { id: 'scholar', name: 'Scholar', blurb: 'Lifetime XP', tiers: [500, 2000, 7500], stat: 'totalXp' },
-  { id: 'reviewer', name: 'Reviewer', blurb: 'Cards reviewed', tiers: [50, 250, 1000], stat: 'reviews' },
+  { id: 'reviewer', name: 'Game master', blurb: 'Game rounds played', tiers: [10, 50, 200], stat: 'reviews' },
   { id: 'wordsmith', name: 'Wordsmith', blurb: 'Phrases learned', tiers: [50, 200, 600], stat: 'cards' },
   { id: 'collector', name: 'Collector', blurb: 'Coins earned', tiers: [500, 2000, 10000], stat: 'coinsEarned' },
   { id: 'trailblazer', name: 'Trailblazer', blurb: 'Units completed', tiers: [4, 16, 40], stat: 'unitsDone' },

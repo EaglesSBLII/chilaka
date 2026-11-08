@@ -1,5 +1,5 @@
 // Achievements grid: 8 badges, 3 tiers each, with progress to the next tier.
-import { Award, Flame, Gem, GraduationCap, Layers, Map, Sparkles, Star, type LucideIcon } from 'lucide-react';
+import { Award, Flame, Gamepad2, Gem, GraduationCap, Map, Sparkles, Star, type LucideIcon } from 'lucide-react';
 import { useApp, useBadgeStats } from '../store';
 import { Card, Ring } from '../components/ui';
 import { BADGES, tierProgress } from '../engine/badges';
@@ -9,7 +9,7 @@ const ICONS: Record<string, LucideIcon> = {
   perfectionist: Sparkles,
   'on-fire': Flame,
   scholar: GraduationCap,
-  reviewer: Layers,
+  reviewer: Gamepad2,
   wordsmith: Award,
   collector: Gem,
   trailblazer: Map,

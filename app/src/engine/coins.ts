@@ -2,7 +2,7 @@
 // an append-only ledger (coinEvents) so two devices can merge without fights.
 import { rngFromSeed } from './rng';
 
-export type CoinKind = 'lesson' | 'perfect' | 'goal' | 'milestone' | 'quest' | 'badge' | 'spend';
+export type CoinKind = 'lesson' | 'perfect' | 'goal' | 'milestone' | 'quest' | 'badge' | 'game' | 'spend';
 
 export interface CoinEvent {
   id?: number;

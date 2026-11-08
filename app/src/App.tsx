@@ -3,7 +3,8 @@ import { useApp } from './store';
 import { Path } from './features/Path';
 import { LessonPlayer } from './features/LessonPlayer';
 import { DialoguePlayer } from './features/DialoguePlayer';
-import { Review } from './features/Review';
+import { Play } from './features/Play';
+import { GameShell } from './features/games/GameShell';
 import { Profile } from './features/Profile';
 import { Settings } from './features/Settings';
 import { Onboarding } from './features/Onboarding';
@@ -96,6 +97,7 @@ export function App() {
   if (view.name === 'placement') return <Placement />;
   if (view.name === 'lesson') return <LessonPlayer unitId={view.unitId} lessonId={view.lessonId} />;
   if (view.name === 'dialogue') return <DialoguePlayer unitId={view.unitId} />;
+  if (view.name === 'game') return <GameShell game={view.game} />;
 
   return (
     <div className="min-h-screen pb-24">
@@ -104,7 +106,7 @@ export function App() {
       <main className="mx-auto max-w-2xl px-4 py-6">
         <PageTransition id={view.name}>
           {view.name === 'path' && <Path />}
-          {view.name === 'review' && <Review />}
+          {view.name === 'play' && <Play />}
           {view.name === 'quests' && <Quests />}
           {view.name === 'shop' && <Shop />}
           {view.name === 'badges' && <Badges />}

@@ -3,6 +3,9 @@
 import { rngFromSeed, shuffled } from './rng';
 import { chestReward } from './coins';
 
+// 'review' is the stored id of the game-rounds quest: it counted flashcards
+// before Chikki's games replaced the review tab, and keeping the id keeps every
+// device's quest list for the day in agreement.
 export type QuestKind = 'earn-xp' | 'lessons' | 'perfect' | 'review' | 'speak';
 
 export interface Quest {
@@ -24,7 +27,7 @@ const TEMPLATES: Template[] = [
   { kind: 'earn-xp', targets: [30, 50] },
   { kind: 'lessons', targets: [2] },
   { kind: 'perfect', targets: [1] },
-  { kind: 'review', targets: [10] },
+  { kind: 'review', targets: [3] },
   { kind: 'speak', targets: [5] },
 ];
 
@@ -37,7 +40,7 @@ export function questTitle(q: Pick<Quest, 'kind' | 'target'>): string {
     case 'perfect':
       return 'Get a perfect lesson';
     case 'review':
-      return `Review ${q.target} cards`;
+      return `Play ${q.target} game round${q.target === 1 ? '' : 's'}`;
     case 'speak':
       return `Speak ${q.target} sentences`;
   }

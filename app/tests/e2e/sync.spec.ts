@@ -3,7 +3,7 @@
 // server is an in-memory mock shared by both browser contexts.
 
 import { expect, test, type BrowserContext, type Page } from '@playwright/test';
-import { completeLesson, completeOnboarding, wipeState } from './helpers';
+import { completeLesson, completeOnboarding, playFeedRound, wipeState } from './helpers';
 import { SYNC_ENDPOINT } from '../../src/sync-config';
 
 const ENDPOINT = 'https://sync.chilaka.test';
@@ -98,15 +98,16 @@ test('progress made on either device merges to both', async ({ browser }) => {
   await b.getByRole('button', { name: 'Profile' }).click();
   await expect(b.getByRole('heading', { name: 'Ravi' })).toBeVisible(); // original identity survives pairing
 
-  // ---- device B practices: review one card, sync back ----
-  await b.getByRole('button', { name: 'Review' }).click();
-  await expect(b.getByText(/^1 \/ \d+/)).toBeVisible();
-  await b.getByRole('button', { name: 'Show answer' }).click();
-  await b.getByRole('button', { name: 'Good', exact: true }).click();
+  // ---- device B practices: one game round, sync back ----
+  await b.getByRole('button', { name: 'Play' }).click();
+  await b.getByRole('button', { name: 'Play Feed Chikki' }).click();
+  await playFeedRound(b);
+  await expect(b.getByTestId('game-summary')).toBeVisible();
+  await b.getByRole('button', { name: 'Done' }).click();
   await syncNow(b);
   const revAfterB = kv.get(KEY)!.rev;
 
-  // ---- device A pulls B's review ----
+  // ---- device A pulls B's round ----
   const xpBeforeA = await a.evaluate(() => {
     const el = document.querySelector('header');
     return el?.textContent ?? '';
@@ -115,7 +116,7 @@ test('progress made on either device merges to both', async ({ browser }) => {
   await a.getByRole('button', { name: 'Home' }).click();
   const xpAfterA = await a.evaluate(() => document.querySelector('header')?.textContent ?? '');
   expect(kv.get(KEY)!.rev).toBeGreaterThanOrEqual(revAfterB);
-  expect(xpAfterA).not.toBe(xpBeforeA); // B's review XP arrived
+  expect(xpAfterA).not.toBe(xpBeforeA); // B's game XP arrived
 
   await ctxA.close();
   await ctxB.close();
