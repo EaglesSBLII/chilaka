@@ -39,7 +39,10 @@ const ROUNDS = Number(arg('--rounds', 3));
 // was clean in every audition. The female reference is fine at the faster settings.
 const NFE = Number(arg('--nfe', VOICE === 'male' ? 32 : 16));
 const SPEED = Number(arg('--speed', VOICE === 'male' ? 1.0 : 0.92));
+const MIN_GEN = Number(arg('--min-gen', 1.4)); // floor (s) of generated speech for one-word items
 const SIM_PASS = 0.7;
+// single words must come back whole (ఒకటి heard as ఒక is a 0.75 — not good enough)
+const passSim = (te) => (fold(te).split(' ').filter(Boolean).length <= 1 ? 0.92 : SIM_PASS);
 const OUT_DIR = join(ROOT, `app/public/audio/v-${VOICE}`);
 const REF_WAV = join(__dirname, 'voice-ref', `${VOICE}.wav`);
 const REF_TEXT = readFileSync(join(__dirname, 'voice-ref', `${VOICE}.txt`), 'utf8').trim();
@@ -125,7 +128,7 @@ function runPython(jobs, round){
   const manifest=join(tmp,`manifest-${round}.json`);
   writeFileSync(manifest,JSON.stringify({jobs}));
   const dir=join(tmp,`takes-${round}`);
-  execFileSync(PYTHON,[WORKER,manifest,dir,'--ref',REF_WAV,'--ref-text',REF_TEXT,'--nfe',String(NFE),'--speed',String(SPEED)],
+  execFileSync(PYTHON,[WORKER,manifest,dir,'--ref',REF_WAV,'--ref-text',REF_TEXT,'--nfe',String(NFE),'--speed',String(SPEED),'--min-gen',String(MIN_GEN)],
     {stdio:['ignore','inherit','inherit'],env:{...process.env,PATH:`${dirname(FFMPEG)}:${process.env.PATH}`}});
   return dir;
 }
@@ -148,7 +151,7 @@ for(let round=0; round<ROUNDS && pending.length>0; round++){
     const score=sim(p.te,heard)+(firstWordOk(p.te,heard)?0.25:0);
     const prev=best.get(p.id);
     if(!prev||score>prev.score)best.set(p.id,{score,wavPath:cleanPath,heard});
-    if(!(firstWordOk(p.te,heard)&&sim(p.te,heard)>=SIM_PASS))next.push(p);
+    if(!(firstWordOk(p.te,heard)&&sim(p.te,heard)>=passSim(p.te)))next.push(p);
   }
   pending=next;
   console.log(`  round ${round+1} done: ${pending.length} still flagged`);
@@ -168,7 +171,7 @@ for(const it of todo){
   encodeM4a(polished,join(OUT_DIR,`${it.id}.m4a`));
   refs[it.id]=b.heard;
   encoded++;
-  if(!(sim(it.te,b.heard)>=SIM_PASS&&firstWordOk(it.te,b.heard)))flagged.push({id:it.id,te:it.te,heard:b.heard,score:Number(b.score.toFixed(2))});
+  if(!(sim(it.te,b.heard)>=passSim(it.te)&&firstWordOk(it.te,b.heard)))flagged.push({id:it.id,te:it.te,heard:b.heard,score:Number(b.score.toFixed(2))});
 }
 rmSync(tmp,{recursive:true,force:true});
 

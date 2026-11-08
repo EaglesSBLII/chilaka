@@ -13,6 +13,49 @@ export function getActiveVoice(): VoiceId {
   return activeVoice;
 }
 let current: HTMLAudioElement | null = null;
+let currentSource: AudioBufferSourceNode | null = null;
+
+// Decoded clips. Playing through WebAudio (not <audio>) keeps iOS from
+// treating a one-second phrase as "media": no Now Playing card on the lock
+// screen, no play/pause widget in Control Center.
+const bufferCache = new Map<string, Promise<AudioBuffer>>();
+const BUFFER_CACHE_MAX = 240;
+
+function decodedClip(url: string): Promise<AudioBuffer> {
+  let p = bufferCache.get(url);
+  if (!p) {
+    p = fetch(url)
+      .then((r) => {
+        if (!r.ok) throw new Error(`clip ${r.status}`);
+        return r.arrayBuffer();
+      })
+      .then((bytes) => ctx().decodeAudioData(bytes));
+    p.catch(() => bufferCache.delete(url));
+    bufferCache.set(url, p);
+    if (bufferCache.size > BUFFER_CACHE_MAX) bufferCache.delete(bufferCache.keys().next().value!);
+  }
+  return p;
+}
+
+/** Play a decoded buffer at VOICE_VOLUME; resolves when it ends (or is stopped). */
+function playBuffer(buffer: AudioBuffer, rate = 1): Promise<void> {
+  return new Promise((resolve) => {
+    const c = ctx();
+    if (c.state === 'suspended') void c.resume();
+    const src = c.createBufferSource();
+    src.buffer = buffer;
+    src.playbackRate.value = rate;
+    const g = c.createGain();
+    g.gain.value = VOICE_VOLUME;
+    src.connect(g).connect(c.destination);
+    src.onended = () => {
+      if (currentSource === src) currentSource = null;
+      resolve();
+    };
+    currentSource = src;
+    src.start();
+  });
+}
 
 /** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
 export const VOICE_VOLUME = 0.55;
@@ -41,21 +84,36 @@ export function playItemAudioAfterPause(itemId: string, slow = false): () => voi
 export function stopItemAudio(): void {
   current?.pause();
   current = null;
+  try {
+    currentSource?.stop();
+  } catch {
+    /* already ended */
+  }
+  currentSource = null;
 }
 
 /** Play an item's pre-rendered audio in the chosen voice (or a specific one). slow=true stretches to 0.72x. */
 export function playItemAudio(itemId: string, slow = false, voice: VoiceId = activeVoice): Promise<void> {
   return new Promise((resolve) => {
     const start = (v: VoiceId, onFail: () => void) => {
-      current?.pause();
-      const el = new Audio(audioFileFor(itemId, v));
-      current = el;
-      el.volume = VOICE_VOLUME;
-      el.playbackRate = slow ? 0.72 : 1;
-      if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
-      el.onended = () => resolve();
-      el.onerror = onFail;
-      void el.play().catch(() => resolve());
+      stopItemAudio();
+      const url = audioFileFor(itemId, v);
+      if (slow) {
+        // slow mode needs pitch-preserving time stretch, which only <audio> offers
+        const el = new Audio(url);
+        current = el;
+        el.volume = VOICE_VOLUME;
+        el.playbackRate = 0.72;
+        if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
+        el.onended = () => resolve();
+        el.onerror = onFail;
+        void el.play().catch(() => resolve());
+        return;
+      }
+      decodedClip(url).then(
+        (buf) => playBuffer(buf).then(resolve),
+        () => onFail(),
+      );
     };
     // a clip missing in one voice falls back to the other, then to live TTS (desktop)
     start(voice, () => start(otherVoice(voice), () => void fallbackSpeak(itemId).finally(resolve)));
@@ -71,30 +129,24 @@ async function fallbackSpeak(itemId: string): Promise<void> {
   await playWavBytes(wav);
 }
 
-export function playWavBytes(wav: ArrayBuffer): Promise<void> {
-  return new Promise((resolve) => {
-    const url = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
-    const el = new Audio(url);
-    el.volume = VOICE_VOLUME;
-    el.onended = () => {
-      URL.revokeObjectURL(url);
-      resolve();
-    };
-    el.onerror = () => {
-      URL.revokeObjectURL(url);
-      resolve();
-    };
-    void el.play().catch(() => resolve());
-  });
+export async function playWavBytes(wav: ArrayBuffer): Promise<void> {
+  try {
+    const buf = await ctx().decodeAudioData(wav.slice(0));
+    await playBuffer(buf);
+  } catch {
+    /* undecodable: stay silent rather than crash the exercise */
+  }
 }
 
-export function playUrl(url: string): Promise<void> {
-  return new Promise((resolve) => {
-    const el = new Audio(url);
-    el.onended = () => resolve();
-    el.onerror = () => resolve();
-    void el.play().catch(() => resolve());
-  });
+/** Play a short recording (e.g. the learner's own take) without a media session. */
+export async function playUrl(url: string): Promise<void> {
+  try {
+    const bytes = await (await fetch(url)).arrayBuffer();
+    const buf = await ctx().decodeAudioData(bytes);
+    await playBuffer(buf);
+  } catch {
+    /* ignore */
+  }
 }
 
 // ---- SFX: tiny synthesized cues, no asset files ----

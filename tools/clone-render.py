@@ -20,6 +20,7 @@ ap.add_argument('--ref', required=True); ap.add_argument('--ref-text', required=
 ap.add_argument('--nfe', type=int, default=32)        # diffusion steps: 32 = model default
 ap.add_argument('--speed', type=float, default=1.0)   # <1 slows the delivery (teacher pace)
 ap.add_argument('--cfg', type=float, default=2.0)
+ap.add_argument('--min-gen', type=float, default=1.4)  # floor (s) of generated speech for very short texts
 args = ap.parse_args()
 os.makedirs(args.outdir, exist_ok=True)
 
@@ -28,15 +29,25 @@ t0 = time.time()
 model = AutoModel.from_pretrained('ai4bharat/IndicF5', trust_remote_code=True)
 model.ema_model.to(device); model.vocoder.to(device)
 ref_audio, ref_text = preprocess_ref_audio_text(args.ref, args.ref_text, show_info=lambda *a, **k: None)
+ref_sec = sf.info(ref_audio).duration
 print(f'model ready in {time.time()-t0:.0f}s on {device}; nfe={args.nfe} speed={args.speed}', flush=True)
 
 jobs = json.load(open(args.manifest))['jobs']
 for i, job in enumerate(jobs):
     torch.manual_seed(int(job.get('seed', 1234)))
+    text = job['text'].strip()
+    # Single words: the model's duration guess is too short and it swallows the
+    # last syllable (ఒకటి → "oka"). End the text like a sentence and give the
+    # generation a floor; the polish pass trims any surplus silence.
+    if not text.endswith(('.', '?', '!')):
+        text += '.'
+    extra = {}
+    if len(text) <= 12:
+        extra['fix_duration'] = ref_sec + max(args.min_gen, 0.22 * len(text)) / args.speed
     audio, sr, _ = infer_process(
-        ref_audio, ref_text, job['text'], model.ema_model, model.vocoder,
+        ref_audio, ref_text, text, model.ema_model, model.vocoder,
         mel_spec_type='vocos', show_info=lambda *a, **k: None, progress=None,
-        nfe_step=args.nfe, cfg_strength=args.cfg, speed=args.speed, device=device,
+        nfe_step=args.nfe, cfg_strength=args.cfg, speed=args.speed, device=device, **extra,
     )
     audio = np.asarray(audio, dtype=np.float32)
     peak = float(np.max(np.abs(audio))) if audio.size else 0.0
