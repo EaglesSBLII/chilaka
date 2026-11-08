@@ -1,4 +1,6 @@
-// Visitor report for the Chilaka website. Reads the visit log the site worker writes to KV.
+// Visitor report for the Chilaka website (chilaka-site…workers.dev) and app (chilaka.pages.dev).
+// Reads the visit log both write to the same KV namespace: one line per website page view and one
+// per app open (the app beacons POST /api/visit on start; see app/functions/api/visit.js).
 //
 //   node tools/visitors.mjs            # last 30 days
 //   node tools/visitors.mjs 7          # last 7 days
@@ -61,18 +63,22 @@ const count = (f) => {
 };
 const people = new Set(visits.map((v) => v.visitor)).size;
 const place = (v) => [v.city, v.region, v.country].filter(Boolean).join(', ');
+const site = (v) => (v.site === 'app' ? 'app (chilaka.pages.dev)' : 'website');
+const what = (v) => (v.site === 'app' ? `app open (${v.mode || 'browser'})` : v.page);
 
 console.log(`Chilaka website · last ${days} days`);
-console.log(`${visits.length} page views from ${people} visitors\n`);
+const appOpens = visits.filter((v) => v.site === 'app').length;
+console.log(`${visits.length - appOpens} website page views + ${appOpens} app opens, from ${people} visitors\n`);
 
 const table = (title, rows) => {
   console.log(title);
   for (const [k, n] of rows.slice(0, 15)) console.log(`  ${String(n).padStart(4)}  ${k}`);
   console.log('');
 };
+table('By site', count(site));
 table('By place', count(place));
 table('By country', count((v) => v.country));
-table('By page', count((v) => v.page));
+table('By page / event', count(what));
 table('By device', count((v) => v.device));
 table('By browser', count((v) => v.browser));
 table('Came from', count((v) => v.referrer || '(direct / link)'));
@@ -80,5 +86,5 @@ table('By day', count((v) => v.ts.slice(0, 10)).sort((a, b) => (a[0] < b[0] ? 1 
 
 if (raw) {
   console.log('Every visit, newest first');
-  for (const v of visits) console.log(`  ${v.ts.replace('T', ' ').slice(0, 16)}  ${v.page.padEnd(18)} ${place(v).padEnd(32)} ${v.device}/${v.browser}  ${v.referrer || ''}  [${v.visitor}]`);
+  for (const v of visits) console.log(`  ${v.ts.replace('T', ' ').slice(0, 16)}  ${(v.site === 'app' ? 'APP ' : 'WEB ') + what(v).padEnd(22)} ${place(v).padEnd(32)} ${v.device}/${v.browser}  ${v.referrer || ''}  [${v.visitor}]`);
 }

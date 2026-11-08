@@ -33,7 +33,7 @@ It builds the app and prints the exact commands for a free host. The easiest is
 ```bash
 npm i -g wrangler
 npm run build -w app
-wrangler pages deploy app/dist --project-name chilaka
+cd app && wrangler pages deploy --branch main   # settings in app/wrangler.toml
 ```
 
 The first run opens a browser to create/sign in to a **free** Cloudflare account.

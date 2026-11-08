@@ -12,6 +12,20 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     });
 }
 
+// Visit log: one beacon per app start so the owner can see how many people open the app
+// (the PWA shell is served from cache, so the server would otherwise never see repeat opens).
+// Only on the hosted build — not in dev, tests, or the Electron file:// build.
+if (import.meta.env.PROD && location.protocol.startsWith('http') && location.hostname !== 'localhost') {
+  try {
+    const payload = JSON.stringify({ standalone: matchMedia('(display-mode: standalone)').matches });
+    if (!navigator.sendBeacon?.('/api/visit', new Blob([payload], { type: 'application/json' }))) {
+      fetch('/api/visit', { method: 'POST', body: payload, keepalive: true }).catch(() => {});
+    }
+  } catch {
+    /* logging must never affect the app */
+  }
+}
+
 // Test hooks: let E2E derive the same romanization/answers the UI renders.
 import { romanize, allItems } from './content/load';
 const testWindow = window as unknown as {

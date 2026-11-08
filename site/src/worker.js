@@ -26,6 +26,7 @@ async function record(request, env) {
   const visitor = (await sha256(`${day}|${ip}|${ua}`)).slice(0, 12);   // same person, same day → same id
   const entry = {
     ts: now.toISOString(),
+    site: 'web',
     page: url.pathname,
     country: cf.country || '',
     region: cf.region || '',

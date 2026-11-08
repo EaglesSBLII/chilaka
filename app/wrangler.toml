@@ -1,0 +1,11 @@
+# Cloudflare Pages project for the iPhone/web app (https://chilaka.pages.dev).
+# Deploy from this folder: `npx wrangler pages deploy --branch main` (CI does this on push to main).
+# Bindings declared here are applied with every deploy; functions/ holds the Pages Functions.
+name = "chilaka"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-07-01"
+
+# App-open log, shared with the website's visit log. Read it with: node tools/visitors.mjs
+[[kv_namespaces]]
+binding = "VISITS"
+id = "c7cc9dca8cc643548a74f6d7fd05f839"

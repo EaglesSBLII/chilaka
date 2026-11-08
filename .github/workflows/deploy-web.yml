@@ -27,7 +27,9 @@ jobs:
       - run: npm test -w app
       - run: npm run build -w app
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy app/dist --project-name chilaka --branch main
+        # project name, output dir and the VISITS KV binding come from app/wrangler.toml
+        run: npx wrangler pages deploy --branch main
+        working-directory: app
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
