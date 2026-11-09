@@ -15,6 +15,8 @@ import refsMale from '../../content/reference-transcripts-male.json';
 import webRefsFemale from '../../content/reference-transcripts-web-female.json';
 import webRefsMale from '../../content/reference-transcripts-web-male.json';
 import type { SpeakResult } from '../../engine/types';
+import type { EarVerdict } from '../../engine/speech/acoustic';
+import { earFirst, gradeTakeByEar, warmEar } from './ear';
 import { Button, Card } from '../../components/ui';
 import type { ExerciseProps } from './shared';
 import { SentenceDisplay } from './shared';
@@ -31,14 +33,16 @@ function referenceTranscript(itemId: string): string | undefined {
   return DESKTOP_REFS[voice]?.[itemId];
 }
 
-type Mode = 'loading' | 'asr' | 'echo';
+// 'ear': the take is matched against the native clip (web, short phrases)
+type Mode = 'loading' | 'asr' | 'ear' | 'echo';
 type Stage = 'idle' | 'recording' | 'scoring' | 'result';
 
-export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: ExerciseProps) {
+export function Speak({ exercise, item, unit, scriptMode, onAutoResult, onReady }: ExerciseProps) {
   const [mode, setMode] = useState<Mode>('loading');
   const [stage, setStage] = useState<Stage>('idle');
   const [take, setTake] = useState<Recording | null>(null);
   const [result, setResult] = useState<SpeakResult | null>(null);
+  const [ear, setEar] = useState<EarVerdict | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [echoWhy, setEchoWhy] = useState<'unpaired' | 'offline' | null>(null);
   const [micTip, setMicTip] = useState<string | null>(null);
@@ -46,16 +50,24 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
     setStage('idle');
     setTake(null);
     setResult(null);
+    setEar(null);
     setError(null);
     setMicTip(null);
     onReady(null);
-    void platform.asrAvailable().then(async (ok) => {
-      setMode(ok ? 'asr' : 'echo');
-      if (!ok && platform.kind === 'web') {
-        const { sync } = await import('../../sync');
-        setEchoWhy(sync.endpoint && sync.key ? 'offline' : 'unpaired');
-      }
-    });
+    if (earFirst(item)) {
+      // short phrase on the web: judged against the native clip, online or off
+      setMode('ear');
+      warmEar(item, unit);
+    } else {
+      void platform.asrAvailable().then(async (ok) => {
+        setMode(ok ? 'asr' : 'echo');
+        if (!ok && platform.kind === 'web') {
+          const { sync } = await import('../../sync');
+          setEchoWhy(sync.endpoint && sync.key ? 'offline' : 'unpaired');
+        }
+      });
+      if (platform.kind === 'web') warmEar(item, unit); // second opinion for longer phrases
+    }
     // Let the card settle on screen for a beat before the voice speaks.
     const cancelAutoplay = playItemAudioAfterPause(item.id);
     // shared mic: cancel parks the take but keeps the stream, so iOS only
@@ -97,6 +109,23 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
     if (rec.quality.quiet) setMicTip('That came through faintly — a little closer to the mic helps.');
     else if (rec.quality.clipped > 0.005) setMicTip('A touch loud for the mic — ease back a little.');
     else setMicTip(null);
+    if (mode === 'ear') {
+      setStage('scoring');
+      const verdict = await gradeTakeByEar(rec.wav, item, unit);
+      if (!verdict) {
+        // clips not available (first offline run): fall back to echo self-grading
+        setEchoWhy('offline');
+        setMode('echo');
+        setStage('result');
+        return;
+      }
+      setEar(verdict);
+      setStage('result');
+      const correct = verdict.pass || verdict.close;
+      if (correct) void useApp.getState().recordSpeak();
+      onAutoResult({ correct, expected: item.roman, got: correct ? item.roman : '(did not sound like it)' });
+      return;
+    }
     if (mode === 'asr') {
       setStage('scoring');
       let res = await platform.transcribe(rec.wav, { prompt: asrHintFor(item, unitById(item.id.split('-')[0])) });
@@ -106,7 +135,17 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         if (plain.ok) res = plain;
       }
       if (res.ok && transcriptLooksUnreliable(item.te, res.text)) {
-        // still nonsense: never grade it, just ask for another take
+        // still nonsense: on the web let the ear decide, otherwise ask for another take
+        const verdict = platform.kind === 'web' ? await gradeTakeByEar(rec.wav, item, unit) : null;
+        if (verdict) {
+          setEar(verdict);
+          setMode('ear');
+          setStage('result');
+          const correct = verdict.pass || verdict.close;
+          if (correct) void useApp.getState().recordSpeak();
+          onAutoResult({ correct, expected: item.roman, got: correct ? item.roman : '(did not sound like it)' });
+          return;
+        }
         setStage('idle');
         setError("Chikki couldn't make that out — try once more, a little closer to the mic.");
         return;
@@ -123,7 +162,13 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
         setStage('idle');
         return;
       }
-      const scored = scoreSpeechCalibrated(item.te, res.text, referenceTranscript(item.id));
+      let scored = scoreSpeechCalibrated(item.te, res.text, referenceTranscript(item.id));
+      if (!scored.pass && platform.kind === 'web') {
+        // the phone's recogniser mishears short Telugu; a take that sounds like
+        // the native clip passes even when the transcript does not
+        const verdict = await gradeTakeByEar(rec.wav, item, unit);
+        if (verdict?.pass) scored = { ...scored, pass: true };
+      }
       setResult(scored);
       setStage('result');
       if (scored.pass) void useApp.getState().recordSpeak();
@@ -222,6 +267,55 @@ export function Speak({ exercise, item, scriptMode, onAutoResult, onReady }: Exe
             </Button>
           </div>
           {!result.pass && (
+            <button
+              className="mx-auto text-sm font-bold text-teal underline underline-offset-2"
+              onClick={() => onAutoResult({ correct: true, expected: item.roman, override: true })}
+            >
+              I said it right — the mic misheard me
+            </button>
+          )}
+        </div>
+      )}
+
+      {stage === 'result' && mode === 'ear' && ear && (
+        <div className="flex flex-col gap-3 animate-pop" data-testid="ear-result" data-pass={ear.pass || ear.close ? 'true' : 'false'}>
+          <div className="flex justify-center">
+            <span
+              className={`rounded-xl border-2 px-4 py-2 text-lg font-extrabold ${
+                ear.pass
+                  ? 'border-success bg-success-soft text-success-dark'
+                  : ear.close
+                    ? 'border-marigold bg-amber-soft text-marigold-dark'
+                    : 'border-error bg-error-soft text-error-dark'
+              }`}
+            >
+              {item.roman}
+            </span>
+          </div>
+          <p className="text-center font-semibold text-ink-soft">
+            {ear.pass
+              ? 'Chikki heard it — that sounds right!'
+              : ear.close
+                ? 'Close! Listen once more and say it again.'
+                : ear.lengthMismatch
+                  ? 'That was a different length from the phrase — listen and try again.'
+                  : 'Not quite — listen to the reference and try again.'}
+          </p>
+          {micTip && <p className="text-center text-sm font-semibold text-marigold-dark">{micTip}</p>}
+          <div className="flex justify-center gap-3">
+            {take && (
+              <Button variant="ghost" onClick={() => void playUrl(take.url)}>
+                ▶ Your take
+              </Button>
+            )}
+            <Button variant="ghost" onClick={() => void playItemAudio(item.id)}>
+              🔊 Reference
+            </Button>
+            <Button variant="ghost" onClick={() => setStage('idle')}>
+              🎤 Retry
+            </Button>
+          </div>
+          {!ear.pass && !ear.close && (
             <button
               className="mx-auto text-sm font-bold text-teal underline underline-offset-2"
               onClick={() => onAutoResult({ correct: true, expected: item.roman, override: true })}

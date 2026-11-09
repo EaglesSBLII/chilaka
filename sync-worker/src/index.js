@@ -32,6 +32,8 @@ const CORS = {
 
 const MAX_BYTES = 4 * 1024 * 1024; // plenty for years of progress JSON
 const MAX_AUDIO_BYTES = 2 * 1024 * 1024; // ~60s of 16k mono WAV
+// first = production recognizer; the rest can be requested with x-chilaka-model for A/B checks
+const ASR_MODELS = ['@cf/openai/whisper-large-v3-turbo', '@cf/openai/whisper'];
 const KEY_RE = /^[a-f0-9]{48,64}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -99,11 +101,13 @@ async function handleAsr(request, env, asrKey) {
     } catch {
       hint = '';
     }
-    const result = await env.AI.run('@cf/openai/whisper-large-v3-turbo', {
-      audio: btoa(bin),
-      language: 'te',
-      ...(hint ? { initial_prompt: hint } : {}),
-    });
+    // QA tooling may ask for the other Whisper build; anything else is ignored
+    const requested = request.headers.get('x-chilaka-model');
+    const model = ASR_MODELS.includes(requested) ? requested : ASR_MODELS[0];
+    const result =
+      model === '@cf/openai/whisper'
+        ? await env.AI.run(model, { audio: [...bytes] }) // the v2 build takes raw bytes, no language or prompt
+        : await env.AI.run(model, { audio: btoa(bin), language: 'te', ...(hint ? { initial_prompt: hint } : {}) });
     return json({ text: String(result?.text ?? '').trim() });
   } catch (err) {
     return error(`asr failed: ${err.message ?? err}`, 502);

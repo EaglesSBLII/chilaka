@@ -58,7 +58,14 @@ async function hear(wavPath) {
   for (let attempt = 0; attempt < 3; attempt++) {
     const k = await pickKey();
     k.used++;
-    const res = await fetch(`${EP}/asr/${k.key}`, { method: 'POST', headers: { 'content-type': 'audio/wav' }, body: readFileSync(wavPath) });
+    let res;
+    try {
+      res = await fetch(`${EP}/asr/${k.key}`, { method: 'POST', headers: { 'content-type': 'audio/wav' }, body: readFileSync(wavPath) });
+    } catch (err) {
+      console.log(`  network hiccup (${err.code ?? err.message}) — retrying`);
+      await sleep(3000);
+      continue;
+    }
     if (res.status === 429) { k.used = 99; continue; }
     if (!res.ok) { await new Promise((r) => setTimeout(r, 2000)); continue; }
     const j = await res.json();

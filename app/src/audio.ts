@@ -69,6 +69,25 @@ export function preloadItemAudio(itemIds: readonly string[], voice: VoiceId = ac
   for (const id of itemIds) decodedClip(audioFileFor(id, voice)).catch(() => {});
 }
 
+/**
+ * A clip's samples as 16 kHz mono floats, for grading a take by ear against the
+ * native recording (engine/speech/acoustic). Decoded once per clip, resampled
+ * with the browser's own audio engine.
+ */
+export async function loadClipPcm16k(itemId: string, voice: VoiceId = activeVoice): Promise<Float32Array> {
+  const buf = await decodedClip(audioFileFor(itemId, voice));
+  const mono = buf.getChannelData(0);
+  if (buf.sampleRate === 16000) return Float32Array.from(mono);
+  const frames = Math.ceil((mono.length * 16000) / buf.sampleRate);
+  const off = new OfflineAudioContext(1, frames, 16000);
+  const src = off.createBufferSource();
+  src.buffer = buf;
+  src.connect(off.destination);
+  src.start();
+  const rendered = await off.startRendering();
+  return Float32Array.from(rendered.getChannelData(0));
+}
+
 /** Playback level for the AI voice (reference clips and live TTS). 1 = full. */
 export const VOICE_VOLUME = 0.55;
 
