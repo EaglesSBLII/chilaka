@@ -77,10 +77,21 @@ export function validateBackup(raw: unknown): BackupFile {
 export const isDeviceLocalSetting = (key: unknown): boolean => typeof key === 'string' && key.startsWith('sync');
 
 /** Replace ALL local state with the backup's contents (atomic), keeping this
- *  device's own settings (see `isDeviceLocalSetting`). */
-export async function importAll(raw: unknown): Promise<void> {
+ *  device's own settings (see `isDeviceLocalSetting`).
+ *
+ *  `unlessChangedSince`: the export this import was computed from (a sync
+ *  merge). If anything was written locally after that export, nothing is
+ *  imported and the result is false — otherwise the import would silently
+ *  erase that write (a coin reward, a quest claim, a purchase). The check and
+ *  the rewrite share one transaction, so no write can slip in between. */
+export async function importAll(raw: unknown, unlessChangedSince?: BackupFile): Promise<boolean> {
   const b = validateBackup(raw);
-  await db.transaction('rw', TABLES.map((t) => db.table(t)), async () => {
+  return db.transaction('rw', TABLES.map((t) => db.table(t)), async () => {
+    if (unlessChangedSince) {
+      const now: Record<string, unknown[]> = {};
+      for (const t of TABLES) now[t] = await db.table(t).toArray();
+      if (JSON.stringify(now) !== JSON.stringify(unlessChangedSince.data)) return false;
+    }
     const deviceLocal = (await db.settings.toArray()).filter((r) => isDeviceLocalSetting(r.key));
     for (const t of TABLES) {
       await db.table(t).clear();
@@ -92,5 +103,6 @@ export async function importAll(raw: unknown): Promise<void> {
     // Incoming sync* rows (another device's pairing) lose to ours.
     await db.settings.bulkDelete((b.data.settings ?? []).map((r) => (r as { key: unknown }).key).filter(isDeviceLocalSetting) as string[]);
     if (deviceLocal.length > 0) await db.settings.bulkPut(deviceLocal);
+    return true;
   });
 }

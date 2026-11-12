@@ -114,13 +114,28 @@ describe('mergeBackups', () => {
     expect(cards.map((c) => c.id).sort()).toEqual(['u01-i01', 'u01-i02', 'u01-i03']);
   });
 
-  it('streak takes monotone maxima', () => {
+  it('streak follows the side that was active most recently; longest only grows', () => {
     const m = mergeBackups(deviceA(), deviceB());
     const s = m.data.streaks[0] as { current: number; longest: number; lastActiveDay: string; freezesOwned: number };
     expect(s.current).toBe(4);
     expect(s.longest).toBe(5);
     expect(s.lastActiveDay).toBe('2026-07-18');
-    expect(s.freezesOwned).toBe(1);
+    expect(s.freezesOwned).toBe(0);
+  });
+
+  it('a streak that broke here is not resurrected by an older upload, nor a spent freeze refunded', () => {
+    const stale = deviceA();
+    stale.data.streaks = [{ id: 'main', current: 10, longest: 10, lastActiveDay: '2026-07-10', freezesOwned: 1, freezeUsedOn: [] }];
+    const now = deviceA();
+    now.data.streaks = [{ id: 'main', current: 1, longest: 10, lastActiveDay: '2026-07-18', freezesOwned: 0, freezeUsedOn: ['2026-07-12'] }];
+    for (const m of [mergeBackups(now, stale), mergeBackups(stale, now)]) {
+      const s = m.data.streaks[0] as { current: number; longest: number; lastActiveDay: string; freezesOwned: number; freezeUsedOn: string[] };
+      expect(s.current).toBe(1);
+      expect(s.longest).toBe(10);
+      expect(s.lastActiveDay).toBe('2026-07-18');
+      expect(s.freezesOwned).toBe(0);
+      expect(s.freezeUsedOn).toEqual(['2026-07-12']);
+    }
   });
 
   it('never propagates device pairing settings', () => {

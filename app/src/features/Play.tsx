@@ -52,7 +52,7 @@ export function Play() {
       </div>
 
       <p className="text-center text-xs font-semibold text-ink-soft">
-        {REWARDED_ROUNDS_PER_DAY} rounds a day earn XP and coins. After that, play as much as you like — just for fun.
+        Every finished round earns coins. The first {REWARDED_ROUNDS_PER_DAY} rounds a day pay in full, with XP; after that each round still earns a small treat.
       </p>
     </div>
   );

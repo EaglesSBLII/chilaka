@@ -248,14 +248,32 @@ class Updater {
   installStagedOnQuit() {
     if (!this.staged || !this.auto) return;
     const target = this.bundlePath();
+    const backup = `${target}.previous`;
+    let moved = false; // true only while the current app sits in `backup`
     try {
-      const backup = `${target}.previous`;
+      // the staged copy lives in the temp folder, which macOS may have purged
+      if (!fs.existsSync(this.staged)) return;
       removeBundle(backup);
       fs.renameSync(target, backup);
+      moved = true;
       require('node:child_process').execFileSync('ditto', [this.staged, target]);
+      moved = false;
+    } catch {
+      // the copy failed half way: put the current version back, never leave no app
+      if (moved) {
+        try {
+          removeBundle(target);
+          fs.renameSync(backup, target);
+        } catch {
+          /* nothing more we can do */
+        }
+      }
+      return;
+    }
+    try {
       removeBundle(backup);
     } catch {
-      /* leave the current version in place */
+      /* cleaned up on the next update */
     }
   }
 

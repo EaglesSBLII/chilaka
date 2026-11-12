@@ -99,7 +99,9 @@ def buzz_spans(a, sr):
 
 # a letter card says its letter on its own: at least this long, then a pause this deep before the word
 MIN_SPAN = 0.08; MAX_DIP = -25.0
-LETTER_CARD = re.compile(r'^([\u0c00-\u0c7f]{1,3}), ([\u0c00-\u0c7f]+)\.$')
+# the content writes "అ. అమ్మ." and the renderer speaks it as "అ, అమ్మ." — accept both, or a corpus
+# scan of the content text matches no card at all and reports a hollow "0 flagged"
+LETTER_CARD = re.compile(r'^([\u0c00-\u0c7f]{1,3})[,.] ([\u0c00-\u0c7f]+)\.$')
 
 def db_envelope(a, sr, hop=0.005, win=0.02):
     """Frame loudness in dB relative to the clip's peak frame."""

@@ -34,7 +34,7 @@
       ],
       "tags": ["routine"],
       "difficulty": 3,
-      "note": "-కుంటాను (-kunTaanu) marks doing something to or for yourself: తోముకుంటాను (toomukunTaanu) 'I brush my own teeth'."
+      "note": "-కుంటాను (-kuntaanu) marks doing something to or for yourself: తోముకుంటాను (toomukunTaanu) 'I brush my own teeth'."
     },
     {
       "id": "u10-i03",
@@ -82,7 +82,7 @@
       ],
       "tags": ["home"],
       "difficulty": 2,
-      "note": "-లో (-lo) = in. వంటగది (vanTagadi) is literally 'cooking room'; the bedroom is పడకగది (paDakagadi)."
+      "note": "-లో (-loo) = in. వంటగది (vanTagadi) is literally 'cooking room'; the bedroom is పడకగది (paDakagadi)."
     },
     {
       "id": "u10-i07",
@@ -119,7 +119,7 @@
       ],
       "tags": ["home", "chores"],
       "difficulty": 3,
-      "note": "ఉతుకు (utuku) is only for washing clothes. Dishes take కడుగు (kaDugu), and your face is కడుక్కో (kaDukko).",
+      "note": "ఉతుకు (utuku) is only for washing clothes. Dishes take కడుగు (kaDugu), and your face is కడుక్కో (kadukkoo).",
       "distractors": ["u10-i16", "u10-i08"]
     },
     {
@@ -157,7 +157,7 @@
       ],
       "tags": ["routine", "feelings"],
       "difficulty": 2,
-      "note": "Sleep 'comes' to you in Telugu: నిద్ర వస్తోంది (nidra vastondi)."
+      "note": "Sleep 'comes' to you in Telugu: నిద్ర వస్తోంది (nidra vastoondi)."
     },
     {
       "id": "u10-i13",
@@ -169,7 +169,7 @@
       ],
       "tags": ["routine", "commands"],
       "difficulty": 2,
-      "note": "Informal singular, for kids and friends: వెళ్ళి పడుకో (veLLi paDuko).",
+      "note": "Informal singular, for kids and friends: వెళ్ళి పడుకో (velli padukoo).",
       "distractors": ["u10-i12", "u10-i14"]
     },
     {

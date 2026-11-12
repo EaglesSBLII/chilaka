@@ -34,7 +34,7 @@
       ],
       "tags": ["health"],
       "difficulty": 2,
-      "note": "Sicknesses 'come' to you in Telugu: జ్వరం వచ్చింది (jvaram vachindi), జలుబు వచ్చింది (a cold came).",
+      "note": "Sicknesses 'come' to you in Telugu: జ్వరం వచ్చింది (jvaram vachchindi), జలుబు వచ్చింది (a cold came).",
       "distractors": ["u14-i03", "u14-i12"]
     },
     {
@@ -85,7 +85,7 @@
       ],
       "tags": ["health", "questions"],
       "difficulty": 3,
-      "note": "Medicines are 'put in for yourself': మందులు వేసుకోవడం (mandulu veesukovaDam) — never తినడం."
+      "note": "Medicines are 'put in for yourself': మందులు వేసుకోవడం (mandulu veesukoovadam) — never తినడం."
     },
     {
       "id": "u14-i07",
@@ -162,7 +162,7 @@
       ],
       "tags": ["feelings"],
       "difficulty": 2,
-      "note": "Like fever, anger also 'comes': కోపం వచ్చింది (koopam vachindi)."
+      "note": "Like fever, anger also 'comes': కోపం వచ్చింది (koopam vachchindi)."
     },
     {
       "id": "u14-i13",
@@ -173,7 +173,7 @@
       ],
       "tags": ["feelings", "commands"],
       "difficulty": 2,
-      "note": "-కండి (-kanDi) makes a polite 'don't': భయపడండి → భయపడకండి. Informal singular: భయపడకు (bhayapaDaku).",
+      "note": "-కండి (-kandi) makes a polite 'don't': భయపడండి → భయపడకండి. Informal singular: భయపడకు (bhayapaDaku).",
       "distractors": ["u14-i14", "u14-i15"]
     },
     {

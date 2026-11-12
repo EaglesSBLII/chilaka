@@ -203,11 +203,16 @@ class SyncManager {
         const remote = await this.pull();
         const merged = remote ? mergeBackups(local, remote.data) : local;
 
-        // apply remote-side progress locally (skip mid-lesson; next sync catches up)
-        const changedLocally = remote && JSON.stringify(merged.data) !== JSON.stringify(local.data);
+        // apply remote-side progress locally (skip mid-lesson; next sync catches up).
+        // Compared in merged form: a raw export never equals a merge (table
+        // order, event ids, device settings), and importing when the remote
+        // added nothing would rewrite the whole database on every sync.
+        const changedLocally = remote && JSON.stringify(merged.data) !== JSON.stringify(mergeBackups(local, local).data);
         if (changedLocally && this.canApply()) {
-          await importAll(merged);
-          await this.onApplied();
+          // refuses if something was written here since the export: that
+          // write is not in `merged`, and the next round picks it up
+          if (await importAll(merged, local)) await this.onApplied();
+          else this.pendingAgain = true;
         }
 
         // nothing new for the server? skip the write entirely — keeps the

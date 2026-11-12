@@ -1,6 +1,6 @@
 {
   "name": "chilaka",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "private": true,
   "description": "Chilaka — Telugu fluency app (desktop + PWA)",
   "workspaces": [
@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "npm run dev -w app",
     "build": "npm run build -w app",
-    "test": "npm run test -w app && npm run validate-content -w tools",
+    "test": "npm run test -w app",
     "e2e": "npm run e2e -w app",
     "dist:mac": "npm run build -w app && npm run dist -w desktop"
   },

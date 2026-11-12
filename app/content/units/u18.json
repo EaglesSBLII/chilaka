@@ -18,7 +18,7 @@
       ],
       "tags": ["opinions", "questions"],
       "difficulty": 3,
-      "note": "Literally 'what will you say?' — the everyday way to ask for an opinion. With friends: నువ్వేమంటావ్ (nuvvemanTaav)?",
+      "note": "Literally 'what will you say?' — the everyday way to ask for an opinion. With friends: నువ్వేమంటావ్ (nuvveemantaav)?",
       "distractors": ["u18-i13", "u18-i10"]
     },
     {
@@ -33,7 +33,7 @@
       ],
       "tags": ["opinions", "agreement"],
       "difficulty": 4,
-      "note": "అనుకుంటున్నాను (anukunTunnaanu) = 'I am thinking (so)' — the workhorse verb for opinions. అలాగే (alaage) = 'like that'."
+      "note": "అనుకుంటున్నాను (anukunTunnaanu) = 'I am thinking (so)' — the workhorse verb for opinions. అలాగే (alaagee) = 'like that'."
     },
     {
       "id": "u18-i03",
@@ -84,7 +84,7 @@
       ],
       "tags": ["opinions", "uncertainty"],
       "difficulty": 2,
-      "note": "ఏమో (emo) is the universal Telugu shrug — 'maybe, who knows'. It can even be a full answer on its own.",
+      "note": "ఏమో (eemoo) is the universal Telugu shrug — 'maybe, who knows'. It can even be a full answer on its own.",
       "distractors": ["u18-i08", "u18-i13"]
     },
     {
@@ -109,7 +109,7 @@
       ],
       "tags": ["uncertainty"],
       "difficulty": 4,
-      "note": "-లేను (-lenu) = 'can't': చెప్పలేను (cheppalenu) I can't say, రాలేను I can't come.",
+      "note": "-లేను (-leenu) = 'can't': చెప్పలేను (cheppaleenu) I can't say, రాలేను I can't come.",
       "distractors": ["u18-i07", "u18-i06"]
     },
     {

@@ -165,12 +165,14 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   // 0. demo opener for the very first lesson: Listen → Speak → Flashcard on the
   // first phrase, so every part of the app shows up in the first minute.
   let newItems = items.filter((it) => !opts.seenItemIds.has(it.id));
+  let hasOpener = false;
   if (unit.id === firstSpeakUnitId() && lesson.id === 'l1' && items.length > 0 && !opts.seenItemIds.has(items[0].id)) {
     const first = items[0];
     out.push(exerciseFor('listen-pick', first, unit, opts.pool, rng));
     out.push(exerciseFor(speakOr('mc-audio'), first, unit, opts.pool, rng));
     out.push({ kind: 'intro', itemId: first.id });
     newItems = newItems.filter((it) => it.id !== first.id);
+    hasOpener = true;
   }
 
   // 1. teach the unseen items — pattern varies per lesson seed
@@ -234,41 +236,112 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
     ),
   );
 
-  // no identical (kind,item) back-to-back, and cap same-kind runs at 3
-  // (short speak bursts are good drilling; 4+ in a row feels monotonous)
-  const filtered = out.filter((ex, i) => i === 0 || !(ex.kind === out[i - 1].kind && ex.itemId === out[i - 1].itemId));
-  const nonIntro = filtered.map((ex, i) => ({ ex, i })).filter(({ ex }) => ex.kind !== 'intro');
-  const runAt = (k: number): boolean => {
-    if (k < 3 || k >= nonIntro.length) return false;
-    const kind = nonIntro[k].ex.kind;
-    return (
-      kind === nonIntro[k - 1].ex.kind && kind === nonIntro[k - 2].ex.kind && kind === nonIntro[k - 3].ex.kind
-    );
+  // stand-ins for breaking a run the lesson cannot break by reordering
+  const altKinds: ExerciseKind[] = isScript
+    ? ['listen-pick', 'mc-te2en', 'mc-audio', 'wordbank', 'type-script']
+    : ['listen-pick', 'mc-te2en', 'mc-audio', 'mc-en2te', 'wordbank'];
+  return arrangeExercises(out, hasOpener, (ex) => {
+    const item = itemsById.get(ex.itemId);
+    if (!item) return [];
+    return altKinds
+      .filter((k) => k !== ex.kind && (k !== 'wordbank' || item.words.length >= 2))
+      .map((k) => exerciseFor(k, item, unit, opts.pool, rng));
+  });
+}
+
+/**
+ * Final ordering pass. Guarantees, in this order of priority:
+ *  - an item is never practised before its "new phrase" card (the first
+ *    lesson's listen → speak → card opener is the one deliberate exception
+ *    and is never moved), and the finale stays last;
+ *  - the same exercise (kind + item) never comes twice in a row;
+ *  - no more than three exercises of one kind in a row (a phrase card in
+ *    between counts as a break).
+ * Exercises trade places with each other, so every item keeps all of its
+ * practice. Where trading cannot break a run (a lesson that is nearly all
+ * speaking), `alternatives` supplies the same item as a different exercise;
+ * a back-to-back repeat that still cannot be separated is dropped.
+ */
+export function arrangeExercises(
+  input: readonly Exercise[],
+  hasOpener: boolean,
+  alternatives: (ex: Exercise) => Exercise[] = () => [],
+): Exercise[] {
+  const seq = [...input];
+  const same = (a: Exercise, b: Exercise) => a.kind === b.kind && a.itemId === b.itemId;
+  const isIntro = (i: number) => seq[i].kind === 'intro';
+  // penalty at sequence index i
+  const bad = (i: number): number => {
+    if (i <= 0 || i >= seq.length || isIntro(i)) return 0;
+    let n = 0;
+    let p = i - 1;
+    while (p >= 0 && isIntro(p)) p--;
+    if (p >= 0 && same(seq[i], seq[p])) n += 1;
+    if (i >= 3 && seq[i].kind === seq[i - 1].kind && seq[i].kind === seq[i - 2].kind && seq[i].kind === seq[i - 3].kind) n += 1;
+    return n;
   };
-  const anyRunNear = (k: number): boolean => {
-    for (let d = 0; d <= 3; d++) if (runAt(k + d)) return true;
-    return false;
+  const total = (): number => {
+    let n = 0;
+    for (let i = 1; i < seq.length; i++) n += bad(i);
+    return n;
   };
-  const lastIdx = nonIntro.length - 1;
-  for (let k = 3; k < nonIntro.length; k++) {
-    if (!runAt(k)) continue;
-    // the finale (last exercise) is a deliberate production moment — break
-    // tail runs by moving a MID-run member, never the finale itself
-    const swapPos = k === lastIdx ? k - 1 : k;
-    for (let j = lastIdx - 1; j >= 0; j--) {
-      if (j === swapPos || nonIntro[j].ex.kind === nonIntro[swapPos].ex.kind) continue;
-      const a = nonIntro[swapPos];
-      const b = nonIntro[j];
-      [filtered[a.i], filtered[b.i]] = [filtered[b.i], filtered[a.i]];
-      [a.ex, b.ex] = [b.ex, a.ex];
-      if (anyRunNear(swapPos) || anyRunNear(j)) {
-        // swap created a run elsewhere — revert and try the next donor
-        [filtered[a.i], filtered[b.i]] = [filtered[b.i], filtered[a.i]];
-        [a.ex, b.ex] = [b.ex, a.ex];
-        continue;
+
+  for (let guard = 0; guard < 8 && total() > 0; guard++) {
+    const introAt = new Map<string, number>();
+    seq.forEach((ex, i) => {
+      if (ex.kind === 'intro') introAt.set(ex.itemId, i);
+    });
+    const afterIntro = (ex: Exercise, i: number) => (introAt.get(ex.itemId) ?? -1) < i;
+    const lastIdx = seq.length - 1; // the finale
+    const movable = (i: number) => i >= 0 && i < lastIdx && !isIntro(i) && !(hasOpener && i < 2);
+
+    for (let i = 1; i < seq.length; i++) {
+      if (bad(i) === 0) continue;
+      // 1. trade places: this one, or a neighbour inside the run when it is fixed
+      let fixed = false;
+      for (const m of [i, i - 1, i - 2].filter(movable)) {
+        for (let j = lastIdx - 1; j >= 0 && !fixed; j--) {
+          if (j === m || !movable(j)) continue;
+          const a = seq[m];
+          const b = seq[j];
+          if (same(a, b) || !afterIntro(a, j) || !afterIntro(b, m)) continue;
+          const before = total();
+          seq[m] = b;
+          seq[j] = a;
+          if (total() < before) fixed = true;
+          else {
+            seq[m] = a;
+            seq[j] = b;
+          }
+        }
+        if (fixed) break;
       }
+      if (fixed) continue;
+      // 2. same item, different exercise
+      for (const m of [i - 1, i - 2, i].filter(movable)) {
+        const original = seq[m];
+        const before = total();
+        for (const alt of alternatives(original)) {
+          seq[m] = alt;
+          if (total() < before) {
+            fixed = true;
+            break;
+          }
+          seq[m] = original;
+        }
+        if (fixed) break;
+      }
+    }
+
+    // 3. a repeat that still sits back to back cannot be separated: drop it
+    for (let i = seq.length - 1; i >= 1; i--) {
+      if (isIntro(i)) continue;
+      let p = i - 1;
+      while (p >= 0 && isIntro(p)) p--;
+      if (p < 0 || !same(seq[i], seq[p])) continue;
+      seq.splice(i === seq.length - 1 || (hasOpener && i < 2) ? p : i, 1);
       break;
     }
   }
-  return filtered;
+  return seq;
 }

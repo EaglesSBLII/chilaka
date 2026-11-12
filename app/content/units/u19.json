@@ -33,7 +33,7 @@
       ],
       "tags": ["comparison", "food"],
       "difficulty": 3,
-      "note": "X కంటే (kanTe) Y బాగుంటుంది = 'Y is better than X' — the thing being beaten takes కంటే.",
+      "note": "X కంటే (kantee) Y బాగుంటుంది = 'Y is better than X' — the thing being beaten takes కంటే.",
       "distractors": ["u19-i10", "u19-i15"]
     },
     {
@@ -63,7 +63,7 @@
       ],
       "tags": ["preferences", "food"],
       "difficulty": 3,
-      "note": "X అంటే ఇష్టం (anTe ishTam) is the everyday 'I like X' — literally 'if you say X, (there is) liking'."
+      "note": "X అంటే ఇష్టం (antee ishtam) is the everyday 'I like X' — literally 'if you say X, (there is) liking'."
     },
     {
       "id": "u19-i05",
@@ -76,7 +76,7 @@
       ],
       "tags": ["comparison"],
       "difficulty": 4,
-      "note": "Telugu has no separate 'best' — you say అన్నిటికంటే (anniTikanTe, 'than everything') plus emphatic ఇదే (ide)."
+      "note": "Telugu has no separate 'best' — you say అన్నిటికంటే (anniTikanTe, 'than everything') plus emphatic ఇదే (idee)."
     },
     {
       "id": "u19-i06",
@@ -157,7 +157,7 @@
       ],
       "tags": ["shopping", "questions"],
       "difficulty": 5,
-      "note": "తీసుకోమంటారు (tiisukomanTaaru) packs 'do you say I should take?' into one verb — shopkeeper Telugu at its finest."
+      "note": "తీసుకోమంటారు (tiisukoomantaaru) packs 'do you say I should take?' into one verb — shopkeeper Telugu at its finest."
     },
     {
       "id": "u19-i12",

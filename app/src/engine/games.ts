@@ -215,22 +215,32 @@ export interface RoundResult {
   durationMs: number;
 }
 
-/** Rounds a day that pay XP and coins; later rounds are just for fun. */
+/** Rounds a day that pay full XP and coins; later rounds pay a small treat. */
 export const REWARDED_ROUNDS_PER_DAY = 5;
+/** Coins for finishing a round at all — a completed game never pays nothing. */
+export const ROUND_BASE_COINS = 5;
+/** Coins for a finished round once the day's full-pay rounds are used up. */
+export const EXTRA_ROUND_COINS = 2;
 
 export function roundXp(r: Pick<RoundResult, 'outcomes'>): number {
-  if (r.outcomes.length === 0) return 0;
+  if (!r.outcomes.some((o) => o.solved)) return 0;
   const firstTry = r.outcomes.filter((o) => o.firstTry).length;
   const perfect = firstTry === r.outcomes.length ? 3 : 0;
-  return Math.min(12, firstTry + perfect);
+  return Math.min(12, Math.max(1, firstTry + perfect));
 }
 
-export function roundCoins(r: Pick<RoundResult, 'outcomes' | 'bestCombo'>): number {
-  if (r.outcomes.length === 0) return 0;
+/**
+ * Coins for a round. `fullPay` is false after the day's rewarded rounds: the
+ * round still pays a little, so playing on never feels like a broken game.
+ * A round where nothing was solved (the clock ran out untouched) pays nothing.
+ */
+export function roundCoins(r: Pick<RoundResult, 'outcomes' | 'bestCombo'>, fullPay = true): number {
+  if (!r.outcomes.some((o) => o.solved)) return 0;
+  if (!fullPay) return EXTRA_ROUND_COINS;
   const firstTry = r.outcomes.filter((o) => o.firstTry).length;
   const perfect = firstTry === r.outcomes.length ? 5 : 0;
   const combo = r.bestCombo >= 6 ? 4 : r.bestCombo >= 3 ? 2 : 0;
-  return Math.min(25, firstTry * 2 + perfect + combo);
+  return Math.min(30, ROUND_BASE_COINS + firstTry * 2 + perfect + combo);
 }
 
 /** What a game answer tells spaced repetition. */

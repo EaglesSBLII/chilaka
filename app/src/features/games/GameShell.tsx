@@ -26,7 +26,9 @@ export function GameShell({ game }: { game: GameId }) {
 function Round({ game, onAgain }: { game: GameId; onAgain: () => void }) {
   const navigate = useApp((s) => s.navigate);
   const srsCards = useApp((s) => s.srsCards);
-  const roundsPlayed = useApp((s) => s.reviewCount);
+  // difficulty is fixed when the round starts: a sync landing mid-round must not re-deal the board
+  const [roundsPlayed] = useState(() => useApp.getState().reviewCount);
+  const coinBalance = useApp((s) => s.coins);
   const def = gameById(game);
   const [seed] = useState(() => `${game}:${Date.now()}:${Math.random()}`);
   // the round's phrases are fixed at mount: answering reschedules cards, and
@@ -39,6 +41,7 @@ function Round({ game, onAgain }: { game: GameId; onAgain: () => void }) {
   }, [seed]);
   const [result, setResult] = useState<RoundResult | null>(null);
   const [rewards, setRewards] = useState<GameRewards | null>(null);
+  const [saveFailed, setSaveFailed] = useState(false);
 
   useEffect(() => {
     preloadItemAudio(items.map((it) => it.id));
@@ -46,9 +49,13 @@ function Round({ game, onAgain }: { game: GameId; onAgain: () => void }) {
 
   const finish = async (r: RoundResult) => {
     setResult(r);
-    const rw = await useApp.getState().finishGameRound(r);
-    setRewards(rw);
     sfx.complete();
+    try {
+      setRewards(await useApp.getState().finishGameRound(r));
+    } catch (e) {
+      console.error('game round could not be saved', e);
+      setSaveFailed(true);
+    }
     if (roundStars(r) === 3) {
       confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 }, colors: ['#F5A623', '#FF5C39', '#3CB46E', '#0E6B63'] });
     }
@@ -76,7 +83,7 @@ function Round({ game, onAgain }: { game: GameId; onAgain: () => void }) {
           <Button onClick={() => navigate({ name: 'path' })}>Go to lessons</Button>
         </div>
       ) : result ? (
-        <Summary result={result} rewards={rewards} onAgain={onAgain} onDone={quit} />
+        <Summary result={result} rewards={rewards} saveFailed={saveFailed} balance={coinBalance} onAgain={onAgain} onDone={quit} />
       ) : (
         <div className="flex flex-1 flex-col py-4">
           {game === 'feed' && <FeedChikki items={items} seed={seed} roundsPlayed={roundsPlayed} onFinish={(r) => void finish(r)} />}
@@ -91,11 +98,15 @@ function Round({ game, onAgain }: { game: GameId; onAgain: () => void }) {
 function Summary({
   result,
   rewards,
+  saveFailed,
+  balance,
   onAgain,
   onDone,
 }: {
   result: RoundResult;
   rewards: GameRewards | null;
+  saveFailed: boolean;
+  balance: number;
   onAgain: () => void;
   onDone: () => void;
 }) {
@@ -103,7 +114,13 @@ function Summary({
   const missed = result.outcomes.filter((o) => !o.firstTry).map((o) => itemById(o.itemId)).filter(Boolean);
   const right = result.outcomes.filter((o) => o.firstTry).length;
   return (
-    <div className="flex flex-1 flex-col gap-4 py-4 animate-pop" data-testid="game-summary">
+    <div
+      className="flex flex-1 flex-col gap-4 py-4 animate-pop"
+      data-testid="game-summary"
+      data-saved={rewards ? 'true' : 'false'}
+      data-xp={rewards?.xp ?? ''}
+      data-coins={rewards?.coins ?? ''}
+    >
       <div className="flex flex-col items-center gap-2 text-center">
         <Mascot pose={stars === 3 ? 'celebrate' : 'cheer'} size={120} />
         <h2 className="text-2xl font-extrabold text-teal">{stars === 3 ? 'Perfect round!' : stars === 2 ? 'Great round!' : 'Round complete!'}</h2>
@@ -119,19 +136,30 @@ function Summary({
 
       <Card className="flex items-center justify-around py-4">
         <div className="text-center">
-          <div className="text-2xl font-extrabold text-accent-dark">+{rewards?.xp ?? 0}</div>
+          <div className="text-2xl font-extrabold text-accent-dark">{rewards ? `+${rewards.xp}` : '…'}</div>
           <div className="text-xs font-bold uppercase tracking-wide text-ink-soft">XP</div>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 text-2xl font-extrabold">
-            <Coin size={22} /> +{rewards?.coins ?? 0}
+            <Coin size={22} /> {rewards ? `+${rewards.coins}` : '…'}
           </div>
           <div className="text-xs font-bold uppercase tracking-wide text-ink-soft">coins</div>
+        </div>
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-1 text-2xl font-extrabold" data-testid="game-balance">
+            <Coin size={22} /> {balance}
+          </div>
+          <div className="text-xs font-bold uppercase tracking-wide text-ink-soft">your coins</div>
         </div>
       </Card>
       {rewards && !rewards.rewarded && (
         <p className="text-center text-sm font-semibold text-ink-soft">
-          Chikki's treat bag is empty for today ({REWARDED_ROUNDS_PER_DAY} rounds) — this one was just for fun!
+          You have had today's {REWARDED_ROUNDS_PER_DAY} full-pay rounds, so this one earned a small treat. Full rewards are back tomorrow!
+        </p>
+      )}
+      {saveFailed && (
+        <p className="text-center text-sm font-semibold text-error" role="alert">
+          This round could not be saved, so it earned nothing. Play again to try once more.
         </p>
       )}
 

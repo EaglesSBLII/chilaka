@@ -41,7 +41,13 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
   const [lastEval, setLastEval] = useState<AnswerEval | null>(null);
   const [done, setDone] = useState<CompletionStats | null>(null);
   const evaluator = useRef<(() => AnswerEval) | null>(null);
-  const firstTry = useRef<Map<string, boolean>>(new Map()); // exercise key → first attempt correct
+  const firstTry = useRef<Map<number, boolean>>(new Map()); // queue position → first attempt correct
+  const xpPaid = useRef<Set<string>>(new Set()); // kind:item already paid XP (a phrase pays once per kind)
+  const idxRef = useRef(0);
+  idxRef.current = idx;
+  const finishing = useRef(false);
+  const [busy, setBusy] = useState(false);
+  const praiseLine = useRef('');
   const wrongItems = useRef<Set<string>>(new Set());
   const xpEarned = useRef(0);
 
@@ -74,13 +80,21 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
   const item = unit.items.find((i) => i.id === entry.exercise.itemId)!;
   const progress = idx / queue.length;
 
-  const applyEval = (ev: AnswerEval) => {
+  const payXp = () => {
     const key = `${entry.exercise.kind}:${entry.exercise.itemId}`;
+    if (xpPaid.current.has(key)) return;
+    xpPaid.current.add(key);
+    xpEarned.current += xpForExercise(entry.exercise.kind, true);
+  };
+
+  const applyEval = (ev: AnswerEval) => {
+    if (finishing.current) return;
+    if (ev.correct) praiseLine.current = praise();
     if (ev.override) {
       // learner says the mic misheard a correct attempt — undo the miss
-      if (!entry.isRetry && firstTry.current.get(key) === false) {
-        firstTry.current.set(key, true);
-        xpEarned.current += xpForExercise(entry.exercise.kind, true);
+      if (!entry.isRetry && firstTry.current.get(idx) === false) {
+        firstTry.current.set(idx, true);
+        payXp();
       }
       wrongItems.current.delete(entry.exercise.itemId);
       setQueue((q) => {
@@ -98,11 +112,21 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
       sfx.correct();
       return;
     }
+    if (phase === 'feedback') {
+      // a second take after the grade (Speak's Retry): it can turn the banner
+      // green, but the exercise was already scored — no second requeue, and a
+      // pass is never taken back
+      if (ev.correct && !lastEval?.correct) {
+        setLastEval(ev);
+        sfx.correct();
+      }
+      return;
+    }
     setLastEval(ev);
     setPhase('feedback');
-    if (!entry.isRetry && !firstTry.current.has(key)) {
-      firstTry.current.set(key, ev.correct);
-      if (ev.correct) xpEarned.current += xpForExercise(entry.exercise.kind, true);
+    if (!entry.isRetry && !firstTry.current.has(idx)) {
+      firstTry.current.set(idx, ev.correct);
+      if (ev.correct) payXp();
     }
     if (ev.correct) {
       if (entry.exercise.kind !== 'intro') sfx.correct();
@@ -123,14 +147,18 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
   };
 
   const advance = async () => {
-    setPhase('answering');
-    setLastEval(null);
+    if (finishing.current) return;
     evaluator.current = null;
     if (idx + 1 < queue.length) {
+      setPhase('answering');
+      setLastEval(null);
       setIdx(idx + 1);
       return;
     }
-    // ---- lesson finished ----
+    // ---- lesson finished ---- (once: the saves below take a moment, and the
+    // last exercise must not come back to life for a second tap meanwhile)
+    finishing.current = true;
+    setBusy(true);
     const results = [...firstTry.current.values()];
     const gradeable = results.length;
     const correct = results.filter(Boolean).length;
@@ -198,6 +226,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           lastEval={lastEval}
           onReady={(fn) => (evaluator.current = fn)}
           onAutoResult={(ev) => {
+            // a result that arrives after the learner moved on (a slow
+            // transcription, then Skip) belongs to an exercise that is gone
+            if (idxRef.current !== idx || finishing.current) return;
             if (isIntro) {
               // intro just enables CONTINUE without feedback banner
               evaluator.current = null;
@@ -224,7 +255,7 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
             <Mascot pose={lastEval.correct ? 'cheer' : 'idle'} size={48} />
             <div>
               <div className={`text-lg font-extrabold ${lastEval.correct ? 'text-success-dark' : 'text-error-dark'}`}>
-                {lastEval.correct ? praise() : 'Not quite —'}
+                {lastEval.correct ? praiseLine.current || 'Nice!' : 'Not quite —'}
               </div>
               {!lastEval.correct && lastEval.expected && (
                 <div className="font-semibold text-ink">
@@ -235,13 +266,13 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           </div>
         )}
         {phase === 'answering' && isIntro && lastEval ? (
-          <Button className="w-full text-lg" variant="secondary" onClick={() => void advance()}>
+          <Button className="w-full text-lg" variant="secondary" disabled={busy} onClick={() => void advance()}>
             Got it
           </Button>
         ) : phase === 'answering' ? (
           <div className="flex gap-3">
             {isSpeak && (
-              <Button variant="ghost" className="flex-1" onClick={() => void advance()}>
+              <Button variant="ghost" className="flex-1" disabled={busy} onClick={() => void advance()}>
                 Skip
               </Button>
             )}
@@ -253,6 +284,7 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           <Button
             className="w-full text-lg"
             variant={lastEval?.correct ? 'success' : 'danger'}
+            disabled={busy}
             onClick={() => void advance()}
           >
             Continue

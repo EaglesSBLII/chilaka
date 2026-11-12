@@ -11,7 +11,7 @@ import { newCard, reviewCard, dueCards, type StoredCard, Rating } from './engine
 import type { Difficulty, ScriptMode, StreakStanding } from './engine/types';
 import { allUnits } from './content/load';
 import { DEFAULT_VOICE, type VoiceId } from './content/voices';
-import { setActiveVoice } from './audio';
+import { setActiveVoice, setSfxEnabled } from './audio';
 import { platform } from './platform';
 import { balance, COINS, earnedTotal, MILESTONES, ownedSkus, skuById, type CoinEvent, type CoinKind } from './engine/coins';
 import { bump, claim, dailyQuests, isComplete, type Quest, type QuestKind } from './engine/quests';
@@ -38,7 +38,7 @@ export type View =
 export interface GameRewards {
   xp: number;
   coins: number;
-  /** false once the day's rewarded rounds are used up — the round still counts */
+  /** false once the day's full-pay rounds are used up — the round still pays a few coins */
   rewarded: boolean;
   roundsToday: number;
   award: XpAward;
@@ -62,6 +62,8 @@ interface AppState {
   streak: StreakRow;
   totalXp: number;
   todayXp: number;
+  /** the local day `todayXp` and `quests` belong to */
+  day: string;
   unitProgress: Record<string, UnitProgressRow>;
   lessonProgress: Record<string, LessonProgressRow>;
   srsCards: Record<string, StoredCard>;
@@ -97,6 +99,8 @@ interface AppState {
   setVoice(v: VoiceId): Promise<void>;
   awardXp(amount: number, source: 'lesson' | 'review' | 'speak' | 'dialogue' | 'placement' | 'bonus' | 'game', refId: string): Promise<XpAward>;
   finishGameRound(result: RoundResult): Promise<GameRewards>;
+  /** Midnight passed while the app stayed open: start the new day's XP count and quests. */
+  rollDay(): Promise<void>;
   introduceItems(itemIds: string[]): Promise<void>;
   applyReview(itemId: string, rating: Rating): Promise<void>;
   completeLesson(unitId: string, lessonId: string, pct: number, xp: number): Promise<void>;
@@ -111,6 +115,8 @@ function today(profile: ProfileRow | null): string {
   return localDay(new Date(), tz);
 }
 
+let spending = false;
+
 export const useApp = create<AppState>((set, get) => ({
   loaded: false,
   view: { name: 'path' },
@@ -118,6 +124,7 @@ export const useApp = create<AppState>((set, get) => ({
   streak: { id: 'main', ...emptyStreak() },
   totalXp: 0,
   todayXp: 0,
+  day: '',
   unitProgress: {},
   lessonProgress: {},
   srsCards: {},
@@ -149,20 +156,27 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async spendCoins(skuId) {
-    const sku = skuById(skuId);
-    const state = get();
-    if (!sku || state.coins < sku.price) return false;
-    if (!sku.consumable && state.ownedSkus.has(sku.id)) return false;
-    if (sku.id === 'freeze') {
-      const next = grantFreeze(state.streak, 1);
-      if (next.freezesOwned === state.streak.freezesOwned) return false; // already holding the max
-      const streak: StreakRow = { id: 'main', ...next };
-      await db.streaks.put(streak);
-      set({ streak });
+    // one purchase at a time: a double tap must not pass the balance check twice
+    if (spending) return false;
+    spending = true;
+    try {
+      const sku = skuById(skuId);
+      const state = get();
+      if (!sku || state.coins < sku.price) return false;
+      if (!sku.consumable && state.ownedSkus.has(sku.id)) return false;
+      if (sku.id === 'freeze') {
+        const next = grantFreeze(state.streak, 1);
+        if (next.freezesOwned === state.streak.freezesOwned) return false; // already holding the max
+        const streak: StreakRow = { id: 'main', ...next };
+        await db.streaks.put(streak);
+        set({ streak });
+      }
+      await get().grantCoins(-sku.price, 'spend', sku.id);
+      if (sku.kind === 'outfit' || sku.kind === 'accent') await get().equip(sku.kind, sku.id);
+      return true;
+    } finally {
+      spending = false;
     }
-    await get().grantCoins(-sku.price, 'spend', sku.id);
-    if (sku.kind === 'outfit' || sku.kind === 'accent') await get().equip(sku.kind, sku.id);
-    return true;
   },
 
   async equip(kind, skuId) {
@@ -174,7 +188,22 @@ export const useApp = create<AppState>((set, get) => ({
     void import('./sync').then(({ sync }) => sync.requestSync());
   },
 
+  async rollDay() {
+    const state = get();
+    if (!state.loaded) return;
+    const day = today(state.profile);
+    if (day === state.day) return;
+    const todayXp = (await db.xpEvents.where('day').equals(day).toArray()).reduce((sum, e) => sum + e.amount, 0);
+    let quests = await db.quests.where('day').equals(day).toArray();
+    if (quests.length === 0) {
+      quests = dailyQuests(day);
+      await db.quests.bulkPut(quests);
+    }
+    set({ day, todayXp, quests });
+  },
+
   async bumpQuest(kind, n) {
+    await get().rollDay();
     const before = get().quests;
     const completed: Quest[] = [];
     const after = before.map((q) => {
@@ -248,6 +277,7 @@ export const useApp = create<AppState>((set, get) => ({
   async init() {
     const profile = (await db.profile.get('main')) ?? null;
     setActiveVoice(profile?.voice ?? DEFAULT_VOICE);
+    setSfxEnabled(profile?.soundOn !== false);
     const streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
     const unitProgress = Object.fromEntries((await db.unitProgress.toArray()).map((r) => [r.unitId, r]));
     const lessonProgress = Object.fromEntries((await db.lessonProgress.toArray()).map((r) => [r.id, r]));
@@ -279,6 +309,7 @@ export const useApp = create<AppState>((set, get) => ({
       reminders,
       totalXp,
       todayXp,
+      day,
       reviewCount,
       coinEvents,
       coins: balance(coinEvents),
@@ -346,11 +377,13 @@ export const useApp = create<AppState>((set, get) => ({
 
   async setSoundOn(soundOn) {
     const profile = { ...get().profile!, soundOn };
+    setSfxEnabled(soundOn);
     await db.profile.put(profile);
     set({ profile });
   },
 
   async awardXp(amount, source, refId) {
+    await get().rollDay();
     const state = get();
     const day = today(state.profile);
     const prevTotal = state.totalXp;
@@ -411,7 +444,7 @@ export const useApp = create<AppState>((set, get) => ({
 
   async finishGameRound(result) {
     const day = today(get().profile);
-    // the round is recorded as an XP event even when it pays nothing, so the
+    // the round is recorded as an XP event even when it pays no XP, so the
     // day's count and the badge stat see every round
     const played = (await db.xpEvents.toArray()).filter((e) => e.source === 'game' && e.day === day).length;
     const rewarded = played < REWARDED_ROUNDS_PER_DAY;
@@ -420,7 +453,7 @@ export const useApp = create<AppState>((set, get) => ({
     }
     const ref = `${result.game}:${new Date().toISOString()}`;
     const xp = rewarded ? roundXp(result) : 0;
-    const coins = rewarded ? roundCoins(result) : 0;
+    const coins = roundCoins(result, rewarded);
     const award = await get().awardXp(xp, 'game', ref);
     if (coins > 0) await get().grantCoins(coins, 'game', ref);
     const questsCompleted = await get().bumpQuest('review', 1);

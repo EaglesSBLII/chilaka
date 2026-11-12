@@ -1,7 +1,7 @@
 // Adaptive placement test: multiple-choice meaning questions over a bank of
 // items sampled across sections/difficulties.
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useApp } from '../store';
 import { allUnits, trackItems } from '../content/load';
 import {
@@ -31,6 +31,7 @@ function buildBank(): PlacementQuestionRef[] {
 export function Placement() {
   const finishPlacement = useApp((s) => s.finishPlacement);
   const awardXp = useApp((s) => s.awardXp);
+  const starting = useRef(false);
   const bank = useMemo(buildBank, []);
   const [state, setState] = useState<PlacementState>(startPlacement);
   const [chosen, setChosen] = useState<string | null>(null);
@@ -63,6 +64,8 @@ export function Placement() {
         <Button
           className="w-full text-lg"
           onClick={async () => {
+            if (starting.current) return; // a double tap must not award the XP twice
+            starting.current = true;
             await awardXp(10, 'placement', 'placement');
             await finishPlacement(section);
           }}

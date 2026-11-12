@@ -60,9 +60,31 @@ export class MicRecorder {
     return this.stream;
   }
 
-  async start(): Promise<void> {
-    if (this.recording) return;
+  private starting: Promise<void> | null = null;
+  private cancelRequested = false;
+
+  /** Open the mic for a take. Safe to call twice: a second call joins the first. */
+  start(): Promise<void> {
+    if (this.recording) return Promise.resolve();
+    if (this.starting) return this.starting;
+    this.cancelRequested = false;
     music.duck(true); // silence background music while the mic is open
+    this.starting = this.open()
+      .then(() => {
+        // the card was left while the permission prompt or the stream was pending
+        if (this.cancelRequested) this.cancel();
+      })
+      .catch((err) => {
+        music.duck(false); // no mic (denied, unplugged): give the music back
+        throw err;
+      })
+      .finally(() => {
+        this.starting = null;
+      });
+    return this.starting;
+  }
+
+  private async open(): Promise<void> {
     const stream = await this.ensureStream();
     stream.getTracks().forEach((t) => (t.enabled = true));
     if (!this.ctx) {
@@ -138,6 +160,7 @@ export class MicRecorder {
   }
 
   cancel(): void {
+    if (this.starting) this.cancelRequested = true; // applied the moment the mic opens
     if (!this.recording) return;
     this.recording = false;
     music.duck(false);

@@ -1,6 +1,8 @@
 // Memory Flip: a face-down grid of phrases and meanings. Flipping a Telugu
 // card plays it; two cards that belong together stay up with a sparkle, a
 // mismatch flips back after a moment. No clock — just a gentle move counter.
+// Turning over cards nobody has seen yet is exploring, not a mistake: a phrase
+// only counts as missed when both of its cards were already known.
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { memoryPairsFor, memoryRound, type MemoryCard } from '../../engine/games';
@@ -18,21 +20,33 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
   const [done, setDone] = useState<Set<string>>(new Set()); // matched item ids
   const [moves, setMoves] = useState(0);
   const [sparkle, setSparkle] = useState<string | null>(null);
+  const seen = useRef(new Set<string>()); // card keys the player has already turned over
   const [locked, lock] = useLockout();
   const outcomes = useOutcomes();
   const started = useRef(Date.now());
   const finished = useRef(false);
 
+  // the finish is scheduled once and reads its callbacks through refs: a
+  // re-render during the pause (the sparkle clearing, a sync) must never
+  // cancel it, or the round would sit on a solved board for ever
+  const onFinishRef = useRef(onFinish);
+  onFinishRef.current = onFinish;
+  const finishTimer = useRef<number | null>(null);
   useEffect(() => {
     if (done.size < pairs || finished.current) return;
     finished.current = true;
-    // every pair was found: a phrase counts as first-try unless it was part of a mismatch
-    const t = window.setTimeout(
-      () => onFinish({ game: 'memory', outcomes: outcomes.list(), bestCombo: 0, durationMs: Date.now() - started.current }),
+    finishTimer.current = window.setTimeout(
+      () => onFinishRef.current({ game: 'memory', outcomes: outcomes.list(), bestCombo: 0, durationMs: Date.now() - started.current }),
       reduce ? 200 : 700,
     );
-    return () => window.clearTimeout(t);
-  }, [done, pairs, onFinish, outcomes, reduce]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done, pairs]);
+  useEffect(
+    () => () => {
+      if (finishTimer.current !== null) window.clearTimeout(finishTimer.current);
+    },
+    [],
+  );
 
   const flip = async (card: MemoryCard) => {
     if (locked || up.includes(card.key) || done.has(card.itemId) || up.length >= 2) return;
@@ -42,6 +56,12 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
     if (nextUp.length < 2) return;
     setMoves((m) => m + 1);
     const [a, b] = nextUp.map((k) => cards.find((c) => c.key === k)!);
+    // what the player had already seen BEFORE this move decides whether a
+    // mismatch was a memory slip or just the luck of an unexplored board
+    const knewBoth = (c: MemoryCard) => cards.filter((o) => o.itemId === c.itemId).every((o) => seen.current.has(o.key));
+    const slips = [a, b].filter(knewBoth).map((c) => c.itemId);
+    seen.current.add(a.key);
+    seen.current.add(b.key);
     if (a.itemId === b.itemId) {
       // a match never blocks the next flip — only the sparkle lingers
       outcomes.hit(a.itemId);
@@ -52,8 +72,7 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
       window.setTimeout(() => setSparkle((cur) => (cur === a.itemId ? null : cur)), reduce ? 150 : 700);
       return;
     }
-    outcomes.miss(a.itemId);
-    outcomes.miss(b.itemId);
+    for (const id of slips) outcomes.miss(id);
     sfx.wrong();
     await lock(900); // long enough for a child to look at both
     setUp([]);

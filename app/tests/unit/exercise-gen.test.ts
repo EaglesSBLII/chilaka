@@ -72,19 +72,58 @@ describe('exercise generation v2', () => {
     expect(exercises.some((e) => e.kind === 'intro')).toBe(false);
   });
 
-  it('same-kind runs are capped at 3 (excluding intros)', () => {
-    for (const unit of units.slice(0, 8)) {
-      for (const seed of ['r1', 'r2', 'r3']) {
-        const ks = gen(unit, 0, seed)
-          .map((e) => e.kind)
-          .filter((k) => k !== 'intro');
-        for (let i = 3; i < ks.length; i++) {
-          const run = ks[i] === ks[i - 1] && ks[i] === ks[i - 2] && ks[i] === ks[i - 3];
-          expect(run, `${unit.id} seed ${seed}: ${ks.join(',')}`).toBe(false);
+  // every lesson of every unit, many seeds, first visit and replay, with and without speaking
+  it('ordering holds everywhere: no repeats, runs capped at 3, intro before practice, opener and finale intact', () => {
+    const firstUnit = units.find((x) => x.track !== 'script' && x.section === Math.min(...units.filter((y) => y.track !== 'script').map((y) => y.section)))!;
+    let sessions = 0;
+    const fails: string[] = [];
+    for (const unit of units) {
+      for (let li = 0; li < unit.lessons.length; li++) {
+        const lesson = unit.lessons[li];
+        for (let n = 0; n < 12; n++) {
+          for (const replay of [false, true]) {
+            for (const speak of [true, false]) {
+              const seed = `${unit.id}:${lesson.id}:${1731300000000 + n * 7919}`;
+              const exs = gen(unit, li, seed, replay ? lesson.itemIds : [], speak);
+              const where = `${unit.id}:${lesson.id} seed ${seed} replay=${replay} speak=${speak}: ${exs.map((e) => `${e.kind}:${e.itemId.split('-')[1]}`).join(' ')}`;
+              sessions++;
+              const order = exs.filter((e) => e.kind !== 'intro');
+              for (let i = 1; i < order.length; i++) {
+                if ((order[i].kind === order[i - 1].kind && order[i].itemId === order[i - 1].itemId) !== false) fails.push(`repeat — ${where}`);
+              }
+              // a phrase card in between is a break; four of a kind with nothing between is not allowed
+              for (let i = 3; i < exs.length; i++) {
+                const run = exs[i].kind !== 'intro' && exs[i].kind === exs[i - 1].kind && exs[i].kind === exs[i - 2].kind && exs[i].kind === exs[i - 3].kind;
+                if ((run) !== false) fails.push(`run of 4 — ${where}`);
+              }
+              // every item of the lesson is practised
+              for (const id of lesson.itemIds) if ((order.some((e) => e.itemId === id)) !== true) fails.push(`unpractised ${id} — ${where}`);
+              // nothing is practised before its card, except the first lesson's opener
+              const opener = !replay && unit.id === firstUnit.id && lesson.id === 'l1';
+              if (opener) {
+                expect(exs.slice(0, 3).map((e) => `${e.kind}:${e.itemId}`), where).toEqual([
+                  `listen-pick:${lesson.itemIds[0]}`,
+                  `${speak ? 'speak' : 'mc-audio'}:${lesson.itemIds[0]}`,
+                  `intro:${lesson.itemIds[0]}`,
+                ]);
+              }
+              exs.forEach((e, i) => {
+                if (e.kind === 'intro' || (opener && i < 2)) return;
+                const intro = exs.findIndex((x) => x.kind === 'intro' && x.itemId === e.itemId);
+                if ((intro < i) !== true) fails.push(`practised before its card (${e.kind}:${e.itemId}) — ${where}`);
+              });
+              if (!replay) for (const id of lesson.itemIds) if ((exs.some((e) => e.kind === 'intro' && e.itemId === id)) !== true) fails.push(`no card for ${id} — ${where}`);
+              const last = exs[exs.length - 1];
+              if (unit.track === 'script') expect(last.kind, where).toBe('type-script');
+              else if (speak) expect(last.kind, where).toBe('speak');
+            }
+          }
         }
       }
     }
-  });
+    expect(fails.slice(0, 5)).toEqual([]);
+    expect(sessions).toBeGreaterThan(10_000);
+  }, 120_000);
 
   it('without speak support the mix still works and ends with production', () => {
     const exercises = gen(u, 0, 'nospeak', [], false);

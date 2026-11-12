@@ -178,6 +178,15 @@ export function DialoguePlayer({ unitId }: { unitId: string }) {
                   onEval={applyEval}
                   evaluator={evaluator}
                 />
+                {useSpeak && (
+                  <button
+                    type="button"
+                    className="mt-3 w-full text-center text-sm font-bold text-teal underline"
+                    onClick={() => setUseSpeak(false)}
+                  >
+                    Can't speak right now? Build the line instead
+                  </button>
+                )}
                 {!useSpeak && (
                   <Button
                     className="mt-3 w-full"

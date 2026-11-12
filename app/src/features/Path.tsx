@@ -139,8 +139,12 @@ function UnitBlock({ unit }: { unit: Unit }) {
   const lessonState = (lessonId: string, i: number): 'done' | 'current' | 'replayable' | 'locked' => {
     if (status === 'locked') return 'locked';
     if (doneSet.has(lessonId)) return 'done';
+    // units before a placed-ahead start are open for review, but "current" —
+    // the pulsing START the home screen scrolls to — is only where the learner
+    // actually is
+    if (unit.section < startSection) return 'replayable';
     if (i === firstIncomplete) return 'current';
-    return unit.section < startSection ? 'replayable' : 'locked';
+    return 'locked';
   };
   const doneCount = unit.lessons.filter((l) => doneSet.has(l.id)).length;
   return (
@@ -206,11 +210,13 @@ export function Path() {
   const profile = useApp((s) => s.profile);
   const unitProgress = useApp((s) => s.unitProgress);
   // theme the backdrop by the section the learner is currently working in
+  const startSection = track === 'speak' ? (profile?.startSection ?? 0) : 0;
+  const incomplete = (u: Unit) => {
+    const up = unitProgress[u.id];
+    return !up || !u.lessons.every((l) => up.lessonsDone.includes(l.id));
+  };
   const activeUnit =
-    units.find((u) => {
-      const up = unitProgress[u.id];
-      return !up || !u.lessons.every((l) => up.lessonsDone.includes(l.id));
-    }) ?? units[units.length - 1];
+    units.find((u) => u.section >= startSection && incomplete(u)) ?? units.find(incomplete) ?? units[units.length - 1];
   let lastSection = -1;
 
   // Land the learner at their next lesson instead of the top of the course.

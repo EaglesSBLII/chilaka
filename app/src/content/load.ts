@@ -6,20 +6,27 @@ import { teluguToRoman } from '../engine/speech/normalize';
 import { authoredUnitSchema, type AuthoredUnit } from './schema';
 import type { VoiceId } from './voices';
 
-export function romanize(te: string, override?: string): string {
+/**
+ * `keepCase` is for the reading & writing track: there the capitals carry the
+ * lesson (ట "Ta" against త "ta", ణ "Na" against న "na"), and lowercasing made
+ * the two letters a unit exists to contrast read exactly the same.
+ */
+export function romanize(te: string, override?: string, keepCase = false): string {
   if (override) return override;
-  return teluguToRoman(te).toLowerCase();
+  const roman = teluguToRoman(te);
+  return keepCase ? roman : roman.toLowerCase();
 }
 
 export function loadUnit(raw: unknown): Unit {
   const a: AuthoredUnit = authoredUnitSchema.parse(raw);
+  const keepCase = a.track === 'script';
   const items: ContentItem[] = a.items.map((it) => ({
     id: it.id,
     te: it.te,
-    roman: romanize(it.te, it.romanOverride),
+    roman: romanize(it.te, it.romanOverride, keepCase),
     gloss: it.gloss,
     words: it.words.map(
-      (w): Word => ({ te: w.te, roman: romanize(w.te, w.romanOverride), gloss: w.gloss }),
+      (w): Word => ({ te: w.te, roman: romanize(w.te, w.romanOverride, keepCase), gloss: w.gloss }),
     ),
     tags: it.tags,
     difficulty: it.difficulty,

@@ -33,7 +33,7 @@
       ],
       "tags": ["past", "outings"],
       "difficulty": 3,
-      "note": "Past endings: నేను వెళ్ళాను (veLLaanu), మేము వెళ్ళాము (veLLaamu), ఆయన వెళ్ళాడు (veLLaaDu). మేము (memu) excludes the listener; మనము (manamu) includes them.",
+      "note": "Past endings: నేను వెళ్ళాను (veLLaanu), మేము వెళ్ళాము (veLLaamu), ఆయన వెళ్ళాడు (veLLaaDu). మేము (meemu) excludes the listener; మనము (manamu) includes them.",
       "distractors": ["u17-i07", "u17-i13"]
     },
     {
@@ -61,7 +61,7 @@
       ],
       "tags": ["past"],
       "difficulty": 3,
-      "note": "ఇప్పుడే (ippuDe) = 'just now' — the little -ఏ (-e) tail means 'exactly, only just'."
+      "note": "ఇప్పుడే (ippudee) = 'just now' — the little -ఏ (-ee) tail means 'exactly, only just'."
     },
     {
       "id": "u17-i05",
@@ -102,7 +102,7 @@
       ],
       "tags": ["past", "food"],
       "difficulty": 3,
-      "note": "In Telugu a హోటల్ (hoTal) usually means a restaurant, not a place you stay. హోటల్లో = హోటల్ + లో (lo, 'in') glued into one word."
+      "note": "In Telugu a హోటల్ (hootal) usually means a restaurant, not a place you stay. హోటల్లో = హోటల్ + లో (lo, 'in') glued into one word."
     },
     {
       "id": "u17-i08",
@@ -140,7 +140,7 @@
       ],
       "tags": ["past", "exclamations"],
       "difficulty": 3,
-      "note": "మర్చిపోయాను (marchipoyaanu) — sticking పోయాను ('went') onto a verb means it happened completely: 'I clean forgot!'",
+      "note": "మర్చిపోయాను (marchipooyaanu) — sticking పోయాను ('went') onto a verb means it happened completely: 'I clean forgot!'",
       "distractors": ["u17-i06", "u17-i14"]
     },
     {
@@ -154,7 +154,7 @@
       ],
       "tags": ["past", "negation"],
       "difficulty": 3,
-      "note": "The past negative is the same for everyone — just add -లేదు (-ledu): రాలేదు, చూడలేదు, తినలేదు. With friends: వాడు రాలేదు (vaaDu raaledu)."
+      "note": "The past negative is the same for everyone — just add -లేదు (-leedu): రాలేదు, చూడలేదు, తినలేదు. With friends: వాడు రాలేదు (vaadu raaleedu)."
     },
     {
       "id": "u17-i12",

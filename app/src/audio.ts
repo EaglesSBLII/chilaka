@@ -38,12 +38,19 @@ function decodedClip(url: string): Promise<AudioBuffer> {
 }
 
 /** Play a decoded buffer at VOICE_VOLUME; resolves when it ends (or is stopped). */
-async function playBuffer(buffer: AudioBuffer, rate = 1): Promise<void> {
+// Bumped whenever the reference voice is stopped or a new clip is asked for.
+// A clip that was still decoding (or waiting on the audio context) when that
+// happened checks it and stays silent — otherwise it would start late, over
+// the next card or into the learner's recording.
+let playToken = 0;
+
+async function playBuffer(buffer: AudioBuffer, rate = 1, token = playToken): Promise<void> {
   const c = ctx();
   // iOS suspends the context between gestures and after interruptions (a call,
   // Siri, the lock screen); a card's autoplay runs outside any gesture, so
   // wait for the resume instead of starting into a frozen clock
   if (c.state !== 'running') await c.resume().catch(() => {});
+  if (token !== playToken) return;
   return new Promise((resolve) => {
     const src = c.createBufferSource();
     src.buffer = buffer;
@@ -113,6 +120,7 @@ export function playItemAudioAfterPause(itemId: string, slow = false): () => voi
 
 /** Stop the reference clip (used when the learner starts recording, so the mic never hears it). */
 export function stopItemAudio(): void {
+  playToken++;
   current?.pause();
   current = null;
   try {
@@ -128,7 +136,16 @@ export function playItemAudio(itemId: string, slow = false, voice: VoiceId = act
   return new Promise((resolve) => {
     const start = (v: VoiceId, onFail: () => void) => {
       stopItemAudio();
+      const token = playToken;
       const url = audioFileFor(itemId, v);
+      // where <audio> cannot play the clip (some iOS versions refuse media
+      // served from the offline cache), slow it through Web Audio instead:
+      // the pitch drops a little, but the turtle button always does something
+      const slowViaBuffer = () =>
+        decodedClip(url).then(
+          (buf) => (token === playToken ? playBuffer(buf, 0.72, token).then(resolve) : resolve()),
+          () => onFail(),
+        );
       if (slow) {
         // slow mode needs pitch-preserving time stretch, which only <audio> offers
         const el = new Audio(url);
@@ -137,13 +154,25 @@ export function playItemAudio(itemId: string, slow = false, voice: VoiceId = act
         el.playbackRate = 0.72;
         if ('preservesPitch' in el) (el as HTMLAudioElement & { preservesPitch: boolean }).preservesPitch = true;
         el.onended = () => resolve();
-        el.onerror = onFail;
-        void el.play().catch(() => resolve());
+        let fellBack = false;
+        const fallBack = () => {
+          if (fellBack) return;
+          fellBack = true;
+          if (current === el) current = null;
+          if (token === playToken) void slowViaBuffer();
+          else resolve();
+        };
+        el.onerror = fallBack;
+        void el.play().catch((err: unknown) => {
+          // pausing it ourselves (the learner moved on) is not a failure
+          if (err instanceof DOMException && err.name === 'AbortError') resolve();
+          else fallBack();
+        });
         return;
       }
       decodedClip(url).then(
-        (buf) => playBuffer(buf).then(resolve),
-        () => onFail(),
+        (buf) => (token === playToken ? playBuffer(buf, 1, token).then(resolve) : resolve()),
+        () => (token === playToken ? onFail() : resolve()),
       );
     };
     // a clip missing in one voice falls back to the other, then to live TTS (desktop)

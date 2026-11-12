@@ -30,10 +30,10 @@ export function App() {
     });
     void import('./music').then(({ music }) => music.init());
     void import('./sync').then(async ({ sync }) => {
-      // never swap state out from under an active lesson/dialogue/placement
+      // never swap state out from under an active lesson/dialogue/placement/game round
       sync.canApply = () => {
         const v = useApp.getState().view.name;
-        return v !== 'lesson' && v !== 'dialogue' && v !== 'placement';
+        return v !== 'lesson' && v !== 'dialogue' && v !== 'placement' && v !== 'game';
       };
       sync.onApplied = async () => {
         await useApp.getState().init();
@@ -50,6 +50,21 @@ export function App() {
       useApp.subscribe(maybeAuto);
     });
   }, [init]);
+
+  // The app can stay open across midnight (a backgrounded PWA, the Mac app in
+  // the tray): when it comes back, start the new day's XP count and quests.
+  useEffect(() => {
+    if (!loaded) return;
+    const check = () => {
+      if (document.visibilityState === 'visible') void useApp.getState().rollDay();
+    };
+    document.addEventListener('visibilitychange', check);
+    const t = window.setInterval(check, 60_000);
+    return () => {
+      document.removeEventListener('visibilitychange', check);
+      window.clearInterval(t);
+    };
+  }, [loaded]);
 
   // Desktop auto-backup: every 10 minutes and whenever the window hides.
   useEffect(() => {

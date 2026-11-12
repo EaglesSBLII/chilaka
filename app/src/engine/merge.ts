@@ -139,19 +139,27 @@ export function mergeBackups(local: BackupFile, remote: BackupFile): BackupFile 
     out.srsCards = rows.sort((a, b) => String(a.id).localeCompare(String(b.id)));
   }
 
-  // ---- streaks: monotone maxima ----
+  // ---- streaks: the side that was active most recently is the truth ----
+  // (not field-wise maxima: a streak that broke here would be resurrected,
+  // and a freeze spent here refunded, by this device's own older upload)
   {
     const l = (L.streaks?.[0] ?? null) as Row | null;
     const r = (R.streaks?.[0] ?? null) as Row | null;
     if (l && r) {
+      const ld = String(l.lastActiveDay ?? '');
+      const rd = String(r.lastActiveDay ?? '');
+      const lead = ld !== rd ? (ld > rd ? l : r) : Number(l.current ?? 0) >= Number(r.current ?? 0) ? l : r;
+      const other = lead === l ? r : l;
+      const sameDay = ld === rd;
       out.streaks = [
         {
           id: 'main',
-          current: Math.max(Number(l.current ?? 0), Number(r.current ?? 0)),
-          longest: Math.max(Number(l.longest ?? 0), Number(r.longest ?? 0)),
-          lastActiveDay: maxStr(l.lastActiveDay, r.lastActiveDay),
-          freezesOwned: Math.max(Number(l.freezesOwned ?? 0), Number(r.freezesOwned ?? 0)),
-          freezeUsedOn: [...new Set([...(l.freezeUsedOn as string[]), ...(r.freezeUsedOn as string[])])].sort(),
+          current: Number(lead.current ?? 0),
+          longest: Math.max(Number(l.longest ?? 0), Number(r.longest ?? 0), Number(lead.current ?? 0)),
+          lastActiveDay: lead.lastActiveDay ?? null,
+          // same day on both sides: neither is ahead, keep the cautious (smaller) count
+          freezesOwned: sameDay ? Math.min(Number(lead.freezesOwned ?? 0), Number(other.freezesOwned ?? 0)) : Number(lead.freezesOwned ?? 0),
+          freezeUsedOn: [...new Set([...((l.freezeUsedOn as string[]) ?? []), ...((r.freezeUsedOn as string[]) ?? [])])].sort(),
         },
       ];
     } else {

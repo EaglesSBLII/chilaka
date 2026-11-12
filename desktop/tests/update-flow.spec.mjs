@@ -94,7 +94,7 @@ test('banner: available → Update → percentage → ready', async () => {
     await win.screenshot({ path: join(DESKTOP, 'test-results', 'update-3-ready.png') });
     // staged, not installed: the running bundle is untouched
     const staged = await app.evaluate(({ app: a }) => a.getVersion());
-    expect(staged).toBe('0.4.1');
+    expect(staged).toBe(JSON.parse(readFileSync(join(DESKTOP, 'package.json'), 'utf8')).version);
   } finally {
     await app.close();
     server.close();

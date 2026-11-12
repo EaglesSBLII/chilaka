@@ -1,7 +1,7 @@
 // Speaking exercise. Desktop: record → whisper → word-level feedback.
 // Web/PWA: echo mode — record, compare by ear against the reference, self-grade.
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Mic, Square } from 'lucide-react';
 import { platform } from '../../platform';
 import { mic, type Recording } from '../../platform/recorder';
@@ -46,6 +46,7 @@ export function Speak({ exercise, item, unit, scriptMode, onAutoResult, onReady 
   const [error, setError] = useState<string | null>(null);
   const [echoWhy, setEchoWhy] = useState<'unpaired' | 'offline' | null>(null);
   const [micTip, setMicTip] = useState<string | null>(null);
+  const cancelAutoplayRef = useRef<() => void>(() => {});
   useEffect(() => {
     setStage('idle');
     setTake(null);
@@ -70,6 +71,7 @@ export function Speak({ exercise, item, unit, scriptMode, onAutoResult, onReady 
     }
     // Let the card settle on screen for a beat before the voice speaks.
     const cancelAutoplay = playItemAudioAfterPause(item.id);
+    cancelAutoplayRef.current = cancelAutoplay;
     // shared mic: cancel parks the take but keeps the stream, so iOS only
     // asks for permission once per session. Desktop never re-prompts, so it
     // releases fully (no lingering mic-in-use indicator).
@@ -83,9 +85,14 @@ export function Speak({ exercise, item, unit, scriptMode, onAutoResult, onReady 
 
   const startRec = async () => {
     setError(null);
-    stopItemAudio(); // never let the reference voice bleed into the learner's take
+    // never let the reference voice bleed into the learner's take: stop what is
+    // playing AND the card's pending autoplay (tapping the mic at once used to
+    // let it start mid-recording)
+    cancelAutoplayRef.current();
+    stopItemAudio();
     try {
       await mic.start();
+      if (!mic.recording) return; // the card was left while the mic was opening
       setStage('recording');
     } catch {
       setError('Microphone unavailable. Check permissions in System Settings.');

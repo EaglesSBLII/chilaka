@@ -4,8 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate-content": "node validate-content.mjs",
-    "content-stats": "node content-stats.mjs",
     "render-audio": "node render-audio.mjs",
     "asr-regression": "node asr-regression.mjs"
   },

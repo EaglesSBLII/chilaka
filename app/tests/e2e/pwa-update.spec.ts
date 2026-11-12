@@ -45,7 +45,11 @@ test('update banner: progress, then a manual Restart', async ({ page }) => {
 
     await restart.click();
     await page.waitForLoadState('load');
-    await expect.poll(() => page.evaluate(async () => Boolean((await navigator.serviceWorker.getRegistration())?.waiting)), { timeout: 30_000 }).toBe(false);
+    // the click reloads the page once the new worker takes over; an evaluate
+    // that lands mid-navigation is retried rather than failing the test
+    await expect
+      .poll(() => page.evaluate(async () => Boolean((await navigator.serviceWorker.getRegistration())?.waiting)).catch(() => true), { timeout: 30_000 })
+      .toBe(false);
     await expect(page.getByTestId('update-banner')).toHaveCount(0);
   } finally {
     writeFileSync(SW, original);

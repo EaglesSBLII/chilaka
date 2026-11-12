@@ -141,13 +141,22 @@ describe('rewards and scheduling', () => {
     expect(roundXp({ outcomes: outcomes(8, 0, 0) })).toBe(11);
     expect(roundXp({ outcomes: outcomes(5, 2, 1) })).toBe(5);
     expect(roundXp({ outcomes: outcomes(15, 0, 0) })).toBe(12);
+    expect(roundXp({ outcomes: outcomes(0, 3, 0) })).toBe(1);
     expect(roundXp({ outcomes: [] })).toBe(0);
   });
 
-  it('coins reward accuracy and combos, capped', () => {
-    expect(roundCoins({ outcomes: outcomes(8, 0, 0), bestCombo: 0 })).toBe(21);
-    expect(roundCoins({ outcomes: outcomes(8, 0, 0), bestCombo: 6 })).toBe(25);
-    expect(roundCoins({ outcomes: outcomes(3, 3, 0), bestCombo: 3 })).toBe(8);
+  it('coins: every finished round pays, accuracy and combos pay more, capped', () => {
+    expect(roundCoins({ outcomes: outcomes(8, 0, 0), bestCombo: 0 })).toBe(26);
+    expect(roundCoins({ outcomes: outcomes(8, 0, 0), bestCombo: 6 })).toBe(30);
+    expect(roundCoins({ outcomes: outcomes(15, 0, 0), bestCombo: 15 })).toBe(30);
+    expect(roundCoins({ outcomes: outcomes(3, 3, 0), bestCombo: 3 })).toBe(13);
+    // a round with not one first-try answer still pays for finishing
+    expect(roundCoins({ outcomes: outcomes(0, 3, 0), bestCombo: 0 })).toBe(5);
+    // after the day's full-pay rounds a finished round pays the small treat
+    expect(roundCoins({ outcomes: outcomes(8, 0, 0), bestCombo: 6 }, false)).toBe(2);
+    // nothing solved (the clock ran out untouched) pays nothing
+    expect(roundCoins({ outcomes: [], bestCombo: 0 })).toBe(0);
+    expect(roundCoins({ outcomes: outcomes(0, 0, 2), bestCombo: 0 }, false)).toBe(0);
   });
 
   it('stars follow first-try accuracy', () => {

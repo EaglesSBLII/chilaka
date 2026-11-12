@@ -85,6 +85,7 @@ export function Settings() {
                 value={`${String(r.hh).padStart(2, '0')}:${String(r.mm).padStart(2, '0')}`}
                 onChange={(e) => {
                   const [hh, mm] = e.target.value.split(':').map(Number);
+                  if (!Number.isInteger(hh) || !Number.isInteger(mm)) return; // field cleared: keep the old time
                   setDrafts((d) => d.map((x, j) => (j === i ? { ...x, hh, mm } : x)));
                 }}
                 className="rounded-xl border-2 border-line bg-card px-3 py-2 font-bold"
