@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useApp } from './store';
 import { Path } from './features/Path';
+import { PathSwitch } from './features/forest/PathSwitch'; // FOREST-MAP SEAM
 import { LessonPlayer } from './features/LessonPlayer';
 import { DialoguePlayer } from './features/DialoguePlayer';
 import { Play } from './features/Play';
@@ -120,7 +121,9 @@ export function App() {
       <Header />
       <main className="mx-auto max-w-2xl px-4 py-6">
         <PageTransition id={view.name}>
-          {view.name === 'path' && <Path />}
+          {/* FOREST-MAP SEAM: PathSwitch shows the forest map or the classic <Path />.
+              To remove the forest map, render <Path /> here directly again. */}
+          {view.name === 'path' && <PathSwitch classic={<Path />} />}
           {view.name === 'play' && <Play />}
           {view.name === 'quests' && <Quests />}
           {view.name === 'shop' && <Shop />}

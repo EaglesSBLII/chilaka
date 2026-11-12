@@ -11,7 +11,7 @@ import { FullJungle, JungleCanopy } from '../components/Jungle';
 import { ProgressBar, Ring } from '../components/ui';
 import type { Unit } from '../engine/types';
 
-const SECTION_META: Record<string, Record<number, { title: string; color: string; emoji: string }>> = {
+export const SECTION_META: Record<string, Record<number, { title: string; color: string; emoji: string }>> = {
   speak: {
     0: { title: 'First words', color: 'text-teal', emoji: '👋' },
     1: { title: 'Getting your Telugu back', color: 'text-teal', emoji: '🌱' },
@@ -172,7 +172,7 @@ function UnitBlock({ unit }: { unit: Unit }) {
   );
 }
 
-function Hero() {
+export function Hero() {
   const profile = useApp((s) => s.profile);
   const { count } = useStreakStanding();
   const streak = useApp((s) => s.streak);
