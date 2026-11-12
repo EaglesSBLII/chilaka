@@ -29,7 +29,7 @@ describe('exercise generation v2', () => {
     expect(a).toEqual(b);
   });
 
-  it('different seeds vary the sequence (teach patterns rotate)', () => {
+  it('different seeds vary the sequence', () => {
     const signatures = new Set(
       ['s1', 's2', 's3', 's4', 's5', 's6'].map((s) =>
         gen(u, 0, s)
@@ -40,11 +40,10 @@ describe('exercise generation v2', () => {
     expect(signatures.size).toBeGreaterThan(2);
   });
 
-  it('speaking dominates the graded mix (talking-first)', () => {
-    // average across several lessons/seeds
+  it('speaking stays a large share of the graded mix', () => {
     let speak = 0;
     let graded = 0;
-    for (const unit of units.slice(0, 6)) {
+    for (const unit of units.filter((x) => x.track !== 'script').slice(0, 6)) {
       for (let li = 0; li < unit.lessons.length; li++) {
         for (const seed of ['a', 'b']) {
           for (const ex of gen(unit, li, seed)) {
@@ -55,8 +54,46 @@ describe('exercise generation v2', () => {
         }
       }
     }
-    expect(speak / graded).toBeGreaterThan(0.45);
+    expect(speak / graded).toBeGreaterThan(0.33);
   });
+
+  // card (meaning + audio) → say it → pick it by ear, then understand, then produce
+  it('every lesson goes easiest to hardest', () => {
+    const STEP: Record<string, number> = {
+      'mc-audio': 2, 'mc-te2en': 2, 'mc-en2te': 3, wordbank: 3, 'type-script': 3,
+    };
+    const fails: string[] = [];
+    let sessions = 0;
+    for (const unit of units) {
+      for (let li = 0; li < unit.lessons.length; li++) {
+        const lesson = unit.lessons[li];
+        for (let n = 0; n < 6; n++) {
+          for (const speak of [true, false]) {
+            const exs = gen(unit, li, `${unit.id}:${lesson.id}:${n}`, [], speak);
+            const says = speak && unit.track !== 'script';
+            const where = `${unit.id}:${lesson.id} n=${n} speak=${speak}: ${exs.map((e) => `${e.kind}:${e.itemId.split('-')[1]}`).join(' ')}`;
+            sessions++;
+            // 1. the lesson opens by meeting each phrase in the lesson's own order
+            const per = says ? 3 : 2;
+            lesson.itemIds.forEach((id, k) => {
+              const got = exs.slice(k * per, k * per + per).map((e) => `${e.kind}:${e.itemId}`);
+              const want = [`intro:${id}`, ...(says ? [`speak:${id}`] : []), `listen-pick:${id}`];
+              if (got.join() !== want.join()) fails.push(`meet step — ${where}`);
+            });
+            // 2. after that the steps only go up; the finale is excused
+            let step = 2;
+            exs.slice(lesson.itemIds.length * per, -1).forEach((e) => {
+              const s = STEP[e.kind] ?? (e.kind === 'speak' ? 3 : e.kind === 'listen-pick' && !says ? 3 : 0);
+              if (s < step) fails.push(`step went down at ${e.kind}:${e.itemId} — ${where}`);
+              step = Math.max(step, s);
+            });
+          }
+        }
+      }
+    }
+    expect(fails.slice(0, 5)).toEqual([]);
+    expect(sessions).toBeGreaterThan(4_000);
+  }, 120_000);
 
   it('every exercise references an item in the lesson', () => {
     for (const seed of ['q1', 'q2']) {
@@ -73,8 +110,7 @@ describe('exercise generation v2', () => {
   });
 
   // every lesson of every unit, many seeds, first visit and replay, with and without speaking
-  it('ordering holds everywhere: no repeats, runs capped at 3, intro before practice, opener and finale intact', () => {
-    const firstUnit = units.find((x) => x.track !== 'script' && x.section === Math.min(...units.filter((y) => y.track !== 'script').map((y) => y.section)))!;
+  it('ordering holds everywhere: no repeats, runs capped at 3, intro before practice, finale intact', () => {
     let sessions = 0;
     const fails: string[] = [];
     for (const unit of units) {
@@ -98,17 +134,9 @@ describe('exercise generation v2', () => {
               }
               // every item of the lesson is practised
               for (const id of lesson.itemIds) if ((order.some((e) => e.itemId === id)) !== true) fails.push(`unpractised ${id} — ${where}`);
-              // nothing is practised before its card, except the first lesson's opener
-              const opener = !replay && unit.id === firstUnit.id && lesson.id === 'l1';
-              if (opener) {
-                expect(exs.slice(0, 3).map((e) => `${e.kind}:${e.itemId}`), where).toEqual([
-                  `listen-pick:${lesson.itemIds[0]}`,
-                  `${speak ? 'speak' : 'mc-audio'}:${lesson.itemIds[0]}`,
-                  `intro:${lesson.itemIds[0]}`,
-                ]);
-              }
+              // nothing is practised before its card
               exs.forEach((e, i) => {
-                if (e.kind === 'intro' || (opener && i < 2)) return;
+                if (e.kind === 'intro') return;
                 const intro = exs.findIndex((x) => x.kind === 'intro' && x.itemId === e.itemId);
                 if ((intro < i) !== true) fails.push(`practised before its card (${e.kind}:${e.itemId}) — ${where}`);
               });

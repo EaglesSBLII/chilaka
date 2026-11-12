@@ -29,7 +29,7 @@ test('a native take of the WRONG word (కాదు for నమస్కారం
   await completeOnboarding(page, 'Ravi');
   await page.getByRole('button', { name: /lesson 1/i }).first().click();
 
-  // the demo opener is listen → SPEAK → flashcard on the first phrase
+  // every new phrase goes card → SPEAK → pick by ear; stop at the first speak
   for (let i = 0; i < 6; i++) {
     const ex = page.getByTestId('exercise');
     await ex.waitFor({ state: 'visible', timeout: 20_000 });

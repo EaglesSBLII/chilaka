@@ -4,12 +4,6 @@
 
 import type { ChoiceExercise, ContentItem, Exercise, ExerciseKind, Lesson, Unit } from './types';
 import { rngFromSeed, shuffled, pickN, type Rng } from './rng';
-import { allUnits } from '../content/load';
-
-/** id of the very first speak-track unit on the path (hosts the demo opener). */
-function firstSpeakUnitId(): string | undefined {
-  return allUnits().find((u) => u.track === 'speak')?.id;
-}
 
 export interface GenOptions {
   seed: string;
@@ -21,49 +15,17 @@ export interface GenOptions {
   pool: ContentItem[];
 }
 
-// Speaking-first weights: the course is about talking, so speak dominates the
-// practice mix; listening MC backs it up; spelling-ish tasks are minimal.
-const ROUND_WEIGHTS: [ExerciseKind, number][][] = [
-  // round 1: recognize + start producing
-  [
-    ['speak', 0.4],
-    ['listen-pick', 0.2],
-    ['mc-audio', 0.12],
-    ['mc-te2en', 0.1],
-    ['mc-en2te', 0.08],
-    ['wordbank', 0.1],
-  ],
-  // round 2: mostly production
-  [
-    ['speak', 0.55],
-    ['listen-pick', 0.15],
-    ['mc-audio', 0.08],
-    ['mc-en2te', 0.1],
-    ['wordbank', 0.12],
-  ],
-];
-
-type TeachPattern = 'say-it' | 'interleaved' | 'listen-first';
-const TEACH_PATTERNS: TeachPattern[] = ['say-it', 'interleaved', 'listen-first'];
-
-// Script (reading & writing) lessons: recognition + WRITING with the Telugu
-// keyboard; no speaking drills. type-script is the production backbone.
-const SCRIPT_ROUND_WEIGHTS: [ExerciseKind, number][][] = [
-  [
-    ['type-script', 0.3],
-    ['listen-pick', 0.2],
-    ['mc-audio', 0.15],
-    ['mc-te2en', 0.2],
-    ['wordbank', 0.15],
-  ],
-  [
-    ['type-script', 0.45],
-    ['listen-pick', 0.15],
-    ['mc-audio', 0.1],
-    ['mc-te2en', 0.1],
-    ['wordbank', 0.2],
-  ],
-];
+// Every lesson climbs from easiest to hardest:
+//   1. meet each new phrase: its card (meaning + audio), say it, then pick it by ear;
+//   2. understand: hear or read each phrase and choose its meaning;
+//   3. produce: choose, build, say or write each phrase from its meaning;
+//   4. finale: one last phrase said (or written) from memory.
+// Inside a step the exercise kinds take turns, so the same kind never piles up.
+const UNDERSTAND: ExerciseKind[] = ['mc-audio', 'mc-te2en'];
+const PRODUCE_SPEAK: ExerciseKind[] = ['speak', 'mc-en2te', 'speak', 'wordbank'];
+const PRODUCE_NO_SPEAK: ExerciseKind[] = ['mc-en2te', 'wordbank'];
+// Script (reading & writing) lessons write with the Telugu keyboard instead of speaking.
+const PRODUCE_SCRIPT: ExerciseKind[] = ['type-script', 'wordbank'];
 
 function byId(pool: ContentItem[]): Map<string, ContentItem> {
   const m = new Map<string, ContentItem>();
@@ -125,27 +87,12 @@ function exerciseFor(kind: ExerciseKind, item: ContentItem, unit: Unit, pool: Co
   }
 }
 
-/** Weighted kind pick, respecting what the item supports. */
-function pickKind(weights: [ExerciseKind, number][], item: ContentItem, includeSpeak: boolean, rng: Rng): ExerciseKind {
-  const usable = weights.filter(([k]) => {
-    if (k === 'wordbank' && item.words.length < 2) return false;
-    if (k === 'speak' && !includeSpeak) return false;
-    return true;
-  });
-  const total = usable.reduce((s, [, w]) => s + w, 0);
-  let roll = rng() * total;
-  for (const [k, w] of usable) {
-    roll -= w;
-    if (roll <= 0) return k;
-  }
-  return usable[usable.length - 1][0];
-}
-
 /**
- * A lesson session, talking-first. The teach phase itself varies between
- * lessons (three seeded patterns) so sessions don't feel formulaic, then two
- * speak-heavy practice rounds and a spoken finale. Roughly 55–65% of graded
- * exercises are speaking.
+ * A lesson session, easiest to hardest: each new phrase is shown with its
+ * meaning and audio, said aloud, then picked by ear; after that every phrase
+ * of the lesson is understood (meaning from sound or text), then produced
+ * (chosen, built, said or written from its meaning), and one is said or
+ * written once more as the finale.
  */
 export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions): Exercise[] {
   const rng = rngFromSeed(opts.seed);
@@ -158,62 +105,31 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
 
   const out: Exercise[] = [];
   const isScript = unit.track === 'script';
-  // production exercise: speaking for the speak track, WRITING for script
-  const speakOr = (fallback: ExerciseKind): ExerciseKind =>
-    isScript ? 'type-script' : opts.includeSpeak ? 'speak' : fallback;
+  const canSpeak = !isScript && opts.includeSpeak;
+  const add = (kind: ExerciseKind, item: ContentItem) => out.push(exerciseFor(kind, item, unit, opts.pool, rng));
 
-  // 0. demo opener for the very first lesson: Listen → Speak → Flashcard on the
-  // first phrase, so every part of the app shows up in the first minute.
-  let newItems = items.filter((it) => !opts.seenItemIds.has(it.id));
-  let hasOpener = false;
-  if (unit.id === firstSpeakUnitId() && lesson.id === 'l1' && items.length > 0 && !opts.seenItemIds.has(items[0].id)) {
-    const first = items[0];
-    out.push(exerciseFor('listen-pick', first, unit, opts.pool, rng));
-    out.push(exerciseFor(speakOr('mc-audio'), first, unit, opts.pool, rng));
-    out.push({ kind: 'intro', itemId: first.id });
-    newItems = newItems.filter((it) => it.id !== first.id);
-    hasOpener = true;
+  // 1. meet the new phrases one at a time: card → say it → pick it by ear
+  for (const item of items.filter((it) => !opts.seenItemIds.has(it.id))) {
+    out.push({ kind: 'intro', itemId: item.id });
+    if (canSpeak) add('speak', item);
+    add('listen-pick', item);
   }
 
-  // 1. teach the unseen items — pattern varies per lesson seed
-  const pattern = TEACH_PATTERNS[Math.floor(rng() * TEACH_PATTERNS.length)];
-  if (pattern === 'say-it') {
-    // hear it, then immediately say it — tightest listen→speak loop
-    for (const item of newItems) {
-      out.push({ kind: 'intro', itemId: item.id });
-      out.push(exerciseFor(speakOr('mc-te2en'), item, unit, opts.pool, rng));
-    }
-  } else if (pattern === 'interleaved') {
-    // teach in pairs, practice the pair together before moving on
-    for (let i = 0; i < newItems.length; i += 2) {
-      const pair = newItems.slice(i, i + 2);
-      for (const item of pair) out.push({ kind: 'intro', itemId: item.id });
-      for (const item of shuffled(pair, rng)) {
-        out.push(exerciseFor('mc-te2en', item, unit, opts.pool, rng));
-      }
-      for (const item of shuffled(pair, rng)) {
-        out.push(exerciseFor(speakOr('listen-pick'), item, unit, opts.pool, rng));
-      }
-    }
-  } else {
-    // listen-first: meet everything, then ears, then mouth
-    for (const item of newItems) out.push({ kind: 'intro', itemId: item.id });
-    for (const item of shuffled(newItems, rng)) {
-      out.push(exerciseFor('listen-pick', item, unit, opts.pool, rng));
-    }
-    for (const item of shuffled(newItems, rng)) {
-      out.push(exerciseFor(speakOr('mc-audio'), item, unit, opts.pool, rng));
-    }
+  // 2. understand, then 3. produce — every phrase of the lesson in each step,
+  // the kinds taking turns from a seeded starting point
+  const produce = isScript ? PRODUCE_SCRIPT : canSpeak ? PRODUCE_SPEAK : PRODUCE_NO_SPEAK;
+  for (const kinds of [UNDERSTAND, produce]) {
+    const start = Math.floor(rng() * kinds.length);
+    shuffled(items, rng).forEach((item, k) => {
+      let kind = kinds[(start + k) % kinds.length];
+      // a one-word phrase has nothing to build: choose it instead, or where speaking
+      // is off pick it by ear, so the same kind does not pile up
+      if (kind === 'wordbank' && item.words.length < 2) kind = canSpeak ? 'mc-en2te' : 'listen-pick';
+      add(kind, item);
+    });
   }
 
-  // 2. two production-heavy mixed rounds over all lesson items
-  for (const weights of isScript ? SCRIPT_ROUND_WEIGHTS : ROUND_WEIGHTS) {
-    for (const item of shuffled(items, rng)) {
-      out.push(exerciseFor(pickKind(weights, item, isScript ? false : opts.includeSpeak, rng), item, unit, opts.pool, rng));
-    }
-  }
-
-  // 3. finale: the least-produced item, spoken (speak track) or written (script)
+  // 4. finale: the least-produced item, spoken (speak track) or written (script)
   const prodKind: ExerciseKind = isScript ? 'type-script' : 'speak';
   const prodCounts = new Map(items.map((it) => [it.id, 0]));
   for (const ex of out) {
@@ -240,7 +156,7 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   const altKinds: ExerciseKind[] = isScript
     ? ['listen-pick', 'mc-te2en', 'mc-audio', 'wordbank', 'type-script']
     : ['listen-pick', 'mc-te2en', 'mc-audio', 'mc-en2te', 'wordbank'];
-  return arrangeExercises(out, hasOpener, (ex) => {
+  return arrangeExercises(out, false, (ex) => {
     const item = itemsById.get(ex.itemId);
     if (!item) return [];
     return altKinds
@@ -251,9 +167,8 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
 
 /**
  * Final ordering pass. Guarantees, in this order of priority:
- *  - an item is never practised before its "new phrase" card (the first
- *    lesson's listen → speak → card opener is the one deliberate exception
- *    and is never moved), and the finale stays last;
+ *  - an item is never practised before its "new phrase" card, and the finale
+ *    stays last;
  *  - the same exercise (kind + item) never comes twice in a row;
  *  - no more than three exercises of one kind in a row (a phrase card in
  *    between counts as a break).
