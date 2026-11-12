@@ -40,3 +40,7 @@ tools/voice-scan-report.json
 
 # local-only secrets for `wrangler dev`
 .dev.vars
+
+# owner's preview build (built and uploaded by tools/publish-dev.mjs, never committed)
+app/dist-dev/
+admin-worker/public/dev/

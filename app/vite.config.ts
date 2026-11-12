@@ -7,11 +7,15 @@ import path from 'node:path';
 // base './' so the same build loads from file:// inside Electron and from any
 // subpath when deployed as a PWA.
 const BUILD_STAMP = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+// CHILAKA_CHANNEL=dev builds the owner's private preview (tools/publish-dev.mjs):
+// same app, its own output folder and home-screen name, no visit beacon.
+const DEV_CHANNEL = process.env.CHILAKA_CHANNEL === 'dev';
 
 export default defineConfig({
   base: './',
   define: {
     __BUILD_STAMP__: JSON.stringify(BUILD_STAMP),
+    __CHANNEL__: JSON.stringify(DEV_CHANNEL ? 'dev' : 'release'),
   },
   plugins: [
     react(),
@@ -29,8 +33,8 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
       },
       manifest: {
-        name: 'Chilaka — Telugu',
-        short_name: 'Chilaka',
+        name: DEV_CHANNEL ? 'Chilaka Dev (preview)' : 'Chilaka — Telugu',
+        short_name: DEV_CHANNEL ? 'Chilaka Dev' : 'Chilaka',
         description: 'Learn to speak Telugu fluently',
         theme_color: '#0E6B63',
         background_color: '#FFF8ED',
@@ -53,7 +57,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: DEV_CHANNEL ? 'dist-dev' : 'dist',
     target: 'es2022',
   },
   test: {

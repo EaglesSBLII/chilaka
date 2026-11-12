@@ -11,6 +11,22 @@ It shows three things and nothing else:
   are marked "automated" and hidden by default.
 - **GitHub**: stars and Mac-app download counts, plus repository page views if connected.
 
+## Developer version
+
+The dashboard also holds a private **developer version** of the app at `/dev/`, behind the same
+password. It is the released app plus whatever changes are still waiting for approval, and it
+wears a small red "DEV" tag so it is never mistaken for the real one. On an iPhone it can be
+added to the Home Screen as "Chilaka Dev" next to the real app.
+
+- New work goes here first: `node tools/publish-dev.mjs --note "what changed"` builds the
+  current folder and uploads it. Nothing goes to GitHub and the released app is untouched.
+- After approval the change is pushed to GitHub (which updates chilaka.pages.dev) and the Mac
+  app is released. That push also rebuilds the developer version from the released code, so
+  the two are identical again until the next change.
+- It keeps its own progress on each device, separate from the released app. If you sign in to
+  your account there, it syncs with your real account, so it is a preview and not a sandbox.
+- It covers the web / iPhone app. The Mac app is built only at release time.
+
 ## Set your password (once)
 
 The dashboard answers nothing until a password exists. In Terminal, in the project folder:

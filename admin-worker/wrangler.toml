@@ -7,7 +7,9 @@ compatibility_date = "2026-07-01"
 # The page shell (no data in it); every /api call goes through the worker.
 [assets]
 directory = "./public"
-run_worker_first = ["/api/*"]
+binding = "ASSETS"
+# /dev/* is the developer version of the app: the worker checks the owner's session first.
+run_worker_first = ["/api/*", "/dev", "/dev/*"]
 
 # Accounts (read only here: emails).
 [[d1_databases]]

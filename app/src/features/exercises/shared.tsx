@@ -25,6 +25,8 @@ export interface ExerciseProps {
   onReady(evaluate: (() => AnswerEval) | null): void;
   /** child completed evaluation on its own (speak/intro flows) */
   onAutoResult(ev: AnswerEval): void;
+  /** move on without a verdict (no XP, not counted): for exercises a learner may be unable to do */
+  onSkip?(): void;
 }
 
 /**

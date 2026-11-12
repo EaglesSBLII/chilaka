@@ -18,6 +18,8 @@ import { Choice } from './exercises/Choice';
 import { Wordbank } from './exercises/Wordbank';
 import { Speak } from './exercises/Speak';
 import { TypeScriptEx } from './exercises/TypeScriptEx';
+import { TraceEx } from './exercises/TraceEx';
+import { isComputer } from '../device';
 import { LessonComplete, type CompletionStats } from './LessonComplete';
 
 interface QueueEntry {
@@ -81,7 +83,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
   const progress = idx / queue.length;
 
   const payXp = () => {
-    const key = `${entry.exercise.kind}:${entry.exercise.itemId}`;
+    // tracing over the guide and writing from memory are different work: each pays once
+    const mode = entry.exercise.kind === 'trace' ? (entry.exercise.guide ? ':guided' : ':memory') : '';
+    const key = `${entry.exercise.kind}${mode}:${entry.exercise.itemId}`;
     if (xpPaid.current.has(key)) return;
     xpPaid.current.add(key);
     xpEarned.current += xpForExercise(entry.exercise.kind, true);
@@ -170,6 +174,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
     for (const id of lesson.itemIds) {
       if (srsCards[id]) {
         await store.getState().applyReview(id, wrongItems.current.has(id) ? Rating.Hard : Rating.Good);
+      } else if (wrongItems.current.has(id) && store.getState().srsCards[id]) {
+        // met for the first time in this lesson and missed: bring it back sooner
+        await store.getState().applyReview(id, Rating.Hard);
       }
     }
     const rewards = await store.getState().finishLesson(unitId, lessonId, pct, total);
@@ -187,12 +194,18 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
         ? Wordbank
         : entry.exercise.kind === 'type-script'
           ? TypeScriptEx
+          : entry.exercise.kind === 'trace'
+            ? TraceEx
           : entry.exercise.kind === 'speak'
             ? Speak // ASR missing → the component falls back to echo mode itself
             : Choice;
 
   const isIntro = entry.exercise.kind === 'intro';
   const isSpeak = entry.exercise.kind === 'speak';
+  // drawing letters needs a touch screen: on a computer it can be skipped (no penalty, no XP)
+  const canSkip = isSpeak || (entry.exercise.kind === 'trace' && isComputer());
+  // writing from memory is checked by the learner inside the exercise, not with Check
+  const selfChecked = entry.exercise.kind === 'trace' && !entry.exercise.guide;
 
   return (
     <div className="mx-auto flex min-h-screen max-w-xl flex-col px-5 py-6">
@@ -225,6 +238,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           phase={phase}
           lastEval={lastEval}
           onReady={(fn) => (evaluator.current = fn)}
+          onSkip={() => {
+            if (idxRef.current === idx) void advance();
+          }}
           onAutoResult={(ev) => {
             // a result that arrives after the learner moved on (a slow
             // transcription, then Skip) belongs to an exercise that is gone
@@ -240,8 +256,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
         />
       </div>
 
-      {/* footer */}
+      {/* footer (nothing to show while a self-checked exercise is being answered on a touch device) */}
       <div
+        hidden={phase === 'answering' && selfChecked && !canSkip}
         className={`sticky bottom-0 -mx-5 border-t-2 px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] ${
           phase === 'feedback'
             ? lastEval?.correct
@@ -271,14 +288,16 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           </Button>
         ) : phase === 'answering' ? (
           <div className="flex gap-3">
-            {isSpeak && (
+            {canSkip && (
               <Button variant="ghost" className="flex-1" disabled={busy} onClick={() => void advance()}>
                 Skip
               </Button>
             )}
-            <Button className="flex-[2] w-full text-lg" onClick={check} disabled={isSpeak}>
-              Check
-            </Button>
+            {!selfChecked && (
+              <Button className="flex-[2] w-full text-lg" onClick={check} disabled={isSpeak}>
+                Check
+              </Button>
+            )}
           </div>
         ) : (
           <Button

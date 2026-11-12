@@ -22,6 +22,7 @@ A free, private, Duolingo-style app that takes you from "broken Telugu" to holdi
 ## Using it
 
 - **Accounts (free):** Settings → Account → Create account. Email + password; nothing is emailed. You get a one-time recovery code at signup — it is the only way back in if you forget the password. Signing in on another device merges progress both ways. Pairing with a code (no account) still works under Settings → Advanced.
+- **Handwriting (Reading & Writing track):** each new letter is traced with a finger over a guide that fills in as you cover it, and later written from memory on a blank sheet and compared with the real letter. On a computer you can draw with the mouse or press Skip. Design notes: `docs/plans/2026-11-11-letter-tracing.md`.
 - **Coins, quests, badges, shop:** every lesson pays coins (bonuses for a perfect run, the daily goal and streak milestones); two quests a day open a chest; eight tiered badges; coins buy streak freezes, outfits for Chikki and accent themes.
 - **Reminders on iPhone:** install to the Home Screen, sign in, then Settings → Daily reminders → Push reminders. A nudge arrives at your chosen time only on days you have not practised.
 
@@ -74,6 +75,7 @@ cd .. && hdiutil create -volname "Chilaka" -srcfolder mac-arm64/Chilaka.app -ov 
 app/       shared web app (React+TS+Vite) — runs in Electron AND as the iPhone PWA
 desktop/   Electron shell: whisper ASR server, sherpa TTS, tray reminders, backups
 tools/     content validator, TTS audio renderer, icon rasterizer
-docs/      INSTALL-MAC.md (sharing), IPHONE.md (mobile install)
+admin-worker/  private owner dashboard: account emails + visit log behind a password (docs/ADMIN.md)
+docs/      INSTALL-MAC.md (sharing), IPHONE.md (mobile install), ADMIN.md (owner dashboard)
 vendor/    model build pipeline (gitignored artifacts)
 ```

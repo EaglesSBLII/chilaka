@@ -69,6 +69,7 @@ export type ExerciseKind =
   | 'wordbank'
   | 'listen-pick'
   | 'type-script'
+  | 'trace'
   | 'speak'
   | 'dialogue';
 
@@ -100,6 +101,12 @@ export interface TypeScriptExercise extends BaseExercise {
   kind: 'type-script';
 }
 
+/** Draw the letter (or short word) by hand: over a guide, or from memory. */
+export interface TraceExercise extends BaseExercise {
+  kind: 'trace';
+  guide: boolean;
+}
+
 export interface DialogueExercise extends BaseExercise {
   kind: 'dialogue';
   dialogueId: string;
@@ -110,6 +117,7 @@ export type Exercise =
   | ChoiceExercise
   | WordbankExercise
   | TypeScriptExercise
+  | TraceExercise
   | SpeakExercise
   | DialogueExercise;
 

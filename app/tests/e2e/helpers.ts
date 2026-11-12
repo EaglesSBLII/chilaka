@@ -166,6 +166,26 @@ export async function solveCurrentExercise(page: Page): Promise<string> {
       await ex.locator('textarea').fill(item.te);
       break;
     }
+    case 'trace': {
+      // computers may skip drawing; touch devices draw the letter for real
+      const skip = page.getByRole('button', { name: 'Skip', exact: true });
+      if (await skip.isVisible().catch(() => false)) {
+        await skip.click({ timeout: 8_000 }).catch(() => {});
+        return kind;
+      }
+      await drawTrace(page);
+      const cont = page.getByRole('button', { name: 'Continue', exact: true });
+      const compare = page.getByRole('button', { name: 'Compare' });
+      if (await compare.isVisible().catch(() => false)) {
+        // from memory: compare with the letter, then self-grade
+        await compare.click();
+        await page.getByRole('button', { name: 'I got it' }).click();
+      }
+      // a guided trace finishes by itself once the letter is covered
+      await expect(cont).toBeVisible();
+      await cont.click({ timeout: 8_000 }).catch(() => {});
+      return kind;
+    }
     case 'speak': {
       // The click can succeed while the button detaches (lesson-complete
       // renders) — don't let Playwright's retry loop hang on it.
@@ -251,5 +271,20 @@ export async function playMemoryRound(page: Page): Promise<void> {
     await expect(te).toHaveAttribute('data-up', 'true');
     await board.locator(`button[data-item-id="${id}"][data-face="gloss"]`).click();
     await expect.poll(async () => board.getAttribute('data-found').catch(() => null), { timeout: 10_000 }).not.toBe(found);
+  }
+}
+
+/** Draw the current tracing exercise's letter with real pointer input. */
+export async function drawTrace(page: Page): Promise<void> {
+  await page.getByTestId('trace-canvas').scrollIntoViewIfNeeded();
+  const strokes = await page.evaluate(() =>
+    (window as unknown as { __traceGuideStrokes(): { x: number; y: number }[][] }).__traceGuideStrokes(),
+  );
+  expect(strokes.length).toBeGreaterThan(0);
+  for (const s of strokes) {
+    await page.mouse.move(s[0].x, s[0].y);
+    await page.mouse.down();
+    for (const p of s.slice(1)) await page.mouse.move(p.x, p.y, { steps: 3 });
+    await page.mouse.up();
   }
 }

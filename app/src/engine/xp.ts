@@ -22,6 +22,7 @@ export function xpForExercise(kind: ExerciseKind, correct: boolean): number {
     case 'wordbank':
       return 3;
     case 'type-script':
+    case 'trace':
       return 3;
     default:
       return 2;

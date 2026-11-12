@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { genLessonExercises } from '../../src/engine/exercise-gen';
 import { loadUnit } from '../../src/content/load';
 import type { Unit } from '../../src/engine/types';
+import { isTraceable } from '../../src/engine/trace';
 
 const unitsDir = join(__dirname, '../../content/units');
 const units: Unit[] = readdirSync(unitsDir)
@@ -60,7 +61,7 @@ describe('exercise generation v2', () => {
   // card (meaning + audio) → say it → pick it by ear, then understand, then produce
   it('every lesson goes easiest to hardest', () => {
     const STEP: Record<string, number> = {
-      'mc-audio': 2, 'mc-te2en': 2, 'mc-en2te': 3, wordbank: 3, 'type-script': 3,
+      'mc-audio': 2, 'mc-te2en': 2, 'mc-en2te': 3, wordbank: 3, 'type-script': 3, trace: 3,
     };
     const fails: string[] = [];
     let sessions = 0;
@@ -74,15 +75,16 @@ describe('exercise generation v2', () => {
             const where = `${unit.id}:${lesson.id} n=${n} speak=${speak}: ${exs.map((e) => `${e.kind}:${e.itemId.split('-')[1]}`).join(' ')}`;
             sessions++;
             // 1. the lesson opens by meeting each phrase in the lesson's own order
-            const per = says ? 3 : 2;
-            lesson.itemIds.forEach((id, k) => {
-              const got = exs.slice(k * per, k * per + per).map((e) => `${e.kind}:${e.itemId}`);
-              const want = [`intro:${id}`, ...(says ? [`speak:${id}`] : []), `listen-pick:${id}`];
-              if (got.join() !== want.join()) fails.push(`meet step — ${where}`);
+            // (script lessons trace a new letter over its guide instead of saying it)
+            const want = lesson.itemIds.flatMap((id) => {
+              const traces = unit.track === 'script' && isTraceable(unit.items.find((i) => i.id === id)!.te);
+              return [`intro:${id}`, ...(says ? [`speak:${id}`] : []), ...(traces ? [`trace:${id}`] : []), `listen-pick:${id}`];
             });
+            const got = exs.slice(0, want.length).map((e) => `${e.kind}:${e.itemId}`);
+            if (got.join() !== want.join()) fails.push(`meet step — ${where}`);
             // 2. after that the steps only go up; the finale is excused
             let step = 2;
-            exs.slice(lesson.itemIds.length * per, -1).forEach((e) => {
+            exs.slice(want.length, -1).forEach((e) => {
               const s = STEP[e.kind] ?? (e.kind === 'speak' ? 3 : e.kind === 'listen-pick' && !says ? 3 : 0);
               if (s < step) fails.push(`step went down at ${e.kind}:${e.itemId} — ${where}`);
               step = Math.max(step, s);
@@ -218,5 +220,40 @@ describe('script-track generation (reading & writing)', () => {
         }
       }
     }
+  });
+
+  it('new letters are traced over a guide right after their card, then written from memory later', () => {
+    for (const unit of units.filter((x) => x.track === 'script')) {
+      for (const [li, lesson] of unit.lessons.entries()) {
+        for (const seed of ['t1', 't2', 't3']) {
+          const exercises = gen(unit, li, seed);
+          const where = `${unit.id}:${lesson.id}:${seed}`;
+          const te = (id: string) => unit.items.find((i) => i.id === id)!.te;
+          exercises.forEach((ex, i) => {
+            if (ex.kind !== 'trace') return;
+            expect(isTraceable(te(ex.itemId)), where).toBe(true);
+            if (ex.guide) {
+              expect(exercises[i - 1], where).toEqual({ kind: 'intro', itemId: ex.itemId });
+            } else {
+              // from memory only after the letter was met
+              const intro = exercises.findIndex((e) => e.kind === 'intro' && e.itemId === ex.itemId);
+              expect(intro, where).toBeLessThan(i);
+            }
+          });
+          // every new traceable item gets exactly one guided trace
+          for (const id of lesson.itemIds.filter((x) => isTraceable(te(x)))) {
+            expect(exercises.filter((e) => e.kind === 'trace' && e.guide && e.itemId === id).length, where).toBe(1);
+          }
+        }
+      }
+    }
+  });
+
+  it('items already met are not traced over a guide again; speaking lessons never trace', () => {
+    const scriptUnit2 = units.find((u) => u.track === 'script')!;
+    const seen = scriptUnit2.lessons[0].itemIds;
+    expect(gen(scriptUnit2, 0, 'x', seen).some((e) => e.kind === 'trace' && e.guide)).toBe(false);
+    const speakUnit = units.find((u) => u.track === 'speak')!;
+    expect(gen(speakUnit, 0, 'x').some((e) => e.kind === 'trace')).toBe(false);
   });
 });

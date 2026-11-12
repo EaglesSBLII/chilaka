@@ -188,3 +188,42 @@ test('visits API needs the session and passes the cursors through', async () => 
   assert.equal(body.visits[0].city, 'Seattle');
   assert.equal(body.visits[0].ip, undefined); // no address is stored or returned
 });
+
+test('developer version: files are served only to the signed-in owner', async () => {
+  const served = [];
+  const env = await envWith({
+    ASSETS: {
+      async fetch(request) {
+        served.push(new URL(request.url).pathname);
+        return new Response('<html>dev app</html>', { headers: { 'content-type': 'text/html', 'cache-control': 'public, max-age=3600' } });
+      },
+    },
+  });
+  const page = (path, cookie, accept = 'text/html') => new Request(ORIGIN + path, { headers: { accept, ...(cookie ? { cookie } : {}) } });
+
+  // a stranger opening the page is sent to sign in; a stranger fetching a file gets nothing
+  const anon = await handle(page('/dev/'), env);
+  assert.equal(anon.status, 302);
+  assert.equal(anon.headers.get('location'), '/?next=dev');
+  for (const path of ['/dev/assets/index.js', '/dev/build.json', '/dev/audio/v-female/u01-i01.m4a', '/dev']) {
+    assert.equal((await handle(page(path, '', '*/*'), env)).status, 401, path);
+  }
+  assert.equal((await handle(page('/dev/', `${COOKIE}=9999999999.${'0'.repeat(64)}`), env)).status, 302);
+  assert.deepEqual(served, []); // not one byte of the app left the worker
+
+  const { cookie } = await login(env);
+  const ok = await handle(page('/dev/', cookie), env);
+  assert.equal(ok.status, 200);
+  assert.equal(await ok.text(), '<html>dev app</html>');
+  assert.equal(ok.headers.get('cache-control'), 'private, no-cache'); // never left in a shared cache
+  assert.match(ok.headers.get('x-robots-tag'), /noindex/);
+  assert.equal((await handle(page('/dev/assets/index.js', cookie, '*/*'), env)).status, 200);
+  assert.deepEqual(served, ['/dev/', '/dev/assets/index.js']);
+
+  // read-only, and nothing outside /dev is reachable this way
+  assert.equal((await handle(new Request(`${ORIGIN}/dev/`, { method: 'POST', headers: { cookie, origin: ORIGIN } }), env)).status, 405);
+  assert.equal((await handle(page('/development/secret', cookie), env)).status, 404);
+  // with no password set, the developer version is closed too
+  const closed = await envWith({ ADMIN_PASSWORD_HASH: '', ASSETS: env.ASSETS });
+  assert.equal((await handle(page('/dev/', cookie), closed)).status, 302);
+});

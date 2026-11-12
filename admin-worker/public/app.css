@@ -26,6 +26,7 @@ input:focus-visible, button:focus-visible { outline: 2px solid var(--accent); ou
 button { font: inherit; font-weight: 650; border-radius: 12px; padding: 9px 14px; border: 1px solid transparent; cursor: pointer; }
 button:disabled { opacity: .55; cursor: default; }
 .primary { background: var(--accent); color: var(--accent-ink); width: 100%; margin-top: 16px; padding: 12px; }
+.primary-link { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 650; border-radius: 12px; padding: 9px 14px; }
 .ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 pre { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px; overflow-x: auto; font: .9rem ui-monospace, SFMono-Regular, Menlo, monospace; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

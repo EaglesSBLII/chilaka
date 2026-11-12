@@ -145,8 +145,32 @@ function setLive(on) {
 }
 function stop() { clearInterval(state.timer); state.timer = 0; }
 
+// The developer version: what build is up, and what it adds to the released app.
+async function loadDev() {
+  const info = $('dev-info');
+  const notes = $('dev-notes');
+  notes.hidden = true;
+  try {
+    const res = await fetch('/dev/build.json', { credentials: 'same-origin', cache: 'no-store' });
+    if (!res.ok) throw new Error(String(res.status));
+    const b = await res.json();
+    const extra = b.unpublished
+      ? `Version ${b.version}, with changes that are NOT in the released app yet.`
+      : `Version ${b.version}, identical to the released app.`;
+    info.textContent = `${extra} Built ${when(b.builtAt)}. It uses your real account and progress if you sign in, so treat it as a preview, not a sandbox.`;
+    if (b.unpublished && Array.isArray(b.notes) && b.notes.length) {
+      notes.replaceChildren(...b.notes.map((n) => el('li', n)));
+      notes.hidden = false;
+    }
+  } catch {
+    info.textContent = 'No developer version has been uploaded yet.';
+  }
+}
+
 async function openDash() {
+  if (new URLSearchParams(location.search).get('next') === 'dev') { location.replace('/dev/'); return; }
   show('dash');
+  void loadDev();
   const [emails] = await Promise.all([api('/api/emails'), loadVisits()]);
   state.emails = emails.emails;
   renderEmails();

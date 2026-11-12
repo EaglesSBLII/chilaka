@@ -4,6 +4,7 @@
 
 import type { ChoiceExercise, ContentItem, Exercise, ExerciseKind, Lesson, Unit } from './types';
 import { rngFromSeed, shuffled, pickN, type Rng } from './rng';
+import { isTraceable } from './trace';
 
 export interface GenOptions {
   seed: string;
@@ -24,8 +25,9 @@ export interface GenOptions {
 const UNDERSTAND: ExerciseKind[] = ['mc-audio', 'mc-te2en'];
 const PRODUCE_SPEAK: ExerciseKind[] = ['speak', 'mc-en2te', 'speak', 'wordbank'];
 const PRODUCE_NO_SPEAK: ExerciseKind[] = ['mc-en2te', 'wordbank'];
-// Script (reading & writing) lessons write with the Telugu keyboard instead of speaking.
-const PRODUCE_SCRIPT: ExerciseKind[] = ['type-script', 'wordbank'];
+// Script (reading & writing) lessons write instead of speaking: by hand from
+// memory (letters and short words), or with the Telugu keyboard.
+const PRODUCE_SCRIPT: ExerciseKind[] = ['trace', 'type-script', 'trace', 'wordbank'];
 
 function byId(pool: ContentItem[]): Map<string, ContentItem> {
   const m = new Map<string, ContentItem>();
@@ -78,6 +80,9 @@ function exerciseFor(kind: ExerciseKind, item: ContentItem, unit: Unit, pool: Co
   switch (kind) {
     case 'wordbank':
       return { kind, itemId: item.id, tiles: genTiles(item, unit, rng) };
+    case 'trace':
+      // generated here = written from memory; the guided trace is added with the card
+      return { kind, itemId: item.id, guide: false };
     case 'speak':
     case 'type-script':
     case 'intro':
@@ -108,10 +113,11 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   const canSpeak = !isScript && opts.includeSpeak;
   const add = (kind: ExerciseKind, item: ContentItem) => out.push(exerciseFor(kind, item, unit, opts.pool, rng));
 
-  // 1. meet the new phrases one at a time: card → say it → pick it by ear
+  // 1. meet the new phrases one at a time: card → say it (or trace it) → pick it by ear
   for (const item of items.filter((it) => !opts.seenItemIds.has(it.id))) {
     out.push({ kind: 'intro', itemId: item.id });
     if (canSpeak) add('speak', item);
+    if (isScript && isTraceable(item.te)) out.push({ kind: 'trace', itemId: item.id, guide: true });
     add('listen-pick', item);
   }
 
@@ -125,6 +131,8 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
       // a one-word phrase has nothing to build: choose it instead, or where speaking
       // is off pick it by ear, so the same kind does not pile up
       if (kind === 'wordbank' && item.words.length < 2) kind = canSpeak ? 'mc-en2te' : 'listen-pick';
+      // too long to draw in one go: build it from tiles, or write it with the keyboard
+      if (kind === 'trace' && !isTraceable(item.te)) kind = item.words.length >= 2 ? 'wordbank' : 'type-script';
       add(kind, item);
     });
   }
@@ -183,7 +191,10 @@ export function arrangeExercises(
   alternatives: (ex: Exercise) => Exercise[] = () => [],
 ): Exercise[] {
   const seq = [...input];
-  const same = (a: Exercise, b: Exercise) => a.kind === b.kind && a.itemId === b.itemId;
+  // tracing over the guide belongs to the card before it: it is not the same
+  // exercise as writing from memory, and it never moves or gets replaced
+  const guided = (ex: Exercise) => ex.kind === 'trace' && ex.guide;
+  const same = (a: Exercise, b: Exercise) => a.kind === b.kind && a.itemId === b.itemId && guided(a) === guided(b);
   const isIntro = (i: number) => seq[i].kind === 'intro';
   // penalty at sequence index i
   const bad = (i: number): number => {
@@ -208,7 +219,7 @@ export function arrangeExercises(
     });
     const afterIntro = (ex: Exercise, i: number) => (introAt.get(ex.itemId) ?? -1) < i;
     const lastIdx = seq.length - 1; // the finale
-    const movable = (i: number) => i >= 0 && i < lastIdx && !isIntro(i) && !(hasOpener && i < 2);
+    const movable = (i: number) => i >= 0 && i < lastIdx && !isIntro(i) && !guided(seq[i]) && !(hasOpener && i < 2);
 
     for (let i = 1; i < seq.length; i++) {
       if (bad(i) === 0) continue;

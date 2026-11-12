@@ -22,8 +22,27 @@ const json = (status, body, headers = {}) =>
     headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff', 'x-robots-tag': 'noindex', ...headers },
   });
 
+/** The developer version of the app: the same files as a release, behind the owner's session. */
+async function serveDev(request, env, url, nowSec) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') return json(405, { error: 'method' });
+  const secret = env.ADMIN_PASSWORD_HASH;
+  if (!(await verifySession(secret, readCookie(request), nowSec))) {
+    // a page load goes to the sign-in page and comes back; anything else is just refused
+    const wantsPage = (request.headers.get('accept') || '').includes('text/html');
+    if (wantsPage) return new Response(null, { status: 302, headers: { location: '/?next=dev', 'cache-control': 'no-store' } });
+    return json(401, { error: 'auth' });
+  }
+  const res = await env.ASSETS.fetch(request);
+  const headers = new Headers(res.headers);
+  headers.set('x-robots-tag', 'noindex, nofollow, noarchive');
+  headers.set('cache-control', 'private, no-cache'); // never kept by a shared cache; always revalidated
+  headers.set('referrer-policy', 'no-referrer');
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers });
+}
+
 export async function handle(request, env, now = Date.now()) {
   const url = new URL(request.url);
+  if (url.pathname === '/dev' || url.pathname.startsWith('/dev/')) return serveDev(request, env, url, Math.floor(now / 1000));
   if (!url.pathname.startsWith('/api/')) return json(404, { error: 'not-found' });
   const secret = env.ADMIN_PASSWORD_HASH;
   // no password set yet: nothing is readable by anyone

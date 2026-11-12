@@ -74,9 +74,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
       - name: Test the dashboard worker
         run: npm test
         working-directory: admin-worker
+      - name: Build the developer version from what was just released
+        # after a release the developer version is the same as the released app;
+        # tools/publish-dev.mjs (run from the owner's Mac) later adds unreleased changes on top
+        run: |
+          npm ci -w app --include-workspace-root
+          node tools/publish-dev.mjs --no-deploy
       - name: Deploy the dashboard worker
         run: npx --yes wrangler deploy
         working-directory: admin-worker
