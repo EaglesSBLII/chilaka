@@ -203,11 +203,9 @@ const ForestUnit = memo(function ForestUnit({
 // ------------------------------------------------------------------ screen
 
 export function ForestPath() {
-  const [track, setTrackState] = useState<Track>(memory.track);
-  const setTrack = (t: Track) => {
-    memory.track = t;
-    setTrackState(t);
-  };
+  // the same device-local choice the classic path uses, so the track survives lessons and reloads
+  const track = useApp((st) => st.pathTrack) as Track;
+  const setTrack = useApp((st) => st.setPathTrack);
   const units = trackUnits(track);
   const profile = useApp((s) => s.profile);
   const unitProgress = useApp((s) => s.unitProgress);

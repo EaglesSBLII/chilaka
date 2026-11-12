@@ -73,14 +73,16 @@ test('forest map: Read & Write track, and Settings switches to the classic path 
   await card.getByRole('button', { name: 'Classic' }).click();
   await expect(card.getByRole('button', { name: 'Classic' })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Learn' }).click();
-  await expect(page.getByText('Section 0', { exact: false }).first()).toBeVisible();
+  // the path remembers the track (still Read & Write), in either style
+  await expect(page.getByText('Need the Telugu keyboard?')).toBeVisible();
   await expect(page.getByTestId('forest-map')).toHaveCount(0);
   await expect(page.locator('.f-backdrop')).toHaveCount(0);
   await expect(page.getByRole('button', { name: /lesson 1/i }).first()).toBeEnabled();
 
   // the choice is remembered on this device
   await page.reload();
-  await expect(page.getByText('Section 0', { exact: false }).first()).toBeVisible();
+  // the path remembers the track (still Read & Write), in either style
+  await expect(page.getByText('Need the Telugu keyboard?')).toBeVisible();
   await expect(page.getByTestId('forest-map')).toHaveCount(0);
 
   // and back again
