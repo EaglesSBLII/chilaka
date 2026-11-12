@@ -1,5 +1,5 @@
 // Chilaka website: serves the static pages and records one line per page visit.
-// Stored per visit: time, page, country / region / city (from Cloudflare's edge), device and
+// Stored per visit: time, page, country / region / city and network name (from Cloudflare's edge), device and
 // browser family, referrer, and a per-day visitor id derived from a one-way hash of IP + browser
 // so repeat views by the same person are grouped without keeping their IP. Bots are skipped.
 // Entries expire after 180 days. Read them with `node tools/visitors.mjs`.
@@ -32,6 +32,10 @@ async function record(request, env) {
     region: cf.region || '',
     city: cf.city || '',
     tz: cf.timezone || '',
+    // network the visit came through ("Verizon", "DigitalOcean", …): tells a home or office
+    // connection from a data centre without keeping the address
+    network: String(cf.asOrganization || '').slice(0, 80),
+    asn: cf.asn || 0,
     device: /iPhone|iPad|Android/i.test(ua) ? 'phone' : /Macintosh/.test(ua) ? 'mac' : /Windows/.test(ua) ? 'windows' : 'other',
     browser: /Chrome\//.test(ua) && !/Edg\//.test(ua) ? 'chrome' : /Safari\//.test(ua) && !/Chrome\//.test(ua) ? 'safari' : /Firefox\//.test(ua) ? 'firefox' : /Edg\//.test(ua) ? 'edge' : 'other',
     referrer: (request.headers.get('referer') || '').replace(/^https?:\/\//, '').split('/')[0].slice(0, 80),

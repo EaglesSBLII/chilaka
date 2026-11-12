@@ -78,6 +78,8 @@ const table = (title, rows) => {
 table('By site', count(site));
 table('By place', count(place));
 table('By country', count((v) => v.country));
+// recorded from 12 Nov 2026 on; a data-centre name here usually means an automated visit
+table('By network', count((v) => v.network || '(not recorded)'));
 table('By page / event', count(what));
 table('By device', count((v) => v.device));
 table('By browser', count((v) => v.browser));
@@ -86,5 +88,5 @@ table('By day', count((v) => v.ts.slice(0, 10)).sort((a, b) => (a[0] < b[0] ? 1 
 
 if (raw) {
   console.log('Every visit, newest first');
-  for (const v of visits) console.log(`  ${v.ts.replace('T', ' ').slice(0, 16)}  ${(v.site === 'app' ? 'APP ' : 'WEB ') + what(v).padEnd(22)} ${place(v).padEnd(32)} ${v.device}/${v.browser}  ${v.referrer || ''}  [${v.visitor}]`);
+  for (const v of visits) console.log(`  ${v.ts.replace('T', ' ').slice(0, 16)}  ${(v.site === 'app' ? 'APP ' : 'WEB ') + what(v).padEnd(22)} ${place(v).padEnd(32)} ${v.device}/${v.browser}  ${v.referrer || ''}  [${v.visitor}]${v.network ? `  via ${v.network}` : ''}`);
 }
