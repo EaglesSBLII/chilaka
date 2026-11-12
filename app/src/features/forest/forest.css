@@ -1,0 +1,504 @@
+/* Forest map styles. Everything here is scoped to .forest-vars / .forest-map
+   / .f-* so deleting the forest folder removes it completely. */
+
+/* ---------------------------------------------------------------- palette */
+
+.forest-vars {
+  /* 1 by day, 0 at night (and the reverse): used as opacities */
+  --f-day: 1;
+  --f-night: 0;
+  /* how much of a grove's leaf colour survives (night mixes it into shade) */
+  --f-mix: 100%;
+  --f-shade: #04141a;
+
+  --f-sky1: #c9ecdc;
+  --f-sky2: #f6f4d4;
+  --f-sky3: #d3ecbe;
+  --f-sun: #fff3c0;
+  --f-sun-halo: rgb(255 243 192 / 0.4);
+  --f-sun-halo2: rgb(255 243 192 / 0.18);
+  --f-shaft: #fff6c4;
+  --f-far1: #c4e6cc;
+  --f-far2: #a3d6b1;
+  --f-far3: #86c69b;
+  --f-haze: rgb(255 248 237 / 0.55);
+  --f-mote: rgb(255 240 170 / 0.9);
+  --f-mote-glow: rgb(255 226 122 / 0.35);
+
+  --f-bark: #8b5e3c;
+  --f-bark-light: #b58258;
+  --f-bark-dark: #6a4429;
+  --f-groove: #553520;
+  --f-rib: #0f4a2e;
+  --f-vine: #3f8a4a;
+  --f-vine-dim: rgb(86 110 80 / 0.6);
+  --f-moss: #6f9f45;
+  --f-moss-light: #9cc766;
+
+  --f-rope: #d9b47c;
+  --f-plank: #c58f58;
+  --f-plank-dark: #8c5a34;
+  --f-plank-light: #e8c292;
+
+  --f-pollen: #ffe27a;
+  --f-fruit: #ffb52e;
+  --f-fruit2: #f0603a;
+  --f-shroom: #f6e7cd;
+  --f-shroom2: #d98e4a;
+  --f-glow: 0;
+  --f-hole: #2e1c11;
+  --f-owl: #a07a55;
+  --f-owl-belly: #e2c9a4;
+  --f-eye: #fff7d6;
+  --f-nest: #b98f5a;
+  --f-nest-dark: #7d5c33;
+  --f-egg: #e9f6f7;
+  --f-egg-dot: #9cc3c8;
+  --f-lamp-body: #e4536b;
+  --f-lamp-rib: #b83a52;
+  --f-lamp-glow: #ffe9a8;
+  --f-lamp-halo: 0;
+  --f-frog: #7ccf4e;
+  --f-frog-dark: #4c9a2c;
+  --f-frog-belly: #d8f2a8;
+  --f-thatch: #dcb96e;
+  --f-thatch-dark: #b08a44;
+
+  --f-sign-bg: #fff6e2;
+  --f-sign-grain: rgb(140 90 52 / 0.07);
+  --f-sign-edge: #b98552;
+  --f-sign-shadow: #8c5a34;
+  --f-bamboo-light: #e6d684;
+  --f-bamboo: #c9b458;
+  --f-bamboo-dark: #948232;
+
+  --f-lock-top: #bdb1a0;
+  --f-lock-bottom: #9a8e7e;
+  --f-lock-edge: #7b7062;
+  --f-lock-ink: rgb(255 255 255 / 0.9);
+
+  /* default grove (also used by the backdrop) */
+  --g1: #1c6b45;
+  --g2: #2b9a5f;
+  --g3: #55c483;
+  --g4: #a4e6ad;
+  --gb: #f5a623;
+  --gbd: #c9780c;
+  --f-l1: #1c6b45;
+  --f-l2: #2b9a5f;
+  --f-l3: #55c483;
+  --f-l4: #a4e6ad;
+  --f-bloom: #f5a623;
+  --f-bloom-dark: #c9780c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .forest-vars {
+    --f-day: 0;
+    --f-night: 1;
+    --f-mix: 56%;
+
+    --f-sky1: #0a1c2b;
+    --f-sky2: #10293a;
+    --f-sky3: #0e2c27;
+    --f-sun: #f1ecd2;
+    --f-sun-halo: rgb(241 236 210 / 0.12);
+    --f-sun-halo2: rgb(241 236 210 / 0.05);
+    --f-far1: #163a45;
+    --f-far2: #0f2b35;
+    --f-far3: #091c24;
+    --f-haze: rgb(10 24 30 / 0.5);
+    --f-mote: #ffe98a;
+    --f-mote-glow: rgb(255 226 122 / 0.6);
+
+    --f-bark: #3d2f2c;
+    --f-bark-light: #5a473f;
+    --f-bark-dark: #2a1f1d;
+    --f-groove: #1c1413;
+    --f-rib: #06231a;
+    --f-vine: #24613f;
+    --f-vine-dim: rgb(120 150 130 / 0.4);
+    --f-moss: #2f6a3c;
+    --f-moss-light: #4c9457;
+
+    --f-rope: #94805a;
+    --f-plank: #7a5d45;
+    --f-plank-dark: #47352c;
+    --f-plank-light: #a08064;
+
+    --f-pollen: #ffe27a;
+    --f-fruit: #d99a2a;
+    --f-fruit2: #b9482e;
+    --f-shroom: #8af5d8;
+    --f-shroom2: #2fb99b;
+    --f-glow: 0.16;
+    --f-hole: #100b0a;
+    --f-owl: #6f5946;
+    --f-owl-belly: #a8937a;
+    --f-eye: #ffe27a;
+    --f-nest: #6f5a40;
+    --f-nest-dark: #43362a;
+    --f-egg: #b9d6da;
+    --f-egg-dot: #6f989e;
+    --f-lamp-body: #f08a4b;
+    --f-lamp-rib: #b85a26;
+    --f-lamp-glow: #fff0b0;
+    --f-lamp-halo: 0.3;
+    --f-frog: #4f9c45;
+    --f-frog-dark: #2c6a2a;
+    --f-frog-belly: #a9d48c;
+    --f-thatch: #7d6540;
+    --f-thatch-dark: #54432a;
+
+    --f-sign-bg: #2c241e;
+    --f-sign-grain: rgb(0 0 0 / 0.14);
+    --f-sign-edge: #6b5240;
+    --f-sign-shadow: #17110e;
+    --f-bamboo-light: #8a8448;
+    --f-bamboo: #6a6536;
+    --f-bamboo-dark: #434021;
+
+    --f-lock-top: #5c5349;
+    --f-lock-bottom: #473f38;
+    --f-lock-edge: #2c2722;
+    --f-lock-ink: rgb(255 255 255 / 0.62);
+
+    --f-l1: #0d3a2a;
+    --f-l2: #155a3d;
+    --f-l3: #237a54;
+    --f-l4: #3fa272;
+    --f-bloom: #d9952a;
+    --f-bloom-dark: #a8690e;
+  }
+}
+
+/* Six groves: each section of the course gets its own leaf, blossom and fruit
+   colours. .fg derives the leaf tones from the grove's raw colours, so night
+   needs no extra rules. */
+.fg-0 { --g1: #1c6b45; --g2: #2b9a5f; --g3: #55c483; --g4: #a4e6ad; --gb: #f5a623; --gbd: #c9780c; }
+.fg-1 { --g1: #3d6b1f; --g2: #5f9a2e; --g3: #8fc64a; --g4: #cfe98c; --gb: #ffd23f; --gbd: #d99a12; }
+.fg-2 { --g1: #175c4a; --g2: #1f8a66; --g3: #45b98a; --g4: #9fe3c2; --gb: #e4536b; --gbd: #b5304a; }
+.fg-3 { --g1: #14585c; --g2: #1f858a; --g3: #4fb9b4; --g4: #a9e6dc; --gb: #ffffff; --gbd: #c9d6cf; }
+.fg-4 { --g1: #4a5f1c; --g2: #6f8f2a; --g3: #a3bf4a; --g4: #dbe791; --gb: #ff6a45; --gbd: #cf3f1e; }
+.fg-5 { --g1: #1f5a6b; --g2: #2a8a8f; --g3: #5cc0a8; --g4: #b3ead0; --gb: #b98af0; --gbd: #8355c4; }
+.fg {
+  --f-l1: color-mix(in srgb, var(--g1) var(--f-mix), var(--f-shade));
+  --f-l2: color-mix(in srgb, var(--g2) var(--f-mix), var(--f-shade));
+  --f-l3: color-mix(in srgb, var(--g3) var(--f-mix), var(--f-shade));
+  --f-l4: color-mix(in srgb, var(--g4) var(--f-mix), var(--f-shade));
+  --f-bloom: color-mix(in srgb, var(--gb) calc(var(--f-mix) + 30%), var(--f-shade));
+  --f-bloom-dark: color-mix(in srgb, var(--gbd) calc(var(--f-mix) + 30%), var(--f-shade));
+}
+
+/* --------------------------------------------------------------- backdrop */
+
+.f-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--f-sky1) 0%, var(--f-sky2) 46%, var(--f-sky3) 100%);
+}
+.f-sun {
+  position: absolute;
+  top: 11%;
+  right: 14%;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--f-sun);
+  box-shadow: 0 0 0 28px var(--f-sun-halo), 0 0 0 66px var(--f-sun-halo2);
+}
+.f-shafts,
+.f-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.f-shafts { opacity: var(--f-day); }
+.f-stars { opacity: var(--f-night); height: 70%; }
+.f-far-row {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+}
+.f-far-row svg {
+  height: 100%;
+  aspect-ratio: 4 / 9;
+  flex: none;
+  overflow: visible;
+}
+.f-haze {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--f-haze) 0%, transparent 38%);
+}
+.f-mote {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--f-mote);
+  box-shadow: 0 0 8px 3px var(--f-mote-glow);
+  animation: f-drift linear infinite;
+}
+@keyframes f-drift {
+  0% { transform: translate(0, 0); opacity: 0.15; }
+  25% { opacity: 0.9; }
+  50% { transform: translate(26px, -34px); opacity: 0.35; }
+  75% { opacity: 0.9; }
+  100% { transform: translate(-12px, 10px); opacity: 0.15; }
+}
+.f-butterfly {
+  position: absolute;
+  top: 30%;
+  left: -30px;
+  width: 24px;
+  height: 24px;
+  opacity: var(--f-day);
+  animation: f-cross 30s linear infinite;
+}
+@keyframes f-cross {
+  0% { transform: translate(0, 0) rotate(8deg); }
+  20% { transform: translate(24vw, -34px) rotate(-6deg); }
+  40% { transform: translate(46vw, 12px) rotate(10deg); }
+  60% { transform: translate(66vw, -26px) rotate(-8deg); }
+  80% { transform: translate(84vw, 6px) rotate(6deg); }
+  100% { transform: translate(112vw, -18px) rotate(0deg); }
+}
+
+/* ----------------------------------------------------------------- column */
+
+.forest-map {
+  position: relative;
+  /* bleed over the page's 16px side padding so the trees reach the screen edge */
+  margin: 0 -16px;
+}
+.f-col {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  /* the two great trunks: one repeating bark tile each, no DOM */
+  background-image: var(--f-trunk-l-day), var(--f-trunk-r-day);
+  background-repeat: repeat-y;
+  background-size: 120px 600px;
+  background-position:
+    left calc(var(--f-trunk-w) - 109px) top 0,
+    right calc(var(--f-trunk-w) - 109px) top 0;
+}
+@media (prefers-color-scheme: dark) {
+  .f-col { background-image: var(--f-trunk-l-night), var(--f-trunk-r-night); }
+}
+
+.f-area { position: relative; }
+.f-scenery {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* route */
+.f-planks { fill: none; stroke: var(--f-plank); stroke-width: 13; stroke-dasharray: 5.5 4.5; }
+.f-plank-edge { fill: none; stroke: var(--f-plank-dark); stroke-width: 13; stroke-dasharray: 1.2 8.8; stroke-dashoffset: -4.3; opacity: 0.75; }
+.f-rope { fill: none; stroke: var(--f-rope); stroke-width: 2.4; stroke-linecap: round; }
+.f-rope-hand { stroke-width: 1.8; opacity: 0.85; }
+.f-liana { fill: none; stroke: var(--f-vine); stroke-width: 5; stroke-linecap: round; }
+.f-liana-hi { fill: none; stroke: var(--f-l4); stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 7 9; opacity: 0.8; }
+.f-vine-bare { fill: none; stroke: var(--f-vine-dim); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 8; }
+.f-lamp-off { --f-lamp-halo: 0; --f-lamp-glow: #cdbfae; opacity: 0.8; }
+
+/* ----------------------------------------------------------------- tokens */
+
+.f-token {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: #fff;
+  border: 3px solid rgb(255 255 255 / 0.55);
+  box-shadow: 0 5px 0 var(--f-token-edge, var(--c-teal-dark)), 0 11px 14px -6px rgb(0 0 0 / 0.45);
+  transition: translate 0.1s ease-out, box-shadow 0.1s ease-out;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.f-token::after {
+  /* engraved inner ring: makes the token read as a carved medallion */
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  border: 1.5px dashed rgb(255 255 255 / 0.4);
+  pointer-events: none;
+}
+.f-token:not(:disabled):active {
+  translate: 0 3px;
+  box-shadow: 0 2px 0 var(--f-token-edge, var(--c-teal-dark)), 0 6px 10px -6px rgb(0 0 0 / 0.45);
+}
+.f-token.is-hut { border-radius: 20px; width: 60px; height: 60px; margin: -30px 0 0 -30px; }
+.f-token.is-done { background: var(--g-accent); --f-token-edge: var(--c-accent-dark); }
+.f-token.is-current { background: var(--g-teal); --f-token-edge: var(--c-teal-dark); border-color: #fff; animation: f-glow 2.4s ease-in-out infinite; }
+.f-token.is-replayable { background: var(--g-teal); --f-token-edge: var(--c-teal-dark); }
+.f-token.is-talk { background: var(--g-error); --f-token-edge: var(--c-error-dark); }
+.f-token.is-locked {
+  background: linear-gradient(180deg, var(--f-lock-top), var(--f-lock-bottom));
+  --f-token-edge: var(--f-lock-edge);
+  color: var(--f-lock-ink);
+  border-color: rgb(255 255 255 / 0.25);
+  cursor: not-allowed;
+}
+/* glow only (no transform) so the token stays still for taps */
+@keyframes f-glow {
+  0%, 100% { box-shadow: 0 5px 0 var(--c-teal-dark), 0 11px 14px -6px rgb(0 0 0 / 0.45), 0 0 0 0 color-mix(in srgb, var(--c-accent) 60%, transparent); }
+  50% { box-shadow: 0 5px 0 var(--c-teal-dark), 0 11px 14px -6px rgb(0 0 0 / 0.45), 0 0 0 13px color-mix(in srgb, var(--c-accent) 0%, transparent); }
+}
+.f-start {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 50%;
+  translate: -50% 0;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: var(--f-sign-bg);
+  border: 2px solid var(--f-sign-edge);
+  box-shadow: 0 2px 0 var(--f-sign-shadow);
+  color: var(--c-teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------- bird */
+
+.f-perched,
+.f-flyer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.f-bird.is-perched .f-bird-body { animation: f-bob 2.6s ease-in-out infinite; }
+.f-bird.is-perched .f-bird-head { transform-origin: 27px 23px; animation: f-tilt 5.2s ease-in-out infinite; }
+.f-bird-lid { opacity: 0; animation: f-blink 4.1s linear infinite; }
+.f-wing { transform-origin: 24px 26px; animation: f-flap 0.13s ease-in-out infinite alternate; }
+.f-wing-far { animation-delay: -0.05s; }
+.f-bird.is-landing { transform-origin: 50% 96%; animation: f-land 0.45s ease-out; }
+@keyframes f-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.6px); } }
+@keyframes f-tilt { 0%, 60%, 100% { transform: rotate(0deg); } 68%, 86% { transform: rotate(-10deg); } }
+@keyframes f-blink { 0%, 92%, 100% { opacity: 0; } 94%, 98% { opacity: 1; } }
+@keyframes f-flap { from { transform: rotate(16deg) scaleY(1); } to { transform: rotate(-6deg) scaleY(-0.55); } }
+@keyframes f-land {
+  0% { transform: scale(1.1, 0.84) translateY(3px); }
+  45% { transform: scale(0.95, 1.07) translateY(-2px); }
+  100% { transform: none; }
+}
+
+/* ------------------------------------------------------- signs and gates */
+
+.f-sign-wrap { position: relative; padding: 30px 14px 6px; }
+.f-sign-wrap::before,
+.f-gate::before {
+  /* the route carries on behind the sign */
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  margin-left: -2.5px;
+  background: var(--f-vine);
+}
+.f-sign-wrap.is-locked::before,
+.f-gate.is-locked::before {
+  width: 3px;
+  margin-left: -1.5px;
+  background: repeating-linear-gradient(to bottom, var(--f-vine-dim) 0 3px, transparent 3px 10px);
+}
+.f-pole {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 11px;
+  height: 12px;
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(to right, transparent 0 62px, var(--f-bamboo-dark) 62px 64px, var(--f-bamboo-light) 64px 66px),
+    linear-gradient(var(--f-bamboo-light), var(--f-bamboo) 45%, var(--f-bamboo-dark));
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.16);
+}
+.f-bunting { position: absolute; left: 14px; top: 20px; z-index: 1; pointer-events: none; }
+.f-sign {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 16px;
+  border: 2px solid var(--f-sign-edge);
+  background:
+    repeating-linear-gradient(178deg, transparent 0 9px, var(--f-sign-grain) 9px 10px),
+    var(--f-sign-bg);
+  box-shadow: 0 4px 0 var(--f-sign-shadow), 0 14px 18px -10px rgb(0 0 0 / 0.45);
+}
+.f-sign::before,
+.f-sign::after {
+  /* rope loops over the pole */
+  content: '';
+  position: absolute;
+  top: -22px;
+  width: 5px;
+  height: 22px;
+  border-radius: 3px;
+  background: var(--f-rope);
+  box-shadow: inset -1.5px 0 0 rgb(0 0 0 / 0.18);
+}
+.f-sign::before { left: 30px; }
+.f-sign::after { right: 30px; }
+.f-sign-wrap.is-locked .f-sign > * { opacity: 0.62; }
+
+.f-gate { position: relative; padding: 104px 0 16px; }
+.f-gate::before { top: 60px; }
+.f-gate-art { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.f-plaque {
+  position: relative;
+  width: fit-content;
+  min-width: 196px;
+  max-width: calc(100% - 2 * var(--f-trunk-w) - 12px);
+  margin: 0 auto;
+  padding: 8px 18px 10px;
+  text-align: center;
+  border-radius: 14px;
+  border: 2px solid var(--f-sign-edge);
+  background:
+    repeating-linear-gradient(178deg, transparent 0 9px, var(--f-sign-grain) 9px 10px),
+    var(--f-sign-bg);
+  box-shadow: 0 4px 0 var(--f-sign-shadow), 0 14px 18px -10px rgb(0 0 0 / 0.45);
+}
+
+.f-end { position: relative; padding: 8px 14px 0; }
+.f-end-art { display: block; pointer-events: none; overflow: visible; }
+
+/* ---------------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .f-mote,
+  .f-butterfly,
+  .f-token.is-current,
+  .f-bird.is-perched .f-bird-body,
+  .f-bird.is-perched .f-bird-head,
+  .f-bird-lid,
+  .f-wing,
+  .f-bird.is-landing {
+    animation: none;
+  }
+  .f-butterfly { display: none; }
+  .f-mote { opacity: 0.4; }
+}

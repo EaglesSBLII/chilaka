@@ -11,6 +11,7 @@ import { SYNC_ENDPOINT } from '../sync-config';
 import { Button, Card } from '../components/ui';
 import { AccountCard } from './settings/AccountCard';
 import { PushToggle } from './settings/PushToggle';
+import { PathStyleSetting } from './forest/PathStyleSetting'; // FOREST-MAP SEAM
 import type { Difficulty, ScriptMode } from '../engine/types';
 import type { MusicTrackRow, ReminderRow } from '../db/schema';
 
@@ -318,6 +319,9 @@ export function Settings() {
           ))}
         </div>
       </Card>
+
+      {/* FOREST-MAP SEAM: "Path style: Forest map / Classic" (device-local) */}
+      <PathStyleSetting />
 
       <Card>
         <h3 className="mb-3 font-extrabold">🏃 Daily pace</h3>
