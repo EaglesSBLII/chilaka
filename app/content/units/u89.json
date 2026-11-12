@@ -2,62 +2,81 @@
   "id": "u89",
   "track": "script",
   "section": 2,
-  "order": 3,
+  "order": 4,
   "title": "Vattulu",
   "teTitle": "వత్తులు",
   "cefr": "A0",
   "register": "standard",
-  "description": "Conjuncts: a small consonant tucked below doubles or clusters the sound — అమ్మ, పిల్లి, స్కూలు.",
+  "description": "Conjuncts: a small consonant tucked below doubles or clusters the sound — అక్క, పిల్లి, స్కూలు.",
   "items": [
-    {
-      "id": "u89-i01",
-      "te": "క క్క",
-      "audioTe": "క. అక్క.",
-      "gloss": "ka vs kka — spot the vattu tucked below",
-      "words": [
-        { "te": "క", "gloss": "ka — single" },
-        { "te": "క్క", "gloss": "kka — doubled: hold the k a beat longer" }
-      ],
-      "tags": ["concept"],
-      "difficulty": 2,
-      "note": "A వత్తు is a mini consonant hanging under its partner. It kills the first letter's vowel and doubles the sound: క్క, ల్ల, త్త."
-    },
     {
       "id": "u89-i02",
       "te": "అక్క",
       "gloss": "akka — elder sister",
       "words": [
-        { "te": "అ", "gloss": "a" },
-        { "te": "క్క", "gloss": "kka — doubled క" }
+        {
+          "te": "అ",
+          "gloss": "a"
+        },
+        {
+          "te": "క్క",
+          "gloss": "kka — doubled క"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i06", "u81-i07"],
-      "note": "అక్క vs అత్త (aunt) — both are అ + a doubled letter. Family words love vattulu: అమ్మ, అక్క, అత్త, నాన్న."
+      "distractors": [
+        "u89-i06"
+      ],
+      "note": "The small క tucked below is a వత్తు (vattu): it doubles the sound, so క is ka and క్క is kka. అక్క vs అత్త (aunt) — both are అ + a doubled letter. Family words love vattulu: అమ్మ, అక్క, అత్త, నాన్న."
     },
     {
       "id": "u89-i03",
       "te": "నాన్న",
       "gloss": "naanna — dad",
       "words": [
-        { "te": "నా", "gloss": "naa" },
-        { "te": "న్న", "gloss": "nna — doubled న" }
+        {
+          "te": "నా",
+          "gloss": "naa"
+        },
+        {
+          "te": "న్న",
+          "gloss": "nna — doubled న"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i04", "u89-i02"]
+      "distractors": [
+        "u89-i04",
+        "u89-i02"
+      ]
     },
     {
       "id": "u89-i04",
       "te": "అన్నం",
       "gloss": "annam — rice, food",
       "words": [
-        { "te": "అ", "gloss": "a" },
-        { "te": "న్నం", "gloss": "nnam — doubled న plus the sunna" }
+        {
+          "te": "అ",
+          "gloss": "a"
+        },
+        {
+          "te": "న్నం",
+          "gloss": "nnam — doubled న plus the sunna"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i03", "u89-i02"],
+      "distractors": [
+        "u89-i03",
+        "u89-i02"
+      ],
       "note": "అన్నం తిన్నావా? (have you eaten?) — the most Telugu question there is, and now you can read its heart."
     },
     {
@@ -65,49 +84,91 @@
       "te": "పిల్లి",
       "gloss": "pilli — cat",
       "words": [
-        { "te": "పి", "gloss": "pi" },
-        { "te": "ల్లి", "gloss": "lli — doubled ల with the ఇ sound" }
+        {
+          "te": "పి",
+          "gloss": "pi"
+        },
+        {
+          "te": "ల్లి",
+          "gloss": "lli — doubled ల with the ఇ sound"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i07", "u81-i09"],
-      "note": "Same ల్ల vattu as ఇల్లు (house) from your very first unit — you've been reading vattulu since day one."
+      "distractors": [
+        "u89-i07"
+      ],
+      "note": "The same ల్ల vattu is in ఇల్లు (house), coming up soon."
     },
     {
       "id": "u89-i06",
       "te": "అత్త",
       "gloss": "atta — aunt, mother-in-law",
       "words": [
-        { "te": "అ", "gloss": "a" },
-        { "te": "త్త", "gloss": "tta — doubled త" }
+        {
+          "te": "అ",
+          "gloss": "a"
+        },
+        {
+          "te": "త్త",
+          "gloss": "tta — doubled త"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i02", "u89-i04"]
+      "distractors": [
+        "u89-i02",
+        "u89-i04"
+      ]
     },
     {
       "id": "u89-i07",
       "te": "ముద్ద",
       "gloss": "mudda — morsel, soft lump",
       "words": [
-        { "te": "ము", "gloss": "mu" },
-        { "te": "ద్ద", "gloss": "dda — doubled ద" }
+        {
+          "te": "ము",
+          "gloss": "mu"
+        },
+        {
+          "te": "ద్ద",
+          "gloss": "dda — doubled ద"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u89-i06", "u89-i09"]
+      "distractors": [
+        "u89-i06",
+        "u89-i09"
+      ]
     },
     {
       "id": "u89-i08",
       "te": "చెట్టు",
       "gloss": "cheTTu — tree",
       "words": [
-        { "te": "చె", "gloss": "che" },
-        { "te": "ట్టు", "gloss": "TTu — doubled ట with the ఉ sound" }
+        {
+          "te": "చె",
+          "gloss": "che"
+        },
+        {
+          "te": "ట్టు",
+          "gloss": "TTu — doubled ట with the ఉ sound"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u89-i05"],
+      "distractors": [
+        "u89-i05"
+      ],
       "note": "మామిడి చెట్టు — a mango tree. Two units' skills in one phrase."
     },
     {
@@ -115,12 +176,22 @@
       "te": "బుద్ధి",
       "gloss": "buddhi — sense, wisdom",
       "words": [
-        { "te": "బు", "gloss": "bu" },
-        { "te": "ద్ధి", "gloss": "ddhi — ద with a ధ vattu: two DIFFERENT letters stacked" }
+        {
+          "te": "బు",
+          "gloss": "bu"
+        },
+        {
+          "te": "ద్ధి",
+          "gloss": "ddhi — ద with a ధ vattu: two DIFFERENT letters stacked"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u89-i07"],
+      "distractors": [
+        "u89-i07"
+      ],
       "note": "Vattulu aren't only twins — any consonant can hang below another. Here ధ hangs under ద."
     },
     {
@@ -128,12 +199,23 @@
       "te": "ప్రేమ",
       "gloss": "preema — love",
       "words": [
-        { "te": "ప్రే", "gloss": "pree — ప + a ర vattu + the ే matra, all in one akshara" },
-        { "te": "మ", "gloss": "ma" }
+        {
+          "te": "ప్రే",
+          "gloss": "pree — ప + a ర vattu + the ే matra, all in one akshara"
+        },
+        {
+          "te": "మ",
+          "gloss": "ma"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u89-i11", "u89-i12"],
+      "distractors": [
+        "u89-i11",
+        "u89-i12"
+      ],
       "note": "The ర vattu is a little hook slung beside the letter. ప్రేమ, ప్రశ్న, ప్రయాణం — pr- words are everywhere."
     },
     {
@@ -141,31 +223,79 @@
       "te": "విద్య",
       "gloss": "vidya — education, learning",
       "words": [
-        { "te": "వి", "gloss": "vi" },
-        { "te": "ద్య", "gloss": "dya — ద with a య vattu" }
+        {
+          "te": "వి",
+          "gloss": "vi"
+        },
+        {
+          "te": "ద్య",
+          "gloss": "dya — ద with a య vattu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u89-i10", "u89-i09"],
+      "distractors": [
+        "u89-i10",
+        "u89-i09"
+      ],
       "note": "The య vattu looks like a wide smile under the letter. విద్య is literally what you're doing right now."
     },
     {
       "id": "u89-i12",
       "te": "స్కూలు",
-      "gloss": "skoolu — school",
+      "gloss": "skuulu — school",
       "words": [
-        { "te": "స్కూ", "gloss": "skoo — స + క vattu + ూ matra: three sounds, one akshara" },
-        { "te": "లు", "gloss": "lu" }
+        {
+          "te": "స్కూ",
+          "gloss": "skuu — స + క vattu + ూ matra: three sounds, one akshara"
+        },
+        {
+          "te": "లు",
+          "gloss": "lu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 4,
-      "distractors": ["u89-i10", "u89-i08"],
+      "distractors": [
+        "u89-i10",
+        "u89-i08"
+      ],
       "note": "English loans lean on vattulu: స్కూలు, స్టేషను, బస్సు. One akshara can pack a whole cluster."
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "the doubling trick", "itemIds": ["u89-i01", "u89-i02", "u89-i03", "u89-i04"] },
-    { "id": "l2", "title": "more doubles", "itemIds": ["u89-i05", "u89-i06", "u89-i07", "u89-i08"] },
-    { "id": "l3", "title": "stacking different letters", "itemIds": ["u89-i09", "u89-i10", "u89-i11", "u89-i12"] }
+    {
+      "id": "l1",
+      "title": "the doubling trick",
+      "itemIds": [
+        "u89-i02",
+        "u89-i03",
+        "u89-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "more doubles",
+      "itemIds": [
+        "u89-i05",
+        "u89-i06",
+        "u89-i07",
+        "u89-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "stacking different letters",
+      "itemIds": [
+        "u89-i09",
+        "u89-i10",
+        "u89-i11",
+        "u89-i12"
+      ]
+    }
   ]
 }

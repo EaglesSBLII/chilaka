@@ -12,154 +12,226 @@
     {
       "id": "u84-i01",
       "te": "ట",
-      "audioTe": "ట. టమాటా.",
-      "gloss": "Ta — as in 'Tamaataa' (tomato)",
-      "words": [{ "te": "ట", "gloss": "Ta — hard t, tongue curled back (retroflex)" }],
-      "tags": ["consonant"],
+      "gloss": "Ta — hard t, tongue curled back",
+      "words": [
+        {
+          "te": "ట",
+          "gloss": "Ta — hard t, tongue curled back (retroflex)"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 1,
-      "distractors": ["u84-i02", "u84-i06"],
+      "distractors": [
+        "u84-i02",
+        "u84-i06"
+      ],
       "note": "Retroflex ట vs dental త is THE Telugu t-contrast: టమాటా has the hard one, తల (head) the soft one."
     },
     {
       "id": "u84-i02",
       "te": "ఠ",
-      "audioTe": "ఠ. ఠీవి.",
-      "gloss": "Tha — as in 'Theevi' (poise, dignity)",
-      "words": [{ "te": "ఠ", "gloss": "Tha — ట with a puff of breath" }],
-      "tags": ["consonant"],
+      "gloss": "Tha — hard t with a puff of breath",
+      "words": [
+        {
+          "te": "ఠ",
+          "gloss": "Tha — ట with a puff of breath"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 2,
-      "distractors": ["u84-i01"],
+      "distractors": [
+        "u84-i01"
+      ],
       "note": "ఠ is a circle with a bar inside — don't mistake it for the open bowl of ట."
     },
     {
       "id": "u84-i03",
       "te": "డ",
-      "audioTe": "డ. డబ్బు.",
-      "gloss": "Da — as in 'Dabbu' (money)",
-      "words": [{ "te": "డ", "gloss": "Da — hard d, tongue curled back" }],
-      "tags": ["consonant"],
+      "gloss": "Da — hard d, tongue curled back",
+      "words": [
+        {
+          "te": "డ",
+          "gloss": "Da — hard d, tongue curled back"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 1,
-      "distractors": ["u84-i04", "u84-i01"],
+      "distractors": [
+        "u84-i04",
+        "u84-i01"
+      ],
       "note": "డబ్బు (money) — a word you already haggle with. డ and ఢ differ only by ఢ's little tail."
     },
     {
       "id": "u84-i04",
       "te": "ఢ",
-      "audioTe": "ఢ. ఢిల్లీ.",
-      "gloss": "Dha — as in 'Dhillee' (Delhi)",
-      "words": [{ "te": "ఢ", "gloss": "Dha — డ with a puff of breath" }],
-      "tags": ["consonant"],
+      "gloss": "Dha — hard d with a puff of breath",
+      "words": [
+        {
+          "te": "ఢ",
+          "gloss": "Dha — డ with a puff of breath"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 2,
-      "distractors": ["u84-i03"]
+      "distractors": [
+        "u84-i03"
+      ]
     },
     {
       "id": "u84-i05",
       "te": "ణ",
-      "audioTe": "ణ. బాణం.",
-      "gloss": "Na — as in 'baaNam' (arrow)",
-      "words": [{ "te": "ణ", "gloss": "Na — retroflex n, tongue curled back" }],
-      "tags": ["consonant"],
+      "gloss": "Na — n with the tongue curled back",
+      "words": [
+        {
+          "te": "ణ",
+          "gloss": "Na — retroflex n, tongue curled back"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 2,
-      "distractors": ["u84-i03", "u84-i10"],
-      "note": "ణ never begins a word — you'll always meet it mid-word, as in బాణం or కంఠాణి."
+      "distractors": [
+        "u84-i03",
+        "u84-i10"
+      ],
+      "note": "ణ never begins a word — you'll always meet it later in the word, as in బాణం (arrow) or వీణ (veena)."
     },
     {
       "id": "u84-i06",
       "te": "త",
-      "audioTe": "త. తల.",
-      "gloss": "ta — as in 'tala' (head)",
-      "words": [{ "te": "త", "gloss": "ta — soft t, tongue at the teeth (dental)" }],
-      "tags": ["consonant"],
+      "gloss": "ta — soft t, tongue at the teeth",
+      "words": [
+        {
+          "te": "త",
+          "gloss": "ta — soft t, tongue at the teeth (dental)"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 1,
-      "distractors": ["u84-i01", "u84-i07"]
+      "distractors": [
+        "u84-i01",
+        "u84-i07"
+      ]
     },
     {
       "id": "u84-i07",
       "te": "థ",
-      "audioTe": "థ. రథం.",
-      "gloss": "tha — as in 'ratham' (chariot)",
-      "words": [{ "te": "థ", "gloss": "tha — త with a puff of breath" }],
-      "tags": ["consonant"],
+      "gloss": "tha — soft t with a puff of breath",
+      "words": [
+        {
+          "te": "థ",
+          "gloss": "tha — త with a puff of breath"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 2,
-      "distractors": ["u84-i06", "u84-i02"],
+      "distractors": [
+        "u84-i06",
+        "u84-i02"
+      ],
       "note": "థ rarely starts a word; look for it inside words like రథం — the temple chariot."
     },
     {
       "id": "u84-i08",
       "te": "ద",
-      "audioTe": "ద. దండ.",
-      "gloss": "da — as in 'daNDa' (garland)",
-      "words": [{ "te": "ద", "gloss": "da — soft d, tongue at the teeth" }],
-      "tags": ["consonant"],
+      "gloss": "da — soft d, tongue at the teeth",
+      "words": [
+        {
+          "te": "ద",
+          "gloss": "da — soft d, tongue at the teeth"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 1,
-      "distractors": ["u84-i09", "u84-i03"]
+      "distractors": [
+        "u84-i09",
+        "u84-i03"
+      ]
     },
     {
       "id": "u84-i09",
       "te": "ధ",
-      "audioTe": "ధ. ధనం.",
-      "gloss": "dha — as in 'dhanam' (wealth)",
-      "words": [{ "te": "ధ", "gloss": "dha — ద with a puff of breath" }],
-      "tags": ["consonant"],
+      "gloss": "dha — soft d with a puff of breath",
+      "words": [
+        {
+          "te": "ధ",
+          "gloss": "dha — ద with a puff of breath"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 2,
-      "distractors": ["u84-i08"],
+      "distractors": [
+        "u84-i08"
+      ],
       "note": "ధ is ద wearing a check-mark on top — the mark is the puff of air."
     },
     {
       "id": "u84-i10",
       "te": "న",
-      "audioTe": "న. నాన్న.",
-      "gloss": "na — as in 'naanna' (dad)",
-      "words": [{ "te": "న", "gloss": "na — everyday n, as in నేను (I)" }],
-      "tags": ["consonant"],
+      "gloss": "na — the everyday n",
+      "words": [
+        {
+          "te": "న",
+          "gloss": "na — everyday n, as in నేను (I)"
+        }
+      ],
+      "tags": [
+        "consonant"
+      ],
       "difficulty": 1,
-      "distractors": ["u84-i05", "u84-i06"],
+      "distractors": [
+        "u84-i05",
+        "u84-i06"
+      ],
       "note": "న opens నేను, నాన్న, నీళ్ళు — half the words you already speak. The other n, ణ, is the curled one."
-    },
-    {
-      "id": "u84-i11",
-      "te": "తల",
-      "gloss": "tala — head",
-      "words": [
-        { "te": "త", "gloss": "ta" },
-        { "te": "ల", "gloss": "la" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u84-i13", "u84-i12"],
-      "note": "తల నొప్పి = headache — you've said it; now read its first half."
-    },
-    {
-      "id": "u84-i12",
-      "te": "దండ",
-      "gloss": "daNDa — garland",
-      "words": [
-        { "te": "దం", "gloss": "dam — ద with the sunna hum" },
-        { "te": "డ", "gloss": "Da" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u84-i11"],
-      "note": "The sunna ం sits on ద and hums into the డ that follows: దం-డ. Both d-sounds in one word — soft ద, hard డ."
-    },
-    {
-      "id": "u84-i13",
-      "te": "నడక",
-      "gloss": "naDaka — walk, gait",
-      "words": [
-        { "te": "న", "gloss": "na" },
-        { "te": "డ", "gloss": "Da" },
-        { "te": "క", "gloss": "ka" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u84-i12", "u84-i11"]
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "Ta Tha Da Dha", "itemIds": ["u84-i01", "u84-i02", "u84-i03", "u84-i04"] },
-    { "id": "l2", "title": "Na, ta, tha", "itemIds": ["u84-i05", "u84-i06", "u84-i07"] },
-    { "id": "l3", "title": "da dha na", "itemIds": ["u84-i08", "u84-i09", "u84-i10"] },
-    { "id": "l4", "title": "first words", "itemIds": ["u84-i11", "u84-i12", "u84-i13"] }
+    {
+      "id": "l1",
+      "title": "Ta Tha Da Dha",
+      "itemIds": [
+        "u84-i01",
+        "u84-i02",
+        "u84-i03",
+        "u84-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Na, ta, tha",
+      "itemIds": [
+        "u84-i05",
+        "u84-i06",
+        "u84-i07"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "da dha na",
+      "itemIds": [
+        "u84-i08",
+        "u84-i09",
+        "u84-i10"
+      ]
+    }
   ]
 }

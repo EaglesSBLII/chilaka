@@ -2,11 +2,18 @@
 // Days are local-calendar strings 'YYYY-MM-DD' computed via localDay().
 
 import type { StreakState, StreakStanding } from './types';
+import { FREEZE_EARN_XP } from './xp';
+import { FREEZE_SKU } from './coins';
 
 export const MAX_FREEZES = 2;
 
 export function emptyStreak(): StreakState {
   return { current: 0, longest: 0, lastActiveDay: null, freezesOwned: 0, freezeUsedOn: [] };
+}
+
+/** The timezone this device is in right now (the calendar the learner lives by). */
+export function deviceTimeZone(): string {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone;
 }
 
 /** Local calendar day for a timestamp in a given IANA timezone. */
@@ -91,4 +98,56 @@ export function displayCount(state: StreakState, today: string): number {
 
 export function grantFreeze(state: StreakState, n = 1): StreakState {
   return { ...state, freezesOwned: Math.min(MAX_FREEZES, state.freezesOwned + n) };
+}
+
+/**
+ * Whether a freeze can be bought right now. A freeze protects days that have
+ * not been missed yet: once the streak is already broken, buying one must not
+ * repair it after the fact.
+ */
+export function canBuyFreeze(state: StreakState, today: string): 'ok' | 'max' | 'broken' {
+  if (standing(state, today) === 'broken') return 'broken';
+  if (state.freezesOwned >= MAX_FREEZES) return 'max';
+  return 'ok';
+}
+
+/**
+ * Freezes held, replayed from the synced ledgers instead of trusted from a
+ * counter: one per FREEZE_EARN_XP of lifetime XP, one per shop purchase, one
+ * gone for every day in `freezeUsedOn` — capped at MAX_FREEZES at every step,
+ * exactly as the app grants and spends them. Two devices that merge the same
+ * ledgers therefore agree on the count: a freeze that was paid for cannot be
+ * lost to an older upload, and one earned on two devices at once is not doubled.
+ */
+export function freezesFromLedger(
+  xpEvents: readonly { ts: string; amount: number; day: string }[],
+  coinEvents: readonly { ts: string; kind: string; refId: string }[],
+  freezeUsedOn: readonly string[],
+): number {
+  type Step = { ts: string; order: number; xp?: { amount: number; day: string } };
+  const steps: Step[] = [
+    ...xpEvents.map((e): Step => ({ ts: String(e.ts), order: 0, xp: { amount: Number(e.amount) || 0, day: String(e.day ?? '') } })),
+    ...coinEvents.filter((e) => e.kind === 'spend' && e.refId === FREEZE_SKU).map((e): Step => ({ ts: String(e.ts), order: 1 })),
+  ].sort((a, b) => (a.ts < b.ts ? -1 : a.ts > b.ts ? 1 : a.order - b.order || (a.xp?.amount ?? 0) - (b.xp?.amount ?? 0)));
+  const used = [...new Set(freezeUsedOn)].sort();
+  let u = 0;
+  let owned = 0;
+  let total = 0;
+  for (const step of steps) {
+    if (!step.xp) {
+      owned = Math.min(MAX_FREEZES, owned + 1);
+      continue;
+    }
+    // a freeze covering a missed day is spent by the first activity after it
+    while (u < used.length && used[u] < step.xp.day) {
+      owned = Math.max(0, owned - 1);
+      u++;
+    }
+    const next = total + step.xp.amount;
+    const earned = Math.max(0, Math.floor(next / FREEZE_EARN_XP) - Math.floor(total / FREEZE_EARN_XP));
+    owned = Math.min(MAX_FREEZES, owned + earned);
+    total = next;
+  }
+  owned = Math.max(0, owned - (used.length - u));
+  return owned;
 }

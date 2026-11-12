@@ -7,149 +7,182 @@
   "teTitle": "అచ్చులు 1",
   "cefr": "A0",
   "register": "standard",
-  "description": "Meet అ ఆ ఇ ఈ ఉ ఊ — and read your first real words.",
+  "description": "Meet అ ఆ ఇ ఈ ఉ ఊ: hear each one, trace it, write it.",
   "items": [
     {
       "id": "u81-i01",
       "te": "అ",
-      "audioTe": "అ. అమ్మ.",
-      "gloss": "a — as in 'amma'",
-      "words": [{ "te": "అ", "gloss": "short 'a', like the u in 'up'" }],
-      "tags": ["vowel"],
+      "gloss": "a — short, like the u in 'up'",
+      "words": [
+        {
+          "te": "అ",
+          "gloss": "short 'a', like the u in 'up'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
       "note": "అ (a) is the first letter of the Telugu alphabet and the sound hiding inside every plain consonant."
     },
     {
       "id": "u81-i02",
       "te": "ఆ",
-      "audioTe": "ఆ. ఆవు.",
-      "gloss": "aa — as in 'aavu' (cow)",
-      "words": [{ "te": "ఆ", "gloss": "long 'aa', like the a in 'father'" }],
-      "tags": ["vowel"],
+      "gloss": "aa — long, like the a in 'father'",
+      "words": [
+        {
+          "te": "ఆ",
+          "gloss": "long 'aa', like the a in 'father'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u81-i01", "u81-i03"],
+      "distractors": [
+        "u81-i01",
+        "u81-i03"
+      ],
       "note": "The little tail on ఆ is what makes అ long. Short vs long vowels change meanings — అన్న (brother) vs ఆన (an oath)."
     },
     {
       "id": "u81-i03",
       "te": "ఇ",
-      "audioTe": "ఇ. ఇల్లు.",
-      "gloss": "i — as in 'illu' (house)",
-      "words": [{ "te": "ఇ", "gloss": "short 'i', like the i in 'in'" }],
-      "tags": ["vowel"],
+      "gloss": "i — short, like the i in 'in'",
+      "words": [
+        {
+          "te": "ఇ",
+          "gloss": "short 'i', like the i in 'in'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u81-i04", "u81-i01"]
+      "distractors": [
+        "u81-i04",
+        "u81-i01"
+      ]
     },
     {
       "id": "u81-i04",
       "te": "ఈ",
-      "audioTe": "ఈ. ఈగ.",
-      "gloss": "ee — as in 'eega' (fly)",
-      "words": [{ "te": "ఈ", "gloss": "long 'ee', like the ee in 'see'" }],
-      "tags": ["vowel"],
+      "gloss": "ii — long, like the ee in 'see'",
+      "words": [
+        {
+          "te": "ఈ",
+          "gloss": "long 'ee', like the ee in 'see'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u81-i03"]
+      "distractors": [
+        "u81-i03"
+      ]
     },
     {
       "id": "u81-i05",
       "te": "ఉ",
-      "audioTe": "ఉ. ఉడుత.",
-      "gloss": "u — as in 'uduta' (squirrel)",
-      "words": [{ "te": "ఉ", "gloss": "short 'u', like the u in 'put'" }],
-      "tags": ["vowel"],
+      "gloss": "u — short, like the u in 'put'",
+      "words": [
+        {
+          "te": "ఉ",
+          "gloss": "short 'u', like the u in 'put'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u81-i06", "u81-i01"]
+      "distractors": [
+        "u81-i06",
+        "u81-i01"
+      ]
     },
     {
       "id": "u81-i06",
       "te": "ఊ",
-      "audioTe": "ఊ. ఊరు.",
-      "gloss": "oo — as in 'ooru' (town)",
-      "words": [{ "te": "ఊ", "gloss": "long 'oo', like the oo in 'moon'" }],
-      "tags": ["vowel"],
+      "gloss": "uu — long, like the oo in 'moon'",
+      "words": [
+        {
+          "te": "ఊ",
+          "gloss": "long 'oo', like the oo in 'moon'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u81-i05"],
-      "note": "మీది ఏ ఊరు? (Which town are you from?) — you already SAY ఊరు; now you can read it."
-    },
-    {
-      "id": "u81-i07",
-      "te": "అమ్మ",
-      "gloss": "amma — mother",
-      "words": [
-        { "te": "అ", "gloss": "a" },
-        { "te": "మ్మ", "gloss": "mma — the doubled మ leans on the first letter" }
+      "distractors": [
+        "u81-i05"
       ],
-      "tags": ["word"],
-      "difficulty": 1,
-      "distractors": ["u81-i08", "u81-i02"],
-      "note": "Your first read word! The small mark under మ్మ is a వత్తు (vattu) — how Telugu doubles a consonant."
-    },
-    {
-      "id": "u81-i08",
-      "te": "ఆవు",
-      "gloss": "aavu — cow",
-      "words": [
-        { "te": "ఆ", "gloss": "aa" },
-        { "te": "వు", "gloss": "vu — వ carrying the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u81-i07"]
-    },
-    {
-      "id": "u81-i09",
-      "te": "ఇల్లు",
-      "gloss": "illu — house",
-      "words": [
-        { "te": "ఇ", "gloss": "i" },
-        { "te": "ల్లు", "gloss": "llu — doubled ల with the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u81-i08", "u81-i10"]
-    },
-    {
-      "id": "u81-i10",
-      "te": "ఊరు",
-      "gloss": "ooru — town, village",
-      "words": [
-        { "te": "ఊ", "gloss": "oo" },
-        { "te": "రు", "gloss": "ru — ర carrying the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u81-i09", "u81-i06"]
-    },
-    {
-      "id": "u81-i11",
-      "te": "ఈగ",
-      "gloss": "eega — fly (the insect)",
-      "words": [
-        { "te": "ఈ", "gloss": "ee" },
-        { "te": "గ", "gloss": "ga" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u81-i10"]
+      "note": "మీది ఏ ఊరు? (Which town are you from?) — you already SAY ఊరు; now you can read its first letter."
     },
     {
       "id": "u81-i12",
-      "te": "అఆ ఇఈ ఉఊ",
+      "te": "అ ఆ ఇ ఈ ఉ ఊ",
       "audioTe": "అ, ఆ. ఇ, ఈ. ఉ, ఊ.",
       "gloss": "the six vowels in order — short, long pairs",
       "words": [
-        { "te": "అఆ", "gloss": "a, aa" },
-        { "te": "ఇఈ", "gloss": "i, ee" },
-        { "te": "ఉఊ", "gloss": "u, oo" }
+        {
+          "te": "అ",
+          "gloss": "a"
+        },
+        {
+          "te": "ఆ",
+          "gloss": "aa"
+        },
+        {
+          "te": "ఇ",
+          "gloss": "i"
+        },
+        {
+          "te": "ఈ",
+          "gloss": "ii"
+        },
+        {
+          "te": "ఉ",
+          "gloss": "u"
+        },
+        {
+          "te": "ఊ",
+          "gloss": "uu"
+        }
       ],
-      "tags": ["review"],
+      "tags": [
+        "review"
+      ],
       "difficulty": 2,
       "note": "Telugu vowels come in short/long pairs — hear the stretch: అ→ఆ, ఇ→ఈ, ఉ→ఊ."
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "a & aa", "itemIds": ["u81-i01", "u81-i02", "u81-i07", "u81-i08"] },
-    { "id": "l2", "title": "i & ee", "itemIds": ["u81-i03", "u81-i04", "u81-i09", "u81-i11"] },
-    { "id": "l3", "title": "u & oo", "itemIds": ["u81-i05", "u81-i06", "u81-i10", "u81-i12"] }
+    {
+      "id": "l1",
+      "title": "a & aa",
+      "itemIds": [
+        "u81-i01",
+        "u81-i02"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "i & ii",
+      "itemIds": [
+        "u81-i03",
+        "u81-i04"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "u & uu",
+      "itemIds": [
+        "u81-i05",
+        "u81-i06",
+        "u81-i12"
+      ]
+    }
   ]
 }

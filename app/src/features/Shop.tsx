@@ -1,6 +1,6 @@
 // Coin shop: power-ups, outfits for Chikki, accent themes.
 import { Check, Snowflake } from 'lucide-react';
-import { useApp } from '../store';
+import { useApp, useStreakStanding } from '../store';
 import { Button, Card, Coin } from '../components/ui';
 import { Mascot, type MascotOutfit } from '../components/Mascot';
 import { SHOP, type Sku } from '../engine/coins';
@@ -30,12 +30,15 @@ function Item({ sku }: { sku: Sku }) {
   const have = owned.has(sku.id);
   const equipped = sku.kind === 'outfit' ? profile?.outfit === sku.id : sku.kind === 'accent' ? profile?.accent === sku.id : false;
   const freezeFull = sku.id === 'freeze' && streak.freezesOwned >= MAX_FREEZES;
+  // a freeze protects days ahead; it cannot bring back a streak that already ended
+  const { standing } = useStreakStanding();
+  const freezeTooLate = sku.id === 'freeze' && standing === 'broken';
   const canAfford = coins >= sku.price;
 
   let action: React.ReactNode;
   if (sku.consumable) {
     action = (
-      <Button variant="primary" className="px-3 py-2 text-sm" disabled={!canAfford || freezeFull} onClick={() => void spend(sku.id)}>
+      <Button variant="primary" className="px-3 py-2 text-sm" disabled={!canAfford || freezeFull || freezeTooLate} onClick={() => void spend(sku.id)}>
         {freezeFull ? 'Max held' : <Price n={sku.price} />}
       </Button>
     );
@@ -76,6 +79,11 @@ function Item({ sku }: { sku: Sku }) {
         {sku.id === 'freeze' && (
           <p className="mt-0.5 text-xs font-bold text-teal">
             Holding {streak.freezesOwned}/{MAX_FREEZES}
+          </p>
+        )}
+        {freezeTooLate && (
+          <p className="mt-0.5 text-xs font-bold text-error" role="status" data-testid="freeze-too-late">
+            Your streak has already ended, and a freeze can't bring it back. Do a lesson to start a new streak, then a freeze can protect it.
           </p>
         )}
       </div>

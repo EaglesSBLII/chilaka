@@ -1,8 +1,9 @@
 // Coins, quests and badges: pure engine rules.
 import { describe, expect, it } from 'vitest';
-import { balance, celebrationLevel, chestReward, earnedTotal, milestoneFor, ownedSkus, SHOP, skuById } from '../../src/engine/coins';
+import { balance, celebrationLevel, chestReward, COINS, earnedTotal, goalBonusDue, milestoneBonusDue, milestoneFor, ownedSkus, SHOP, skuById, type CoinKind } from '../../src/engine/coins';
 import { bump, claim, dailyQuests, isComplete, questTitle } from '../../src/engine/quests';
 import { BADGES, evaluateBadges, newlyEarned, reconcileBadges, tierFor, tierProgress, type BadgeStats } from '../../src/engine/badges';
+import { shownTier } from '../../src/engine/coins';
 
 describe('coins', () => {
   it('balance is the ledger sum, never negative', () => {
@@ -91,5 +92,32 @@ describe('badges', () => {
     // same tier keeps the earlier date
     const again = reconcileBadges(next, evaluateBadges({ ...zero, lessons: 10 }, new Date('2026-03-01')));
     expect(again.find((b) => b.id === 'first-steps')?.earnedAt).toBe(new Date('2026-02-01').toISOString());
+  });
+});
+
+describe('goal and streak-milestone bonuses are paid once', () => {
+  const ev = (kind: CoinKind, refId: string, day: string) => ({ kind, refId, day });
+  it('the daily goal pays once per day, whoever crosses it', () => {
+    expect(goalBonusDue([], '2026-11-07')).toBe(COINS.goal);
+    expect(goalBonusDue([ev('goal', '2026-11-06', '2026-11-06'), ev('game', 'feed:x', '2026-11-07')], '2026-11-07')).toBe(COINS.goal);
+    expect(goalBonusDue([ev('goal', '2026-11-07', '2026-11-07')], '2026-11-07')).toBe(0);
+  });
+  it('a milestone pays on its day only, and again if the streak is rebuilt later', () => {
+    expect(milestoneBonusDue([], 7, '2026-11-07')).toBe(60);
+    expect(milestoneBonusDue([], 8, '2026-11-07')).toBe(0);
+    expect(milestoneBonusDue([ev('milestone', 'streak:7', '2026-11-07')], 7, '2026-11-07')).toBe(0);
+    expect(milestoneBonusDue([ev('milestone', 'streak:7', '2026-09-01')], 7, '2026-11-07')).toBe(60);
+    expect(milestoneBonusDue([ev('milestone', 'streak:3', '2026-11-07')], 7, '2026-11-07')).toBe(60);
+  });
+});
+
+describe('badge shown tier', () => {
+  it('a tier already earned is never shown lower than stored', () => {
+    const def = BADGES.find((b) => b.id === 'wordsmith')!;
+    // live stat fell (cards for retired phrases no longer count) but silver was earned
+    expect(shownTier(def, 40, 2)).toEqual({ tier: 2, next: 600, pct: 0 });
+    expect(shownTier(def, 250, 2)).toEqual({ tier: 2, next: 600, pct: 50 / 400 });
+    expect(shownTier(def, 250, 0)).toEqual(tierProgress(def, 250));
+    expect(shownTier(def, 10, 3)).toEqual({ tier: 3, next: null, pct: 1 });
   });
 });

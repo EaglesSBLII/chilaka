@@ -3,7 +3,10 @@ import {
   comboMultiplier,
   featuredGame,
   feedRound,
+  gamePool,
   GAMES,
+  isScriptItem,
+  learnedCount,
   memoryPairsFor,
   memoryRound,
   pairsRound,
@@ -11,11 +14,13 @@ import {
   playable,
   ratingForOutcome,
   roundCoins,
+  roundCounts,
   roundStars,
   roundXp,
   type GameItem,
 } from '../../src/engine/games';
-import { Rating } from '../../src/engine/srs';
+import { newCard, Rating } from '../../src/engine/srs';
+import { trackItems } from '../../src/content/load';
 import { rngFromSeed } from '../../src/engine/rng';
 
 const item = (id: string, te: string, gloss: string): GameItem => ({ id, te, roman: te, gloss });
@@ -177,5 +182,50 @@ describe('rewards and scheduling', () => {
     const seen = new Set<string>();
     for (let d = 1; d <= 30; d++) seen.add(featuredGame(`2026-11-${String(d).padStart(2, '0')}`).id);
     expect(seen.size).toBe(GAMES.length);
+  });
+});
+
+describe('what the deck can actually deal', () => {
+  const now = new Date('2026-11-10T10:00:00Z');
+  const earlier = new Date('2026-11-01T10:00:00Z');
+  const real = trackItems('speak').filter(playable).slice(0, 3);
+  const long = trackItems('speak').find((it) => !playable(it));
+  const deck = () => {
+    const cards = Object.fromEntries(real.map((it) => [it.id, newCard(it.id, earlier)]));
+    // a card whose phrase was since moved to another id, and one too long for a tile
+    cards['retired-item'] = newCard('retired-item', earlier);
+    if (long) cards[long.id] = newCard(long.id, earlier);
+    return cards;
+  };
+
+  it('due only counts cards a game can deal: orphans and long sentences never clear, so they never count', () => {
+    const pool = gamePool(deck(), now);
+    expect(pool.items.map((it) => it.id).sort()).toEqual(real.map((it) => it.id).sort());
+    expect(pool.dueIds.sort()).toEqual(real.map((it) => it.id).sort());
+    expect(pool.dueIds).not.toContain('retired-item');
+  });
+
+  it('phrases learned ignores cards whose phrase no longer exists', () => {
+    expect(learnedCount(deck())).toBe(real.length + (long ? 1 : 0));
+    expect(learnedCount({})).toBe(0);
+  });
+
+  it('a single letter with a short gloss is playable', () => {
+    expect(playable({ id: 'k', te: 'క', roman: 'ka', gloss: 'ka — plain k' })).toBe(true);
+  });
+
+  it('knows reading-track items, whose tiles must not show the romanisation', () => {
+    const script = trackItems('script')[0];
+    expect(isScriptItem(script.id)).toBe(true);
+    expect(isScriptItem(real[0].id)).toBe(false);
+    expect(isScriptItem('retired-item')).toBe(false);
+  });
+});
+
+describe('roundCounts', () => {
+  it('a round where nothing was solved is not a round played', () => {
+    expect(roundCounts({ outcomes: [] })).toBe(false);
+    expect(roundCounts({ outcomes: [{ itemId: 'a', firstTry: false, solved: false }] })).toBe(false);
+    expect(roundCounts({ outcomes: [{ itemId: 'a', firstTry: false, solved: false }, { itemId: 'b', firstTry: false, solved: true }] })).toBe(true);
   });
 });

@@ -50,7 +50,7 @@
       "tags": ["friends", "smalltalk"],
       "difficulty": 2,
       "note": "ఏం సీన్? = 'what's the plan / what's happening?' Standard Telugu: ఏం ప్లాన్ / ఏం సంగతి. Cinema runs deep in Hyderabadi slang.",
-      "distractors": ["u49-i12", "u53-i10"]
+      "distractors": ["u53-i10"]
     },
     {
       "id": "u53-i04",
@@ -167,7 +167,7 @@
       ],
       "tags": ["friends", "teasing"],
       "difficulty": 3,
-      "distractors": ["u53-i07", "u49-i06"]
+      "distractors": ["u53-i07"]
     },
     {
       "id": "u53-i12",
@@ -209,7 +209,7 @@
       ],
       "tags": ["friends", "flavor"],
       "difficulty": 3,
-      "distractors": ["u53-i15", "u51-i07"]
+      "distractors": ["u53-i15"]
     },
     {
       "id": "u53-i15",

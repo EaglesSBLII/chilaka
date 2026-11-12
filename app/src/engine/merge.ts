@@ -5,6 +5,7 @@
 
 import type { BackupFile } from '../db/backup';
 import { fnv1a } from '../db/backup';
+import { freezesFromLedger, MAX_FREEZES } from './streak';
 
 type Row = Record<string, unknown>;
 
@@ -140,31 +141,29 @@ export function mergeBackups(local: BackupFile, remote: BackupFile): BackupFile 
   }
 
   // ---- streaks: the side that was active most recently is the truth ----
-  // (not field-wise maxima: a streak that broke here would be resurrected,
-  // and a freeze spent here refunded, by this device's own older upload)
-  {
-    const l = (L.streaks?.[0] ?? null) as Row | null;
-    const r = (R.streaks?.[0] ?? null) as Row | null;
-    if (l && r) {
-      const ld = String(l.lastActiveDay ?? '');
-      const rd = String(r.lastActiveDay ?? '');
-      const lead = ld !== rd ? (ld > rd ? l : r) : Number(l.current ?? 0) >= Number(r.current ?? 0) ? l : r;
-      const other = lead === l ? r : l;
-      const sameDay = ld === rd;
-      out.streaks = [
-        {
-          id: 'main',
-          current: Number(lead.current ?? 0),
-          longest: Math.max(Number(l.longest ?? 0), Number(r.longest ?? 0), Number(lead.current ?? 0)),
-          lastActiveDay: lead.lastActiveDay ?? null,
-          // same day on both sides: neither is ahead, keep the cautious (smaller) count
-          freezesOwned: sameDay ? Math.min(Number(lead.freezesOwned ?? 0), Number(other.freezesOwned ?? 0)) : Number(lead.freezesOwned ?? 0),
-          freezeUsedOn: [...new Set([...((l.freezeUsedOn as string[]) ?? []), ...((r.freezeUsedOn as string[]) ?? [])])].sort(),
-        },
-      ];
-    } else {
-      out.streaks = l ? [l] : r ? [r] : [];
-    }
+  // (not field-wise maxima: a streak that broke here would be resurrected by
+  // this device's own older upload). The freeze count is settled further
+  // down, once the merged ledgers exist.
+  const ls = (L.streaks?.[0] ?? null) as Row | null;
+  const rs = (R.streaks?.[0] ?? null) as Row | null;
+  if (ls && rs) {
+    const ld = String(ls.lastActiveDay ?? '');
+    const rd = String(rs.lastActiveDay ?? '');
+    const lc = Number(ls.current ?? 0);
+    const rc = Number(rs.current ?? 0);
+    const lead = ld !== rd ? (ld > rd ? ls : rs) : lc >= rc ? ls : rs;
+    out.streaks = [
+      {
+        id: 'main',
+        current: Number(lead.current ?? 0),
+        longest: Math.max(Number(ls.longest ?? 0), Number(rs.longest ?? 0), Number(lead.current ?? 0)),
+        lastActiveDay: lead.lastActiveDay ?? null,
+        freezesOwned: 0, // set below
+        freezeUsedOn: [...new Set([...((ls.freezeUsedOn as string[]) ?? []), ...((rs.freezeUsedOn as string[]) ?? [])])].sort(),
+      },
+    ];
+  } else {
+    out.streaks = ls ? [ls] : rs ? [rs] : [];
   }
 
   // ---- xpEvents: union, deduped by identity (drop per-device autoincrement ids) ----
@@ -191,6 +190,25 @@ export function mergeBackups(local: BackupFile, remote: BackupFile): BackupFile 
       }
     }
     out.coinEvents = [...seen.values()].sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
+  }
+
+  // ---- streak freezes: replayed from the merged ledgers ----
+  // A counter cannot be merged safely: "take the smaller" wiped a freeze that
+  // was just bought or earned (the other side being this device's own earlier
+  // upload) while the coins stayed spent, and "take the larger" would refund
+  // a spent one. The ledgers can: XP thresholds crossed + freezes bought
+  // (spend events) − days a freeze covered. Both sides also hold at least
+  // what they both report, so a count the ledgers cannot explain (history
+  // older than the ledger) is never taken away while the two agree on it.
+  if (ls && rs) {
+    const merged = out.streaks[0] as Row;
+    const fromLedger = freezesFromLedger(
+      out.xpEvents as { ts: string; amount: number; day: string }[],
+      out.coinEvents as { ts: string; kind: string; refId: string }[],
+      merged.freezeUsedOn as string[],
+    );
+    const agreed = Math.min(Number(ls.freezesOwned ?? 0), Number(rs.freezesOwned ?? 0));
+    merged.freezesOwned = Math.min(MAX_FREEZES, Math.max(0, fromLedger, agreed));
   }
 
   // ---- quests: per id, progress is a maximum; a claim anywhere counts ----

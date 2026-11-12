@@ -41,8 +41,7 @@ test.describe('on a phone (touch screen)', () => {
       await expect(page.getByRole('button', { name: 'Skip', exact: true })).toHaveCount(0);
       await expect(page.getByRole('button', { name: /Can.t draw right now/ })).toBeVisible();
       // nothing drawn yet: Check has nothing to judge
-      await page.getByRole('button', { name: 'Check', exact: true }).click();
-      await expect(page.getByTestId('exercise')).toHaveAttribute('data-phase', 'answering');
+      await expect(page.getByRole('button', { name: 'Check', exact: true })).toBeDisabled();
     });
 
     await test.step('a careless scribble is not accepted', async () => {

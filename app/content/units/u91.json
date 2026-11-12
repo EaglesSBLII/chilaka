@@ -1,0 +1,422 @@
+{
+  "id": "u91",
+  "track": "script",
+  "section": 2,
+  "order": 1,
+  "title": "First words",
+  "teTitle": "మొదటి పదాలు",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "You know every letter. Now read and write whole words made only of plain letters.",
+  "items": [
+    {
+      "id": "u91-i01",
+      "te": "కలం",
+      "gloss": "kalam — pen",
+      "words": [
+        {
+          "te": "క",
+          "gloss": "ka"
+        },
+        {
+          "te": "లం",
+          "gloss": "lam — ల with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i02",
+        "u91-i03"
+      ],
+      "note": "Two plain letters plus a sunna and you've read 'pen'."
+    },
+    {
+      "id": "u91-i02",
+      "te": "జడ",
+      "gloss": "jaDa — braid, plait",
+      "words": [
+        {
+          "te": "జ",
+          "gloss": "ja"
+        },
+        {
+          "te": "డ",
+          "gloss": "Da"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i01"
+      ]
+    },
+    {
+      "id": "u91-i03",
+      "te": "చకచక",
+      "gloss": "chakachaka — briskly, quick-quick",
+      "words": [
+        {
+          "te": "చ",
+          "gloss": "cha"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        },
+        {
+          "te": "చ",
+          "gloss": "cha"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i01",
+        "u91-i02"
+      ],
+      "note": "చకచక పని చెయ్! (work briskly!) — four aksharas, only plain letters, zero extra marks."
+    },
+    {
+      "id": "u91-i04",
+      "te": "తల",
+      "gloss": "tala — head",
+      "words": [
+        {
+          "te": "త",
+          "gloss": "ta"
+        },
+        {
+          "te": "ల",
+          "gloss": "la"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i06",
+        "u91-i05"
+      ],
+      "note": "తల నొప్పి = headache — you've said it; now read its first half."
+    },
+    {
+      "id": "u91-i05",
+      "te": "దండ",
+      "gloss": "danDa — garland",
+      "words": [
+        {
+          "te": "దం",
+          "gloss": "dam — ద with the sunna hum"
+        },
+        {
+          "te": "డ",
+          "gloss": "Da"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i04"
+      ],
+      "note": "The sunna ం sits on ద and hums into the డ that follows: దం-డ. Both d-sounds in one word — soft ద, hard డ."
+    },
+    {
+      "id": "u91-i06",
+      "te": "నడక",
+      "gloss": "naDaka — walk, gait",
+      "words": [
+        {
+          "te": "న",
+          "gloss": "na"
+        },
+        {
+          "te": "డ",
+          "gloss": "Da"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i05",
+        "u91-i04"
+      ]
+    },
+    {
+      "id": "u91-i07",
+      "te": "మనం",
+      "gloss": "manam — we (all of us)",
+      "words": [
+        {
+          "te": "మ",
+          "gloss": "ma"
+        },
+        {
+          "te": "నం",
+          "gloss": "nam — న with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i09"
+      ],
+      "note": "మనం వెళ్దాం! (let's go!) — you've said it a hundred times; now it's two aksharas on a page."
+    },
+    {
+      "id": "u91-i08",
+      "te": "పలక",
+      "gloss": "palaka — slate",
+      "words": [
+        {
+          "te": "ప",
+          "gloss": "pa"
+        },
+        {
+          "te": "ల",
+          "gloss": "la"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i10",
+        "u91-i09"
+      ],
+      "note": "పలక — the slate every Telugu child learns letters on. Fitting, no?"
+    },
+    {
+      "id": "u91-i09",
+      "te": "బలం",
+      "gloss": "balam — strength",
+      "words": [
+        {
+          "te": "బ",
+          "gloss": "ba"
+        },
+        {
+          "te": "లం",
+          "gloss": "lam — ల with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i07",
+        "u91-i08"
+      ]
+    },
+    {
+      "id": "u91-i10",
+      "te": "వల",
+      "gloss": "vala — net",
+      "words": [
+        {
+          "te": "వ",
+          "gloss": "va"
+        },
+        {
+          "te": "ల",
+          "gloss": "la"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i04",
+        "u91-i08"
+      ],
+      "note": "వల (net) vs తల (head) — one akshara apart. Reading is spotting that one difference."
+    },
+    {
+      "id": "u91-i11",
+      "te": "రథం",
+      "gloss": "ratham — chariot",
+      "words": [
+        {
+          "te": "ర",
+          "gloss": "ra"
+        },
+        {
+          "te": "థం",
+          "gloss": "tham — థ with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i09"
+      ]
+    },
+    {
+      "id": "u91-i12",
+      "te": "శతం",
+      "gloss": "shatam — a hundred (formal)",
+      "words": [
+        {
+          "te": "శ",
+          "gloss": "sha"
+        },
+        {
+          "te": "తం",
+          "gloss": "tam — త with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i14"
+      ]
+    },
+    {
+      "id": "u91-i13",
+      "te": "కళ",
+      "gloss": "kaLa — art",
+      "words": [
+        {
+          "te": "క",
+          "gloss": "ka"
+        },
+        {
+          "te": "ళ",
+          "gloss": "La"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i12",
+        "u91-i01"
+      ],
+      "note": "కల (dream, with ల) vs కళ (art, with ళ) — the two L's really do change the word."
+    },
+    {
+      "id": "u91-i14",
+      "te": "హలం",
+      "gloss": "halam — plough",
+      "words": [
+        {
+          "te": "హ",
+          "gloss": "ha"
+        },
+        {
+          "te": "లం",
+          "gloss": "lam — ల with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i12",
+        "u91-i15"
+      ]
+    },
+    {
+      "id": "u91-i15",
+      "te": "సహనం",
+      "gloss": "sahanam — patience",
+      "words": [
+        {
+          "te": "స",
+          "gloss": "sa"
+        },
+        {
+          "te": "హ",
+          "gloss": "ha"
+        },
+        {
+          "te": "నం",
+          "gloss": "nam — న with the sunna hum"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u91-i14"
+      ],
+      "note": "సహనం — what you've shown learning 40+ letters. Almost there: matras next!"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "two-letter words",
+      "itemIds": [
+        "u91-i01",
+        "u91-i02",
+        "u91-i04",
+        "u91-i10"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "we, strength, art, slate",
+      "itemIds": [
+        "u91-i07",
+        "u91-i09",
+        "u91-i13",
+        "u91-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "walk, garland, plough, chariot",
+      "itemIds": [
+        "u91-i06",
+        "u91-i05",
+        "u91-i14",
+        "u91-i11"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "hundred, patience, briskly",
+      "itemIds": [
+        "u91-i12",
+        "u91-i15",
+        "u91-i03"
+      ]
+    }
+  ]
+}

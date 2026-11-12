@@ -30,7 +30,8 @@ test('script pathway: keyboard guide, script-only display, writing exercises', a
     if (kind === null) continue; // exercise swapped out mid-read — re-race
     if (kind === 'type-script') {
       sawTypeScript = true;
-      await expect(page.getByText('Write it in Telugu')).toBeVisible();
+      // the lesson can finish between reading the kind and this check (short letter lessons)
+      await expect(page.getByText('Write it in Telugu').or(page.getByText('Lesson complete!'))).toBeVisible();
     }
     if (!sawReveal && (await page.getByText('👁 Show English').isVisible().catch(() => false))) {
       sawReveal = true; // English hidden behind reveal — immersion works

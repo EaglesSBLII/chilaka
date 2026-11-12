@@ -2,7 +2,8 @@
 import { Award, Flame, Gamepad2, Gem, GraduationCap, Map, Sparkles, Star, type LucideIcon } from 'lucide-react';
 import { useApp, useBadgeStats } from '../store';
 import { Card, Ring } from '../components/ui';
-import { BADGES, tierProgress } from '../engine/badges';
+import { BADGES } from '../engine/badges';
+import { shownTier } from '../engine/coins';
 
 const ICONS: Record<string, LucideIcon> = {
   'first-steps': Star,
@@ -33,7 +34,8 @@ export function Badges() {
       <div className="grid grid-cols-2 gap-3">
         {BADGES.map((def) => {
           const value = stats[def.stat];
-          const { tier, next, pct } = tierProgress(def, value);
+          // never below a tier already awarded: the live stat can fall, the badge stays earned
+          const { tier, next, pct } = shownTier(def, value, earned.find((b) => b.id === def.id)?.tier ?? 0);
           const Icon = ICONS[def.id] ?? Star;
           return (
             <Card key={def.id} className={`flex flex-col items-center gap-2 p-4 text-center ${tier === 0 ? 'opacity-80' : ''}`} data-testid={`badge-${def.id}`}>

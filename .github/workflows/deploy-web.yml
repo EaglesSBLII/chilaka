@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   web:
+    # the app talks to the worker: never publish it when the worker's tests,
+    # migrations or deploy failed
+    needs: worker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,0 +1,302 @@
+{
+  "id": "u92",
+  "track": "script",
+  "section": 2,
+  "order": 5,
+  "title": "Words that start with a vowel",
+  "teTitle": "అచ్చులతో పదాలు",
+  "cefr": "A0",
+  "register": "standard",
+  "description": "The vowel letters at work: అమ్మ, ఆవు, ఇల్లు and friends, now that you know vowel signs and doubled letters.",
+  "items": [
+    {
+      "id": "u92-i01",
+      "te": "అమ్మ",
+      "gloss": "amma — mother",
+      "words": [
+        {
+          "te": "అ",
+          "gloss": "a"
+        },
+        {
+          "te": "మ్మ",
+          "gloss": "mma — the doubled మ leans on the first letter"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 1,
+      "distractors": [
+        "u92-i02"
+      ],
+      "note": "మ్మ is the doubled మ you learned in vattulu: the small mark tucked below is the వత్తు (vattu) that doubles a consonant."
+    },
+    {
+      "id": "u92-i02",
+      "te": "ఆవు",
+      "gloss": "aavu — cow",
+      "words": [
+        {
+          "te": "ఆ",
+          "gloss": "aa"
+        },
+        {
+          "te": "వు",
+          "gloss": "vu — వ carrying the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i01"
+      ]
+    },
+    {
+      "id": "u92-i03",
+      "te": "ఇల్లు",
+      "gloss": "illu — house",
+      "words": [
+        {
+          "te": "ఇ",
+          "gloss": "i"
+        },
+        {
+          "te": "ల్లు",
+          "gloss": "llu — doubled ల with the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i02",
+        "u92-i04"
+      ]
+    },
+    {
+      "id": "u92-i04",
+      "te": "ఊరు",
+      "gloss": "uuru — town, village",
+      "words": [
+        {
+          "te": "ఊ",
+          "gloss": "uu"
+        },
+        {
+          "te": "రు",
+          "gloss": "ru — ర carrying the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i03"
+      ]
+    },
+    {
+      "id": "u92-i05",
+      "te": "ఈగ",
+      "gloss": "iiga — fly (the insect)",
+      "words": [
+        {
+          "te": "ఈ",
+          "gloss": "ii"
+        },
+        {
+          "te": "గ",
+          "gloss": "ga"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i04"
+      ]
+    },
+    {
+      "id": "u92-i06",
+      "te": "ఎద్దు",
+      "gloss": "eddu — bull",
+      "words": [
+        {
+          "te": "ఎ",
+          "gloss": "e"
+        },
+        {
+          "te": "ద్దు",
+          "gloss": "ddu — doubled ద with the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i07",
+        "u92-i03"
+      ]
+    },
+    {
+      "id": "u92-i07",
+      "te": "ఏనుగు",
+      "gloss": "eenugu — elephant",
+      "words": [
+        {
+          "te": "ఏ",
+          "gloss": "ee"
+        },
+        {
+          "te": "ను",
+          "gloss": "nu — న carrying the ఉ sound"
+        },
+        {
+          "te": "గు",
+          "gloss": "gu — గ carrying the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i06"
+      ],
+      "note": "Three aksharas, three beats: ఏ-ను-గు. Telugu reads exactly as it sounds."
+    },
+    {
+      "id": "u92-i08",
+      "te": "ఐదు",
+      "gloss": "aidu — five",
+      "words": [
+        {
+          "te": "ఐ",
+          "gloss": "ai"
+        },
+        {
+          "te": "దు",
+          "gloss": "du — ద carrying the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i09"
+      ],
+      "note": "You already count ఒకటి, రెండు... ఐదు at the market — now you can read 'five'."
+    },
+    {
+      "id": "u92-i09",
+      "te": "ఒకటి",
+      "gloss": "okaTi — one",
+      "words": [
+        {
+          "te": "ఒ",
+          "gloss": "o"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        },
+        {
+          "te": "టి",
+          "gloss": "Ti — ట carrying the ఇ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i08",
+        "u92-i10"
+      ]
+    },
+    {
+      "id": "u92-i10",
+      "te": "ఓడ",
+      "gloss": "ooDa — ship",
+      "words": [
+        {
+          "te": "ఓ",
+          "gloss": "oo"
+        },
+        {
+          "te": "డ",
+          "gloss": "Da"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i09",
+        "u92-i11"
+      ]
+    },
+    {
+      "id": "u92-i11",
+      "te": "ఔను",
+      "gloss": "aunu — yes",
+      "words": [
+        {
+          "te": "ఔ",
+          "gloss": "au"
+        },
+        {
+          "te": "ను",
+          "gloss": "nu — న carrying the ఉ sound"
+        }
+      ],
+      "tags": [
+        "word"
+      ],
+      "difficulty": 2,
+      "distractors": [
+        "u92-i10"
+      ],
+      "note": "ఔను is another spelling of అవును, the 'yes' you learned in speaking: same word, same sound. A whole answer in two aksharas."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "cow, fly, town, ship",
+      "itemIds": [
+        "u92-i02",
+        "u92-i05",
+        "u92-i04",
+        "u92-i10"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "five, yes, one, elephant",
+      "itemIds": [
+        "u92-i08",
+        "u92-i11",
+        "u92-i09",
+        "u92-i07"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "mum, house, bull",
+      "itemIds": [
+        "u92-i01",
+        "u92-i03",
+        "u92-i06"
+      ]
+    }
+  ]
+}

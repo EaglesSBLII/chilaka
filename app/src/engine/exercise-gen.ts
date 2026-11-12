@@ -44,11 +44,15 @@ export function genChoices(item: ContentItem, unit: Unit, pool: ContentItem[], r
   // picked (identical te or gloss) — duplicates make the right answer ambiguous
   const usedTe = new Set<string>([item.te]);
   const usedGloss = new Set<string>([item.gloss.toLowerCase()]);
+  // script track: a row of letters ("అ ఆ ఇ …") among single letters, or one letter
+  // among rows, is answerable without reading: rows only ever sit beside rows
+  const isRow = (it: ContentItem) => unit.track === 'script' && it.tags.includes('review');
   const take = (ids: string[]) => {
     for (const id of ids) {
       if (chosen.length >= 3) break;
       const cand = poolMap.get(id);
       if (!cand || seen.has(id)) continue;
+      if (isRow(cand) !== isRow(item)) continue;
       seen.add(id);
       if (usedTe.has(cand.te) || usedGloss.has(cand.gloss.toLowerCase())) continue;
       chosen.push(id);
@@ -130,7 +134,10 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
       let kind = kinds[(start + k) % kinds.length];
       // a one-word phrase has nothing to build: choose it instead, or where speaking
       // is off pick it by ear, so the same kind does not pile up
-      if (kind === 'wordbank' && item.words.length < 2) kind = canSpeak ? 'mc-en2te' : 'listen-pick';
+      // script lessons keep producing: write the letter by hand (or with the keyboard)
+      if (kind === 'wordbank' && item.words.length < 2) {
+        kind = isScript ? (isTraceable(item.te) ? 'trace' : 'type-script') : canSpeak ? 'mc-en2te' : 'listen-pick';
+      }
       // too long to draw in one go: build it from tiles, or write it with the keyboard
       if (kind === 'trace' && !isTraceable(item.te)) kind = item.words.length >= 2 ? 'wordbank' : 'type-script';
       add(kind, item);
@@ -138,10 +145,12 @@ export function genLessonExercises(unit: Unit, lesson: Lesson, opts: GenOptions)
   }
 
   // 4. finale: the least-produced item, spoken (speak track) or written (script)
-  const prodKind: ExerciseKind = isScript ? 'type-script' : 'speak';
+  // (script: writing by hand from memory, typing and building all count as produced)
+  const produced = (ex: Exercise) =>
+    isScript ? ex.kind === 'type-script' || ex.kind === 'wordbank' || (ex.kind === 'trace' && !ex.guide) : ex.kind === 'speak';
   const prodCounts = new Map(items.map((it) => [it.id, 0]));
   for (const ex of out) {
-    if (ex.kind === prodKind) prodCounts.set(ex.itemId, (prodCounts.get(ex.itemId) ?? 0) + 1);
+    if (produced(ex)) prodCounts.set(ex.itemId, (prodCounts.get(ex.itemId) ?? 0) + 1);
   }
   const finaleItem = [...items].sort((a, b) => (prodCounts.get(a.id) ?? 0) - (prodCounts.get(b.id) ?? 0))[0];
   out.push(

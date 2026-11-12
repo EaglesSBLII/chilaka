@@ -55,12 +55,12 @@
     {
       "id": "u55-i04",
       "te": "ఫోన్ చెయ్, లేట్ అవుతుంది.",
-      "gloss": "Call me, it's getting late.",
+      "gloss": "Call me, it'll get late.",
       "words": [
         { "te": "ఫోన్", "gloss": "phone" },
         { "te": "చెయ్", "gloss": "do (casual)" },
         { "te": "లేట్", "gloss": "late" },
-        { "te": "అవుతుంది", "gloss": "it becomes" }
+        { "te": "అవుతుంది", "gloss": "it will get" }
       ],
       "tags": ["mixing", "plans"],
       "difficulty": 2,
@@ -136,7 +136,7 @@
       "tags": ["mixing", "plans"],
       "difficulty": 3,
       "note": "ఖాలీ (khaali, Urdu 'empty') = free / not busy. Standard Telugu: తీరికగా ఉంటే. ఖాలీగా ఉన్నావా? is the standard Hyderabad availability check.",
-      "distractors": ["u55-i04", "u50-i11"]
+      "distractors": ["u55-i04"]
     },
     {
       "id": "u55-i10",

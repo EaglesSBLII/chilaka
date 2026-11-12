@@ -5,7 +5,7 @@
 // only counts as missed when both of its cards were already known.
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { memoryPairsFor, memoryRound, type MemoryCard } from '../../engine/games';
+import { isScriptItem, memoryPairsFor, memoryRound, type MemoryCard } from '../../engine/games';
 import { rngFromSeed } from '../../engine/rng';
 import { playItemAudio, sfx } from '../../audio';
 import { TileText, useLockout, useOutcomes, useScriptMode, type GameProps } from './shared';
@@ -50,7 +50,8 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
 
   const flip = async (card: MemoryCard) => {
     if (locked || up.includes(card.key) || done.has(card.itemId) || up.length >= 2) return;
-    if (card.face === 'te') void playItemAudio(card.itemId);
+    // a reading-track card stays silent until it is matched: its sound is the other card
+    if (card.face === 'te' && !isScriptItem(card.itemId)) void playItemAudio(card.itemId);
     const nextUp = [...up, card.key];
     setUp(nextUp);
     if (nextUp.length < 2) return;
@@ -66,6 +67,7 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
       // a match never blocks the next flip — only the sparkle lingers
       outcomes.hit(a.itemId);
       sfx.correct();
+      if (isScriptItem(a.itemId)) void playItemAudio(a.itemId);
       setSparkle(a.itemId);
       setDone(new Set(done).add(a.itemId));
       setUp([]);
@@ -101,7 +103,7 @@ export function MemoryFlip({ items, seed, roundsPlayed, onFinish }: GameProps) {
               data-item-id={card.itemId}
               data-face={card.face}
               data-up={faceUp ? 'true' : 'false'}
-              aria-label={faceUp ? (card.face === 'te' ? item.roman : item.gloss) : 'Face-down card'}
+              aria-label={faceUp ? (card.face === 'te' ? (isScriptItem(item.id) ? item.te : item.roman) : item.gloss) : 'Face-down card'}
               onClick={() => void flip(card)}
               disabled={matched}
               className="relative aspect-[3/4] min-h-[88px]"

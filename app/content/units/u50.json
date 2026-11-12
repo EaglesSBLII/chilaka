@@ -150,7 +150,7 @@
       ],
       "tags": ["chai", "paying"],
       "difficulty": 3,
-      "distractors": ["u50-i09", "u49-i02"]
+      "distractors": ["u50-i09"]
     },
     {
       "id": "u50-i11",
@@ -207,10 +207,10 @@
     {
       "id": "u50-i15",
       "te": "చాయ్ చల్లారిపోతుంది, జల్దీ రా.",
-      "gloss": "The chai is getting cold, come quickly.",
+      "gloss": "The chai will go cold, come quickly.",
       "words": [
         { "te": "చాయ్", "gloss": "chai" },
-        { "te": "చల్లారిపోతుంది", "gloss": "is getting cold" },
+        { "te": "చల్లారిపోతుంది", "gloss": "will go cold" },
         { "te": "జల్దీ", "gloss": "quickly (Urdu)" },
         { "te": "రా", "gloss": "come (casual)" }
       ],

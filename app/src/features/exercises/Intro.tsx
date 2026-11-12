@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Card } from '../../components/ui';
 import { Mascot } from '../../components/Mascot';
 import { playItemAudio, playItemAudioAfterPause } from '../../audio';
+import { aksharaCount } from '../../engine/trace';
 import type { ExerciseProps } from './shared';
 import { RevealGloss, SentenceDisplay } from './shared';
 
@@ -21,7 +22,9 @@ export function Intro({ item, unit, scriptMode, onAutoResult, phase }: ExerciseP
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-3">
         <Mascot pose="teach" size={64} />
-        <h2 className="text-xl font-extrabold">New phrase!</h2>
+        <h2 className="text-xl font-extrabold">
+          {!isScript || /\s/.test(item.te.trim()) ? 'New phrase!' : aksharaCount(item.te) === 1 ? 'New letter!' : 'New word!'}
+        </h2>
       </div>
       <Card className="flex flex-col items-center gap-3 py-8">
         <button

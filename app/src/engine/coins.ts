@@ -1,6 +1,7 @@
 // Coins: the reward currency. The balance is never stored — it is the sum of
 // an append-only ledger (coinEvents) so two devices can merge without fights.
 import { rngFromSeed } from './rng';
+import type { BadgeDef } from './badges';
 
 export type CoinKind = 'lesson' | 'perfect' | 'goal' | 'milestone' | 'quest' | 'badge' | 'game' | 'spend';
 
@@ -30,6 +31,27 @@ export const MILESTONES: Record<number, number> = {
   100: 500,
   365: 1500,
 };
+
+/** The shop sku of a streak freeze: its spend events are how a bought freeze is known to every device. */
+export const FREEZE_SKU = 'freeze';
+
+/**
+ * Coins due for reaching the daily goal on `day`: paid once a day, whichever
+ * lesson, game or dialogue crosses the line. The ledger is the guard.
+ */
+export function goalBonusDue(events: readonly Pick<CoinEvent, 'kind' | 'refId'>[], day: string): number {
+  return events.some((e) => e.kind === 'goal' && e.refId === day) ? 0 : COINS.goal;
+}
+
+/**
+ * Coins due for the streak reaching `streak` days on `day`: paid once for that
+ * day (a streak rebuilt months later earns its milestones again).
+ */
+export function milestoneBonusDue(events: readonly Pick<CoinEvent, 'kind' | 'refId' | 'day'>[], streak: number, day: string): number {
+  const bonus = MILESTONES[streak];
+  if (!bonus) return 0;
+  return events.some((e) => e.kind === 'milestone' && e.refId === `streak:${streak}` && e.day === day) ? 0 : bonus;
+}
 
 export function milestoneFor(streak: number): number | null {
   return MILESTONES[streak] ? streak : null;
@@ -72,7 +94,7 @@ export interface Sku {
 }
 
 export const SHOP: Sku[] = [
-  { id: 'freeze', kind: 'powerup', name: 'Streak freeze', price: 200, blurb: 'Protects your streak for one missed day.', consumable: true },
+  { id: FREEZE_SKU, kind: 'powerup', name: 'Streak freeze', price: 200, blurb: 'Protects your streak for one missed day.', consumable: true },
   { id: 'scarf', kind: 'outfit', name: 'Silk scarf', price: 150, blurb: 'A pattu scarf for Chikki.' },
   { id: 'garland', kind: 'outfit', name: 'Jasmine garland', price: 250, blurb: 'Malle poolu, always in season.' },
   { id: 'glasses', kind: 'outfit', name: 'Reading glasses', price: 300, blurb: 'For a scholarly parrot.' },
@@ -95,4 +117,21 @@ export function ownedSkus(events: readonly Pick<CoinEvent, 'kind' | 'refId'>[]):
     if (sku && !sku.consumable) owned.add(sku.id);
   }
   return owned;
+}
+
+/**
+ * The tier to SHOW for a badge: the live stat decides, but never below a tier
+ * the learner has already been awarded (a stat can fall — e.g. cards of
+ * retired phrases stop counting — and an earned badge must not read "Locked").
+ */
+export function shownTier(def: BadgeDef, value: number, earnedTier: number): { tier: 0 | 1 | 2 | 3; next: number | null; pct: number } {
+  let live: 0 | 1 | 2 | 3 = 0;
+  def.tiers.forEach((th, i) => {
+    if (value >= th) live = (i + 1) as 1 | 2 | 3;
+  });
+  const tier = Math.max(live, Math.min(3, Math.max(0, Math.floor(earnedTier)))) as 0 | 1 | 2 | 3;
+  if (tier === 3) return { tier, next: null, pct: 1 };
+  const next = def.tiers[tier];
+  const prev = tier === 0 ? 0 : def.tiers[tier - 1];
+  return { tier, next, pct: Math.max(0, Math.min(1, (value - prev) / (next - prev))) };
 }

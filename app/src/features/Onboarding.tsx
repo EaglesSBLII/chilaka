@@ -93,8 +93,8 @@ export function Onboarding() {
           <Mascot pose="idle" size={140} />
           <h2 className="text-2xl font-extrabold">You already understand Telugu?</h2>
           <p className="text-ink-soft font-semibold">
-            Take a quick 2-minute placement to skip what you already know — or start from the beginning. You can
-            always jump ahead later.
+            Take a quick 2-minute placement to skip what you already know — or start from the beginning and
+            work up lesson by lesson.
           </p>
           <Button className="w-full" onClick={() => navigate({ name: 'placement' })}>
             Find my level

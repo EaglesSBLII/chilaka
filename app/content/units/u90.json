@@ -2,7 +2,7 @@
   "id": "u90",
   "track": "script",
   "section": 2,
-  "order": 4,
+  "order": 6,
   "title": "Read real Telugu",
   "teTitle": "నిజమైన తెలుగు చదవండి",
   "cefr": "A0",
@@ -14,14 +14,31 @@
       "te": "నమస్కారం",
       "gloss": "namaskaaram — hello (respectful)",
       "words": [
-        { "te": "న", "gloss": "na" },
-        { "te": "మ", "gloss": "ma" },
-        { "te": "స్కా", "gloss": "skaa — స + క vattu + ా matra" },
-        { "te": "రం", "gloss": "ram — ర with the sunna" }
+        {
+          "te": "న",
+          "gloss": "na"
+        },
+        {
+          "te": "మ",
+          "gloss": "ma"
+        },
+        {
+          "te": "స్కా",
+          "gloss": "skaa — స + క vattu + ా matra"
+        },
+        {
+          "te": "రం",
+          "gloss": "ram — ర with the sunna"
+        }
       ],
-      "tags": ["word", "greeting"],
+      "tags": [
+        "word",
+        "greeting"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i12"],
+      "distractors": [
+        "u90-i12"
+      ],
       "note": "The word that opened your very first speaking lesson — now you can read it on a wedding card."
     },
     {
@@ -29,12 +46,22 @@
       "te": "సరే",
       "gloss": "saree — okay",
       "words": [
-        { "te": "స", "gloss": "sa" },
-        { "te": "రే", "gloss": "ree — ర with the ే matra" }
+        {
+          "te": "స",
+          "gloss": "sa"
+        },
+        {
+          "te": "రే",
+          "gloss": "ree — ర with the ే matra"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 1,
-      "distractors": ["u90-i09"],
+      "distractors": [
+        "u90-i09"
+      ],
       "note": "Two aksharas. You'll type this in chats more than any other Telugu word."
     },
     {
@@ -42,29 +69,64 @@
       "te": "బాగుంది",
       "gloss": "baagundi — it's good",
       "words": [
-        { "te": "బా", "gloss": "baa" },
-        { "te": "గుం", "gloss": "gum — గు with the sunna riding on it" },
-        { "te": "ది", "gloss": "di" }
+        {
+          "te": "బా",
+          "gloss": "baa"
+        },
+        {
+          "te": "గుం",
+          "gloss": "gum — గు with the sunna riding on it"
+        },
+        {
+          "te": "ది",
+          "gloss": "di"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i04"]
+      "distractors": [
+        "u90-i04"
+      ]
     },
     {
       "id": "u90-i04",
       "te": "నేను బాగున్నాను",
       "gloss": "neenu baagunnaanu — I'm doing well",
       "words": [
-        { "te": "నే", "gloss": "nee" },
-        { "te": "ను", "gloss": "nu" },
-        { "te": "బా", "gloss": "baa" },
-        { "te": "గు", "gloss": "gu" },
-        { "te": "న్నా", "gloss": "nnaa — doubled న with the ా matra" },
-        { "te": "ను", "gloss": "nu" }
+        {
+          "te": "నే",
+          "gloss": "nee"
+        },
+        {
+          "te": "ను",
+          "gloss": "nu"
+        },
+        {
+          "te": "బా",
+          "gloss": "baa"
+        },
+        {
+          "te": "గు",
+          "gloss": "gu"
+        },
+        {
+          "te": "న్నా",
+          "gloss": "nnaa — doubled న with the ా matra"
+        },
+        {
+          "te": "ను",
+          "gloss": "nu"
+        }
       ],
-      "tags": ["sentence"],
+      "tags": [
+        "sentence"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i03"],
+      "distractors": [
+        "u90-i03"
+      ],
       "note": "Your stock answer to ఎలా ఉన్నారు? — six aksharas you've spoken a thousand times."
     },
     {
@@ -72,51 +134,100 @@
       "te": "చాయ్",
       "gloss": "chaay — tea",
       "words": [
-        { "te": "చా", "gloss": "chaa" },
-        { "te": "య్", "gloss": "y — the ్ mark strips the vowel: a bare final consonant" }
+        {
+          "te": "చా",
+          "gloss": "chaa"
+        },
+        {
+          "te": "య్",
+          "gloss": "y — the ్ mark strips the vowel: a bare final consonant"
+        }
       ],
-      "tags": ["word", "food"],
+      "tags": [
+        "word",
+        "food"
+      ],
       "difficulty": 2,
-      "distractors": ["u90-i07"],
+      "distractors": [
+        "u90-i07"
+      ],
       "note": "The bare ్ (pollu) with no letter below just silences the vowel — చాయ్ ends in pure 'y'. Tea-stall boards, unlocked."
     },
     {
       "id": "u90-i06",
       "te": "బిర్యానీ",
-      "gloss": "biryaanee — biryani",
+      "gloss": "biryaanii — biryani",
       "words": [
-        { "te": "బి", "gloss": "bi" },
-        { "te": "ర్యా", "gloss": "ryaa — ర + య vattu + ా matra" },
-        { "te": "నీ", "gloss": "nee" }
+        {
+          "te": "బి",
+          "gloss": "bi"
+        },
+        {
+          "te": "ర్యా",
+          "gloss": "ryaa — ర + య vattu + ా matra"
+        },
+        {
+          "te": "నీ",
+          "gloss": "nii"
+        }
       ],
-      "tags": ["word", "food"],
+      "tags": [
+        "word",
+        "food"
+      ],
       "difficulty": 4,
-      "distractors": ["u90-i07", "u90-i05"],
+      "distractors": [
+        "u90-i07",
+        "u90-i05"
+      ],
       "note": "The most important word in any Hyderabad menu. ర్యా packs three signs into one akshara — worth the effort."
     },
     {
       "id": "u90-i07",
       "te": "ఇడ్లీ",
-      "gloss": "iDlee — idli",
+      "gloss": "iDlii — idli",
       "words": [
-        { "te": "ఇ", "gloss": "i" },
-        { "te": "డ్లీ", "gloss": "Dlee — డ + ల vattu + ీ matra" }
+        {
+          "te": "ఇ",
+          "gloss": "i"
+        },
+        {
+          "te": "డ్లీ",
+          "gloss": "Dlii — డ + ల vattu + ీ matra"
+        }
       ],
-      "tags": ["word", "food"],
+      "tags": [
+        "word",
+        "food"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i06", "u90-i05"]
+      "distractors": [
+        "u90-i06",
+        "u90-i05"
+      ]
     },
     {
       "id": "u90-i08",
       "te": "నీళ్ళు",
-      "gloss": "neeLLu — water (everyday word)",
+      "gloss": "niiLLu — water (everyday word)",
       "words": [
-        { "te": "నీ", "gloss": "nee" },
-        { "te": "ళ్ళు", "gloss": "LLu — doubled ళ with the ఉ sound" }
+        {
+          "te": "నీ",
+          "gloss": "nii"
+        },
+        {
+          "te": "ళ్ళు",
+          "gloss": "LLu — doubled ళ with the ఉ sound"
+        }
       ],
-      "tags": ["word", "food"],
+      "tags": [
+        "word",
+        "food"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i05"],
+      "distractors": [
+        "u90-i05"
+      ],
       "note": "నీళ్ళు కావాలి (I need water) — the doubled retroflex ళ్ళ is as Telugu as it gets."
     },
     {
@@ -124,28 +235,58 @@
       "te": "ఎంత",
       "gloss": "enta — how much?",
       "words": [
-        { "te": "ఎం", "gloss": "em — ఎ with the sunna" },
-        { "te": "త", "gloss": "ta" }
+        {
+          "te": "ఎం",
+          "gloss": "em — ఎ with the sunna"
+        },
+        {
+          "te": "త",
+          "gloss": "ta"
+        }
       ],
-      "tags": ["word", "market"],
+      "tags": [
+        "word",
+        "market"
+      ],
       "difficulty": 2,
-      "distractors": ["u90-i02"],
+      "distractors": [
+        "u90-i02"
+      ],
       "note": "ఇది ఎంత? (how much is this?) — your favorite market weapon, two aksharas long."
     },
     {
       "id": "u90-i10",
       "te": "మీ పేరు ఏంటి?",
-      "gloss": "mee peeru eenTi? — what's your name?",
+      "gloss": "mii peeru eenTi? — what's your name?",
       "words": [
-        { "te": "మీ", "gloss": "mee — your" },
-        { "te": "పే", "gloss": "pee" },
-        { "te": "రు", "gloss": "ru" },
-        { "te": "ఏం", "gloss": "eem — ఏ with the sunna" },
-        { "te": "టి", "gloss": "Ti" }
+        {
+          "te": "మీ",
+          "gloss": "mii — your"
+        },
+        {
+          "te": "పే",
+          "gloss": "pee"
+        },
+        {
+          "te": "రు",
+          "gloss": "ru"
+        },
+        {
+          "te": "ఏం",
+          "gloss": "eem — ఏ with the sunna"
+        },
+        {
+          "te": "టి",
+          "gloss": "Ti"
+        }
       ],
-      "tags": ["sentence"],
+      "tags": [
+        "sentence"
+      ],
       "difficulty": 3,
-      "distractors": ["u90-i04"],
+      "distractors": [
+        "u90-i04"
+      ],
       "note": "The first question you ever asked in Telugu — now read it, question mark and all."
     },
     {
@@ -153,17 +294,42 @@
       "te": "నాకు చాయ్ కావాలి",
       "gloss": "naaku chaay kaavaali — I want tea",
       "words": [
-        { "te": "నా", "gloss": "naa" },
-        { "te": "కు", "gloss": "ku" },
-        { "te": "చా", "gloss": "chaa" },
-        { "te": "య్", "gloss": "y — bare final consonant" },
-        { "te": "కా", "gloss": "kaa" },
-        { "te": "వా", "gloss": "vaa" },
-        { "te": "లి", "gloss": "li" }
+        {
+          "te": "నా",
+          "gloss": "naa"
+        },
+        {
+          "te": "కు",
+          "gloss": "ku"
+        },
+        {
+          "te": "చా",
+          "gloss": "chaa"
+        },
+        {
+          "te": "య్",
+          "gloss": "y — bare final consonant"
+        },
+        {
+          "te": "కా",
+          "gloss": "kaa"
+        },
+        {
+          "te": "వా",
+          "gloss": "vaa"
+        },
+        {
+          "te": "లి",
+          "gloss": "li"
+        }
       ],
-      "tags": ["sentence"],
+      "tags": [
+        "sentence"
+      ],
       "difficulty": 4,
-      "distractors": ["u90-i10"],
+      "distractors": [
+        "u90-i10"
+      ],
       "note": "Order in speech, order in script — the same seven aksharas work at any tea stall."
     },
     {
@@ -171,30 +337,69 @@
       "te": "ధన్యవాదాలు",
       "gloss": "dhanyavaadaalu — thank you",
       "words": [
-        { "te": "ధ", "gloss": "dha" },
-        { "te": "న్య", "gloss": "nya — న with a య vattu" },
-        { "te": "వా", "gloss": "vaa" },
-        { "te": "దా", "gloss": "daa" },
-        { "te": "లు", "gloss": "lu" }
+        {
+          "te": "ధ",
+          "gloss": "dha"
+        },
+        {
+          "te": "న్య",
+          "gloss": "nya — న with a య vattu"
+        },
+        {
+          "te": "వా",
+          "gloss": "vaa"
+        },
+        {
+          "te": "దా",
+          "gloss": "daa"
+        },
+        {
+          "te": "లు",
+          "gloss": "lu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 4,
-      "distractors": ["u90-i01"]
+      "distractors": [
+        "u90-i01"
+      ]
     },
     {
       "id": "u90-i13",
       "te": "మళ్ళీ కలుద్దాం",
-      "gloss": "maLLee kaluddaam — see you again",
+      "gloss": "maLLii kaluddaam — see you again",
       "words": [
-        { "te": "మ", "gloss": "ma" },
-        { "te": "ళ్ళీ", "gloss": "LLee — doubled ళ with the ీ matra" },
-        { "te": "క", "gloss": "ka" },
-        { "te": "లు", "gloss": "lu" },
-        { "te": "ద్దాం", "gloss": "ddaam — doubled ద with ా and the sunna" }
+        {
+          "te": "మ",
+          "gloss": "ma"
+        },
+        {
+          "te": "ళ్ళీ",
+          "gloss": "LLii — doubled ళ with the ీ matra"
+        },
+        {
+          "te": "క",
+          "gloss": "ka"
+        },
+        {
+          "te": "లు",
+          "gloss": "lu"
+        },
+        {
+          "te": "ద్దాం",
+          "gloss": "ddaam — doubled ద with ా and the sunna"
+        }
       ],
-      "tags": ["sentence"],
+      "tags": [
+        "sentence"
+      ],
       "difficulty": 4,
-      "distractors": ["u90-i12", "u90-i14"],
+      "distractors": [
+        "u90-i12",
+        "u90-i14"
+      ],
       "note": "How you've ended every speaking session. ద్దాం stacks a vattu, a matra AND a sunna on one akshara — and you just read it."
     },
     {
@@ -202,24 +407,83 @@
       "te": "నాకు తెలుగు వచ్చు",
       "gloss": "naaku telugu vachchu — I know Telugu!",
       "words": [
-        { "te": "నా", "gloss": "naa" },
-        { "te": "కు", "gloss": "ku" },
-        { "te": "తె", "gloss": "te" },
-        { "te": "లు", "gloss": "lu" },
-        { "te": "గు", "gloss": "gu" },
-        { "te": "వ", "gloss": "va" },
-        { "te": "చ్చు", "gloss": "chchu — doubled చ with the ఉ sound" }
+        {
+          "te": "నా",
+          "gloss": "naa"
+        },
+        {
+          "te": "కు",
+          "gloss": "ku"
+        },
+        {
+          "te": "తె",
+          "gloss": "te"
+        },
+        {
+          "te": "లు",
+          "gloss": "lu"
+        },
+        {
+          "te": "గు",
+          "gloss": "gu"
+        },
+        {
+          "te": "వ",
+          "gloss": "va"
+        },
+        {
+          "te": "చ్చు",
+          "gloss": "chchu — doubled చ with the ఉ sound"
+        }
       ],
-      "tags": ["sentence"],
+      "tags": [
+        "sentence"
+      ],
       "difficulty": 4,
-      "distractors": ["u90-i13"],
+      "distractors": [
+        "u90-i13"
+      ],
       "note": "Say it. Read it. Mean it. You started with అ; now you read the language you speak. చిలకలా చదువుతున్నారు!"
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "greetings you know", "itemIds": ["u90-i01", "u90-i02", "u90-i03", "u90-i04"] },
-    { "id": "l2", "title": "food you love", "itemIds": ["u90-i05", "u90-i06", "u90-i07", "u90-i08"] },
-    { "id": "l3", "title": "at the market", "itemIds": ["u90-i09", "u90-i10", "u90-i11"] },
-    { "id": "l4", "title": "the payoff", "itemIds": ["u90-i12", "u90-i13", "u90-i14"] }
+    {
+      "id": "l1",
+      "title": "greetings you know",
+      "itemIds": [
+        "u90-i01",
+        "u90-i02",
+        "u90-i03",
+        "u90-i04"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "food you love",
+      "itemIds": [
+        "u90-i05",
+        "u90-i06",
+        "u90-i07",
+        "u90-i08"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "at the market",
+      "itemIds": [
+        "u90-i09",
+        "u90-i10",
+        "u90-i11"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "the payoff",
+      "itemIds": [
+        "u90-i12",
+        "u90-i13",
+        "u90-i14"
+      ]
+    }
   ]
 }

@@ -5,6 +5,7 @@ import { itemById } from '../../content/load';
 import { playItemAudio, playItemAudioAfterPause } from '../../audio';
 import { Card } from '../../components/ui';
 import type { ChoiceExercise, ContentItem } from '../../engine/types';
+import { aksharaCount } from '../../engine/trace';
 import type { ExerciseProps } from './shared';
 import { SentenceDisplay } from './shared';
 
@@ -34,19 +35,27 @@ export function Choice({ exercise, item, unit, scriptMode, phase, onReady }: Exe
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercise]);
 
+  // what the feedback banner names: on the script track the options ARE the Telugu
+  const label = (c: ContentItem) =>
+    isScript && (ex.kind === 'mc-en2te' || ex.kind === 'listen-pick') ? c.te : choiceLabel(ex.kind, c);
+  const prompt =
+    isScript && ex.kind === 'mc-te2en' && aksharaCount(item.te) === 1 && !/\s/.test(item.te)
+      ? 'Which sound is this?'
+      : PROMPTS[ex.kind];
+
   const select = (id: string) => {
     if (phase !== 'answering') return;
     setSelected(id);
     onReady(() => ({
       correct: id === item.id,
-      expected: choiceLabel(ex.kind, item),
-      got: choiceLabel(ex.kind, choices.find((c) => c.id === id)!),
+      expected: label(item),
+      got: label(choices.find((c) => c.id === id)!),
     }));
   };
 
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-xl font-extrabold">{PROMPTS[ex.kind]}</h2>
+      <h2 className="text-xl font-extrabold">{prompt}</h2>
 
       {ex.kind === 'mc-te2en' && (
         <Card className="py-6">

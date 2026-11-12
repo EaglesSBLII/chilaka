@@ -54,7 +54,7 @@ export function Wordbank({ exercise, item, unit, phase, onReady, scriptMode }: E
 
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-xl font-extrabold">{isScript ? 'Build the word' : 'Build the sentence'}</h2>
+      <h2 className="text-xl font-extrabold">{!isScript ? 'Build the sentence' : /\s/.test(item.te.trim()) ? 'Put them in order' : 'Build the word'}</h2>
       <Card className="py-5 text-center">
         <div className="flex flex-col items-center justify-center gap-2">
           <div className="flex items-center gap-2">
@@ -82,7 +82,7 @@ export function Wordbank({ exercise, item, unit, phase, onReady, scriptMode }: E
               {t.word}
             </button>
           ))}
-          {placed.length === 0 && <span className="font-semibold text-ink-soft px-1 py-2">Tap the words below…</span>}
+          {placed.length === 0 && <span className="font-semibold text-ink-soft px-1 py-2">{isScript ? 'Tap the tiles below…' : 'Tap the words below…'}</span>}
         </div>
       </div>
 

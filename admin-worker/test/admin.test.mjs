@@ -227,3 +227,13 @@ test('developer version: files are served only to the signed-in owner', async ()
   const closed = await envWith({ ADMIN_PASSWORD_HASH: '', ASSETS: env.ASSETS });
   assert.equal((await handle(page('/dev/', cookie), closed)).status, 302);
 });
+
+test('sign-in still works when the attempt counters cannot be written (KV quota used up)', async () => {
+  const env = await envWith();
+  env.VISITS.put = async () => { throw new Error('KV put() limit exceeded for the day'); };
+  env.VISITS.delete = async () => { throw new Error('KV delete() limit exceeded for the day'); };
+  assert.equal((await login(env, keyOf('wrong one'))).res.status, 401);
+  const ok = await login(env);
+  assert.equal(ok.res.status, 200);
+  assert.ok(ok.cookie.startsWith(`${COOKIE}=`));
+});

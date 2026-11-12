@@ -1,16 +1,15 @@
 // Post-lesson celebration: streak-milestone takeover (when earned), then the
-// summary — XP, accuracy, coins flying into the balance, quests, badges.
+// summary — XP, accuracy, coins, quests, badges.
 
 import { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { Award, Flame, Gift, Snowflake, Sparkles, Target } from 'lucide-react';
 import { useApp, type XpAward } from '../store';
 import { Button, Card, Coin } from '../components/ui';
-import { FlyingCoins } from '../components/motion';
 import { Mascot } from '../components/Mascot';
 import { sfx } from '../audio';
 import { celebrationLevel } from '../engine/coins';
-import { coinTarget, type LessonRewards } from '../engine/rewards';
+import type { LessonRewards } from '../engine/rewards';
 import { questTitle } from '../engine/quests';
 import { BADGES } from '../engine/badges';
 
@@ -80,17 +79,15 @@ export function LessonComplete({ stats }: { stats: CompletionStats }) {
   const navigate = useApp((s) => s.navigate);
   const { award, rewards } = stats;
   const [milestoneShown, setMilestoneShown] = useState(rewards.milestone !== null);
-  const [fly, setFly] = useState<{ x: number; y: number } | null>(null);
   const shownXp = useCountUp(stats.xp);
   const shownCoins = useCountUp(rewards.coins.total, false);
   const perfect = stats.pct >= 1;
 
   useEffect(() => {
     if (milestoneShown) return;
-    const t = setTimeout(() => {
-      setFly(coinTarget());
-      sfx.coin();
-    }, 500);
+    // (this full-screen summary has no balance pill for coins to fly to: the
+    // count-up and the coin sound carry the reward)
+    const t = setTimeout(() => sfx.coin(), 500);
     return () => clearTimeout(t);
   }, [milestoneShown]);
 
@@ -100,7 +97,6 @@ export function LessonComplete({ stats }: { stats: CompletionStats }) {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col items-center justify-center gap-4 px-6 py-8 text-center">
-      {fly && <FlyingCoins target={fly} count={Math.min(14, 6 + Math.floor(rewards.coins.total / 5))} onDone={() => setFly(null)} />}
       <Mascot pose="celebrate" size={150} />
       <h1 className="text-3xl font-extrabold text-teal animate-pop">Lesson complete!</h1>
       <p className="font-semibold text-ink-soft">
@@ -192,7 +188,7 @@ export function LessonComplete({ stats }: { stats: CompletionStats }) {
               <div className="font-extrabold">
                 {def?.name ?? b.id} · {['', 'Bronze', 'Silver', 'Gold'][b.tier]}
               </div>
-              <div className="text-sm font-semibold text-ink-soft">New badge{rewards.coins.milestone ? '' : ''} unlocked.</div>
+              <div className="text-sm font-semibold text-ink-soft">New badge unlocked.</div>
             </div>
           </Card>
         );

@@ -1,10 +1,10 @@
-// Pair Pop: Telugu on the left, meanings on the right. Tap one of each; a
+// Pair Pop: Telugu on the left, meanings (or, for letters, their sounds) on the right. Tap one of each; a
 // match pops both tiles and fresh ones slide in, a miss shakes and shows the
 // right partner. Three in a row doubles the combo, six triples it, and the
 // round ends when the clock or the queue runs out.
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { comboMultiplier, pairsRound, type GameItem } from '../../engine/games';
+import { comboMultiplier, isScriptItem, pairsRound, type GameItem } from '../../engine/games';
 import { rngFromSeed, shuffled } from '../../engine/rng';
 import { playItemAudio, sfx } from '../../audio';
 import { TileText, useLockout, useOutcomes, useScriptMode, type GameProps } from './shared';
@@ -62,6 +62,8 @@ export function PairPop({ items, seed, roundsPlayed, onFinish }: GameProps) {
     if (lid === rid) {
       outcomes.hit(lid);
       sfx.correct();
+      // a letter is only spoken once it has been read and matched
+      if (isScriptItem(lid)) void playItemAudio(lid);
       const streak = combo + 1;
       setCombo(streak);
       bestCombo.current = Math.max(bestCombo.current, streak);
@@ -95,7 +97,8 @@ export function PairPop({ items, seed, roundsPlayed, onFinish }: GameProps) {
   const tapLeft = (id: string) => {
     if (locked) return;
     setPickL(id);
-    void playItemAudio(id);
+    // speaking a reading-track tile on tap would give away the sound it has to be matched to
+    if (!isScriptItem(id)) void playItemAudio(id);
     if (pickR) void resolve(id, pickR);
   };
   const tapRight = (id: string) => {

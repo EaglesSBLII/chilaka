@@ -5,7 +5,8 @@ import { useApp, useStreakStanding } from '../store';
 import { db } from '../db/schema';
 import { levelForXp, nextLevel } from '../engine/xp';
 import { allUnits } from '../content/load';
-import { localDay, addDays } from '../engine/streak';
+import { deviceTimeZone, localDay, addDays } from '../engine/streak';
+import { learnedCount } from '../engine/games';
 import { Award, ChevronRight, Flame, MessageCircle, Snowflake } from 'lucide-react';
 import { Card, Coin, ProgressBar } from '../components/ui';
 import { BADGES } from '../engine/badges';
@@ -23,8 +24,7 @@ export function Profile() {
   const navigate = useApp((s) => s.navigate);
   const [week, setWeek] = useState<{ day: string; xp: number }[]>([]);
 
-  const tz = profile?.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const today = localDay(new Date(), tz);
+  const today = localDay(new Date(), deviceTimeZone());
 
   useEffect(() => {
     void (async () => {
@@ -44,7 +44,8 @@ export function Profile() {
     const up = unitProgress[u.id];
     return up && u.lessons.every((l) => up.lessonsDone.includes(l.id));
   }).length;
-  const phrasesLearned = Object.keys(srsCards).length;
+  // only phrases that still exist in the course (ids retired by a content update do not count)
+  const phrasesLearned = learnedCount(srsCards);
   const daysToGoal = Math.max(0, Math.round((Date.UTC(2026, 11, 31) - Date.parse(`${today}T00:00:00Z`)) / 86400000));
   const maxWeek = Math.max(35, ...week.map((w) => w.xp));
 

@@ -91,6 +91,11 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
 
   const submit = async () => {
     setError(null);
+    if (__CHANNEL__ === 'dev') {
+      // the developer preview may hold half-finished features and test progress:
+      // keep it away from real accounts so nothing unreleased merges into them
+      return setError('Accounts are switched off in the developer version, so test progress never mixes into a real account.');
+    }
     if (!validEmail(email)) return setError('Enter a valid email address.');
     if (password.length < 8) return setError('Use at least 8 characters for your password.');
     if (mode === 'recover' && code.trim().length < 20) return setError('Enter the full recovery code.');

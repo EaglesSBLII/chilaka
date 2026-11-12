@@ -49,6 +49,8 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
   idxRef.current = idx;
   const finishing = useRef(false);
   const [busy, setBusy] = useState(false);
+  const [ready, setReady] = useState(false); // the exercise has an answer for Check to judge
+  const shown = useRef(0); // furthest the progress bar has reached (it never slides back)
   const praiseLine = useRef('');
   const wrongItems = useRef<Set<string>>(new Set());
   const xpEarned = useRef(0);
@@ -80,7 +82,9 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
 
   const entry = queue[idx];
   const item = unit.items.find((i) => i.id === entry.exercise.itemId)!;
-  const progress = idx / queue.length;
+  // retries are added to the queue; keep the bar from slipping backwards when one is
+  shown.current = Math.max(shown.current, idx / queue.length);
+  const progress = shown.current;
 
   const payXp = () => {
     // tracing over the guide and writing from memory are different work: each pays once
@@ -148,11 +152,13 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
     if (!evaluator.current) return;
     applyEval(evaluator.current());
     evaluator.current = null;
+    setReady(false);
   };
 
   const advance = async () => {
     if (finishing.current) return;
     evaluator.current = null;
+    setReady(false);
     if (idx + 1 < queue.length) {
       setPhase('answering');
       setLastEval(null);
@@ -170,6 +176,7 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
     const bonus = lessonCompletionBonus(pct);
     const total = xpEarned.current + bonus;
 
+    try {
     await store.getState().introduceItems(lesson.itemIds);
     for (const id of lesson.itemIds) {
       if (srsCards[id]) {
@@ -185,6 +192,12 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
       confetti({ particleCount: 120, spread: 75, origin: { y: 0.7 }, colors: ['#F5A623', '#FF5C39', '#3CB46E', '#0E6B63'] });
     }
     setDone({ xp: total, pct, award: rewards.award, rewards, unitTitle: unit.title, lessonTitle: lesson.title });
+    } catch (e) {
+      // a failed save must not leave the last screen dead: let the learner press Continue again
+      console.error('finishing the lesson failed', e);
+      finishing.current = false;
+      setBusy(false);
+    }
   };
 
   const ExComp =
@@ -237,7 +250,10 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
           scriptMode={unit.track === 'script' ? 'telugu' : (profile?.scriptMode ?? 'roman+telugu')}
           phase={phase}
           lastEval={lastEval}
-          onReady={(fn) => (evaluator.current = fn)}
+          onReady={(fn) => {
+            evaluator.current = fn;
+            setReady(fn !== null);
+          }}
           onSkip={() => {
             if (idxRef.current === idx) void advance();
           }}
@@ -294,7 +310,7 @@ export function LessonPlayer({ unitId, lessonId }: { unitId: string; lessonId: s
               </Button>
             )}
             {!selfChecked && (
-              <Button className="flex-[2] w-full text-lg" onClick={check} disabled={isSpeak}>
+              <Button className="flex-[2] w-full text-lg" onClick={check} disabled={isSpeak || !ready}>
                 Check
               </Button>
             )}

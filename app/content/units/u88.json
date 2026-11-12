@@ -2,100 +2,176 @@
   "id": "u88",
   "track": "script",
   "section": 2,
-  "order": 2,
+  "order": 3,
   "title": "Gunintam 2",
   "teTitle": "గుణింతం 2",
   "cefr": "A0",
   "register": "standard",
-  "description": "The rest of the matras — ె ే ై ొ ో ౌ — plus the sunna riding on syllables.",
+  "description": "The rest of the vowel signs, ె ే ై ొ ో ౌ: syllables first, then words.",
   "items": [
     {
       "id": "u88-i01",
       "te": "కె",
-      "audioTe": "కె. కెరటం.",
-      "gloss": "ke — as in 'keraTam' (wave)",
-      "words": [{ "te": "కె", "gloss": "ke — the ె mark adds the short ఎ sound" }],
-      "tags": ["syllable"],
+      "gloss": "ke — k with a short e",
+      "words": [
+        {
+          "te": "కె",
+          "gloss": "ke — the ె mark adds the short ఎ sound"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 1,
-      "distractors": ["u88-i02", "u88-i03"],
+      "distractors": [
+        "u88-i02",
+        "u88-i03"
+      ],
       "note": "ె and ే ride on top of the letter. Like ఎ/ఏ themselves, the longer one carries an extra stroke."
     },
     {
       "id": "u88-i02",
       "te": "కే",
-      "audioTe": "కే. కేక.",
-      "gloss": "kee — as in 'keeka' (shout)",
-      "words": [{ "te": "కే", "gloss": "kee — the ే mark adds the long ఏ sound" }],
-      "tags": ["syllable"],
+      "gloss": "kee — k with a long ee",
+      "words": [
+        {
+          "te": "కే",
+          "gloss": "kee — the ే mark adds the long ఏ sound"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 1,
-      "distractors": ["u88-i01"]
+      "distractors": [
+        "u88-i01"
+      ]
     },
     {
       "id": "u88-i03",
       "te": "కై",
-      "audioTe": "కై. కైమా.",
-      "gloss": "kai — as in 'kaimaa' (keema)",
-      "words": [{ "te": "కై", "gloss": "kai — the ై mark adds the ఐ glide" }],
-      "tags": ["syllable"],
+      "gloss": "kai — k with ai",
+      "words": [
+        {
+          "te": "కై",
+          "gloss": "kai — the ై mark adds the ఐ glide"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i02", "u88-i06"]
+      "distractors": [
+        "u88-i02",
+        "u88-i06"
+      ]
     },
     {
       "id": "u88-i04",
       "te": "కొ",
-      "audioTe": "కొ. కొడుకు.",
-      "gloss": "ko — as in 'koDuku' (son)",
-      "words": [{ "te": "కొ", "gloss": "ko — the ొ mark adds the short ఒ sound" }],
-      "tags": ["syllable"],
+      "gloss": "ko — k with a short o",
+      "words": [
+        {
+          "te": "కొ",
+          "gloss": "ko — the ొ mark adds the short ఒ sound"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 1,
-      "distractors": ["u88-i05", "u88-i06"],
+      "distractors": [
+        "u88-i05",
+        "u88-i06"
+      ],
       "note": "ొ ో ౌ mirror the vowel family ఒ ఓ ఔ — short o, long o, and the ow glide."
     },
     {
       "id": "u88-i05",
       "te": "కో",
-      "audioTe": "కో. కోడి.",
-      "gloss": "koo — as in 'kooDi' (hen)",
-      "words": [{ "te": "కో", "gloss": "koo — the ో mark adds the long ఓ sound" }],
-      "tags": ["syllable"],
+      "gloss": "koo — k with a long oo",
+      "words": [
+        {
+          "te": "కో",
+          "gloss": "koo — the ో mark adds the long ఓ sound"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 1,
-      "distractors": ["u88-i04", "u88-i06"]
+      "distractors": [
+        "u88-i04",
+        "u88-i06"
+      ]
     },
     {
       "id": "u88-i06",
       "te": "కౌ",
-      "audioTe": "కౌ. కౌగిలి.",
-      "gloss": "kau — as in 'kaugili' (hug)",
-      "words": [{ "te": "కౌ", "gloss": "kau — the ౌ mark adds the ఔ glide" }],
-      "tags": ["syllable"],
+      "gloss": "kau — k with au",
+      "words": [
+        {
+          "te": "కౌ",
+          "gloss": "kau — the ౌ mark adds the ఔ glide"
+        }
+      ],
+      "tags": [
+        "syllable"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i05", "u88-i03"]
+      "distractors": [
+        "u88-i05",
+        "u88-i03"
+      ]
     },
     {
       "id": "u88-i07",
       "te": "పేరు",
       "gloss": "peeru — name",
       "words": [
-        { "te": "పే", "gloss": "pee" },
-        { "te": "రు", "gloss": "ru" }
+        {
+          "te": "పే",
+          "gloss": "pee"
+        },
+        {
+          "te": "రు",
+          "gloss": "ru"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i08"],
-      "note": "మీ పేరు ఏంటి? — you ask it in every conversation. Next unit you'll read the whole question."
+      "distractors": [
+        "u88-i08"
+      ],
+      "note": "మీ పేరు ఏంటి? — you ask it in every conversation. Soon you'll read the whole question."
     },
     {
       "id": "u88-i08",
       "te": "పెరుగు",
       "gloss": "perugu — curd",
       "words": [
-        { "te": "పె", "gloss": "pe" },
-        { "te": "రు", "gloss": "ru" },
-        { "te": "గు", "gloss": "gu" }
+        {
+          "te": "పె",
+          "gloss": "pe"
+        },
+        {
+          "te": "రు",
+          "gloss": "ru"
+        },
+        {
+          "te": "గు",
+          "gloss": "gu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u88-i07"],
+      "distractors": [
+        "u88-i07"
+      ],
       "note": "పేరు (name) vs పెరుగు (curd) — one small stroke over ప and a whole different lunch."
     },
     {
@@ -103,12 +179,22 @@
       "te": "రైలు",
       "gloss": "railu — train",
       "words": [
-        { "te": "రై", "gloss": "rai" },
-        { "te": "లు", "gloss": "lu" }
+        {
+          "te": "రై",
+          "gloss": "rai"
+        },
+        {
+          "te": "లు",
+          "gloss": "lu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i13"],
+      "distractors": [
+        "u88-i13"
+      ],
       "note": "రైలు ఎప్పుడు? (when's the train?) — station boards just became readable."
     },
     {
@@ -116,25 +202,49 @@
       "te": "కొడుకు",
       "gloss": "koDuku — son",
       "words": [
-        { "te": "కొ", "gloss": "ko" },
-        { "te": "డు", "gloss": "Du" },
-        { "te": "కు", "gloss": "ku" }
+        {
+          "te": "కొ",
+          "gloss": "ko"
+        },
+        {
+          "te": "డు",
+          "gloss": "Du"
+        },
+        {
+          "te": "కు",
+          "gloss": "ku"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u88-i11"]
+      "distractors": [
+        "u88-i11"
+      ]
     },
     {
       "id": "u88-i11",
       "te": "కోడి",
       "gloss": "kooDi — hen, chicken",
       "words": [
-        { "te": "కో", "gloss": "koo" },
-        { "te": "డి", "gloss": "Di" }
+        {
+          "te": "కో",
+          "gloss": "koo"
+        },
+        {
+          "te": "డి",
+          "gloss": "Di"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i12", "u88-i10"],
+      "distractors": [
+        "u88-i12",
+        "u88-i10"
+      ],
       "note": "కోడి కూర on a menu = chicken curry. Some rewards of literacy are delicious."
     },
     {
@@ -142,12 +252,22 @@
       "te": "కోతి",
       "gloss": "kooti — monkey",
       "words": [
-        { "te": "కో", "gloss": "koo" },
-        { "te": "తి", "gloss": "ti" }
+        {
+          "te": "కో",
+          "gloss": "koo"
+        },
+        {
+          "te": "తి",
+          "gloss": "ti"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i11"],
+      "distractors": [
+        "u88-i11"
+      ],
       "note": "కోడి vs కోతి — hen vs monkey, one akshara apart. Farmyard chaos if you misread."
     },
     {
@@ -155,31 +275,86 @@
       "te": "గౌను",
       "gloss": "gaunu — gown, frock",
       "words": [
-        { "te": "గౌ", "gloss": "gau" },
-        { "te": "ను", "gloss": "nu" }
+        {
+          "te": "గౌ",
+          "gloss": "gau"
+        },
+        {
+          "te": "ను",
+          "gloss": "nu"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 3,
-      "distractors": ["u88-i09"]
+      "distractors": [
+        "u88-i09"
+      ]
     },
     {
       "id": "u88-i14",
       "te": "పండు",
-      "gloss": "paNDu — fruit",
+      "gloss": "panDu — fruit",
       "words": [
-        { "te": "పం", "gloss": "pam — ప with the sunna riding on it" },
-        { "te": "డు", "gloss": "Du" }
+        {
+          "te": "పం",
+          "gloss": "pam — ప with the sunna riding on it"
+        },
+        {
+          "te": "డు",
+          "gloss": "Du"
+        }
       ],
-      "tags": ["word"],
+      "tags": [
+        "word"
+      ],
       "difficulty": 2,
-      "distractors": ["u88-i08", "u88-i11"],
-      "note": "The sunna ం sits on any syllable, not just అ: పం-డు. Same circle you met in అందం."
+      "distractors": [
+        "u88-i08",
+        "u88-i11"
+      ],
+      "note": "The sunna ం sits on any syllable, not just అ: పం-డు. Same circle you met in కలం and దండ."
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "ke kee kai", "itemIds": ["u88-i01", "u88-i02", "u88-i03", "u88-i09"] },
-    { "id": "l2", "title": "ko koo kau", "itemIds": ["u88-i04", "u88-i05", "u88-i06", "u88-i13"] },
-    { "id": "l3", "title": "names & food", "itemIds": ["u88-i07", "u88-i08", "u88-i14"] },
-    { "id": "l4", "title": "hen, monkey, son", "itemIds": ["u88-i10", "u88-i11", "u88-i12"] }
+    {
+      "id": "l1",
+      "title": "ke kee kai",
+      "itemIds": [
+        "u88-i01",
+        "u88-i02",
+        "u88-i03"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "ko koo kau",
+      "itemIds": [
+        "u88-i04",
+        "u88-i05",
+        "u88-i06"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "train, gown, name, curd",
+      "itemIds": [
+        "u88-i09",
+        "u88-i13",
+        "u88-i07",
+        "u88-i08"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "fruit, son, hen, monkey",
+      "itemIds": [
+        "u88-i14",
+        "u88-i10",
+        "u88-i11",
+        "u88-i12"
+      ]
+    }
   ]
 }

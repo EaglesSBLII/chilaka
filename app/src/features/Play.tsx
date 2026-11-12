@@ -4,8 +4,8 @@
 import { useMemo } from 'react';
 import { Lock, Sparkles } from 'lucide-react';
 import { useApp } from '../store';
-import { localDay } from '../engine/streak';
-import { featuredGame, gamePool, GAMES, REWARDED_ROUNDS_PER_DAY, type GameDef } from '../engine/games';
+import { deviceTimeZone, localDay } from '../engine/streak';
+import { featuredGame, gamePool, GAMES, isScriptItem, REWARDED_ROUNDS_PER_DAY, type GameDef } from '../engine/games';
 import { Button, Card } from '../components/ui';
 import { Mascot } from '../components/Mascot';
 import { pluralPhrases } from './games/shared';
@@ -13,13 +13,18 @@ import { pluralPhrases } from './games/shared';
 export function Play() {
   const navigate = useApp((s) => s.navigate);
   const srsCards = useApp((s) => s.srsCards);
-  const profile = useApp((s) => s.profile);
   const pool = useMemo(() => gamePool(srsCards), [srsCards]);
   const learned = pool.items.length;
   const due = pool.dueIds.length;
-  const day = localDay(new Date(), profile?.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone);
+  const day = localDay(new Date(), deviceTimeZone());
   const featured = featuredGame(day);
   const anyOpen = GAMES.some((g) => learned >= g.minItems);
+  // someone who has finished lessons (reading & writing included) but does
+  // not have enough tiles yet must not be told to "finish your first lesson"
+  const started = Object.keys(srsCards).length > 0;
+  const toOpen = Math.max(1, Math.min(...GAMES.map((g) => g.minItems)) - learned);
+  const letters = pool.items.filter((it) => isScriptItem(it.id)).length;
+  const inPlay = letters === 0 ? pluralPhrases(learned) : letters === learned ? `${learned} letters and words` : `${learned} phrases and letters`;
 
   return (
     <div className="flex flex-col gap-5" data-testid="play-hub" data-learned={learned} data-due={due}>
@@ -30,9 +35,11 @@ export function Play() {
           <p className="text-sm font-semibold text-ink-soft">
             {anyOpen
               ? due > 0
-                ? `${pluralPhrases(learned)} in play · ${due} ready for a round`
-                : `${pluralPhrases(learned)} in play — all fresh in your memory!`
-              : 'Finish your first lesson and Chikki opens the games.'}
+                ? `${inPlay} in play · ${due} ready for a round`
+                : `${inPlay} in play — all fresh in your memory!`
+              : started
+                ? `Almost there — learn ${toOpen} more and Chikki opens the games.`
+                : 'Finish your first lesson and Chikki opens the games.'}
           </p>
         </div>
       </div>
@@ -40,7 +47,7 @@ export function Play() {
       {!anyOpen && (
         <Card className="flex flex-col items-center gap-3 text-center">
           <Lock className="text-ink-soft" />
-          <p className="font-semibold text-ink-soft">The games use the words you learn in lessons. Three or four phrases are enough to start.</p>
+          <p className="font-semibold text-ink-soft">The games use the words and letters you learn in lessons. Three or four are enough to start.</p>
           <Button onClick={() => navigate({ name: 'path' })}>Go to lessons</Button>
         </Card>
       )}

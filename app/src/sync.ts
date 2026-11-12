@@ -200,7 +200,10 @@ class SyncManager {
     try {
       for (let attempt = 0; attempt < 3; attempt++) {
         const local = await exportAll();
-        const remote = await this.pull();
+        // one slot for the whole attempt: signing in can switch slots while this runs,
+        // and pulling from one slot then pushing to another would skip the merge
+        const key = this.key;
+        const remote = await this.pull(key);
         const merged = remote ? mergeBackups(local, remote.data) : local;
 
         // apply remote-side progress locally (skip mid-lesson; next sync catches up).
@@ -225,7 +228,8 @@ class SyncManager {
         }
 
         const pushRev = (remote?.rev ?? 0) + 1;
-        const ok = await this.push(pushRev, merged);
+        if (key !== this.key) continue; // the slot changed underneath us: start again on the new one
+        const ok = await this.push(pushRev, merged, key);
         if (ok) {
           this.lastSyncAt = new Date().toISOString();
           await db.settings.put({ key: 'syncLastAt', value: this.lastSyncAt });
@@ -246,8 +250,8 @@ class SyncManager {
     }
   }
 
-  private async pull(): Promise<{ rev: number; data: BackupFile } | null> {
-    const res = await fetch(`${this.endpoint}/${this.key}`, { cache: 'no-store' });
+  private async pull(key = this.key): Promise<{ rev: number; data: BackupFile } | null> {
+    const res = await fetch(`${this.endpoint}/${key}`, { cache: 'no-store' });
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`sync server error (${res.status})`);
     const env = (await res.json()) as RemoteEnvelope;
@@ -255,8 +259,8 @@ class SyncManager {
     return { rev: env.rev, data: validateBackup(env.data) };
   }
 
-  private async push(rev: number, data: BackupFile): Promise<boolean> {
-    const res = await fetch(`${this.endpoint}/${this.key}`, {
+  private async push(rev: number, data: BackupFile, key = this.key): Promise<boolean> {
+    const res = await fetch(`${this.endpoint}/${key}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ rev, data }),

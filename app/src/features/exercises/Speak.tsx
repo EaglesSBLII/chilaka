@@ -180,6 +180,9 @@ export function Speak({ exercise, item, unit, scriptMode, onAutoResult, onReady 
       setStage('result');
       if (scored.pass) void useApp.getState().recordSpeak();
       onAutoResult({ correct: scored.pass, expected: item.roman, got: scored.transcriptRoman || '(nothing heard)' });
+    } else if (mode === 'loading') {
+      // the scorer was not ready yet: nothing to show, let them record again
+      setStage('idle');
     } else {
       setStage('result');
     }

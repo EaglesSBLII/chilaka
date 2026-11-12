@@ -59,8 +59,8 @@ export const authoredUnitSchema = z.object({
   cefr: z.string(),
   register: z.enum(['standard', 'hyderabad']),
   description: z.string().min(1),
-  items: z.array(authoredItemSchema).min(10).max(24),
-  lessons: z.array(authoredLessonSchema).min(3).max(6),
+  items: z.array(authoredItemSchema).min(6).max(24),
+  lessons: z.array(authoredLessonSchema).min(2).max(6),
   dialogue: authoredDialogueSchema.optional(),
 });
 

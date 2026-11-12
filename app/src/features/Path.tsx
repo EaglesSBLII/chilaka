@@ -1,7 +1,7 @@
 // The home screen: a full-screen jungle with the winding lesson trail,
 // hero greeting, dotted connectors, and section canopy banners.
 
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useApp, useDailyGoal, useStreakStanding, useUnitStatus } from '../store';
 import { trackUnits } from '../content/load';
 import { KeyboardHelp } from './exercises/KeyboardHelp';
@@ -25,7 +25,7 @@ const SECTION_META: Record<string, Record<number, { title: string; color: string
   },
   script: {
     1: { title: 'The letters · అక్షరాలు', color: 'text-teal', emoji: '✍️' },
-    2: { title: 'Reading real Telugu', color: 'text-marigold-dark', emoji: '📖' },
+    2: { title: 'Words & reading · పదాలు', color: 'text-marigold-dark', emoji: '📖' },
   },
 };
 
@@ -133,7 +133,9 @@ function UnitBlock({ unit }: { unit: Unit }) {
   const profile = useApp((s) => s.profile);
   const status = statusOf(unit.id);
   const up = unitProgress[unit.id];
-  const startSection = profile?.startSection ?? 1;
+  // a placement start applies to the speaking course only; reading & writing
+  // always runs in order from its first lesson (as useUnitStatus has it)
+  const startSection = unit.track === 'speak' ? (profile?.startSection ?? 1) : 0;
   const doneSet = new Set(up?.lessonsDone ?? []);
   const firstIncomplete = unit.lessons.findIndex((l) => !doneSet.has(l.id));
   const lessonState = (lessonId: string, i: number): 'done' | 'current' | 'replayable' | 'locked' => {
@@ -205,7 +207,10 @@ function Hero() {
 }
 
 export function Path() {
-  const [track, setTrack] = useState<'speak' | 'script'>('speak');
+  // remembered on this device, so a learner on Read & Write comes back to it
+  // after a lesson and after reopening the app
+  const track = useApp((s) => s.pathTrack);
+  const setTrack = useApp((s) => s.setPathTrack);
   const units = trackUnits(track);
   const profile = useApp((s) => s.profile);
   const unitProgress = useApp((s) => s.unitProgress);
@@ -251,6 +256,7 @@ export function Path() {
           <button
             key={t}
             onClick={() => setTrack(t)}
+            aria-pressed={track === t}
             className={`flex-1 rounded-[18px] px-3 py-2.5 text-center transition-all ${
               track === t ? 'btn-teal text-white shadow-soft' : 'text-ink-soft hover:bg-line/40'
             }`}

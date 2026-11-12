@@ -1,6 +1,6 @@
 // Shared contract + helpers for the game components.
 import { useCallback, useRef, useState } from 'react';
-import type { GameItem, ItemOutcome, RoundResult } from '../../engine/games';
+import { isScriptItem, type GameItem, type ItemOutcome, type RoundResult } from '../../engine/games';
 import type { ScriptMode } from '../../engine/types';
 import { useApp } from '../../store';
 
@@ -18,7 +18,14 @@ export function useScriptMode(): ScriptMode {
   return useApp((s) => s.profile?.scriptMode ?? 'roman+telugu');
 }
 
-/** Telugu + roman for a tile, honouring the script mode. */
+/**
+ * Telugu + roman for a tile, honouring the script mode.
+ *
+ * Reading-track items (letters and the words built from them) are the
+ * exception: the tile shows the Telugu alone, whatever the script mode. Their
+ * other side is the sound ("ka — plain k"), so a romanisation printed under
+ * the letter would hand over the answer without any reading.
+ */
 export function TileText({
   item,
   scriptMode,
@@ -38,6 +45,13 @@ export function TileText({
   const roman = big ? 'text-xl' : small ? 'text-sm' : 'text-lg';
   const teBig = big ? 'text-3xl' : small ? 'text-xl' : 'text-2xl';
   const teSmall = big ? 'text-xl' : small ? 'text-sm' : 'text-base';
+  if (isScriptItem(item.id)) {
+    return (
+      <span lang="te" data-script-only="true" className={`te-script ${teBig} ${wrap} font-extrabold leading-tight`}>
+        {item.te}
+      </span>
+    );
+  }
   if (scriptMode === 'roman') return <span className={`${roman} ${wrap} font-extrabold`}>{item.roman}</span>;
   if (scriptMode === 'telugu') {
     return (

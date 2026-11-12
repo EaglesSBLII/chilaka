@@ -11,11 +11,12 @@ import { KeyboardHelp } from './KeyboardHelp';
 
 /** Compare typed Telugu with the target: NFC, ignore spaces/punctuation. */
 export function scriptMatches(input: string, target: string): boolean {
-  const clean = (s: string) => s.normalize('NFC').replace(/[\s.,!?'"‘’“”\-–]/gu, '');
+  // zero-width (non-)joiners are invisible and some keyboards add them
+  const clean = (s: string) => s.normalize('NFC').replace(/[\s.,!?'"‘’“”\-–\u200c\u200d]/gu, '');
   return clean(input).length > 0 && clean(input) === clean(target);
 }
 
-export function TypeScriptEx({ exercise, item, phase, onReady }: ExerciseProps) {
+export function TypeScriptEx({ exercise, item, phase, onReady, onSkip }: ExerciseProps) {
   const [text, setText] = useState('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -78,6 +79,12 @@ export function TypeScriptEx({ exercise, item, phase, onReady }: ExerciseProps) 
         spellCheck={false}
       />
       <KeyboardHelp compact />
+      {onSkip && phase === 'answering' && (
+        // without the Telugu keyboard this exercise cannot be done: never trap the learner
+        <button type="button" className="self-center text-xs font-semibold text-ink-soft underline" onClick={onSkip}>
+          No Telugu keyboard yet? Skip this one
+        </button>
+      )}
     </div>
   );
 }

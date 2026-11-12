@@ -1,4 +1,6 @@
-// Feed Chikki: she says a phrase, the player taps the fruit that carries it.
+// Feed Chikki: she says a phrase (or a letter), the player taps the fruit that
+// carries it. Reading-track items show the Telugu only (see TileText), so the
+// learner has to recognise the letter they heard.
 // A wrong fruit shakes, the phrase plays again and the player tries once more;
 // when only the right fruit is left, Chikki shows it and moves on.
 import { useEffect, useMemo, useRef, useState } from 'react';

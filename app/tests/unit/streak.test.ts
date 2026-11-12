@@ -3,7 +3,9 @@ import {
   addDays,
   dayDiff,
   displayCount,
+  canBuyFreeze,
   emptyStreak,
+  freezesFromLedger,
   grantFreeze,
   localDay,
   recordActivity,
@@ -138,5 +140,59 @@ describe('grantFreeze cap', () => {
   it('caps at 2', () => {
     const st = grantFreeze(grantFreeze(grantFreeze(emptyStreak())));
     expect(st.freezesOwned).toBe(2);
+  });
+});
+
+describe('freezesFromLedger', () => {
+  const xp = (ts: string, amount: number) => ({ ts, amount, day: ts.slice(0, 10) });
+  const buy = (ts: string) => ({ ts, kind: 'spend', refId: 'freeze' });
+
+  it('nothing earned, nothing bought: none', () => {
+    expect(freezesFromLedger([xp('2026-07-01T10:00:00Z', 299)], [], [])).toBe(0);
+  });
+  it('one per 300 lifetime XP, plus the ones bought, capped at 2', () => {
+    expect(freezesFromLedger([xp('2026-07-01T10:00:00Z', 299), xp('2026-07-02T10:00:00Z', 1)], [], [])).toBe(1);
+    expect(freezesFromLedger([xp('2026-07-01T10:00:00Z', 300)], [buy('2026-07-01T11:00:00Z')], [])).toBe(2);
+    expect(freezesFromLedger([xp('2026-07-01T10:00:00Z', 900)], [buy('2026-07-01T11:00:00Z')], [])).toBe(2);
+  });
+  it('other purchases and coin earnings are not freezes', () => {
+    expect(freezesFromLedger([], [{ ts: 'a', kind: 'spend', refId: 'crown' }, { ts: 'b', kind: 'quest', refId: 'freeze' }], [])).toBe(0);
+  });
+  it('a used freeze is gone, and never goes below zero', () => {
+    const events = [xp('2026-07-01T10:00:00Z', 300), xp('2026-07-03T10:00:00Z', 10)];
+    expect(freezesFromLedger(events, [], ['2026-07-02'])).toBe(0);
+    expect(freezesFromLedger(events, [], ['2026-07-02', '2026-06-20'])).toBe(0);
+  });
+  it('a freeze earned at the cap is not banked for later', () => {
+    // 600 XP by day 2 (two held), a third threshold on day 3 is wasted, both are used on days 4-5
+    const events = [xp('2026-07-01T10:00:00Z', 600), xp('2026-07-03T10:00:00Z', 300), xp('2026-07-06T10:00:00Z', 10)];
+    expect(freezesFromLedger(events, [], ['2026-07-04', '2026-07-05'])).toBe(0);
+  });
+  it('a freeze bought before the comeback lesson is spent on the gap', () => {
+    const events = [xp('2026-07-01T10:00:00Z', 300), xp('2026-07-04T10:00:00Z', 10)];
+    expect(freezesFromLedger(events, [buy('2026-07-03T09:00:00Z')], ['2026-07-02', '2026-07-03'])).toBe(0);
+  });
+  it('does not depend on the order the rows arrive in', () => {
+    const events = [xp('2026-07-01T10:00:00Z', 300), xp('2026-07-03T10:00:00Z', 310)];
+    const a = freezesFromLedger(events, [buy('2026-07-02T09:00:00Z')], ['2026-07-02']);
+    const b = freezesFromLedger([...events].reverse(), [buy('2026-07-02T09:00:00Z')], ['2026-07-02']);
+    expect(a).toBe(b);
+  });
+});
+
+describe('canBuyFreeze', () => {
+  const st = (over: Partial<ReturnType<typeof emptyStreak>>) => ({ ...emptyStreak(), ...over });
+  it('is fine with no streak yet, a live one, or one a freeze already covers', () => {
+    expect(canBuyFreeze(emptyStreak(), '2026-07-10')).toBe('ok');
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-10' }), '2026-07-10')).toBe('ok');
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-09' }), '2026-07-10')).toBe('ok');
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-08', freezesOwned: 1 }), '2026-07-10')).toBe('ok');
+  });
+  it('refuses once the streak is already broken: a freeze cannot repair it afterwards', () => {
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-08' }), '2026-07-10')).toBe('broken');
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-06', freezesOwned: 1 }), '2026-07-10')).toBe('broken');
+  });
+  it('refuses at the cap', () => {
+    expect(canBuyFreeze(st({ current: 4, lastActiveDay: '2026-07-10', freezesOwned: 2 }), '2026-07-10')).toBe('max');
   });
 });

@@ -7,7 +7,7 @@
 import type { ContentItem } from './types';
 import { dueCards, Rating, type StoredCard } from './srs';
 import { rngFromSeed, shuffled, type Rng } from './rng';
-import { itemById } from '../content/load';
+import { itemById, trackItems } from '../content/load';
 
 export type GameId = 'pairs' | 'feed' | 'memory';
 
@@ -28,7 +28,7 @@ export const GAMES: GameDef[] = [
     id: 'feed',
     name: 'Feed Chikki',
     teName: 'చిక్కీకి తిండి',
-    blurb: 'Chikki says a word — tap the right fruit and feed it to her.',
+    blurb: 'Chikki says a word or a letter — tap the right fruit and feed it to her.',
     emoji: '🥭',
     minItems: 4,
     length: '~1 min',
@@ -37,7 +37,7 @@ export const GAMES: GameDef[] = [
     id: 'pairs',
     name: 'Pair Pop',
     teName: 'జంట జంట',
-    blurb: 'Match Telugu to English before the clock runs out. Combos pay extra.',
+    blurb: 'Match the Telugu to its meaning or sound before the clock runs out. Combos pay extra.',
     emoji: '🎈',
     minItems: 4,
     length: '60 sec',
@@ -46,7 +46,7 @@ export const GAMES: GameDef[] = [
     id: 'memory',
     name: 'Memory Flip',
     teName: 'జ్ఞాపకం',
-    blurb: 'Flip the cards and find each word with its meaning.',
+    blurb: 'Flip the cards and find each word or letter with its meaning.',
     emoji: '🃏',
     minItems: 3,
     length: '~90 sec',
@@ -92,9 +92,30 @@ export function gamePool(cards: Record<string, StoredCard>, now = new Date()): G
   };
 }
 
-/** Phrases short enough to be a game tile (long sentences stay in lessons). */
+/**
+ * Phrases short enough to be a game tile (long sentences stay in lessons).
+ * A single letter with a short gloss ("ka — plain k") is as playable as a word.
+ */
 export function playable(item: GameItem): boolean {
-  return item.te.length <= 28 && item.gloss.length <= 40;
+  return item.te.length > 0 && item.te.length <= 28 && item.gloss.length > 0 && item.gloss.length <= 40;
+}
+
+/** Cards whose phrase still exists in the course (ids retired by a content update do not count as learned). */
+export function learnedCount(cards: Record<string, unknown>): number {
+  let n = 0;
+  for (const id of Object.keys(cards)) if (itemById(id)) n++;
+  return n;
+}
+
+let scriptIds: Set<string> | null = null;
+/**
+ * Items of the reading & writing track. Their tiles show the Telugu alone:
+ * the romanisation is the answer there, so printing it beside the letter (as
+ * the speaking track does) would let the learner match without reading.
+ */
+export function isScriptItem(id: string): boolean {
+  scriptIds ??= new Set(trackItems('script').map((it) => it.id));
+  return scriptIds.has(id);
 }
 
 /**
@@ -222,8 +243,13 @@ export const ROUND_BASE_COINS = 5;
 /** Coins for a finished round once the day's full-pay rounds are used up. */
 export const EXTRA_ROUND_COINS = 2;
 
+/** A round counts (streak, quests, badges, the day's allowance) only if something was solved. */
+export function roundCounts(r: Pick<RoundResult, 'outcomes'>): boolean {
+  return r.outcomes.some((o) => o.solved);
+}
+
 export function roundXp(r: Pick<RoundResult, 'outcomes'>): number {
-  if (!r.outcomes.some((o) => o.solved)) return 0;
+  if (!roundCounts(r)) return 0;
   const firstTry = r.outcomes.filter((o) => o.firstTry).length;
   const perfect = firstTry === r.outcomes.length ? 3 : 0;
   return Math.min(12, Math.max(1, firstTry + perfect));

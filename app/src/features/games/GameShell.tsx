@@ -3,7 +3,7 @@
 // coins, and the phrases Chikki wants to hear again.
 import { useEffect, useMemo, useState } from 'react';
 import confetti from 'canvas-confetti';
-import { Gift, Sparkles, Target } from 'lucide-react';
+import { Flame, Gift, Sparkles, Target } from 'lucide-react';
 import { useApp, type GameRewards } from '../../store';
 import { playItemAudio, preloadItemAudio, sfx } from '../../audio';
 import { itemById } from '../../content/load';
@@ -156,6 +156,20 @@ function Summary({
         <p className="text-center text-sm font-semibold text-ink-soft">
           You have had today's {REWARDED_ROUNDS_PER_DAY} full-pay rounds, so this one earned a small treat. Full rewards are back tomorrow!
         </p>
+      )}
+      {rewards && (rewards.goalCoins > 0 || rewards.milestoneCoins > 0) && (
+        <div className="flex flex-wrap justify-center gap-2" data-testid="game-bonus">
+          {rewards.goalCoins > 0 && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-success-soft px-3 py-1 text-sm font-extrabold text-success-dark">
+              <Target size={14} /> Daily goal reached · +{rewards.goalCoins} coins
+            </span>
+          )}
+          {rewards.milestoneCoins > 0 && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-soft px-3 py-1 text-sm font-extrabold text-marigold-dark">
+              <Flame size={14} /> {rewards.award.streakCount}-day streak · +{rewards.milestoneCoins} coins
+            </span>
+          )}
+        </div>
       )}
       {saveFailed && (
         <p className="text-center text-sm font-semibold text-error" role="alert">

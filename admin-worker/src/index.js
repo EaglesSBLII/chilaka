@@ -54,7 +54,17 @@ export async function handle(request, env, now = Date.now()) {
     if (request.headers.get('origin') !== url.origin) return json(403, { error: 'origin' });
     if (url.pathname === '/api/login') {
       const ipKey = await ipKeyOf(request);
-      if (await tooManyAttempts(env.VISITS, ipKey)) return json(429, { error: 'rate' });
+      // the attempt counters live in KV: if its daily quota is used up, reads or writes can
+      // throw, and that must not turn a correct password into an error page
+      const quiet = async (fn, fallback) => {
+        try {
+          return await fn();
+        } catch (e) {
+          console.error('attempt counter unavailable', e);
+          return fallback;
+        }
+      };
+      if (await quiet(() => tooManyAttempts(env.VISITS, ipKey), false)) return json(429, { error: 'rate' });
       let body = {};
       try {
         body = await request.json();
@@ -62,10 +72,10 @@ export async function handle(request, env, now = Date.now()) {
         /* treated as a wrong password */
       }
       if (!(await verifyKey(secret, body.authKey))) {
-        await recordFailure(env.VISITS, ipKey);
+        await quiet(() => recordFailure(env.VISITS, ipKey));
         return json(401, { error: 'invalid' });
       }
-      await clearFailures(env.VISITS, ipKey);
+      await quiet(() => clearFailures(env.VISITS, ipKey));
       return json(200, { ok: true }, { 'set-cookie': sessionCookie(await signSession(secret, nowSec)) });
     }
     if (url.pathname === '/api/logout') return json(200, { ok: true }, { 'set-cookie': sessionCookie('', 0) });

@@ -5,19 +5,19 @@ import { create } from 'zustand';
 import { useShallow } from 'zustand/react/shallow';
 import { db, type LessonProgressRow, type ProfileRow, type ReminderRow, type StreakRow, type UnitProgressRow } from './db/schema';
 import { exportAll, importAll } from './db/backup';
-import { emptyStreak, grantFreeze, localDay, recordActivity, standing, displayCount } from './engine/streak';
+import { canBuyFreeze, dayDiff, deviceTimeZone, emptyStreak, grantFreeze, localDay, recordActivity, standing, displayCount } from './engine/streak';
 import { freezesEarned, DAILY_GOAL_XP } from './engine/xp';
-import { newCard, reviewCard, dueCards, type StoredCard, Rating } from './engine/srs';
+import { newCard, reviewCard, type StoredCard, Rating } from './engine/srs';
 import type { Difficulty, ScriptMode, StreakStanding } from './engine/types';
 import { allUnits } from './content/load';
 import { DEFAULT_VOICE, type VoiceId } from './content/voices';
 import { setActiveVoice, setSfxEnabled } from './audio';
 import { platform } from './platform';
-import { balance, COINS, earnedTotal, MILESTONES, ownedSkus, skuById, type CoinEvent, type CoinKind } from './engine/coins';
+import { balance, COINS, earnedTotal, FREEZE_SKU, goalBonusDue, milestoneBonusDue, ownedSkus, skuById, type CoinEvent, type CoinKind } from './engine/coins';
 import { bump, claim, dailyQuests, isComplete, type Quest, type QuestKind } from './engine/quests';
 import { evaluateBadges, newlyEarned, reconcileBadges, type BadgeRow, type BadgeStats } from './engine/badges';
 import type { LessonRewards } from './engine/rewards';
-import { ratingForOutcome, REWARDED_ROUNDS_PER_DAY, roundCoins, roundXp, type GameId, type RoundResult } from './engine/games';
+import { gamePool, learnedCount, ratingForOutcome, REWARDED_ROUNDS_PER_DAY, roundCoins, roundCounts, roundXp, type GameId, type RoundResult } from './engine/games';
 import type { Session } from './auth';
 
 export type View =
@@ -35,9 +35,16 @@ export type View =
   | { name: 'badges' }
   | { name: 'auth'; mode?: 'signin' | 'create' | 'recover' };
 
+export type PathTrack = 'speak' | 'script';
+
 export interface GameRewards {
   xp: number;
+  /** everything this round added to the balance: the round's own coins plus any goal / streak bonus it triggered */
   coins: number;
+  /** part of `coins`: the daily-goal bonus, when this round crossed the goal */
+  goalCoins: number;
+  /** part of `coins`: the streak-milestone bonus, when this round took the streak to a milestone day */
+  milestoneCoins: number;
   /** false once the day's full-pay rounds are used up — the round still pays a few coins */
   rewarded: boolean;
   roundsToday: number;
@@ -50,9 +57,15 @@ export interface XpAward {
   amount: number;
   streakExtended: boolean;
   streakCount: number;
+  /** freezes actually added by this award (0 when already holding the maximum) */
   freezesEarnedNow: number;
   freezesConsumed: number;
   goalJustReached: boolean;
+  /** coins paid by this award for reaching the daily goal (once per day) */
+  goalCoins: number;
+  /** streak milestone (3, 7, 14…) this award reached and paid for, if any */
+  milestone: number | null;
+  milestoneCoins: number;
 }
 
 interface AppState {
@@ -78,8 +91,11 @@ interface AppState {
   /** game rounds played (and, historically, flashcards reviewed) */
   reviewCount: number;
   session: Session | null;
+  /** which course the home path shows; remembered on this device only, never synced */
+  pathTrack: PathTrack;
 
   navigate(view: View): void;
+  setPathTrack(track: PathTrack): void;
   setSession(s: Session | null): void;
   grantCoins(delta: number, kind: CoinKind, refId: string): Promise<void>;
   spendCoins(skuId: string): Promise<boolean>;
@@ -110,12 +126,31 @@ interface AppState {
   importBackupJson(json: string): Promise<void>;
 }
 
-function today(profile: ProfileRow | null): string {
-  const tz = profile?.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
-  return localDay(new Date(), tz);
+/**
+ * The learner's calendar day: always this device's current timezone.
+ * (`profile.timezone` is synced and was only ever written at sign-up, so the
+ * day rolled at the wrong hour after travel, or on a second device elsewhere.)
+ */
+function today(): string {
+  return localDay(new Date(), deviceTimeZone());
 }
 
+// The path's selected course is a device-local convenience: it lives in
+// localStorage, outside the synced/backed-up tables, so it survives a reload
+// without ever travelling to another device as "progress".
+const PATH_TRACK_KEY = 'chilaka.pathTrack';
+function readPathTrack(): PathTrack {
+  try {
+    return globalThis.localStorage?.getItem(PATH_TRACK_KEY) === 'script' ? 'script' : 'speak';
+  } catch {
+    return 'speak';
+  }
+}
+
+// in-flight guards: a double tap must not run a paying action twice
 let spending = false;
+let claiming = false;
+let badgeQueue: Promise<unknown> = Promise.resolve();
 
 export const useApp = create<AppState>((set, get) => ({
   loaded: false,
@@ -136,6 +171,16 @@ export const useApp = create<AppState>((set, get) => ({
   badges: [],
   reviewCount: 0,
   session: null,
+  pathTrack: readPathTrack(),
+
+  setPathTrack(pathTrack) {
+    set({ pathTrack });
+    try {
+      globalThis.localStorage?.setItem(PATH_TRACK_KEY, pathTrack);
+    } catch {
+      // private mode / storage blocked: the choice still holds for this session
+    }
+  },
 
   navigate(view) {
     set({ view });
@@ -147,7 +192,7 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async grantCoins(delta, kind, refId) {
-    const day = today(get().profile);
+    const day = today();
     const ev: CoinEvent = { ts: new Date().toISOString(), day, delta, kind, refId };
     const id = await db.coinEvents.add(ev);
     const coinEvents = [...get().coinEvents, { ...ev, id }];
@@ -164,12 +209,17 @@ export const useApp = create<AppState>((set, get) => ({
       const state = get();
       if (!sku || state.coins < sku.price) return false;
       if (!sku.consumable && state.ownedSkus.has(sku.id)) return false;
-      if (sku.id === 'freeze') {
-        const next = grantFreeze(state.streak, 1);
-        if (next.freezesOwned === state.streak.freezesOwned) return false; // already holding the max
-        const streak: StreakRow = { id: 'main', ...next };
+      if (sku.id === FREEZE_SKU) {
+        // refused at the cap, and while the streak is already broken: a freeze
+        // protects days ahead, it must not repair a streak after the fact
+        if (canBuyFreeze(state.streak, today()) !== 'ok') return false;
+        // ledger first: the spend event is what tells every device (and the
+        // sync merge) that this freeze exists
+        await get().grantCoins(-sku.price, 'spend', sku.id);
+        const streak: StreakRow = { id: 'main', ...grantFreeze(get().streak, 1) };
         await db.streaks.put(streak);
         set({ streak });
+        return true;
       }
       await get().grantCoins(-sku.price, 'spend', sku.id);
       if (sku.kind === 'outfit' || sku.kind === 'accent') await get().equip(sku.kind, sku.id);
@@ -191,7 +241,7 @@ export const useApp = create<AppState>((set, get) => ({
   async rollDay() {
     const state = get();
     if (!state.loaded) return;
-    const day = today(state.profile);
+    const day = today();
     if (day === state.day) return;
     const todayXp = (await db.xpEvents.where('day').equals(day).toArray()).reduce((sum, e) => sum + e.amount, 0);
     let quests = await db.quests.where('day').equals(day).toArray();
@@ -220,27 +270,41 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async claimQuest(id) {
-    const q = get().quests.find((x) => x.id === id);
-    if (!q) return 0;
-    const claimed = claim(q);
-    if (claimed === q || claimed.reward === null) return 0;
-    await db.quests.put(claimed);
-    set({ quests: get().quests.map((x) => (x.id === id ? claimed : x)) });
-    await get().grantCoins(claimed.reward, 'quest', id);
-    return claimed.reward;
+    // one claim at a time: a double tap must not open the same chest twice
+    if (claiming) return 0;
+    claiming = true;
+    try {
+      const q = get().quests.find((x) => x.id === id);
+      if (!q) return 0;
+      const claimed = claim(q);
+      if (claimed === q || claimed.reward === null) return 0;
+      await db.quests.put(claimed);
+      set({ quests: get().quests.map((x) => (x.id === id ? claimed : x)) });
+      await get().grantCoins(claimed.reward, 'quest', id);
+      return claimed.reward;
+    } finally {
+      claiming = false;
+    }
   },
 
-  async refreshBadges() {
-    const state = get();
-    const stats = badgeStats(state);
-    const next = reconcileBadges(state.badges, evaluateBadges(stats));
-    const fresh = newlyEarned(state.badges, next);
-    if (fresh.length > 0) {
-      await db.badges.bulkPut(next);
-      set({ badges: next });
-      for (const b of fresh) await get().grantCoins(COINS.badge, 'badge', `${b.id}:${b.tier}`);
-    }
-    return fresh;
+  refreshBadges() {
+    // runs one after another: an overlapping call waits and then sees the
+    // badges the first one stored, so no tier is paid for twice
+    const run = async (): Promise<BadgeRow[]> => {
+      const state = get();
+      const stats = badgeStats(state);
+      const next = reconcileBadges(state.badges, evaluateBadges(stats));
+      const fresh = newlyEarned(state.badges, next);
+      if (fresh.length > 0) {
+        await db.badges.bulkPut(next);
+        set({ badges: next });
+        for (const b of fresh) await get().grantCoins(COINS.badge, 'badge', `${b.id}:${b.tier}`);
+      }
+      return fresh;
+    };
+    const result = badgeQueue.then(run, run);
+    badgeQueue = result.catch(() => undefined);
+    return result;
   },
 
   async recordSpeak() {
@@ -252,19 +316,19 @@ export const useApp = create<AppState>((set, get) => ({
     await get().completeLesson(unitId, lessonId, pct, xp);
     const ref = `${unitId}:${lessonId}`;
     const perfect = pct >= 1;
-    const milestone = award.streakExtended && MILESTONES[award.streakCount] ? award.streakCount : null;
+    // the goal and streak-milestone bonuses were already paid by awardXp
+    // (any XP source can trigger them); here they are only reported
+    const milestone = award.milestone;
     const coins = {
       lesson: COINS.lesson,
       perfect: perfect ? COINS.perfectBonus : 0,
-      goal: award.goalJustReached ? COINS.goal : 0,
-      milestone: milestone ? MILESTONES[milestone] : 0,
+      goal: award.goalCoins,
+      milestone: award.milestoneCoins,
       total: 0,
     };
     coins.total = coins.lesson + coins.perfect + coins.goal + coins.milestone;
     await get().grantCoins(coins.lesson, 'lesson', ref);
     if (coins.perfect) await get().grantCoins(coins.perfect, 'perfect', ref);
-    if (coins.goal) await get().grantCoins(coins.goal, 'goal', today(get().profile));
-    if (coins.milestone) await get().grantCoins(coins.milestone, 'milestone', `streak:${milestone}`);
     const questsCompleted = [
       ...(await get().bumpQuest('lessons', 1)),
       ...(perfect ? await get().bumpQuest('perfect', 1) : []),
@@ -275,17 +339,37 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async init() {
-    const profile = (await db.profile.get('main')) ?? null;
+    let profile = (await db.profile.get('main')) ?? null;
     setActiveVoice(profile?.voice ?? DEFAULT_VOICE);
     setSfxEnabled(profile?.soundOn !== false);
-    const streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
+    let streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
     const unitProgress = Object.fromEntries((await db.unitProgress.toArray()).map((r) => [r.unitId, r]));
     const lessonProgress = Object.fromEntries((await db.lessonProgress.toArray()).map((r) => [r.id, r]));
     const srsCards = Object.fromEntries((await db.srsCards.toArray()).map((r) => [r.id, r]));
     const reminders = await db.reminders.toArray();
     const events = await db.xpEvents.toArray();
     const totalXp = events.reduce((s, e) => s + e.amount, 0);
-    const day = today(profile);
+    const wasLoaded = get().loaded;
+    // The device moved to another timezone (or the profile came from one):
+    // days are now counted on this device's calendar. Re-read the last active
+    // day on that calendar too, so the move itself can neither skip a day
+    // (breaking the streak after flying east) nor hand out a free one. Only
+    // at app start — a sync landing mid-session must not make two devices in
+    // different timezones rewrite the profile at each other.
+    const tz = deviceTimeZone();
+    if (!wasLoaded && profile && profile.timezone !== tz) {
+      const lastTs = events.reduce((m, e) => (e.ts > m ? e.ts : m), '');
+      if (streak.lastActiveDay && lastTs) {
+        const anchored = localDay(new Date(lastTs), tz);
+        if (anchored !== streak.lastActiveDay && Math.abs(dayDiff(streak.lastActiveDay, anchored)) === 1) {
+          streak = { ...streak, lastActiveDay: anchored };
+          await db.streaks.put(streak);
+        }
+      }
+      profile = { ...profile, timezone: tz };
+      await db.profile.put(profile);
+    }
+    const day = today();
     const todayXp = events.filter((e) => e.day === day).reduce((s, e) => s + e.amount, 0);
     const reviewCount = events.filter((e) => e.source === 'review' || e.source === 'game').length;
     const coinEvents = await db.coinEvents.toArray();
@@ -298,7 +382,6 @@ export const useApp = create<AppState>((set, get) => ({
     const sess = await db.settings.bulkGet(['syncAuthToken', 'syncAuthEmail', 'syncAuthSlot']);
     const [token, email, slot] = sess.map((r) => r?.value as string | undefined);
     const session = token && email && slot ? { token, email, slot } : null;
-    const wasLoaded = get().loaded;
     set({
       loaded: true,
       profile,
@@ -337,7 +420,7 @@ export const useApp = create<AppState>((set, get) => ({
       startSection: 0,
       difficulty,
       scriptMode: 'roman+telugu',
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      timezone: deviceTimeZone(),
       soundOn: true,
     };
     await db.profile.put(profile);
@@ -385,14 +468,17 @@ export const useApp = create<AppState>((set, get) => ({
   async awardXp(amount, source, refId) {
     await get().rollDay();
     const state = get();
-    const day = today(state.profile);
+    const day = today();
     const prevTotal = state.totalXp;
     const goalBefore = state.todayXp >= DAILY_GOAL_XP[state.profile?.difficulty ?? 'standard'];
 
     const upd = recordActivity(state.streak, day);
     let streakState = upd.state;
-    const earned = freezesEarned(prevTotal, prevTotal + amount);
-    if (earned > 0) streakState = grantFreeze(streakState, earned);
+    const crossed = freezesEarned(prevTotal, prevTotal + amount);
+    const heldBefore = streakState.freezesOwned;
+    if (crossed > 0) streakState = grantFreeze(streakState, crossed);
+    // what was really added: nothing when the learner already holds the maximum
+    const earned = streakState.freezesOwned - heldBefore;
     const streak: StreakRow = { id: 'main', ...streakState };
 
     await db.transaction('rw', [db.streaks, db.xpEvents], async () => {
@@ -407,13 +493,24 @@ export const useApp = create<AppState>((set, get) => ({
     // every progress event funnels through here — nudge the cross-device sync
     void import('./sync').then(({ sync }) => sync.requestSync());
     const goalNow = todayXp >= DAILY_GOAL_XP[state.profile?.difficulty ?? 'standard'];
+    const goalJustReached = goalNow && !goalBefore;
+    // Goal and streak-milestone coins belong to the XP that triggered them,
+    // whatever earned it (lesson, game, dialogue). The coin ledger is the
+    // guard: once per day for the goal, once per milestone day.
+    const goalCoins = goalJustReached ? goalBonusDue(get().coinEvents, day) : 0;
+    if (goalCoins > 0) await get().grantCoins(goalCoins, 'goal', day);
+    const milestoneCoins = upd.extended ? milestoneBonusDue(get().coinEvents, streak.current, day) : 0;
+    if (milestoneCoins > 0) await get().grantCoins(milestoneCoins, 'milestone', `streak:${streak.current}`);
     return {
       amount,
       streakExtended: upd.extended,
       streakCount: streak.current,
       freezesEarnedNow: earned,
       freezesConsumed: upd.freezesConsumed,
-      goalJustReached: goalNow && !goalBefore,
+      goalJustReached,
+      goalCoins,
+      milestone: milestoneCoins > 0 ? streak.current : null,
+      milestoneCoins,
     };
   },
 
@@ -443,7 +540,7 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   async finishGameRound(result) {
-    const day = today(get().profile);
+    const day = today();
     // the round is recorded as an XP event even when it pays no XP, so the
     // day's count and the badge stat see every round
     const played = (await db.xpEvents.toArray()).filter((e) => e.source === 'game' && e.day === day).length;
@@ -451,14 +548,41 @@ export const useApp = create<AppState>((set, get) => ({
     for (const o of result.outcomes) {
       if (get().srsCards[o.itemId]) await get().applyReview(o.itemId, ratingForOutcome(o));
     }
+    if (!roundCounts(result)) {
+      // nothing was solved (the clock ran out untouched): not a round played.
+      // No XP event, so no streak day, no quest or badge progress, and none of
+      // the day's full-pay rounds is used up.
+      const idle: XpAward = {
+        amount: 0,
+        streakExtended: false,
+        streakCount: get().streak.current,
+        freezesEarnedNow: 0,
+        freezesConsumed: 0,
+        goalJustReached: false,
+        goalCoins: 0,
+        milestone: null,
+        milestoneCoins: 0,
+      };
+      return { xp: 0, coins: 0, goalCoins: 0, milestoneCoins: 0, rewarded, roundsToday: played, award: idle, questsCompleted: [], badgesEarned: [] };
+    }
     const ref = `${result.game}:${new Date().toISOString()}`;
     const xp = rewarded ? roundXp(result) : 0;
-    const coins = roundCoins(result, rewarded);
+    const roundPay = roundCoins(result, rewarded);
     const award = await get().awardXp(xp, 'game', ref);
-    if (coins > 0) await get().grantCoins(coins, 'game', ref);
+    if (roundPay > 0) await get().grantCoins(roundPay, 'game', ref);
     const questsCompleted = await get().bumpQuest('review', 1);
     const badgesEarned = await get().refreshBadges();
-    return { xp, coins, rewarded, roundsToday: played + 1, award, questsCompleted, badgesEarned };
+    return {
+      xp,
+      coins: roundPay + award.goalCoins + award.milestoneCoins,
+      goalCoins: award.goalCoins,
+      milestoneCoins: award.milestoneCoins,
+      rewarded,
+      roundsToday: played + 1,
+      award,
+      questsCompleted,
+      badgesEarned,
+    };
   },
 
   async completeLesson(unitId, lessonId, pct, xp) {
@@ -535,7 +659,8 @@ function badgeStats(state: AppState): BadgeStats {
     longestStreak: state.streak.longest,
     totalXp: state.totalXp,
     reviews: state.reviewCount,
-    cards: Object.keys(state.srsCards).length,
+    // only phrases that still exist: cards of ids retired by a content update are not "learned"
+    cards: learnedCount(state.srsCards),
     coinsEarned: earnedTotal(state.coinEvents),
     unitsDone: units.filter((u) => {
       const up = state.unitProgress[u.id];
@@ -560,8 +685,7 @@ useApp.subscribe((state, prev) => {
 
 export function useStreakStanding(): { standing: StreakStanding; count: number } {
   const streak = useApp((s) => s.streak);
-  const profile = useApp((s) => s.profile);
-  const day = today(profile);
+  const day = today();
   return { standing: standing(streak, day), count: displayCount(streak, day) };
 }
 
@@ -572,9 +696,14 @@ export function useDailyGoal(): { goal: number; earned: number; pct: number } {
   return { goal, earned: todayXp, pct: Math.min(1, todayXp / goal) };
 }
 
+/**
+ * Phrases waiting for a round — only the ones a game can actually deal.
+ * (Counting every due card left the badge stuck: cards of retired ids and
+ * of sentences too long for a tile are never dealt, so they never clear.)
+ */
 export function useDueCount(): number {
   const cards = useApp((s) => s.srsCards);
-  return dueCards(Object.values(cards), new Date()).length;
+  return gamePool(cards).dueIds.length;
 }
 
 /**

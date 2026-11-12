@@ -208,3 +208,71 @@ describe('mergeBackups: coins, quests, badges', () => {
     expect(m.badges).toHaveLength(1);
   });
 });
+
+describe('mergeBackups: streak freezes follow the ledgers', () => {
+  type S = { freezesOwned: number; freezeUsedOn: string[] };
+  const xp = (ts: string, amount: number) => ({ ts, amount, source: 'lesson', refId: `l:${ts}`, day: ts.slice(0, 10) });
+  const seed = { ts: '2026-07-16T09:00:00Z', delta: 500, kind: 'quest', refId: 'seed', day: '2026-07-16' };
+  const buy = (ts: string) => ({ ts, delta: -200, kind: 'spend', refId: 'freeze', day: ts.slice(0, 10) });
+  const streak = (freezesOwned: number, lastActiveDay = '2026-07-17', freezeUsedOn: string[] = []) => ({ id: 'main', current: 3, longest: 5, lastActiveDay, freezesOwned, freezeUsedOn });
+  const dev = (over: Record<string, unknown[]>, at = '2026-07-18T09:00:00Z') => mk({ ...deviceA().data, coinEvents: [], ...over }, at);
+  const owned = (m: BackupFile) => (m.data.streaks[0] as S).freezesOwned;
+
+  it('a freeze just bought survives the merge with this device’s own earlier upload', () => {
+    const local = dev({ streaks: [streak(1)], coinEvents: [seed, buy('2026-07-17T12:00:00Z')] }, '2026-07-17T12:01:00Z');
+    const remote = dev({ streaks: [streak(0)], coinEvents: [seed] }, '2026-07-17T11:00:00Z');
+    expect(owned(mergeBackups(local, remote))).toBe(1);
+    expect(owned(mergeBackups(remote, local))).toBe(1);
+  });
+
+  it('a freeze earned through XP survives the same way', () => {
+    const shared = xp('2026-07-16T10:00:00Z', 290);
+    const local = dev({ streaks: [streak(1)], xpEvents: [shared, xp('2026-07-17T10:00:00Z', 20)] });
+    const remote = dev({ streaks: [streak(0)], xpEvents: [shared] });
+    expect(owned(mergeBackups(local, remote))).toBe(1);
+    expect(owned(mergeBackups(remote, local))).toBe(1);
+  });
+
+  it('merging again changes nothing (idempotent) and the order does not matter', () => {
+    const local = dev({ streaks: [streak(1)], coinEvents: [seed, buy('2026-07-17T12:00:00Z')] });
+    const remote = dev({ streaks: [streak(0)], coinEvents: [seed] });
+    const once = mergeBackups(local, remote);
+    expect(mergeBackups(once, remote).data.streaks).toEqual(once.data.streaks);
+    expect(mergeBackups(remote, once).data.streaks).toEqual(once.data.streaks);
+    expect(mergeBackups(once, once).data.streaks).toEqual(once.data.streaks);
+    expect(mergeBackups(remote, local).data.streaks).toEqual(once.data.streaks);
+  });
+
+  it('two devices crossing the same XP threshold offline earn one freeze, not two', () => {
+    const shared = xp('2026-07-16T10:00:00Z', 290);
+    const a = dev({ streaks: [streak(1)], xpEvents: [shared, xp('2026-07-17T10:00:00Z', 20)] });
+    const b = dev({ streaks: [streak(1)], xpEvents: [shared, xp('2026-07-17T11:00:00Z', 20)] });
+    expect(owned(mergeBackups(a, b))).toBe(1);
+  });
+
+  it('a freeze bought on each device counts twice, up to the cap', () => {
+    const a = dev({ streaks: [streak(1)], coinEvents: [seed, buy('2026-07-17T12:00:00Z')] });
+    const b = dev({ streaks: [streak(1)], coinEvents: [seed, buy('2026-07-17T13:00:00Z')] });
+    expect(owned(mergeBackups(a, b))).toBe(2);
+    const c = dev({ streaks: [streak(2)], coinEvents: [seed, buy('2026-07-17T12:00:00Z'), buy('2026-07-17T12:30:00Z')] });
+    expect(owned(mergeBackups(c, b))).toBe(2); // three paid for, two is the most anyone holds
+  });
+
+  it('a bought freeze that was then used is not handed back by a stale upload', () => {
+    const now = dev({
+      streaks: [streak(0, '2026-07-19', ['2026-07-18'])],
+      coinEvents: [seed, buy('2026-07-17T12:00:00Z')],
+      xpEvents: [xp('2026-07-17T10:00:00Z', 30), xp('2026-07-19T10:00:00Z', 30)],
+    });
+    const stale = dev({ streaks: [streak(1)], coinEvents: [seed, buy('2026-07-17T12:00:00Z')], xpEvents: [xp('2026-07-17T10:00:00Z', 30)] });
+    for (const m of [mergeBackups(now, stale), mergeBackups(stale, now)]) {
+      expect(owned(m)).toBe(0);
+      expect((m.data.streaks[0] as S).freezeUsedOn).toEqual(['2026-07-18']);
+    }
+  });
+
+  it('a count both sides already agree on is kept even when the ledgers cannot explain it', () => {
+    const a = dev({ streaks: [streak(2)] });
+    expect(owned(mergeBackups(a, dev({ streaks: [streak(2)] })))).toBe(2);
+  });
+});

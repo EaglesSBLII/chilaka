@@ -12,186 +12,228 @@
     {
       "id": "u82-i01",
       "te": "ఎ",
-      "audioTe": "ఎ. ఎద్దు.",
-      "gloss": "e — as in 'eddu' (bull)",
-      "words": [{ "te": "ఎ", "gloss": "short 'e', like the e in 'end'" }],
-      "tags": ["vowel"],
+      "gloss": "e — short, like the e in 'end'",
+      "words": [
+        {
+          "te": "ఎ",
+          "gloss": "short 'e', like the e in 'end'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i02"],
+      "distractors": [
+        "u82-i02"
+      ],
       "note": "ఎ and ఏ are twins — ఏ grows an extra check-mark on top. Spot that mark before you read."
     },
     {
       "id": "u82-i02",
       "te": "ఏ",
-      "audioTe": "ఏ. ఏనుగు.",
-      "gloss": "ee — as in 'eenugu' (elephant)",
-      "words": [{ "te": "ఏ", "gloss": "long 'ee', like the a in 'gate' held longer" }],
-      "tags": ["vowel"],
+      "gloss": "ee — long, like the a in 'gate'",
+      "words": [
+        {
+          "te": "ఏ",
+          "gloss": "long 'ee', like the a in 'gate' held longer"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i01"],
+      "distractors": [
+        "u82-i01"
+      ],
       "note": "You already ask ఏ ఊరు? (which town?) and ఏంటి? (what?) — both start with this long ఏ."
     },
     {
       "id": "u82-i03",
       "te": "ఐ",
-      "audioTe": "ఐ. ఐదు.",
-      "gloss": "ai — as in 'aidu' (five)",
-      "words": [{ "te": "ఐ", "gloss": "'ai', like the i in 'time'" }],
-      "tags": ["vowel"],
+      "gloss": "ai — like the i in 'time'",
+      "words": [
+        {
+          "te": "ఐ",
+          "gloss": "'ai', like the i in 'time'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i06", "u82-i01"],
+      "distractors": [
+        "u82-i06",
+        "u82-i01"
+      ],
       "note": "Careful later: ఐ also looks a lot like the consonant బ (ba). The vowel ఐ has the extra loop below."
     },
     {
       "id": "u82-i04",
       "te": "ఒ",
-      "audioTe": "ఒ. ఒకటి.",
-      "gloss": "o — as in 'okaTi' (one)",
-      "words": [{ "te": "ఒ", "gloss": "short 'o', like the o in 'obey'" }],
-      "tags": ["vowel"],
+      "gloss": "o — short, like the o in 'obey'",
+      "words": [
+        {
+          "te": "ఒ",
+          "gloss": "short 'o', like the o in 'obey'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i05", "u82-i06"]
+      "distractors": [
+        "u82-i05",
+        "u82-i06"
+      ]
     },
     {
       "id": "u82-i05",
       "te": "ఓ",
-      "audioTe": "ఓ. ఓడ.",
-      "gloss": "oo — as in 'ooDa' (ship)",
-      "words": [{ "te": "ఓ", "gloss": "long 'oo', like the o in 'go' held longer" }],
-      "tags": ["vowel"],
+      "gloss": "oo — long, like the o in 'go'",
+      "words": [
+        {
+          "te": "ఓ",
+          "gloss": "long 'oo', like the o in 'go' held longer"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i04", "u82-i06"],
+      "distractors": [
+        "u82-i04",
+        "u82-i06"
+      ],
       "note": "ఒ ఓ ఔ are a family: ఓ adds a top mark to ఒ, and ఔ adds a tail after it. Three lookalikes — the marks decide."
     },
     {
       "id": "u82-i06",
       "te": "ఔ",
-      "audioTe": "ఔ. ఔను.",
-      "gloss": "au — as in 'aunu' (yes)",
-      "words": [{ "te": "ఔ", "gloss": "'au', like the ow in 'cow'" }],
-      "tags": ["vowel"],
+      "gloss": "au — like the ow in 'cow'",
+      "words": [
+        {
+          "te": "ఔ",
+          "gloss": "'au', like the ow in 'cow'"
+        }
+      ],
+      "tags": [
+        "vowel"
+      ],
       "difficulty": 1,
-      "distractors": ["u82-i05", "u82-i03"]
+      "distractors": [
+        "u82-i05",
+        "u82-i03"
+      ]
     },
     {
       "id": "u82-i07",
       "te": "అం",
-      "audioTe": "అం. అందం.",
-      "gloss": "am — అ with the round sunna (dot)",
-      "words": [{ "te": "అం", "gloss": "am — the circle ం adds a nasal hum" }],
-      "tags": ["sign"],
+      "gloss": "am — a with a nasal hum",
+      "words": [
+        {
+          "te": "అం",
+          "gloss": "am — the circle ం adds a nasal hum"
+        }
+      ],
+      "tags": [
+        "sign"
+      ],
       "difficulty": 2,
-      "distractors": ["u81-i01", "u82-i08"],
+      "distractors": [
+        "u82-i08"
+      ],
       "note": "That little circle ం is the సున్న (sunna). It hums like m or n: అందం (beauty), అన్నం (rice). You will see it everywhere."
     },
     {
       "id": "u82-i08",
       "te": "అః",
-      "audioTe": "అః. దుఃఖం.",
-      "gloss": "aha — అ with the two-dot visarga",
-      "words": [{ "te": "అః", "gloss": "aha — the two dots ః add a breathy 'h' puff" }],
-      "tags": ["sign"],
+      "gloss": "ah — a with a breathy puff",
+      "words": [
+        {
+          "te": "అః",
+          "gloss": "ah — the two dots ః add a breathy 'h' puff"
+        }
+      ],
+      "tags": [
+        "sign"
+      ],
       "difficulty": 2,
-      "distractors": ["u82-i07", "u81-i01"],
+      "distractors": [
+        "u82-i07"
+      ],
       "note": "ః (visarga) is rare — mostly in Sanskrit loans like దుఃఖం (sorrow). Recognize it; you'll seldom write it."
     },
     {
-      "id": "u82-i09",
-      "te": "ఎద్దు",
-      "gloss": "eddu — bull",
-      "words": [
-        { "te": "ఎ", "gloss": "e" },
-        { "te": "ద్దు", "gloss": "ddu — doubled ద with the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i10", "u81-i09"]
-    },
-    {
-      "id": "u82-i10",
-      "te": "ఏనుగు",
-      "gloss": "eenugu — elephant",
-      "words": [
-        { "te": "ఏ", "gloss": "ee" },
-        { "te": "ను", "gloss": "nu — న carrying the ఉ sound" },
-        { "te": "గు", "gloss": "gu — గ carrying the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i09"],
-      "note": "Three aksharas, three beats: ఏ-ను-గు. Telugu reads exactly as it sounds."
-    },
-    {
-      "id": "u82-i11",
-      "te": "ఐదు",
-      "gloss": "aidu — five",
-      "words": [
-        { "te": "ఐ", "gloss": "ai" },
-        { "te": "దు", "gloss": "du — ద carrying the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i12"],
-      "note": "You already count ఒకటి, రెండు... ఐదు at the market — now you can read 'five'."
-    },
-    {
-      "id": "u82-i12",
-      "te": "ఒకటి",
-      "gloss": "okaTi — one",
-      "words": [
-        { "te": "ఒ", "gloss": "o" },
-        { "te": "క", "gloss": "ka" },
-        { "te": "టి", "gloss": "Ti — ట carrying the ఇ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i11", "u82-i13"]
-    },
-    {
-      "id": "u82-i13",
-      "te": "ఓడ",
-      "gloss": "ooDa — ship",
-      "words": [
-        { "te": "ఓ", "gloss": "oo" },
-        { "te": "డ", "gloss": "Da" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i12", "u82-i14"]
-    },
-    {
-      "id": "u82-i14",
-      "te": "ఔను",
-      "gloss": "aunu — yes",
-      "words": [
-        { "te": "ఔ", "gloss": "au" },
-        { "te": "ను", "gloss": "nu — న carrying the ఉ sound" }
-      ],
-      "tags": ["word"],
-      "difficulty": 2,
-      "distractors": ["u82-i13"],
-      "note": "You say ఔను (yes) every day — your first read word that's a whole answer."
-    },
-    {
       "id": "u82-i15",
-      "te": "ఎఏ ఐ ఒఓ ఔ",
+      "te": "ఎ ఏ ఐ ఒ ఓ ఔ",
       "audioTe": "ఎ, ఏ. ఐ. ఒ, ఓ. ఔ.",
       "gloss": "the remaining vowels — short/long pairs plus the glides",
       "words": [
-        { "te": "ఎఏ", "gloss": "e, ee" },
-        { "te": "ఐ", "gloss": "ai" },
-        { "te": "ఒఓ", "gloss": "o, oo" },
-        { "te": "ఔ", "gloss": "au" }
+        {
+          "te": "ఎ",
+          "gloss": "e"
+        },
+        {
+          "te": "ఏ",
+          "gloss": "ee"
+        },
+        {
+          "te": "ఐ",
+          "gloss": "ai"
+        },
+        {
+          "te": "ఒ",
+          "gloss": "o"
+        },
+        {
+          "te": "ఓ",
+          "gloss": "oo"
+        },
+        {
+          "te": "ఔ",
+          "gloss": "au"
+        }
       ],
-      "tags": ["review"],
+      "tags": [
+        "review"
+      ],
       "difficulty": 2,
-      "note": "With u81's six, you now read all the అచ్చులు (vowels). Next stop: consonants."
+      "note": "With the first six vowels, you now read all the అచ్చులు (vowels). Next stop: consonants."
     }
   ],
   "lessons": [
-    { "id": "l1", "title": "e & ee", "itemIds": ["u82-i01", "u82-i02", "u82-i09", "u82-i10"] },
-    { "id": "l2", "title": "ai & o", "itemIds": ["u82-i03", "u82-i11", "u82-i04", "u82-i12"] },
-    { "id": "l3", "title": "oo & au", "itemIds": ["u82-i05", "u82-i13", "u82-i06", "u82-i14"] },
-    { "id": "l4", "title": "sunna, visarga & recap", "itemIds": ["u82-i07", "u82-i08", "u82-i15"] }
+    {
+      "id": "l1",
+      "title": "e & ee",
+      "itemIds": [
+        "u82-i01",
+        "u82-i02"
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "ai & o",
+      "itemIds": [
+        "u82-i03",
+        "u82-i04"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "oo & au",
+      "itemIds": [
+        "u82-i05",
+        "u82-i06"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "sunna, visarga & recap",
+      "itemIds": [
+        "u82-i07",
+        "u82-i08",
+        "u82-i15"
+      ]
+    }
   ]
 }
