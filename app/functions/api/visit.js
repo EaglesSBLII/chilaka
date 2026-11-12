@@ -42,7 +42,8 @@ async function record(request, env) {
     visitor,
   };
   const key = `v:${now.toISOString()}:${visitor}`;
-  await env.VISITS.put(key, JSON.stringify(entry), { expirationTtl: DAYS * 86400 });
+  // the entry rides along as key metadata too, so the owner dashboard can read a whole page of visits in one list call
+  await env.VISITS.put(key, JSON.stringify(entry), { expirationTtl: DAYS * 86400, metadata: entry });
 }
 
 async function sha256(s) {

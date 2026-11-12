@@ -1,0 +1,26 @@
+# Private owner dashboard for Chilaka: account emails + live visit log.
+# Everything under /api needs the owner's password (see docs/ADMIN.md).
+name = "chilaka-admin"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# The page shell (no data in it); every /api call goes through the worker.
+[assets]
+directory = "./public"
+run_worker_first = ["/api/*"]
+
+# Accounts (read only here: emails).
+[[d1_databases]]
+binding = "DB"
+database_name = "chilaka"
+database_id = "8af450c8-da49-4654-b0c4-eccf528b1438"
+
+# Visit log shared by the website and the app; also holds this worker's
+# sign-in attempt counters and GitHub cache under the "admin:" prefix.
+[[kv_namespaces]]
+binding = "VISITS"
+id = "c7cc9dca8cc643548a74f6d7fd05f839"
+
+# Secrets (never in this file):
+#   ADMIN_PASSWORD_HASH  set with `node tools/admin-password.mjs`
+#   GITHUB_TOKEN         optional, for repository traffic (docs/ADMIN.md)

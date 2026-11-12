@@ -64,3 +64,22 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
+
+  admin:
+    # Private owner dashboard (account emails + visit log). It answers nothing
+    # until the owner sets a password: node tools/admin-password.mjs (docs/ADMIN.md).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test the dashboard worker
+        run: npm test
+        working-directory: admin-worker
+      - name: Deploy the dashboard worker
+        run: npx --yes wrangler deploy
+        working-directory: admin-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}

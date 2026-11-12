@@ -37,3 +37,6 @@ voice-ref/
 vendor/py311/
 tools/voice-align-report.json
 tools/voice-scan-report.json
+
+# local-only secrets for `wrangler dev`
+.dev.vars

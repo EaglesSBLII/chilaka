@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Chilaka Owner</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<main id="app" aria-live="polite">
+  <section id="loading" class="center"><p class="muted">Loading…</p></section>
+
+  <section id="setup" class="center" hidden>
+    <div class="card narrow">
+      <h1>Set your password first</h1>
+      <p>No password has been set for this dashboard, so it shows nothing to anyone. On your Mac, in the project folder, run:</p>
+      <pre>node tools/admin-password.mjs</pre>
+      <p class="muted">It asks for a password only you know and stores a one-way hash with Cloudflare. Then reload this page.</p>
+    </div>
+  </section>
+
+  <section id="login" class="center" hidden>
+    <form id="login-form" class="card narrow" autocomplete="off">
+      <h1>Chilaka Owner</h1>
+      <p class="muted">Private. Enter your password.</p>
+      <label for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password" required minlength="1" autofocus>
+      <p id="login-error" class="error" role="alert" hidden></p>
+      <button id="login-btn" type="submit" class="primary">Unlock</button>
+    </form>
+  </section>
+
+  <section id="dash" hidden>
+    <header class="top">
+      <h1>Chilaka Owner</h1>
+      <div class="top-right">
+        <span id="live" class="live" title="Checks for new visits every 30 seconds while this tab is open"><i></i><span id="live-text">Live</span></span>
+        <button id="logout" type="button" class="ghost">Lock</button>
+      </div>
+    </header>
+
+    <div class="tiles">
+      <div class="tile"><div class="num" id="t-accounts">–</div><div class="lbl">Accounts</div></div>
+      <div class="tile"><div class="num" id="t-today">–</div><div class="lbl">Real visitors today</div></div>
+      <div class="tile"><div class="num" id="t-week">–</div><div class="lbl">Real visitors, 7 days</div></div>
+      <div class="tile"><div class="num" id="t-downloads">–</div><div class="lbl">Mac app downloads</div></div>
+    </div>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Account emails</h2>
+        <div class="row">
+          <input id="email-filter" type="search" placeholder="Filter" aria-label="Filter emails">
+          <button id="copy-emails" type="button" class="ghost">Copy all</button>
+        </div>
+      </div>
+      <ol id="emails" class="emails"></ol>
+      <p id="emails-empty" class="muted" hidden>No accounts yet.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Visitors</h2>
+        <label class="check"><input id="real-only" type="checkbox" checked> Hide automated visits</label>
+      </div>
+      <p class="muted small" id="visit-note"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>When</th><th>Where</th><th>What</th><th>Place</th><th>Device</th><th>Network</th></tr></thead>
+          <tbody id="visits"></tbody>
+        </table>
+      </div>
+      <p id="visits-empty" class="muted" hidden>No visits to show.</p>
+      <button id="older" type="button" class="ghost" hidden>Load older</button>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>GitHub</h2>
+        <button id="gh-refresh" type="button" class="ghost">Refresh</button>
+      </div>
+      <div id="gh"></div>
+    </section>
+  </section>
+</main>
+<script src="/app.js" defer></script>
+</body>
+</html>
