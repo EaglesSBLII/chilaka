@@ -16,7 +16,7 @@ const DESKTOP = join(__dirname, '..');
 
 test.setTimeout(180_000);
 
-test('banner: available → Update → percentage → ready', async () => {
+test('banner says an update is available → Settings → Download → percentage → ready', async () => {
   // a fake installer: Chilaka.app with ~24 MB of incompressible padding inside a real dmg
   const work = mkdtempSync(join(tmpdir(), 'chilaka-fake-release-'));
   const src = join(work, 'src', 'Chilaka.app', 'Contents', 'MacOS');
@@ -67,10 +67,24 @@ test('banner: available → Update → percentage → ready', async () => {
     // the first check runs 15 s after launch
     const banner = win.getByTestId('update-banner');
     await expect(banner).toHaveAttribute('data-phase', 'available', { timeout: 60_000 });
-    await expect(banner).toContainText('Chilaka 9.9.9 is available');
+    await expect(banner).toContainText('Update available: Chilaka 9.9.9');
+    // before a profile exists there is no Settings to go to: the bar offers Update itself
+    await expect(banner.getByRole('button', { name: 'Update' })).toBeVisible();
+    await win.getByRole('button', { name: 'Continue without an account' }).click();
+    await win.getByPlaceholder('Your name').fill('Tester');
+    await win.getByRole('button', { name: 'Continue' }).click();
+    await win.getByRole('button', { name: 'Continue' }).click();
+    await win.getByRole('button', { name: 'Start from the beginning' }).click();
+    // on the home screen the bar points to Settings, where the download lives
+    await expect(banner).toContainText('Head to Settings to download it.');
+    // it must actually be on screen: the home screen scrolls down to the current lesson by itself
+    await win.waitForTimeout(1500);
+    await expect(banner).toBeInViewport();
     await win.screenshot({ path: join(DESKTOP, 'test-results', 'update-1-available.png') });
-
-    await banner.getByRole('button', { name: 'Update' }).click();
+    await banner.getByRole('button', { name: 'Settings' }).click();
+    const card = win.getByTestId('update-card');
+    await expect(card).toContainText('Chilaka 9.9.9 is available');
+    await card.getByRole('button', { name: 'Download update' }).click();
     await expect(banner).toHaveAttribute('data-phase', 'downloading', { timeout: 10_000 });
     const seen = new Set();
     const started = Date.now();

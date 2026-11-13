@@ -498,3 +498,6 @@ button {
   .welcome *, .welcome.is-leaving, .welcome.is-leaving .welcome-wipe { animation: none !important; }
   .welcome.is-leaving { opacity: 0; transition: opacity 0.2s; }
 }
+
+/* update notice + header pinned as one block; the notice already clears the status bar */
+.top-stack > [data-testid='update-banner'] + header { padding-top: 0; }

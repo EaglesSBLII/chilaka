@@ -1,13 +1,20 @@
-// Update notice at the top of the home screen. Nothing happens on its own:
-// the learner presses Update (Mac app) and Restart (both hosts). While the new
-// version downloads, the bar shows the real percentage.
+// Update notice at the top of the home screen, shown whenever a new version
+// exists. It tells the learner to head to Settings, where the download lives
+// (Settings → App update); pressing it goes there. Nothing happens on its own.
+// While the new version downloads the bar shows the real percentage, and when
+// it is ready it offers Restart. Before a profile exists there is no Settings
+// screen to send anyone to, so the bar keeps its own Update button then.
 
 import { useUpdates } from '../updates';
+import { useApp } from '../store';
 
 const mb = (n?: number) => (n ? `${(n / 1048576).toFixed(n > 100 * 1048576 ? 0 : 1)} MB` : '');
 
 export function UpdateBanner() {
   const { host, phase, version, percent, received, size, error, update, restart } = useUpdates();
+  const onboarded = useApp((s) => Boolean(s.profile?.onboarded));
+  const inSettings = useApp((s) => s.view.name === 'settings');
+  const navigate = useApp((s) => s.navigate);
   if (phase === 'idle' || phase === 'checking' || phase === 'up-to-date') return null;
 
   const name = version ? `Chilaka ${version}` : 'A new version of Chilaka';
@@ -28,8 +35,14 @@ export function UpdateBanner() {
         <div className="min-w-0 flex-1">
           {phase === 'available' && (
             <>
-              <div className="text-sm font-extrabold">{name} is available</div>
-              <div className="text-xs text-white/80">{size ? `${mb(size)} download · ` : ''}Press Update when you are ready.</div>
+              <div className="text-sm font-extrabold">Update available: {name}</div>
+              <div className="text-xs text-white/80">
+                {!onboarded
+                  ? `${size ? `${mb(size)} download · ` : ''}Press Update when you are ready.`
+                  : inSettings
+                    ? 'Scroll to App update below to download it.'
+                    : 'Head to Settings to download it.'}
+              </div>
             </>
           )}
           {phase === 'downloading' && (
@@ -72,9 +85,14 @@ export function UpdateBanner() {
             </>
           )}
         </div>
-        {phase === 'available' && (
+        {phase === 'available' && !onboarded && (
           <button className={button} onClick={update}>
             Update
+          </button>
+        )}
+        {phase === 'available' && onboarded && !inSettings && (
+          <button className={button} onClick={() => navigate({ name: 'settings' })}>
+            Settings
           </button>
         )}
         {phase === 'ready' && (

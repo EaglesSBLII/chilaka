@@ -117,8 +117,12 @@ export function App() {
 
   return (
     <div className="min-h-screen pb-24">
-      <UpdateBanner />
-      <Header />
+      {/* pinned together: the home screen scrolls itself down to the current lesson,
+          and an update notice that scrolls away with it is never seen */}
+      <div className="top-stack sticky top-0 z-30">
+        <UpdateBanner />
+        <Header />
+      </div>
       <main className="mx-auto max-w-2xl px-4 py-6">
         <PageTransition id={view.name}>
           {/* FOREST-MAP SEAM: PathSwitch shows the forest map or the classic <Path />.

@@ -12,6 +12,7 @@ import { sync } from '../sync';
 import { SYNC_ENDPOINT } from '../sync-config';
 import { Button, Card } from '../components/ui';
 import { AccountCard } from './settings/AccountCard';
+import { UpdateCard } from './settings/UpdateCard';
 import { PushToggle } from './settings/PushToggle';
 import { PathStyleSetting } from './forest/PathStyleSetting'; // FOREST-MAP SEAM
 import type { Difficulty, ScriptMode } from '../engine/types';
@@ -72,6 +73,8 @@ export function Settings() {
   return (
     <div className="flex flex-col gap-5">
       <h2 className="text-2xl font-extrabold">Settings</h2>
+
+      <UpdateCard />
 
       <AccountCard />
 
