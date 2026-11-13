@@ -421,3 +421,31 @@ button {
   .welcome-bird, .welcome-bob, .welcome-words, .welcome-cloud { animation: none; }
   .welcome-cloud { opacity: 0.6; }
 }
+
+/* ---- 3D welcome flight (features/welcome/Flight3D.tsx) ---- */
+.welcome-stage { position: absolute; inset: 0; }
+.welcome-stage canvas { display: block; width: 100%; height: 100%; }
+.welcome-loading .welcome-words, .welcome-loading .welcome-skip { opacity: 0; animation: none; }
+/* 3D timing: the words sit low, appear as the bird arrives, and clear out before the dive */
+.welcome-3d .welcome-words { top: auto; bottom: 15%; animation: welcome-words-3d 4.2s ease both; }
+.welcome-3d .welcome-title { color: #0a4f49; text-shadow: 0 2px 0 rgba(255, 248, 237, 0.55); }
+.welcome-3d .welcome-te { color: #0e6b63; }
+.welcome-3d .welcome-sub { color: #16302b; }
+@keyframes welcome-words-3d {
+  0%, 30% { opacity: 0; transform: translateY(16px) scale(0.96); }
+  46%, 76% { opacity: 1; transform: none; }
+  86%, 100% { opacity: 0; transform: scale(1.12); }
+}
+/* the moment of impact: the screen blooms to the app's paper colour as the face fills the lens */
+.welcome-impact {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 46%, #fff8ed 0%, #fff8ed 40%, rgba(255, 248, 237, 0.92) 100%);
+  opacity: 0;
+  animation: welcome-impact 4.2s linear both;
+}
+@keyframes welcome-impact {
+  0%, 95.5% { opacity: 0; }
+  100% { opacity: 1; }
+}

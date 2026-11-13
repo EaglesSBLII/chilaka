@@ -20,7 +20,7 @@ test('welcome animation, then account first: create asks the questions, sign-in 
     const welcome = a.getByTestId('welcome');
     await expect(welcome).toBeVisible();
     await expect(welcome).toContainText('Welcome to Chilaka');
-    await expect(welcome).toHaveCount(0, { timeout: 8_000 });
+    await expect(welcome).toHaveCount(0, { timeout: 20_000 });
     await expect(a.getByRole('button', { name: 'Create an account' })).toBeVisible();
     await a.reload();
     await expect(a.getByRole('button', { name: 'Create an account' })).toBeVisible();
