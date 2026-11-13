@@ -66,7 +66,6 @@ export async function wipeState(page: Page): Promise<void> {
       ),
     );
     localStorage.clear();
-    localStorage.setItem('chilaka.welcomed', '1'); // the first-open animation has its own spec
   });
   await page.reload();
 }

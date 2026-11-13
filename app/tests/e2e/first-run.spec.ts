@@ -14,52 +14,23 @@ test('welcome animation, then account first: create asks the questions, sign-in 
   await wipeState(a);
   await mockWorker(ctxA);
 
-  await test.step('first open shows the welcome once, and it ends by itself', async () => {
-    await a.evaluate(() => {
-      localStorage.removeItem('chilaka.welcomed');
-      localStorage.setItem('chilaka.welcomePreview', '1'); // not released to everyone yet
-    });
-    await a.reload();
-    const welcome = a.getByTestId('welcome');
-    await expect(welcome).toBeVisible();
-    await expect(welcome).toContainText('Welcome to Chilaka');
-    await expect(welcome).toHaveCount(0, { timeout: 20_000 });
-    await expect(a.getByRole('button', { name: 'Create an account' })).toBeVisible();
-    await a.reload();
-    await expect(a.getByRole('button', { name: 'Create an account' })).toBeVisible();
-    await expect(a.getByTestId('welcome')).toHaveCount(0);
+  await test.step('the opening screen plays on every open, shows only the name, and ends by itself', async () => {
+    await a.evaluate(() => localStorage.setItem('chilaka.welcomePreview', '1')); // test browsers skip it otherwise
+    for (let open = 0; open < 2; open++) {
+      await a.reload();
+      const welcome = a.getByTestId('welcome');
+      await expect(welcome).toBeVisible();
+      await expect(welcome).toHaveText(/^\s*తెలుగు\s*Chilaka\.\s*$/);
+      await expect(welcome).toHaveCount(0, { timeout: 20_000 });
+      await expect(a.getByRole('button', { name: 'Create an account' })).toBeVisible();
+    }
   });
 
-  await test.step('a tap skips the welcome', async () => {
-    await a.evaluate(() => {
-      localStorage.removeItem('chilaka.welcomed');
-      localStorage.setItem('chilaka.welcomePreview', '1'); // not released to everyone yet
-    });
+  await test.step('a tap skips it', async () => {
     await a.reload();
     await a.getByTestId('welcome').click();
     await expect(a.getByTestId('welcome')).toHaveCount(0, { timeout: 1_500 });
-  });
-
-  await test.step('someone who already uses the app on this device never sees the welcome', async () => {
-    const ctx = await browser.newContext();
-    const p = await ctx.newPage();
-    await p.goto('/');
-    await wipeState(p);
-    await p.getByRole('button', { name: 'Continue without an account' }).click();
-    await p.getByPlaceholder('Your name').fill('Old Hand');
-    await p.getByRole('button', { name: 'Continue' }).click();
-    await p.getByRole('button', { name: 'Continue' }).click();
-    await p.getByRole('button', { name: 'Start from the beginning' }).click();
-    await expect(p.getByText('Old Hand', { exact: false }).first()).toBeVisible();
-    await p.evaluate(() => {
-      localStorage.removeItem('chilaka.welcomed');
-      localStorage.setItem('chilaka.welcomePreview', '1');
-    });
-    await p.reload();
-    await expect(p.getByText('Old Hand', { exact: false }).first()).toBeVisible();
-    await expect(p.getByText('Welcome to')).toHaveCount(0);
-    await expect(p.getByRole('button', { name: 'Create an account' })).toHaveCount(0);
-    await ctx.close();
+    await a.evaluate(() => localStorage.removeItem('chilaka.welcomePreview'));
   });
 
   await test.step('creating an account leads to the name and level questions', async () => {
