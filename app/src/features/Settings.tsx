@@ -1,5 +1,7 @@
 // Settings: reminders, music, script mode, pace, sound, backup export/import.
 
+import { DEV_TEST } from '../devMode';
+import { devStartOver } from '../devAccounts';
 import { useEffect, useRef, useState } from 'react';
 import { useApp } from '../store';
 import { platform } from '../platform';
@@ -72,6 +74,18 @@ export function Settings() {
       <h2 className="text-2xl font-extrabold">Settings</h2>
 
       <AccountCard />
+
+      {DEV_TEST && (
+        <Card data-testid="dev-tools">
+          <h3 className="mb-1 font-extrabold">Developer version</h3>
+          <p className="text-sm font-semibold text-ink-soft">
+            Start over to see the welcome animation and the sign-in screens again. Practice accounts are kept, so you can sign back in and check that your name, level and lessons return.
+          </p>
+          <Button variant="ghost" className="mt-3 px-4 py-2 text-sm" onClick={() => void devStartOver()}>
+            Start over as a new user
+          </Button>
+        </Card>
+      )}
 
       <Card>
         <h3 className="mb-3 font-extrabold">⏰ Daily reminders</h3>

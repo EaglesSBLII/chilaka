@@ -79,7 +79,16 @@ function RecoveryCode({ code, onDone }: { code: string; onDone: () => void }) {
   );
 }
 
-export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
+export function Auth({
+  initialMode = 'signin',
+  onDone,
+  onBack,
+}: {
+  initialMode?: Mode;
+  /** First-run flow: called instead of going to Settings. `created` = a brand-new account. */
+  onDone?: (created: boolean) => void;
+  onBack?: () => void;
+}) {
   const navigate = useApp((s) => s.navigate);
   const setSession = useApp((s) => s.setSession);
   const [mode, setMode] = useState<Mode>(initialMode);
@@ -92,13 +101,10 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
   const [error, setError] = useState<string | null>(null);
   const [recovery, setRecovery] = useState<string | null>(null);
 
+  const done = (created: boolean) => (onDone ? onDone(created) : navigate({ name: 'settings' }));
+
   const submit = async () => {
     setError(null);
-    if (__CHANNEL__ === 'dev') {
-      // the developer preview may hold half-finished features and test progress:
-      // keep it away from real accounts so nothing unreleased merges into them
-      return setError('Accounts are switched off in the developer version, so test progress never mixes into a real account.');
-    }
     if (!validEmail(email)) return setError('Enter a valid email address.');
     if (password.length < 8) return setError('Use at least 8 characters for your password.');
     const byCode = mode === 'recover' && useCode;
@@ -109,16 +115,16 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
       if (mode === 'create') {
         const r = await signup(email, password, birthday);
         setSession(r.session);
-        navigate({ name: 'settings' });
+        done(true);
       } else if (mode === 'signin') {
         setSession(await login(email, password));
-        navigate({ name: 'settings' });
+        done(false);
       } else {
         const r = await reset(email, byCode ? { recoveryCode: code } : { birthday }, password);
         setSession(r.session);
         // only an older account gets a new one-time code to save
         if (r.recoveryCode) setRecovery(r.recoveryCode);
-        else navigate({ name: 'settings' });
+        else done(false);
       }
     } catch (e) {
       console.error('auth failed', e);
@@ -131,7 +137,7 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
   if (recovery) {
     return (
       <div className="mx-auto max-w-md">
-        <RecoveryCode code={recovery} onDone={() => navigate({ name: 'settings' })} />
+        <RecoveryCode code={recovery} onDone={() => done(false)} />
       </div>
     );
   }
@@ -141,7 +147,7 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
 
   return (
     <div className="mx-auto flex max-w-md flex-col gap-4">
-      <button type="button" onClick={() => navigate({ name: 'settings' })} className="inline-flex items-center gap-1 self-start font-bold text-ink-soft" aria-label="Back">
+      <button type="button" onClick={() => (onBack ? onBack() : navigate({ name: 'settings' }))} className="inline-flex items-center gap-1 self-start font-bold text-ink-soft" aria-label="Back">
         <ArrowLeft size={18} /> Back
       </button>
       <div className="surface-hero flex items-center gap-4 p-5">
@@ -159,6 +165,11 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
           </p>
         </div>
       </div>
+      {__CHANNEL__ === 'dev' && (
+        <p className="rounded-xl bg-card/70 px-3 py-2 text-xs font-bold text-ink-soft shadow-press" data-testid="practice-note">
+          Developer version: this is a practice account kept on this device only. It never touches real Chilaka accounts.
+        </p>
+      )}
       <Card className="flex flex-col gap-3">
         <Field label="Email" type="email" value={email} onChange={setEmail} autoComplete="email" placeholder="you@example.com" />
         {mode === 'recover' && useCode && <Field label="Recovery code" value={code} onChange={setCode} placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" />}

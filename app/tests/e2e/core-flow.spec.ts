@@ -12,7 +12,7 @@ test('full learner journey: onboard, learn, persist, play, backup', async ({ pag
     await expect(page.getByText('Basic speech')).toBeVisible();
     await page.reload();
     await expect(page.getByText('Basic speech')).toBeVisible();
-    await expect(page.getByText("Let's go!")).toHaveCount(0);
+    await expect(page.getByText('Create an account')).toHaveCount(0);
   });
 
   await test.step('completing a lesson awards XP and starts the streak', async () => {
@@ -50,7 +50,7 @@ test('full learner journey: onboard, learn, persist, play, backup', async ({ pag
 
   await test.step('wipe then import restores everything', async () => {
     await wipeState(page);
-    await expect(page.getByText("Let's go!")).toBeVisible();
+    await expect(page.getByText('Create an account')).toBeVisible();
     await completeOnboarding(page, 'Temp');
     await page.getByRole('button', { name: 'Settings' }).click();
     const [chooser] = await Promise.all([
@@ -67,7 +67,7 @@ test('full learner journey: onboard, learn, persist, play, backup', async ({ pag
 
 test('placement test routes an all-correct learner past section 1', async ({ page }) => {
   await wipeState(page);
-  await page.getByRole('button', { name: "Let's go!" }).click();
+  await page.getByRole('button', { name: 'Continue without an account' }).click();
   await page.getByPlaceholder('Your name').fill('Padma');
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByRole('button', { name: 'Continue' }).click();

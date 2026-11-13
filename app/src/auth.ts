@@ -5,6 +5,8 @@
 import { db } from './db/schema';
 import { sync } from './sync';
 import { SYNC_ENDPOINT } from './sync-config';
+import { DEV_TEST } from './devMode';
+import { DevApiError, devApi } from './devAccounts';
 
 export interface Session {
   token: string;
@@ -45,7 +47,24 @@ export async function deriveAuthKey(email: string, password: string): Promise<st
   return hex(bits);
 }
 
+const MESSAGES: Record<string, string> = {
+  exists: 'There is already an account with that email.',
+  invalid: 'Email or password is wrong.',
+  rate: 'Too many attempts. Wait a few minutes.',
+  locked: 'Too many wrong answers. Password reset is locked for this account until tomorrow.',
+  'bad birthday': 'Enter your full date of birth.',
+};
+
 async function api<T>(path: string, body?: unknown, token?: string): Promise<T> {
+  if (DEV_TEST) {
+    // developer version: practice accounts on this device, never the real server
+    try {
+      return devApi(path, body, token) as T;
+    } catch (e) {
+      const code = e instanceof DevApiError ? e.code : 'error';
+      throw new AuthError(MESSAGES[code] ?? 'Something went wrong. Try again.', code);
+    }
+  }
   let res: Response;
   try {
     res = await fetch(`${SYNC_ENDPOINT}${path}`, {

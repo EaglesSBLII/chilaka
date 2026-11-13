@@ -342,23 +342,6 @@ export const useApp = create<AppState>((set, get) => ({
   async init() {
     let profile = (await db.profile.get('main')) ?? null;
     setActiveVoice(profile?.voice ?? DEFAULT_VOICE);
-    if (DEV_TEST && (!profile || !profile.onboarded || !profile.placementDone)) {
-      // developer version: no name or level set-up, straight to the path
-      profile = {
-        id: 'main',
-        name: 'Tester',
-        createdAt: new Date().toISOString(),
-        difficulty: 'standard',
-        scriptMode: 'roman+telugu',
-        timezone: deviceTimeZone(),
-        soundOn: true,
-        ...profile,
-        onboarded: true,
-        placementDone: true,
-        startSection: profile?.startSection ?? 0,
-      } as ProfileRow;
-      await db.profile.put(profile);
-    }
     setSfxEnabled(profile?.soundOn !== false);
     let streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
     const unitProgress = Object.fromEntries((await db.unitProgress.toArray()).map((r) => [r.unitId, r]));
@@ -455,12 +438,18 @@ export const useApp = create<AppState>((set, get) => ({
     const profile = { ...get().profile!, placementDone: true, startSection };
     await db.profile.put(profile);
     set({ profile, view: { name: 'path' } });
+    // the name and level just given belong on the account right away, so a
+    // second device that signs in is not asked again
+    void import('./sync').then(({ sync }) => sync.requestSync());
   },
 
   async skipPlacement() {
     const profile = { ...get().profile!, placementDone: true, startSection: 0 };
     await db.profile.put(profile);
     set({ profile, view: { name: 'path' } });
+    // the name and level just given belong on the account right away, so a
+    // second device that signs in is not asked again
+    void import('./sync').then(({ sync }) => sync.requestSync());
   },
 
   async setDifficulty(difficulty) {

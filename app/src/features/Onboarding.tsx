@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useApp } from '../store';
 import { Button, Card } from '../components/ui';
 import { Mascot } from '../components/Mascot';
 import type { Difficulty } from '../engine/types';
 import { DAILY_GOAL_XP } from '../engine/xp';
+import { Auth } from './Auth';
 
 const DIFFICULTIES: { key: Difficulty; title: string; desc: string }[] = [
   { key: 'relaxed', title: 'Relaxed', desc: '~15 min/day' },
@@ -12,8 +13,32 @@ const DIFFICULTIES: { key: Difficulty; title: string; desc: string }[] = [
 ];
 
 export function Onboarding() {
-  const [step, setStep] = useState(0);
+  // 0 = sign in or create an account; 'auth' = the account form; 1–3 = the
+  // questions (name, pace, level), asked only when we do not know the learner yet
+  const [step, setStep] = useState<0 | 1 | 2 | 3 | 'auth'>(0);
+  const [authMode, setAuthMode] = useState<'signin' | 'create'>('create');
   const [name, setName] = useState('');
+  const [busy, setBusy] = useState(false);
+  const session = useApp((s) => s.session);
+  // signed in already (a sync brought the account before the questions were
+  // answered, or the app was closed halfway): go straight to the questions
+  useEffect(() => {
+    if (session && step === 0) setStep(1);
+  }, [session, step]);
+
+  const afterAuth = async (created: boolean) => {
+    if (created) return setStep(1);
+    // signed in: the account's progress has been merged in. If it already has
+    // a name and level there is nothing to ask.
+    setBusy(true);
+    try {
+      await useApp.getState().init();
+    } finally {
+      setBusy(false);
+    }
+    if (useApp.getState().profile?.onboarded) navigate({ name: 'path' });
+    else setStep(1);
+  };
   const [difficulty, setDifficulty] = useState<Difficulty>('standard');
   const createProfile = useApp((s) => s.createProfile);
   const navigate = useApp((s) => s.navigate);
@@ -29,11 +54,33 @@ export function Onboarding() {
             I'm <span className="text-teal font-extrabold">Chikki</span>. By December, you'll be chatting away in
             Telugu — with your family and half of Hyderabad.
           </p>
-          <Button className="w-full text-lg" onClick={() => setStep(1)}>
-            Let's go!
+          <Button
+            className="w-full text-lg"
+            onClick={() => {
+              setAuthMode('create');
+              setStep('auth');
+            }}
+          >
+            Create an account
           </Button>
+          <Button
+            variant="secondary"
+            className="w-full text-lg"
+            onClick={() => {
+              setAuthMode('signin');
+              setStep('auth');
+            }}
+          >
+            I already have an account
+          </Button>
+          <p className="text-sm font-semibold text-ink-soft">Free. An account keeps your progress on every device.</p>
+          <button type="button" className="text-sm font-bold text-ink-soft underline" onClick={() => setStep(1)}>
+            Continue without an account
+          </button>
         </div>
       )}
+
+      {step === 'auth' && (busy ? <p className="text-center font-bold text-ink-soft">Getting your progress…</p> : <Auth initialMode={authMode} onDone={(created) => void afterAuth(created)} onBack={() => setStep(0)} />)}
 
       {step === 1 && (
         <div className="flex flex-col gap-5 animate-pop">
@@ -102,9 +149,11 @@ export function Onboarding() {
           <Button variant="ghost" className="w-full" onClick={() => void skipPlacement()}>
             Start from the beginning
           </Button>
-          <p className="text-center text-xs font-semibold text-ink-soft">
-            Want your progress on every device? Sign in any time in Settings.
-          </p>
+          {!session && (
+            <p className="text-center text-xs font-semibold text-ink-soft">
+              Want your progress on every device? Sign in any time in Settings.
+            </p>
+          )}
         </div>
       )}
     </div>

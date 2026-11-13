@@ -66,12 +66,13 @@ export async function wipeState(page: Page): Promise<void> {
       ),
     );
     localStorage.clear();
+    localStorage.setItem('chilaka.welcomed', '1'); // the first-open animation has its own spec
   });
   await page.reload();
 }
 
 export async function completeOnboarding(page: Page, name = 'Ravi'): Promise<void> {
-  await page.getByRole('button', { name: "Let's go!" }).click();
+  await page.getByRole('button', { name: 'Continue without an account' }).click();
   await page.getByPlaceholder('Your name').fill(name);
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByRole('button', { name: 'Continue' }).click(); // standard pace preselected

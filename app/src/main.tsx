@@ -1,3 +1,4 @@
+import { Welcome } from './features/Welcome';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
@@ -49,6 +50,7 @@ if (__CHANNEL__ === 'dev') {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <Welcome />
     <App />
   </StrictMode>,
 );

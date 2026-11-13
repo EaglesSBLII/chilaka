@@ -2,9 +2,10 @@
 // dashboard password). It never applies to the released app: __CHANNEL__ is
 // 'release' there and all of this compiles away.
 //
-// In the developer version: no name / level set-up screens, every unit and
-// lesson is open, and the coin balance is topped up so the whole shop can be
-// tried. Real progress still shows (done lessons, the current lesson).
+// In the developer version: every unit and lesson is open, the coin balance is
+// topped up so the whole shop can be tried, accounts are practice accounts
+// kept on this device (devAccounts.ts), and Settings has "Start over as a new
+// user". Real progress still shows (done lessons, the current lesson).
 
 export const DEV_TEST = typeof __CHANNEL__ !== 'undefined' && __CHANNEL__ === 'dev';
 
