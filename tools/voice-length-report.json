@@ -1,0 +1,570 @@
+{
+ "female/u81-i01": {
+  "kind": "short",
+  "was": 0.165,
+  "now": 0.165,
+  "stretch": 1.0,
+  "f0_was": 198.4,
+  "f0_now": 198.4,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.66,
+  "smooth_now": 0.66
+ },
+ "female/u81-i02": {
+  "kind": "long",
+  "was": 0.23,
+  "now": 0.505,
+  "stretch": 2.82,
+  "f0_was": 204.3,
+  "f0_now": 206.0,
+  "pitch_shift_cents": 15,
+  "smooth_was": 0.78,
+  "smooth_now": 0.86
+ },
+ "female/u81-i03": {
+  "kind": "short",
+  "was": 0.27,
+  "now": 0.23,
+  "stretch": 0.79,
+  "f0_was": 222.2,
+  "f0_now": 223.3,
+  "pitch_shift_cents": 8,
+  "smooth_was": 0.88,
+  "smooth_now": 0.87
+ },
+ "female/u81-i04": {
+  "kind": "long",
+  "was": 0.27,
+  "now": 0.51,
+  "stretch": 2.33,
+  "f0_was": 223.3,
+  "f0_now": 224.3,
+  "pitch_shift_cents": 8,
+  "smooth_was": 0.75,
+  "smooth_now": 0.85
+ },
+ "female/u81-i05": {
+  "kind": "short",
+  "was": 0.27,
+  "now": 0.23,
+  "stretch": 0.79,
+  "f0_was": 222.2,
+  "f0_now": 222.2,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.8,
+  "smooth_now": 0.79
+ },
+ "female/u81-i06": {
+  "kind": "long",
+  "was": 0.275,
+  "now": 0.51,
+  "stretch": 2.27,
+  "f0_was": 235.3,
+  "f0_now": 235.3,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.88,
+  "smooth_now": 0.91
+ },
+ "female/u82-i01": {
+  "kind": "short",
+  "was": 0.255,
+  "now": 0.225,
+  "stretch": 0.86,
+  "f0_was": 226.4,
+  "f0_now": 230.9,
+  "pitch_shift_cents": 34,
+  "smooth_was": 0.83,
+  "smooth_now": 0.82
+ },
+ "female/u82-i02": {
+  "kind": "long",
+  "was": 0.255,
+  "now": 0.505,
+  "stretch": 2.47,
+  "f0_was": 192.0,
+  "f0_now": 190.5,
+  "pitch_shift_cents": -14,
+  "smooth_was": 0.87,
+  "smooth_now": 0.89
+ },
+ "female/u82-i04": {
+  "kind": "short",
+  "was": 0.27,
+  "now": 0.23,
+  "stretch": 0.79,
+  "f0_was": 219.2,
+  "f0_now": 219.2,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.81,
+  "smooth_now": 0.8
+ },
+ "female/u82-i05": {
+  "kind": "long",
+  "was": 0.245,
+  "now": 0.515,
+  "stretch": 2.66,
+  "f0_was": 202.5,
+  "f0_now": 200.0,
+  "pitch_shift_cents": -22,
+  "smooth_was": 0.74,
+  "smooth_now": 0.85
+ },
+ "female/u83-i01": {
+  "kind": "short",
+  "was": 0.17,
+  "now": 0.17,
+  "stretch": 1.0,
+  "f0_was": 231.9,
+  "f0_now": 231.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.47,
+  "smooth_now": 0.47
+ },
+ "female/u87-i01": {
+  "kind": "long",
+  "was": 0.185,
+  "now": 0.51,
+  "stretch": 4.6,
+  "f0_was": 211.5,
+  "f0_now": 212.4,
+  "pitch_shift_cents": 8,
+  "smooth_was": 0.86,
+  "smooth_now": 0.9
+ },
+ "female/u87-i02": {
+  "kind": "short",
+  "was": 0.245,
+  "now": 0.225,
+  "stretch": 0.89,
+  "f0_was": 260.9,
+  "f0_now": 260.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.89,
+  "smooth_now": 0.88
+ },
+ "female/u87-i03": {
+  "kind": "long",
+  "was": 0.175,
+  "now": 0.5,
+  "stretch": 5.06,
+  "f0_was": 258.1,
+  "f0_now": 263.7,
+  "pitch_shift_cents": 38,
+  "smooth_was": 0.88,
+  "smooth_now": 0.91
+ },
+ "female/u87-i04": {
+  "kind": "short",
+  "was": 0.195,
+  "now": 0.195,
+  "stretch": 1.0,
+  "f0_was": 285.7,
+  "f0_now": 285.7,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.7,
+  "smooth_now": 0.7
+ },
+ "female/u87-i05": {
+  "kind": "long",
+  "was": 0.29,
+  "now": 0.51,
+  "stretch": 2.24,
+  "f0_was": 235.3,
+  "f0_now": 226.4,
+  "pitch_shift_cents": -67,
+  "smooth_was": 0.8,
+  "smooth_now": 0.86
+ },
+ "female/u88-i01": {
+  "kind": "short",
+  "was": 0.2,
+  "now": 0.2,
+  "stretch": 1.0,
+  "f0_was": 242.4,
+  "f0_now": 242.4,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.89,
+  "smooth_now": 0.89
+ },
+ "female/u88-i02": {
+  "kind": "long",
+  "was": 0.19,
+  "now": 0.505,
+  "stretch": 4.4,
+  "f0_was": 275.9,
+  "f0_now": 275.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.9,
+  "smooth_now": 0.92
+ },
+ "female/u88-i04": {
+  "kind": "short",
+  "was": 0.12,
+  "now": 0.15,
+  "stretch": 2.14,
+  "f0_was": 263.7,
+  "f0_now": 263.7,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.92,
+  "smooth_now": 0.92
+ },
+ "female/u88-i05": {
+  "kind": "long",
+  "was": 0.205,
+  "now": 0.51,
+  "stretch": 3.89,
+  "f0_was": 215.3,
+  "f0_now": 211.5,
+  "pitch_shift_cents": -31,
+  "smooth_was": 0.83,
+  "smooth_now": 0.89
+ },
+ "female/u82-i03": {
+  "kind": "long",
+  "was": 0.23,
+  "now": 0.505,
+  "stretch": 2.82,
+  "f0_was": 229.7,
+  "f0_now": 229.7,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.79,
+  "smooth_now": 0.88
+ },
+ "female/u82-i06": {
+  "kind": "long",
+  "was": 0.2,
+  "now": 0.51,
+  "stretch": 3.37,
+  "f0_was": 214.3,
+  "f0_now": 214.3,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.86,
+  "smooth_now": 0.9
+ },
+ "female/u88-i03": {
+  "kind": "long",
+  "was": 0.145,
+  "now": 0.51,
+  "stretch": 7.25,
+  "f0_was": 252.7,
+  "f0_now": 266.7,
+  "pitch_shift_cents": 93,
+  "smooth_was": 0.83,
+  "smooth_now": 0.9
+ },
+ "female/u88-i06": {
+  "kind": "long",
+  "was": 0.2,
+  "now": 0.51,
+  "stretch": 4.05,
+  "f0_was": 224.3,
+  "f0_now": 228.6,
+  "pitch_shift_cents": 33,
+  "smooth_was": 0.85,
+  "smooth_now": 0.89
+ },
+ "female/u81-i12": {
+  "kind": "row",
+  "secs": 4.68,
+  "letters": 6
+ },
+ "female/u82-i15": {
+  "kind": "row",
+  "secs": 5.24,
+  "letters": 6
+ },
+ "female/u86-i12": {
+  "kind": "row",
+  "secs": 8.94,
+  "letters": 12
+ },
+ "female/u87-i06": {
+  "kind": "row",
+  "secs": 4.25,
+  "letters": 6
+ },
+ "male/u81-i01": {
+  "kind": "short",
+  "was": 0.315,
+  "now": 0.235,
+  "stretch": 0.65,
+  "f0_was": 203.4,
+  "f0_now": 205.1,
+  "pitch_shift_cents": 15,
+  "smooth_was": 0.54,
+  "smooth_now": 0.56
+ },
+ "male/u81-i02": {
+  "kind": "long",
+  "was": 0.35,
+  "now": 0.515,
+  "stretch": 1.69,
+  "f0_was": 131.9,
+  "f0_now": 131.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.74,
+  "smooth_now": 0.8
+ },
+ "male/u81-i03": {
+  "kind": "short",
+  "was": 0.38,
+  "now": 0.23,
+  "stretch": 0.51,
+  "f0_was": 163.3,
+  "f0_now": 163.3,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.77,
+  "smooth_now": 0.79
+ },
+ "male/u81-i04": {
+  "kind": "long",
+  "was": 0.315,
+  "now": 0.51,
+  "stretch": 1.89,
+  "f0_was": 145.5,
+  "f0_now": 145.5,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.8,
+  "smooth_now": 0.83
+ },
+ "male/u81-i05": {
+  "kind": "short",
+  "was": 0.36,
+  "now": 0.225,
+  "stretch": 0.54,
+  "f0_was": 151.9,
+  "f0_now": 154.9,
+  "pitch_shift_cents": 34,
+  "smooth_was": 0.84,
+  "smooth_now": 0.81
+ },
+ "male/u81-i06": {
+  "kind": "long",
+  "was": 0.46,
+  "now": 0.5,
+  "stretch": 1.16,
+  "f0_was": 146.3,
+  "f0_now": 146.3,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.85,
+  "smooth_now": 0.85
+ },
+ "male/u82-i01": {
+  "kind": "short",
+  "was": 0.385,
+  "now": 0.23,
+  "stretch": 0.5,
+  "f0_was": 157.9,
+  "f0_now": 156.9,
+  "pitch_shift_cents": -11,
+  "smooth_was": 0.7,
+  "smooth_now": 0.66
+ },
+ "male/u82-i02": {
+  "kind": "long",
+  "was": 0.385,
+  "now": 0.51,
+  "stretch": 1.46,
+  "f0_was": 149.1,
+  "f0_now": 149.1,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.69,
+  "smooth_now": 0.75
+ },
+ "male/u82-i04": {
+  "kind": "short",
+  "was": 0.395,
+  "now": 0.235,
+  "stretch": 0.48,
+  "f0_was": 138.7,
+  "f0_now": 139.5,
+  "pitch_shift_cents": 10,
+  "smooth_was": 0.83,
+  "smooth_now": 0.78
+ },
+ "male/u82-i05": {
+  "kind": "long",
+  "was": 0.39,
+  "now": 0.52,
+  "stretch": 1.48,
+  "f0_was": 147.2,
+  "f0_now": 147.2,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.83,
+  "smooth_now": 0.84
+ },
+ "male/u83-i01": {
+  "kind": "short",
+  "was": 0.175,
+  "now": 0.175,
+  "stretch": 1.0,
+  "f0_was": 155.8,
+  "f0_now": 155.8,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.71,
+  "smooth_now": 0.71
+ },
+ "male/u87-i01": {
+  "kind": "long",
+  "was": 0.205,
+  "now": 0.505,
+  "stretch": 3.89,
+  "f0_was": 148.6,
+  "f0_now": 151.9,
+  "pitch_shift_cents": 38,
+  "smooth_was": 0.72,
+  "smooth_now": 0.79
+ },
+ "male/u87-i02": {
+  "kind": "short",
+  "was": 0.22,
+  "now": 0.22,
+  "stretch": 1.0,
+  "f0_was": 173.9,
+  "f0_now": 173.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.73,
+  "smooth_now": 0.73
+ },
+ "male/u87-i03": {
+  "kind": "long",
+  "was": 0.37,
+  "now": 0.505,
+  "stretch": 1.57,
+  "f0_was": 177.1,
+  "f0_now": 177.1,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.75,
+  "smooth_now": 0.8
+ },
+ "male/u87-i04": {
+  "kind": "short",
+  "was": 0.325,
+  "now": 0.22,
+  "stretch": 0.57,
+  "f0_was": 161.6,
+  "f0_now": 162.7,
+  "pitch_shift_cents": 12,
+  "smooth_was": 0.82,
+  "smooth_now": 0.77
+ },
+ "male/u87-i05": {
+  "kind": "long",
+  "was": 0.325,
+  "now": 0.525,
+  "stretch": 1.89,
+  "f0_was": 169.6,
+  "f0_now": 152.9,
+  "pitch_shift_cents": -179,
+  "smooth_was": 0.84,
+  "smooth_now": 0.85
+ },
+ "male/u88-i01": {
+  "kind": "short",
+  "was": 0.19,
+  "now": 0.19,
+  "stretch": 1.0,
+  "f0_was": 146.3,
+  "f0_now": 146.3,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.75,
+  "smooth_now": 0.75
+ },
+ "male/u88-i02": {
+  "kind": "long",
+  "was": 0.36,
+  "now": 0.5,
+  "stretch": 1.63,
+  "f0_was": 151.9,
+  "f0_now": 152.9,
+  "pitch_shift_cents": 11,
+  "smooth_was": 0.77,
+  "smooth_now": 0.81
+ },
+ "male/u88-i04": {
+  "kind": "short",
+  "was": 0.145,
+  "now": 0.14,
+  "stretch": 1.25,
+  "f0_was": 152.9,
+  "f0_now": 152.4,
+  "pitch_shift_cents": -6,
+  "smooth_was": 0.76,
+  "smooth_now": 0.76
+ },
+ "male/u88-i05": {
+  "kind": "long",
+  "was": 0.355,
+  "now": 0.495,
+  "stretch": 1.66,
+  "f0_was": 152.9,
+  "f0_now": 152.9,
+  "pitch_shift_cents": 0,
+  "smooth_was": 0.84,
+  "smooth_now": 0.85
+ },
+ "male/u82-i03": {
+  "kind": "long",
+  "was": 0.35,
+  "now": 0.51,
+  "stretch": 1.62,
+  "f0_was": 137.1,
+  "f0_now": 139.1,
+  "pitch_shift_cents": 25,
+  "smooth_was": 0.73,
+  "smooth_now": 0.79
+ },
+ "male/u82-i06": {
+  "kind": "long",
+  "was": 0.395,
+  "now": 0.495,
+  "stretch": 1.39,
+  "f0_was": 142.9,
+  "f0_now": 143.7,
+  "pitch_shift_cents": 10,
+  "smooth_was": 0.78,
+  "smooth_now": 0.82
+ },
+ "male/u88-i03": {
+  "kind": "long",
+  "was": 0.375,
+  "now": 0.495,
+  "stretch": 1.54,
+  "f0_was": 150.9,
+  "f0_now": 148.1,
+  "pitch_shift_cents": -32,
+  "smooth_was": 0.75,
+  "smooth_now": 0.8
+ },
+ "male/u88-i06": {
+  "kind": "long",
+  "was": 0.225,
+  "now": 0.5,
+  "stretch": 3.36,
+  "f0_was": 151.0,
+  "f0_now": 154.8,
+  "pitch_shift_cents": 44,
+  "smooth_was": 0.7,
+  "smooth_now": 0.79
+ },
+ "male/u81-i12": {
+  "kind": "row",
+  "secs": 4.78,
+  "letters": 6
+ },
+ "male/u82-i15": {
+  "kind": "row",
+  "secs": 5.25,
+  "letters": 6
+ },
+ "male/u86-i12": {
+  "kind": "row",
+  "secs": 9.04,
+  "letters": 12
+ },
+ "male/u87-i06": {
+  "kind": "row",
+  "secs": 4.29,
+  "letters": 6
+ }
+}

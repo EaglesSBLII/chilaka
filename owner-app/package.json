@@ -14,6 +14,7 @@
     "directories": { "output": "dist-electron" },
     "mac": {
       "target": "dir",
+      "icon": "build/icon.icns",
       "identity": null,
       "extendInfo": {
         "NSMicrophoneUsageDescription": "The developer version of Chilaka listens when you test a speaking exercise."

@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Vowel length check</title>
+<style>
+:root{--bg:#FFF8ED;--ink:#16302B;--card:#fff;--line:#E3D9C6;--teal:#0E6B63;--gold:#F5A623;--soft:#5d6b66}
+@media(prefers-color-scheme:dark){:root{--bg:#10201d;--ink:#f3ece0;--card:#182c28;--line:#2c4540;--teal:#6fd3c7;--soft:#a9b8b3}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:32px 16px 80px}
+h1{font-size:28px;margin:0 0 6px}h2{font-size:19px;margin:34px 0 10px}
+p{margin:0 0 10px;color:var(--soft)}
+.row{display:grid;grid-template-columns:92px 1fr 1fr;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:8px}
+.te{font-size:26px;font-weight:700}
+.grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.grp span{font-size:12px;font-weight:700;color:var(--soft);width:100%;text-transform:uppercase;letter-spacing:.06em}
+button{font:inherit;font-weight:700;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+button.pair{border-color:var(--teal);color:var(--teal)}
+button.on{background:var(--gold);border-color:var(--gold);color:#16302B}
+@media(max-width:620px){.row{grid-template-columns:1fr}}
+</style><main>
+<h1>Vowel length check</h1>
+<p>Each row is a short vowel and its long partner. "Before" is the recording that is live now; "After" is the fixed one in the developer version. Press <b>Short then long</b> and listen for the second sound being clearly longer, without sounding stretched or robotic.</p>
+<p>Tell Claude which rows still sound wrong, for example: "male కీ sounds robotic".</p>
+<h2>Female voice</h2>
+<div class="row"><div class="te" lang="te">అ / ఆ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u81-i01.m4a">అ</button><button data-src="../audio-src/length-orig/v-female/u81-i02.m4a">ఆ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u81-i01.m4a|../audio-src/length-orig/v-female/u81-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u81-i01.m4a">అ</button><button data-src="../app/public/audio/v-female/u81-i02.m4a">ఆ</button><button class="pair" data-src="../app/public/audio/v-female/u81-i01.m4a|../app/public/audio/v-female/u81-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఇ / ఈ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u81-i03.m4a">ఇ</button><button data-src="../audio-src/length-orig/v-female/u81-i04.m4a">ఈ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u81-i03.m4a|../audio-src/length-orig/v-female/u81-i04.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u81-i03.m4a">ఇ</button><button data-src="../app/public/audio/v-female/u81-i04.m4a">ఈ</button><button class="pair" data-src="../app/public/audio/v-female/u81-i03.m4a|../app/public/audio/v-female/u81-i04.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఉ / ఊ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u81-i05.m4a">ఉ</button><button data-src="../audio-src/length-orig/v-female/u81-i06.m4a">ఊ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u81-i05.m4a|../audio-src/length-orig/v-female/u81-i06.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u81-i05.m4a">ఉ</button><button data-src="../app/public/audio/v-female/u81-i06.m4a">ఊ</button><button class="pair" data-src="../app/public/audio/v-female/u81-i05.m4a|../app/public/audio/v-female/u81-i06.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఎ / ఏ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u82-i01.m4a">ఎ</button><button data-src="../audio-src/length-orig/v-female/u82-i02.m4a">ఏ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u82-i01.m4a|../audio-src/length-orig/v-female/u82-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u82-i01.m4a">ఎ</button><button data-src="../app/public/audio/v-female/u82-i02.m4a">ఏ</button><button class="pair" data-src="../app/public/audio/v-female/u82-i01.m4a|../app/public/audio/v-female/u82-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఒ / ఓ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u82-i04.m4a">ఒ</button><button data-src="../audio-src/length-orig/v-female/u82-i05.m4a">ఓ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u82-i04.m4a|../audio-src/length-orig/v-female/u82-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u82-i04.m4a">ఒ</button><button data-src="../app/public/audio/v-female/u82-i05.m4a">ఓ</button><button class="pair" data-src="../app/public/audio/v-female/u82-i04.m4a|../app/public/audio/v-female/u82-i05.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">క / కా</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u83-i01.m4a">క</button><button data-src="../audio-src/length-orig/v-female/u87-i01.m4a">కా</button><button class="pair" data-src="../audio-src/length-orig/v-female/u83-i01.m4a|../audio-src/length-orig/v-female/u87-i01.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u83-i01.m4a">క</button><button data-src="../app/public/audio/v-female/u87-i01.m4a">కా</button><button class="pair" data-src="../app/public/audio/v-female/u83-i01.m4a|../app/public/audio/v-female/u87-i01.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కి / కీ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u87-i02.m4a">కి</button><button data-src="../audio-src/length-orig/v-female/u87-i03.m4a">కీ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u87-i02.m4a|../audio-src/length-orig/v-female/u87-i03.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u87-i02.m4a">కి</button><button data-src="../app/public/audio/v-female/u87-i03.m4a">కీ</button><button class="pair" data-src="../app/public/audio/v-female/u87-i02.m4a|../app/public/audio/v-female/u87-i03.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కు / కూ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u87-i04.m4a">కు</button><button data-src="../audio-src/length-orig/v-female/u87-i05.m4a">కూ</button><button class="pair" data-src="../audio-src/length-orig/v-female/u87-i04.m4a|../audio-src/length-orig/v-female/u87-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u87-i04.m4a">కు</button><button data-src="../app/public/audio/v-female/u87-i05.m4a">కూ</button><button class="pair" data-src="../app/public/audio/v-female/u87-i04.m4a|../app/public/audio/v-female/u87-i05.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కె / కే</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u88-i01.m4a">కె</button><button data-src="../audio-src/length-orig/v-female/u88-i02.m4a">కే</button><button class="pair" data-src="../audio-src/length-orig/v-female/u88-i01.m4a|../audio-src/length-orig/v-female/u88-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u88-i01.m4a">కె</button><button data-src="../app/public/audio/v-female/u88-i02.m4a">కే</button><button class="pair" data-src="../app/public/audio/v-female/u88-i01.m4a|../app/public/audio/v-female/u88-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కొ / కో</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u88-i04.m4a">కొ</button><button data-src="../audio-src/length-orig/v-female/u88-i05.m4a">కో</button><button class="pair" data-src="../audio-src/length-orig/v-female/u88-i04.m4a|../audio-src/length-orig/v-female/u88-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u88-i04.m4a">కొ</button><button data-src="../app/public/audio/v-female/u88-i05.m4a">కో</button><button class="pair" data-src="../app/public/audio/v-female/u88-i04.m4a|../app/public/audio/v-female/u88-i05.m4a">Short then long</button></div>
+</div>
+<p style="margin-top:14px">Diphthongs (always long) and the rows that list the letters:</p>
+<div class="row"><div class="te" lang="te" style="font-size:26px">ఐ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u82-i03.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u82-i03.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">ఔ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u82-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u82-i06.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">కై</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u88-i03.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u88-i03.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">కౌ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u88-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u88-i06.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">అ ఆ ఇ ఈ ఉ ఊ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u81-i12.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u81-i12.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">ఎ ఏ ఐ ఒ ఓ ఔ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u82-i15.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u82-i15.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">All twelve vowels</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u86-i12.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u86-i12.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">క కా కి కీ కు కూ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-female/u87-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-female/u87-i06.m4a">Play</button></div></div>
+<h2>Male voice</h2>
+<div class="row"><div class="te" lang="te">అ / ఆ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u81-i01.m4a">అ</button><button data-src="../audio-src/length-orig/v-male/u81-i02.m4a">ఆ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u81-i01.m4a|../audio-src/length-orig/v-male/u81-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u81-i01.m4a">అ</button><button data-src="../app/public/audio/v-male/u81-i02.m4a">ఆ</button><button class="pair" data-src="../app/public/audio/v-male/u81-i01.m4a|../app/public/audio/v-male/u81-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఇ / ఈ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u81-i03.m4a">ఇ</button><button data-src="../audio-src/length-orig/v-male/u81-i04.m4a">ఈ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u81-i03.m4a|../audio-src/length-orig/v-male/u81-i04.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u81-i03.m4a">ఇ</button><button data-src="../app/public/audio/v-male/u81-i04.m4a">ఈ</button><button class="pair" data-src="../app/public/audio/v-male/u81-i03.m4a|../app/public/audio/v-male/u81-i04.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఉ / ఊ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u81-i05.m4a">ఉ</button><button data-src="../audio-src/length-orig/v-male/u81-i06.m4a">ఊ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u81-i05.m4a|../audio-src/length-orig/v-male/u81-i06.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u81-i05.m4a">ఉ</button><button data-src="../app/public/audio/v-male/u81-i06.m4a">ఊ</button><button class="pair" data-src="../app/public/audio/v-male/u81-i05.m4a|../app/public/audio/v-male/u81-i06.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఎ / ఏ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u82-i01.m4a">ఎ</button><button data-src="../audio-src/length-orig/v-male/u82-i02.m4a">ఏ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u82-i01.m4a|../audio-src/length-orig/v-male/u82-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u82-i01.m4a">ఎ</button><button data-src="../app/public/audio/v-male/u82-i02.m4a">ఏ</button><button class="pair" data-src="../app/public/audio/v-male/u82-i01.m4a|../app/public/audio/v-male/u82-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">ఒ / ఓ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u82-i04.m4a">ఒ</button><button data-src="../audio-src/length-orig/v-male/u82-i05.m4a">ఓ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u82-i04.m4a|../audio-src/length-orig/v-male/u82-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u82-i04.m4a">ఒ</button><button data-src="../app/public/audio/v-male/u82-i05.m4a">ఓ</button><button class="pair" data-src="../app/public/audio/v-male/u82-i04.m4a|../app/public/audio/v-male/u82-i05.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">క / కా</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u83-i01.m4a">క</button><button data-src="../audio-src/length-orig/v-male/u87-i01.m4a">కా</button><button class="pair" data-src="../audio-src/length-orig/v-male/u83-i01.m4a|../audio-src/length-orig/v-male/u87-i01.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u83-i01.m4a">క</button><button data-src="../app/public/audio/v-male/u87-i01.m4a">కా</button><button class="pair" data-src="../app/public/audio/v-male/u83-i01.m4a|../app/public/audio/v-male/u87-i01.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కి / కీ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u87-i02.m4a">కి</button><button data-src="../audio-src/length-orig/v-male/u87-i03.m4a">కీ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u87-i02.m4a|../audio-src/length-orig/v-male/u87-i03.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u87-i02.m4a">కి</button><button data-src="../app/public/audio/v-male/u87-i03.m4a">కీ</button><button class="pair" data-src="../app/public/audio/v-male/u87-i02.m4a|../app/public/audio/v-male/u87-i03.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కు / కూ</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u87-i04.m4a">కు</button><button data-src="../audio-src/length-orig/v-male/u87-i05.m4a">కూ</button><button class="pair" data-src="../audio-src/length-orig/v-male/u87-i04.m4a|../audio-src/length-orig/v-male/u87-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u87-i04.m4a">కు</button><button data-src="../app/public/audio/v-male/u87-i05.m4a">కూ</button><button class="pair" data-src="../app/public/audio/v-male/u87-i04.m4a|../app/public/audio/v-male/u87-i05.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కె / కే</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u88-i01.m4a">కె</button><button data-src="../audio-src/length-orig/v-male/u88-i02.m4a">కే</button><button class="pair" data-src="../audio-src/length-orig/v-male/u88-i01.m4a|../audio-src/length-orig/v-male/u88-i02.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u88-i01.m4a">కె</button><button data-src="../app/public/audio/v-male/u88-i02.m4a">కే</button><button class="pair" data-src="../app/public/audio/v-male/u88-i01.m4a|../app/public/audio/v-male/u88-i02.m4a">Short then long</button></div>
+</div>
+<div class="row"><div class="te" lang="te">కొ / కో</div>
+<div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u88-i04.m4a">కొ</button><button data-src="../audio-src/length-orig/v-male/u88-i05.m4a">కో</button><button class="pair" data-src="../audio-src/length-orig/v-male/u88-i04.m4a|../audio-src/length-orig/v-male/u88-i05.m4a">Short then long</button></div>
+<div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u88-i04.m4a">కొ</button><button data-src="../app/public/audio/v-male/u88-i05.m4a">కో</button><button class="pair" data-src="../app/public/audio/v-male/u88-i04.m4a|../app/public/audio/v-male/u88-i05.m4a">Short then long</button></div>
+</div>
+<p style="margin-top:14px">Diphthongs (always long) and the rows that list the letters:</p>
+<div class="row"><div class="te" lang="te" style="font-size:26px">ఐ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u82-i03.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u82-i03.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">ఔ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u82-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u82-i06.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">కై</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u88-i03.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u88-i03.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:26px">కౌ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u88-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u88-i06.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">అ ఆ ఇ ఈ ఉ ఊ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u81-i12.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u81-i12.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">ఎ ఏ ఐ ఒ ఓ ఔ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u82-i15.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u82-i15.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">All twelve vowels</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u86-i12.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u86-i12.m4a">Play</button></div></div>
+<div class="row"><div class="te" lang="te" style="font-size:15px">క కా కి కీ కు కూ</div><div class="grp"><span>Before</span><button data-src="../audio-src/length-orig/v-male/u87-i06.m4a">Play</button></div><div class="grp"><span>After</span><button data-src="../app/public/audio/v-male/u87-i06.m4a">Play</button></div></div>
+</main><script>
+let token=0;
+function play(src){return new Promise((res)=>{const a=new Audio(src);a.onended=res;a.onerror=res;a.play().catch(res);});}
+document.addEventListener('click',async(e)=>{const b=e.target.closest('button[data-src]');if(!b)return;const mine=++token;
+document.querySelectorAll('button.on').forEach((x)=>x.classList.remove('on'));b.classList.add('on');
+for(const s of b.dataset.src.split('|')){if(mine!==token)return;await play(s);await new Promise((r)=>setTimeout(r,350));}
+if(mine===token)b.classList.remove('on');});
+</script></html>

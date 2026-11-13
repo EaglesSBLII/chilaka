@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4A43"/><stop offset="1" stop-color="#0B2420"/></linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFD98A"/><stop offset="1" stop-color="#F5A623"/></radialGradient>
+    <clipPath id="tile"><rect x="100" y="100" width="824" height="824" rx="186"/></clipPath>
+    <filter id="drop" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.32"/></filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <!-- macOS icon tile: 824 px rounded square on a 1024 canvas -->
+  <g filter="url(#drop)"><rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/></g>
+  <g clip-path="url(#tile)">
+    <circle cx="512" cy="560" r="300" fill="url(#sun)"/>
+    <circle cx="512" cy="560" r="338" fill="none" stroke="#F5A623" stroke-opacity="0.35" stroke-width="10"/>
+  </g>
+  <!-- Chikki -->
+  <g transform="translate(232 196) scale(4.5)" filter="url(#soft)"><path d="M38 78 Q20 96 14 112 Q34 104 46 92 Z" fill="#2E9158"/><path d="M44 82 Q32 96 28 108 Q44 100 52 90 Z" fill="#3CB46E"/><ellipse cx="62" cy="70" rx="30" ry="34" fill="#4CC97E"/><ellipse cx="62" cy="78" rx="20" ry="22" fill="#A8E6C1"/><ellipse cx="88" cy="70" rx="12" ry="22" fill="#2E9158"/><circle cx="58" cy="34" r="24" fill="#4CC97E"/><circle cx="66" cy="30" r="7" fill="#FFFFFF"/><circle cx="67.5" cy="31" r="3.6" fill="#26221C"/><circle cx="69" cy="29.5" r="1.2" fill="#FFFFFF"/><path d="M78 32 Q96 36 90 46 Q80 50 75 42 Z" fill="#F5A623"/><path d="M52 12 Q56 2 64 8 Q60 12 60 16 Q56 12 52 12" fill="#FF5C39"/><path d="M52 102 l-3 8 M52 102 l3 8 M70 102 l-3 8 M70 102 l3 8" stroke="#D88E0F" stroke-width="3.5" stroke-linecap="round"/></g>
+  <!-- the owner's key -->
+  <g filter="url(#soft)">
+    <circle cx="742" cy="742" r="112" fill="#FFF8ED"/>
+    <circle cx="742" cy="742" r="112" fill="none" stroke="#0B2420" stroke-width="10"/>
+    <g fill="none" stroke="#0E6B63" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="712" cy="742" r="30"/>
+      <path d="M742 742 H806 M786 742 V770 M806 742 V762"/>
+    </g>
+  </g>
+</svg>
