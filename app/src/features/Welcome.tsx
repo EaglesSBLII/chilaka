@@ -7,8 +7,7 @@
 //
 // Only a brand-new install sees it: someone who already has a profile on this
 // device (for example after an app update) is never shown it.
-// For now it plays in the developer version only; the released app skips it
-// until the owner approves it (WELCOME_LIVE).
+// Released to everyone in 0.5.2 (WELCOME_LIVE).
 import { useEffect, useRef, useState } from 'react';
 import { Mascot } from '../components/Mascot';
 import { useApp } from '../store';
@@ -19,7 +18,7 @@ const STILL_MS = 1600;
 const LEAVE_MS = 820;
 
 /** Released to everyone yet? Until then: the developer version, or a preview flag used by the tests. */
-const WELCOME_LIVE = false;
+const WELCOME_LIVE = true;
 function enabled(): boolean {
   if (WELCOME_LIVE || __CHANNEL__ === 'dev') return true;
   try {
