@@ -100,6 +100,7 @@ export function Auth({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [recovery, setRecovery] = useState<string | null>(null);
+  const [created, setCreated] = useState(false);
 
   const done = (created: boolean) => (onDone ? onDone(created) : navigate({ name: 'settings' }));
 
@@ -115,7 +116,11 @@ export function Auth({
       if (mode === 'create') {
         const r = await signup(email, password, birthday);
         setSession(r.session);
-        done(true);
+        if (r.recoveryCode) {
+          // the server gave a recovery code instead of taking the birthday: show it
+          setCreated(true);
+          setRecovery(r.recoveryCode);
+        } else done(true);
       } else if (mode === 'signin') {
         setSession(await login(email, password));
         done(false);
@@ -128,7 +133,16 @@ export function Auth({
       }
     } catch (e) {
       console.error('auth failed', e);
-      setError(e instanceof AuthError ? e.message : 'Something went wrong. Try again.');
+      const wrongAnswer = mode === 'recover' && e instanceof AuthError && e.code === 'invalid';
+      setError(
+        wrongAnswer
+          ? byCode
+            ? 'That email and recovery code do not match.'
+            : 'That email and birthday do not match. If you signed up before birthdays were asked, use your recovery code instead.'
+          : e instanceof AuthError
+            ? e.message
+            : 'Something went wrong. Try again.',
+      );
     } finally {
       setBusy(false);
     }
@@ -137,7 +151,7 @@ export function Auth({
   if (recovery) {
     return (
       <div className="mx-auto max-w-md">
-        <RecoveryCode code={recovery} onDone={() => done(false)} />
+        <RecoveryCode code={recovery} onDone={() => done(created)} />
       </div>
     );
   }
@@ -147,7 +161,7 @@ export function Auth({
 
   return (
     <div className="mx-auto flex max-w-md flex-col gap-4">
-      <button type="button" onClick={() => (onBack ? onBack() : navigate({ name: 'settings' }))} className="inline-flex items-center gap-1 self-start font-bold text-ink-soft" aria-label="Back">
+      <button type="button" disabled={busy} onClick={() => (onBack ? onBack() : navigate({ name: 'settings' }))} className="inline-flex items-center gap-1 self-start font-bold text-ink-soft" aria-label="Back">
         <ArrowLeft size={18} /> Back
       </button>
       <div className="surface-hero flex items-center gap-4 p-5">

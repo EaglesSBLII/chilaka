@@ -250,9 +250,32 @@ test('birthday is the reset answer: signup, reset, lock after 5 misses, legacy a
   // an older account (recovery code) adds a birthday while signed in; the code stops working
   const old = await body(await call(env, '/auth/signup', { method: 'POST', ip: '8.8.8.1', body: { email: 'old@example.com', authKey: authKey('a') } }));
   assert.match(old.json.recoveryCode, /^([A-Z2-9]{4}-){4}[A-Z2-9]{4}$/);
-  assert.equal((await post('/auth/birthday', { birthday: '1975-12-01' })).status, 401);
-  assert.equal((await post('/auth/birthday', { birthday: 'nope' }, { authorization: `Bearer ${old.json.token}` })).status, 400);
-  assert.equal((await post('/auth/birthday', { birthday: '1975-12-01' }, { authorization: `Bearer ${old.json.token}` })).status, 200);
+  const bearer = { authorization: `Bearer ${old.json.token}` };
+  const setB = (b, ip) => call(env, '/auth/birthday', { method: 'POST', body: b, headers: bearer, ip });
+  assert.equal((await post('/auth/birthday', { birthday: '1975-12-01', authKey: authKey('a') })).status, 401);
+  assert.equal((await setB({ birthday: 'nope', authKey: authKey('a') }, '8.8.7.1')).status, 400);
+  // the token alone is not enough: the current password is needed too
+  assert.equal((await setB({ birthday: '1975-12-01' }, '8.8.7.2')).status, 401);
+  assert.equal((await setB({ birthday: '1975-12-01', authKey: authKey('z') }, '8.8.7.3')).status, 401);
+  assert.equal((await env.DB.prepare('SELECT recovery_kind FROM users WHERE email = ?').bind('old@example.com').first('recovery_kind')), 'code');
+  assert.equal((await setB({ birthday: '1975-12-01', authKey: authKey('a') }, '8.8.7.4')).status, 200);
   assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '8.8.8.2', body: { email: 'old@example.com', recoveryCode: old.json.recoveryCode, authKey: authKey('e') } })).status, 401);
   assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '8.8.8.3', body: { email: 'old@example.com', birthday: '1975-12-01', authKey: authKey('e') } })).status, 200);
+});
+
+test('reset lock cannot be dodged by sending many guesses at the same moment', async () => {
+  const env = fakeEnv();
+  await call(env, '/auth/signup', { method: 'POST', ip: '5.5.5.1', body: { email: 'race@example.com', authKey: authKey('a'), birthday: '2010-05-14' } });
+  const guesses = Array.from({ length: 12 }, (_, i) =>
+    call(env, '/auth/reset', { method: 'POST', ip: `5.5.6.${i}`, body: { email: 'race@example.com', birthday: `2009-01-${String(i + 1).padStart(2, '0')}`, authKey: authKey('b') } }),
+  );
+  const statuses = (await Promise.all(guesses)).map((r) => r.status);
+  assert.equal(statuses.filter((s) => s === 401).length, 5, `only five guesses are judged: ${statuses}`);
+  assert.equal(statuses.filter((s) => s === 429).length, 7);
+  // and the lock holds afterwards, even for the right answer
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '5.5.7.1', body: { email: 'race@example.com', birthday: '2010-05-14', authKey: authKey('b') } })).status, 429);
+  // the fifth try itself still counts if it is right
+  await env.DB.prepare('UPDATE users SET reset_locked_until = 0, reset_fails = 4').run();
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '5.5.7.2', body: { email: 'race@example.com', birthday: '2010-05-14', authKey: authKey('b') } })).status, 200);
+  assert.deepEqual({ ...(await env.DB.prepare('SELECT reset_fails, reset_locked_until FROM users').first()) }, { reset_fails: 0, reset_locked_until: 0 });
 });

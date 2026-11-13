@@ -129,9 +129,9 @@ export function validBirthday(value: string): boolean {
 }
 
 /** The birthday is the answer for a password reset; the server keeps only a hash of it. */
-export async function signup(email: string, password: string, birthday: string): Promise<{ session: Session }> {
+export async function signup(email: string, password: string, birthday: string): Promise<{ session: Session; recoveryCode?: string }> {
   const authKey = await deriveAuthKey(email, password);
-  const r = await api<{ token: string; slot: string }>('/auth/signup', {
+  const r = await api<{ token: string; slot: string; recoveryCode?: string }>('/auth/signup', {
     email: normalizeEmail(email),
     authKey,
     birthday,
@@ -140,7 +140,9 @@ export async function signup(email: string, password: string, birthday: string):
   const session = { token: r.token, email: normalizeEmail(email), slot: r.slot };
   await saveSession(session);
   await adoptSlot(r.slot);
-  return { session };
+  // a server that does not know birthdays yet answers with a recovery code:
+  // the caller must show it, because then the birthday will NOT reset anything
+  return { session, recoveryCode: r.recoveryCode };
 }
 
 export async function login(email: string, password: string): Promise<Session> {
@@ -200,7 +202,8 @@ export async function recoveryKind(session: Session): Promise<'birthday' | 'code
   }
 }
 
-/** Signed-in owner sets the birthday used for password resets (replaces a recovery code). */
-export async function setBirthday(session: Session, birthday: string): Promise<void> {
-  await api<{ ok: boolean }>('/auth/birthday', { birthday }, session.token);
+/** Signed-in owner sets the birthday used for password resets (replaces a recovery code). Needs the current password too. */
+export async function setBirthday(session: Session, birthday: string, password: string): Promise<void> {
+  const authKey = await deriveAuthKey(session.email, password);
+  await api<{ ok: boolean }>('/auth/birthday', { birthday, authKey }, session.token);
 }

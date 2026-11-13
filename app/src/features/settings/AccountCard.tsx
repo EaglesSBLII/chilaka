@@ -14,6 +14,7 @@ export function AccountCard() {
   // accounts made before birthdays still reset with a long code: offer the switch
   const [kind, setKind] = useState<'birthday' | 'code' | null>(null);
   const [birthday, setBirthdayValue] = useState('');
+  const [password, setPassword] = useState('');
   const [note, setNote] = useState<string | null>(null);
   useEffect(() => {
     let live = true;
@@ -26,13 +27,15 @@ export function AccountCard() {
   const saveBirthday = async () => {
     if (!session) return;
     if (!validBirthday(birthday)) return setNote('Enter your full date of birth.');
+    if (!password) return setNote('Enter your password to confirm.');
     setBusy(true);
     try {
-      await setBirthday(session, birthday);
+      await setBirthday(session, birthday, password);
+      setPassword('');
       setKind('birthday');
       setNote(null);
     } catch (e) {
-      setNote(e instanceof AuthError ? e.message : 'Something went wrong. Try again.');
+      setNote(e instanceof AuthError ? (e.code === 'invalid' ? 'That password is not right.' : e.message) : 'Something went wrong. Try again.');
     } finally {
       setBusy(false);
     }
@@ -73,6 +76,16 @@ export function AccountCard() {
                   onChange={(e) => setBirthdayValue(e.target.value)}
                   autoComplete="bday"
                   className="mt-2 w-full rounded-2xl border border-line bg-card px-4 py-2 font-semibold text-ink outline-none focus:border-accent"
+                />
+              </label>
+              <label className="mt-2 block text-sm font-bold">
+                Your password, to confirm
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="current-password"
+                  className="mt-1 w-full rounded-2xl border border-line bg-card px-4 py-2 font-semibold text-ink outline-none focus:border-accent"
                 />
               </label>
               {note && <p className="mt-2 text-xs font-bold text-error-dark" role="alert">{note}</p>}

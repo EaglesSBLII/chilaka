@@ -62,6 +62,7 @@ export async function mockWorker(context: BrowserContext): Promise<void> {
     if (url.pathname === '/auth/birthday') {
       const u = users.get(signedIn() ?? '');
       if (!u) return json(401, { error: 'unauthorized' });
+      if (body().authKey !== u.authKey) return json(401, { error: 'invalid' });
       u.recovery = body().birthday;
       u.kind = 'birthday';
       return json(200, { ok: true });

@@ -189,20 +189,25 @@ async function handleReset(request, env) {
   if (!user) return error('invalid', 401);
   // A birthday has few possible values, so wrong answers are counted on the
   // account itself (not in memory): RESET_TRIES misses lock resets for a day.
+  // The attempt is claimed in one statement BEFORE the answer is looked at, so
+  // many requests sent at the same moment each get their own number and cannot
+  // all slip in under the limit.
   const now = Date.now();
-  if (user.reset_locked_until > now) return error('locked', 429);
+  const claim = await env.DB.prepare('UPDATE users SET reset_fails = reset_fails + 1 WHERE id = ? AND reset_locked_until <= ? RETURNING reset_fails')
+    .bind(user.id, now)
+    .first();
+  if (!claim) return error('locked', 429);
+  const attempt = claim.reset_fails;
+  if (attempt >= RESET_TRIES) {
+    // this is the last allowed try (or one past it): lock now, whatever the answer turns out to be
+    await env.DB.prepare('UPDATE users SET reset_fails = 0, reset_locked_until = ? WHERE id = ?').bind(now + RESET_LOCK_MS, user.id).run();
+    if (attempt > RESET_TRIES) return error('locked', 429);
+  }
   const byBirthday = user.recovery_kind === 'birthday';
   const ok = byBirthday
     ? await checkBirthday(user.id, body?.birthday, user.recovery_hash)
     : await checkRecoveryCode(body?.recoveryCode, user.recovery_hash);
-  if (!ok) {
-    const fails = user.reset_fails + 1;
-    const lock = fails >= RESET_TRIES;
-    await env.DB.prepare('UPDATE users SET reset_fails = ?, reset_locked_until = ? WHERE id = ?')
-      .bind(lock ? 0 : fails, lock ? now + RESET_LOCK_MS : 0, user.id)
-      .run();
-    return error('invalid', 401);
-  }
+  if (!ok) return error('invalid', 401);
 
   const { serverSalt, authHash } = await newCredential(body.authKey);
   const ver = user.token_ver + 1;
@@ -220,6 +225,9 @@ const RESET_LOCK_MS = 24 * 60 * 60_000;
 
 // Signed-in owner sets (or changes) the birthday used for password resets.
 // This is how an account that still has a recovery code moves to a birthday.
+// The current password is required as well: a sign-in token alone (one that
+// leaked, or an unlocked phone left on a table) must not be enough to choose a
+// new reset answer and then take the account over with it.
 async function handleSetBirthday(request, env) {
   const who = await verifyToken(env, request.headers.get('authorization'));
   if (!who) return error('unauthorized', 401);
@@ -227,6 +235,9 @@ async function handleSetBirthday(request, env) {
   if (bad) return bad;
   const birthday = normaliseBirthday(body?.birthday);
   if (!birthday) return error('bad birthday', 400);
+  if (limited(`login:${clientIp(request)}`, 10, 10 * 60_000)) return error('rate', 429);
+  const cred = await env.DB.prepare('SELECT server_salt, auth_hash FROM users WHERE id = ?').bind(who.uid).first();
+  if (!cred || !isAuthKey(body?.authKey) || !(await checkAuthKey(cred.server_salt, cred.auth_hash, body.authKey))) return error('invalid', 401);
   await env.DB.prepare("UPDATE users SET recovery_hash = ?, recovery_kind = 'birthday', reset_fails = 0, reset_locked_until = 0 WHERE id = ?")
     .bind(await hashBirthday(who.uid, birthday), who.uid)
     .run();

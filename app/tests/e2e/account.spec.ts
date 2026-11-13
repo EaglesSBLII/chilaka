@@ -84,7 +84,7 @@ test('sign up on one device, sign in on another, reset the password with the bir
     await b.getByLabel('Birthday').fill('2010-05-15');
     await b.getByLabel('New password').fill('new-parrot-10');
     await b.getByRole('button', { name: 'Reset password' }).click();
-    await expect(b.getByRole('alert')).toContainText('wrong', { timeout: 20_000 });
+    await expect(b.getByRole('alert')).toContainText('birthday do not match', { timeout: 20_000 });
     await b.getByLabel('Birthday').fill('2010-05-14');
     await b.getByRole('button', { name: 'Reset password' }).click();
     await expect(b.getByTestId('account-card')).toContainText('ravi@example.com', { timeout: 20_000 });
@@ -105,6 +105,10 @@ test('sign up on one device, sign in on another, reset the password with the bir
     await b.getByText('I saved this code').click();
     await b.getByRole('button', { name: 'Done' }).click();
     await b.getByTestId('add-birthday').getByLabel(/Add your birthday/).fill('1975-12-01');
+    await b.getByTestId('add-birthday').getByLabel(/Your password/).fill('not-my-password');
+    await b.getByRole('button', { name: 'Save birthday' }).click();
+    await expect(b.getByTestId('add-birthday').getByRole('alert')).toContainText('password is not right', { timeout: 20_000 });
+    await b.getByTestId('add-birthday').getByLabel(/Your password/).fill('old-parrot-11');
     await b.getByRole('button', { name: 'Save birthday' }).click();
     await expect(b.getByTestId('account-card')).toContainText('Your birthday resets it');
     expect(users.get('old@example.com')).toMatchObject({ kind: 'birthday', recovery: '1975-12-01' });

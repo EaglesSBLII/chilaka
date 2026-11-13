@@ -15,7 +15,10 @@ test('welcome animation, then account first: create asks the questions, sign-in 
   await mockWorker(ctxA);
 
   await test.step('first open shows the welcome once, and it ends by itself', async () => {
-    await a.evaluate(() => localStorage.removeItem('chilaka.welcomed'));
+    await a.evaluate(() => {
+      localStorage.removeItem('chilaka.welcomed');
+      localStorage.setItem('chilaka.welcomePreview', '1'); // not released to everyone yet
+    });
     await a.reload();
     const welcome = a.getByTestId('welcome');
     await expect(welcome).toBeVisible();
@@ -28,10 +31,35 @@ test('welcome animation, then account first: create asks the questions, sign-in 
   });
 
   await test.step('a tap skips the welcome', async () => {
-    await a.evaluate(() => localStorage.removeItem('chilaka.welcomed'));
+    await a.evaluate(() => {
+      localStorage.removeItem('chilaka.welcomed');
+      localStorage.setItem('chilaka.welcomePreview', '1'); // not released to everyone yet
+    });
     await a.reload();
     await a.getByTestId('welcome').click();
     await expect(a.getByTestId('welcome')).toHaveCount(0, { timeout: 1_500 });
+  });
+
+  await test.step('someone who already uses the app on this device never sees the welcome', async () => {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    await p.goto('/');
+    await wipeState(p);
+    await p.getByRole('button', { name: 'Continue without an account' }).click();
+    await p.getByPlaceholder('Your name').fill('Old Hand');
+    await p.getByRole('button', { name: 'Continue' }).click();
+    await p.getByRole('button', { name: 'Continue' }).click();
+    await p.getByRole('button', { name: 'Start from the beginning' }).click();
+    await expect(p.getByText('Old Hand', { exact: false }).first()).toBeVisible();
+    await p.evaluate(() => {
+      localStorage.removeItem('chilaka.welcomed');
+      localStorage.setItem('chilaka.welcomePreview', '1');
+    });
+    await p.reload();
+    await expect(p.getByText('Old Hand', { exact: false }).first()).toBeVisible();
+    await expect(p.getByText('Welcome to')).toHaveCount(0);
+    await expect(p.getByRole('button', { name: 'Create an account' })).toHaveCount(0);
+    await ctx.close();
   });
 
   await test.step('creating an account leads to the name and level questions', async () => {
