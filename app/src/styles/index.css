@@ -322,130 +322,179 @@ button {
   user-select: none;
 }
 
-/* ---- First-open welcome (features/Welcome.tsx) ---- */
+/* ---- First-open welcome (features/Welcome.tsx) ----
+   A moving poster in the flyer colours: teal ground, flame sun with a marigold
+   ring, a giant Telugu word, a striped band, and Chikki flying in to land. */
 .welcome {
   position: fixed;
   inset: 0;
   z-index: 10000;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  background: linear-gradient(180deg, #0e6b63 0%, #17877c 46%, #ffd98a 100%);
+  background: #0e6b63;
   color: #fff8ed;
   -webkit-tap-highlight-color: transparent;
-  transition: opacity 0.3s ease;
+  --u: min(1vw, 0.62vh); /* one unit of the poster grid: keeps the layout the same shape on any screen */
 }
-.welcome.is-leaving { opacity: 0; pointer-events: none; }
-.welcome-sun {
+.welcome.is-leaving { pointer-events: none; }
+.welcome-stripe {
   position: absolute;
-  left: 50%;
-  top: 58%;
-  width: min(120vw, 760px);
-  aspect-ratio: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: max(10px, calc(var(--u) * 2.4));
+  background: repeating-linear-gradient(90deg, #f5a623 0 calc(var(--u) * 5), #ff5c39 calc(var(--u) * 5) calc(var(--u) * 10), #fff8ed calc(var(--u) * 10) calc(var(--u) * 15));
+  transform-origin: left;
+  animation: wl-stripe 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes wl-stripe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.welcome-sun, .welcome-ring {
+  position: absolute;
+  right: calc(var(--u) * -18);
+  top: calc(var(--u) * 12);
+  width: calc(var(--u) * 76);
+  height: calc(var(--u) * 76);
   border-radius: 50%;
-  transform: translate(-50%, -8%);
-  background: radial-gradient(circle, #ffe7a8 0%, #f5a623 58%, rgba(245, 166, 35, 0) 72%);
-  opacity: 0.9;
 }
-.welcome-cloud {
+.welcome-sun { background: #ff5c39; animation: wl-pop 0.6s 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.welcome-ring {
+  right: calc(var(--u) * -13);
+  top: calc(var(--u) * 17);
+  box-sizing: border-box;
+  border: max(4px, calc(var(--u) * 0.9)) solid #f5a623;
+  animation: wl-pop 0.6s 0.26s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes wl-pop { from { transform: scale(0); } to { transform: scale(1); } }
+.welcome-giant {
   position: absolute;
-  height: 34px;
-  border-radius: 999px;
-  background: rgba(255, 248, 237, 0.4);
-  animation: welcome-cloud 3.4s linear both;
+  left: calc(var(--u) * 30);
+  top: calc(var(--u) * 15);
+  margin: 0;
+  font-size: calc(var(--u) * 52);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: #f5a623;
+  animation: wl-giant 0.8s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
-.welcome-cloud-a { top: 16%; left: 8%; width: 150px; }
-.welcome-cloud-b { top: 30%; right: 6%; width: 110px; animation-duration: 3s; }
-.welcome-cloud-c { top: 9%; right: 22%; width: 90px; height: 26px; animation-duration: 2.6s; }
-/* clouds rush outwards past the viewer, which is what sells the forward flight */
-@keyframes welcome-cloud {
-  0% { transform: scale(0.5); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: scale(2.6) translateY(-22vh); opacity: 0; }
+@keyframes wl-giant { from { transform: translateX(60vw); opacity: 0; } to { transform: none; opacity: 1; } }
+.welcome-brand {
+  position: absolute;
+  left: calc(var(--u) * 7);
+  top: calc(var(--u) * 8.5);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--u) * 2);
+  font-size: max(13px, calc(var(--u) * 3.1));
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f5a623;
+  animation: wl-rise 0.5s 0.45s ease-out both;
 }
+.welcome-brand span { letter-spacing: 0; color: #fff8ed; font-size: 1.15em; }
+/* Chikki: in from the left on a rising arc, a small overshoot, then a gentle hover */
 .welcome-bird {
   position: absolute;
-  left: 50%;
-  top: 40%;
-  width: 190px;
-  height: 190px;
-  margin: -95px 0 0 -95px;
-  transform-origin: 50% 55%;
-  animation: welcome-fly 3.4s cubic-bezier(0.3, 0.1, 0.25, 1) both;
-  will-change: transform, opacity;
+  left: calc(var(--u) * 6);
+  top: calc(var(--u) * 50);
+  width: calc(var(--u) * 46);
+  height: calc(var(--u) * 46);
+  animation: wl-fly 1.05s 0.55s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+  filter: drop-shadow(0 calc(var(--u) * 1.6) 0 rgba(10, 79, 73, 0.55));
 }
-/* far away and small, swooping in on a curve; hover; then straight at the viewer */
-@keyframes welcome-fly {
-  0% { transform: translate(-34vw, -30vh) scale(0.06) rotate(-14deg); opacity: 0; }
-  8% { opacity: 1; }
-  28% { transform: translate(16vw, -12vh) scale(0.32) rotate(10deg); }
-  50% { transform: translate(-3vw, 2vh) scale(0.9) rotate(-4deg); }
-  58% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  82% { transform: translate(0, -1vh) scale(1.04) rotate(0deg); opacity: 1; }
-  100% { transform: translate(0, 6vh) scale(9) rotate(0deg); opacity: 0; }
+.welcome-bird svg { width: 100%; height: 100%; }
+@keyframes wl-fly {
+  0% { transform: translate(-70vw, 34vh) rotate(-24deg) scale(0.5); }
+  62% { transform: translate(3vw, -3vh) rotate(7deg) scale(1.06); }
+  82% { transform: translate(-1vw, 1vh) rotate(-3deg) scale(0.98); }
+  100% { transform: none; }
 }
-.welcome-bob { animation: welcome-bob 0.5s ease-in-out infinite alternate; }
-@keyframes welcome-bob {
-  from { transform: translateY(-5px); }
-  to { transform: translateY(5px); }
-}
+.welcome-bob { width: 100%; height: 100%; animation: wl-bob 0.55s 1.6s ease-in-out infinite alternate; }
+@keyframes wl-bob { from { transform: translateY(0); } to { transform: translateY(calc(var(--u) * -1.6)); } }
 .welcome-words {
+  position: absolute;
+  left: calc(var(--u) * 7);
+  right: calc(var(--u) * 7);
+  top: calc(var(--u) * 101);
+}
+.welcome-title {
+  margin: 0;
+  font-size: calc(var(--u) * 15.5);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff8ed;
+}
+.welcome-title span { display: inline-block; animation: wl-word 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.2) both; }
+.welcome-title span:nth-child(1) { animation-delay: 1.15s; }
+.welcome-title span:nth-child(2) { animation-delay: 1.27s; }
+.welcome-title span:nth-child(3) { animation-delay: 1.39s; color: #f5a623; }
+@keyframes wl-word { from { transform: translateY(70%) rotate(4deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.welcome-sub {
+  margin: calc(var(--u) * 3) 0 0;
+  font-size: max(15px, calc(var(--u) * 4.4));
+  line-height: 1.3;
+  font-weight: 700;
+  color: #fff8ed;
+  animation: wl-rise 0.5s 1.6s ease-out both;
+}
+@keyframes wl-rise { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+.welcome-chips { margin-top: calc(var(--u) * 3.5); display: flex; gap: calc(var(--u) * 2); animation: wl-rise 0.5s 1.75s ease-out both; }
+.welcome-chips span {
+  border: max(2px, calc(var(--u) * 0.45)) solid #fff8ed;
+  border-radius: 999px;
+  padding: calc(var(--u) * 0.9) calc(var(--u) * 2.8) calc(var(--u) * 0.6);
+  font-size: max(12px, calc(var(--u) * 3.2));
+  font-weight: 800;
+}
+.welcome-chips span:last-child { background: #f5a623; border-color: #f5a623; color: #16302b; }
+.welcome-skip {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(40% + 112px);
-  padding: 0 24px;
-  text-align: center;
-  animation: welcome-words 3.4s ease both;
-}
-@keyframes welcome-words {
-  0%, 52% { opacity: 0; transform: translateY(14px) scale(0.96); }
-  64%, 84% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: scale(1.08); }
-}
-.welcome-te { margin: 0; font-size: 26px; font-weight: 800; color: #ffe7a8; }
-.welcome-title { margin: 2px 0 0; font-size: clamp(32px, 9vw, 46px); line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; text-shadow: 0 2px 0 rgba(10, 79, 73, 0.45); }
-.welcome-sub { margin: 8px 0 0; font-size: 17px; font-weight: 700; color: #0a4f49; }
-.welcome-skip {
-  position: absolute;
-  bottom: max(18px, env(safe-area-inset-bottom));
+  bottom: max(16px, env(safe-area-inset-bottom));
   margin: 0;
+  text-align: center;
   font-size: 13px;
   font-weight: 700;
-  color: rgba(10, 79, 73, 0.75);
+  color: rgba(255, 248, 237, 0.7);
+  animation: wl-rise 0.5s 1.9s ease-out both;
+}
+/* the way out: the flame sun swells over everything, then clears to the app's paper colour */
+.welcome-wipe {
+  position: absolute;
+  right: calc(var(--u) * 20);
+  top: calc(var(--u) * 50);
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  border-radius: 50%;
+  background: #ff5c39;
+  transform: scale(0);
+  pointer-events: none;
+}
+.welcome.is-leaving .welcome-wipe { animation: wl-wipe 0.62s cubic-bezier(0.6, 0, 0.3, 1) both; }
+@keyframes wl-wipe {
+  0% { transform: scale(0); background: #ff5c39; }
+  55% { transform: scale(calc(260vmax / 10px)); background: #ff5c39; }
+  100% { transform: scale(calc(260vmax / 10px)); background: #fff8ed; }
+}
+.welcome.is-leaving { animation: wl-out 0.2s 0.62s ease both; }
+@keyframes wl-out { to { opacity: 0; } }
+/* wide screens: the poster sits in the middle as a tall card would look odd stretched */
+@media (min-aspect-ratio: 1/1) {
+  .welcome { --u: min(0.62vh, 0.5vw); }
+  .welcome-sun { right: calc(50vw - var(--u) * 78); }
+  .welcome-ring { right: calc(50vw - var(--u) * 73); }
+  .welcome-giant { left: calc(50vw - var(--u) * 26); }
+  .welcome-brand, .welcome-words { left: calc(50vw - var(--u) * 62); right: auto; }
+  .welcome-bird { left: calc(50vw - var(--u) * 64); }
+  .welcome-wipe { right: calc(50vw - var(--u) * 40); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .welcome-bird, .welcome-bob, .welcome-words, .welcome-cloud { animation: none; }
-  .welcome-cloud { opacity: 0.6; }
-}
-
-/* ---- 3D welcome flight (features/welcome/Flight3D.tsx) ---- */
-.welcome-stage { position: absolute; inset: 0; }
-.welcome-stage canvas { display: block; width: 100%; height: 100%; }
-.welcome-loading .welcome-words, .welcome-loading .welcome-skip { opacity: 0; animation: none; }
-/* 3D timing: the words sit low, appear as the bird arrives, and clear out before the dive */
-.welcome-3d .welcome-words { top: auto; bottom: 15%; animation: welcome-words-3d 4.2s ease both; }
-.welcome-3d .welcome-title { color: #0a4f49; text-shadow: 0 2px 0 rgba(255, 248, 237, 0.55); }
-.welcome-3d .welcome-te { color: #0e6b63; }
-.welcome-3d .welcome-sub { color: #16302b; }
-@keyframes welcome-words-3d {
-  0%, 30% { opacity: 0; transform: translateY(16px) scale(0.96); }
-  46%, 76% { opacity: 1; transform: none; }
-  86%, 100% { opacity: 0; transform: scale(1.12); }
-}
-/* the moment of impact: the screen blooms to the app's paper colour as the face fills the lens */
-.welcome-impact {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 46%, #fff8ed 0%, #fff8ed 40%, rgba(255, 248, 237, 0.92) 100%);
-  opacity: 0;
-  animation: welcome-impact 4.2s linear both;
-}
-@keyframes welcome-impact {
-  0%, 95.5% { opacity: 0; }
-  100% { opacity: 1; }
+  .welcome *, .welcome.is-leaving, .welcome.is-leaving .welcome-wipe { animation: none !important; }
+  .welcome.is-leaving { opacity: 0; transition: opacity 0.2s; }
 }

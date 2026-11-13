@@ -1,20 +1,16 @@
-// First-open welcome: Chikki flies in from the distance, hovers while the name
-// appears, then dives head-first into the camera and the app opens.
-// The flight is real 3D (features/welcome/Flight3D.tsx, loaded only here). If
-// the device cannot do 3D, or the 3D code does not arrive in time, a flat
-// version of the same flight plays instead; with reduced motion it is a still.
-// Shown once per device (and again after "Start over" in the developer
-// version). Tap anywhere to skip.
-import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
+// First-open welcome: a moving poster in the flyer colours. The striped band
+// runs across the top, the flame sun and its marigold ring pop in, a giant
+// Telugu word slides in behind, Chikki flies in and lands, and the headline
+// rises word by word. On the way out the sun swells over the screen and clears
+// to the app. Shown once per device (and again after "Start over" in the
+// developer version). Tap anywhere to skip. With reduced motion it is a still.
+import { useEffect, useRef, useState } from 'react';
 import { Mascot } from '../components/Mascot';
-import { FLIGHT_MS } from './welcome/timing';
-
-const Flight3D = lazy(() => import('./welcome/Flight3D'));
 
 const KEY = 'chilaka.welcomed';
-const FLAT_MS = 3400;
-const STILL_MS = 1400;
-const WAIT_FOR_3D_MS = 4500;
+const SHOW_MS = 3300;
+const STILL_MS = 1600;
+const LEAVE_MS = 820;
 
 function alreadyWelcomed(): boolean {
   try {
@@ -24,30 +20,10 @@ function alreadyWelcomed(): boolean {
   }
 }
 
-class Catch extends Component<{ onError: () => void; children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-  componentDidCatch(e: unknown) {
-    console.error("welcome 3d failed", e);
-    this.props.onError();
-  }
-  render() {
-    return this.state.failed ? null : this.props.children;
-  }
-}
-
-type Mode = 'loading' | '3d' | 'flat' | 'still';
-
 export function Welcome() {
   const [phase, setPhase] = useState<'play' | 'leave' | 'gone'>(() => (alreadyWelcomed() ? 'gone' : 'play'));
-  const [mode, setMode] = useState<Mode>(() =>
-    typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'still' : 'loading',
-  );
   const timer = useRef(0);
-  const modeRef = useRef(mode);
-  modeRef.current = mode;
+  const still = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   const finish = () => {
     try {
@@ -57,76 +33,60 @@ export function Welcome() {
     }
     window.clearTimeout(timer.current);
     setPhase('leave');
-    timer.current = window.setTimeout(() => setPhase('gone'), 380);
-  };
-  const endIn = (ms: number) => {
-    window.clearTimeout(timer.current);
-    // tests can hold the welcome open to photograph single frames
-    if ((window as unknown as { __welcomeHold?: boolean }).__welcomeHold) return;
-    timer.current = window.setTimeout(finish, ms);
-  };
-  const fallBack = () => {
-    if (modeRef.current === 'loading' || modeRef.current === '3d') setMode('flat');
+    timer.current = window.setTimeout(() => setPhase('gone'), still ? 220 : LEAVE_MS);
   };
 
-  // the clock for each version starts when that version is actually on screen
   useEffect(() => {
     if (phase !== 'play') return;
-    if (mode === 'still') endIn(STILL_MS);
-    else if (mode === 'flat') endIn(FLAT_MS);
-    else if (mode === '3d') endIn(FLIGHT_MS);
-    else endIn(WAIT_FOR_3D_MS + FLAT_MS + 500); // never stuck, whatever happens
+    // tests can hold the welcome open to photograph single frames
+    if ((window as unknown as { __welcomeHold?: boolean }).__welcomeHold) return;
+    timer.current = window.setTimeout(finish, still ? STILL_MS : SHOW_MS);
+    return () => window.clearTimeout(timer.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, phase]);
-  useEffect(() => {
-    if (phase !== 'play' || mode !== 'loading') return;
-    const t = window.setTimeout(fallBack, WAIT_FOR_3D_MS);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, phase]);
+  }, []);
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
   if (phase === 'gone') return null;
-  const threeD = mode === 'loading' || mode === '3d';
   return (
     <div
-      className={`welcome welcome-${mode} ${phase === 'leave' ? 'is-leaving' : ''}`}
+      className={`welcome ${phase === 'leave' ? 'is-leaving' : ''}`}
       data-testid="welcome"
-      data-mode={mode}
       role="button"
       tabIndex={0}
       aria-label="Welcome to Chilaka. Tap to continue."
-      onClick={finish}
-      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') && finish()}
+      onClick={() => phase === 'play' && finish()}
+      onKeyDown={(e) => phase === 'play' && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') && finish()}
     >
       <div className="welcome-sun" aria-hidden="true" />
-      {threeD ? (
-        <Catch onError={fallBack}>
-          <Suspense fallback={null}>
-            <Flight3D onReady={() => modeRef.current === 'loading' && setMode('3d')} onFail={fallBack} />
-          </Suspense>
-        </Catch>
-      ) : (
-        <>
-          <div className="welcome-cloud welcome-cloud-a" aria-hidden="true" />
-          <div className="welcome-cloud welcome-cloud-b" aria-hidden="true" />
-          <div className="welcome-cloud welcome-cloud-c" aria-hidden="true" />
-          <div className="welcome-bird" aria-hidden="true">
-            <div className="welcome-bob">
-              <Mascot pose="cheer" size={190} />
-            </div>
-          </div>
-        </>
-      )}
-      <div className="welcome-words">
-        <p className="welcome-te te-script" lang="te">
-          నమస్కారం
-        </p>
-        <h1 className="welcome-title">Welcome to Chilaka</h1>
-        <p className="welcome-sub">Learn Telugu with Chikki</p>
+      <div className="welcome-ring" aria-hidden="true" />
+      <p className="welcome-giant te-script" lang="te" aria-hidden="true">
+        తెలుగు
+      </p>
+      <div className="welcome-stripe" aria-hidden="true" />
+      <p className="welcome-brand" aria-hidden="true">
+        Chilaka{' '}
+        <span className="te-script" lang="te">
+          చిలక
+        </span>
+      </p>
+      <div className="welcome-bird" aria-hidden="true">
+        <div className="welcome-bob">
+          <Mascot pose="cheer" size={200} outfit={null} />
+        </div>
       </div>
-      {mode === '3d' && <div className="welcome-impact" aria-hidden="true" />}
+      <div className="welcome-words">
+        <h1 className="welcome-title">
+          <span>Welcome</span> <span>to</span> <span>Chilaka.</span>
+        </h1>
+        <p className="welcome-sub">Speak, read and write Telugu with Chikki.</p>
+        <div className="welcome-chips" aria-hidden="true">
+          <span>iPhone</span>
+          <span>Mac</span>
+          <span>Free</span>
+        </div>
+      </div>
       <p className="welcome-skip">Tap to skip</p>
+      <div className="welcome-wipe" aria-hidden="true" />
     </div>
   );
 }
