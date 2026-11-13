@@ -8,12 +8,37 @@ const DAYS = 180;
 
 export default {
   async fetch(request, env, ctx) {
+    if (new URL(request.url).pathname === '/download/mac') {
+      if (request.method === 'GET') ctx.waitUntil(record(request, env).catch(() => {}));
+      return Response.redirect(await macDownloadUrl(), 302);
+    }
     const response = await env.ASSETS.fetch(request);
     // Record after the page is sent, so logging never slows a visitor down.
     if (request.method === 'GET' && response.ok) ctx.waitUntil(record(request, env).catch(() => {}));
     return response;
   },
 };
+
+// /download/mac always hands out the newest Mac app. GitHub's "latest" link
+// redirects to the newest release tag (v1.2.3); the file in it is named
+// Chilaka-1.2.3-arm64.dmg. If anything is off, send people to the release page.
+const RELEASES = 'https://github.com/EaglesSBLII/chilaka/releases';
+let latest = { url: '', at: 0 };
+export async function macDownloadUrl(fetcher = fetch, now = Date.now()) {
+  if (latest.url && now - latest.at < 10 * 60_000) return latest.url;
+  try {
+    const res = await fetcher(`${RELEASES}/latest`, { redirect: 'manual', headers: { 'user-agent': 'chilaka-site' } });
+    const tag = /\/releases\/tag\/v(\d+\.\d+\.\d+)$/.exec(res.headers.get('location') || '');
+    if (!tag) return `${RELEASES}/latest`;
+    const url = `${RELEASES}/download/v${tag[1]}/Chilaka-${tag[1]}-arm64.dmg`;
+    const head = await fetcher(url, { method: 'HEAD', redirect: 'manual' });
+    if (head.status >= 400) return `${RELEASES}/latest`;
+    latest = { url, at: now };
+    return url;
+  } catch {
+    return `${RELEASES}/latest`;
+  }
+}
 
 async function record(request, env) {
   const ua = request.headers.get('user-agent') || '';

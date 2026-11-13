@@ -1,10 +1,11 @@
-// Account screen: create, sign in, or recover with the one-time recovery code.
+// Account screen: create, sign in, or reset the password with your birthday
+// (accounts made before birthdays use their recovery code).
 import { useState } from 'react';
 import { ArrowLeft, Check, Copy, KeyRound, LogIn, UserPlus } from 'lucide-react';
 import { useApp } from '../store';
 import { Button, Card } from '../components/ui';
 import { Mascot } from '../components/Mascot';
-import { AuthError, login, reset, signup, validEmail } from '../auth';
+import { AuthError, login, reset, signup, validBirthday, validEmail } from '../auth';
 
 type Mode = 'signin' | 'create' | 'recover';
 
@@ -85,6 +86,8 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [code, setCode] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [useCode, setUseCode] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [recovery, setRecovery] = useState<string | null>(null);
@@ -98,20 +101,24 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
     }
     if (!validEmail(email)) return setError('Enter a valid email address.');
     if (password.length < 8) return setError('Use at least 8 characters for your password.');
-    if (mode === 'recover' && code.trim().length < 20) return setError('Enter the full recovery code.');
+    const byCode = mode === 'recover' && useCode;
+    if (byCode && code.trim().length < 20) return setError('Enter the full recovery code.');
+    if (mode !== 'signin' && !byCode && !validBirthday(birthday)) return setError('Enter your full date of birth.');
     setBusy(true);
     try {
       if (mode === 'create') {
-        const r = await signup(email, password);
+        const r = await signup(email, password, birthday);
         setSession(r.session);
-        setRecovery(r.recoveryCode);
+        navigate({ name: 'settings' });
       } else if (mode === 'signin') {
         setSession(await login(email, password));
         navigate({ name: 'settings' });
       } else {
-        const r = await reset(email, code, password);
+        const r = await reset(email, byCode ? { recoveryCode: code } : { birthday }, password);
         setSession(r.session);
-        setRecovery(r.recoveryCode);
+        // only an older account gets a new one-time code to save
+        if (r.recoveryCode) setRecovery(r.recoveryCode);
+        else navigate({ name: 'settings' });
       }
     } catch (e) {
       console.error('auth failed', e);
@@ -146,13 +153,30 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
               ? 'Keep your progress on every device. Free, no ads, no email spam.'
               : mode === 'signin'
                 ? 'Your lessons, streak and coins come with you.'
-                : 'Use the recovery code you saved when you signed up.'}
+                : useCode
+                  ? 'Use the recovery code you saved when you signed up.'
+                  : 'Enter the birthday you gave when you signed up, then choose a new password.'}
           </p>
         </div>
       </div>
       <Card className="flex flex-col gap-3">
         <Field label="Email" type="email" value={email} onChange={setEmail} autoComplete="email" placeholder="you@example.com" />
-        {mode === 'recover' && <Field label="Recovery code" value={code} onChange={setCode} placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" />}
+        {mode === 'recover' && useCode && <Field label="Recovery code" value={code} onChange={setCode} placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" />}
+        {(mode === 'create' || (mode === 'recover' && !useCode)) && (
+          <>
+            <Field label="Birthday" type="date" value={birthday} onChange={setBirthday} autoComplete="bday" />
+            {mode === 'create' && (
+              <p className="-mt-1 text-xs font-semibold text-ink-soft">
+                If you forget your password, your birthday is how you reset it. Chilaka never sends email.
+              </p>
+            )}
+          </>
+        )}
+        {mode === 'recover' && (
+          <button type="button" className="self-start text-xs font-bold text-teal" onClick={() => setUseCode(!useCode)}>
+            {useCode ? 'Use my birthday instead' : 'Signed up before birthdays? Use your recovery code'}
+          </button>
+        )}
         <Field
           label={mode === 'recover' ? 'New password' : 'Password'}
           type="password"
@@ -186,7 +210,7 @@ export function Auth({ initialMode = 'signin' }: { initialMode?: Mode }) {
         )}
         {mode !== 'recover' && (
           <button type="button" onClick={() => setMode('recover')}>
-            Forgot your password? Use your recovery code
+            Forgot your password? Reset it with your birthday
           </button>
         )}
       </div>

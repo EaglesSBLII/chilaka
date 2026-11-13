@@ -53,12 +53,12 @@ test('token: secret is minted once into KV and token_ver is checked', async () =
   _resetSecretCache();
   assert.equal(await getSecret(env), s1);
 
-  await env.DB.prepare('INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+  await env.DB.prepare('INSERT INTO users (id, email, auth_hash, server_salt, recovery_hash, slot_key, token_ver, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
     .bind('u1', 'a@b.co', 'h', 's', 'r', 'f'.repeat(56), 1, Date.now())
     .run();
   const tok = await signToken(env, { uid: 'u1', slot: 'f'.repeat(56), ver: 1 });
   const who = await verifyToken(env, `Bearer ${tok}`);
-  assert.deepEqual(who, { uid: 'u1', slot: 'f'.repeat(56), email: 'a@b.co' });
+  assert.deepEqual(who, { uid: 'u1', slot: 'f'.repeat(56), email: 'a@b.co', recovery: 'code' });
   assert.equal(await verifyToken(env, tok), null); // no Bearer prefix
   await env.DB.prepare('UPDATE users SET token_ver = 2 WHERE id = ?').bind('u1').run();
   assert.equal(await verifyToken(env, `Bearer ${tok}`), null);

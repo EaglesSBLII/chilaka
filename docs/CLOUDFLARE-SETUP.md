@@ -88,7 +88,8 @@ How accounts work (no email is ever sent):
   (PBKDF2) and sends only that; the server stores a salted hash of the key.
   Nobody — including the worker — can read your password.
 - Because there is no email delivery, there is no "forgot password" link.
-  Instead, sign-up shows a one-time **recovery code**
+  Instead, sign-up asks for a **birthday**, which resets a forgotten password
+  (older accounts: a one-time **recovery code**
   (`XXXX-XXXX-XXXX-XXXX-XXXX`). Save it somewhere safe. It is the only way to
   set a new password; using it signs out every device and issues a fresh code.
   Lose both the password and the code and the account cannot be recovered

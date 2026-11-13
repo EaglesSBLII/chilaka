@@ -21,7 +21,7 @@ A free, private, Duolingo-style app that takes you from "broken Telugu" to holdi
 
 ## Using it
 
-- **Accounts (free):** Settings → Account → Create account. Email + password; nothing is emailed. You get a one-time recovery code at signup — it is the only way back in if you forget the password. Signing in on another device merges progress both ways. Pairing with a code (no account) still works under Settings → Advanced.
+- **Accounts (free):** Settings → Account → Create account. Email, password and your birthday; nothing is emailed. If you forget the password, your birthday resets it (five wrong tries lock resets for a day). Accounts made before 0.5.1 still use their one-time recovery code until a birthday is added in Settings → Account.
 - **Handwriting (Reading & Writing track):** each new letter is traced with a finger over a guide that fills in as you cover it, and later written from memory on a blank sheet and compared with the real letter. On a computer you can draw with the mouse or press Skip. Design notes: `docs/plans/2026-11-11-letter-tracing.md`.
 - **Coins, quests, badges, shop:** every lesson pays coins (bonuses for a perfect run, the daily goal and streak milestones); two quests a day open a chest; eight tiered badges; coins buy streak freezes, outfits for Chikki and accent themes.
 - **Reminders on iPhone:** install to the Home Screen, sign in, then Settings → Daily reminders → Push reminders. A nudge arrives at your chosen time only on days you have not practised.

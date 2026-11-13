@@ -120,7 +120,7 @@ test('signup → login → me → reset, adopting a KV slot into D1', async () =
 
   // me
   const me = await body(await call(env, '/auth/me', { headers: { authorization: `Bearer ${li.json.token}` } }));
-  assert.deepEqual(me, { status: 200, json: { email: 'arnav@example.com', slot: SLOT } });
+  assert.deepEqual(me, { status: 200, json: { email: 'arnav@example.com', slot: SLOT, recovery: 'code' } });
   assert.equal((await call(env, '/auth/me')).status, 401);
   assert.equal((await call(env, '/auth/me', { headers: { authorization: 'Bearer nope' } })).status, 401);
 
@@ -212,4 +212,47 @@ test('push subscribe/unsubscribe and the reminder sweep', async () => {
   assert.equal((await call(env, '/push/subscribe', { method: 'POST', body: subBody, headers: auth })).status, 200);
   assert.equal((await call(env, '/push/subscribe', { method: 'DELETE', body: { endpoint: subscription.endpoint }, headers: auth })).status, 200);
   assert.equal(await env.DB.prepare('SELECT COUNT(*) AS n FROM push_subs').first('n'), 0);
+});
+
+test('birthday is the reset answer: signup, reset, lock after 5 misses, legacy account switches over', async () => {
+  const env = fakeEnv();
+  const post = (path, b, headers) => call(env, path, { method: 'POST', body: b, headers, ip: '6.6.6.6' });
+  // bad dates are refused
+  for (const [i, birthday] of ['2010-02-30', '14/05/2010', '1850-01-01', '2999-01-01', ''].entries()) {
+    assert.equal((await call(env, '/auth/signup', { method: 'POST', ip: `7.7.7.${i}`, body: { email: 'kid@example.com', authKey: authKey('a'), birthday } })).status, 400, birthday);
+  }
+  const su = await body(await post('/auth/signup', { email: 'kid@example.com', authKey: authKey('a'), birthday: '2010-05-14' }));
+  assert.equal(su.status, 201);
+  assert.equal(su.json.recoveryCode, undefined);
+  const stored = await env.DB.prepare('SELECT recovery_hash, recovery_kind FROM users WHERE email = ?').bind('kid@example.com').first();
+  assert.equal(stored.recovery_kind, 'birthday');
+  assert.doesNotMatch(stored.recovery_hash, /2010/);
+  assert.equal((await body(await call(env, '/auth/me', { headers: { authorization: `Bearer ${su.json.token}` } }))).json.recovery, 'birthday');
+
+  // wrong birthday → 401; right one resets and stays the answer
+  assert.equal((await post('/auth/reset', { email: 'kid@example.com', birthday: '2010-05-15', authKey: authKey('b') })).status, 401);
+  const rs = await body(await post('/auth/reset', { email: 'kid@example.com', birthday: '2010-05-14', authKey: authKey('b') }));
+  assert.equal(rs.status, 200);
+  assert.equal(rs.json.recoveryCode, undefined);
+  assert.equal((await post('/auth/login', { email: 'kid@example.com', authKey: authKey('b') })).status, 200);
+  assert.equal((await post('/auth/login', { email: 'kid@example.com', authKey: authKey('a') })).status, 401);
+  assert.equal((await post('/auth/reset', { email: 'kid@example.com', birthday: '2010-05-14', authKey: authKey('c') })).status, 200);
+
+  // five misses lock resets for a day, even for the right answer; sign-in still works
+  for (let i = 1; i <= 5; i++) {
+    assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: `9.9.9.${i}`, body: { email: 'kid@example.com', birthday: `2011-01-0${i}`, authKey: authKey('d') } })).status, 401);
+  }
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '9.9.8.1', body: { email: 'kid@example.com', birthday: '2010-05-14', authKey: authKey('d') } })).status, 429);
+  assert.equal((await call(env, '/auth/login', { method: 'POST', ip: '9.9.8.2', body: { email: 'kid@example.com', authKey: authKey('c') } })).status, 200);
+  await env.DB.prepare('UPDATE users SET reset_locked_until = 1').run();
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '9.9.8.3', body: { email: 'kid@example.com', birthday: '2010-05-14', authKey: authKey('d') } })).status, 200);
+
+  // an older account (recovery code) adds a birthday while signed in; the code stops working
+  const old = await body(await call(env, '/auth/signup', { method: 'POST', ip: '8.8.8.1', body: { email: 'old@example.com', authKey: authKey('a') } }));
+  assert.match(old.json.recoveryCode, /^([A-Z2-9]{4}-){4}[A-Z2-9]{4}$/);
+  assert.equal((await post('/auth/birthday', { birthday: '1975-12-01' })).status, 401);
+  assert.equal((await post('/auth/birthday', { birthday: 'nope' }, { authorization: `Bearer ${old.json.token}` })).status, 400);
+  assert.equal((await post('/auth/birthday', { birthday: '1975-12-01' }, { authorization: `Bearer ${old.json.token}` })).status, 200);
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '8.8.8.2', body: { email: 'old@example.com', recoveryCode: old.json.recoveryCode, authKey: authKey('e') } })).status, 401);
+  assert.equal((await call(env, '/auth/reset', { method: 'POST', ip: '8.8.8.3', body: { email: 'old@example.com', birthday: '1975-12-01', authKey: authKey('e') } })).status, 200);
 });

@@ -95,3 +95,20 @@ export async function clearFailures(kv, ipKey) {
 export async function ipKeyOf(request) {
   return (await sha256Hex(`ip|${request.headers.get('cf-connecting-ip') || 'unknown'}`)).slice(0, 24);
 }
+
+/**
+ * This-laptop-only lock. When the ADMIN_DEVICE_HASH secret is set (64 hex =
+ * SHA-256 of a random key that lives only in the Chilaka Owner app's folder on
+ * the owner's Mac), every request must carry that key in `x-chilaka-device`.
+ * A browser, a phone or another computer does not have it. The password is
+ * still needed on top. Not set: the lock is off and the page works in a browser.
+ */
+export const DEVICE_HEADER = 'x-chilaka-device';
+export function deviceLockOn(env) {
+  return /^[0-9a-f]{64}$/.test(env.ADMIN_DEVICE_HASH || '');
+}
+export async function deviceAllowed(request, env) {
+  if (!deviceLockOn(env)) return true;
+  const key = request.headers.get(DEVICE_HEADER) || '';
+  return sameText(await sha256Hex(`device|${key}`), env.ADMIN_DEVICE_HASH) && key.length >= 32;
+}

@@ -74,3 +74,19 @@ npx wrangler secret put GITHUB_TOKEN
   counts twice. No IP addresses are stored.
 - The free Cloudflare plan allows about 1,000 visit-list reads a day: roughly eight hours of
   the page being open and visible.
+
+## Chilaka Owner: the dashboard as a Mac app, on one laptop only
+
+`node tools/owner-app.mjs` builds **Chilaka Owner**, installs it in /Applications and turns on
+the laptop lock. With the lock on, the dashboard address answers "Not found" to every browser,
+phone and other computer; only the app on this laptop opens it, and it still asks for the
+password. The developer version at `/dev/` is behind the same lock, so it opens only inside the
+app too (not on an iPhone).
+
+- The lock is a random device key in `~/Library/Application Support/Chilaka Owner/device.key`.
+  Cloudflare holds only a hash of it (secret `ADMIN_DEVICE_HASH`). The app adds the key to its
+  own requests to the dashboard address and to nothing else.
+- `node tools/owner-app.mjs --lock-only` turns the lock on for the installed app.
+- `node tools/owner-app.mjs --unlock` turns it off; the dashboard opens in a browser again.
+- New laptop, or the key file was deleted: run the tool again there. It makes a new key and
+  replaces the old one.

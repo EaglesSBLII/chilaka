@@ -44,3 +44,4 @@ tools/voice-scan-report.json
 # owner's preview build (built and uploaded by tools/publish-dev.mjs, never committed)
 app/dist-dev/
 admin-worker/public/dev/
+owner-app/dist-electron/

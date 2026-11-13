@@ -23,7 +23,9 @@ export function fakeKV() {
 
 export function fakeD1() {
   const db = new DatabaseSync(':memory:');
-  db.exec(readFileSync(fileURLToPath(new URL('../migrations/0001_init.sql', import.meta.url)), 'utf8'));
+  for (const f of ['0001_init.sql', '0002_birthday_recovery.sql']) {
+    db.exec(readFileSync(fileURLToPath(new URL(`../migrations/${f}`, import.meta.url)), 'utf8'));
+  }
   const stmt = (sql, args) => {
     const st = db.prepare(sql);
     return {

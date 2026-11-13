@@ -84,6 +84,29 @@ export async function checkRecoveryCode(code, storedHash) {
   return constantTimeEqual(await hashRecoveryCode(code), storedHash);
 }
 
+// ---- birthday as the reset answer ----
+// A birthday is easy to remember and easy to guess, so the server also counts
+// wrong answers per account (see handleReset). Stored only as a hash.
+export function normaliseBirthday(value, now = new Date()) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value ?? '').trim());
+  if (!m) return null;
+  const [y, mo, d] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  const date = new Date(Date.UTC(y, mo - 1, d));
+  if (date.getUTCFullYear() !== y || date.getUTCMonth() !== mo - 1 || date.getUTCDate() !== d) return null;
+  if (y < 1900 || date.getTime() > now.getTime()) return null;
+  return `${m[1]}-${m[2]}-${m[3]}`;
+}
+
+export async function hashBirthday(userId, birthday) {
+  return sha256Hex(enc.encode(`bday:${userId}:${birthday}`));
+}
+
+export async function checkBirthday(userId, birthday, storedHash) {
+  const b = normaliseBirthday(birthday);
+  // hash something either way so a malformed date takes the same time
+  return constantTimeEqual(await hashBirthday(userId, b ?? 'x'), storedHash) && b !== null;
+}
+
 // ---- tokens: v1.<b64url(JSON{uid, slot, ver, exp})>.<b64url(HMAC-SHA256)> ----
 export const TOKEN_TTL_MS = 90 * 24 * 60 * 60_000;
 
@@ -154,7 +177,7 @@ export async function verifyToken(env, header) {
   if (!m) return null;
   const payload = await verifyTokenWith(await getSecret(env), m[1]);
   if (!payload) return null;
-  const user = await env.DB.prepare('SELECT email, slot_key, token_ver FROM users WHERE id = ?').bind(payload.uid).first();
+  const user = await env.DB.prepare('SELECT email, slot_key, token_ver, recovery_kind FROM users WHERE id = ?').bind(payload.uid).first();
   if (!user || user.token_ver !== payload.ver) return null;
-  return { uid: payload.uid, slot: user.slot_key, email: user.email };
+  return { uid: payload.uid, slot: user.slot_key, email: user.email, recovery: user.recovery_kind };
 }

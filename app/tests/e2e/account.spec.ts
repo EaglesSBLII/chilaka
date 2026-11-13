@@ -6,7 +6,7 @@ import { completeLesson, completeOnboarding, wipeState } from './helpers';
 import { SYNC_ENDPOINT } from '../../src/sync-config';
 
 const kv = new Map<string, { rev: number; updatedAt: number; data: unknown }>();
-const users = new Map<string, { authKey: string; slot: string; recovery: string; ver: number }>();
+const users = new Map<string, { authKey: string; slot: string; recovery: string; kind: 'birthday' | 'code'; ver: number }>();
 const RECOVERY = 'ABCD-EFGH-JKLM-NPQR-STUV';
 const RECOVERY2 = 'WXYZ-2345-6789-ABCD-EFGH';
 
@@ -36,8 +36,8 @@ async function mockWorker(context: BrowserContext): Promise<void> {
       const b = body();
       if (users.has(b.email)) return json(409, { error: 'exists' });
       const slot = b.slot && !/[^0-9a-f]/.test(b.slot) ? b.slot : 'cd'.repeat(28);
-      users.set(b.email, { authKey: b.authKey, slot, recovery: RECOVERY, ver: 1 });
-      return json(201, { token: token(b.email), slot, recoveryCode: RECOVERY });
+      users.set(b.email, { authKey: b.authKey, slot, recovery: b.birthday, kind: 'birthday', ver: 1 });
+      return json(201, { token: token(b.email), slot });
     }
     if (url.pathname === '/auth/login') {
       const b = body();
@@ -48,13 +48,26 @@ async function mockWorker(context: BrowserContext): Promise<void> {
     if (url.pathname === '/auth/reset') {
       const b = body();
       const u = users.get(b.email);
-      if (!u || u.recovery !== b.recoveryCode.toUpperCase()) return json(401, { error: 'invalid' });
+      const answer = u?.kind === 'birthday' ? b.birthday : b.recoveryCode?.toUpperCase();
+      if (!u || u.recovery !== answer) return json(401, { error: 'invalid' });
       u.authKey = b.authKey;
-      u.recovery = RECOVERY2;
       u.ver++;
+      if (u.kind === 'birthday') return json(200, { token: token(b.email), slot: u.slot });
+      u.recovery = RECOVERY2;
       return json(200, { token: token(b.email), slot: u.slot, recoveryCode: RECOVERY2 });
     }
-    if (url.pathname === '/auth/me') return json(200, { email: 'x', slot: 'y' });
+    const signedIn = (): string | undefined => {
+      const t = (req.headers()['authorization'] ?? '').split('.')[1];
+      return t ? (JSON.parse(Buffer.from(t, 'base64url').toString()) as { email: string }).email : undefined;
+    };
+    if (url.pathname === '/auth/me') return json(200, { email: 'x', slot: 'y', recovery: users.get(signedIn() ?? '')?.kind ?? 'birthday' });
+    if (url.pathname === '/auth/birthday') {
+      const u = users.get(signedIn() ?? '');
+      if (!u) return json(401, { error: 'unauthorized' });
+      u.recovery = body().birthday;
+      u.kind = 'birthday';
+      return json(200, { ok: true });
+    }
     // legacy sync slot routes
     const key = url.pathname.slice(1);
     if (req.method() === 'GET') {
@@ -78,7 +91,7 @@ async function openAuth(page: Page, mode: 'Create account' | 'Sign in'): Promise
   await page.getByTestId('account-card').getByRole('button', { name: mode }).click();
 }
 
-test('sign up on one device, sign in on another, recover the password', async ({ browser }) => {
+test('sign up on one device, sign in on another, reset the password with the birthday', async ({ browser }) => {
   kv.clear();
   users.clear();
   const ctxA = await browser.newContext();
@@ -96,17 +109,18 @@ test('sign up on one device, sign in on another, recover the password', async ({
   await completeLesson(a);
   await a.getByRole('button', { name: 'Continue' }).click();
 
-  await test.step('device A creates an account and sees its recovery code once', async () => {
+  await test.step('device A creates an account with a birthday; there is no code to save', async () => {
     await openAuth(a, 'Create account');
     await a.getByLabel('Email').fill('ravi@example.com');
     await a.getByLabel('Password').fill('parrot-power-9');
     await a.getByRole('button', { name: 'Create account' }).click();
-    await expect(a.getByTestId('recovery-code')).toHaveText(RECOVERY, { timeout: 20_000 });
+    await expect(a.getByRole('alert')).toContainText('date of birth');
+    await a.getByLabel('Birthday').fill('2010-05-14');
+    await a.getByRole('button', { name: 'Create account' }).click();
+    await expect(a.getByTestId('account-card')).toContainText('ravi@example.com', { timeout: 20_000 });
+    await expect(a.getByTestId('account-card')).toContainText('Your birthday resets it');
+    await expect(a.getByTestId('recovery-code')).toHaveCount(0);
     expect(errors.filter((e) => e.includes('auth failed'))).toEqual([]);
-    await a.getByRole('button', { name: 'Done' }).isDisabled();
-    await a.getByText('I saved this code').click();
-    await a.getByRole('button', { name: 'Done' }).click();
-    await expect(a.getByTestId('account-card')).toContainText('ravi@example.com');
     // the account adopted the device's slot and the progress is in the cloud
     await expect.poll(() => kv.size, { timeout: 15_000 }).toBeGreaterThan(0);
   });
@@ -138,7 +152,7 @@ test('sign up on one device, sign in on another, recover the password', async ({
     await expect(b.getByTestId('account-card')).toContainText('ravi@example.com', { timeout: 20_000 });
   });
 
-  await test.step('a wrong password is rejected; the recovery code resets it', async () => {
+  await test.step('a wrong password is rejected; a wrong birthday too; the right birthday resets it', async () => {
     await b.getByRole('button', { name: 'Settings' }).click();
     await b.getByRole('button', { name: 'Sign out', exact: true }).click();
     await openAuth(b, 'Sign in');
@@ -146,11 +160,34 @@ test('sign up on one device, sign in on another, recover the password', async ({
     await b.getByLabel('Password').fill('wrong-password');
     await b.getByRole('button', { name: 'Sign in' }).click();
     await expect(b.getByRole('alert')).toContainText('wrong', { timeout: 20_000 });
-    await b.getByRole('button', { name: /recovery code/i }).click();
-    await b.getByLabel('Recovery code').fill(RECOVERY.toLowerCase());
+    await b.getByRole('button', { name: /Reset it with your birthday/i }).click();
+    await b.getByLabel('Birthday').fill('2010-05-15');
     await b.getByLabel('New password').fill('new-parrot-10');
     await b.getByRole('button', { name: 'Reset password' }).click();
+    await expect(b.getByRole('alert')).toContainText('wrong', { timeout: 20_000 });
+    await b.getByLabel('Birthday').fill('2010-05-14');
+    await b.getByRole('button', { name: 'Reset password' }).click();
+    await expect(b.getByTestId('account-card')).toContainText('ravi@example.com', { timeout: 20_000 });
+    expect(users.get('ravi@example.com')!.ver).toBe(2);
+  });
+
+  await test.step('an account from before birthdays resets with its code, then adds a birthday in Settings', async () => {
+    users.set('old@example.com', { authKey: 'x', slot: 'ef'.repeat(28), recovery: RECOVERY, kind: 'code', ver: 1 });
+    await b.getByRole('button', { name: 'Sign out', exact: true }).click();
+    await openAuth(b, 'Sign in');
+    await b.getByRole('button', { name: /Reset it with your birthday/i }).click();
+    await b.getByRole('button', { name: /Use your recovery code/i }).click();
+    await b.getByLabel('Email').fill('old@example.com');
+    await b.getByLabel('Recovery code').fill(RECOVERY.toLowerCase());
+    await b.getByLabel('New password').fill('old-parrot-11');
+    await b.getByRole('button', { name: 'Reset password' }).click();
     await expect(b.getByTestId('recovery-code')).toHaveText(RECOVERY2, { timeout: 20_000 });
+    await b.getByText('I saved this code').click();
+    await b.getByRole('button', { name: 'Done' }).click();
+    await b.getByTestId('add-birthday').getByLabel(/Add your birthday/).fill('1975-12-01');
+    await b.getByRole('button', { name: 'Save birthday' }).click();
+    await expect(b.getByTestId('account-card')).toContainText('Your birthday resets it');
+    expect(users.get('old@example.com')).toMatchObject({ kind: 'birthday', recovery: '1975-12-01' });
   });
 
   await ctxA.close();

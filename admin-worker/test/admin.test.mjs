@@ -237,3 +237,37 @@ test('sign-in still works when the attempt counters cannot be written (KV quota 
   assert.equal(ok.res.status, 200);
   assert.ok(ok.cookie.startsWith(`${COOKIE}=`));
 });
+
+test('laptop-only lock: without the device key nothing exists, with it everything works as before', async () => {
+  const { createHash } = await import('node:crypto');
+  const KEY = 'c3'.repeat(32);
+  const hash = createHash('sha256').update(`device|${KEY}`).digest('hex');
+  const env = await envWith({ ADMIN_DEVICE_HASH: hash, ASSETS: { fetch: async () => new Response('page') } });
+  const withKey = (path, opts = {}, key = KEY) => {
+    const r = req(path, opts);
+    const headers = new Headers(r.headers);
+    if (key !== null) headers.set('x-chilaka-device', key);
+    return new Request(r, { headers });
+  };
+  // no key, wrong key, the hash itself: 404 on the page, the API, sign-in and the developer version
+  for (const key of [null, 'd4'.repeat(32), hash, '']) {
+    for (const path of ['/', '/app.js', '/api/me', '/api/emails', '/dev/', '/dev/index.html']) {
+      const res = await handle(withKey(path, {}, key), env);
+      assert.equal(res.status, 404, `${path} with ${key}`);
+      assert.equal(await res.text(), 'Not found');
+    }
+    assert.equal((await handle(withKey('/api/login', { method: 'POST', body: { authKey: GOOD } }, key), env)).status, 404);
+  }
+  // right key: the page loads, the password is still required, and sign-in works
+  assert.equal(await (await handle(withKey('/'), env)).text(), 'page');
+  assert.equal((await handle(withKey('/api/emails'), env)).status, 401);
+  const li = await handle(withKey('/api/login', { method: 'POST', body: { authKey: GOOD } }), env);
+  assert.equal(li.status, 200);
+  const cookie = li.headers.get('set-cookie').split(';')[0];
+  assert.equal((await handle(withKey('/api/emails', { cookie }), env)).status, 200);
+  // a stolen session cookie alone is useless off this laptop
+  assert.equal((await handle(req('/api/emails', { cookie }), env)).status, 404);
+  // lock not set (or malformed): behaves exactly as before
+  const open = await envWith({ ADMIN_DEVICE_HASH: 'nope' });
+  assert.equal((await handle(req('/api/me'), open)).status, 401);
+});

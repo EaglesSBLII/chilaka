@@ -3,6 +3,7 @@
 
 import {
   clearFailures,
+  deviceAllowed,
   ipKeyOf,
   parseSecret,
   readCookie,
@@ -40,10 +41,18 @@ async function serveDev(request, env, url, nowSec) {
   return new Response(res.body, { status: res.status, statusText: res.statusText, headers });
 }
 
+const SHELL = new Set(['/', '/index.html', '/app.js', '/app.css', '/robots.txt']);
+
 export async function handle(request, env, now = Date.now()) {
   const url = new URL(request.url);
+  // laptop-only lock: without the owner app's device key this site does not exist
+  if (!(await deviceAllowed(request, env))) return new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store' } });
   if (url.pathname === '/dev' || url.pathname.startsWith('/dev/')) return serveDev(request, env, url, Math.floor(now / 1000));
-  if (!url.pathname.startsWith('/api/')) return json(404, { error: 'not-found' });
+  if (!url.pathname.startsWith('/api/')) {
+    // the sign-in page shell, by exact name: no other path may reach the stored
+    // files, so an odd spelling of /dev can never slip past the session check
+    return env.ASSETS && SHELL.has(url.pathname) ? env.ASSETS.fetch(request) : json(404, { error: 'not-found' });
+  }
   const secret = env.ADMIN_PASSWORD_HASH;
   // no password set yet: nothing is readable by anyone
   if (!parseSecret(secret)) return json(503, { error: 'setup' });

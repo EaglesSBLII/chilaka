@@ -69,6 +69,10 @@ async function api<T>(path: string, body?: unknown, token?: string): Promise<T> 
           ? 'Email or password is wrong.'
           : code === 'rate'
             ? 'Too many attempts. Wait a few minutes.'
+            : code === 'locked'
+              ? 'Too many wrong answers. Password reset is locked for this account until tomorrow.'
+              : code === 'bad birthday'
+                ? 'Enter your full date of birth.'
             : code === '503'
               ? 'Accounts are not switched on yet on the server. Your progress is still saved on this device.'
               : 'Something went wrong. Try again.';
@@ -97,17 +101,27 @@ async function adoptSlot(slot: string): Promise<void> {
   await sync.syncNow();
 }
 
-export async function signup(email: string, password: string): Promise<{ session: Session; recoveryCode: string }> {
+/** A real date of birth in the past, as the date field gives it (YYYY-MM-DD). */
+export function validBirthday(value: string): boolean {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!m) return false;
+  const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  return d.getUTCDate() === Number(m[3]) && d.getUTCMonth() === Number(m[2]) - 1 && Number(m[1]) >= 1900 && d.getTime() <= Date.now();
+}
+
+/** The birthday is the answer for a password reset; the server keeps only a hash of it. */
+export async function signup(email: string, password: string, birthday: string): Promise<{ session: Session }> {
   const authKey = await deriveAuthKey(email, password);
-  const r = await api<{ token: string; slot: string; recoveryCode: string }>('/auth/signup', {
+  const r = await api<{ token: string; slot: string }>('/auth/signup', {
     email: normalizeEmail(email),
     authKey,
+    birthday,
     slot: sync.key || undefined, // the device's current slot becomes the account's
   });
   const session = { token: r.token, email: normalizeEmail(email), slot: r.slot };
   await saveSession(session);
   await adoptSlot(r.slot);
-  return { session, recoveryCode: r.recoveryCode };
+  return { session };
 }
 
 export async function login(email: string, password: string): Promise<Session> {
@@ -119,11 +133,19 @@ export async function login(email: string, password: string): Promise<Session> {
   return session;
 }
 
-export async function reset(email: string, recoveryCode: string, newPassword: string): Promise<{ session: Session; recoveryCode: string }> {
+/**
+ * Reset with the birthday given at sign-up. Accounts made before birthdays
+ * still answer with their recovery code and get a fresh code back.
+ */
+export async function reset(
+  email: string,
+  answer: { birthday: string } | { recoveryCode: string },
+  newPassword: string,
+): Promise<{ session: Session; recoveryCode?: string }> {
   const authKey = await deriveAuthKey(email, newPassword);
-  const r = await api<{ token: string; slot: string; recoveryCode: string }>('/auth/reset', {
+  const r = await api<{ token: string; slot: string; recoveryCode?: string }>('/auth/reset', {
     email: normalizeEmail(email),
-    recoveryCode: recoveryCode.trim(),
+    ...('birthday' in answer ? { birthday: answer.birthday } : { recoveryCode: answer.recoveryCode.trim() }),
     authKey,
   });
   const session = { token: r.token, email: normalizeEmail(email), slot: r.slot };
@@ -147,4 +169,19 @@ export async function me(session: Session): Promise<boolean> {
     if (e instanceof AuthError && e.code === 'offline') return true; // keep the session while offline
     return false;
   }
+}
+
+/** How this account resets its password: 'birthday', or 'code' for accounts made before birthdays. */
+export async function recoveryKind(session: Session): Promise<'birthday' | 'code' | null> {
+  try {
+    const r = await api<{ recovery?: 'birthday' | 'code' }>('/auth/me', undefined, session.token);
+    return r.recovery ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** Signed-in owner sets the birthday used for password resets (replaces a recovery code). */
+export async function setBirthday(session: Session, birthday: string): Promise<void> {
+  await api<{ ok: boolean }>('/auth/birthday', { birthday }, session.token);
 }

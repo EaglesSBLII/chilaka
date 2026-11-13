@@ -1,0 +1,23 @@
+{
+  "name": "chilaka-owner",
+  "productName": "Chilaka Owner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arnav's private Chilaka dashboard and developer version, as a Mac app for one laptop.",
+  "author": "Arnav",
+  "main": "main.js",
+  "build": {
+    "appId": "dev.chilaka.owner",
+    "productName": "Chilaka Owner",
+    "electronVersion": "36.9.5",
+    "files": ["main.js", "missing.html"],
+    "directories": { "output": "dist-electron" },
+    "mac": {
+      "target": "dir",
+      "identity": null,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "The developer version of Chilaka listens when you test a speaking exercise."
+      }
+    }
+  }
+}

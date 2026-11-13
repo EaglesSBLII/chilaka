@@ -8,8 +8,9 @@ compatibility_date = "2026-07-01"
 [assets]
 directory = "./public"
 binding = "ASSETS"
-# /dev/* is the developer version of the app: the worker checks the owner's session first.
-run_worker_first = ["/api/*", "/dev", "/dev/*"]
+# Every request goes through the worker first: it applies the laptop-only lock
+# (ADMIN_DEVICE_HASH), and /dev/* (the developer version) needs the owner's session.
+run_worker_first = true
 
 # Accounts (read only here: emails).
 [[d1_databases]]
@@ -25,4 +26,5 @@ id = "c7cc9dca8cc643548a74f6d7fd05f839"
 
 # Secrets (never in this file):
 #   ADMIN_PASSWORD_HASH  set with `node tools/admin-password.mjs`
+#   ADMIN_DEVICE_HASH    optional laptop-only lock, set with `node tools/owner-app.mjs`
 #   GITHUB_TOKEN         optional, for repository traffic (docs/ADMIN.md)

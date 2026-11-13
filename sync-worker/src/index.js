@@ -17,6 +17,9 @@ import {
   makeRecoveryCode,
   hashRecoveryCode,
   checkRecoveryCode,
+  normaliseBirthday,
+  hashBirthday,
+  checkBirthday,
   randomHex,
   signToken,
   verifyToken,
@@ -132,6 +135,11 @@ async function handleSignup(request, env) {
   const email = normaliseEmail(body?.email);
   if (!EMAIL_RE.test(email)) return error('bad email', 400);
   if (!isAuthKey(body?.authKey)) return error('bad authKey', 400);
+  // New apps send a birthday: it is the answer for a password reset. Older
+  // apps send none and still get a one-time recovery code.
+  const hasBirthday = body?.birthday !== undefined;
+  const birthday = hasBirthday ? normaliseBirthday(body.birthday) : null;
+  if (hasBirthday && !birthday) return error('bad birthday', 400);
   if (await findUserByEmail(env, email)) return error('exists', 409);
 
   // Adopt the device's existing slot when it is free, so progress carries over.
@@ -144,14 +152,15 @@ async function handleSignup(request, env) {
   await ensureSlotRow(env, slot);
 
   const { serverSalt, authHash } = await newCredential(body.authKey);
-  const recoveryCode = makeRecoveryCode();
   const user = { id: randomHex(16), email, slot_key: slot, token_ver: 1 };
+  const recoveryCode = birthday ? null : makeRecoveryCode();
+  const recoveryHash = birthday ? await hashBirthday(user.id, birthday) : await hashRecoveryCode(recoveryCode);
   await env.DB.prepare(
-    'INSERT INTO users (id, email, auth_hash, server_salt, recovery_hash, slot_key, token_ver, created_at) VALUES (?, ?, ?, ?, ?, ?, 1, ?)',
+    'INSERT INTO users (id, email, auth_hash, server_salt, recovery_hash, recovery_kind, slot_key, token_ver, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?)',
   )
-    .bind(user.id, email, authHash, serverSalt, await hashRecoveryCode(recoveryCode), slot, Date.now())
+    .bind(user.id, email, authHash, serverSalt, recoveryHash, birthday ? 'birthday' : 'code', slot, Date.now())
     .run();
-  return issue(env, user, { recoveryCode }, 201);
+  return issue(env, user, recoveryCode ? { recoveryCode } : {}, 201);
 }
 
 // Hashed against a throwaway salt when the email is unknown so both failures
@@ -177,16 +186,51 @@ async function handleReset(request, env) {
   const email = normaliseEmail(body?.email);
   if (!EMAIL_RE.test(email) || !isAuthKey(body?.authKey)) return error('invalid', 401);
   const user = await findUserByEmail(env, email);
-  const ok = user && (await checkRecoveryCode(body?.recoveryCode, user.recovery_hash));
-  if (!ok) return error('invalid', 401);
+  if (!user) return error('invalid', 401);
+  // A birthday has few possible values, so wrong answers are counted on the
+  // account itself (not in memory): RESET_TRIES misses lock resets for a day.
+  const now = Date.now();
+  if (user.reset_locked_until > now) return error('locked', 429);
+  const byBirthday = user.recovery_kind === 'birthday';
+  const ok = byBirthday
+    ? await checkBirthday(user.id, body?.birthday, user.recovery_hash)
+    : await checkRecoveryCode(body?.recoveryCode, user.recovery_hash);
+  if (!ok) {
+    const fails = user.reset_fails + 1;
+    const lock = fails >= RESET_TRIES;
+    await env.DB.prepare('UPDATE users SET reset_fails = ?, reset_locked_until = ? WHERE id = ?')
+      .bind(lock ? 0 : fails, lock ? now + RESET_LOCK_MS : 0, user.id)
+      .run();
+    return error('invalid', 401);
+  }
 
   const { serverSalt, authHash } = await newCredential(body.authKey);
-  const recoveryCode = makeRecoveryCode();
   const ver = user.token_ver + 1;
-  await env.DB.prepare('UPDATE users SET auth_hash = ?, server_salt = ?, recovery_hash = ?, token_ver = ? WHERE id = ?')
-    .bind(authHash, serverSalt, await hashRecoveryCode(recoveryCode), ver, user.id)
+  // a birthday stays the answer; a one-time code is replaced by a new one
+  const recoveryCode = byBirthday ? null : makeRecoveryCode();
+  const recoveryHash = byBirthday ? user.recovery_hash : await hashRecoveryCode(recoveryCode);
+  await env.DB.prepare('UPDATE users SET auth_hash = ?, server_salt = ?, recovery_hash = ?, token_ver = ?, reset_fails = 0, reset_locked_until = 0 WHERE id = ?')
+    .bind(authHash, serverSalt, recoveryHash, ver, user.id)
     .run();
-  return issue(env, { ...user, token_ver: ver }, { recoveryCode });
+  return issue(env, { ...user, token_ver: ver }, recoveryCode ? { recoveryCode } : {});
+}
+
+const RESET_TRIES = 5;
+const RESET_LOCK_MS = 24 * 60 * 60_000;
+
+// Signed-in owner sets (or changes) the birthday used for password resets.
+// This is how an account that still has a recovery code moves to a birthday.
+async function handleSetBirthday(request, env) {
+  const who = await verifyToken(env, request.headers.get('authorization'));
+  if (!who) return error('unauthorized', 401);
+  const { body, error: bad } = await readJson(request);
+  if (bad) return bad;
+  const birthday = normaliseBirthday(body?.birthday);
+  if (!birthday) return error('bad birthday', 400);
+  await env.DB.prepare("UPDATE users SET recovery_hash = ?, recovery_kind = 'birthday', reset_fails = 0, reset_locked_until = 0 WHERE id = ?")
+    .bind(await hashBirthday(who.uid, birthday), who.uid)
+    .run();
+  return json({ ok: true });
 }
 
 async function handleAuth(request, env, path) {
@@ -194,12 +238,13 @@ async function handleAuth(request, env, path) {
   if (path === '/auth/me') {
     if (request.method !== 'GET') return error('method', 405);
     const who = await verifyToken(env, request.headers.get('authorization'));
-    return who ? json({ email: who.email, slot: who.slot }) : error('unauthorized', 401);
+    return who ? json({ email: who.email, slot: who.slot, recovery: who.recovery }) : error('unauthorized', 401);
   }
   if (request.method !== 'POST') return error('method', 405);
   if (path === '/auth/signup') return handleSignup(request, env);
   if (path === '/auth/login') return handleLogin(request, env);
   if (path === '/auth/reset') return handleReset(request, env);
+  if (path === '/auth/birthday') return handleSetBirthday(request, env);
   return error('not found', 404);
 }
 

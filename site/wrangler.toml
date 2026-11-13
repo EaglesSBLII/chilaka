@@ -8,7 +8,7 @@ binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
 # Page requests go through the worker (so visits are recorded); images and files are served directly.
-run_worker_first = ["/", "/how-i-built-it", "/how-i-built-it/", "/index.html", "/how-i-built-it/index.html"]
+run_worker_first = ["/download/mac", "/", "/how-i-built-it", "/how-i-built-it/", "/index.html", "/how-i-built-it/index.html"]
 
 # Visit log (free KV tier: 1,000 writes/day). Read it with: node tools/visitors.mjs
 [[kv_namespaces]]
