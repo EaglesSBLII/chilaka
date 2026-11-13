@@ -1,6 +1,7 @@
 // The home screen: a full-screen jungle with the winding lesson trail,
 // hero greeting, dotted connectors, and section canopy banners.
 
+import { devOpen, LOCKED_NODE } from '../devMode';
 import { Fragment, useEffect } from 'react';
 import { useApp, useDailyGoal, useStreakStanding, useUnitStatus } from '../store';
 import { trackUnits } from '../content/load';
@@ -131,7 +132,8 @@ function UnitBlock({ unit }: { unit: Unit }) {
   const statusOf = useUnitStatus();
   const unitProgress = useApp((s) => s.unitProgress);
   const profile = useApp((s) => s.profile);
-  const status = statusOf(unit.id);
+  const realStatus = statusOf(unit.id);
+  const status = devOpen(realStatus);
   const up = unitProgress[unit.id];
   // a placement start applies to the speaking course only; reading & writing
   // always runs in order from its first lesson (as useUnitStatus has it)
@@ -139,14 +141,14 @@ function UnitBlock({ unit }: { unit: Unit }) {
   const doneSet = new Set(up?.lessonsDone ?? []);
   const firstIncomplete = unit.lessons.findIndex((l) => !doneSet.has(l.id));
   const lessonState = (lessonId: string, i: number): 'done' | 'current' | 'replayable' | 'locked' => {
-    if (status === 'locked') return 'locked';
+    if (realStatus === 'locked') return LOCKED_NODE;
     if (doneSet.has(lessonId)) return 'done';
     // units before a placed-ahead start are open for review, but "current" —
     // the pulsing START the home screen scrolls to — is only where the learner
     // actually is
     if (unit.section < startSection) return 'replayable';
     if (i === firstIncomplete) return 'current';
-    return 'locked';
+    return LOCKED_NODE;
   };
   const doneCount = unit.lessons.filter((l) => doneSet.has(l.id)).length;
   return (

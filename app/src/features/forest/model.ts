@@ -1,3 +1,4 @@
+import { LOCKED_NODE } from '../../devMode';
 // Forest map state rules. Pure functions (unit tested) that mirror the classic
 // path's rules for what each lesson looks like and add "where is Chikki".
 
@@ -22,11 +23,11 @@ export function lessonStates(unit: UnitLike, status: UnitStatus, lessonsDone: re
   const done = new Set(lessonsDone);
   const firstIncomplete = unit.lessons.findIndex((l) => !done.has(l.id));
   return unit.lessons.map((l, i) => {
-    if (status === 'locked') return 'locked';
+    if (status === 'locked') return LOCKED_NODE;
     if (done.has(l.id)) return 'done';
     if (unit.section < startSection) return 'replayable';
     if (i === firstIncomplete) return 'current';
-    return 'locked';
+    return LOCKED_NODE;
   });
 }
 

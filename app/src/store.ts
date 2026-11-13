@@ -1,6 +1,7 @@
 // Central app state (zustand). Hydrates from Dexie once at boot; every
 // mutation persists back inside the action. UI components never touch db.
 
+import { DEV_COINS, DEV_TEST } from './devMode';
 import { create } from 'zustand';
 import { useShallow } from 'zustand/react/shallow';
 import { db, type LessonProgressRow, type ProfileRow, type ReminderRow, type StreakRow, type UnitProgressRow } from './db/schema';
@@ -341,6 +342,23 @@ export const useApp = create<AppState>((set, get) => ({
   async init() {
     let profile = (await db.profile.get('main')) ?? null;
     setActiveVoice(profile?.voice ?? DEFAULT_VOICE);
+    if (DEV_TEST && (!profile || !profile.onboarded || !profile.placementDone)) {
+      // developer version: no name or level set-up, straight to the path
+      profile = {
+        id: 'main',
+        name: 'Tester',
+        createdAt: new Date().toISOString(),
+        difficulty: 'standard',
+        scriptMode: 'roman+telugu',
+        timezone: deviceTimeZone(),
+        soundOn: true,
+        ...profile,
+        onboarded: true,
+        placementDone: true,
+        startSection: profile?.startSection ?? 0,
+      } as ProfileRow;
+      await db.profile.put(profile);
+    }
     setSfxEnabled(profile?.soundOn !== false);
     let streak = (await db.streaks.get('main')) ?? { id: 'main', ...emptyStreak() };
     const unitProgress = Object.fromEntries((await db.unitProgress.toArray()).map((r) => [r.unitId, r]));
@@ -372,7 +390,13 @@ export const useApp = create<AppState>((set, get) => ({
     const day = today();
     const todayXp = events.filter((e) => e.day === day).reduce((s, e) => s + e.amount, 0);
     const reviewCount = events.filter((e) => e.source === 'review' || e.source === 'game').length;
-    const coinEvents = await db.coinEvents.toArray();
+    let coinEvents = await db.coinEvents.toArray();
+    if (DEV_TEST && balance(coinEvents) < DEV_COINS) {
+      // developer version: enough coins to try everything in the shop
+      const ev: CoinEvent = { ts: new Date().toISOString(), day, delta: DEV_COINS - balance(coinEvents), kind: 'badge', refId: 'dev-tester' };
+      const id = await db.coinEvents.add(ev);
+      coinEvents = [...coinEvents, { ...ev, id }];
+    }
     let quests = await db.quests.where('day').equals(day).toArray();
     if (quests.length === 0) {
       quests = dailyQuests(day);

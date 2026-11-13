@@ -5,6 +5,7 @@
 // Design notes, research and removal steps: docs/plans/2026-11-12-forest-map.md
 // Same content, rules, button names and texts as the classic features/Path.tsx.
 
+import { devOpen } from '../../devMode';
 import { Fragment, memo, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useReducedMotion } from 'motion/react';
@@ -244,12 +245,12 @@ export function ForestPath() {
       const next = statuses[i + 1];
       return {
         unit,
-        status: statuses[i],
+        status: devOpen(statuses[i]),
         states,
         dialogueDone: up?.dialogueDone ?? false,
         startSide,
         grove: groveFor(track, unit.section),
-        exitOpen: next ? next !== 'locked' : statuses[i] === 'done',
+        exitOpen: next ? devOpen(next) !== 'locked' : statuses[i] === 'done',
       };
     });
     return { views: out, current: findCurrent(units, stateMap) };
