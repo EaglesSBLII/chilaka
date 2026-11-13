@@ -89,9 +89,9 @@ How accounts work (no email is ever sent):
   Nobody — including the worker — can read your password.
 - Because there is no email delivery, there is no "forgot password" link.
   Instead, sign-up asks for a **birthday**, which resets a forgotten password
-  (older accounts: a one-time **recovery code**
-  (`XXXX-XXXX-XXXX-XXXX-XXXX`). Save it somewhere safe. It is the only way to
-  set a new password; using it signs out every device and issues a fresh code.
+  and signs out every device. Five wrong birthdays lock resets for that
+  account for a day. Accounts made earlier keep their one-time **recovery
+  code** (`XXXX-XXXX-XXXX-XXXX-XXXX`) until a birthday is added in Settings.
   Lose both the password and the code and the account cannot be recovered
   (your progress on paired devices is unaffected — it is still on them).
 - Signing up on an already-paired device adopts that device's existing sync
