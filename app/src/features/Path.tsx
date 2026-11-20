@@ -217,7 +217,7 @@ export function Path() {
   const profile = useApp((s) => s.profile);
   const unitProgress = useApp((s) => s.unitProgress);
   // theme the backdrop by the section the learner is currently working in
-  const startSection = track === 'speak' ? (profile?.startSection ?? 0) : 0;
+  const startSection = track === 'speak' ? (profile?.startSection ?? 1) : 0;
   const incomplete = (u: Unit) => {
     const up = unitProgress[u.id];
     return !up || !u.lessons.every((l) => up.lessonsDone.includes(l.id));

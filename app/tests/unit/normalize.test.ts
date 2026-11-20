@@ -40,6 +40,14 @@ describe('teluguToRoman', () => {
     expect(teluguToRoman('అందం')).toBe('andam');
   });
 
+  it('anusvara before y r l v s h stays m (no nasal of their own)', () => {
+    expect(teluguToRoman('వారంలో')).toBe('vaaramloo');
+    expect(teluguToRoman('సంవత్సరం')).toBe('samvatsaram');
+    expect(teluguToRoman('హోంవర్క్')).toBe('hoomvark');
+    expect(teluguToRoman('సింహం')).toBe('simham');
+    expect(teluguToRoman('గంట')).toBe('ganTa');
+  });
+
   it('anusvara before labial is m; before punctuation is m', () => {
     expect(teluguToRoman('పంపు')).toBe('pampu');
     expect(teluguToRoman('సంతోషం.')).toBe('santooSham.');

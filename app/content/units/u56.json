@@ -60,7 +60,7 @@
       ],
       "tags": ["food", "opinions"],
       "difficulty": 3,
-      "note": "గల్లీ (galli, Urdu) = lane / small street. Standard Telugu: సందు or వీధి. Every Hyderabadi swears their own galli's biryani is the best — never argue.",
+      "note": "గల్లీ (gallii, Urdu) = lane / small street. Standard Telugu: సందు or వీధి. Every Hyderabadi swears their own galli's biryani is the best — never argue.",
       "distractors": ["u56-i03", "u56-i15"]
     },
     {
@@ -75,7 +75,7 @@
       ],
       "tags": ["food", "smalltalk"],
       "difficulty": 3,
-      "note": "భయ్ (bhai, Urdu) = brother, the default friendly address in the old city — standard Telugu: అన్నా. Haleem appears only around Ramzan, and season talk starts weeks early.",
+      "note": "భయ్ (bhay, Urdu) = brother, the default friendly address in the old city — standard Telugu: అన్నా. Haleem appears only around Ramzan, and season talk starts weeks early.",
       "distractors": ["u56-i06", "u56-i13"]
     },
     {
@@ -144,7 +144,7 @@
       ],
       "tags": ["shopping", "questions"],
       "difficulty": 4,
-      "note": "అస్లీ (asli, Urdu) = genuine / the real thing. Standard Telugu: అసలైన or నిజమైన. Ask this before you pay pearl prices.",
+      "note": "అస్లీ (aslii, Urdu) = genuine / the real thing. Standard Telugu: అసలైన or నిజమైన. Ask this before you pay pearl prices.",
       "distractors": ["u56-i09", "u56-i08"]
     },
     {
@@ -174,7 +174,7 @@
       ],
       "tags": ["shopping", "flavor"],
       "difficulty": 4,
-      "note": "కమ్తీ (kamti, Dakhni) = less. జర కమ్తీ చెయ్ = 'knock it down a little' — standard Telugu: కొంచెం తగ్గించు. The essential Laad Bazaar bargaining line.",
+      "note": "కమ్తీ (kamtii, Dakhni) = less. జర కమ్తీ చెయ్ = 'knock it down a little' — standard Telugu: కొంచెం తగ్గించు. The essential Laad Bazaar bargaining line.",
       "distractors": ["u56-i11", "u56-i05"]
     },
     {

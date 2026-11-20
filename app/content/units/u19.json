@@ -6,7 +6,7 @@
   "teTitle": "పోలికలు",
   "cefr": "A2+",
   "register": "standard",
-  "description": "Compare things with kanTe, pick favourites, and haggle over which one is best.",
+  "description": "Compare things with kantee, pick favourites, and haggle over which one is best.",
   "items": [
     {
       "id": "u19-i01",
@@ -76,7 +76,7 @@
       ],
       "tags": ["comparison"],
       "difficulty": 4,
-      "note": "Telugu has no separate 'best' — you say అన్నిటికంటే (anniTikanTe, 'than everything') plus emphatic ఇదే (idee)."
+      "note": "Telugu has no separate 'best' — you say అన్నిటికంటే (annitikantee, 'than everything') plus emphatic ఇదే (idee)."
     },
     {
       "id": "u19-i06",
@@ -103,7 +103,7 @@
       ],
       "tags": ["comparison"],
       "difficulty": 3,
-      "note": "Stretch the last vowel and 'two' becomes 'both': రెండు (renDu) → రెండూ (renDuu). Same trick: అందరు → అందరూ (everyone)."
+      "note": "Stretch the last vowel and 'two' becomes 'both': రెండు (rendu) → రెండూ (renduu). Same trick: అందరు → అందరూ (everyone)."
     },
     {
       "id": "u19-i08",

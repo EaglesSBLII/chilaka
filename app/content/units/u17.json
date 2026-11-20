@@ -33,7 +33,7 @@
       ],
       "tags": ["past", "outings"],
       "difficulty": 3,
-      "note": "Past endings: నేను వెళ్ళాను (veLLaanu), మేము వెళ్ళాము (veLLaamu), ఆయన వెళ్ళాడు (veLLaaDu). మేము (meemu) excludes the listener; మనము (manamu) includes them.",
+      "note": "Past endings: నేను వెళ్ళాను (vellaanu), మేము వెళ్ళాము (vellaamu), ఆయన వెళ్ళాడు (vellaadu). మేము (meemu) excludes the listener; మనము (manamu) includes them.",
       "distractors": ["u17-i07", "u17-i13"]
     },
     {
@@ -102,7 +102,7 @@
       ],
       "tags": ["past", "food"],
       "difficulty": 3,
-      "note": "In Telugu a హోటల్ (hootal) usually means a restaurant, not a place you stay. హోటల్లో = హోటల్ + లో (lo, 'in') glued into one word."
+      "note": "In Telugu a హోటల్ (hootal) usually means a restaurant, not a place you stay. హోటల్లో = హోటల్ + లో (loo, 'in') glued into one word."
     },
     {
       "id": "u17-i08",

@@ -98,7 +98,7 @@
       ],
       "tags": ["likes", "food"],
       "difficulty": 2,
-      "note": "The pattern for likes: X అంటే ఇష్టం (X anTee ishTam), literally 'if you say X — liking'."
+      "note": "The pattern for likes: X అంటే ఇష్టం (X antee ishtam), literally 'if you say X — liking'."
     },
     {
       "id": "u06-i08",
@@ -151,7 +151,7 @@
       ],
       "tags": ["needs", "food"],
       "difficulty": 1,
-      "note": "నీళ్ళు (niiLLu) 'water' is grammatically plural in Telugu — 'waters'!",
+      "note": "నీళ్ళు (niillu) 'water' is grammatically plural in Telugu — 'waters'!",
       "distractors": ["u06-i02", "u06-i12"]
     },
     {

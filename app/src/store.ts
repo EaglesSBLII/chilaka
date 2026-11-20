@@ -10,6 +10,7 @@ import { canBuyFreeze, dayDiff, deviceTimeZone, emptyStreak, grantFreeze, localD
 import { freezesEarned, DAILY_GOAL_XP } from './engine/xp';
 import { newCard, reviewCard, type StoredCard, Rating } from './engine/srs';
 import type { Difficulty, ScriptMode, StreakStanding } from './engine/types';
+import { unitStatus } from './engine/unlock';
 import { allUnits } from './content/load';
 import { DEFAULT_VOICE, type VoiceId } from './content/voices';
 import { setActiveVoice, setSfxEnabled } from './audio';
@@ -719,31 +720,10 @@ export function useDueCount(): number {
   return gamePool(cards).dueIds.length;
 }
 
-/**
- * Unit availability: everything before the placement start section is open;
- * from there units unlock sequentially as the previous unit's lessons finish.
- */
+/** Unit availability for the current learner — the rule itself lives in engine/unlock.ts. */
 export function useUnitStatus(): (unitId: string) => 'locked' | 'active' | 'done' {
   const profile = useApp((s) => s.profile);
   const unitProgress = useApp((s) => s.unitProgress);
   const units = allUnits();
-  return (unitId: string) => {
-    const unit = units.find((u) => u.id === unitId);
-    if (!unit) return 'locked';
-    // each track unlocks independently and sequentially
-    const inTrack = units.filter((u) => u.track === unit.track);
-    const idx = inTrack.findIndex((u) => u.id === unitId);
-    const up = unitProgress[unitId];
-    const isComplete = up ? unit.lessons.every((l) => up.lessonsDone.includes(l.id)) : false;
-    if (isComplete) return 'done';
-    // placement start-section applies to the speaking track only
-    const startSection = unit.track === 'speak' ? (profile?.startSection ?? 1) : 1;
-    if (unit.section < startSection) return 'active'; // pre-placement content stays open
-    const prev = inTrack[idx - 1];
-    if (!prev) return 'active';
-    if (prev.section < startSection) return 'active'; // first unit at the start section
-    const prevUp = unitProgress[prev.id];
-    const prevDone = prevUp ? prev.lessons.every((l) => prevUp.lessonsDone.includes(l.id)) : false;
-    return prevDone ? 'active' : 'locked';
-  };
+  return (unitId: string) => unitStatus(units, unitId, unitProgress, profile?.startSection);
 }

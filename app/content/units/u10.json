@@ -20,7 +20,7 @@
       ],
       "tags": ["routine", "time"],
       "difficulty": 2,
-      "note": "-కు (-ku) on గంటలు gives clock time: ఏడు గంటలకు (eeDu ganTalaku) 'at 7 o'clock'. లేస్తాను (leestaanu) covers both the daily habit and 'I will get up'.",
+      "note": "-కు (-ku) on గంటలు gives clock time: ఏడు గంటలకు (eedu gantalaku) 'at 7 o'clock'. లేస్తాను (leestaanu) covers both the daily habit and 'I will get up'.",
       "distractors": ["u10-i14", "u10-i03"]
     },
     {
@@ -34,7 +34,7 @@
       ],
       "tags": ["routine"],
       "difficulty": 3,
-      "note": "-కుంటాను (-kuntaanu) marks doing something to or for yourself: తోముకుంటాను (toomukunTaanu) 'I brush my own teeth'."
+      "note": "-కుంటాను (-kuntaanu) marks doing something to or for yourself: తోముకుంటాను (toomukuntaanu) 'I brush my own teeth'."
     },
     {
       "id": "u10-i03",
@@ -82,7 +82,7 @@
       ],
       "tags": ["home"],
       "difficulty": 2,
-      "note": "-లో (-loo) = in. వంటగది (vanTagadi) is literally 'cooking room'; the bedroom is పడకగది (paDakagadi)."
+      "note": "-లో (-loo) = in. వంటగది (vantagadi) is literally 'cooking room'; the bedroom is పడకగది (padakagadi)."
     },
     {
       "id": "u10-i07",
@@ -119,7 +119,7 @@
       ],
       "tags": ["home", "chores"],
       "difficulty": 3,
-      "note": "ఉతుకు (utuku) is only for washing clothes. Dishes take కడుగు (kaDugu), and your face is కడుక్కో (kadukkoo).",
+      "note": "ఉతుకు (utuku) is only for washing clothes. Dishes take కడుగు (kadugu), and your face is కడుక్కో (kadukkoo).",
       "distractors": ["u10-i16", "u10-i08"]
     },
     {
@@ -132,7 +132,7 @@
       ],
       "tags": ["home", "commands"],
       "difficulty": 2,
-      "note": "తలుపు వెయ్యండి (talupu veyyanDi) = close the door; తలుపు తియ్యండి (tiyyanDi) = open it."
+      "note": "తలుపు వెయ్యండి (talupu veyyandi) = close the door; తలుపు తియ్యండి (tiyyandi) = open it."
     },
     {
       "id": "u10-i11",

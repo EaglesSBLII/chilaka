@@ -18,7 +18,7 @@
       ],
       "tags": ["travel", "questions"],
       "difficulty": 2,
-      "note": "Every auto ride starts with this. The -ఆలి (-aali) ending means 'must / need to': వెళ్ళాలి (veLLaali) 'need to go'.",
+      "note": "Every auto ride starts with this. The -ఆలి (-aali) ending means 'must / need to': వెళ్ళాలి (vellaali) 'need to go'.",
       "distractors": ["u11-i09", "u11-i04"]
     },
     {
@@ -43,7 +43,7 @@
       ],
       "tags": ["travel"],
       "difficulty": 2,
-      "note": "-లో (-loo) marks the vehicle you ride in: ఆటోలో (auto-lo), బస్సులో (bassuloo), కారులో (kaaruloo)."
+      "note": "-లో (-loo) marks the vehicle you ride in: ఆటోలో (aatooloo), బస్సులో (bassuloo), కారులో (kaaruloo)."
     },
     {
       "id": "u11-i04",
@@ -93,7 +93,7 @@
       ],
       "tags": ["travel", "directions", "commands"],
       "difficulty": 2,
-      "note": "కుడి (kuDi) = right, ఎడమ (eDama) = left. Drill this pair before your next auto ride.",
+      "note": "కుడి (kudi) = right, ఎడమ (edama) = left. Drill this pair before your next auto ride.",
       "distractors": ["u11-i08", "u11-i06"]
     },
     {
@@ -181,7 +181,7 @@
       ],
       "tags": ["travel", "commands"],
       "difficulty": 3,
-      "note": "నడుపు (naDupu) 'to drive' is literally 'to make it walk'."
+      "note": "నడుపు (nadupu) 'to drive' is literally 'to make it walk'."
     },
     {
       "id": "u11-i15",

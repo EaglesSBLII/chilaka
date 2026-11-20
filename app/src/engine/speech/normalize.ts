@@ -63,14 +63,17 @@ export function teluguToRoman(text: string): string {
     } else if (INDEPENDENT_VOWELS[c] !== undefined) {
       out += INDEPENDENT_VOWELS[c];
     } else if (c === ANUSVARA) {
-      // Assimilated nasal: 'm' before labials and word-finally, else 'n'.
+      // Assimilated nasal: 'n' before the stops it blends into (క-row … త-row),
+      // 'm' before labials, word-finally, and before య ర ల వ శ ష స హ — those
+      // have no nasal of their own, so the dot keeps its 'm' sound
+      // (వారంలో vaaramloo, సంవత్సరం samvatsaram, హోంవర్క్ hoomvark).
       const next = chars[i + 1];
       const nextIsConsonant = next !== undefined && CONSONANTS[next] !== undefined;
-      const labials = new Set(['ప', 'ఫ', 'బ', 'భ', 'మ']);
+      const keepsM = new Set(['ప', 'ఫ', 'బ', 'భ', 'మ', 'య', 'ర', 'ల', 'వ', 'శ', 'ష', 'స', 'హ']);
       if (!nextIsConsonant) {
         out += 'm'; // end of word (space, punctuation, or end of text)
       } else {
-        out += labials.has(next) ? 'm' : 'n';
+        out += keepsM.has(next) ? 'm' : 'n';
       }
     } else if (c === VISARGA) {
       out += 'h';

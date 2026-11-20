@@ -44,7 +44,7 @@
       ],
       "tags": ["directions", "commands"],
       "difficulty": 3,
-      "note": "ఎడమ (eDama) = left, కుడి (kuDi) = right, వైపు (vaipu) = side. Mixing these up is how family road trips get exciting.",
+      "note": "ఎడమ (edama) = left, కుడి (kudi) = right, వైపు (vaipu) = side. Mixing these up is how family road trips get exciting.",
       "distractors": ["u20-i04", "u20-i02"]
     },
     {
@@ -148,7 +148,7 @@
       ],
       "tags": ["directions"],
       "difficulty": 3,
-      "note": "ఇటు (iTu) = this way, అటు (aTu) = that way — perfect for gesturing wildly from the back of an auto.",
+      "note": "ఇటు (itu) = this way, అటు (atu) = that way — perfect for gesturing wildly from the back of an auto.",
       "distractors": ["u20-i02", "u20-i07"]
     },
     {
@@ -187,7 +187,7 @@
       ],
       "tags": ["directions", "questions"],
       "difficulty": 4,
-      "note": "వెళ్ళొచ్చు (veLLochchu) = 'one may go'; add -ఆ (-aa) to make it a question: వెళ్ళొచ్చా?"
+      "note": "వెళ్ళొచ్చు (vellochchu) = 'one may go'; add -ఆ (-aa) to make it a question: వెళ్ళొచ్చా?"
     },
     {
       "id": "u20-i15",
